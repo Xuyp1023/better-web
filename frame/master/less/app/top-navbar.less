@@ -1,0 +1,118 @@
+/* ========================================================================
+   头部导航: top-navbar.less
+ ========================================================================== */
+@nav-header-wd:                 @aside-wd+40px;
+@navbar-hg:                      60px;
+
+@nav-top-bg:                    white;
+@nav-top-bg-start:              @nav-top-bg;
+@nav-top-bg-end:                white;
+
+.navbar {
+  min-height: @navbar-hg;
+}
+.navbar-brand {
+  float: left;
+  height: @navbar-hg;
+}
+
+.topnavbar {
+  z-index: 1050;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+
+  .navbar-header {
+    .navbar-brand {
+    }
+  }
+
+  .user-block {
+    height: @navbar-hg;
+    width: 268px;
+    float: left;
+    margin: 0 auto;
+    padding: 10px 0 8px 0;
+
+    .user-comList {
+      span {
+        margin-left: -4px;
+        margin-right: 7px;
+        display: inline-block;
+        max-width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+      }
+    }
+
+    .user-icon {
+      margin-right: 8px;
+    }
+
+    .user-span {
+      margin-right: 16px;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    span {
+      color: #666;
+      font-size: 12px;
+    }
+
+  }
+
+  .navbar-nav {
+
+    li > {
+      float: left;
+    }
+
+    img {
+      float: left;
+    }
+
+    a {
+      height: 36px;
+      width: 118px;
+      float: left;
+      text-decoration: none;
+      text-align: center;
+      line-height: 36px;
+      background-color: #bad7ff;
+      margin-right: 1px;
+
+      span {
+        color: #333;
+        font-size: 16px;
+        font-family: "Microsoft YaHei";
+        padding: 4px 7px;
+
+        &:hover {
+          background-color: white;
+        }
+
+      }
+
+      &.active {
+        span {
+          background-color: white;
+        }
+      }
+
+    }
+  }
+
+  position: relative;
+  background-color: @nav-top-bg;
+  background-image: linear-gradient(to right, @nav-top-bg-start 0%, @nav-top-bg-end 100%);
+  background-repeat: repeat-x;
+}
+.nav-wrapper {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 7px;
+}

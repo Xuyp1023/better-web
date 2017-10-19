@@ -1,0 +1,14 @@
+[
+  {
+    "title": "理财",
+    "heading": "true"
+  },{
+  "title":"货币基金",
+  "icon": "icon-speedometer",
+  "children":[
+    {
+      "title":"优劣对比",
+      "url":"home1.html#/finance/currency/info"
+    }
+  ]}
+]
