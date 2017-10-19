@@ -1,0 +1,47 @@
+<div class="div-width-90 detail-box div-center">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      添加贸易合同
+    </h1>
+    <form action="#" id="addInvoice_form">
+    <table class="div-width-100 table table-bordered table-striped table-hover recieve-table">
+        <tr>
+          <td width="30%">合同编号:</td>
+          <td class="div-text-left" width="70%"><input type="text" name=""></td>
+        </tr>
+        <tr>
+          <td width="30%">合同金额:</td>
+          <td class="div-text-left" width="70%"><input type="text" name=""></td>
+        </tr>
+        <tr>
+          <td width="30%">采购方:</td>
+          <td class="div-text-left"><input type="text" name="" ></td>
+        </tr>
+        <tr>
+          <td width="30%">供方:</td>
+          <td class="div-text-left"><input type="text" name="" ></td>
+        </tr>
+        <tr>
+          <td width="30%">签定地点:</td>
+          <td class="div-text-left"><input type="text" name="" ></td>
+        </tr>
+        <tr>
+          <td width="30%">签订时间:</td>
+          <td class="div-text-left"><input type="text" id="begin_date" bt-date="searchData.GTErequestDate"> </td>
+        </tr>
+        <tr>
+          <td width="30%">合同附件:</td>   
+          <td width="70%">
+              <button class="btn btn-info" type="button" 
+              ng-click="openUpload($event,'agreeAccessory','合同附件','contractAttach')" ng-show="!contractAttach[0].fileName" mapping="upload_open_btn">上传附件</button>
+              <a href="{{contractAttach[0].url}}" ng-bind="contractAttach[0].fileName" ng-show="contractAttach[0].fileName"></a>
+          </td>
+        </tr>
+    </table>
+    </form>
+    <div>
+         <div class="center-buttons">
+           <button class="btn btn-primary" ng-click="">确定添加</button>
+           <button class="btn btn-primary" bt-close-modal >取消</button>
+         </div>
+    </div>
+</div> 

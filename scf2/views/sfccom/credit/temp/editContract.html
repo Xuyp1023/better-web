@@ -1,0 +1,118 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      授信合同维护
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered" id="edit_contra_box" ng-box-enabled="contractInfo.action=edit">
+        <tbody>
+        <tr>
+          <td width="25%"><span class="required">*</span>保理公司:</td>
+          <td width="75%" class="div-text-left">
+            <select name="" id="" ng-model="contractInfo.factorNo" disabled>
+              <option ng-repeat="factor in factorList" ng-option-filter value="{{factor.value}}" ng-bind="factor.name" ng-selected="contractInfo.factorNo==factor.value"></option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span>合同编号</td>
+          <td class="div-text-left">
+            <input type="text" ng-model="contractInfo.agreeNo">
+          </td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span>合同名称</td>
+          <td class="div-text-left">
+            <input type="text" ng-model="contractInfo.agreeName">
+          </td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span>被授信企业</td>
+          <td class="div-text-left">
+            <select name="" id="" ng-model="contractInfo.supplierNo" ng-change="custChange();">
+                <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="contractInfo.supplierNo==item.value"></option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span>法定代表人(负责人)</td>
+          <td class="div-text-left">
+            <input type="text" ng-model="contractInfo.resrepentName">
+          </td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span>法定地址</td>
+          <td class="div-text-left">
+            <input type="text" ng-model="contractInfo.resrepentAddr">
+          </td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span>合同金额</td>
+          <td class="tab-text-left">
+            <input type="text" ng-model="contractInfo.balance">
+          </td>
+        </tr>
+        <tr>
+          <td class="deep-gray">金额大写:</td>
+          <td class="tab-text-left" ng-class="{'tab-text-left':(contractInfo.action=='edit')}">
+            <strong class="deep-gray" ng-bind="contractInfo.balance|moneybigf"></strong> 
+          </td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span>合同期限从</td>
+          <td class="div-text-left date">
+            <input type="text" id="begin_date" bt-date="contractInfo.agreeStartDate" bt-max-date="end_date">
+            &nbsp;&nbsp;&nbsp;至&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="end_date" bt-date="contractInfo.agreeEndDate" bt-min-date="begin_date">
+          </td>
+        </tr>
+        <tr>
+          <td>合同签署日期</td>
+          <td class="div-text-left">
+            <input type="text" bt-date="contractInfo.signDate">
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  
+
+    <!-- 附件列表 -->
+    <table class="table table-striped table-hover table-bordered big-input">
+      <thead class="result-td-head result-head-green">
+        <tr>
+          <td class="left" colspan="2"><span class="required">*</span>合同相关附件</td>
+          <td class="right">
+            <button class="btn btn-info" ng-show="contractInfo.action=='edit' " ng-click="openUpload($event,'agreeAccessory','合同附件','attachList')">+新增附件</button>
+          </td>
+        </tr>
+      </thead>
+      <thead class="result-head-gray">
+        <tr>
+          <td>附件类型</td>
+          <td>附件名称</td>
+          <td>操作</td>
+        </tr>
+      </thead>
+      <tbody>
+       <tr ng-repeat="file in attachList" ng-repeat-end ng-class="{even:$even}">
+          <td>合同附件</td>
+          <td>
+            <a href=""><span ng-bind="file.fileName"></span></a>
+          </td>
+          <td>
+            <a href="{{file.id|downf}}">下载</a>
+            <a href="javascript:void(0);" ng-show="contractInfo.action=='edit' " ng-click="delUploadItem(file,'attachList');">删除</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    
+  <div class="center-buttons">
+        <button class="btn btn-primary" ng-show="contractInfo.signStatus=='0'" ng-click="editContract($event.target)">编辑</button>
+        <button class="btn btn-primary" ng-show="contractInfo.signStatus=='0'" ng-click="activeContract($event.target)">启用</button>
+        <button class="btn btn-primary" ng-show="contractInfo.signStatus=='1'" ng-click="disableContract($event.target)">禁用</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

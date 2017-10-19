@@ -1,0 +1,27 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      角色信息管理
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered">
+        <tbody>
+        <tr>
+          <td width="30%">角色类型</td>
+          <td width="70%" class="red"><strong ng-bind="info.roleName"></strong></td>
+        </tr>
+        <tr>
+          <td width="30%">角色菜单</td>
+          <td width="70%" class="div-text-left">
+            <div class="menuList"></div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-click="editMenuList($event.target);">确认绑定</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

@@ -1,0 +1,345 @@
+@charset "UTF-8";
+/* 待收页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+@import "common/pie";
+@import "common/pages";
+@import "common/multiple";
+
+#container{
+	@include init;
+	@include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+	@include Spage_plugin('../');
+	@include div-margin(15px);
+}
+
+// loadding样式 
+.bt-preloader{
+
+	opacity: 0.2;
+    filter: alpha(opacity=20);
+    cursor: pointer;
+    background: black;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3000;
+    width: 100%;
+    height: 100%;
+    .bt-loading-img {
+	    position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    width: 50px;
+	    height: 50px;
+	    margin-left: -25px;
+	    margin-top: -25px;
+	}
+}
+
+#content{
+	@include plus-nav-tabs;
+	@include center-buttons;
+	@include td-input-width(95%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+	@include double-check;
+	
+	// 小弹框
+	.pop-up{		
+		width:500px;
+		height:300px;
+		background:#CCCCCC;
+		border:1px solid #ddd;
+		margin:100px auto;
+		border-radius: 10px;
+    	-moz-box-shadow: 5px 3px 3px #C1C1C1;
+		-webkit-box-shadow:5px 3px 3px #C1C1C1;
+		-ms-box-shadow:5px 3px 3px #C1C1C1;
+		box-shadow: 5px 3px 3px #C1C1C1;
+		h2{
+			text-align:center;	
+			font-size:24px;
+			margin-top:50px;
+		}
+		ul{
+			width:70%;
+			margin:0 auto;
+			text-align:center;
+			margin-bottom:20px;
+			li{
+				list-style:none;
+				height:50px;
+				line-height:50px;
+				b{
+					font-weight:normal;					
+					display: inline-block;
+    				width: 100px;
+				}
+				span{
+					display: inline-block;
+    				width: 100px;
+				}
+			}
+		}
+		
+		p{
+			margin:0 30px;
+		}
+	}
+	
+	.title-card{
+		margin-bottom:10px;
+		 .icon{
+			background-image: url(../img/title-card.png);
+		    height: 12px;
+		    width: 12px;
+		    display: inline-block;
+		    margin-right: 8px;
+		}
+
+	}
+	// 面包屑导航
+	.breadBumb{
+		margin-bottom:20px;
+		margin-top:20px;
+		font-size: 0;
+		ul{
+			margin:0; 			
+		}
+		
+		.flow{
+			display: inline-block; 
+			width: 32.6%;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			color: #000;
+			background: #cccccc;
+			font-size: 12px;
+			position: relative;
+			margin-left: 5px;
+
+		}
+		.flow:after,.flow:not(:last-child):before{
+			content: "";
+			width: 0;
+			height: 0;
+			border-style:solid;
+			border-width: 20px 0 20px 20px;
+			border-color: transparent transparent transparent white;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.flow:not(:last-child):after{
+			left: auto;
+			right: -20px;
+			z-index: 2;
+			border-color: transparent transparent transparent #cccccc;
+		}
+		.flow:first-child:before{
+			content: none; 
+		}
+		.active{
+				background:#90a4ae;
+				color:#fff;
+			}
+		.active:not(:last-child):after{
+			border-color: transparent transparent transparent #90a4ae!important;
+		} 
+		
+	}
+	//查询条件
+	.table.search-table{
+			margin-top:15px;
+			select,input{
+				margin:0;
+			}
+			select{
+				width:52%!important;
+				padding:0;
+				*position:relative;
+				*top:4px;
+			}
+			input{
+				width:50%!important;
+			}
+			.date{
+				input[type="text"]{
+					width:22.5%!important;
+				}
+			}
+			@include double-check;
+	}
+
+	//查询列表
+	.search-result{
+			.modi-group{
+				text-align:left!important;
+				vertical-align:middle;
+				.btn{
+					margin-left:20px;
+				}
+			}
+	}
+
+	//margin
+	.margin-20{
+		margin:20px;
+	}
+	.margin-top-30{
+		margin-top:30px;
+	}
+
+
+	//开户相关
+	#openAccountOwn,#openAccountSuccess,#accountPlatRecord,#openAccountAudit,#accountPlatReview{
+		table.big-input{
+			tbody td{
+				//日期带按钮
+				&.date{
+					input{
+						width:70%!important;
+						margin-right:3%;
+					}
+					span{
+						height:28px;
+						line-height:28px;
+						font-size:12px;
+						color:gray;
+						padding:0 8px;
+						display:inline-block;
+						border-radius:5px;
+						border:1px solid gray;
+						cursor:pointer;
+						&:hover,&.active{
+							border:1px solid rgb(36, 138, 201);
+							box-shadow:0 0 2px 1px #248ac9;
+							background-color:whitesmoke;
+							color:rgb(36, 138, 201);
+							transition:all .5s;
+						}
+					}
+				}
+
+				//双日期
+				&.double-date{
+					input{
+						width:38%!important;
+						margin-right:1%;
+					}
+				}
+
+				//双下拉选择器
+				&.double-select{
+					select{
+						width:46%!important;
+						margin:0 3% 0 0;
+					}
+				}
+
+				.info{
+					font-size:12px;
+				}
+
+				.title{
+					padding-right:15px;
+				}
+
+			}
+		}
+	}
+
+	.accountReplace{
+		.content-title-1{
+			border-bottom:2px solid #248AC9;
+		}
+		.search-table{
+			td{
+				padding:8px!important;
+			}
+			margin-top:15px;
+			*margin-bottom: 5px!important;
+			// margin-left:30px;
+			select,input{
+				margin:0;
+			}
+			select{
+				width:52%!important;
+				padding:0;
+				*position:relative;
+				*top:4px;
+			}
+			input,textarea{
+				width:50%!important;
+			}
+			.date{
+				input{
+					width:22.5%!important;
+				}
+			}
+			@include double-check;
+		}
+		.center-buttons{
+			margin-top:15px;
+			*margin-top:5px!important;
+			margin-bottom:10px;
+		}
+		.tips{
+			font-size: 12px;
+			color:gray;
+		}
+		.uplaod_btn{
+			margin:10px;
+		}
+	}
+
+	#alldiv{
+		#mainContent{
+			height:160px;
+		}
+		border:1px solid #C1C1C1;
+		border-radius:10px;
+		width:50%;
+		height:300px;
+		margin:160px auto;
+		padding:10px;
+		-moz-box-shadow: 5px 3px 3px #C1C1C1;
+		-webkit-box-shadow:5px 3px 3px #C1C1C1;
+		-ms-box-shadow:5px 3px 3px #C1C1C1;
+		box-shadow: 5px 3px 3px #C1C1C1;
+		h1{
+			text-align:center;
+		}
+
+		.btn-next{
+			margin-bottom:30px;
+		}
+	}
+	//流程相关
+	.handleTask{
+		label{
+			display:inline;
+		}
+		select,textarea{
+			margin-bottom:0px!important;
+			width:75%;
+		}
+		textarea{
+			height:100px!important;
+		}
+
+	}
+
+}

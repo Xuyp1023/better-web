@@ -1,0 +1,28 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [
+    	{
+			"invoiceNo":"P1031",
+			"corpVocate":"021",
+			"balance": "10000.00",
+			"subject":"基建",
+			"unit":"个",
+			"amount":"12",
+			"regDate":"20161021",
+			"itemId": "11271",
+			"status": "0"
+		},{
+			"invoiceNo":"P1032",
+			"corpVocate":"020",
+			"balance": "10000.00",
+			"subject":"基建",
+			"unit":"个",
+			"amount":"12",
+			"regDate":"20161021",
+			"itemId": "11271",
+			"status": "0"
+		}
+	]
+}
+

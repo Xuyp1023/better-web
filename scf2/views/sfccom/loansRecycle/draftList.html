@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>票据信息</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/sfccom/loansRecycle/draftList.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+    <div id="container" class="container-fluid div-center">
+      <div class="row-fluid">
+        <div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">票据信息</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="25%">选择机构:</td>
+                <td width="75%" class="div-text-left">
+                  <select ng-model="searchData.factorNo" ng-change="changeCust();">
+                    <option ng-repeat="item in factorList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.factorNo == item.value"></option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%">票据编号:</td>
+                <td width="75%" class="div-text-left">
+                <input type="text" ng-model="searchData.billNo">
+                </td>
+              </tr>
+              <tr>
+                <td>开票企业:</td>
+                <td width="70%" class="div-text-left">
+                 <select ng-model="searchData.invoiceCorp">
+                   <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.invoiceCorp == item.value"></option>
+                 </select>
+               </td>
+              </tr>
+              <tr>
+               <td>到期日:</td>
+               <td class="div-text-left date">
+                  <input type="text" bt-date="searchData.GTEinvoiceDate"> - 
+                  <input type="text" bt-date="searchData.LTEinvoiceDate">
+               </td>
+              </tr>
+              
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              票据列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr class="result-head">
+                  <td width="14%">票据编号</td>
+                  <td width="16%">开票企业</td>
+                  <td width="14%">票据金额</td>
+                  <td width="14%">开票日期</td>
+                  <td width="14%">到期日期</td>
+                  <td width="14%">票据状态</td>
+                  <td width="14%">融资关联</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in infoList">
+                  <td ng-bind="item.billNo"></td>
+                  <td ng-bind="item.invoiceCorp"></td>
+                  <td class="tab-text-right"><strong class="red" ng-bind="item.balance|moneyFilter"></strong></td>
+                  <td ng-bind="item.invoiceDate"></td>
+                  <td ng-bind="item.endDate"></td>
+                  <td class="red" ng-bind="item.businStatus|kindf:'BillNoteStatus'"></td>
+                  <td class="red" ng-bind="item.financeFlag|kindf:'FinancingMark'"></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <td colspan="7">
+                  <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                </td>
+              </tfoot>
+            </table>
+            
+          </div>
+        
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+  <!-- 引用js文件 -->
+  <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/sfccom/loansRecycle/draftList");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/sfccom/loansRecycle/draftList");
+      } 
+  </script>
+  </body>
+</html>

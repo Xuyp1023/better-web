@@ -1,0 +1,51 @@
+<div class="row-fluid">
+      <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/flow_money.png" alt="">
+        客户关系列表
+        <small class="small-select">
+              <span>客户名称</span>
+              <select ng-model="searchData.custNo" ng-change="queryList();">
+                <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+              </select>
+        </small>
+      </h1>
+      <table class="div-width-100 table table-striped table-hover search-result">
+        <thead>
+          <tr>
+            <td class="modi-group" colspan="6">
+              <a href="javascript:void(0);" ng-click="openRelationInfo();"><button class="btn btn-info" >新增关联</button></a>
+            </td>
+          </tr>
+          <tr class="result-head">
+            <td width="15%">客户类型</td>
+            <td width="60%">客户名称</td>
+            <td width="10%">状态</td>
+            <td width="15%">添加时间</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in custRelationList" ng-repeat-end ng-class="{even:$even}" >
+            <td >
+              <span ng-show="custType=='SUPPLIER_USER'" ng-bind="item.relateType|kindf:'SupplierStatus'"></span>
+              <span ng-show="custType=='SELLER_USER'" ng-bind="item.relateType|kindf:'SellerStatus'"></span>
+              <span ng-show="custType=='CORE_USER'" ng-bind="item.relateType|kindf:'CoreStatus'"></span>
+            </td>
+            <td>
+              <span ng-show="custType=='SUPPLIER_USER'" ng-bind="item.relateCustname"></span>
+              <span ng-show="custType=='SELLER_USER'" ng-bind="item.relateCustname"></span>
+              <span ng-show="custType=='CORE_USER'" ng-bind="item.custName"></span>
+            </td>
+            <td>
+                <a href="javascript:void(0);" ng-bind="item.businStatus|kindf:'OpenFactorFinancingStatus'" ng-show="item.relateType === '0'||item.relateType === '2'||item.relateType === '3'" ng-click="openFactorInfo(item);"></a>
+                <span class="deep-gray" ng-hide="item.relateType === '0'||item.relateType === '2'||item.relateType === '3'" ng-bind="item.businStatus|kindf:'OpenFactorFinancingStatus'"></span>
+            </td>
+            <td ng-bind="item.regDate"></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td colspan="4">
+            <div bt-pagination conf="listPage" func="queryList();"></div>
+          </td>
+        </tfoot>
+      </table>
+
+  </body>

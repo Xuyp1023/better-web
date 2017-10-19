@@ -1,0 +1,46 @@
+<div class="row-fluid">
+      <h1 class="content-title-1 content-title-condensed content-title-blue">
+      <img src="img/flow_money.png" alt="">
+
+        <span>流程版本列表</span>
+
+      </h1>
+      <table class="div-width-100 table table-striped table-hover search-result">
+        <thead>
+          <tr>
+            <td class="modi-group" colspan="6">
+              <a href="javascript:void(0);"><button class="btn btn-info" ng-click="createWorkFlow($event.target);">创建新版本</button></a>
+            </td>
+          </tr>
+          <tr class="result-head-gray">
+            <td width="25%">流程名称</td>
+            <td width="25%">流程别名</td>
+            <td width="10%">流程版本</td>
+            <td width="12%">发布状态</td>
+            <td width="10%">最新版本</td>
+            <td width="18%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in processList" ng-repeat-end ng-class="{even:$even}" >
+            <td ng-bind="item.name"></td>
+            <td ng-bind="item.nickname"></td>
+            <td ng-bind="item.version"></td>
+            <td ng-bind="item.isPublished|kindf:'WorkFlowBasePublishStatus'"></td>
+            <td ng-bind="item.isLatest|kindf:'WorkFlowBaseLatestStatus'"></td>
+            <td>
+              <span><a href="javascript:void(0);" ng-show="item.isLatest==='0' && item.isPublished==='0'" ng-click="publishWorkFlow(item);">发布</a></span>
+              <span><a href="{{'#/process/edit/'}}" ng-show="item.isLatest==='0' && item.isPublished==='0'" ng-click="cacheData(item,'process_edit_info');" >修改</a></span>
+              <span><a href="javascript:void(0)" ng-show="item.isLatest==='0' && item.isPublished==='0'" ng-click="defineNode(item);">自定义节点</a></span>
+              <span><a href="javascript:void(0);" ng-click="disableWorkFlow(item);" ng-show="item.isLatest==='1' && item.isPublished==='1' && item.isDisabled==='0'" >停用</a></span>
+              <span><a href="javascript:void(0);" ng-click="enableWorkFlow(item);" ng-show="item.isLatest==='1' && item.isPublished==='1' && item.isDisabled==='1'">启用</a></span>
+              <span><a href="javascript:void(0);" ng-click="showWorkFlow(item);" ng-show="item.isPublished==='1'" >查看</a></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    <div class="center-buttons">
+      <button class="btn btn-primary" ng-click="goBack();">返回</button>
+    </div>
+  </body>

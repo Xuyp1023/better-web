@@ -1,0 +1,150 @@
+/**
+ * 样式基础
+ * reset 标签重置
+ * base  常用样式
+ */
+
+html{overflow-y:scroll}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+body,button,input,select,textarea{font:12px/1.5 microsoft yahei,arial,simsun;outline:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+address,cite,dfn,em,var{font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+small{font-size:12px}
+ul,ol{list-style:none}
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+legend{color:#000}
+fieldset,img{border:0}
+img,object{vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0}
+body{color:#444;background:#fff}
+
+/**
+ * 还原编辑器内容标签默认样式
+ */
+.g_ur ul,.g_ur ol {padding-left:40px;}
+.g_ur ul{list-style:disc}
+.g_ur ol{list-style:decimal}
+.g_ur img{max-width:100%;_display:none}
+.g_ur table{table-layout:fixed;border-collapse:separate;border-spacing:2px}
+.g_ur td{white-space:normal;word-wrap:break-word;word-break:break-all}
+
+/**
+ * 定位
+ */
+.g_pr{position:relative}
+
+/**
+ * 显示
+ */
+.g_dn{display:none}
+.g_db{display:block}
+.g_di{display:inline}
+.g_dib{display:inline-block;*display:inline;*zoom:1}
+.g_vh{visibility:hidden}
+
+/**
+ * 浮动
+ */
+.g_fl{float:left}
+.g_fr{float:right}
+
+/**
+ * 高度填充
+ */
+.g_h0{height:0}
+.g_h1{height:1px}
+.g_h5{height:5px}
+.g_h10{height:10px}
+.g_h15{height:15px}
+.g_h20{height:20px}
+.g_h25{height:25px}
+.g_h30{height:30px}
+.g_h0,.g_h1,.g_h5,.g_h10,.g_h15,.g_h20,.g_h25,.g_h30{clear:both;overflow:hidden}
+
+/**
+ * 文本对齐
+ */
+.g_tl{text-align:left}
+.g_tc{text-align:center}
+.g_tr{text-align:right}
+
+
+/**
+ * 字体大小
+ */
+.g_fs12{font-size:12px}
+.g_fs14{font-size:14px}
+.g_fs16{font-size:16px}
+.g_fs18{font-size:18px}
+.g_fs20{font-size:20px}
+
+/**
+ * 字体宽度
+ */
+.g_fwb{font-weight:700}
+.g_fwn{font-weight:400}
+
+/**
+ * 字体
+ */
+.g_ffs{font-family:simsun}
+.g_ffh{font-family:simhei}
+.g_ffy{font-family:Microsoft YaHei}
+
+/**
+ * 清除活动 .g-cf
+ * 全局容器 .g-o
+ */
+.g_cf,.g_o{*zoom:1}
+.g_cf:after,.g_o:after{display:block;visibility:hidden;clear:both;height:0;content:'\20'}
+.g_o{width:1000px;margin:0 auto}
+
+/**
+ * 图片垂直居中
+ */
+.g_ivm .i{display:table-cell;vertical-align:middle;font-family:simsun}
+.g_ivm .i img{_position:relative;_top:-1px;vertical-align:middle}
+.g_ivm .ibox{text-align:center}
+
+/**
+ * 内容显示控制
+ * .g-e  显示省略号(包含不换行)
+ * .g-b  换行
+ * .g-ub 不换行
+ */
+.g_e{overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;}
+.g_b{word-wrap:break-word;word-break:break-all}
+.g_ub{white-space:nowrap;word-wrap:normal}
+
+/**
+ * 颜色--前景、背景
+ * 
+ */
+ .red{color:red;}
+ .green{color:green;}
+ .orange{color:orange;}
+ .gray{color:gray;}
+ .bg_ccc{background:#ccc;}
+ .bg_ddd{background:#ddd;}
+ .bg_eee{background:#eee;}
+ .bg_fff{background:#fff;}
+
+/**
+ * 边距--内外
+ * 
+ */
+ .pd5{padding:5px;}
+ .pd10{padding:10px;}
+ .m5{margin:5px;}
+ .m10{margin:10px;}
+
+/**
+ * 宽度
+ * 
+ */
+ .w150{width:150px;}

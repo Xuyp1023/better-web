@@ -1,0 +1,33 @@
+{
+    "code": 200,
+    "message": "",
+    "data": {
+        "id": "2",
+        "billNo": "JF00002",
+        "billType": "0",
+        "billMode": "0",
+        "balance": "150000",
+        "invoiceDate": "20160322",
+        "endDate": "20170322",
+        "cashDate": "20170301",
+        "supplier": "深圳市华强公益基金会",
+        "suppBankAccount": "65463213216654600",
+        "suppBankName": "hsdsfsdf",
+        "supplierNo": "100000156",
+        "buyer": "深圳前海拜特测试1",
+        "realBuyer": "深圳前海拜特测试1",
+        "buyerBankAccount": "5465321313134654",
+        "buyerBankName": "张三",
+        "buyerNo": "100000170",
+        "agreeNo": "dfadsad",
+        "btBillNo": "BT32012355",
+        "financeFlag": "0",
+        "regDate": "20160322",
+        "modiDate": "20160322",
+        "status": "0",
+        "operCode": "9857",
+        "operName": "欧尼",
+        "operOrg": "aXXAAAFWQWEQWEQWEEQWEXXXXddpppp",
+        "batchNo": "30"
+    }
+}

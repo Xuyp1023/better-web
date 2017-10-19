@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>催收信息</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/sfccom/loansRecycle/collRecord.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+    <div id="container" class="container-fluid div-center">
+      <div class="row-fluid">
+        <div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">催收信息</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="25%">保理公司</td>
+                <td width="75%" class="div-text-left">
+                  <select ng-model="searchData.factorNo">
+                    <option ng-repeat="item in factorList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.factorNo == item.value"></option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%">申请编号:</td>
+                <td width="75%" class="div-text-left">
+                  <input type="text" ng-model="searchData.requestNo">
+                </td>
+              </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              催收列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <!-- <tr>
+                  <td class="modi-group" colspan="7">
+                    <button class="btn btn-info" ng-click="openAddCollecBox($event.target);">+新增催收</button>
+                  </td>
+                </tr> -->
+                <tr class="result-head">
+                  <td width="15%">申请编号</td>
+                  <td width="12%">融资企业</td>
+                  <td width="10%">催收方式</td>
+                  <td width="10%">催收金额</td>
+                  <td width="10%">催收时间</td>
+                  <td width="10%">经办人</td>
+                  <td width="25%">备注</td>
+                  <td width="8%">操作</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-class="{even:$even}" ng-repeat="item in collRecordList" ng-repeat-end>
+                  <td ng-bind="item.requestNo"></td>
+                  <td class="red" ng-bind="item.custName"></td>
+                  <td ng-bind="item.pressType"></td>
+                  <td class="red tab-text-right" ng-bind="item.balance|moneyFilter"></td>
+                  <td ng-bind="item.actualDate"></td>
+                  <td ng-bind="item.agent"></td>
+                  <td ng-bind="item.description"></td>
+                  <td>
+                    <a href="javascript:void(0);" ng-click="openDetailBox(item);">详情</a>
+                  </td>
+              </tr>
+              </tbody>
+              <tfoot>
+                <td colspan="8">
+                  <div bt-pagination conf="pageConf" func="reFreshCollRecordList(false);"></div>
+                </td>
+              </tfoot>
+            </table>
+            
+          </div>
+        
+        <!-- 新增催收记录 -->
+        <!-- <div id="add_box" bt-roll-modal="temp/addCollRecord.html" bt-z-index="9992"></div> -->
+
+        <!-- 催收记录详情 -->
+        <div id="detail_box" bt-roll-modal="temp/collRecordDetail.html" bt-z-index="9992"></div>
+       
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+  <!-- 引用js文件 -->
+  <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/sfccom/loansRecycle/collRecord");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/sfccom/loansRecycle/collRecord");
+      } 
+  </script>
+  </body>
+</html>

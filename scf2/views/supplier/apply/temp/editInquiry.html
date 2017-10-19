@@ -1,0 +1,150 @@
+<div class="div-width-90 div-center detail-box">
+  <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+    修改询价
+  </h1>
+
+  <div class="row-fluid detail-info div-center serch_repay_info">
+
+   <form action="#" id="editInquiry_form" >
+    <table class="div-width-100 table table-bordered table-striped table-hover recieve-table">
+        <tr>
+          <td width="25%">询价企业:</td>
+          <td width="75%" class="div-text-left">
+            <select name="custNo" id="" ng-model="inquiryDetail.custNo" ng-change="refreshEvidence();">
+                <option ng-repeat="su in supplierList" ng-option-filter value="{{su.value}}" ng-bind="su.name" ng-selected="inquiryDetail.custNo==su.value"></option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%">融资类型:</td>
+          <td width="75%" class="div-text-left">
+            <select name="" id="" ng-model="inquiryDetail.requestType" ng-change="refreshEvidence();">
+                <option ng-repeat="type in requestTypes" ng-option-filter value="{{type.value}}" ng-bind="type.name" ng-selected="inquiryDetail.requestType==type.value"></option>
+            </select>
+          </td>
+        </tr>
+       <tr>
+         <td width="30%">意向企业</td>
+         <td width="70%" class="div-text-left">
+           <div bt-multiple  bt-select-all="false" bt-option-map="value-name" list="factorList" model="inquiryDetail.factors"></div>
+         </td>
+       </tr>
+        <tr>
+         <td>截止日期</td>
+         <td width="70%" class="div-text-left" class="div-text-left">
+            <input type="text" id="begin_date" bt-date="inquiryDetail.endDate" name="endDate">
+        </tr>
+       <tr>
+         <td>备注</td>
+         <td class="div-text-left"><input type="text" ng-model="inquiryDetail.description"></td>
+       </tr>
+       
+    </table>
+  </form>
+    <div id="" class="row-fluid">
+      <h1 class="content-title content-title-2 content-back-none content-split" ng-bind="currConfig.title"></h1>
+      <!-- 订单列表 -->
+      <table id="order_list_table" class="div-width-100 table table-striped table-hover" ng-show="currConfig.type=='order'">
+        <thead>
+          <tr class="result-head">
+            <td width="12.5%">订单编号</td>
+            <td width="12.5%">订单金额</td>
+            <td width="12.5%">结算方式</td>
+            <td width="12.5%">核心企业</td>
+            <td width="12.5%">产品名称</td>
+            <td width="12.5%">订单日期</td>
+            <td width="12.5%">是否使用</td>
+            <td width="12.5%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="order in orderList" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="order.orderNo"></td>
+            <td class="tab-text-right" ng-bind="order.balance|moneyFilter"></td>
+            <td ng-bind="order.settlement|kindf:'OrderSettleType'"></td>
+            <td ng-bind="order.coreCustName"></td>
+            <td ng-bind="order.goodsName"></td>
+            <td ng-bind="order.orderDate"></td>
+            <td><input name="use_order" type="checkbox" ng-checked="order.checked" ng-click="checkedSelect($event.target,order.id);" /></td>
+            <td>
+              <a href="#" ng-click="showfactorProofDetail('order',order)" >查看详情</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 应收账款列表 -->
+      <table id="recieve_list_table" class="div-width-100 table table-striped table-hover" ng-show="currConfig.type=='recieve'">
+        <thead>
+          <tr class="result-head">
+            <td width="10%">应收账款编号</td>
+            <td width="10%">债权人</td>
+            <td width="10%">债务人</td>
+            <td width="10%">商品名称</td>
+            <td width="10%">商品价格</td>
+            <td width="10%">采购数量</td>
+            <td width="10%">金额</td>
+            <td width="10%">付款到期日期</td>
+            <td width="10%">是否使用</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in recieveList" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="item.receivableNo"></td>
+            <td ng-bind="item.debtor"></td>
+            <td ng-bind="item.creditor"></td>
+            <td ng-bind="item.goodsName"></td>
+            <td class="tab-text-right" ng-bind="item.unit"></td>
+            <td ng-bind="item.amount"></td>
+            <td class="tab-text-right" ng-bind="item.balance|moneyFilter"></td>
+            <td ng-bind="item.endDate"></td>
+            <td><input name="use_order" type="checkbox" ng-checked="item.checked" ng-click="checkedSelect($event.target,item.id);" /></td>
+            <td>
+              <a href="#" ng-click="showfactorProofDetail('recieve',item)" >查看详情</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 汇票列表 -->
+      <table id="bill_list_table" class="div-width-100 table table-striped table-hover" ng-show="currConfig.type=='bill'">
+        <thead>
+          <tr class="result-head">
+            <td width="16%">汇票编号</td>
+            <td width="10%">汇票类型</td>
+            <td width="10%">流通方式</td>
+            <td width="12%">票据金额</td>
+            <td width="12%">开票日期</td>
+            <!-- <td width="10%">兑付日期</td> -->
+            <td width="10%">融资标志</td>
+            <td width="10%">票据状态</td>
+            <td width="10%">是否使用</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="bill in billList" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="bill.billNo"></td>
+            <td ng-bind="bill.billType|kindf:'BillNoteType'"></td>
+            <td ng-bind="bill.billMode|kindf:'BillFlowMode'"></td>
+            <td class="tab-text-right" ng-bind="bill.balance|moneyFilter"></td>
+            <td ng-bind="bill.invoiceDate"></td>
+            <!-- <td ng-bind="bill.cashDate"></td> -->
+            <td ng-bind="bill.financeFlag|kindf:'FinancingMark'"></td>
+            <td ng-bind="bill.businStatus|kindf:'BillNoteStatus'"></td>
+            <td><input name="use_order" type="checkbox" ng-checked="bill.checked" ng-click="checkedSelect($event.target,bill.id);" /></td>
+            <td>
+              <a href="#" ng-click="showfactorProofDetail('draft',bill)" >查看详情</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="center-buttons">
+    <button class="btn btn-primary" ng-click="editInquiry($event.target);">提交</button>
+    <button class="btn btn-primary" bt-close-modal >返回</button>
+  </div>
+</div>

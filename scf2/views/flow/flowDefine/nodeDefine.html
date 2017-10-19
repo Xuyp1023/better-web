@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>节点定义</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/flow/flowDefine/nodeDefine.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+        <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">节点定义
+          <small class="small-select">
+            <span>流程类型</span>
+            <select ng-model="searchData.flowType" ng-change="queryList();refreshSysFlowList();">
+                <option ng-repeat="item in typeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.flowType == item.value"></option>
+            </select>
+          </small>
+        </h1>
+
+          <!-- <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">节点定义</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="25%">流程类型:</td>
+                <td width="75%" class="div-text-left">
+                  <select name="" id="">
+                    <option value="">贷款审批</option>
+                    <option value="">提前还款</option>
+                  </select>
+                </td>
+              </tr>
+              
+            </table>
+            <! <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="queryList();">查询</button>
+            </div> -->
+          <!-- </div> --> 
+
+          <div id="search_info" class="row-fluid">
+            <!-- <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              <span>流程节点列表</span>
+            </h1> -->
+            <table class="div-width table table-striped table-hover search-result">
+              <thead>
+                <tr>
+                  <td class="modi-group" colspan="4">
+                    <button class="btn btn-info"  ng-click="addFlowNode();">+新增节点</button>
+                  </td>
+                </tr>
+                <tr class="result-head">
+                  <td width="25%">节点名称</td>
+                  <td width="25%">必选节点</td>
+                  <td width="25%">自定义节点</td>
+                  <td width="25%">操作</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-repeat="item in infoList" ng-repeat-end ng-class="{even:$even}" >
+                  <td ng-bind="item.sysNodeName"></td>
+                  <td>
+                    <i class="icon-ok" ng-show="item.must+'' === '1'"></i>
+                    <i class="icon-remove" ng-hide="item.must+'' === '1'"></i>
+                  </td>
+                  <td ng-bind="item.nodeCustomName"></td>
+                  <td>
+                    <span><a href="javascript:void(0);" ng-click="editFlowNode(item);" ng-hide="item.must+'' === '1'">编辑</a></span>
+                    <span><a href="javascript:void(0);" ng-click="delInfo($event.target,item);" ng-hide="item.must+'' === '1'">删除</a></span>
+                  </td>
+                </tr>
+               
+              </tbody>
+             <!--  <tfoot>
+                <td colspan="7">
+                  <div bt-pagination conf="pageConf"></div>
+                </td>
+              </tfoot> -->
+            </table>
+            
+          </div>
+        
+        <!-- 新增节点-->
+        <div id="add_flow_node_box" bt-roll-modal="temp/addNode.html" bt-z-index="9991"></div>
+
+        <!-- 编辑节点-->
+        <div id="edit_flow_node_box" bt-roll-modal="temp/editNode.html" bt-z-index="9991"></div>
+
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/flow/flowDefine/nodeDefine");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/flow/flowDefine/nodeDefine");
+      } 
+  </script>
+  </body>
+</html>

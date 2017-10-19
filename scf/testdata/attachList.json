@@ -1,0 +1,21 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [
+        {
+            "id": 11271,
+            "fileName": "票据附件1",
+           	"fileInfoType":"billAccessory"
+        },
+        {
+            "id": 11272,
+            "fileName": "票据附件2",
+           	"fileInfoType":"billAccessory"
+        },
+        {
+           "id": 11272,
+            "fileName": "合同附件2",
+           	"fileInfoType":"agreeAccessory"
+        }
+    ]
+}

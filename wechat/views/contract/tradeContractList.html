@@ -1,0 +1,32 @@
+
+<!-- 贸易合同列表 -->
+<div class="collapse-list">
+  <ul>
+      <li ng-repeat="item in contractList">
+          <div class="ti">
+            <span ng-bind="item.agreeName"></span>
+            <em class="co co1">{{item.businStatus|kindf:'AgreementStandardStatus'}}<i class="ico ico13 ml5"></i></em>
+          </div>
+          <div class="bi"></div>
+          <div class="ci">
+              <p class="con">合同编号:&nbsp;<span ng-bind="item.agreeNo"></span></p>
+              <p class="con">合同金额:&nbsp;<span ng-bind="item.balance"></span></p>
+              <p class="con">买方名称:&nbsp;<span ng-bind="item.buyer"></span></p>
+              <p class="con">卖方名称:&nbsp;<span ng-bind="item.supplier"></span></p>
+              <p class="con">合同贷款期限:&nbsp;<span ng-bind="item.agreeStartDate"></span>&nbsp;至&nbsp;<span ng-bind="item.agreeEndDate"></p>
+          </div>
+          <div class="ti">
+            <a ng-href="#/tradeContract/info/detail/{{item.id}}"><span>查看详情</span></a>
+            <a ng-click="deleteContract(item);" ng-show="item.businStatus!=1"><span class="mui-icon mui-icon-trash mui-active fr ml5">删除</span></a>
+            <a ng-href="#/tradeContract/edit/{{item.id}}" ng-show="item.businStatus==0"><span class="mui-icon mui-icon-compose mui-active fr ml5">编辑</span></a>
+            <a ng-href="#/tradeContract/info/disuse/{{item.id}}" ng-show="item.businStatus==0"><span class="mui-icon mui-icon-compose mui-active fr ml5">作废</span></a>
+            <a ng-href="#/tradeContract/info/audit/{{item.id}}" ng-show="item.businStatus==0"><span class="mui-icon mui-icon-compose mui-active fr ml5">审核</span></a>
+          </div>
+      </li>
+  </ul>
+  <div ng-page="listPage" func="queryContractList(false)" class="more"></div>
+</div>
+
+<div class="butn mt10">
+   <p><a class="btn" href="javascript:void(0)" ng-click="openAdd();">添加合同</a></p>
+</div>

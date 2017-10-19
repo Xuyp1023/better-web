@@ -1,0 +1,65 @@
+<h3 class="title-h3">基本信息<small class="color-red" style="position: absolute;right:10px"> {{info.businStatus|kindf:'ReceivableNoteStatus'}}</small></h3>
+
+<div class="mpLt">
+    <ul class="margin-bottom-20">
+        <li>
+            
+            <div class="bi"></div>
+            <div class="ci nbr">
+                <p class="tit">应收账款金额：¥{{info.balance|moneyFilter}}</p>
+                <p class="tit">应收账款编号：{{info.receivableNo}}</p>
+                <p class="tit">凭证编号：{{info.refNo}}</p>
+                <p class="tit">贸易合同号：{{info.agreeNo}}</p>
+                <p class="tit">发票号：{{info.invoiceNos}}</p>
+                <p class="tit">应收账款结算日：{{info.endDate}}</p>
+            </div>
+            <!-- <div class="btnLi br5" style="font-size: 16px">
+				<a href="javascript:void(0);" class="btnA" ng-show="info.businStatus=='1'" ng-click="applyFinance(item);">申请提前回款</a>
+              	<a href="javascript:void(0);" class="btnA" ng-show="info.businStatus=='2'" ng-click="showDetail(item);">融资详情</a>   
+            </div> -->
+        </li>
+    </ul>
+    
+
+    <ul class="mui-table-view"> 
+	    <li class="mui-table-view-cell mui-collapse" style="font-size: 16px">
+	        <a class="mui-navigate-right" href="javascript:void(0);">债权人信息</a>
+	        <div class="mui-collapse-content">	        
+		        	<p class="line">名称：{{info.custName}}</p>
+	                <!-- <p class="line">账户：{{info.supplier}}</p>
+	                <p class="line">开户银行：{{info.supplier}}</p>    -->    
+	        </div>
+	    </li>
+	     <li class="mui-table-view-cell mui-collapse" style="font-size: 16px">
+	        <a class="mui-navigate-right" href="javascript:void(0);">债务人信息</a>
+	        <div class="mui-collapse-content">
+	            <p class="line">名称：<span>{{info.coreCustName}}</span></p>
+	            <p class="line">登记人：<span>{{info.modiOperName}}</span></p>
+	            <p class="line">登记时间：<span>{{info.regDate}}</span></p>
+	            <p class="line">备注：<span>{{info.description}}</span></p>
+	        </div>
+	    </li>     
+	</ul>
+
+</div>
+
+<div class="mAito comp position-fixed-bottom width-100 box-shadow-gray" ng-show="info.businStatus=='1'">
+	<ul class="clearfix">
+		<li ng-click="applyFinance({{info.id}})">
+			<a href="javascript:void(0)" class="background-blue color-white border-none">
+				<span>申请提前回款</span>
+				<i class="ico ico14"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<div class="mAito comp position-fixed-bottom width-100 box-shadow-gray" ng-show="info.businStatus=='2'">
+	<ul class="clearfix">
+		<li ng-click="showDetail({{info.id}})">
+			<a href="javascript:void(0)" class="background-blue color-white border-none">
+				<span>融资详情</span>
+				<i class="ico ico14"></i>
+			</a>
+		</li>
+	</ul>
+</div>

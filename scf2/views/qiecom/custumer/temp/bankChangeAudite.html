@@ -1,0 +1,51 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      银行账户列表变更审核
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="6">银行账户列表变更详情</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="12%">变更类型</td>
+            <td width="12%">银行账户名</td>
+            <td width="20%">银行账户</td>
+            <td width="15%">所属银行</td>
+            <td width="15%">开户行所在地</td>
+            <td width="15%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in accountList" ng-repeat-end ng-class="{'0':'green','1':'deep-gray','2':'red'}[item.tmpOperType]">
+                <td ng-bind="item.tmpOperType|kindf:'TmpOperateType'" ></td>
+                <td ng-bind="item.bankAccoName"></td>
+                <td ng-bind="item.bankAcco"></td>
+                <td ng-bind="item.bankNo|kindf:'SaleBankCode' "></td>
+                <td ng-bind="item.cityNo|areaf "></td>
+                <td>
+                  <a href="#" ng-click="openAuditDetail(item,'account');">变更详情</a>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+      <table class="table table-striped table-hover table-bordered">
+          <tbody>
+            <tr>
+              <td  width="20%">备注:</td>
+              <td  colspan="3"><textarea ng-model="pageInfo.reason"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-show="changeWaitAudit" ng-click="auditChangeRecordPass($event.target,'account')" >审核通过</button>
+        <button class="btn btn-danger" ng-show="changeWaitAudit" ng-click="auditChangeRecordReject($event.target,'account')" >驳回变更</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

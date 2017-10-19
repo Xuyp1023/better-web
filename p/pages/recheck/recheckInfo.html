@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>机构开户</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/recheckInfo.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body>
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" class="div-width-100 div-center">
+
+					<div id="pre_see" class="div-width-100 hide">
+					<h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+					    开户单据&nbsp;&nbsp;&nbsp;&nbsp;<small id="openRequestNo">单据号:</small>
+					</h1>
+						<form action="" id="pre_see_form" class="form-horizontal">
+							<h2 class="content-title first">1.客户资料</h2>
+							<div class="div-center div-width">
+								<table class="table table-striped table-bordered table-hover table-condense">
+									<tr>
+										<td colspan="1">申请机构名称:</td>
+										<td colspan="3"><span type="text" data-bind="text:regInfoBind().custName"></td>
+									</tr>
+									<tr class="even">
+										<td width="20%">组织机构代码证号:</td>
+										<td width="30%"><span type="text" data-bind="text:regInfoBind().busiLicence"></td>
+										<td width="20%">开户证件有效期:</td>
+										<td width="40%"><span type="text" data-bind="text:regInfoBind().certValidDate"></td>
+									</tr>
+									<!-- <tr>
+										<td>机构营业执照号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().c_busy_code"></td>
+										<td>实际控制人:</td>
+										<td><span type="text" data-bind="text:regInfoBind().custName"></td>
+									</tr>
+									<tr class="even">
+										<td>税务登记证号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().c_tax_code"></td>
+										<td>实际受益人:</td>
+										<td><span type="text" data-bind="text:regInfoBind().c_denifit_name"></td>
+									</tr> -->
+									<!-- <tr>
+										<td colspan="1">机构类型:</td>
+										<td colspan="3">
+											<div class="td-line-checkbox">
+												<span>农林牧渔</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_1,css:{'unchecked':regInfoBind().c_type_1}">
+												<span>建筑制造</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_2">
+												<span>金融地产</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_3">
+												<span>教育卫生</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_4">
+												<span>政府机关</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_5">
+												其他<span type="text" data-bind="text:regInfoBind().c_other" class="input-underline">
+											</div>
+										</td>
+									</tr> -->
+									<tr>
+										<td>营业执照号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().identNo"></td>
+										<td>邮政编码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().zipCode"></td>
+									</tr>
+									<tr class="even">
+										<td colspan="1">通讯地址:</td>
+										<td colspan="3"><span type="text" data-bind="text:regInfoBind().address"></td>
+									</tr>
+									<tr>
+										<td>业务联系电话:</td>
+										<td><span type="text" data-bind="text:regInfoBind().phone"></td>
+										<td>传真:</td>
+										<td><span type="text" data-bind="text:regInfoBind().faxNo"></td>
+									</tr>
+								</table>
+							</div> 
+							<h2 class="content-title">2.交收行信息</h2>
+								<div class="div-center div-width">
+									<table class="table table-striped table-bordered table-hover table-condensed">
+									<tr>
+										<td colspan="1">银行账户名:</td>
+										<td colspan="3"><span type="text" data-bind="text:regInfoBind().bankAcountName"></td>
+									</tr>
+									<tr>
+										<td width="20%">银行账户:</td>
+										<td width="30%"><span type="text" data-bind="text:regInfoBind().bankAccount"></td>
+										<td width="20%">所属银行:</td>
+										<td width="30%">
+											<select disabled="" mapping="initBank" data-bind="value:regInfoBind().bankNo">
+											</select>
+										</td>
+									</tr>
+									<tr class="even">
+										<td width="20%">开户银行所在地:</td>
+										<td width="30%" class="crt_area_info">
+											<select mapping="province" disabled="" name="" id="crt_province" data-bind="value:regInfoBind().provinceNo">
+											</select>
+											<select mapping="city" disabled="" name="" id="crt_city" data-bind="value:regInfoBind().cityNo">
+											</select>
+										</td>
+										<td width="20%">开户银行(全称):</td>
+										<td width="30%"><span type="text" data-bind="text:regInfoBind().bankName"></td>
+										<!-- <td width="20%" rowspan="2">开户证件有效期:</td>
+										<td width="40%" rowspan="2"><span type="text" data-bind="text:regInfoBind().certValidDate"></td>
+									</tr>
+									<tr> -->
+									</tr>
+								</table>
+								</div>
+							<h2 class="content-title">2.经办人、法人信息</h2>
+								<div class="div-center div-width">
+								<table class="table table-striped table-bordered table-hover table-condensed">
+									<tr>
+										<td>经办人姓名:</td>
+										<td><span type="text" data-bind="text:regInfoBind().contName"></td>
+										<td>经办人证件类型:</td>
+										<td>
+											<select disabled="" name="" id="" data-bind="value:regInfoBind().contIdentType" mapping="identity">
+											</select>
+										</td>
+									</tr>
+									<tr class="even">
+										<td width="20%">经办人证件号码:</td>
+										<td width="30%"><span type="text" data-bind="text:regInfoBind().contIdentNo"></td>
+										<td width="20%">经办人证件有效期:</td>
+										<td width="40%"><span type="text" data-bind="text:regInfoBind().contCertValidDate"></td>
+									</tr>
+									<tr>
+										<td>经办人手机:</td>
+										<td><span type="text" data-bind="text:regInfoBind().contMobileNo"></td>
+										<td>经办人邮箱:</td>
+										<td><span type="text" data-bind="text:regInfoBind().contEmail"></td>
+									</tr>
+									<tr class="even"> 
+										<td>经办人联系电话:</td>
+										<td><span type="text" data-bind="text:regInfoBind().contPhone"></td>
+										<td>经办人传真:</td>
+										<td><span type="text" data-bind="text:regInfoBind().contFax"></td>
+									</tr>
+									<!-- <tr>
+										<td>复核人姓名:</td>
+										<td><span type="text" data-bind="text:regInfoBind().checker"></td>
+										<td>复核人证件类型:</td>
+										<td>
+											<div class="td-line-checkbox">
+												<span>身份证</span><input type="checkbox" data-bind="disable:true,checked:regInfoBind().checkerIdentType1">
+												其他<span type="text" data-bind="text:regInfoBind().checkerIdentType" class="input-underline">
+											</div>
+										</td>
+									</tr>
+									<tr class="even">
+										<td>复核人证件号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().checkerIdentCode"></td>
+										<td>证件有效期:</td>
+										<td><span type="text" data-bind="text:regInfoBind().checkerCertValidDate"></td>
+									</tr> -->
+									<tr>
+										<td>法人姓名:</td>
+										<td><span type="text" data-bind="text:regInfoBind().lawName"></td>
+										<td>法人证件类型:</td>
+										<td>
+											<select disabled="" name="" id="" data-bind="value:regInfoBind().lawIdentType" mapping="identity">
+											</select>
+										</td>
+									</tr>
+									<tr class="even">
+										<td>法人证件号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().lawIdentNo"></td>
+										<td>法人证件有效期:</td>
+										<td>
+											<span type="text" data-bind="text:regInfoBind().lawCertValidDate">
+										</td>
+									</tr>
+								</table>
+								</div>
+							<h2 class="content-title">3.已选基金销售机构</h2>
+								<table class="table table-hover table-striped div-center div-width-100 account-list" data-bind="foreach:accountInfoBind">
+									<tr data-bind="foreach:$data,attr:{'index':$index}">
+										<td>
+										<span class="checkCompanyFund" data-bind="text:text" ></span>
+										<input type="checkbox" data-bind="value:value,checked:$parents[1].fundListBind,attr:{'index':$index},disable:true">
+										</td>
+									</tr>
+								</table>
+						</form>
+					</div>
+
+					<!-- 交易类单据 -->
+			        <div id="tradeDetailBox" class="div-width-100 hide">
+				        <div class="div-width-100 div-center detail-box">
+				          <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+				              交易单据&nbsp;&nbsp;&nbsp;&nbsp;<small id="tradeRequestNo">单据号:</small>
+				          </h1>
+				          <table class="table table-striped table-hover div-width-100 div-center">
+				            <tr class="even">
+				              <td>基金名称</td>
+				              <td data-bind="text:tradeInfoBind().fundName+'['+tradeInfoBind().fundCode+']'"></td>
+				            </tr>
+				            <tr>
+				              <td>下单时间</td>
+				              <td data-bind="text:tradeInfoBind().operateTime"></td>
+				            </tr>
+				            <tr class="even">
+				              <td>申请日期</td>
+				              <td data-bind="text:formaterDate(tradeInfoBind().tradeDate)"></td>
+				            </tr>
+				            <tr >
+				              <td>申请金额</td>
+				              <td>
+				                <strong class="red" data-bind="text:tradeInfoBind().disBalance"></strong>元
+				              </td>
+				            </tr>
+				            <tr class="even">
+				              <td>申请份额</td>
+				              <td>
+				                <strong class="red" data-bind="text:tradeInfoBind().disShares"></strong>份
+				              </td>
+				            </tr>
+				            <tr>
+				              <td>确认金额</td>
+				              <td data-bind="text:tradeInfoBind().disConfirmBalance+'元'"></td>
+				            </tr>
+				            <tr class="even">
+				              <td>确认份额</td>
+				              <td data-bind="text:tradeInfoBind().disConfirmShares+'份'"></td>
+				            </tr>
+				            <tr>
+				              <td>确认日期</td>
+				              <td data-bind="text:formaterDate(tradeInfoBind().confirmDate)"></td>
+				            </tr>
+				<!--               <tr class="even">
+				              <td>确认状态</td>
+				              <td data-bind="text:tradeInfoBind().confirmStatus"></td>
+				            </tr> -->
+				            <tr class="even">
+				              <td>交易账户</td>
+				              <td data-bind="text:parseCustNo(tradeInfoBind().custNo)"></td>
+				            </tr>
+				            <tr>
+				              <td>业务类型</td>
+				              <td data-bind="text:parseBusiFlag(tradeInfoBind().businFlag)"></td>
+				            </tr>
+				            <tr class="even">
+				              <td>申请状态</td>
+				              <td class="red" data-bind="text:parseStaus(tradeInfoBind())"></td>
+				            </tr>
+				          </table>
+				        </div>
+				    </div>
+					<!-- 交易类单据END -->
+					
+					<!-- 已有的审核信息展示区域 -->
+					<div id="recheck_info_box" class="hide div-width-100">
+						<h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+						    流程信息
+						</h1>
+						<table class="table table-striped table-bordered table-hover div-width-100">
+							<thead>
+								<td>流程编号</td>
+								<td>流程名称</td>
+								<td>操作人员</td>
+								<td>审批状态</td>
+								<td>执行时间</td>
+							</thead>
+							<tbody data-bind="foreach:flowInfoListBind,visible:flowInfoListBind().length>0">
+								<tr>
+									<td width="25" data-bind="text:taskNo"></td>
+									<td width="25" data-bind="text:taskName"></td>
+									<td width="12.5" data-bind="text:operCode"></td>
+									<td width="12.5" data-bind="text:$parent.formaterFlowAuditStatus(exeStatus)"></td>
+									<td width="25" data-bind="text:$parent.formaterDateTime(operTime)"></td>
+								</tr>
+							</tbody>
+							<tbody data-bind="visible:flowInfoListBind().length<1">
+								<tr>
+									<td colspan="4" class="green">暂无流程信息!</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="center-buttons">
+							<button mapping="goback" class="btn btn-prtimary">返回</button>
+						</div>
+					</div>
+					<!-- 已有的审核信息展示区域END -->
+
+					<!-- 审核区域 -->
+					<div id="unrecheck_info_box" class="hide div-width-100">
+					<h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+					    单据审批
+					</h1>
+					<table class="table table-striped table-bordered table-hover div-width-100">
+						<tr>
+							<td width="20%">选择审核操作</td>
+							<td width="80%">
+								<div id="recheck_list_line" class="td-line-checkbox">
+								    <span>通过</span><input type="radio" name="status" value="1">
+								    <span>不通过</span><input type="radio" name="status" value="0">
+								</div>
+							</td>
+						</tr>
+					</table>
+					<div class="center-buttons">
+						<button mapping="goback" class="btn btn-prtimary">返回</button>
+						<button class="btn btn-primary" data-bind="click:recheck">执行审核</button>
+					</div>
+					</div>
+					<!-- 审核区域END -->
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">seajs.use('p/js/recheckInfo');</script>
+  </body>
+</html>

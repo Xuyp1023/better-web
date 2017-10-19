@@ -1,0 +1,53 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      授信额度变动明细
+      <small class="small-select">
+        <span>企业名称</span>
+        <span class="red" ng-bind="info.custName"></span>
+      </small>
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <form class="form-inline">
+          <label>
+              <span>授信日期</span> <input id="search_start_date" type="text" bt-date="quotaChangeSearch.GTEoccupyDate" bt-max-date="search_end_date"> 到 <input id="search_end_date" type="text" bt-date="quotaChangeSearch.LTEoccupyDate" bt-min-date="search_start_date ">
+          </label> 
+          <button type="button" class="btn btn-primary" ng-click="searchQuotaChangeList();">查询</button>
+      </form>
+      <table class="div-width-100 table table-striped table-hover search-result detail-list">
+          <thead>
+              <tr class="font-size-12 info-title">
+                  <td width="12.5%">变动日期</td>
+                  <td width="12.5%">变动额度</td>
+                  <td width="12.5%">方向</td>
+                  <td width="12.5%">业务单据</td>
+                  <td width="12.5%">业务类型</td>
+                  <td width="12.5%">授信使用企业</td>
+                  <td width="12.5%">状态</td>
+                  <td width="12.5%">备注</td>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-class="{even:$even}" ng-repeat="item in quotaChangeList" ng-repeat-end>
+                  <td ng-bind="item.occupyDate"></td>
+                  <td class="tab-text-right"><strong class="red" ng-bind="item.balance|moneyFilter"></strong></td>
+                  <td ng-bind="item.direction | kindf:'CreditChangeDirection'"></td>
+                  <td><strong class="deep-gray" ng-bind="item.requestNo|emptyf"></strong></td>
+                  <td ng-bind="item.businFlag|kindf:'FactorType'"></td>
+                  <td ng-bind="item.custName"></td>
+                  <td class="red" ng-bind="item.businStatus|kindf:'CreditChangeBusinStatus'"></td>
+                  <td ng-bind="item.description"></td>
+              </tr>
+          </tbody>
+          <tfoot>
+              <td colspan="8">
+                  <div bt-pagination conf="quotaChangeListPage" func="queryQuotaChange(false);"></div>
+              </td>
+          </tfoot>
+      </table>
+    </div>
+
+    <div class="center-buttons">
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

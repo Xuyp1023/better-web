@@ -1,0 +1,71 @@
+<div class="div-width-90 div-center detail-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+    息费豁免
+  </h1>
+  
+  <table class="table table-striped table-hover table-bordered table-condensed">
+    <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">豁免信息</span>
+    </caption>
+    <thead>
+      <tr class="result-head-gray">
+        <td width="20%"></td>
+        <td width="20%">贷款余额</td>
+        <td width="25%">豁免金额</td>
+        <td width="35%">金额大写(豁免)</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>本金</td>
+        <td class="tab-text-right"><span ng-bind="info.payPlan.surplusPrincipalBalance|moneyFilter"></span></td>
+        <td class="tab-text-right"><input type="text" ng-model="exemptInfo.principalBalance" ></td>
+        <td class="tab-text-right"><strong class='deep-gray' ng-bind="exemptInfo.principalBalance|moneybigf"></strong></td>
+      </tr>
+      <tr>
+        <td>利息</td>
+        <td class="tab-text-right"><span ng-bind="info.payPlan.surplusInterestBalance|moneyFilter"></span></td>
+        <td class="tab-text-right"><input type="text" ng-model="exemptInfo.interestBalance" ></td>
+        <td class="tab-text-right"><strong class='deep-gray' ng-bind="exemptInfo.interestBalance|moneybigf"></strong></td>
+      </tr>
+      <tr>
+        <td>罚息</td>
+        <td class="tab-text-right"><span ng-bind="info.payPlan.surplusPenaltyBalance|moneyFilter"></span></td>
+        <td class="tab-text-right"><input type="text" ng-model="exemptInfo.penaltyBalance" ></td>
+        <td class="tab-text-right"><strong class='deep-gray' ng-bind="exemptInfo.penaltyBalance|moneybigf"></strong></td>
+      </tr>
+      <tr>
+        <td>滞纳金</td>
+        <td class="tab-text-right"><span ng-bind="info.payPlan.surplusLatefeeBalance|moneyFilter"></span></td>
+        <td class="tab-text-right"><input type="text" ng-model="exemptInfo.latefeeBalance" ></td>
+        <td class="tab-text-right"><strong class='deep-gray' ng-bind="exemptInfo.latefeeBalance|moneybigf"></strong></td>
+      </tr>
+      <tr>
+        <td>其他费用</td>
+        <td class="tab-text-right"><span ng-bind="info.payPlan.surplusManagementBalance|moneyFilter"></span></td>
+        <td class="tab-text-right"><input type="text" ng-model="exemptInfo.managementBalance" ></td>
+        <td class="tab-text-right"><strong class='deep-gray' ng-bind="exemptInfo.managementBalance|moneybigf"></strong></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <table class="table table-striped table-hover table-bordered">
+    <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">本次豁免信息确认</span>
+    </caption>
+    <tbody>
+      <tr>
+        <td width="15%">申请编号</td>
+        <td width="35%" class="red" ng-bind="exemptInfo.requestNo"></td>
+        <td width="15%">豁免总额</td>
+        <td width="35%" class="red tab-text-right" ><span ng-bind="{{exemptInfo.managementBalance + exemptInfo.latefeeBalance + exemptInfo.penaltyBalance+ exemptInfo.interestBalance + exemptInfo.principalBalance;}}"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="center-buttons">
+    <button class="btn btn-primary" ng-click="addExemptInfo($event.target);">确认</button>
+    <button class="btn btn-primary" bt-close-modal >返回</button>
+  </div>
+</div>

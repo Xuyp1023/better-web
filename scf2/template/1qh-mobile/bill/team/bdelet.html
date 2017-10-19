@@ -1,0 +1,78 @@
+  <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">删除
+                    </h1>
+                    <table class="table table-striped table-bordered table-hover">
+			            <thead>
+			             <tr>
+			                <td width="20%">名称:</td>
+			                <td width="80%" class="div-text-left">
+			                    
+                          		<span ng-bind="custINfo.coreCustName"></span>
+			                </td>
+			              </tr>
+			              <tr style="border-bottom: 1px solid #ddd;">
+			                <td>默认:</td>
+			                <td class="div-text-left">
+			                    <input name="hedelet" type="radio" style="width:auto !important; margin-bottom:5px;" ng-model="custINfo.isLatest" value="1" disabled>&nbsp;是 
+			                    <input name="hedelet" type="radio" style="width:auto !important; margin-bottom:5px;" ng-model="custINfo.isLatest" value="0" disabled>&nbsp;否
+			                </td>
+			              </tr>             
+			              <tr>
+			                <td>类型:</td>
+			                <td class="div-text-left">
+			                  <input  name="genrendelet" type="radio" value="1"  ng-model="custINfo.coreInfoType"  disabled style="width:auto !important; margin-bottom:5px;">&nbsp;企业 
+			                    <input  name="genrendelet" type="radio" value="0" ng-model="custINfo.coreInfoType" disabled style="width:auto !important; margin-bottom:5px;">&nbsp;个人
+			                </td>
+			              </tr>                  
+			            </thead>
+			            <tbody ng-show="radiotype">
+			            	<tr>
+			            		<td width="20%">*纳税人识别号:</td>
+			            		<td width="80%" class="div-text-left">
+			            			<input type="text" style="width: 88% !important;" ng-model="custINfo.coreTaxPayerNo" disabled>
+			            		</td>
+			            	</tr>
+			            	<tr>
+			            		<td>*开户银行:</td>
+			            		<td class="div-text-left">
+			            			<input type="text" style="width: 88% !important;" ng-model="custINfo.coreBank" disabled>
+			            		</td>
+			            	</tr>
+			            	<tr>
+			            		<td>*银行账号:</td>
+			            		<td class="div-text-left">
+			            			<input type="text" style="width: 88% !important;" ng-model="custINfo.coreBankAccount" disabled>
+			            		</td>
+			            	</tr>
+			            	<tr>
+			            		<td>*电话:</td>
+			            		<td class="div-text-left"> 
+			            			<input type="text" style="width: 88% !important;" ng-model="custINfo.corePhone" disabled>
+			            		</td>
+			            	</tr>
+			            	<tr>
+			            		<td>*地址:</td>
+			            		<td class="div-text-left">
+			            			<input type="text" style="width: 88% !important;" ng-model="custINfo.coreAddress" disabled>
+			            		</td>
+			            	</tr>
+			            </tbody>
+			            <tbody ng-show="rediotype">
+			            	<tr>
+			            		<td>*电话:</td>
+			            		<td class="div-text-left">
+			            			<input type="text" style="width: 88% !important;" ng-model="custINfo.corePhone" disabled>
+			            		</td>
+			            	</tr>
+       			 </table>
+         <div class="center-buttons">
+          <button class="btn btn-primary" ng-click="deletinfoList($event.target,custINfo.id);">删除</button>
+          <button class="btn btn-primary" ng-Click="goback()">返回</button>
+        </div>
+            </div>                 
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,33 @@
+{
+    "message": "更新合同成功，请复核",
+    "data": {
+        "id": 18,
+        "agreeName": "asdasd",
+        "agreeNo": "dsad",
+        "supplier": "深圳市华强公益基金会1",
+        "buyer": "深圳前海拜特测试1",
+        "supplierLinkman": "dsadas",
+        "buyerLinkman": "asdsad",
+        "balance": 100000,
+        "deliveryDate": "20160405",
+        "deliveryAddr": "asdasd",
+        "checkAccept": "dsa",
+        "objectionPeriod": "123",
+        "bankAccount": "46513132132132465",
+        "bankName": "asdsad",
+        "bankAccountName": "",
+        "agreeStartDate": "20160405",
+        "agreeEndDate": "20160705",
+        "regDate": "20160405",
+        "modiDate": "20160405",
+        "status": "0",
+        "buyerNo": 100000170,
+        "supplierNo": 100000156,
+        "operCode": "9857",
+        "operName": "欧尼",
+        "operOrg": "aXXAAAFWQWEQWEQWEEQWEXXXXddpppp",
+        "batchNo": 62
+    },
+    "page": "",
+    "code": 200
+}

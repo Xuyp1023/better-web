@@ -1,0 +1,105 @@
+.
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">银行保理融资申请
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                     
+                      <tr>
+                        <td width="25%">申请企业:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.custNo">
+                            <option ng-repeat="item in financeCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+                          </select>
+                        </td>
+                      </tr>       
+                      <tr>
+                        <td>申请日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEregDate">-
+                          <input type="text" id="end_date" bt-date="searchData.LTEregDate">
+                        </td>
+                      </tr>                      
+                      <tr>
+                        <td width="25%">融资银行:</td>
+                        <td width="75%" class="div-text-left">                          
+                          <select ng-model="searchData.factorNo">
+                            <option value="">----所有----</option>
+                            <option ng-repeat="item in factorList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.factorNo == item.value"></option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>                        
+                        <td width="25%">状态:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.businStatus">
+                            <option value="">----所有----</option>
+                            <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>                            
+                          </select>
+                        </td>                        
+                      </tr>   
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+                        银行保理融资记录
+                        </h1>
+
+                        <form class="form-inline">  
+                            <button type="button" class="btn btn-info" ng-click="addInfoBox();">+新增申请</button>
+                            &nbsp;&nbsp;<span>单位：元</span>
+                        </form>
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                            <thead class="result-head">
+                                <tr class="font-size-12 info-title">
+                                    <td width="15%">申请编号</td>
+                                    <td width="15%">银行名称</td>
+                                    <td width="15%">申请融资金额</td>
+                                    <td width="10%">应收账款总额</td>
+                                    <td width="15%">申请日期</td>                                    
+                                    <td width="15%">状态</td>
+                                    <td width="15%">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                                    <td ng-bind="item.requestNo"></td>
+                                    <td ng-bind="item.custBankName"></td>
+                                    <td ng-bind="item.requestBalance|moneyFilter"></td>
+                                    <td>
+                                        <span ng-bind="item.balance|moneyFilter"></span>
+                                        
+                                    </td>
+                                    <td ng-bind="item.regDate"></td>   
+                                    <td>  <span ng-bind="item.businStatus|kindf:'ReceivbaleRequestModeFourStatus' "></span>    </td>                       
+                                                         
+                                    <td>
+                                        <a href="javascript:void(0);" ng-click="lookDetail(item);">查看</a>                                            
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="10">
+                                    <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                                </td>
+                            </tfoot>
+                        </table>
+                    </div>
+                
+                <!-- 温馨提示END -->
+                <!-- 查看详情 -->
+                <div id="lookDetail" bt-roll-modal="template/prePay_1/purchaser/temp/apply.detail.html" bt-z-index="9993"></div>
+             
+            
+        </div>
+    </div>
+
+
+

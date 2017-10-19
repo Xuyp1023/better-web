@@ -1,0 +1,46 @@
+<div class="div-width-90 detail-box div-center">
+
+    <div class="div-center div-width div-margin-top">
+    <form action="" id="" class="form-horizontal ng-pristine ng-valid">
+      <div class="div-center div-width div-margin-top">
+        <!-- 合作企业新增 -->
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <caption class="table-caption table-caption-green clearFix">
+              <span class="title-left">合作企业</span>
+            </caption>
+          <tbody>
+           <tr>
+            <td width="20%"><span class="required">*</span>企业名称:</td>
+            <td width="30%" class="div-text-left"><input type="text" ng-model="cooperationInfo.corpName"></td>
+            <td width="20%"><span class="required">*</span>合作方式:</td>
+            <td width="30%" class="div-text-left">
+               <select ng-model="cooperationInfo.coopType">
+                <option ng-repeat="item in cooperationTypes" value="{{item.value}}" ng-bind="item.name" ng-selected="cooperationInfo.coopType == item.value"></option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>近一年发生额:</td>
+             <td class="div-text-left"><input type="text" ng-model="cooperationInfo.balance"></td>
+            <td>业务占比:</td>
+            <td class="div-text-left"><input type="text" ng-model="cooperationInfo.businRate"></td>
+          </tr>
+          <tr>
+            <td><span class="required">*</span>结算方式:</td>
+             <td class="div-text-left">
+                <select ng-model="cooperationInfo.payType">
+                  <option ng-repeat="item in settlementTypes" value="{{item.value}}" ng-bind="item.name" ng-selected="cooperationInfo.payType == item.value"></option>
+                </select>
+             </td>
+            <td>合作年限:</td>
+            <td class="div-text-left"><input type="text" ng-model="cooperationInfo.duration"></td>
+          </tr>
+          </tbody>
+        </table>
+    </div>
+
+         <div class="center-buttons">
+           <button class="btn btn-primary" ng-click="addRecord($event.target,'cooperation');">保存</button>
+           <button class="btn btn-primary" bt-close-modal >返回</button>
+         </div>
+    </div> 

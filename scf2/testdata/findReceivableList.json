@@ -1,0 +1,51 @@
+{
+  "message": "应收账款查询成功",
+  "data": [
+    {
+      "id": 1,
+      "receivableNo": "201507020001",
+      "custNo": 102202021,
+      "creditor": "债权人",
+      "debtor": "债务人",
+      "goodsName": "商品名称",
+      "unit": 12,
+      "amount": 10000,
+      "balance": 120000,
+      "endDate": "2016-07-28",
+      "regDate": "2016-07-28",
+      "modiDate": "2016-08-17",
+      "modiTime": "095927",
+      "businStatus": "0",
+      "batchNo": "",
+      "description": "",
+      "orderList": "",
+      "invoiceList": "",
+      "transportList": "",
+      "acceptBillList": ""
+    },
+    {
+      "id": 2,
+      "receivableNo": "201507020002",
+      "custNo": 102202021,
+      "creditor": "xiugai债权人",
+      "debtor": "xiugai债务人",
+      "goodsName": "xiugai商品名称",
+      "unit": 10,
+      "amount": 10000,
+      "balance": 100000,
+      "endDate": "2016-07-27",
+      "regDate": "2016-07-28",
+      "modiDate": "2016-07-28",
+      "modiTime": "170600",
+      "businStatus": "0",
+      "batchNo": "",
+      "description": "",
+      "orderList": "",
+      "invoiceList": "",
+      "transportList": "",
+      "acceptBillList": ""
+    }
+  ],
+  "page": "",
+  "code": 200
+}

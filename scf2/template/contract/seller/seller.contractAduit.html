@@ -1,0 +1,51 @@
+<div class="top-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue div-margin-bottom-none"><img src="img/operator.png" alt="">
+    贸易合同台账审核
+  </h1>
+  <div>
+    <form class="form-inline">
+      <label><span>按合同状态过滤:</span>
+        <select ng-model="searchData.businStatus" class="div-width-200" ng-change="queryList(true)">
+          <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+        </select>
+      </label>
+    </form>
+
+    <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+            <tr class="result-head">
+              <td width="15%">合同编号</td>
+              <td width="15%">合同名称</td>
+              <td width="15%">买方</td>
+              <td width="15%">卖方</td>
+              <td width="10%">合同金额</td>
+              <td width="10%">登记日期</td>
+              <td width="10%">状态</td>
+              <td width="10%">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td ng-bind="item.agreeNo"></td>
+            <td ng-bind="item.agreeName"></td>
+            <td ng-bind="item.buyer"></td>
+            <td ng-bind="item.supplier"></td>
+            <td ng-bind="item.balance"></td>
+            <td ng-bind="item.regDate"></td>
+            <td ng-bind="item.businStatus|kindf:'AgreementTypeStatus'"></td>
+            <td>
+              <a href="javascript:void(0);" ng-click="showAduitPage(item.id,'1')" ng-show="item.businStatus==0">审核</a>
+              &nbsp;&nbsp;
+              <a href="javascript:void(0);" ng-click="showAduitPage(item.id,'0')" ng-show="item.businStatus==1">取消审核</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="8">
+                <div bt-pagination conf="listPage" func="queryList(true)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+  </div>
+</div>

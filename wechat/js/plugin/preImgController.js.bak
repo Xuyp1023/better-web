@@ -1,0 +1,21 @@
+
+exports.installController = function(mainApp,common){
+
+	mainApp.controller('preImgController',['$scope','muiSupport','http','$rootScope','$route',function($scope,muiSupport,http,$rootScope,$route){
+
+		$scope.fileId = '';
+		$scope.preType = '';
+
+		/*获取数据区域*/
+
+		/*控制器执行入口*/
+		$scope.$on('$routeChangeSuccess',function(){
+			//创建单项选择
+			var id = $route.current.pathParams.id,
+			preArray = id.split(',');
+			$scope.fileId = preArray[0];
+			$scope.preType = preArray[1];
+		});
+	}]);
+
+}

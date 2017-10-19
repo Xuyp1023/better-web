@@ -1,0 +1,113 @@
+<div class="div-width-90 detail-box div-center">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    电子合同服务企业注册
+  </h1>
+  <div  class="row-fluid div-center div-margin-top">
+
+    <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">基本信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="title">合同服务商:</span>
+            </td>
+            <td width="40%">
+            <select ng-model="corpInfo.serviceCustNo" >
+              <option ng-repeat="item in serviceCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="corpInfo.serviceCustNo == item.value"></option>
+            </select>
+            </td>
+            <td width="40%" class="div-text-left"></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="title">企业名称:</span>
+            </td>
+            <td>
+            <select ng-model="corpInfo.custNo" ng-change="checkCorp();">
+              <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="corpInfo.custNo == item.value"></option>
+            </select>
+            </td>
+            <td class="div-text-left"></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              
+            <span class="required">*</span>
+              <span class="title">证件形式:</span>
+            </td>
+            <td>
+              <label style="display: inline-block;">三证合一
+                <input style="width: 30px !important;vertical-align: inherit;" type="radio" ng-model="corpInfo.orgRegType" ng-value="0"></label>
+              <label style="display: inline-block;">一证一码
+                <input style="width: 30px !important;vertical-align: inherit;" type="radio" ng-model="corpInfo.orgRegType" ng-value="1"></td></label>
+            <td class="div-text-left"><span class="info"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              
+            <span class="required">*</span>
+              <span class="title" ng-show="corpInfo.orgRegType == 0">证件号码:</span>
+              <span class="title" ng-show="corpInfo.orgRegType == 1">组织机构代码号:</span>
+            </td>
+            <td><input type="text" ng-model="corpInfo.orgCode"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="title">注册类型:</span>
+            </td>
+            <td>
+            <select ng-model="corpInfo.type" ng-change="checkStamper();">
+              <option ng-repeat="item in regTypeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="corpInfo.type == item.value"></option>
+            </select>
+            </td>
+            <td class="div-text-left"></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">姓名:</span>
+            </td>
+            <td><input type="text" ng-model="corpInfo.name"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">身份证号:</span>
+            </td>
+            <td><input type="text" ng-model="corpInfo.identNo">
+            <input type="hidden" ng-model="corpInfo.identType">
+            <input type="hidden" ng-model="corpInfo.idType"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位</span></td>
+          </tr>
+          
+          <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">手机号码:</span>
+            </td>
+            <td><input type="text" ng-model="corpInfo.mobileNo"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位，由数字组成</span></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="center-buttons" >
+        <button class="btn btn-primary" ng-click="registCorpAccount($event.target)">注册</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+
+
+    <!-- 附件上传 start -->
+    <div bt-upload conf="uploadConf"></div>
+
+</div>
+      

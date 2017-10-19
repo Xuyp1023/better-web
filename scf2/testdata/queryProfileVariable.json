@@ -1,0 +1,19 @@
+{
+    "message": "模板预定规则-列表查询 成功",
+    "data": [
+        {
+            "id": 20001,
+            "variableName": "#发送人#",
+            "variableValue": "${sendOperator.name}",
+            "variableMark": "发送人"
+        },
+        {
+            "id": 20002,
+            "variableName": "#发送机构#",
+            "variableValue": "${sendCustomer.custName}",
+            "variableMark": "发送人"
+        }
+    ],
+    "page": "",
+    "code": 200
+}

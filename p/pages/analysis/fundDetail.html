@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>交易查询</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/fundDetail.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" class="span12">
+
+          <div id="wealth_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/info_money.png" alt="">
+              总资产      <small><span class="busyValue">市值：</span><span class="red" data-bind="text:formaterMoney(totalFundInfoBind().totalBalance)"></span>元<span class="busyProLoss">盈亏：</span><span class="red" data-bind="text:formaterMoney(totalFundInfoBind().floatProfit)"></span> 元</small>
+              <div id="search_info">
+                <span class="lab">交易账户:</span>
+                <select id="search_cust_list">
+                </select>
+              </div>
+            </h1>
+            <div class="tabbable tabs-left detail">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#lA" data-toggle="tab">基金信息</a></li>
+                <li class=""><a href="#lB" data-toggle="tab">保理产品</a></li>
+                <li class=""><a href="#lC" data-toggle="tab">信贷产品</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="lA">
+                  <table id="fund_info_table" class="div-width-100 table table-striped table-hover search-result">
+                    <thead>
+                      <tr>
+                        <td width="10%">基金名称</td>
+                        <td width="10%">单位净值</td>
+                        <!-- <td width="10%">持有份额</td> -->
+                        <td width="10%">可用份额</td>
+                        <!-- <td width="10%">未结转收益</td> -->
+                        <td width="10%">资产估值</td>
+                        <td width="10%">浮动盈亏</td>
+                        <!-- <td width="10%">分红方式</td> -->
+                        <td width="10%">交易账户</td>
+                        <td width="10%">操作</td>
+                        <!-- <td width="10%">变动日期</td> -->
+                      </tr>
+                    </thead>
+                    <tbody data-bind="foreach:fundDetailListBind">
+                      <tr data-bind="css:{'even':$index()%2==0}">
+                        <td>
+                          <a data-bind="attr:{href:$parent.formaterFundDetail($data)}">
+                            <span data-bind="text:fundName"></span><br>
+                            <span data-bind="text:fundCode"></span>
+                          </a>
+                        </td>
+                        <td data-bind="text:$parent.formaterPoint4(netValue)"></td>
+                        <!-- <td data-bind="text:disShares"></td> -->
+                        <td class="red"><strong data-bind="text:disValidShares"></strong></td>
+                        <!-- <td data-bind="text:$parent.formaterMoney(income)">1110.0</td> -->
+                        <td data-bind="text:$parent.formaterMoney(totalBalance)"></td>
+                        <td class="red" data-bind="text:$parent.formaterMoney(floatProfit)"></td>
+                        <!-- <td data-bind="text:$parent.parseBousType(bonusType)"></td> -->
+                        <td data-bind="text:$parent.parseCustNo(custNo)"></td>
+<!--                    <td data-bind="text:$parent.formaterDate(modiDate)"></td>-->                      
+                        <td><a href="#" data-bind="click:$parent.showfundDetail">详情</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tab-pane" id="lB">
+                  <p>敬请期待！</p>
+                </div>
+                <div class="tab-pane" id="lC">
+                  <p>敬请期待！</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 基金详情窗口 -->
+          <div id="fund_detail_box" class="hide">
+          <div class="div-width-90 div-center detail-box">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+                查询结果
+            </h1>
+            <table class="table table-striped table-hover div-width-100 div-center">
+              <tr class="even">
+                <td>基金名称</td>
+                <td data-bind="text:fundDetailInfoBind().fundName+'['+fundDetailInfoBind().fundCode+']'"></td>
+              </tr>
+              <tr>
+                <td>单位净值</td>
+                <td data-bind="text:formaterPoint4(fundDetailInfoBind().netValue)"></td>
+              </tr>
+              <tr class="even">
+                <td>持有份额</td>
+                <td data-bind="text:fundDetailInfoBind().disShares"></td>
+              </tr>
+              <tr >
+                <td>可用份额</td>
+                <td>
+                  <strong class="red" data-bind="text:fundDetailInfoBind().disValidShares"></strong>元
+                </td>
+              </tr>
+              <tr class="even">
+                <td>未结转收益</td>
+                <td>
+                  <strong class="red" data-bind="text:formaterMoney(fundDetailInfoBind().income)"></strong>
+                </td>
+              </tr>
+              <tr>
+                <td>资产估值</td>
+                <td data-bind="text:formaterMoney(fundDetailInfoBind().totalBalance)"></td>
+              </tr>
+              <tr class="even">
+                <td>浮动盈亏</td>
+                <td data-bind="text:formaterMoney(fundDetailInfoBind().floatProfit)"></td>
+              </tr>
+              <tr>
+                <td>分红方式</td>
+                <td data-bind="text:parseBousType(fundDetailInfoBind().bonusType)"></td>
+              </tr>
+             <tr class="even">
+                <td>交易账户</td>
+                <td data-bind="text:parseCustNo(fundDetailInfoBind().custNo)"></td>
+              </tr> 
+              <tr class="even">
+                <td>变动日期</td>
+                <td data-bind="text:formaterDate(fundDetailInfoBind().modiDate)"></td>
+              </tr>
+            </table>
+            <div class="center-buttons">
+              <a href="#" data-dismiss="modal" aria-hidden="true" class="btn btn-primary close-tipbar">返回</a>
+            </div>
+          </div>
+          </div>
+
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">seajs.use('p/js/fundDetail');</script>
+  </body>
+</html>

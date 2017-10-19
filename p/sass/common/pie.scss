@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* IE兼容配置 */
+
+$htcUrl:url(../../css/common/pie/PIE.htc);
+
+@mixin plus-ie($position:relative,$zIndex:10){
+	behavior:$htcUrl ;
+	    	position:$position;
+	    	z-index:$zIndex;
+}
+
+//IE兼容代码段
+@mixin plus-ie-toolbar($zIndex:500){
+	behavior: $htcUrl;
+	z-index:$zIndex;
+}

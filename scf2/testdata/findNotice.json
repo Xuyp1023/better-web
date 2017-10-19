@@ -1,0 +1,18 @@
+{ "message": "公告详情-查询成功", 
+	"data": { "id": 7, 
+	"subject": "测试一下", 
+	"content": "5LuO5L+d55CG5YWs5Y+45Y+R57uZ5aSn5a6255qE5YWs5ZGK", 
+	"publishDate": "2016-08-16", 
+	"publishTime": "14:02:23", 
+	"batchNo": "", 
+	"businStatus": "0", 
+	"custNo": 102200934, 
+	"custName": "百乐润小微保理(深圳)有限公司", 
+	"receiveOperId": "", 
+	"receiveOperName": "", 
+	"receiveCustNo": "", 
+	"receiveCustName": "", 
+	"targetCust":"100000172"
+}, 
+	"page": "", 
+	"code": 200 }

@@ -1,0 +1,182 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      基础信息变更审核
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">基础信息变更详情</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%"></td>
+            <td width="35%">改前值</td>
+            <td width="35%">改后值</td>
+            <td width="10%">是否改变</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.custName!=basicInfo.befData.custName]">
+            <td>企业名称</td>
+            <td ng-bind="basicInfo.befData.custName"></td>
+            <td ng-bind="basicInfo.nowData.custName"></td>
+            <td ng-bind="basicInfo.nowData.custName!=basicInfo.befData.custName?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.businLicence!=basicInfo.befData.businLicence]">
+            <td>工商登记号</td>
+            <td ng-bind="basicInfo.befData.businLicence"></td>
+            <td ng-bind="basicInfo.nowData.businLicence"></td>
+            <td ng-bind="basicInfo.nowData.businLicence!=basicInfo.befData.businLicence?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.regAddress!=basicInfo.befData.regAddress]">
+            <td>注册地址</td>
+            <td ng-bind="basicInfo.befData.regAddress"></td>
+            <td ng-bind="basicInfo.nowData.regAddress"></td>
+            <td ng-bind="basicInfo.nowData.regAddress!=basicInfo.befData.regAddress?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.regCapital!=basicInfo.befData.regCapital]">
+            <td>注册资本</td>
+            <td ng-bind="basicInfo.befData.regCapital"></td>
+            <td ng-bind="basicInfo.nowData.regCapital"></td>
+            <td ng-bind="basicInfo.nowData.regCapital!=basicInfo.befData.regCapital?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.paidCapital!=basicInfo.befData.paidCapital]">
+            <td>实收资本</td>
+            <td ng-bind="basicInfo.befData.paidCapital"></td>
+            <td ng-bind="basicInfo.nowData.paidCapital"></td>
+            <td ng-bind="basicInfo.nowData.paidCapital!=basicInfo.befData.paidCapital?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.businScope!=basicInfo.befData.businScope]">
+            <td>经营范围</td>
+            <td ng-bind="basicInfo.befData.businScope"></td>
+            <td ng-bind="basicInfo.nowData.businScope"></td>
+            <td ng-bind="basicInfo.nowData.businScope!=basicInfo.befData.businScope?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.corpType!=basicInfo.befData.corpType]">
+            <td>公司类型</td>
+            <td ng-bind="basicInfo.befData.corpType|kindf:'CorpType'"></td>
+            <td ng-bind="basicInfo.nowData.corpType|kindf:'CorpType'"></td>
+            <td ng-bind="basicInfo.nowData.corpType!=basicInfo.befData.corpType?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.phone!=basicInfo.befData.phone]">
+            <td>联系电话</td>
+            <td ng-bind="basicInfo.befData.phone"></td>
+            <td ng-bind="basicInfo.nowData.phone"></td>
+            <td ng-bind="basicInfo.nowData.phone!=basicInfo.befData.phone?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.email!=basicInfo.befData.email]">
+            <td>电子邮箱</td>
+            <td ng-bind="basicInfo.befData.email"></td>
+            <td ng-bind="basicInfo.nowData.email"></td>
+            <td ng-bind="basicInfo.nowData.email!=basicInfo.befData.email?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.zipCode!=basicInfo.befData.zipCode]">
+            <td>邮政编码</td>
+            <td ng-bind="basicInfo.befData.zipCode"></td>
+            <td ng-bind="basicInfo.nowData.zipCode"></td>
+            <td ng-bind="basicInfo.nowData.zipCode!=basicInfo.befData.zipCode?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.address!=basicInfo.befData.address]">
+            <td>联系地址</td>
+            <td ng-bind="basicInfo.befData.address"></td>
+            <td ng-bind="basicInfo.nowData.address"></td>
+            <td ng-bind="basicInfo.nowData.address!=basicInfo.befData.address?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.premisesAddress!=basicInfo.befData.premisesAddress]">
+            <td>场地地址</td>
+            <td ng-bind="basicInfo.befData.premisesAddress"></td>
+            <td ng-bind="basicInfo.nowData.premisesAddress"></td>
+            <td ng-bind="basicInfo.nowData.premisesAddress!=basicInfo.befData.premisesAddress?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.premisesType!=basicInfo.befData.premisesType]">
+            <td>场地类型</td>
+            <td ng-bind="basicInfo.befData.premisesType|kindf:'PremisesType'"></td>
+            <td ng-bind="basicInfo.nowData.premisesType|kindf:'PremisesType'"></td>
+            <td ng-bind="basicInfo.nowData.premisesType!=basicInfo.befData.premisesType?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.premisesArea!=basicInfo.befData.premisesArea]">
+            <td>场地面积</td>
+            <td ng-bind="basicInfo.befData.premisesArea"></td>
+            <td ng-bind="basicInfo.nowData.premisesArea"></td>
+            <td ng-bind="basicInfo.nowData.premisesArea!=basicInfo.befData.premisesArea?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[basicInfo.nowData.premisesYear!=basicInfo.befData.premisesYear]">
+            <td>使用期限</td>
+            <td ng-bind="basicInfo.befData.premisesYear"></td>
+            <td ng-bind="basicInfo.nowData.premisesYear"></td>
+            <td ng-bind="basicInfo.nowData.premisesYear!=basicInfo.befData.premisesYear?'是':'否'"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">基础信息附件(变更前)</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%">序号</td>
+            <td width="35%">附件类型</td>
+            <td width="35%">附件名称</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="file in basicUploadList_bef" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="$index +1"></td>
+            <td>基本信息附件</td>
+            <td>
+              <a href=""><span ng-bind="file.fileName"></span></a>
+            </td>
+            <td><a href="{{file.id|downf}}">下载</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">基础信息附件(变更后)</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%">序号</td>
+            <td width="35%">附件类型</td>
+            <td width="35%">附件名称</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="file in basicUploadList_now" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="$index +1"></td>
+            <td>基本信息附件</td>
+            <td>
+              <a href=""><span ng-bind="file.fileName"></span></a>
+            </td>
+            <td><a href={{file.id|downf}}>下载</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered">
+          <tbody>
+            <tr>
+              <td  width="20%">备注:</td>
+              <td  colspan="3"><textarea ng-model="pageInfo.reason"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-show="basicInfo.changeApply.businStatus==0" ng-click="auditChangePass($event.target,'basic');">审核通过</button>
+        <button class="btn btn-danger" ng-show="basicInfo.changeApply.businStatus==0" ng-click="auditChangeReject($event.target,'basic');">驳回变更</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

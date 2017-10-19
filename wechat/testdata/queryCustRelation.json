@@ -1,0 +1,13 @@
+{
+    "message": "获取授信详细成功",
+    "data": [{
+            "relateCustname":"前海拜特互联网金融有限公司",
+            "status":"4",
+            "relateType":0
+        },{
+            "relateCustname":"广西建工集团有限责任公司",
+            "status":"2",
+            "relateType":1
+        }],
+    "code": 200
+}

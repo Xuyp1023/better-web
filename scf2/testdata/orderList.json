@@ -1,0 +1,34 @@
+{
+    "message": "订单列表",
+    "data": [
+    {
+        "orderNo":"DD-01",
+        "coreCustNo":"HEX-1",
+        "balance":"1000000.00",
+        "orderDate":"2015-03-12",
+        "endDate":"2016-02-15",
+        "goodsName":"水泥",
+        "unit":"吨",
+        "amount":"2000",
+        "settlement":"JS_1"
+    },{
+        "orderNo":"DD-02",
+        "coreCustNo":"HEX-3",
+        "balance":"320000.00",
+        "orderDate":"2015-03-12",
+        "endDate":"2016-02-15",
+        "goodsName":"钢铁",
+        "unit":"吨",
+        "amount":"1250",
+        "settlement":"JS_2"
+    }
+     
+    ],
+    "page": {
+          "pageNum": 1,
+          "pageSize": 10,
+          "pages": 1,
+          "total": 2
+    },
+    "code": 200
+}

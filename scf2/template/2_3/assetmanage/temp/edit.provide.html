@@ -1,0 +1,98 @@
+ <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed"><img src="img/fast_money.png" alt="">编辑票据附件
+                    </h1>
+                   <div class="details_style">
+                    <!-- 发票编号 -->
+                    <span class="number_one" ng-bind='infoDetail.billNo'></span>
+                    <span class="number_two" ng-bind='infoDetail.billNo2'></span>
+                    <!-- 出票日期 -->
+
+                    <span class="spa_y" ng-bind=" infoDetail.invoiceDate | numberFilter:1"></span>
+                    <span class="spa_m" ng-bind=" infoDetail.invoiceDate | numberFilter:2"></span>
+                    <span class="spa_d" ng-bind=" infoDetail.invoiceDate | numberFilter:3"></span>
+                    <!-- 付款人：全称、账号、开户银行 -->
+                    <span class="payer_name " ng-bind='infoDetail.buyer' ></span>
+                    <span class=" payer_id" ng-bind='infoDetail.buyerBankAccount'></span>
+                    <span class=" payer_bank" ng-bind='infoDetail.buyerBankName'></span>
+
+
+                    <!-- 收款人：全称、账户、开户银行 -->
+                    <span class="payee_name " ng-bind='infoDetail.supplier'></span>
+                    <span class="payee_id" ng-bind='infoDetail.suppBankAccount'></span>
+                    <span class="payee_bank"  ng-bind='infoDetail.suppBankName'></span>
+                    <!-- 金额个十百千万单位、大写 -->
+                    <span class="spa_money" ng-bind='infoDetail.balanceTwo' ></span>
+                    <span class="bigspa_money" ng-bind='infoDetail.balance | moneybigf' ></span>
+                    <!-- 汇票到期时间 -->
+
+                    <span class="apa_y" ng-bind='infoDetail.endDate | numberFilter:0 '></span>
+
+
+                    <!-- 合同交易码、行号 -->
+                    <span class="apa_Numb" ng-bind='infoDetail.agreeNo'></span>
+                    </div>
+                    <div class="details_table">
+                          <ul>
+                            <li class="div-width-20">
+                              <span>票据状态:</span>
+                              <span ng-bind="infoDetail.businStatus | kindf :'billVersionBusinStatus'"></span>
+                            </li>
+                             <li class="div-width-20">
+                              <span>使用状态:</span>
+                              <span ng-bind="infoDetail.businStatus | kindf :'effectiveVersionUsingBusinStatus'"></span>
+                            </li>
+                             <li class="div-width-25">
+                              <span>登记人:</span>
+                              <span ng-bind='infoDetail.modiOperName'></span>
+                            </li>
+                             <li class="div-width-30">
+                              <span>登记时间:</span>
+                              <span ng-bind='infoDetail.regDate'></span>
+                            </li>
+
+                          </ul>
+                     </div>
+                    
+                      <!-- 附件列表 -->
+                              <table class="table table-striped table-hover table-bordered">
+                                  <caption class="table-caption table-caption-green clearFix">
+                                    <span class="title-left">附件列表</span>
+                                    <button class="btn btn-info btn-right"  ng-click="openUpload($event,'billFile','票据','uploadList')">+上传附件</button>
+                                  </caption>
+                                <thead>
+                                  <tr class="result-head-gray">
+                                    <td width="10%">序号</td>
+                                    <td width="20%">附件编号</td>
+                                    <td width="40%">附件名称</td>
+                                    <td width="30%">操作</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr ng-repeat="file in uploadList" ng-repeat-end ng-class="{even:$even}">
+                                      <td>{{$index + 1}}</td>
+                                     <td>票据</td>
+                                     <td>
+                                       <a href="javascript:void(0);"><span ng-bind="file.fileName"></span></a>
+                                     </td>
+                                     <td>
+                                       <a href="{{file.id|downf}}">下载</a>
+                                       <a href="javascript:void(0);" ng-click="delUploadItem(file,'uploadList')">删除</a>
+                                     </td>
+                                   </tr>
+                                </tbody>
+                              </table>
+                     <div class="center-buttons">
+                            <button class="btn btn-primary" ng-click="editBillFile($event.target,infoDetail.refNo,infoDetail.version);">提交</button>
+                            <button class="btn btn-primary" bt-close-modal="">返回</button>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <div bt-upload conf="uploadConf" ></div>
+    </div>
+
+
+

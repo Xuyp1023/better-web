@@ -1,0 +1,91 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">付款状态维护
+                    </h1>
+                    <table class="div-width-100 table table-bordered table-striped table-hover recieve-table">
+                      <tbody>
+                       <td width="30%">付款日期:</td>
+                       <td width="70%" class="date div-text-left" ng-bind="info.payResult.payDate">
+                        
+                      </td></tr>
+                  </tbody></table>
+                </div>
+                <div>
+                    <div style="float: left;margin: 5px;">
+                      <button class="btn btn-info" ng-click="searchCheck(1);" >全部记录({{info.calcPayResult.totalAmount}})</button>
+                    </div>
+                    <div style="float: left;margin: 5px;">
+                      <button class="btn btn-info" ng-click="searchCheck(2);" >付款成功({{info.calcPayResult.paySuccessAmount}})</button>
+                    </div>
+                    <div style="float: left;margin: 5px;">
+                      <button class="btn btn-info" ng-click="searchCheck(3);" >付款失败({{info.calcPayResult.payFailureAmount}})</button>
+                    </div>
+                    <div style="float: left;margin: 5px;">
+                      <button class="btn btn-info" ng-click="searchCheck(4);" >未确认({{info.calcPayResult.unconfirmAmount}})</button>
+                    </div>
+                    <div style="float: right;margin: 5px;">
+                      <button class="btn btn-primary" ng-click="goBack()">返回</button>
+                    </div>
+                    <div style="float: right;margin: 5px;">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="confirmState($event.target);">确认</button>
+                    </div>
+                </div>
+                <table class="div-width-100 table table-striped table-hover search-result main-list">
+                  <thead>
+                      <tr class="result-head">
+                        <td width="10%">凭证编号</td>
+                        <td width="10%">付款金额</td>
+                        <td width="10%">付款状态</td>
+                        <td width="10%">收款人</td>
+                        <td width="15%">收款银行账号</td>
+                        <td width="15%">收款银行全称</td>
+                        <td width="10%">手机号</td>
+                        <td width="12%">导入日期</td>
+                        <td width="8%">操作</td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                      <td><a href="javascript:void(0);" ng-click="lookCommissionDetail(item);" ng-bind="item.refNo"></a></td>
+                      <td ng-bind="item.payBalance | moneyFilter"></td>
+                      <td ng-bind="item.payResult|kindf:'commissionRecordPayStatus'"></td>
+                      <td ng-bind="item.payTargetBankAccountName"></td>
+                      <td ng-bind="item.payTargetBankAccount"></td>
+                      <td ng-bind="item.payTargetBankName"></td>
+                      <td ng-bind="item.payTargetMobileNo"></td>
+                      <td ng-bind="item.importDate"></td>
+                      <td>
+                        <a href="javascript:void(0);" ng-show="searchType == 2" ng-click="changeState($event.target,item);">变更失败状态</a>
+                        <a href="javascript:void(0);" ng-show="searchType == 3" ng-click="changeState($event.target,item);">变更成功状态</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                      <td colspan="9">
+                          <div bt-pagination conf="listPage" func="queryList(false)"></div>
+                      </td>
+                  </tfoot>
+              </table>
+
+              <div class="center-buttons">
+                <div style="float: left;">
+                <span style="min-height: 20px;padding-left: 20px;margin-bottom: 0;font-weight: 400;cursor: pointer;">
+                  总金额(元)：￥{{info.calcPayResult.totalBalance | number}}
+                </span></div>
+              </div>
+
+            
+        </div>
+
+
+    </div>
+
+
+    <div id="unconfirm_box" bt-roll-modal="template/1qh-mobile/check/maintenance/unconfirm.html" bt-z-index="9991"></div>
+    <div id="commissionDetail_box" bt-roll-modal="template/1qh-mobile/commission/temp/detailInfo.html" bt-z-index="9991"></div>
+
+
+

@@ -1,0 +1,26 @@
+{
+  "message": "财务信息添加成功",
+  "data": {
+    "id": 4571,
+    "version": "",
+    "reportName": "财务报表名称",
+    "reportType": "0",
+    "startDate": "2016-08-01",
+    "endDate": "2016-09-01",
+    "batchNo": 3246,
+    "regOperId": 1262,
+    "regOperName": "管理员-供应商",
+    "regDate": "2016-08-18",
+    "regTime": "152442",
+    "modiOperId": 1262,
+    "modiOperName": "管理员-供应商",
+    "modiDate": "2016-08-18",
+    "modiTime": "152442",
+    "operOrg": "biet;Developer.Supplier.Company",
+    "businStatus": "0",
+    "lastStatus": "",
+    "custNo": 1258
+  },
+  "page": "",
+  "code": 200
+}

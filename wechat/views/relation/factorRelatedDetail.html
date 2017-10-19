@@ -1,0 +1,30 @@
+
+<h4 class="text-center mt20 orange_default" ng-bind="info.businStatus|kindf:'OpenFactorFinancingStatus'">被驳回</h4>
+
+<!-- <div class="text-center margin-tips gray9">客户您好，您申请关联的保理机构是"<strong ng-bind="info.relateCustname"></strong>"，以下是审批信息：</div> -->
+
+<h4 class="text-center gray9 p20 f14">客户您好，您申请关联的保理机构是"<strong ng-bind="info.relateCustname"></strong>"，以下是审批信息：</h4>
+
+<div class="mpLt">
+	<ul>
+    	<li ng-repeat="record in recordList" ng-repeat-end  ng-class="{even:$even}">
+        	<div class="ti">
+	        	<span ng-bind="record.taskName"></span>
+	            <em class="co co1"  ng-bind="record.auditResult|kindf:'OpenFactorAuditStatus'"></em>
+	        </div>
+            <div class="ci">
+            	<p class="pl20 mb5 f12"><span>操作机构：</span><span class="pl10" ng-bind="record.auditAgency"></span></p>
+            	<p class="pl20 mb5 f12"><span>操作人：</span><span class="pl10" ng-bind="record.auditOperName"></span></p>
+            	<p class="pl20 mb5 f12"><span>操作日期：</span><span class="pl10" ng-bind="record.auditDate+' '+(record.auditTime|timeFilter:':')"></span></p>
+            	<p class="pl20 mb5 f12"><strong>审批意见</strong></p>
+            	<p class="pl20 mb5 f12"><span ng-bind="record.auditOpinion"></span></p>
+            </div>
+        </li>
+
+    </ul>
+
+</div>
+
+<div class="butn butn2 bottom-holder">
+    <a class="mui-btn mui-btn-primary" ng-show="info.businStatus==4" ng-click="applyAgain($event.target);">重新申请</a>
+</div>

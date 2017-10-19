@@ -1,0 +1,96 @@
+ <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">应收账款管理 
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                   
+                     <tr>
+                        <td>结算日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEendDate">-<input type="text" id="end_date" bt-date="searchData.LTEendDate">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="25%">债务人:</td>
+                        <td width="75%" class="div-text-left">
+                           <select ng-model="searchData.coreCustNo">
+                           <option value="">所有</option>
+                             <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.coreCustNo == item.value"></option>
+                           </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="25%">债权人:</td>
+                        <td width="75%" class="div-text-left">
+                           <select ng-model="searchData.custNo">
+                            <option ng-repeat="item in receiver" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+                         </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="25%">状态:</td>
+                        <td width="75%" class="div-text-left">
+                           <select ng-model="searchData.businStatus">
+                               <option value="">所有</option>
+                               <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+                           </select>
+                        </td>
+                      </tr>
+                      
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+                        应收账款列表
+                        </h1>
+                   <table class="div-width-100 table table-striped table-hover search-result main-list">
+                    <thead>
+                <tr class="result-head">
+                  <td width="12%">凭证编号</td>
+                  <td width="12%">账款编号</td>
+                  <td width="12.5%">应收账款结算日</td>
+                  <td width="13%">应收账款金额(元)</td>
+                  <td width="13%">应收账款余额(元)</td>
+                  <td width="24.5%">核心企业</td>
+                  <td width="12.5%">状态</td>
+                </tr>
+              </thead>
+
+                <tbody>
+                  <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in infoList">
+                     <td ng-bind="item.refNo"></td>
+                     <td>
+                       <a href="javascript:void(0);" ng-Click="detailsBox(item)" ng-bind='item.receivableNo'></a>
+                     </td>
+                     <td ng-bind='item.endDate'></td>
+                     <td ng-bind='item.balance'></td>
+                     <td ng-bind='item.surplusBalance'></td>
+                     <td ng-bind="item.coreCustName"></td>
+                     <td  class="red" ng-bind="item.businStatus | kindf:'effectiveVersionUsingBusinStatus'"></td>
+                  </tr>
+               </tbody>
+                <tfoot>
+                  <td colspan="8">
+                     <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                  </td>
+                </tfoot>
+            </table>
+        
+                    </div>
+
+         
+        <!-- 应收账单详情 -->
+                <div id="detail_box"   bt-roll-modal="template/2_3/assetmanage/temp/details.account.html" bt-z-index="9991"></div> 
+            </div>
+        </div>
+    </div>
+
+
+

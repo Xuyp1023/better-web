@@ -1,0 +1,51 @@
+{
+    "code": 200,
+    "message": "",
+    "data": [
+        {
+            "id": "11223",
+            "N_BATCHNO": "27",
+            "fileName": "新-公制度(范本)2015.doc",
+            "C_FILETYPE": "doc",
+            "C_FILENO": "11223",
+            "C_FILEPATH": "/20160324/4d9d18eca26f4298adc3a45e095be5ff",
+            "N_LENGTH": "74240",
+            "D_REGDATE": "20160324",
+            "D_REGTIME": "50300",
+            "fileInfoType": "billAccessory"
+        },{
+        	"id": "11224",
+        	"N_BATCHNO": "27",
+        	"fileName": "新-公管理范本2015.doc",
+        	"C_FILETYPE": "doc",
+        	"C_FILENO": "11223",
+        	"C_FILEPATH": "/20160324/4d9d18eca26f4298adc3a45e095be5ff",
+        	"N_LENGTH": "74240",
+        	"D_REGDATE": "20160324",
+        	"D_REGTIME": "50300",
+        	"fileInfoType": "billAccessory"
+        },{
+        	"id": "11225",
+        	"N_BATCHNO": "27",
+        	"fileName": "新-公司加班管理制度(范本)2015.doc",
+        	"C_FILETYPE": "doc",
+        	"C_FILENO": "11223",
+        	"C_FILEPATH": "/20160324/4d9d18eca26f4298adc3a45e095be5ff",
+        	"N_LENGTH": "74240",
+        	"D_REGDATE": "20160324",
+        	"D_REGTIME": "50300",
+        	"fileInfoType": "agreeAccessory"
+        },{
+        	"id": "11226",
+        	"N_BATCHNO": "27",
+        	"fileName": "新-公司加班范本2015.doc",
+        	"C_FILETYPE": "doc",
+        	"C_FILENO": "11223",
+        	"C_FILEPATH": "/20160324/4d9d18eca26f4298adc3a45e095be5ff",
+        	"N_LENGTH": "74240",
+        	"D_REGDATE": "20160324",
+        	"D_REGTIME": "50300",
+        	"fileInfoType": "agreeAccessory"
+        }
+    ]
+}

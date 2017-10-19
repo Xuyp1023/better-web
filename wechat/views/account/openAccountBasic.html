@@ -1,0 +1,52 @@
+
+<div class="wid wid4 mt10">
+    <p class="title">开户企业类型</p>
+    <ul class="clearfix">
+        <li ng-repeat="item in companyTypes" ng-click="singleToggleItem(item,companyTypes);">
+            <a  href="javascript:void(0)">
+                <i ng-class="{ico:true,ico7:item.isChecked,ico8:!item.isChecked,mr5:true}"></i>{{item.text}}
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="wid wid3 mt10">
+	<ul>
+        <li>
+            <div class="ci">
+            	<input type="text" placeholder="请填写企业名称，请勿使用简称" class="text" name="" ng-model="info.custName">
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+            	<input type="text" placeholder="在企e金服平台办理业务的经办人姓名" class="text" name="" ng-model="info.operName">
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+            	<input type="text" placeholder="经办人电子邮箱" class="text" name="" ng-model="info.operEmail">
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+                <input type="text" placeholder="经办人手机号码" class="text" name="" ng-model="info.operMobile">
+            </div>
+        </li>
+        <!-- <li>
+            <div class="ci">
+                <input type="text" placeholder="验证码" class="text" name="" ng-model="info.xxx">
+                <a href=""><span class="validate" ng-show="identifyInfo.canSend"  ng-click="sendIdentifyCode();">获取验证码</span></a>
+                读秒提示
+                <span class="validate" ng-show="!identifyInfo.canSend" ng-bind="identifyInfo.timerMsg"></span>
+            </div>
+        </li> -->
+
+    </ul>
+</div>
+
+
+
+<div class="butn mt10">
+    <p><a class="btn" href="javascript:void(0)" ng-click="nextStep();">下一步</a></p>
+</div>

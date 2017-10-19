@@ -1,0 +1,147 @@
+<div class="div-width-90 div-center detail-box">
+  <h1 class="content-title-1 content-title-condensed"><img src="../../../img/money.png" alt="">
+    发布询价
+  </h1>
+
+  <div id="serch_repay_info" class="row-fluid detail-info div-center">
+    <table class="div-width-100 table table-bordered table-striped table-hover recieve-table">
+        <tr>
+          <td width="25%">询价企业:</td>
+          <td width="75%" class="div-text-left">
+            <select name="custNo" id="" ng-model="inquiryInfo.custNo" disabled>
+                <option ng-repeat="su in supplierList" ng-option-filter value="{{su.value}}" ng-bind="su.name" ng-selected="inquiryInfo.custNo==su.value"></option>
+            </select>
+          </td>
+        </tr>
+       <tr>
+         <td width="25%">选择票据</td>
+         <td width="75%" class="div-text-left">
+           <select name="custNo" id="" ng-model="inquiryInfo.billId" ng-change="findDraftInfo(inquiryInfo.billId);">
+               <option ng-repeat="item in draftList" ng-option-filter value="{{item.id}}" ng-bind="item.billNo" ng-selected="inquiryInfo.billId==item.value"></option>
+           </select>
+         </td>
+       </tr>
+    </table>
+  </div>
+
+  <div id="" class="row-fluid">
+      <table class="table table-striped table-bordered table-hover">
+        <caption class="table-caption table-caption-green clearFix">
+          <span class="title-left">票据信息</span>
+        </caption>
+        <tbody>
+        <tr>
+          <td width="20%">开票单位:</td>
+          <td width="30%"  class="div-text-left" class="red"><span ng-bind="draftInfo.invoiceCorp"></span></td>
+          <td width="20%">票据类型:</td>
+          <td width="30%" class="div-text-left"><span ng-bind="draftInfo.billType | kindf:'BillNoteType'"></span></td>
+        </tr>
+        <tr>
+          <td width="20%">流通方式:</td>
+          <td width="30%" class="div-text-left"><span ng-bind="draftInfo.billMode |kindf:'BillFlowMode'"></span></td>
+          <td>票据号码:</td>
+          <td class="div-text-left"><span ng-bind="draftInfo.billNo"></span></td>
+        </tr>
+        <tr>
+          <td>票据金额:</td>
+          <td class="tab-text-right"><span ng-bind="draftInfo.bBalance | moneyFilter"></span></td>
+          <td>收款人全称:</td>
+          <td class="div-text-left"><span ng-bind="draftInfo.supplier"></span></td>
+        </tr>
+        <tr>
+          <td>付款账号:</td>
+          <td class="div-text-left"><span ng-bind="draftInfo.buyerBankAccount"></span></td>
+          <td>收款账号:</td>
+          <td class="div-text-left"><span ng-bind="draftInfo.suppBankAccount"></span></td>
+        </tr>
+        <tr>
+          <td>付款行:</td>
+          <td class="div-text-left"><span ng-bind="draftInfo.buyerBankName"></span></td>
+          <td>开户行:</td>
+          <td class="div-text-left"><span ng-bind="draftInfo.suppBankName"></span></td>
+        </tr>
+        <tr>
+          <td>出票日期:</td>
+          <td class="div-text-left"><span ng-bind="draftInfo.invoiceDate"></span></td>
+          <td>到期日期:</td>
+          <td class="div-text-left"><span ng-bind="draftInfo.endDate"></span></td>
+        </tr>
+        <tr>
+          <td>出票人:</td>
+          <td class="div-text-left"><span ng-bind="draftInfo.buyer"></span></td>
+          <td>承兑人:</td>
+          <td class="div-text-left"><span ng-bind="draftInfo.acceptor"></span></td>
+        </tr>
+        <tr>
+          <td >备注:</td>
+          <td class="div-text-left" colspan="3">
+            <div class="height_100" ng-bind="draftInfo.description"></div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+  
+
+  <h1 class="content-title-1 content-title-condensed"><img src="../../../img/flow_money.png" alt="">
+    询价信息
+  </h1>
+
+
+  <div id="" class="row-fluid">
+    <table class="table table-striped table-bordered table-hover">
+        <caption class="table-caption table-caption-green clearFix">
+          <span class="title-left">金融机构</span>
+        </caption>
+      <tbody>
+      <tr>
+        <td width="30%">金融机构:</td>
+        <td width="70%">
+          <div bt-multiple  bt-select-all="true" bt-option-map="value-name" list="factorList" model="inquiryInfo.factors"></div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div id="" class="row-fluid">
+    <table class="table table-striped table-bordered table-hover">
+        <caption class="table-caption table-caption-green clearFix">
+          <span class="title-left">融资需求</span>
+        </caption>
+      <tbody>
+      <tr>
+        <td width="20%">票面金额:</td>
+        <td width="30%" class="red tab-text-right"><input type="text" ng-model="draftInfo.balance"></td>
+        <td width="20%">融资金额:</td>
+        <td width="30%" class="tab-text-right"><input type="text" ng-model="inquiryInfo.balance"></td>
+      </tr>
+      <tr>
+        <td>融资利率(%):</td>
+        <td class="div-text-left">
+          <input type="text" ng-model="inquiryInfo.ratio">
+        </td>
+        <td>询价策略:</td>
+        <td class="div-text-left">
+          <select id="" ng-model="inquiryInfo.strategy">
+             <option ng-repeat="item in enquiryStrategys" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="inquiryInfo.strategy==item.value"></option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>报价截止日期:</td>
+        <td class="div-text-left" colspan="3">
+          <input type="text" bt-date="inquiryInfo.endDate">
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="center-buttons">
+    <button class="btn btn-primary" ng-click="addInquiry($event.target);">发布</button>
+    <button class="btn btn-primary" bt-close-modal >返回</button>
+  </div>
+
+</div>

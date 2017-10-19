@@ -1,0 +1,65 @@
+<div class="top-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue div-margin-bottom-none"><img src="img/operator.png" alt="">
+     <span>标准合同类型</span>
+  </h1>
+
+  <div class="row-fluid">
+      <table class="table table-condensed div-width-70 div-center search-table">
+        <tr>
+          <td>保理机构:</td>
+          <td class="div-text-left">
+             <select ng-model="searchData.custNo" ng-change="queryList();">
+                <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%">状态:</td>
+          <td width="75%" class="div-text-left">
+          <select ng-model="searchData.businStatus">
+            <option value="00">未使用</option>
+            <option value="01">已使用</option>
+          </select>
+          </td>
+        </tr>
+      </table>
+      <div class="center-buttons">
+        <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+      </div>
+
+    <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+          <tr>
+              <td class="modi-group" colspan="6">
+               <button class="btn btn-info" ng-click="add();" >启用新类型</button>
+              </td>
+            </tr>
+            <tr class="result-head">
+              <td width="20%">标准合同编号</td>
+              <td width="30%">标准合同名称</td>
+              <td width="20%">启用时间</td>
+              <td width="10%">状态</td>
+              <td width="20%">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td class="red" ng-bind="item.standardTypeId"></td>
+            <td ng-bind="item.name"></td>
+            <td ng-bind="item.regDate"></td>
+            <td ng-bind="item.businStatus == '00' ? '未使用':'已使用'"></td>
+            <td>
+              <span ng-show="item.businStatus!='00'">--</span>
+              <a href="javascript:void(0);" ng-show="item.businStatus == '00'" ng-click="remove($event.target,item);">移除</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="5">
+                <div bt-pagination conf="listPage" func="queryList(false)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+  </div>
+</div>

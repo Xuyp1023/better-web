@@ -1,0 +1,49 @@
+{
+  "message": "财务上传记录查询成功",
+  "data": [
+    {
+      "id": 2910,
+      "version": "",
+      "reportName": "财务报表名称w",
+      "reportType": "1",
+      "startDate": "2016-08-01",
+      "endDate": "2016-09-01",
+      "batchNo": 1535,
+      "regOperId": 1111,
+      "regOperName": "管理员",
+      "regDate": "2016-08-11",
+      "regTime": "210310",
+      "modiOperId": 1111,
+      "modiOperName": "管理员",
+      "modiDate": "2016-08-15",
+      "modiTime": "101257",
+      "operOrg": "Biet  Supplychain;Operational Department",
+      "businStatus": "0",
+      "lastStatus": "",
+      "custNo": 1258
+    },
+    {
+      "id": 4571,
+      "version": "",
+      "reportName": "财务报表名称",
+      "reportType": "0",
+      "startDate": "2016-08-01",
+      "endDate": "2016-09-01",
+      "batchNo": 3246,
+      "regOperId": 1262,
+      "regOperName": "管理员-供应商",
+      "regDate": "2016-08-18",
+      "regTime": "152442",
+      "modiOperId": 1262,
+      "modiOperName": "管理员-供应商",
+      "modiDate": "2016-08-18",
+      "modiTime": "152442",
+      "operOrg": "biet;Developer.Supplier.Company",
+      "businStatus": "0",
+      "lastStatus": "",
+      "custNo": 1258
+    }
+  ],
+  "page": "",
+  "code": 200
+}

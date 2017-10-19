@@ -1,0 +1,50 @@
+<div id="processStepList" class="div-center top-box top-box-active">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    <span ng-bind="selectNode.name"></span>&nbsp;结点&nbsp;&nbsp;步骤列表
+  </h1>
+
+    <!-- 步骤列表 -->
+    <table class="table table-bordered div-margin-top">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">步骤列表</span>
+        <a href="javascript:void(0);" ng-show="!readonly"><button class="btn btn-info btn-right" ng-click="openAddBox();">+添加步骤</button></a>
+      </caption>
+      <thead>
+        <tr class="result-head-gray">
+
+          <td width="10%">序号</td>
+          <td width="40%">步骤名称</td>
+          <td width="30%">操作</td>
+          <td width="20%" ng-show="!readonly">
+            <span><a href="javascript:void(0)" ng-class="{'deep-gray':!selectStep}" ng-click="moveUpStep();"><i class="icon-arrow-up"></i>上移</a></span>
+            <span><a href="javascript:void(0)" ng-class="{'deep-gray':!selectStep}" ng-click="moveDownStep();"><i class="icon-arrow-down"></i>下移</a></span>
+          </td>
+          <!-- <td width="15%">调整顺序</td> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in stepList" ng-repeat-end ng-class="{'bg-color-gray':item.isChecked}" ng-click="toggleCheckItem(item);">
+          
+          <td ng-bind="item.seq"></td>
+          <td ng-bind="item.nickname"></td>
+          <td>
+            <span ng-show="!readonly"><a href="javascript:void(0)" ng-click="defineStep(item);">定义步骤</a></span>
+            <span ng-show="!readonly"><a href="javascript:void(0)" ng-click="deleteStep(item);">删除</a></span>
+            <span ng-show="readonly"><a href="javascript:void(0)" ng-click="showStep(item);">查看步骤定义</a></span>
+          </td>
+          <td ng-show="!readonly"><input type="checkbox" ng-checked="item.isChecked"></td>
+          <!-- <td>
+            <span><a href="javascript:void(0)" ng-show="$index !== 0" ng-click="moveUpStep(item);">上移</a></span>
+            <span><a href="javascript:void(0)" ng-show="$last" ng-click="moveDownStep(item);">下移</a></span>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="center-buttons">
+      <button class="btn btn-primary" ng-click="goBack();">返回</button>
+    </div>
+</div>
+
+<!-- 添加步骤 -->
+<div id="step_add_box" bt-roll-modal="template/flowDefine/processStepAdd.html" bt-z-index="9991"></div>

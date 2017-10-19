@@ -1,0 +1,1629 @@
+@charset "utf-8";
+/**
+*项目基础文件、公用组件样式文件
+*/
+@import "pie"; //内部div自动居中
+
+#container {
+	width: 900px;
+	padding: {
+		top: 10px;
+	}
+}
+
+.div-center {
+	margin: {
+		left: auto;
+		right: auto;
+	}
+}
+//基础初始化类
+@mixin init {
+	a {
+		&:hover {
+			text-decoration: none;
+			color: #f14e32;
+		}
+
+		&:visited {
+			text-decoration: none;
+		}
+
+		&:focus {
+			text-decoration: none;
+		}
+	}
+	
+	ul,ol,li{
+		list-style:none; margin:0; padding:0;
+	}
+
+	.div-center {
+		margin: {
+			left: auto;
+			right: auto;
+		}
+	}
+
+	.clearFix {
+		zoom: 1;
+
+		&:after {
+			display: block;
+			content: ' ';
+			visibility: hidden;
+			clear: both;
+			width: 0;
+			height: 0;
+		}
+
+		.float-left {
+			float: left;
+		}
+
+		.float-right {
+			float: right;
+		}
+	}
+
+	.red {
+		color: #444;
+	}
+
+	.blue{
+		color: #248AC9;
+	}
+
+	.green {
+		color: green;
+	}
+
+	.deep-gray {
+		color: #888889;
+	}
+
+	.required {
+		color: red!important;
+		margin-right: 3px;
+	}
+
+	.bg-color-gray {
+		background-color: #d4d2cf;
+	}
+
+	input[readonly].Wdate {
+		cursor: pointer;
+	}
+
+	#error_info_box {
+		position: absolute;
+		left: 0;
+		top: 5px;
+		z-index: 9999;
+		background: #EFEEEF;
+		opacity: 0.9;
+		filter:Alpha(Opacity=90);
+
+		.alert {
+			margin-top: 300px;
+
+			p {
+				text-align: center;
+				margin-bottom: 0;
+			}
+		}
+
+		* {
+			opacity: 1;
+			filter:Alpha(Opacity=100);
+		}
+	}
+
+	.inline-label {
+		display: inline-block;
+	}
+	
+	
+	//表格标题 - 青色
+	.table-caption {
+		vertical-align: middle;
+		height: 24px;
+		line-height: 24px;
+		color: #333;
+		font-size: 12px;
+		font-weight: bold;
+		padding: 2px 15px;
+		border: 1px solid #DDD;
+		border-bottom: 0;
+		background-color: #bad5ff;
+
+		.title-left {
+			float: left;
+		}
+
+		.btn-right {
+			font-size: 13px;
+			margin: 0;
+			padding: 2px 6px;
+			float: right;
+			margin-left: 10px;
+		}
+	}
+	.btn-bg-middle {
+		width:127px;
+	}
+	.table-intable {
+		margin-bottom: 0;
+		background: whitesmoke;
+
+		td {
+			background: whitesmoke;
+			text-align: left;
+			padding-left: 15px;
+			border: 0;
+
+			input {
+				margin-right: 3px;
+			}
+
+			input[type="radio"] {
+				margin: 0;
+			}
+		}
+	}
+
+	.table-caption-noborder {
+		border: 0;
+	}
+	//灰绿样式
+	.table-caption-green {
+		background-color: #bad5ff;
+	}
+	//橘色表头
+	.result-head {
+		font-size: 12px;
+		background: #bad5ff!important;
+	}
+
+	.result-head-center {
+		td {
+			text-align: center;
+			font-size: 12px;
+			color: #333;
+			background: #F9CC9D;
+			font-weight: bold;
+			padding: 6px 15px;
+		}
+	}
+	//橘色表格表头
+	.result-td-head {
+		td {
+			text-align: left;
+			font-size: 12px;
+			color: #333;
+			background: #F9CC9D;
+			font-weight: bold;
+			padding: 6px 15px;
+		}
+
+		.left {
+			text-align: left;
+			padding: 6px 15px;
+		}
+
+		.right {
+			text-align: right;
+			padding-right: 10px;
+
+			.btn {
+				padding: 2px 6px;
+			}
+			border-left: 0;
+		}
+	}
+
+	.label-inline {
+		display: inline;
+	}
+
+	.result-head-green {
+		td {
+			// background-color: #DFF0D8;
+			background-color: #bad5ff;
+		}
+	}
+
+	.result-head-center {
+		td {
+			text-align: center;
+		}
+	}
+
+	.result-head-consense {
+		td {
+			padding: 8px 4px;
+			font-size: 10px;
+		}
+	}
+	//灰白色表头
+	.result-head-gray {
+		font-size: 12px;
+		background: rgba(84, 111, 119, 0.08);
+		background-color: rgb(241,243,244)\9;
+	}
+	//图标相关属性
+	.ico {
+		display: inline-block;
+		vertical-align: middle;
+		background: url("../../../img/ico.png");
+		background-image: -webkit-image-set(url(../../../img/ico.png) 1x,url(../../../img/ico2x.png) 2x);
+		background-repeat: no-repeat;
+	}
+
+	.ico8 {
+		background-position: -426px 1px;
+		width: 20px;
+		height: 20px;
+	}
+
+	.ico7 {
+		background-position: -403px 1px;
+		width: 20px;
+		height: 20px;
+	}
+	//弹板公用类型
+	.top-box {
+		.content-title-1 {
+			margin-bottom: 10px;
+		}
+
+		tbody,
+		thead {
+			td {
+				textarea {
+					height: 150px;
+				}
+				
+
+				input[type="password"],
+				input[type="text"],
+				select,
+				textarea {
+					width: 85%!important;
+					margin: 0;
+				}
+				.ttare-wid{
+					width: 95%!important;
+				}
+
+				input[type='radio'] {
+					width: 100%!important;
+				}
+
+				select {
+					width: 91%!important;
+				}
+			}
+			//单元格内 双input
+			.double_input {
+				input[type="text"] {
+					width: 20%!important;
+					margin-right: 5px;
+				}
+			}
+			//单元格内 双日期
+			.date {
+				input[type="text"] {
+					width: 37%!important;
+				}
+			}
+			//双下拉选择器
+			.double-select {
+				select {
+					width: 45%!important;
+				}
+			}
+		}
+		//input select对齐，在td 标题(20%) 内容(30%) 布局方式下
+		.lined_table {
+			td {
+				textarea {
+					height: 150px;
+				}
+
+				input[type="password"],
+				input[type="text"],
+				select,
+				textarea {
+					width: 85%!important;
+					margin: 0;
+				}
+
+				input[type='radio'] {
+					width: 10%!important;
+				}
+
+				select {
+					width: 91%!important;
+				}
+			}
+		}
+		//提升表单元素长度比例
+		table.big-input {
+			tbody td {
+				input[type="password"],
+				input[type="text"],
+				select,
+				textarea {
+					width: 94%!important;
+					margin: 0;
+				}
+
+				select {
+					width: 98%!important;
+				}
+				//日期带按钮
+				&.date {
+					input {
+						width: 54%!important;
+						margin-right: 3%;
+					}
+
+					span {
+						height: 28px;
+						line-height: 28px;
+						font-size: 12px;
+						color: gray;
+						padding: 0 8px;
+						display: inline-block;
+						border-radius: 5px;
+						border: 1px solid gray;
+						cursor: pointer;
+
+						&:hover {
+							border: 1px solid rgb(36, 138, 201);
+							box-shadow: 0 0 2px 1px #248ac9;
+							background-color: whitesmoke;
+							color: rgb(36, 138, 201);
+							transition: all 0.5s;
+						}
+					}
+				}
+				//双日期
+				&.double-date {
+					input {
+						width: 38%!important;
+						margin-right: 1%;
+					}
+				}
+				//双下拉选择器
+				&.double-select {
+					select {
+						width: 45%!important;
+						margin: 0 3% 0 0;
+					}
+				}
+			}
+		}
+		//按钮相关更改
+		.btn-outline-none:focus {
+			outline: 0px!important;
+		}
+
+		.table-intable {
+			margin-bottom: 0;
+			background: whitesmoke;
+
+			td {
+				background: whitesmoke;
+				text-align: left;
+				padding-left: 15px;
+				border: 0;
+
+				input {
+					margin-right: 3px;
+				}
+			}
+		}
+
+		.height-500 {
+			height: 500px;
+		}
+
+		.height-200 {
+			height: 200px;
+		}
+
+		.width-300 {
+			width: 300px;
+		}
+
+		.max-width-400 {
+			max-width: 400px;
+		}
+
+		.scroll-auto {
+			overflow: auto;
+		}
+
+
+		.div-width-200{
+			width: 200px!important;
+		}
+	}
+	//温馨提示快速版
+	#warm_prompt_box {
+		margin-top: 20px;
+
+		.prompt-title {
+			border-bottom: 2px solid #248AC9;
+			margin: 3px 0;
+			height: 35px;
+			line-height: 35px;
+			font-size: 18px;
+			font-weight: bold;
+
+			.prompt-icon {
+				width: 20px;
+				height: 20px;
+			}
+		}
+
+		.warm-prompt-content {
+			margin-top: 10px;
+			padding: 4px;
+
+			p {
+				color: #2da7e0;
+				font-family: 宋体;
+				font-size: 14px;
+			}
+		}
+	}
+	//列表搜索栏
+	.form-inline {
+		margin: 0;
+		padding: 5px;
+		line-height: 35px;
+		background-color: whitesmoke;
+
+		label {
+			margin: 0 10px;
+			height: 35px;
+			line-height: 35px;
+
+			input,
+			select {
+				margin: 0;
+				width: 100px;
+			}
+		}
+	}
+
+	.margin-bottom-40 {
+		margin-bottom: 40px;
+	}
+	// 边距设置
+	.mr10{
+		margin-right:10px;
+	}
+	.ml100{
+		margin-left:100px;
+	}
+	// 行号设置
+	.lh30{
+		line-height:30px;
+	}
+	//分页自定义组件样式
+	.bt-search-page{
+
+    	margin: 24px auto;	
+		ul li {
+		    margin-left: 8px;
+		    display: inline-block;
+		    .bt-btn{
+	    		border-radius: 4px;
+			    box-shadow: none;
+			    border: 1px solid transparent;
+			    cursor: pointer;
+			    color: #333;
+			    background-color: white;
+			    border-color: #999;
+			    min-width: 28px;
+			    display: inline-block;
+			    text-align: center;
+	    	}
+	    	.bt-small {
+			    font-size: 14px;
+			    padding: 3px 6px;
+			}
+			.active{
+				    background-color: #063c94;
+    				color: #fff;
+			}			
+		}
+	
+
+	}
+}
+
+
+@mixin double-check {
+	.double-check-sp {
+		display: inline-block;
+		width: 90%;
+		cursor: pointer;
+		border: 1px solid #D3D4D5;
+		border-radius: 5px;
+
+		&.active {
+			border: 1px solid #54B6E5;
+			box-shadow: 0 0 10px #54B6E5;
+			*background-color: white;
+		}
+		@include plus-ie;
+	}
+}
+
+
+input[type="checkbox"] {
+	margin-top: 0;
+}
+//行内文本对其设置
+@mixin div-text-align {
+	.div-text-right {
+		text-align: right;
+	}
+
+	.div-text-left {
+		text-align: left;
+	}
+
+	.div-text-center {
+		text-align: center;
+	}
+
+	.div-text-center-prio{
+		text-align: center!important;
+	}
+}
+//外边距设置
+@mixin div-margin($margin:30px) {
+	.div-margin-top {
+		margin-top: $margin;
+	}
+
+	.no-margin-bottom {
+		margin-bottom: 0;
+	}
+
+	.div-margin-bottom-none {
+		margin-bottom: 0 !important;
+	}
+}
+//行内按钮
+@mixin center-buttons($marginTop:15px,$marginBottom:10px) {
+	.center-buttons {
+		text-align: center;
+		margin-top: $marginTop;
+		margin-bottom: $marginBottom;
+
+		.btn {
+			margin: 0 85px 0 20px;
+		}
+
+		.prev-step {
+			margin-left: 130px;
+		}
+	}
+}
+//设置下划线形式文本框
+@mixin input-underline($color:#248AC9,$width:5%) {
+	.input-underline {
+		border: 0;
+		border-bottom: 1px solid #248AC9;
+		width: $width;
+		border-radius: 0;
+		background-color: transparent;
+		margin-left: 5px;
+
+		&:focus {
+			box-shadow: 0;
+		}
+	}
+}
+//设置宽度类
+@mixin div-width($width:50%) {
+	.div-width {
+		width: $width;
+	}
+
+	.div-width-10 {
+		width: 10%;
+	}
+
+	.div-width-20 {
+		width: 20%;
+	}
+
+	.div-width-25{
+		width: 25%;
+	}
+
+	.div-width-30 {
+		width: 30%;
+	}
+
+	.div-width-40 {
+		width: 40%;
+	}
+
+	.div-width-50 {
+		width: 50%;
+	}
+
+	.div-width-60 {
+		width: 60%;
+	}
+
+	.div-width-70 {
+		width: 70%;
+	}
+
+	.div-width-80 {
+		width: 80%;
+	}
+
+	.div-width-90 {
+		width: 90%;
+	}
+
+	.div-width-100 {
+		width: 100%;
+	}
+}
+//文本标题以及分隔符样式
+@mixin content-title($fontSize:14px) {
+	.content-title {
+		font: {
+			size: $fontSize;
+			weight: bold;
+		}
+		line-height: 25px;
+		padding-left: 15px;
+		cursor: pointer;
+		margin-bottom: 20px;
+		margin-top: 30px;
+		background: transparent url("../../../img/bytter_skin.png") repeat-x 0 -264px;
+
+		&.first {
+			margin-top: 10px;
+		}
+	}
+
+	.content-title-1 {
+		border-bottom-color: rgb(209, 209, 209);
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		//color: rgb(142, 123, 98);
+		color: #000;
+		display: block;
+		font-family: 'microsoft yahei';
+		font-size: 16px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: normal;
+		height: 70px;
+		line-height: 70px;
+		margin: 0;
+		padding: 0;
+		position: relative;
+
+		img {
+			width: 0px;
+			height: 24px;
+			margin-right: 5px;
+		}
+
+		small {
+			color: #D32349;
+			font-size: 20px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		&.mrb5{
+			margin-bottom: 5px;
+		}
+	}
+	//二级标题
+	.content-title-2 {
+		background-image: none;
+		// background-color: #DFF0D8;
+		background: #bad5ff;
+		color: #333;
+		margin-top: 30px;
+		margin-bottom: 3px;
+
+		.btn-right {
+			margin: 0 15px 0 0;
+			padding: 2px 5px;
+			float: right;
+		}
+	}
+	
+	.content-back-none {
+		background: none;
+	}
+
+	.content-title-blue {
+		border-bottom: 1px solid #063c94!important;
+	}
+
+	.content-title-condensed {
+		height: 50px;
+		line-height: 63px;
+	}
+
+	.content-title-noborder {
+		border: 0;
+	}
+
+	.content-first-title {
+		color: #837b62;
+		font-size: 24px;
+		height: 40px;
+		line-height: 40px;
+		font-family: "Microsoft Yahei";
+	}
+
+	.content-banner-info {
+		font-size: 14px;
+		height: 40px;
+		line-height: 40px;
+		font-family: "Microsoft Yahei";
+	}
+
+	.content-split {
+		margin-top: 0;
+	}
+
+	.small-select {
+		height: 30px;
+		line-height: 30px;
+		margin-left: 30px;
+
+		span {
+			font-size: 14px;
+			margin-right: 3px;
+			height: 30px;
+			line-height: 30px;
+			color: black;
+		}
+
+		select {
+			margin: 0;
+			*position: relative;
+			*top: 8px;
+			*right: 3px;
+		}
+	}
+}
+//设置分割线样式
+@mixin div-line($color:#d1d1d1) {
+	.div-line-bottom {
+		border-bottom: 1px solid $color;
+	}
+}
+//设置文本框边框为深蓝色和加载IEcss3兼容文件
+@mixin deep-blue-border {
+	input[type="password"],
+	input[type="text"],
+	select,
+	textarea {
+		border: 1px solid #ccc;
+	}
+
+	input[type="checkbox"] {
+		border: 0;
+	}
+}
+//行内复选框布局
+@mixin line-checkbox {
+	.line-checkbox {
+		width: 80%;
+		height: 25px;
+		line-height: 25px;
+		font-size: 12px;
+		margin-top: 10px;
+
+		input {
+			margin-right: 6%;
+			*margin-right: 3%;
+			margin-top: 0;
+		}
+		@include input-underline(#248AC9,10%);
+	}
+}
+//单元格内行内复选框布局
+@mixin td-line-checkbox {
+	.td-line-checkbox {
+		width: 98%;
+		height: 25px;
+		line-height: 25px;
+		font-size: 12px;
+		padding-left: 1%;
+
+		input {
+			margin-right: 5%;
+			*margin-right: 3%;
+			margin-top: 0;
+		}
+		@include input-underline(#248AC9,10%);
+	}
+}
+//单行悬浮效果
+@mixin line-hover {
+	.control-group {
+		cursor: pointer;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+//设置单元格内输入框长度
+@mixin td-input-width($width:85%,$selectWidth:86%) {
+	table td {
+		input[type="password"],
+		input[type="text"],
+		textarea {
+			width: $width;
+		}
+
+		select {
+			width: $selectWidth;
+		}
+	}
+}
+.tab-text-right{
+	text-align:right!important;
+}
+//设置单元格内容水平垂直对其方式
+@mixin td-pack-align($pack:left,$align:middle) {
+	table td {
+		text-align: left;
+		vertical-align: $align;
+	}
+}
+//温馨提示盒子样式
+@mixin warm-prompt-box {
+	margin-top: 20px;
+
+	.prompt-title {
+		border-bottom: 2px solid #248AC9;
+		margin: 3px 0;
+		height: 35px;
+		line-height: 35px;
+		font-size: 18px;
+		font-weight: bold;
+
+		.prompt-icon {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	.warm-prompt-content {
+		margin-top: 10px;
+		padding: 4px;
+
+		p {
+			color: #2da7e0;
+			font-family: 宋体;
+			font-size: 14px;
+		}
+	}
+}
+
+
+@mixin upload-box {
+	.upload_box {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 99999;
+		background: white;
+
+		.upload-detail-box {
+			width: 820px;
+
+			h1 {
+				// margin-top:300px;
+			}
+		}
+
+		iframe {
+			height: 230px;
+		}
+
+		.center-buttons {
+			margin: 0;
+		}
+	}
+}
+
+	//发票参数2
+.details_bosstyle{
+	background-image:url(../img/billbox3.png);
+	width: 820px;
+	height:550px;
+	position:relative;
+	
+	span{
+		color:#053988;
+	}
+	.bill_date{
+		position: absolute;
+    	top: 70px;
+    	left: 80px;
+    	width: 120px;
+	}
+	.title-as{
+		color:#ff6c02;
+		font-size:28px;
+		font-weight:bold;
+		position: absolute;
+    	top: 20px;
+    	left: 325px;
+	}
+	.spa_y{
+		position:absolute;
+		top:75px;
+		left:75px;
+	}
+	.spa_m{
+		position:absolute;
+		top:75px;
+		left:123px;
+	}
+	.spa_d{
+		position:absolute;
+		top:75px;
+		left:155px;
+	}
+	.bill_number{
+		position:absolute;
+		color:black;
+		top:52px;
+		left:655px;
+		font-size:16px;
+		width: 150px;
+    	height: 12px;
+	}
+	.bold_billnum{
+		position:absolute;
+		top:75px;
+		left:655px;
+		color:black;
+		font-weight:bold;
+		font-size:16px;
+		width: 150px;
+   		height: 12px;
+	}
+	.spa_name{
+		position:absolute;
+		top:107px;
+		left:125px;
+		font-size:12px;
+	}
+	.spa_taxes{
+		position:absolute;
+		top:129px;
+		left:125px;
+		font-size:12px;
+	}
+	.spa_site{
+		position:absolute;
+		top:150px;
+		left:125px;
+		font-size:12px;
+	}
+	.spa_id{
+		position:absolute;
+		top:172px;
+		left:125px;
+		font-size:12px;
+	}
+	.password_box{
+		display: inline-block;
+	    overflow: hidden;
+	    width: 325px;
+	    height: 83px;
+	    /* border: 1px solid red; */
+	    position: absolute;
+	    top: 108px;
+	    left: 493px;
+	    font-size: 12px;
+	}
+	.tb_body{
+		position:absolute;
+		    width: 820px;
+  		    font-size:12px;
+  	}
+	.acurrentname{
+		position:relative;
+		left: 5px;
+		display: inline-block;
+    	width: 212px;
+    	height: 20px;
+	}
+	.tb_tax{
+		 position:relative;
+  		 right: -132px;
+    	 display: inline-block;
+    	 width: 90px;
+    	 height: 20px;
+	}
+	.tb_taxrate{
+		position:relative;
+		right: -101px;
+    	display: inline-block;
+    	height: 20px;
+    	width: 30px;
+	}
+	.tb_money{
+		position:relative;
+		right: -97px;
+    	width: 90px;
+    	height: 20px;
+    	display: inline-block;
+    	text-align: right;
+	}
+	.tb_pirce{
+		position:relative;
+		right: -65px;
+    	width: 80px;
+    	height: 20px;
+    	text-align: right;
+    	display: inline-block;
+	}
+	.tb_number{
+		position:relative;
+		right: -45px;
+    	width: 65px;
+    	height: 20px;
+   		text-align: right;
+    	display: inline-block;
+
+	}
+	.spa_unit{
+		position:relative;
+		right: -18px;
+    	display: inline-block;
+    	width: 45px;
+    	height: 20px;
+	}
+	.standard_type{
+		position:relative;
+		right: -13px;
+    	display: inline-block;
+    	width: 50px;
+    	height: 20px;
+
+	 }
+	//合计
+	.all_money{
+		position:absolute;
+        font-weight:bold;
+        top: 355px;
+    	right: 169px;
+	}
+	.all_pirce{
+		position:absolute;
+		font-weight:bold;
+		top: 355px;
+  		right: 8px;
+	}
+	.big_money{
+		position:absolute;
+		top: 379px;
+    	left: 260px;
+	}
+	.tiny_money{
+		position:absolute;
+		top: 379px;
+    	left: 660px;
+   	 	font-weight: bold;
+   		font-size: 16px;
+	}
+
+	.sell_name{
+		position:absolute;
+		top: 408px;
+    	left: 125px;
+    	font-size: 12px;
+	}
+	.sell_taxes{
+		position:absolute;
+		top: 428px;
+    	left: 125px;
+    	font-size: 12px;
+
+	}
+	.sell_site{
+		position:absolute;
+		top: 448px;
+    	left: 125px;
+    	font-size: 12px;
+
+	}
+	.sell_id{
+		position:absolute;
+		top: 466px;
+    	left: 125px;
+    	font-size: 12px;
+
+	}
+	.remarks_box{
+		display: inline-block;
+	    overflow: hidden;
+	    width: 313px;
+	    height: 69px;
+	    max-width:313px;
+	    min-width:313px;
+	    max-height:69px;
+	    min-height:69px;
+	    /* border: 1px solid red; */
+	    color: black;
+    	background-color: #dceffd;
+	    position: absolute;
+	    top: 405px;
+    	left: 491px;
+	    font-size: 12px;
+	}
+	.receiver{
+		position:absolute;
+		top: 495px;
+    	left: 67px;
+    	font-size: 12px;
+    	width: 160px;
+    	height: 15px;
+
+	}
+	.audit{
+		position:absolute;
+		top: 495px;
+    	left: 285px;
+    	font-size: 12px;
+    	width: 120px;
+    	height: 15px;
+		
+	}
+	.drawer{
+		position:absolute;
+		top: 495px;
+    	left: 470px;
+    	font-size: 12px;
+    	width: 110px;
+    	height: 15px;
+		
+	}
+}
+//发票参数
+.details_boxstyle{
+	background-image:url(../img/billbox2.png);
+	width: 820px;
+	height:550px;
+	position:relative;
+
+span{
+		color:#053988;
+	}
+	.spa_y{
+		position:absolute;
+		top:75px;
+		left:75px;
+	}
+	.spa_m{
+		position:absolute;
+		top:75px;
+		left:123px;
+	}
+	.spa_d{
+		position:absolute;
+		top:75px;
+		left:155px;
+	}
+	.bill_number{
+		position:absolute;
+		color:black;
+		top:52px;
+		left:655px;
+		font-size:16px;
+	}
+	.bold_billnum{
+		position:absolute;
+		top:75px;
+		left:655px;
+		color:black;
+		font-weight:bold;
+		font-size:22px;
+	}
+	.spa_name{
+		position:absolute;
+		top:107px;
+		left:125px;
+		font-size:12px;
+	}
+	.spa_taxes{
+		position:absolute;
+		top:129px;
+		left:125px;
+		font-size:12px;
+	}
+	.spa_site{
+		position:absolute;
+		top:150px;
+		left:125px;
+		font-size:12px;
+	}
+	.spa_id{
+		position:absolute;
+		top:172px;
+		left:125px;
+		font-size:12px;
+	}
+	.password_box{
+		display: inline-block;
+	    overflow: hidden;
+	    width: 325px;
+	    height: 83px;
+	    /* border: 1px solid red; */
+	    position: absolute;
+	    top: 108px;
+	    left: 493px;
+	    font-size: 12px;
+	}
+	//服务列表
+	.tb_body{
+		position:absolute;
+		    width: 820px;
+  		    font-size:12px;
+  	}
+	.acurrentname{
+		position:relative;
+		left: 5px;
+	}
+	.tb_tax{
+		 position:relative;
+  		right: -320px;
+	}
+	.tb_taxrate{
+		position:relative;
+		right: -275px;
+	}
+	.tb_money{
+		position:relative;
+		right: -260px;
+		width:80px;
+		text-align:right;
+		display: inline-block;
+	}
+	.tb_pirce{
+		position:relative;
+		right:-220px;
+		width:80px;
+		text-align:right;
+		display: inline-block;
+	}
+	.tb_number{
+		position:relative;
+		right:-200px;
+		width: 30px;
+    	text-align: right;
+        display: inline-block;
+
+	}
+	.spa_unit{
+		position:relative;
+		right:-135px;
+	}
+	.standard_type{
+		position:relative;
+		right: -110px;
+
+	 }
+	//合计
+	.all_money{
+		position:absolute;
+        font-weight:bold;
+        top: 355px;
+    	right: 169px;
+	}
+	.all_pirce{
+		position:absolute;
+		font-weight:bold;
+		top: 355px;
+  		right: 8px;
+	}
+	.big_money{
+		position:absolute;
+		top: 379px;
+    	left: 260px;
+	}
+	.tiny_money{
+		position:absolute;
+		top: 379px;
+    	left: 660px;
+   	 	font-weight: bold;
+   		font-size: 16px;
+	}
+
+	.sell_name{
+		position:absolute;
+		top: 408px;
+    	left: 125px;
+    	font-size: 12px;
+	}
+	.sell_taxes{
+		position:absolute;
+		top: 428px;
+    	left: 125px;
+    	font-size: 12px;
+
+	}
+	.sell_site{
+		position:absolute;
+		top: 448px;
+    	left: 125px;
+    	font-size: 12px;
+
+	}
+	.sell_id{
+		position:absolute;
+		top: 466px;
+    	left: 125px;
+    	font-size: 12px;
+
+	}
+	.remarks_box{
+		display: inline-block;
+	    overflow: hidden;
+	    width: 325px;
+	    height: 83px;
+	    /* border: 1px solid red; */
+	    position: absolute;
+	    top: 408px;
+	    left: 493px;
+	    font-size: 12px;
+	}
+	.receiver{
+		position:absolute;
+		top: 495px;
+    	left: 67px;
+    	font-size: 12px;
+
+	}
+	.audit{
+		position:absolute;
+		top: 495px;
+    	left: 285px;
+    	font-size: 12px;
+		
+	}
+	.drawer{
+		position:absolute;
+		top: 495px;
+    	left: 470px;
+    	font-size: 12px;
+		
+	}
+	
+}
+
+.details_style{
+       width:820px;
+       height:446px;
+       background-image:url(../img/billbox.png) ;
+    
+    span{
+    	color: #05388a;
+    	font-weight:bold;
+    }
+    .spa_y{
+    	position:absolute;
+        top:130px;
+        left:410px;
+    }
+    .spa_m{
+    	position:absolute;
+    	top:130px;
+        left:510px;
+    }
+    .spa_d{
+    	position:absolute;
+    	top:130px;
+        left:580px;
+    }
+    .payer_name{
+    	position:absolute;
+    	top:170px;
+    	left:230px;
+    	line-height: 15px;
+  	 	height: 30px;
+	    width: 250px;
+ 	    word-wrap: break-word;
+	    word-break: break-all;
+    }
+    .payee_name{
+		position:absolute;
+		top:170px;
+		left:600px;
+		line-height: 15px;
+  	 	height: 30px;
+	    width: 250px;
+ 	    word-wrap: break-word;
+	    word-break: break-all;
+    }
+    .payer_id{
+    	position:absolute;
+    	top:200px;
+    	left:230px;
+    }
+    .payer_bank{
+		position:absolute;
+		top:225px;
+		left:230px;
+		line-height: 15px;
+  	 	height: 30px;
+	    width: 250px;
+ 	    word-wrap: break-word;
+	    word-break: break-all;
+    }
+     .payee_id{
+    	position:absolute;
+    	top:200px;
+    	left:600px;
+    }
+    .payee_bank{
+		position:absolute;
+		top:225px;
+		left:600px;
+		line-height: 15px;
+  	 	height: 30px;
+	    width: 250px;
+ 	    word-wrap: break-word;
+	    word-break: break-all;
+    }
+    .spa_money{
+    	position:absolute;
+    	text-align: right;
+    	top: 270px;
+   		left: 637px;
+    	letter-spacing: 9px;
+    	width: 220px;
+    	font-size: 20px;
+    }
+    .bigspa_money{
+    	position: absolute;
+    	top: 265px;
+   		left: 280px;
+  		font-size: 18px;
+    }
+    .apa_y{
+    	position: absolute;
+    	top:300px;
+    	left:230px;
+    }
+    .apa_Numb{
+    	position: absolute;
+  		top: 330px;
+  		left: 230px;
+    }
+    .bpa_Numb{
+    	position: absolute;
+    	top:300px;
+    	left:600px;
+    }
+    .number_one{
+    	color: #000;
+    	font-size:24px;
+        position: absolute;
+        top:100px;
+        left:730px;
+        display: block;
+        width: 110px;
+        word-break: break-all;
+        height: 20px;
+    }
+    .number_two{
+    	color: #000;
+    	font-size:22px;
+        position: absolute;
+        top:120px;
+        left:735px;
+    }
+}
+.footer_ul{
+	display:block;
+	list-style:none;
+	margin: 0;
+	font-size:12px;
+	height:20px;
+
+	li{
+		float:left;
+		display:block;
+		width:25%;
+	}
+}
+.details_table{
+	height: 30px;
+	ul{
+		margin:0px;
+		height:100%;
+		line-height:30px;
+	}
+	ul > li{
+		display: inline-block;
+		text-align:center;
+		span{
+			
+		}
+	}
+}
+//新增搜索栏样式
+.bt-hidden {
+  display: none !important;
+}
+.bt-search-icon {
+  background-image: url(../../../img/bt-select3.png);
+  background-position: 98% 7px;
+  background-repeat: no-repeat;
+}
+.bt-search-icon:focus {
+  background-image: url(../../../img/bt-select1.png);
+  outline: 0;
+  border-color: #063c95;
+}
+.bt-search-icon.ng-dirty.ng-invalid {
+  background-image: url(../../../img/bt-select2.png);
+}
+.bt-search-downdrop {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-radius: 4px;
+  margin-top: 4px;
+  border-color: #063c95;
+  min-width: 333px;
+}
+.bt-search-downdrop li {
+  padding: 8px;
+  list-style: none;
+  height: 32px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.bt-search-downdrop li:hover {
+  background-color: #e9f3ff;
+}
+
+
+#search_info .info-title, #serch_repay_info .info-title{
+			background: #bad5ff!important;
+}
+.asdadaasdasdsa{
+	background-color:111;
+} 
+//内容超出省略
+@mixin ellipsis-table{
+	table.ellipsis_table{
+		table-layout:fixed;
+
+		.ellipsis{
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+}

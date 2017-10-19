@@ -1,0 +1,116 @@
+<div class="div-width-90 detail-box div-center child-list">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+      订单信息
+    </h1>
+    <table class="table table-condensed div-width-70 div-center search-table">
+      <tr>
+       <td width="30%">核心企业:</td>
+       <td width="70%" class="div-text-left">
+         <select ng-model="childInfoSearch.coreCustNo">
+           <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="childInfoSearch.coreCustNo == item.value"></option>
+         </select>
+       </td>
+      </tr>
+      <tr>
+        <td>应收账款编号:</td>
+        <td class="div-text-left">
+        <input type="text" name="" ng-model="childInfoSearch.orderNo">
+        </td>
+      </tr>
+      <tr>
+        <td>订单日期:</td>
+        <td class="div-text-left date">
+          <input type="text" id="order_search_start_date" bt-date="childInfoSearch.GTEorderDate" bt-max-date="order_search_end_date"> - <input type="text" id="order_search_end_date" bt-date="childInfoSearch.LTEorderDate" bt-min-date="order_search_start_date">
+        </td>
+      </tr>
+    </table>
+    <div class="center-buttons">
+      <button class="btn btn-primary btn-bg-middle" ng-click="searchChildInfoList('5');">查询</button>
+    </div>
+    <table class="table table-striped table-hover table-bordered big-input">
+      <thead class="result-td-head result-head-green">
+        <tr>
+          <td colspan="8" class="left">订单信息</td>
+        </tr>
+      </thead>
+      <thead class="result-head-center">
+        <tr>
+          <td colspan="8">已选择列表</td>
+        </tr>
+      </thead>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="8.5%">操作</td>
+          <td width="14.5%">订单编号</td>
+          <td width="12.5%">订单金额</td>
+          <td width="14.5%">核心企业</td>
+          <td width="12.5%">订单日期</td>
+          <td width="12.5%">商品名称</td>
+          <td width="12.5%">数量</td>
+          <td width="12.5%">单价</td>
+        </tr>
+      </thead>
+      <tbody ng-show="chilidInfoSelectPool.length<1">
+        <tr>
+          <td colspan="8" class="green">暂无已选项！</td>
+        </tr>
+      </tbody>
+      <tbody>
+          <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in chilidInfoSelectPool">
+            <td>
+              <a href="javascript:void(0)" ng-click="removeChildInfoPool(item);">移除</a>
+            </td>
+            <td ng-bind="item.orderNo"></td>
+            <td><strong class="red" ng-bind="item.balance|moneyFilter"></strong></td>
+            <td ng-bind="item.coreCustNo|kindf:'CoreCustListDic'"></td>
+            <td ng-bind="item.orderDate"></td>
+            <td ng-bind="item.goodsName"></td>
+            <td class="red" ng-bind="item.amount"></td>
+            <td class="red" ng-bind="item.unit|moneyFilter"></td>
+          </tr>
+      </tbody>
+      <thead class="result-head-center">
+        <tr>
+          <td colspan="8">可选择列表</td>
+        </tr>
+      </thead>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="8.5%">操作</td>
+          <td width="14.5%">订单编号</td>
+          <td width="12.5%">订单金额</td>
+          <td width="14.5%">核心企业</td>
+          <td width="12.5%">订单日期</td>
+          <td width="12.5%">商品名称</td>
+          <td width="12.5%">数量</td>
+          <td width="12.5%">单价</td>
+        </tr>
+      </thead>
+      <tbody>
+          <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in childInfoList">
+            <td>
+              <a href="javascript:void(0)" ng-hide="item.isInPool" ng-click="addChildInfoPool(item);">添加</a>
+              <span ng-show="item.isInPool" class="deep-gray">已添加</span>
+            </td>
+            <td ng-bind="item.orderNo"></td>
+            <td><strong class="red" ng-bind="item.balance|moneyFilter"></strong></td>
+            <td ng-bind="item.coreCustNo|kindf:'CoreCustListDic'"></td>
+            <td ng-bind="item.orderDate"></td>
+            <td ng-bind="item.goodsName"></td>
+            <td class="red" ng-bind="item.amount"></td>
+            <td class="red" ng-bind="item.unit|moneyFilter"></td>
+          </tr>
+      </tbody>
+      <tfoot>
+        <td colspan="8">
+          <div bt-pagination conf="childInfoListPage" func="queryChildInfoList('5',false);"></div>
+        </td>
+      </tfoot>
+    </table>
+    <div>
+         <div class="center-buttons">
+           <button class="btn btn-primary" ng-click="linkChildInfoList($event.target,'5');">确定添加</button>
+           <button class="btn btn-primary" bt-close-modal >取消</button>
+         </div>
+    </div>
+</div> 

@@ -1,0 +1,42 @@
+{
+  "message": "查询成功",
+  "data": 
+    {
+      "id": 17,
+      "requestNo": "42",
+      "factorNo": 102200304,
+      "custNo": 102200331,
+      "coreCustNo": 100000202,
+      "custAduit": "0",
+      "coreCustAduit": "0",
+      "requestBalance": 1000000,
+      "approvedBalance": 90000,
+      "approvedRatio": 16,
+      "approvedManagementRatio": 17,
+      "servicefeeRatio": 5,
+      "requestPeriod": 3,
+      "approvedPeriod": 3,
+      "creditMode": 1,
+      "operOrg": "Biet  Supplychain//Operational Department",
+      "regOperId": 1111,
+      "regOperName": "管理员",
+      "regDate": "20160803",
+      "regTime": "111626",
+      "modiOperId": "",
+      "modiOperName": "",
+      "modiDate": "",
+      "modiTime": "",
+      "version": "",
+      "custName": "海底捞餐饮集团",
+      "coreCustName": "桃源居实业（深圳）集团(本部)",
+      "factorName": "深圳市拜特科技集团公司"
+    }
+  ,
+  "page": {
+    "pageNum": 1,
+    "pageSize": 10,
+    "pages": 1,
+    "total": 1
+  },
+  "code": 200
+}

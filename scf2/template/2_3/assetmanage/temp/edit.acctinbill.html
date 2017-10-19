@@ -1,0 +1,140 @@
+ <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">编辑票据
+                    </h1>
+                    <table id="loanBox" class="table table-striped table-hover table-bordered table-condensed">
+            <tbody>
+            <tr>
+                  <td><strong class="red">*</strong> 凭证编号:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.refNo" disabled>
+                  </td>
+                  <td></td>
+                  <td class="div-text-left double_box">
+                    <input type="hidden" ng-model="loanInfo.version" >
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">开票单位:</td>
+                  <td width="30%" class="div-text-left">
+                   <select  ng-model="loanInfo.coreCustNo" >
+                      <option ng-repeat="mode in coreCustList" ng-option-filter value="{{mode.value}}" ng-bind="mode.name" ng-selected="loanInfo.coreCustNo==mode.value"></option>
+                    </select>
+                  </td>
+                  <td width="20%">收款人:</td>
+                  <td width="30%" class="div-text-left">
+                      <select id="tetx" ng-model="loanInfo.supplierNo" ng-change="custnLista()">
+                      <option ng-repeat="mode in custList" ng-option-filter value="{{mode.value}}" ng-bind="mode.name"  ng-selected="loanInfo.supplierNo==mode.value"></option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="red">*</strong> 付款方名称:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.buyer" >
+                  </td>
+                  <td><strong class="red">*</strong> 收款方名称:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.supplier" value="{{icc}}">
+                  </td>
+                </tr> 
+                <tr>
+                  <td><strong class="red">*</strong> 付款账号:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.buyerBankAccount" >
+                  </td>
+                  <td><strong class="red">*</strong> 收款账号:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.suppBankAccount">
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="red">*</strong> 付款行:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.buyerBankName" >
+                  </td>
+                  <td><strong class="red">*</strong> 收款行:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.suppBankName">
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="red">*</strong> 票据号码:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.billNo" >
+                  </td>
+                  <td>交易合同号:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.agreeNo">
+                  </td>
+                </tr>
+                 <tr>
+                  <td width="20%">票据类型:</td>
+                  <td width="30%" class="div-text-left">
+                   <select ng-model="loanInfo.billType">
+                      <option ng-repeat="item in typeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="loanInfo.billType == item.value"></option>
+                  </select>
+                  </td>
+                  <td width="20%">流通方式:</td>
+                  <td width="30%" class="div-text-left">
+              <select ng-model="loanInfo.billMode">
+                <option ng-repeat="item in modeType" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="loanInfo.billMode == item.value"></option>
+              </select>
+                  </td>
+                </tr>
+                 <tr>
+                  <td><strong class="red">*</strong> 票面金额(元):</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.balance" >
+                  </td>
+                  <td>金额大写:</td>
+                  <td class="div-text-left double_box">
+                    <strong class="deep-gray ng-binding" ng-bind="loanInfo.balance | moneybigf"></strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>出票日期:</td>
+                  <td class="div-text-left double_box">
+                      <input class="div-text-center" type="text" id="begin_date" bt-date="loanInfo.invoiceDate" >
+                  </td>
+                  <td>到期日期:</td>
+                  <td class="div-text-left double_box">
+                    <input class="div-text-center" type="text" id="end_date" bt-date="loanInfo.endDate" >
+                  </td>
+                </tr>
+                <tr>
+                  <td>出票人:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.invoicer">
+                  </td>
+                  <td>承兑人:</td>
+                  <td class="div-text-left double_box">
+                      <select name="" id="" ng-model="loanInfo.acceptor" >
+                      <option ng-repeat="mode in coreCustList" ng-option-filter value="{{mode.value}}" ng-bind="mode.name" ng-selected="loanInfo.acceptor==mode.value"></option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>备注:</td>
+                  <td class="div-text-left double_box" colspan="3">
+                    <textarea ng-model="loanInfo.description" name="name" class="ng-pristine ng-valid ttare" style="margin: 0px; height: 100px; width: 600px;"></textarea>
+                  </td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <div class="center-buttons">
+          <!-- <button class="btn btn-primary" ng-click="editInfot($event.target,false);">修改</button> -->
+          <button class="btn btn-primary" ng-click="editInfot($event.target,true);">修改</button>
+          <button class="btn btn-primary" bt-close-modal="">返回</button>
+        </div>
+                    
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+

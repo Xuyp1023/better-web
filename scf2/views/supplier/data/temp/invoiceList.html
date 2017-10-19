@@ -1,0 +1,103 @@
+<div class="div-width-90 detail-box div-center child-list">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+      关联发票
+    </h1>
+    <form class="form-inline">
+      <label>
+        <span>开票日期</span>
+        <input type="text" id="invoice_search_start_date" bt-date="childInfoSearch.GTEinvoiceDate" bt-max-date="invoice_search_end_date"> - <input type="text" id="invoice_search_end_date" bt-date="childInfoSearch.LTEinvoiceDate" bt-min-date="invoice_search_start_date">
+      </label>
+      <label for="">
+        <button type="button" class="btn btn-primary" ng-click="searchChildInfoList('1');">查询</button>
+      </label>
+    </form>
+    <table class="table table-striped table-hover table-bordered big-input">
+      <thead class="result-td-head result-head-green">
+        <tr>
+          <td colspan="6" class="left">关联发票</td>
+          <td colspan="2" class="right">
+            <!-- <button type="button" class="btn btn-info" ng-click="childInfoImBox('1')">+新增发票</button> -->
+          </td>
+        </tr>
+      </thead>
+      <thead class="result-head-center">
+        <tr>
+          <td colspan="8">已选择列表</td>
+        </tr>
+      </thead>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="12.5%">操作</td>
+          <td width="12.5%">发票代码</td>
+          <td width="12.5%">发票号码</td>
+          <td width="12.5%">纳税人识别号</td>
+          <td width="12.5%">行业类别</td>
+          <td width="12.5%">开票日期</td>
+          <td width="12.5%">金额</td>
+          <td width="12.5%">开票人</td>
+        </tr>
+      </thead>
+      <tbody ng-show="chilidInfoSelectPool.length<1">
+        <tr>
+          <td colspan="8" class="green">暂无已选项！</td>
+        </tr>
+      </tbody>
+      <tbody>
+          <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in chilidInfoSelectPool">
+            <td>
+              <a href="javascript:void(0)" ng-click="removeChildInfoPool(item);">移除</a>
+            </td>
+            <td class="red" ng-bind="item.invoiceCode"></td>
+            <td ng-bind="item.invoiceNo"></td>
+            <td ng-bind="item.taxpayerNo"></td>
+            <td ng-bind="item.corpVocate"></td>
+            <td ng-bind="item.invoiceDate"></td>
+            <td ng-bind="item.balance|moneyFilter"></td>
+            <td ng-bind="item.drawer"></td>
+          </tr>
+      </tbody>
+      <thead class="result-head-center">
+        <tr>
+          <td colspan="8">可选择列表</td>
+        </tr>
+      </thead>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="12.5%">操作</td>
+          <td width="12.5%">发票代码</td>
+          <td width="12.5%">发票号码</td>
+          <td width="12.5%">纳税人识别号</td>
+          <td width="12.5%">行业类别</td>
+          <td width="12.5%">开票日期</td>
+          <td width="12.5%">金额</td>
+          <td width="12.5%">开票人</td>
+        </tr>
+      </thead>
+      <tbody>
+          <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in childInfoList">
+            <td>
+              <a href="javascript:void(0)" ng-hide="item.isInPool" ng-click="addChildInfoPool(item);">添加</a>
+              <span ng-show="item.isInPool" class="deep-gray">已添加</span>
+            </td>
+            <td class="red" ng-bind="item.invoiceCode"></td>
+            <td ng-bind="item.invoiceNo"></td>
+            <td ng-bind="item.taxpayerNo"></td>
+            <td ng-bind="item.corpVocate"></td>
+            <td ng-bind="item.invoiceDate"></td>
+            <td ng-bind="item.balance|moneyFilter"></td>
+            <td ng-bind="item.drawer"></td>
+          </tr>
+      </tbody>
+      <tfoot>
+        <td colspan="8">
+          <div bt-pagination conf="childInfoListPage" func="queryChildInfoList('1',false);"></div>
+        </td>
+      </tfoot>
+    </table>
+    <div>
+         <div class="center-buttons">
+           <button class="btn btn-primary" ng-click="linkChildInfoList($event.target,'1');">确定添加</button>
+           <button class="btn btn-primary" bt-close-modal >取消</button>
+         </div>
+    </div>
+</div> 

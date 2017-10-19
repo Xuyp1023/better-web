@@ -1,0 +1,49 @@
+    <p class="p10 f12">尊敬的客户，以下是您在企e金服平台的开户信息！</p>
+    <div class="pjce">
+        <ul>
+            <li>
+                <p><span>申请企业名称：</span>{{info.custName}}</p>
+                <p><span>组织机构代码：</span>{{info.orgCode}}</p>
+                <p><span>营业执照号码：</span>{{info.businLicence}}</p>
+                <p><span>办公地址：</span>{{info.address}}</p>
+                <p><span>开户银行名称：</span>{{info.bankName}}</p>
+                
+                <p><span>银行账号名称：</span>{{info.bankAccoName}}</p>
+                <p><span>银行账户：</span>{{info.bankAcco}}</p>
+                <p><span>法定代表人：</span>{{info.lawName}}</p>
+                <p><span>证件号码：</span>{{info.lawIdentNo}}</p>
+                <div class="inlint">
+                <p><span>企业经办人：</span>{{info.operName}}</p>
+                <p><span>证件号码：</span>{{info.operIdentno}}</p>
+                <p><span>手机号码：</span>{{info.operMobile}}</p>
+                <p><span>电子邮箱：</span>{{info.operEmail}}</p>
+                </div>
+                <div class="inlint">
+                <p><a href="#/register/show">
+                    <span class="ti">查看开户认证文件</span>
+                    <i class="ico ico13 fr"></i>
+                </a></p></div>
+            </li>
+        </ul>
+        <em class="ico ico9"></em>
+    </div>
+
+    <div class="butn mt10">
+        <div class="mt20">
+            <label for="agree">
+                <input id="agree" type="checkbox" ng-model="readAndAgree">
+                <span>我已阅读并同意<a href="javascript:void(0)">&lt;&lt;企e金服平台合作协议&gt;&gt;</a></span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- 待激活 -->
+    <div ng-show="!info.active">
+        <div class="text-center margin-tips"><a class="btn" href="javascript:void(0)" ng-click="activeAccount();">确认并激活账户</a></div>
+    </div>
+
+    <!-- 开户成功 -->
+    <div ng-show="info.active">
+        <div class="text-center"><span class="gray9">尊敬的客户,您已开户！</span></div>
+        <h4 class="text-center fb14 blue_shallow">开启供应链金融之旅</h4>
+    </div>

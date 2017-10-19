@@ -1,0 +1,76 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">付款详情
+                    </h1>
+                </div>
+
+
+          <div>
+              <div style="float: left;margin: 5px;">
+                <button class="btn btn-info" ng-click="searchCheck(1);" >全部记录({{info.calcPayResult.totalAmount}})</button>
+              </div>
+              <div style="float: left;margin: 5px;">
+                <button class="btn btn-info" ng-click="searchCheck(2);" >付款成功({{info.calcPayResult.paySuccessAmount}})</button>
+              </div>
+              <div style="float: left;margin: 5px;">
+                <button class="btn btn-info" ng-click="searchCheck(3);" >付款失败({{info.calcPayResult.payFailureAmount}})</button>
+              </div>
+              <div style="float: left;margin: 5px;">
+                <button class="btn btn-info" ng-click="searchCheck(4);" >未确认({{info.calcPayResult.unconfirmAmount}})</button>
+              </div>
+          </div>
+            <table class="div-width-100 table table-striped table-hover search-result main-list">
+               <thead>
+                  <tr class="result-head">
+                    <td width="10%">凭证号</td>
+                    <td width="13%">付款日期</td>
+                    <td width="9%">付款金额</td>
+                    <td width="11%">付款状态</td>
+                    <td width="10%">收款人</td>
+                    <td width="10%">收款银行账号</td>
+                    <td width="14%">收款银行全称</td>
+                    <td width="10%">手机号</td>
+                    <td width="13%">导入日期</td>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr ng-class="{even:$even}" ng-repeat="item in detailInfoList" ng-repeat-end>
+                  <td><a href="javascript:void(0);" ng-click="lookCommissionDetail(item);" ng-bind="item.refNo"></a></td>
+                  <td ng-bind="item.payDate"></td>
+                  <td ng-bind="item.payBalance | moneyFilter" class="red"></td>
+                  <td ng-bind="item.payResult|kindf:'commissionRecordPayStatus'"></td>
+                  <td ng-bind="item.payTargetBankAccountName"></td>
+                  <td ng-bind="item.payTargetBankAccount"></td>
+                  <td ng-bind="item.payTargetBankName"></td>
+                  <td ng-bind="item.payTargetMobileNo"></td>
+                  <td ng-bind="item.importDate"></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                  <td colspan="9">
+                      <div bt-pagination conf="detailListPage" func="queryDetailList(false)"></div>
+                  </td>
+              </tfoot>
+          </table>
+
+          <div class="center-buttons">
+            <div style="float: left;">
+            <span style="min-height: 20px;padding-left: 20px;margin-bottom: 0;font-weight: 400;cursor: pointer;">
+              总金额(元)：￥{{info.calcPayResult.totalBalance | number}}
+            </span></div>
+            <button class="btn btn-primary" ng-click="goBack()">返回</button>
+          </div>
+
+            
+        </div>
+
+
+    </div>
+
+    <div id="commissionDetail_box" bt-roll-modal="template/1qh-mobile/commission/temp/detailInfo.html" bt-z-index="9991"></div>
+
+
+

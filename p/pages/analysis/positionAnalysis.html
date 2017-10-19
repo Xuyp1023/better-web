@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>客户资料管理</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/positionAnalysis.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body>
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" class="span12">
+  				<h1 id="select_comp" class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+            机构信息
+            <div class="search-info">
+              <span class="lab">机构选择:</span>
+              <select id="search_comp_list" data-bind="event:{change:searchComp}">
+              </select>
+            </div>
+          </h1>
+          <div id="fund_info" class="row-fluid">
+            <div class="span5 offset1 left-info">
+              <div class="row-fluid chart-title">
+                <div class="span6 div-text-left content-first-title">
+                所持基金结构
+                </div> 
+              </div>
+              <div id="fund_frame" class="div-width-100"></div>
+            </div>
+            <div class="span5 offset1 right-info">
+              <div class="row-fluid chart-title">
+                <div class="span6 div-text-left content-first-title">
+                投资风险结构
+                </div> 
+              </div>
+              <div id="fund_danger_frame" class="div-width-100"></div>
+            </div>
+          </div>
+
+          <div id="fund_profit" class="row-fluid">
+            <div class="row-fluid chart-title">
+                <div class="span6 div-text-left content-first-title">
+                所持基金盈亏情况
+                </div> 
+              </div>
+              <div id="fund_profit_info" class="div-width-100"></div>
+          </div>
+
+          <div id="fund_forward" class="row-fluid">
+            <div class="row-fluid chart-title">
+                <div class="span12 div-text-left content-first-title">
+                所持七日年化收益走势
+                <small class="plus-info">
+                  <select name="" id="select_fund_list" data-bind="click:searchComp">
+                    <option value="">加载中...</option>
+                  </select>
+                </small>
+              </div>
+          </div>
+          <div id="chart_search_box" class="row-fluid">
+            <div class="span4 search-date">
+              <input id="charts_begin_date" flag="charts" type="text" readonly="true" class="Wdate" dateData="searchData" dateName="beginDate" data-bind="value:searchDataBind().beginDate,event:{focus:setDateInfo,click:setDateInfo,blur:changeDateInfo}"> - 
+              <input id="charts_end_date" flag="charts" readonly="true" class="Wdate" dateData="searchData" dateName="endDate" type="text" data-bind="value:searchDataBind().endDate,event:{focus:setEndDate,click:setEndDate,blur:changeDateInfo}">
+            </div>
+            <ul class="span8 search-fast clearFix">
+              <li target="DD,7">7天</li>
+              <li target="MM,1">1月</li>
+              <li target="MM,3">3月</li>
+              <li target="YYYY,1">1年</li>
+              <li target="YYYY,3">3年</li>
+              <li target="YYYY,0">今年</li>
+              <li target="YYYY,50">成立至今</li>
+            </ul>
+          </div>
+          <div id="fund_forward_info" class="div-width-100"></div>
+          <!-- 基金机构相关信息 -->
+          <div id="error_info_box" class="hide div-width-100">
+            <div class="div-width-80 div-center alert alert-error">
+              <p><strong>温馨提示:</strong>系统检测到您还未拥有已开户的账户，请先进行基金开户后再尝试赎回操作!</p>
+            </div>
+          </div>
+          <!-- 基金机构相关信息 -->
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">seajs.use('p/js/positionAnalysis');</script>
+  </body>
+</html>

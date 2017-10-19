@@ -1,0 +1,11 @@
+{ "message": "设置公告已读状态-成功", 
+	"data": { "id": 19, 
+	"noticeId": 12, 
+	"isDeleted": false, 
+	"isRead": true, 
+	"operId": 1258, 
+	"operName": "管理员-核心", 
+	"custName": "广东德豪润达电气股份有限公司", 
+	"custNo": 102202020 }, 
+	"page": "", 
+	"code": 200 }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>已办流程</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/flow/flowSearch/completeFlow.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">已办流程</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+               <td width="25%">流程名称:</td>
+               <td width="75%" class="div-text-left">
+                  <input type="text" ng-model="searchData.beginDate">
+               </td>
+              </tr>
+              <tr>
+               <td width="25%">到达时间:</td>
+               <td width="75%" class="div-text-left date">
+                  <input type="text" bt-date="searchData.GTFlowDate"> - 
+                  <input type="text" bt-date="searchData.LTFlowDate">
+               </td>
+              </tr>
+              
+              <tr>
+                <td width="25%">流程类型:</td>
+                <td width="75%" class="div-text-left">
+                  <select ng-model="searchData.flowType" ng-change="changeCust();">
+                      <option value="">---所有状态---</option>
+                      <option ng-repeat="item in typeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.flowType == item.value"></option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%">审批节点:</td>
+                <td width="75%" class="div-text-left">
+                  <select ng-model="searchData.currentNodeId">
+                      <option value="">---所有状态---</option>
+                      <option ng-repeat="item in flowNodesList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.currentNodeId == item.value"></option>
+                  </select>
+              </tr>
+              
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="queryList();">查询</button>
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              已办流程列表
+            </h1>
+           <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr class="result-head">
+                  <td width="16%">流程名称</td>
+                  <td width="16%">流程类型</td>
+                  <td width="16%">当前状态</td>
+                  <td width="16%">当前处理人</td>
+                  <td width="16%">到达时间</td>
+                  <td width="20%">操作</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-repeat="item in infoList" ng-repeat-end ng-class="{even:$even}" >
+                  <td ng-bind="item.flowName"></td>
+                  <td ng-bind="item.flowType|kindf:'FlowType'"></td>
+                  <td ng-bind="item.currentNodeName"></td>
+                  <td ng-bind="item.operator"></td>
+                  <td ng-bind="item.lastUpdateTime"></td>
+                  <td>
+                    <span><a href="#" ng-click="flowImageInfo(item);">流程查看</a></span>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <td colspan="9">
+                  <div bt-pagination conf="listPage"></div>
+                </td>
+              </tfoot>
+            </table>
+            
+          </div>
+        
+        <!-- 流程查看-->
+        <div id="flow_info_box" bt-roll-modal="temp/flowInfo.html" bt-z-index="9991"></div>
+        
+        <!-- 流程图查看 -->
+        <div id="flow_image_box" bt-roll-modal="temp/flowImage.html" bt-z-index="9991"></div>
+
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/flow/flowSearch/completeFlow");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/flow/flowSearch/completeFlow");
+      } 
+  </script>
+  </body>
+</html>

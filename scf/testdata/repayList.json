@@ -1,0 +1,57 @@
+{
+    "message": "查询客户还款计划分页信息成功",
+    "data": [
+        {
+            "requestNo": "2",
+            "productId": "BZ0001",
+            "productName":"保理产品1",
+            "buyerNo": 100000170,
+            "supplierNo": 100000156,
+            "cashRequestNo": "201",
+            "balance": 150000,
+            "confirmBalance": 120000,
+            "tradeStatus": "0",
+            "loanBalance": 110000,
+            "fRepayment": 110000,
+            "actualDate": "20160322",
+            "endDate": "20160801",
+            "ratio": 10,
+            "custCredit": 1500000,
+            "remainMoney": 400000,
+            "modiDate": "20160401",
+            "repayDate": "20160802",
+            "buyer": "深圳前海拜特测试1",
+            "supplier": "深圳市华强公益基金会1",
+            "factorRequestNo": "1111111"
+        },{
+            "requestNo": "3",
+            "productId": "BZ0002",
+            "productName":"保理产品2",
+            "buyerNo": 100000170,
+            "supplierNo": 100000156,
+            "cashRequestNo": "201",
+            "balance": 150000,
+            "confirmBalance": 120000,
+            "tradeStatus": "0",
+            "loanBalance": 110000,
+            "fRepayment": 110000,
+            "actualDate": "20160322",
+            "endDate": "20160801",
+            "ratio": 10,
+            "custCredit": 1500000,
+            "remainMoney": 400000,
+            "modiDate": "20160401",
+            "repayDate": "20160802",
+            "buyer": "深圳前海拜特测试1",
+            "supplier": "深圳市华强公益基金会1",
+            "factorRequestNo": "111231111"
+        }
+    ],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 10,
+        "pages": 1,
+        "total": 1
+    },
+    "code": 200
+}

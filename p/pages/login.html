@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>用户登录</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/login.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+</head>
+
+<body>
+    <div>
+        <!-- topbar -->
+        <div class="accout_hd">
+            <div class="layout_n clearfix">
+                <div class="logo">
+                    <a href="http://www.qiejf.com/"></a>
+                </div>
+                <span class="logo_sep"></span>
+                <span class="logo_txt">登录</span>
+            </div>
+        </div>
+        <div class="account_container">
+            <div class="login_bd" style="background:url(../img/account/v4/login_bg_02.jpg) no-repeat center center;">
+                <div class="layout_n clearfix">
+                    <div class="login_form">
+                        <form action="#" method="post" name="loginForm" id="loginForm" novalidate="novalidate">
+                            <p class="form_hd"><span class="txt">请使用操作员账号及密码登录</span></p>
+                            <div class="form_bd">
+
+
+                                <div class="input_wrap hide_im">
+                                    <label for="" class="input_label">角色</label>
+                                    <div class="input_control">
+                                        <div class="input_txt_wrap">
+                                            <!-- <input class="input_txt"  type="text" placeholder="请输入账号" name="username" data-bind="value:loginInfoBind().username" maxlength="40"> -->
+
+                                            <select class="select_txt" mapping="custRole" name="custRole" data-bind="value:loginInfoBind().custRole">
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <span class="input_error_msg"></span>
+                                </div>
+                                <div class="input_wrap">
+                                    <label for="" class="input_label">账号</label>
+                                    <div class="input_control">
+                                        <div class="input_txt_wrap">
+                                            <input class="input_txt"  type="text" placeholder="请输入账号" name="username" data-bind="value:loginInfoBind().username" maxlength="40">
+                                        </div>
+                                    </div>
+                                    <span class="input_error_msg"></span>
+                                </div>
+                                <div class="input_wrap">
+                                    <label for="" class="input_label">密码</label>
+                                    <div class="input_control">
+                                        <div class="input_txt_wrap">
+                                            <input class="input_txt" type="password" placeholder="请输入密码" name="password" data-bind="value:loginInfoBind().password">
+                                        </div>
+                                    </div>
+                                    <span class="input_error_msg"></span>
+                                </div>
+                                <div class="submit_wrap">
+                                    <div class="input_control">
+                                        <a href="javascript:;" class="input_btn" data-bind="click:login" id="loginForm_submit">登录</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="account_ft">
+            <div class="layout_n clearfix">
+                <div class="ft_copyright">
+                    <span class="c_1"> © 2010-2015 www.qiejf.com 深圳市前海拜特互联网金融服务有限公司 版权所有 </span>
+                    <span class="c_2"> 粤ICP备  15089713号-1</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+        <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+    <![endif]-->
+    <script type="text/javascript">seajs.use('p/js/login');</script>
+</body>
+
+</html>

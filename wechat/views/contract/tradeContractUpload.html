@@ -1,0 +1,20 @@
+<div class="back-white pb10">
+    <h3 class="title-message"><span class="mui-icon mui-icon-help mui-active font-18"></span>请将当前合同拍照后上传！</h3>
+    <!-- 附件遍历 -->
+    <div class="mui-row ac-grid upload-wrap">
+        <div ng-repeat="item in agreeList" class="mui-col-sm-4 mui-col-xs-4">
+            <div class="upload-area"  ng-show="!item.id" ng-click="uploadImage();" > 
+                <div class="line-hori"></div>
+                <div class="line-vert"></div>
+            </div>
+            <div class="upload-img"  ng-show="item.id" ng-click="preImg(item);">
+                <img ng-src="{{item.id ? (item.id|downf) :''}}" >
+            </div>
+            <p class="type-exam font-gray" ng-show="item.id" ng-click="delUpload(item);">删除</p>
+        </div>
+    </div>
+</div>
+
+<div class="butn mt10">
+   <p><a class="btn" href="#/tradeContract/list" >确定</a></p>
+</div>

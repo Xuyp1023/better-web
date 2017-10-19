@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>余利宝申购</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/purchase.css">
+
+    <style type="text/css">
+      #container a.btn:hover {
+        color:#fff;
+      }
+    </style>
+
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body>
+    <div id="container" class="container-fluid div-center">
+      <div class="row-fluid">
+        <div id="content" class="span12">
+          <ul  class="nav nav-tabs plus-nav-tabs-init">
+            <li><a id="select_fund_link" href="#select_fund">选基金</a></li>
+            <li class="active"><a id="confirm_amount_link" href="#confirm_amount">确认金额</a></li>
+            <li><a id="pree_see_link" href="#pree_see">预览</a></li>
+            <li><a id="finish_select_link" href="#finish_select">完成</a></li>
+          </ul>
+
+
+
+        <div class="tab-content plus-nav-tabs-content">
+          <div id="confirm_amount" class="tab-pane active fade in">
+            <form action="" id="confirm_amount_form" class="form-horizontal div-center div-width-60">
+              <div class="control-group">
+                <label for="" class="control-label">基金销售机构:</label>
+                <div class="controls text" data-bind="text:purchaseFundBind().agencyName"> 
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">基金:</label>
+                <div class="controls text" data-bind="text:purchaseFundBind().fundName+'['+purchaseFundBind().fundCode+']'">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">交易账户:</label>
+                <div class="controls">
+                  <select name="moneyAccount" id="fund_partment">
+                  </select>
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label"><span class="red">* </span>存入金额:</label>
+                <div class="controls">
+                  <input type="text" id="input_amount" name="balance"  placeholder="0.01元起存">
+                </div>
+              </div>
+            </form>
+            <div class="center-buttons">
+              <a href="../../../byte/home.html#/p/fund/yulibao" class="btn btn-primary">上一步</a>
+              <button target="2" id="pree_see_btn" data-bind="click:toPreeSee" class="btn btn-primary">预览</button>
+            </div>
+          </div>
+          <div id="pree_see" class="tab-pane fade in">
+            <form action="" id="pree_see_form" class="form-horizontal div-center div-width-60">
+              <div class="control-group">
+                <label for="" class="control-label">基金销售机构:</label>
+                <div class="controls text" data-bind="text:purchaseFundBind().agencyName"> 
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">基金:</label>
+                <div class="controls text" data-bind="text:purchaseFundBind().fundName+'['+purchaseFundBind().fundCode+']'">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">交易账户:</label>
+                <div class="controls text" data-bind="text:purchaseFundBind().fund_partment_name">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">存入金额:</label>
+                <div class="controls text">
+                  <strong class="red" data-bind="text:formaterMoney(purchaseFundBind().balance)"></strong> 元                  
+                </div>
+              </div>
+            </form>
+            <div class="center-buttons">
+              <button target="1" data-bind="click:nextStep" class="btn btn-primary">上一步</button>
+              <button target="3" data-bind="click:confirmPurchase" class="btn btn-primary">立即申购</button>
+            </div>
+          </div>
+          <div id="finish_select" class="tab-pane fade in">
+            <div class="alert alert-success alert-block div-center div-width-40 finish-info">
+              <p><i class="icon-ok-sign"></i> 申购<span class="red" data-bind="text:purchaseFundBind().balance"></span>元<span class="red" data-bind="text:purchaseFundBind().fundName"></span>的申请已提交</p>
+              <p><i class="icon-ok-sign"></i> 支付信息:<span data-bind="text:purchaseResultBind().message"></span></p>
+              <p><i class="icon-ok-sign"></i> <span class="red"> 注:申购交易已经完成,请提醒复核人员复核!</span></p>
+              <p><i class="icon-ok-sign"></i> <span> 收款银行账户: <span class="red" data-bind="text:purchaseResultBind().bankAccount"></span></span></p>
+              <p><i class="icon-ok-sign"></i> <span> 收款账户名称: <span class="red" data-bind="text:purchaseResultBind().bankAcountName"></span></span></p>
+              <p><i class="icon-ok-sign"></i> <span> 收款银行: <span class="red" data-bind="text:purchaseResultBind().bankName"></span></span></p>
+            </div>
+            <div class="center-buttons">
+              <button target="0" data-bind="click:nextStep" class="btn btn-primary">返回首页</button>
+              <button target="0" data-bind="click:nextStep" class="btn btn-primary btn-bg-middle">查看基金产品</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 温馨提示 -->
+        <div id="warm_prompt_box" class="div-width-100">
+          <h1 class="prompt-title">
+            <img class="prompt-icon" src="../../img/warm_prompt.png" alt="">
+            温馨提示
+          </h1>
+          <div class="warm-prompt-content">
+            <p>1.您选择“其他基金”访问的页面将跳转至天天基金网，该网站是本司的第三方合作平台，为您提供更多样的基金产品服务。如有疑问可致电我司客服热线：0755-33000719。</p>
+            <p>2.若使用汇款交易：客户需承担网银转账费用，建议购买2万元以上的大额申购使用。</p>
+            <p>3.请注意交易资金的到账截止时间为T日15:00，客户需提前汇款。</p>
+            <p>4.请务必使用您选择的充值渠道进行汇款，如使用其他银行卡将造成资金不能匹配、申请交易无效。</p>
+          </div>
+        </div>
+        <!-- 温馨提示END -->
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+  <!-- 引用js文件 -->
+  <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+  <![endif]-->
+  <script type="text/javascript">seajs.use('p/js/balancePurchase');</script>
+  </body>
+</html>

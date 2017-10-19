@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>资料代录管理</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/qiecom/record/dataRecord.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+</head>
+
+<body id="body">
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" ng-controller="mainController" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">资料代录查询
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">
+                      <tr>
+                        <td>申请日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEregDate">-
+                          <input type="text" id="end_date" bt-date="searchData.LTEregDate">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="25%">公司名称:</td>
+                        <td width="75%" class="div-text-left">
+                          <input type="text" ng-model="searchData.LIKEcustName">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="25%">状态:</td>
+                        <td width="75%" class="div-text-left">
+                        <select ng-model="searchData.businStatus">
+                          <option value="">---所有状态---</option>
+                          <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+                        </select>
+                        </td>
+                      </tr>  
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+                        资料代录申请列表
+                        </h1>
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                          <thead>
+                            <tr class="result-head">
+                              <td width="15%">机构名称</td>
+                              <td width="15%">公司名称</td>
+                              <td width="13.5%">代录类型</td>
+                              <td width="16.5%">申请时间</td>
+                              <!-- <td width="16.5%">完成时间</td> -->
+                              <td width="12.5%">状态</td>
+                              <td width="12.5%">详情</td>
+                              <td width="12.5%">操作</td>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr ng-repeat-end ng-repeat="item in infoList" ng-class="{even:$even}">
+                              <td ng-bind="item.orgName"></td>
+                              <td ng-bind="item.custName|emptyf">
+                                <!-- <span ng-bind="item.custName" ng-show="item.insteadType === '1'"></span>
+                                <span class="deep-gray" ng-show="item.insteadType === '0'">暂无</span> -->
+                              </td>
+                              <td ng-bind="item.insteadType|kindf:'InsteadType'"></td>
+                              <td ng-bind="item.regDate +' '+ item.regTime"></td>
+                              <!-- <td ng-bind="item.modiDate"></td> -->
+                              <td class="red" ng-bind="item.businStatus|kindf:'InsteadApplyBusinStatus'"></td>
+                              <td><a href="javascript:void(0);" ng-click="detailInfoBox(item);">查看详情</a></td>
+                              <td>
+                                <a href="javascript:void(0);"  ng-show="mainListCtrl.isCanDo(item)" ng-click="childListBox(item);">代录</a>
+                                <a href="javascript:void(0);"  ng-show="mainListCtrl.isCanRedo(item)" ng-click="childListBox(item);">编辑</a>
+                                <a href="javascript:void(0);" ng-show="mainListCtrl.isCanRead(item)" ng-click="childListBox(item);">查看</a>
+                                <a href="javascript:void(0);" ng-show="mainListCtrl.isCanCheck(item)" ng-click="checkInfoBox(item);">审核</a>
+                                <span class="deep-gray" ng-show="mainListCtrl.isCannotDo(item)">暂无操作</span>
+                              </td>
+                            </tr>              
+                          </tbody>
+                          <tfoot>
+                            <td colspan="7">
+                              <div bt-pagination conf="listPage" func="queryList(false)"></div>
+                            </td>
+                          </tfoot>
+                        </table>
+                    </div>
+
+
+                <!-- 温馨提示END -->
+                <!-- 模板区域 -->
+                <!-- 公司资料代录模板 -->
+                <div id="company_change_audite_box" bt-roll-modal="temp/bankDataRecordAdd.html" bt-z-index="9991"></div>
+                <!-- 公司代录详情 -->
+                <div id="data_record_box" bt-roll-modal="temp/dataRecordDetail.html" bt-z-index="9991"></div>
+                <!-- 代录子列表界面 -->
+                <div id="children_box" bt-roll-modal="temp/recordChildList.html" bt-z-index="9991"></div>
+                <!-- 查看代录详情 -->
+                <div id="detail_box" bt-roll-modal="temp/recordApplyDetail.html" bt-z-index="9991"></div>
+                <!-- 审核代录详情 -->
+                <div id="check_box" bt-roll-modal="temp/recordApplyCheck.html" bt-z-index="9991"></div>
+                
+                <!-- 代录子模板区域 -->
+                <!-- 营业执照信息 -->
+                <div id="business_record_box" bt-roll-modal="temp/businessDataRecord.html" bt-z-index="9995"></div>
+                <!-- 公司基本信息 -->
+                <div id="base_record_box" bt-roll-modal="temp/baseDataRecord.html" bt-z-index="9995"></div>
+                <!-- 企业法人信息 -->
+                <div id="lawyer_record_box" bt-roll-modal="temp/lawyerDataRecord.html" bt-z-index="9995"></div>
+                <!-- 平台开户信息 -->
+                <!-- <div id="account_record_box" bt-roll-modal="temp/accountDataRecord.html" bt-z-index="9995"></div> -->
+                <div id="account_record_box" bt-roll-modal="temp/accountPlatRecord.html" bt-z-index="9995"></div>
+
+                <div bt-upload conf="uploadConf" ></div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+  <![endif]-->
+    <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/qiecom/record/dataRecord");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/qiecom/record/dataRecord");
+      }
+    </script>
+</body>
+
+</html>

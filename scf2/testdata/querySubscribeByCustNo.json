@@ -1,0 +1,78 @@
+{
+    "code": 200,
+    "message": "查询订阅列表成功",
+    "data": [
+        {
+            "id": 20001,
+            "profileName": "订阅1",
+            "custNo": "1321321",
+            "custName": "机构1",
+            "channels": [
+                {
+                    "id": 200001,
+                    "profileId": 20001,
+                    "channel": "0",
+                    "subscribed": true
+                },
+                {
+                    "id": 200001,
+                    "profileId": 20001,
+                    "channel": "1",
+                    "subscribed": false
+                },
+                {
+                    "id": 200001,
+                    "profileId": 20001,
+                    "channel": "2",
+                    "subscribed": true
+                },
+                {
+                    "id": 200001,
+                    "profileId": 20001,
+                    "channel": "3",
+                    "subscribed": false
+                }
+            ]
+        },
+        {
+            "id": 20002,
+            "profileName": "订阅2",
+            "custNo": "1321321",
+            "custName": "机构2",
+            "channels": [
+                {
+                    "id": 200002,
+                    "profileId": 20002,
+                    "channel": "0",
+                    "subscribed": true
+                },
+                {
+                    "id": 200002,
+                    "profileId": 20002,
+                    "channel": "0",
+                    "subscribed": false
+                }
+            ]
+        },
+        {
+            "id": 20003,
+            "profileName": "订阅1",
+            "custNo": "1321321",
+            "custName": "机构2",
+            "channels": [
+                {
+                    "id": 200003,
+                    "profileId": 20003,
+                    "channel": "3",
+                    "subscribed": true
+                }
+            ]
+        }
+    ],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 10,
+        "pages": 1,
+        "total": 1
+    }
+}

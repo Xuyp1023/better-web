@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* 用户资料页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+@import "common/pie";
+@import "common/pages";
+
+
+#container{
+	@include init;
+	@include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+	@include Spage_plugin;
+}
+
+#content{
+	@include plus-nav-tabs;
+	@include center-buttons;
+	@include td-input-width(95%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+	@include double-check;
+}
+
+
+#search_info{
+	.content-title-1{
+		border-bottom:2px solid #248AC9;
+		position:relative;
+		.search-info{
+			display:inline-block;
+			*zoom:1;
+			*display:inline;
+			height:50px;
+			line-height:50px;
+			margin-left:30px;
+			input{
+				margin-bottom:0;
+			}
+			.btn-group{
+				height:30px;
+				line-height:30px;
+				position:relative;
+				bottom:1px;
+			}
+			.dropdown-toggle{
+				min-width:0;
+			}
+			.dropdown-menu{
+				min-width:107px;
+			}
+		}
+	}
+}
+
+#fix_operator_info_box{
+	.content-title-1{
+		border-bottom:2px solid #248AC9;
+	}
+	margin-top:10px;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:9100;
+	background:white;
+	input,select{
+		margin-bottom:0;
+	}
+	table{
+		margin-top:10px;
+	}
+	.Wdate{
+		width:50%!important;
+	}
+	.double-check-sp{
+		width:25%;
+		margin-left:2%;
+		padding:4px 6px;
+		vertical-align:middle;
+	}
+}
+
+#modi_pwd_box{
+	z-index:9500;
+	table{margin-bottom:0;}
+	input{
+		margin:0;
+	}
+	.modal-header{
+		*height:30px;
+		*min-height:30px;
+	}
+}
+
+#modi_pwd_form{
+	margin-bottom:0;
+}
+
+.modal-backdrop{
+	z-index:9400!important;
+}
+
+
+
+
+
+
+
+
+
+
+

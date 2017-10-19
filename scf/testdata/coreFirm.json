@@ -1,0 +1,108 @@
+{
+    "message": "查询保理产品成功",
+    "data": [
+        {
+            "billNo": "as454421254",
+            "supplier": "华为",
+            "balance": 1000000,
+            "confirmBalance": "100000.00",
+            "productId": "BZ0001",
+            "productName":"保理产品1",
+            "description": "资金周转",
+            "lawName": "张三",
+            "requestNo": "2",
+            "factorRequestNo": "asd12464654",
+            "invoiceDate": "20160330",
+            "endDate": "20160825",
+            "agreeNo": "A0001",
+            "buyer": "中钢衡重",
+            "address": "深圳福田车公庙",
+            "supplierNo": 100000156,
+            "buyerNo": 100000170,
+            "status": "3",
+            "appNo": "20160428001",
+            "agreeName": "agree1",
+            "factorNo": "202",
+            "signDate": "20160428",
+            "batchNo": 800,
+            "signBatchNo": 900,
+            "regDate": "20160425",
+            "modiDate": "20160428",
+            "signStatus": "2",
+            "subscribed": "2",
+            "agreeType": "0",
+            "stubInfos": [
+                {
+                    "id": 1000,
+                    "appNo": "20160428001",
+                    "custNo": 100000170,
+                    "ipaddr": "192.168.4.5",
+                    "operCode": "admin",
+                    "operName": "管理员",
+                    "operTime": "201604281401",
+                    "operStatus": 0
+                },
+                {
+                    "id": 1001,
+                    "appNo": "20160428002",
+                    "custNo": 100000171,
+                    "ipaddr": "192.168.4.5",
+                    "operCode": "admin",
+                    "operName": "管理员",
+                    "operTime": "201604281401",
+                    "operStatus": 1
+                }
+            ]
+        },
+        {
+            "billNo": "as454421254",
+            "supplier": "华为",
+            "balance": 1000000,
+            "confirmBalance": "100000.00",
+            "productId": "BZ0001",
+            "productName":"保理产品1",
+            "lawName": "李四",
+            "description": "资金周转",
+            "requestNo": "3",
+            "factorRequestNo": "asd12464654",
+            "invoiceDate": "20160330",
+            "endDate": "20160825",
+            "agreeNo": "A0002",
+            "buyer": "中钢衡重",
+            "address": "深圳福田车公庙",
+            "supplierNo": 100000156,
+            "buyerNo": 100000170,
+            "status": "2",
+            "appNo": "20160428002",
+            "agreeName": "agree2",
+            "factorNo": "202",
+            "signDate": "20160428",
+            "batchNo": 800,
+            "signBatchNo": 900,
+            "regDate": "20160425",
+            "modiDate": "20160428",
+            "signStatus": "1",
+            "subscribed": "1",
+            "agreeType": "0",
+            "stubInfos": [
+                {
+                    "id": 1000,
+                    "appNo": "20160428002",
+                    "custNo": 100000170,
+                    "ipaddr": "192.168.4.5",
+                    "operCode": "admin",
+                    "operName": "管理员",
+                    "operTime": "201604281401",
+                    "operStatus": 0
+                }
+            ]
+        }
+    ],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 10,
+        "pages": 1,
+        "total": 2
+    },
+    "code": 200
+}

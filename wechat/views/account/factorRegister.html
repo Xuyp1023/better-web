@@ -1,0 +1,33 @@
+
+<div class="pjce">
+    <ul>
+        <li>
+            <p><span class="tLeft">申请企业：</span>{{custInfo.name}}</p>
+        </li>
+    </ul>
+</div>
+
+<div class="wid wid3 mt10">
+    <p class="title">金融机构</p>
+    <ul>
+        <li ng-repeat="item in factorList" ng-click="toggleCheckItem(item);">
+            <a href="javascript:void(0)" >
+                <i ng-class="{ico:true,ico7:item.isChecked,ico8:!item.isChecked,mr5:true}"></i>
+                <i ng-class="{gray9:item.businStatus!=0 && item.businStatus!=4 }">{{item.name}}</i>
+                <i ng-bind=" '  (' + (item.businStatus|kindf:'OpenFactorFinancingStatus') +')' "></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="butn mt10 ng-scope">
+    <p><a class="btn" href="javascript:void(0)" ng-click="openAccount();">马上开通</a></p>
+    <div class="mt20">
+        <label for="agree">
+            <input id="agree" type="checkbox" ng-model="readAndAgree">
+            <span>我已阅读并同意<a href="javascript:void(0)">&lt;&lt;保理机构客户网上交易协议&gt;&gt;</a></span>
+        </label>
+    </div>
+</div>
+

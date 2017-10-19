@@ -1,0 +1,23 @@
+  <!-- 资产登记 -->
+  <table id="order_list_table" class="div-width-100 table table-striped table-hover search-result main-list">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">资产登记</span>        
+      </caption>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="30%">登记证明编号</td>          
+          <td width="30%">登记人</td>
+          <td width="20%">登记时间</td>              
+          <td width="20%">附件</td>           
+                       
+        </tr>
+      </thead>
+      <tbody>
+        <tr>          
+          <td ng-bind="assReg.zdwRegCode" class="ng-binding"></td>          
+          <td ng-bind="assReg.registrant" class="ng-binding"></td>
+          <td ng-bind="assReg.zdwRegDate" class="ng-binding"></td>
+          <td ng-bind="attachList[0].fileName" class="ng-binding"></td>         
+       </tr>           
+      </tbody>      
+   </table>

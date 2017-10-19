@@ -1,0 +1,53 @@
+<div class="div-width-90 div-center detail-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+    报价列表
+  </h1>
+
+  <div class="row-fluid detail-info div-center serch_repay_info">
+
+    <div  class="row-fluid">
+     
+    <table class="div-width-100 table table-striped table-hover search-result">
+      <thead>
+        <tr class="result-head">
+          <td width="12.5%">询价编号</td>
+          <td width="15%">报价公司</td>
+          <td width="12.5%">融资金额</td>
+          <td width="12.5%">融资利率(%)</td>
+          <td width="12.5%">贷款期限(月)</td>
+          <td width="12.5%">放款周期(日)</td>
+          <td width="12.5%">报价时间</td>
+          <td width="10%">操作</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="offer in offerList" ng-repeat-end ng-class="{even:$even}" >
+          <td ng-bind="offer.enquiryNo"></td>
+          <td ng-bind="offer.factorName"></td>
+          <td class="red tab-text-right" ng-bind="offer.balance|moneyFilter"></td>
+          <td class="red" ng-bind="offer.ratio"></td>
+          <td ng-bind="offer.period"></td>
+          <td ng-bind="offer.minCycle +'-'+ offer.maxCycle"></td>
+          <td ng-bind="offer.regDate"></td>
+          <td>
+            <!-- 跳转到融资录单页面，自动填充数据 -->
+            <!-- businStatus: 3|已融资 1|可申请 -->
+            <span ng-show="offer.businStatus==1" ><a ng-href="financeRecFlow.html#param={{offer.enquiryNo+'-'+offer.factorNo}}">申请</a></span>
+            <span ng-show="offer.businStatus==3" class="deep-gray">已融资</span>
+          </td>
+        </tr>              
+      </tbody>
+      <tfoot>
+        <td colspan="8">
+          <div bt-pagination conf="offerPageConf" func="reFreshOfferList(false);"></div>
+        </td>
+      </tfoot>
+    </table>
+    </form>
+  </div>
+
+  <div class="center-buttons">
+    <button class="btn btn-primary" bt-close-modal >返回</button>
+  </div>
+</div>

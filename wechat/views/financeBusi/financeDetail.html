@@ -1,0 +1,221 @@
+
+<!-- 折叠面板 -->
+<ul class="mui-table-view"> 
+
+    <!-- 融资信息 面板-->
+    <li class="mui-table-view-cell mui-collapse">
+        <a class="mui-navigate-right" href="javascript:void(0);">融资信息</a>
+        <div class="mui-collapse-content">
+            <!-- 融资信息 start-->
+            <div class="wid">
+                <ul class="clearfix">
+                    <li>
+                        <span class="ti gray9">申请企业</span>
+                        <div class="ci" ng-bind="info.custName"></div>
+                    </li>
+                    <li>
+                        <span class="ti gray9">保理机构</span>
+                        <div class="ci" ng-bind="info.factorName"></div>
+                    </li>
+                    <li>
+                        <span class="ti gray9">核心企业</span>
+                        <div class="ci" ng-bind="info.coreCustName"></div>
+                    </li>
+                    <li>
+                        <span class="ti gray9">申请类型</span>
+                        <div class="ci" ng-bind="info.requestType|kindf:'RaiseCapitalType' "></div>
+                    </li>
+                    <li>
+                        <span class="ti gray9">贷款金额</span>
+                        <div class="ci red" ng-bind="info.balance|moneyFilter"></div>
+                    </li>
+                    <li>
+                        <span class="ti gray9">贷款期限</span>
+                        <div class="ci">
+                            <i ng-bind="info.period"></i>
+                            <i ng-bind="info.periodUnit|kindf:'PeriodUnit'"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ti gray9">使用授信</span>
+                        <div class="ci" ng-bind="info.creditMode|kindf:'CreditMode' "></div>
+                    </li>
+                    <li>
+                        <span class="ti gray9">保理产品</span>
+                        <div class="ci" ng-bind="info.productName"></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- 融资信息 end-->
+        </div>
+    </li>
+
+    <!-- 融资标的-->
+    <li class="mui-table-view-cell mui-collapse">
+        <a class="mui-navigate-right" href="javascript:void(0);">融资标的</a>
+        <div class="mui-collapse-content">
+            <!-- 应收列表 -->
+            <div class="collapse-list" ng-show="recieveList.length!=0">
+              <ul>
+                  <li ng-repeat="item in recieveList">
+                      <div class="ti">
+                          <span>应收账款</span>
+                            <!-- <em class="co co1">{{item.id}}<i class="ico ico13 ml5"></i></em> -->
+                        </div>
+                        <div class="bi"></div>
+                        <div class="ci">
+                            <p class="con">应收账款编号:&nbsp;<span ng-bind="item.receivableNo"></span></p>
+                            <p class="con">应收账款金额:&nbsp;<span ng-bind="item.balance"></span></p>
+                            <p class="con">付款到期日期: &nbsp;<span ng-bind="item.endDate"></span></p>
+                            <p class="con">商品名称:&nbsp;<span ng-bind="item.goodsName"></span></p>
+                            <p class="con">商品价格:&nbsp;<span ng-bind="item.unit"></span></p>
+                            <p class="con">采购数量:&nbsp;<span ng-bind="item.amount"></span></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- 汇票列表 -->
+            <div class="collapse-list" ng-show="billList.length!=0">
+              <ul>
+                  <li ng-repeat="item in billList">
+                      <div class="ti">
+                          <span>商业承兑汇票(<span ng-bind="item.billMode |kindf:'BillFlowMode'"></span>)</span>
+                            <!-- <em class="co co1">{{item.id}}<i class="ico ico13 ml5"></i></em> -->
+                        </div>
+                        <div class="bi"></div>
+                        <div class="ci">
+                            <p class="con">汇票编号:&nbsp;<span ng-bind="item.billNo"></span></p>
+                            <p class="con">票面金额:&nbsp;<span ng-bind="item.balance"></span></p>
+                            <p class="con">有效期从:&nbsp;<span ng-bind="item.invoiceDate"></span>&nbsp;至&nbsp;<span ng-bind="item.endDate"></p>
+                            <div class="bi"></div>
+                            <p class="con">付 款 方:&nbsp;<span ng-bind="item.buyer"></span></p>
+                            <p class="con">付款账号:&nbsp;<span ng-bind="item.buyerBankAccount"></span></p>
+                            <p class="con">开 户 行:&nbsp;<span ng-bind="item.buyerBankName"></span></p>
+                            <p class="con">收 款 方:&nbsp;<span ng-bind="item.supplier"></span></p>
+                            <p class="con">收款账号:&nbsp;<span ng-bind="item.suppBankAccount"></span></p>
+                            <p class="con">开 户 行:&nbsp;<span ng-bind="item.suppBankName"></span></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </li>
+
+
+    <!-- 融资材料 -->
+    <li class="mui-table-view-cell mui-collapse">
+        <a class="mui-navigate-right" href="javascript:void(0);">融资材料</a>
+        <div class="mui-collapse-content">
+            <table class="table">
+                <tr>
+                    <td width="20%">序号</td>
+                    <td width="40%">材料类型</td>
+                    <td width="40%">材料名称</td>
+                </tr>
+                <tr ng-repeat="item in materialList">
+                    <td width="12%"><span ng-bind="$index+1"></span></td>
+                    <td width="40%"><span ng-bind="item.fileInfoType|kindf:'WechatFinanceApplyFile'"></span></td>
+                    <td width="48%"><span ng-bind="item.fileName"></span></td>
+                </tr>
+            </table>
+            
+        </div>
+    </li>
+
+    <!-- 其他材料 -->
+    <li class="mui-table-view-cell mui-collapse">
+        <a class="mui-navigate-right" href="javascript:void(0);">其他材料</a>
+        <div class="mui-collapse-content">
+            <div>
+                <table class="table">
+                    <tr>
+                        <td width="20%">序号</td>
+                        <td width="40%">上传节点</td>
+                        <td width="40%">材料名称</td>
+                    </tr>
+                    <tr ng-repeat="item in otherInfoList">
+                        <td width="12%"><span ng-bind="$index+1"></span></td>
+                        <td width="48%"><span ng-bind="item.node"></span></td>
+                        <td width="40%"><span ng-bind="item.fileName"></span></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </li>
+
+
+    <!-- 审贷结果 -->
+    <li class="mui-table-view-cell mui-collapse">
+        <a class="mui-navigate-right" href="javascript:void(0);">审贷详情</a>
+        <div class="mui-collapse-content">
+            <!-- 审贷信息 start-->
+            <div class="wid">
+                <ul class="clearfix">
+                    <li>
+                        <span class="ti gray9">申请金额</span>
+                        <div class="ci" ng-bind="loanInfo.requestBalance|moneyFilter"></div>
+                    </li>
+                    <li>
+                        <span class="ti gray9">审批金额</span>
+                        <div class="ci red" ng-bind="loanInfo.approvedBalance|moneyFilter"></div>
+                    </li>
+                    <li>
+                        <span class="ti gray9">申请期限</span>
+                        <div class="ci" >
+                            <i ng-bind="loanInfo.period"></i>
+                            <i ng-bind="loanInfo.periodUnit|kindf:'PeriodUnit'"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ti gray9">审批期限</span>
+                        <div class="ci red" >
+                            <i ng-bind="loanInfo.approvedPeriod"></i>
+                            <i ng-bind="loanInfo.approvedPeriodUnit|kindf:'PeriodUnit'"></i>
+                        </div> 
+                    </li>
+                    <li>
+                        <span class="ti gray9">融资利率</span>
+                        <div class="ci" ng-bind="loanInfo.approvedRatio|emptyf:'%' "></div>
+                    </li>
+                    <li>
+                        <span class="ti gray9">手续费利率</span>
+                        <div class="ci" ng-bind="loanInfo.servicefeeRatio|emptyf:'%' "></div>
+                    </li>
+                    <li>
+                        <span class="ti gray9">其他费用利率</span>
+                        <div class="ci pl10" ng-bind="loanInfo.approvedManagementRatio|emptyf:'%' "></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- 审贷信息 end-->
+
+        </div>
+    </li>
+
+
+    <!-- 融资协议 -->
+    <li class="mui-table-view-cell mui-collapse">
+        <a class="mui-navigate-right" href="javascript:void(0);">融资协议</a>
+        <div class="mui-collapse-content">
+            <div>
+                <table class="table">
+                    <tr>
+                        <td width="20%">序号</td>
+                        <td width="40%">材料类型</td>
+                        <td width="40%">材料名称</td>
+                    </tr>
+                    <tr ng-repeat="item in agreeList">
+                        <td width="12%"><span ng-bind="$index+1"></span></td>
+                        <td width="36%"><span ng-bind="item.agreeType|kindf:'SignType'"></span></td>
+                        <td width="52%"><span ng-bind="item.agreeName"></span></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </li>
+
+</ul>
+

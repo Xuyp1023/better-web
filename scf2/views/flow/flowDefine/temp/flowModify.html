@@ -1,0 +1,89 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+      流程节点配置
+    </h1>
+    
+    <div class="row-fluid detail-info div-center big-input">
+      <table class="table table-striped table-hover table-bordered">
+        <tbody>
+        <tr>
+          <td>流程节点</td>
+          <td class="red" ng-bind="info.nodeCustomName"></td>
+        </tr>
+        </tbody>
+        <tbody ng-show="info.nodeRole === 'Factoring'">
+          <tr>
+            <td width="30%">审批方式</td>
+            <td width="70%" class="div-text-left">
+              <select ng-model="info.auditType" ng-change="resizeHeight();">
+                <option ng-repeat="item in flowAuditType" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.auditType == item.value"></option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td width="30%">是否分金额段审批</td>
+            <td width="70%" class="div-text-left">
+              <select ng-model="info.isNeedMoney" ng-change="resizeHeight();">
+                <option value="0">是</option>
+                <option value="1">否</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+        <tbody ng-show="(info.nodeRole === 'Factoring')&&(info.isNeedMoney === '1')">
+          <tr>
+            <td width="30%">审批人</td>
+            <td width="70%" class="div-text-left">
+              <table mapping="checkboxGroup" class="table table-condensed table-intable">
+                <tr ng-class="{even:$even}" ng-repeat="item in info.unMoneyAppRoversList" ng-repeat-end>
+                  <td width="33%" ng-repeat="child in item">
+                    <table class="table table-condensed table-intable table-intable-multiple">
+                      <tr>
+                        <td><label><input type="checkbox" value="{{child.auditOperId}}" ng-model="child.isChecked" ng-checked="child.isChecked"><span ng-bind="child.auditOperName"></label></td>
+                      </tr>
+                      <tr ng-hide="info.auditType === 'serial'">
+                        <td>权重<input type="text" ng-model="child.weight"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+        <tbody class="result-td-head" ng-show="(info.nodeRole === 'Factoring')&&(info.isNeedMoney === '0')">
+          <tr>
+            <td>审批金额段(万元)</td>
+            <td>审批人</td>
+          </tr>
+        </tbody>
+        <tbody ng-show="(info.nodeRole === 'Factoring')&&(info.isNeedMoney === '0')">
+          <tr ng-class="{even:$even}" ng-repeat="item in moneySelectList" ng-repeat-end>
+            <td width="30%" ng-bind="item.auditMinAmount+'~'+(item.auditMaxAmount<0?'无上限':item.auditMaxAmount)"></td>
+            <td width="70%" class="div-text-left" ng-init="$$tempIndex = $index">
+              <table mapping="checkboxGroup" class="table table-condensed table-intable">
+                <tr ng-repeat="item in info.moneyAppRoversList[$$tempIndex]" ng-repeat-end>
+                  <td width="33%" ng-repeat="child in item">
+                    <table class="table table-condensed table-intable table-intable-multiple">
+                      <tr>
+                        <td><label><input type="checkbox" value="{{child.auditOperId}}" ng-model="child.isChecked" ng-checked="child.isChecked"><span ng-bind="child.auditOperName"></label></td>
+                      </tr>
+                      <tr ng-hide="info.auditType === 'serial'">
+                        <td>权重<input type="text" ng-model="child.weight"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-click="editInfo($event.target);">保存节点</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

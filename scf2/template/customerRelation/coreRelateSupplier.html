@@ -1,0 +1,57 @@
+<div id="fund_search_way" class="row-fluid margin-bottom-40">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">
+      <span ></span>
+      <span ng-show="addCustData.custType=='SUPPLIER_USER'">关联供应商</span>
+      <span ng-show="addCustData.custType=='SELLER_USER'">关联采购商</span>
+      <span ng-show="addCustData.custType=='CORE_USER'">关联授信核心企业</span>
+  </h1>
+  <table class="table table-condensed div-width-70 div-center search-table">
+    <tr>
+     <td width="30%">企业名称:</td>
+     <td width="70%" class="div-text-left">
+       <select ng-model="searchData.custNo">
+         <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+       </select>
+     </td>
+    </tr>
+    <tr>
+      <td>
+        <span ng-show="addCustData.custType=='SUPPLIER_USER'">客户名称:</span>
+        <span ng-show="addCustData.custType=='SELLER_USER'">客户名称:</span>
+        <span ng-show="addCustData.custType=='CORE_USER'">核心企业名称:</span>
+      </td>
+      <td class="div-text-left">
+        <input type="text" name="custName" id="custName" ng-model="searchData.custName">
+      </td>
+    </tr>
+  </table>
+  <div class="center-buttons">
+    <button class="btn btn-primary btn-bg-middle" ng-click="findCustInfo();">查询</button>
+  </div>
+</div>
+
+
+<div id="search_info" class="row-fluid">
+  <table class="div-width-100 table table-striped table-hover search-result table-bordered">
+        <thead>
+          <tr class="result-head">
+            <td width="30%">选择</td>
+            <td width="70%">
+                <span ng-show="addCustData.custType=='SUPPLIER_USER'">客户名称:</span>
+                <span ng-show="addCustData.custType=='SELLER_USER'">客户名称:</span>
+                <span ng-show="addCustData.custType=='CORE_USER'">核心企业名称:</span>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in supplierList" ng-repeat-end ng-class="{even:$even}" >
+            <td><input type="checkbox" ng-click="checkedSelect($event.target,item);" /></td>
+            <td ng-bind="item.name"></td>
+          </tr>
+
+        </tbody>
+      </table>
+  <div class="center-buttons">
+    <button ng-class="{btn:true,'btn-primary':true,'btn-inverse':checkedList.length<1,'btn-bg-middle':true}" ng-disabled="checkedList.length<1" ng-click="ensureAdd($event.target);">确定添加</button>
+  </div>
+</div>

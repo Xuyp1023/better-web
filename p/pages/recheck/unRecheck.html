@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>交易查询</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/unRecheck.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" class="span12">
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/info-title-icon.png" alt="">
+              单据列表
+            </h1>
+            <ul id="recheck_route" class="nav nav-tabs div-width-100">
+              <li target="crt_count" onclick="viewModel.searchTicket(this);" class="active"><a id="crt_count_link" href="#crt_count">账户</a></li>
+              <li target="trade_purchase" onclick="viewModel.searchTicket(this);" ><a id="trade_purchase_link" href="#trade_purchase">交易</a></li>
+              <li target="crt_count_cancel" onclick="viewModel.searchTicket(this);"><a id="crt_count_cancel_link" href="#crt_count_cancel">账户撤单</a></li>
+              <li target="trade_cancel" onclick="viewModel.searchTicket(this);" ><a id="trade_cancel_link" href="#trade_cancel">交易撤单</a></li>
+            </ul>
+            <div class="tab-content div-width-100">
+              <div id="crt_count" class="tab-pane fade active in div-width-100">
+                <table class="div-width-100 table table-striped table-hover search-result">
+                  <thead>
+                    <tr>
+                      <td width="20%">开户单号</td>
+                      <td width="20%">交易账户</td>
+                      <!-- <td width="15%">基金销售机构</td>
+                      <td width="15%">开户银行</td>
+                      <td width="25%">绑定银行账号</td> -->
+                      <td width="15%">操作</td>
+                    </tr>
+                  </thead>
+                  <tbody data-bind="foreach:crtCountListBind">
+                    <tr data-bind="css:{'even':$index()%2==0}">
+                      <td>
+                          <span class="red" data-bind="text:requestNo"></span><br>
+                      </td>
+                      <td>
+                          <span data-bind="text:$parent.parseCustNo(custNo)"></span><br>
+                      </td>
+                      <td><a href="#" data-bind="click:$parent.showCrtCountDetail">详情及审批</a></td>
+                    </tr>
+                  </tbody>
+                  <!-- <tfoot>
+                      <td colspan="5">
+                        <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                          <ul>
+                            <li class="previous hidden" data-bind="visible:currentPageBind().pageNum==1"><span>首页</span></li>
+                            <li class="previous" data-bind="visible:currentPageBind().pageNum!=1,click:firstPage"><a href="#">首页</a></span></li>
+                            <li class="previous hidden" data-bind="visible:currentPageBind().pageNum==1"><span>上一页</span></li>
+                            <li class="previous" data-bind="visible:currentPageBind().pageNum!=1,click:prevPage"><a href="#">上一页</a></li>
+                            <li class="next hidden" data-bind="visible:currentPageBind().pageNum>=currentPageBind().pages"><span>下一页</span></li>
+                            <li class="next" data-bind="visible:currentPageBind().pageNum<currentPageBind().pages,click:nextPage"><a href="#">下一页</a></li>
+                            <li class="next hidden" data-bind="visible:currentPageBind().pageNum>=currentPageBind().pages"><span>尾页</span></li>
+                            <li class="next" data-bind="visible:currentPageBind().pageNum<currentPageBind().pages,click:endPage"><a href="#">尾页</a></li>
+                            <li>共<span data-bind="text:currentPageBind().pageNum"></span>/<span data-bind="text:currentPageBind().pages"></span>页</li>
+                            <li>共<span data-bind="text:currentPageBind().total"></span>条记录</li>
+                            <li class="toPage">
+                                <div>
+                                  <span>跳转到</span>
+                                  <input type="text" name="skipToPageNum" data-bind="disable:currentPageBind().pages==1">
+                                  <span>页</span>
+                                  <button class="btn" data-bind="disable:currentPageBind().pages==1,click:skipPage">跳转</button>
+                                </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                  </tfoot> -->
+                </table>
+              </div>
+              <div id="trade_purchase" class="tab-pane fade in div-width-100">
+                  <table class="div-width-100 table table-striped table-hover search-result">
+                    <thead>
+                      <tr>
+                        <td width="15%">交易单号</td>
+                        <td width="15%">交易账户</td>
+                        <td width="15%">交易产品</td>
+                        <td width="12%">交易金额</td>
+                        <td width="17%">操作员</td>
+                        <td width="10%">交易日期</td>
+                        <td width="10%">操作</td>
+                      </tr>
+                    </thead>
+                    <tbody data-bind="foreach:tradePurchaseListBind">
+                      <tr data-bind="css:{'even':$index()%2==0}">
+                        <td data-bind="text:requestNo"></td>
+                        <td>
+                          <a href="#">
+                            <span data-bind="text:$parent.parseCustNo(custNo)"></span>
+                          </a>
+                        </td>
+                        <td>
+                            <span class="red" data-bind="text:fundName+'['+fundCode+']'"></span><br>
+                        </td>
+                        <td data-bind="text:$parent.formaterMoney(balance)"></td>
+                        <td data-bind="text:operName"></td>
+                        <td data-bind="text:$parent.formaterDateTime(operDate)"></td>
+                        <td><a href="#" data-bind="click:$parent.showTradePurchaseDetail">详情及审批</a></td>
+                      </tr>
+                    </tbody>
+                    <!-- <tfoot>
+                        <td colspan="8">
+                          <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                            <ul>
+                              <li class="previous hidden" data-bind="visible:currentPageBind().pageNum==1"><span>首页</span></li>
+                              <li class="previous" data-bind="visible:currentPageBind().pageNum!=1,click:firstPage"><a href="#">首页</a></span></li>
+                              <li class="previous hidden" data-bind="visible:currentPageBind().pageNum==1"><span>上一页</span></li>
+                              <li class="previous" data-bind="visible:currentPageBind().pageNum!=1,click:prevPage"><a href="#">上一页</a></li>
+                              <li class="next hidden" data-bind="visible:currentPageBind().pageNum>=currentPageBind().pages"><span>下一页</span></li>
+                              <li class="next" data-bind="visible:currentPageBind().pageNum<currentPageBind().pages,click:nextPage"><a href="#">下一页</a></li>
+                              <li class="next hidden" data-bind="visible:currentPageBind().pageNum>=currentPageBind().pages"><span>尾页</span></li>
+                              <li class="next" data-bind="visible:currentPageBind().pageNum<currentPageBind().pages,click:endPage"><a href="#">尾页</a></li>
+                              <li>共<span data-bind="text:currentPageBind().pageNum"></span>/<span data-bind="text:currentPageBind().pages"></span>页</li>
+                              <li>共<span data-bind="text:currentPageBind().total"></span>条记录</li>
+                              <li class="toPage">
+                                  <div>
+                                    <span>跳转到</span>
+                                    <input type="text" name="skipToPageNum" data-bind="disable:currentPageBind().pages==1">
+                                    <span>页</span>
+                                    <button class="btn" data-bind="disable:currentPageBind().pages==1,click:skipPage">跳转</button>
+                                  </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                    </tfoot> -->
+                  </table>
+              </div>
+              <div id="crt_count_cancel" class="tab-pane fade in div-width-100">
+                <table class="div-width-100 table table-striped table-hover search-result">
+                  <thead>
+                    <tr>
+                      <td width="20%">开户单号</td>
+                      <td width="20%">交易账户</td>
+                      <!-- <td width="15%">基金销售机构</td>
+                      <td width="15%">开户银行</td>
+                      <td width="25%">绑定银行账号</td> -->
+                      <td width="15%">操作</td>
+                    </tr>
+                  </thead>
+                  <tbody data-bind="foreach:crtCountCancelListBind">
+                    <tr data-bind="css:{'even':$index()%2==0}">
+                      <td>
+                          <span data-bind="text:requestNo"></span><br>
+                      </td>
+                      <td>
+                          <span data-bind="text:$parent.parseCustNo(custNo)"></span><br>
+                      </td>
+                      <!-- <td>
+                          <span class="red" data-bind="text:agencyName"></span>
+                      </td>
+                      <td data-bind="text:'中国工商银行股份有限公司阳江分行西平支行'"></td>
+                      <td class="red"><strong data-bind="text:'430482199008010033302'"></strong></td> -->
+                      <td><a href="#" data-bind="click:$parent.showCrtCountCancelDetail">详情及审批</a></td>
+                    </tr>
+                  </tbody>
+                  <!-- <tfoot>
+                      <td colspan="5">
+                        <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                          <ul>
+                            <li class="previous hidden" data-bind="visible:currentPageBind().pageNum==1"><span>首页</span></li>
+                            <li class="previous" data-bind="visible:currentPageBind().pageNum!=1,click:firstPage"><a href="#">首页</a></span></li>
+                            <li class="previous hidden" data-bind="visible:currentPageBind().pageNum==1"><span>上一页</span></li>
+                            <li class="previous" data-bind="visible:currentPageBind().pageNum!=1,click:prevPage"><a href="#">上一页</a></li>
+                            <li class="next hidden" data-bind="visible:currentPageBind().pageNum>=currentPageBind().pages"><span>下一页</span></li>
+                            <li class="next" data-bind="visible:currentPageBind().pageNum<currentPageBind().pages,click:nextPage"><a href="#">下一页</a></li>
+                            <li class="next hidden" data-bind="visible:currentPageBind().pageNum>=currentPageBind().pages"><span>尾页</span></li>
+                            <li class="next" data-bind="visible:currentPageBind().pageNum<currentPageBind().pages,click:endPage"><a href="#">尾页</a></li>
+                            <li>共<span data-bind="text:currentPageBind().pageNum"></span>/<span data-bind="text:currentPageBind().pages"></span>页</li>
+                            <li>共<span data-bind="text:currentPageBind().total"></span>条记录</li>
+                            <li class="toPage">
+                                <div>
+                                  <span>跳转到</span>
+                                  <input type="text" name="skipToPageNum" data-bind="disable:currentPageBind().pages==1">
+                                  <span>页</span>
+                                  <button class="btn" data-bind="disable:currentPageBind().pages==1,click:skipPage">跳转</button>
+                                </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                  </tfoot> -->
+                </table>
+              </div>
+              <div id="trade_cancel" class="tab-pane fade in div-width-100">
+                <table class="div-width-100 table table-striped table-hover search-result">
+                    <thead>
+                      <tr>
+                        <td width="15%">交易单号</td>
+                        <td width="15%">交易账户</td>
+                        <td width="15%">交易产品</td>
+                        <td width="12%">交易金额</td>
+                        <td width="17%">操作员</td>
+                        <td width="10%">交易日期</td>
+                        <td width="10%">操作</td>
+                      </tr>
+                    </thead>
+                    <tbody data-bind="foreach:tradeCancelListBind">
+                      <tr data-bind="css:{'even':$index()%2==0}">
+                        <td data-bind="text:requestNo"></td>
+                        <td>
+                          <a href="#">
+                            <span data-bind="text:$parent.parseCustNo(custNo)"></span>
+                          </a>
+                        </td>
+                        <td>
+                            <span class="red" data-bind="text:fundName+'['+fundCode+']'"></span><br>
+                        </td>
+                        <td data-bind="text:$parent.formaterMoney(balance)"></td>
+                        <td data-bind="text:operName"></td>
+                        <td data-bind="text:$parent.formaterDateTime(operDate)"></td>
+                        <td><a href="#" data-bind="click:$parent.showTradeCancelDetail">详情及审批</a></td>
+                      </tr>
+                    </tbody>
+                    <!-- <tfoot>
+                        <td colspan="8">
+                          <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                            <ul>
+                              <li class="previous hidden" data-bind="visible:currentPageBind().pageNum==1"><span>首页</span></li>
+                              <li class="previous" data-bind="visible:currentPageBind().pageNum!=1,click:firstPage"><a href="#">首页</a></span></li>
+                              <li class="previous hidden" data-bind="visible:currentPageBind().pageNum==1"><span>上一页</span></li>
+                              <li class="previous" data-bind="visible:currentPageBind().pageNum!=1,click:prevPage"><a href="#">上一页</a></li>
+                              <li class="next hidden" data-bind="visible:currentPageBind().pageNum>=currentPageBind().pages"><span>下一页</span></li>
+                              <li class="next" data-bind="visible:currentPageBind().pageNum<currentPageBind().pages,click:nextPage"><a href="#">下一页</a></li>
+                              <li class="next hidden" data-bind="visible:currentPageBind().pageNum>=currentPageBind().pages"><span>尾页</span></li>
+                              <li class="next" data-bind="visible:currentPageBind().pageNum<currentPageBind().pages,click:endPage"><a href="#">尾页</a></li>
+                              <li>共<span data-bind="text:currentPageBind().pageNum"></span>/<span data-bind="text:currentPageBind().pages"></span>页</li>
+                              <li>共<span data-bind="text:currentPageBind().total"></span>条记录</li>
+                              <li class="toPage">
+                                  <div>
+                                    <span>跳转到</span>
+                                    <input type="text" name="skipToPageNum" data-bind="disable:currentPageBind().pages==1">
+                                    <span>页</span>
+                                    <button class="btn" data-bind="disable:currentPageBind().pages==1,click:skipPage">跳转</button>
+                                  </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                    </tfoot> -->
+                  </table>
+              </div>
+            </div> 
+            
+
+          </div>
+        
+        <!-- <div id="tradeDetail" class="modal hide fade">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>详情</h3>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped table-hover div-width-100 div-center">
+              <tr class="even">
+                <td>基金名称</td>
+                <td data-bind="text:crtCountInfoBind().fundName+'['+crtCountInfoBind().fundCode+']'"></td>
+              </tr>
+              <tr>
+                <td>下单日期</td>
+                <td data-bind="text:crtCountInfoBind().operDate"></td>
+              </tr>
+              <tr class="even">
+                <td>申请日期</td>
+                <td data-bind="text:crtCountInfoBind().tradeDate"></td>
+              </tr>
+              <tr >
+                <td>申请金额</td>
+                <td>
+                  <strong class="red" data-bind="text:crtCountInfoBind().balance"></strong>元
+                </td>
+              </tr>
+              <tr class="even">
+                <td>申请份额</td>
+                <td>
+                  <strong class="red" data-bind="text:crtCountInfoBind().share"></strong>份
+                </td>
+              </tr>
+              <tr>
+                <td>确认金额</td>
+                <td data-bind="text:crtCountInfoBind().confirmBalance"></td>
+              </tr>
+              <tr class="even">
+                <td>确认份额</td>
+                <td data-bind="text:crtCountInfoBind().confirmShares"></td>
+              </tr>
+              <tr>
+                <td>确认日期</td>
+                <td data-bind="text:crtCountInfoBind().confirmDate"></td>
+              </tr>
+              <tr class="even">
+                <td>确认状态</td>
+                <td data-bind="text:crtCountInfoBind().confirmStatus"></td>
+              </tr>
+              <tr>
+                <td>交易账户</td>
+                <td data-bind="text:crtCountInfoBind().department"></td>
+              </tr>
+              <tr class="even">
+                <td>业务类型</td>
+                <td data-bind="text:crtCountInfoBind().tradFlag"></td>
+              </tr>
+              <tr>
+                <td>申请状态</td>
+                <td class="red" data-bind="text:crtCountInfoBind().tradeStatus"></td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <a href="#" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">返回</a>
+          </div>
+        </div> -->
+        <!-- 账户类明细 -->
+        <div id="tradeDetailBox_crt_count" class="hide">
+        <div class="div-width-90 div-center detail-box">
+          <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+              开户单据明细
+          </h1>
+          <table class="table table-striped table-hover table-bordered div-width-100 div-center">
+            <tr class="even">
+              <td width="15%">交易账户</td>
+              <td width="35%" data-bind="text:'一级结算中心'"></td>
+              <td width="15%">开户机构</td>
+              <td width="35%" data-bind="text:'南方基金管理有限公司'"></td>
+            </tr>
+            <tr>
+              <td>组织机构代码</td>
+              <td data-bind="text:'12345671-0'"></td>
+              <td>汇款银行账户</td>
+              <td data-bind="text:'430482199008010033302'"></td>
+            </tr>
+            <tr>
+              <td>开户行</td>
+              <td data-bind="text:'中国工商银行股份有限公司阳江分行西平支行 '"></td>
+              <td>法人代表姓名</td>
+              <td data-bind="text:'李莉'"></td>
+            </tr>
+            <tr>
+              <td>法人代表手机号码</td>
+              <td data-bind="text:'13100000200'"></td>
+              <td>法人代表证件类型</td>
+              <td data-bind="text:'身份证'"></td>
+            </tr>
+            <tr>
+              <td>法人证件号码</td>
+              <td data-bind="text:'410426003006000000 '"></td>
+              <td>经办人姓名</td>
+              <td data-bind="text:'李莉人 '"></td>
+            </tr>
+            <tr>
+              <td>经办人手机号码</td>
+              <td data-bind="text:'13211112111'"></td>
+              <td>经办人证件类型</td>
+              <td data-bind="text:'身份证'"></td>
+            </tr>
+            <tr>
+              <td>经办人证件号码</td>
+              <td data-bind="text:'410426111161113111 '"></td>
+              <td>经办人邮箱</td>
+              <td data-bind="text:'jbraa@bytter.com'"></td>
+            </tr>
+            <tr>
+              <td colspan="1">备注</td>
+              <td colspan="3" data-bind="text:'备注备注备注备注备注备注备注备注'"></td>
+            </tr>
+          </table>
+          <div class="center-buttons">
+            <a href="#" data-dismiss="modal" aria-hidden="true" class="btn btn-primary close-tipbar">返回</a>
+          </div>
+        </div>
+        </div>
+        <!-- 交易类明细 -->
+        <div id="tradeDetailBox_trade_purchase" class="hide">
+        <div class="div-width-90 div-center detail-box">
+          <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+              开户单据明细
+          </h1>
+          <table class="table table-striped table-hover table-bordered table-condensed div-width-100 div-center">
+            <tr class="title">
+              <td colspan="4">理财产品信息</td>
+            </tr>
+            <tr>
+              <td >基金销售机构：</td>
+              <td>南方基金</td>
+              <td >产品代码：</td>
+              <td>202301</td>
+            </tr>
+            <tr>
+              <td >产品简称：</td>
+              <td>南方现金A</td>
+              <td >每万份收益：</td>
+              <td>             5.21</td>
+            </tr>
+            <tr>
+              <td >申购最低金额：</td>
+              <td>             0.00</td>
+              <td >申购递增金额：</td>
+              <td>             0.00</td>
+            </tr>
+            <tr>
+              <td >最低申购份额：</td>
+              <td>0.00</td>
+              <td >参考七日年化收益率：</td>
+              <td>11.799</td>
+            </tr>
+            <tr>
+              <td >申购递增份额：</td>
+              <td>0.00</td>
+              <td >最低赎回份额：</td>
+              <td>0.00</td>
+            </tr>
+            <tr>
+              <td >最低持有份额：</td>
+              <td>0.00</td>
+              <td ></td>
+              <td></td>
+            </tr>
+            <tr class="title">
+              <td colspan="4">购买申请录入</td>
+            </tr>
+            <tr>
+              <td >单位名称 ：</td>
+              <td >一级结算中心</td>
+              <td >组织机构代码：</td>
+              <td>12345671-0</td>
+            </tr>
+            <tr>
+              <td >汇款银行账户：</td>
+              <td>430482199008010033302</td>  
+              <td >开户行：</td>
+              <td>中国工商银行股份有限公司阳江分行西平支行</td>
+            </tr>
+            <tr>
+              <td >法人代表姓名：</td>
+              <td>李莉</td>
+              <td >经办人姓名：</td>
+              <td>李莉人</td>
+            </tr>
+            <tr>
+              <td >法人代表手机号码：</td>
+              <td>13100000200</td>
+              <td >经办人手机号码：</td>
+              <td>13211112111</td>
+            </tr>
+            <tr>
+              <td >法人代表证件类型：</td>
+              <td>
+                身份证 
+              </td>
+              <td >经办人证件类型：</td>
+              <td>    
+                技术监督局代码   
+              </td>
+            </tr>
+            <tr>
+              <td >法人证件号码：</td>
+              <td>410426003006000000</td>
+              <td >经办人证件号码：</td>
+              <td>410426111161113111</td>
+            </tr>
+            <tr>
+               <td >备注：</td>
+               <td>备注备注备注备注备注备注备注备注</td>
+               <td >经办人邮箱：</td>
+               <td>jbraa@bytter.com</td>
+            </tr>
+            
+            <tr class="title">
+              <td colspan="4">申购录入</td>
+            </tr>
+            <tr>
+              <td >购买金额：</td>
+              <td colspan="3">5000</td>
+            </tr>
+          </table>
+          <div class="center-buttons">
+            <a href="#" data-dismiss="modal" aria-hidden="true" class="btn btn-primary close-tipbar">返回</a>
+          </div>
+        </div>
+        </div>
+        <!-- 撤单类明细 -->
+        <div id="tradeDetailBox_trade_cancel" class="hide">
+        <div class="div-width-90 div-center detail-box">
+          <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+              开户单据明细
+          </h1>
+          <table class="table table-striped table-hover table-bordered table-condensed div-width-100 div-center">
+            <tr class="title">
+              <td colspan="4">理财产品信息</td>
+            </tr>
+            <tr>
+              <td >基金销售机构：</td>
+              <td>南方基金</td>
+              <td >产品代码：</td>
+              <td>202301</td>
+            </tr>
+            <tr>
+              <td >产品简称：</td>
+              <td>南方现金A</td>
+              <td >每万份收益：</td>
+              <td>             5.21</td>
+            </tr>
+            <tr>
+              <td >申购最低金额：</td>
+              <td>             0.00</td>
+              <td >申购递增金额：</td>
+              <td>             0.00</td>
+            </tr>
+            <tr>
+              <td >最低申购份额：</td>
+              <td>0.00</td>
+              <td >参考七日年化收益率：</td>
+              <td>11.799</td>
+            </tr>
+            <tr>
+              <td >申购递增份额：</td>
+              <td>0.00</td>
+              <td >最低赎回份额：</td>
+              <td>0.00</td>
+            </tr>
+            <tr>
+              <td >最低持有份额：</td>
+              <td>0.00</td>
+              <td ></td>
+              <td></td>
+            </tr>
+            <tr class="title">
+              <td colspan="4">购买申请录入</td>
+            </tr>
+            <tr>
+              <td >单位名称 ：</td>
+              <td >一级结算中心</td>
+              <td >组织机构代码：</td>
+              <td>12345671-0</td>
+            </tr>
+            <tr>
+              <td >汇款银行账户：</td>
+              <td>430482199008010033302</td>  
+              <td >开户行：</td>
+              <td>中国工商银行股份有限公司阳江分行西平支行</td>
+            </tr>
+            <tr>
+              <td >法人代表姓名：</td>
+              <td>李莉</td>
+              <td >经办人姓名：</td>
+              <td>李莉人</td>
+            </tr>
+            <tr>
+              <td >法人代表手机号码：</td>
+              <td>13100000200</td>
+              <td >经办人手机号码：</td>
+              <td>13211112111</td>
+            </tr>
+            <tr>
+              <td >法人代表证件类型：</td>
+              <td>
+                身份证 
+              </td>
+              <td >经办人证件类型：</td>
+              <td>    
+                技术监督局代码   
+              </td>
+            </tr>
+            <tr>
+              <td >法人证件号码：</td>
+              <td>410426003006000000</td>
+              <td >经办人证件号码：</td>
+              <td>410426111161113111</td>
+            </tr>
+            <tr>
+               <td >备注：</td>
+               <td>备注备注备注备注备注备注备注备注</td>
+               <td >经办人邮箱：</td>
+               <td>jbraa@bytter.com</td>
+            </tr>
+            
+            <tr class="title">
+              <td colspan="4">申购录入</td>
+            </tr>
+            <tr>
+              <td >购买金额：</td>
+              <td colspan="3">5000</td>
+            </tr>
+          </table>
+          <div class="center-buttons">
+            <a href="#" data-dismiss="modal" aria-hidden="true" class="btn btn-primary close-tipbar">返回</a>
+          </div>
+        </div>
+        </div>
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">seajs.use('p/js/unRecheck');</script>
+  </body>
+</html>

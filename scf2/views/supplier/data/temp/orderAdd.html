@@ -1,0 +1,107 @@
+<div class="div-width-90 detail-box div-center">
+	<!-- 订单基本信息 -->
+	<div id="" class="row-fluid">
+		<h1 class="content-title-1 content-title-condensed content-title-blue">
+			<img src="../../../img/operator.png" alt="">订单新增
+			<small class="small-select">
+				<span><span class="required">*</span>选择机构</span>
+				<select ng-model="info.custNo" ng-change="changeCustAdd();">
+					<option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.custNo == item.value"></option>
+				</select>
+			</small>
+		</h1>
+		<form action="" id="" class="form-horizontal">
+			<div class="div-center div-width div-margin-top">
+				<table class="table table-striped table-bordered table-hover" ng-box-active="info.modiType=add">
+					<caption class="table-caption table-caption-green clearFix">
+						<span class="title-left">订单信息</span>
+					</caption>
+					<tbody>
+						<tr>
+							<td width="20%">订单编号
+							</td>
+							<td width="30%" class="div-text-left"><input type="text" ng-model="info.orderNo"></td>
+							<td width="20%"><span class="required">*</span>核心企业:
+							</td>
+							<td width="30%" class="div-text-left">
+								<select ng-model="info.coreCustNo">
+									<option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.coreCustNo == item.value">
+									</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="required">*</span>订单日期:</td>
+							<td class="div-text-left"><input type="text" bt-date="info.orderDate">
+								<td><span class="required">*</span>商品名称:</td>
+								<td class="div-text-left"><input type="text" ng-model="info.goodsName"></td>
+						</tr>
+						<tr>
+							<td>单价:</td>
+							<td class="div-text-left"><input type="text" ng-model="info.unit"></td>
+							<td>数量:</td>
+							<td class="div-text-left"><input type="text" ng-model="info.amount"></td>
+						</tr>
+						<tr>
+							<td><span class="required">*</span>金额:</td>
+							<td class="div-text-left"><input type="text" ng-model="info.balance">
+								<br><strong class="deep-gray" ng-bind="info.balance|moneybigf"></strong>
+							</td>
+							</td>
+							<td>结算方式:</td>
+							<td class="div-text-left">
+								<select ng-model="info.settlement">
+									<option ng-repeat="item in settleType" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.settlement == item.value"></option>
+								</select>
+							</td>
+						</tr>
+						<tr ng-show="false">
+							<td>状态:</td>
+							<td class="div-text-left">
+								<select ng-model="info.businStatus">
+									<option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.businStatus == item.value"></option>
+								</select>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+
+
+				<!-- 附件信息列表 -->
+				<table class="table table-striped table-hover table-bordered">
+				  	<caption class="table-caption table-caption-green clearFix">
+					  	<span class="title-left">附件信息</span>
+					  	<button class="btn btn-info btn-right" ng-show="info.modiType === 'add'" ng-click="openUpload($event,'orderFile','订单附件','infoFileList')">+添加附件</button>
+				  	</caption>
+				  	<thead>
+					    <tr class="result-head-gray">
+					      <td width="20%">附件类型</td>
+					      <td width="40%">附件名称</td>
+					      <td width="10%">操作</td>
+					    </tr>
+					  </thead>
+					  <tbody>
+					     <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in infoFileList">
+					       <td ng-bind="item.fileInfoType|kindf:'BaseInfoFile'"></td>
+					       <td ng-bind="item.fileName"></td>
+					       <td>
+					       	<a href="{{item.id|downf}}">下载</a>
+					       	<a href="javascript:void(0);" ng-show="info.modiType === 'add'" ng-click="delUploadItem(item,'infoFileList');">删除</a>
+					       </td>
+					     </tr>
+					  </tbody>
+				</table>
+
+			</div>
+			<div class="center-buttons">
+			  <!-- <button class="btn btn-primary" ng-click="">重置</button> -->
+			  <button class="btn btn-primary" ng-click="addInfo($event.target)" ng-show="info.modiType === 'add'">提交</button>
+			  <button class="btn btn-primary" bt-close-modal>返回</button>
+			</div>
+		</form>
+	</div>
+	
+
+</div>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>产品管理</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/sfccom/product/productList.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+</head>
+
+<body id="body">
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" ng-controller="mainController" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/fast_money.png" alt="">产品查询
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">
+                       <tr>
+                          <td width="25%">操作企业:</td>
+                          <td width="75%" class="div-text-left">
+                            <select name="" id="" ng-model="searchData.custNo" ng-change="changeCust();">
+                              <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo==item.value"></option>
+                            </select>
+                          </td>
+                      </tr>
+                      <tr>
+                        <td width="25%">核心企业:</td>
+                        <td width="75%" class="div-text-left">
+                            <select ng-model="searchData.coreCustNo">
+                              <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.coreCustNo == item.value"></option>
+                            </select>
+                        </td>
+                      </tr>  
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+                        产品列表
+                        </h1>
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                            <thead>
+                                <tr class="font-size-12 info-title">
+                                    <td width="11%">产品编号</td>
+                                    <td width="11%">产品名称</td>
+                                    <td width="11%">融资方式</td>
+                                    <td width="10%">通用利率</td>
+                                    <td width="11%">保理类型</td>
+                                    <td width="11%">最低融资金额</td>
+                                    <td width="11%">最高融资金额</td>
+                                    <td width="11%">状态</td>
+                                    <td width="12%">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                                    <td ng-bind="item.productCode"></td>
+                                    <td class="red" ng-bind="item.productName"></td>
+                                    <td ng-bind="item.financeType|kindf:'FinanceType'"></td>
+                                    <td><strong class="red" ng-bind="item.ratio|percentf"></strong></td>
+                                    <td class="red" ng-bind="item.factorType|kindf:'FactorType'"></td>
+                                    <td class="red" ng-bind="item.minFactorAmmount|moneyFilter"></td>
+                                    <td class="red" ng-bind="item.maxFactorAmmount|moneyFilter"></td>
+                                    <td class="red" ng-bind="item.businStatus|kindf:'FinanceProductStatus'"></td>
+                                    <td>
+                                        <a href="javascript:void(0);" ng-click="detailInfoBox(item);">详情</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                              <td colspan="9">
+                                <div bt-pagination conf="listPage" func="queryList(false)"></div>
+                              </td>
+                            </tfoot>
+                        </table>
+                    </div>
+                <!-- 温馨提示END -->
+
+                <!-- 模板区域 -->
+                <!-- 产品详情模板 -->
+                <div id="detail_box" bt-roll-modal="temp/detailProduct.html" bt-z-index="9991"></div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+  <![endif]-->
+    <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/supplier/product/productList");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/supplier/product/productList");
+      }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+ <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <div class="details_boxstyle">
+                    <!-- 年月日 -->
+                        <span class="spa_y" ng-bind="info.invoiceDate | yearFilter"></span>
+                        <span class="spa_m" ng-bind="info.invoiceDate | monthFilter"></span>
+                        <span class="spa_d" ng-bind="info.invoiceDate | dayFilter"></span>
+                        <!-- 购买方 -->
+                        <span class="bill_number" ng-bind="info.invoiceCode"></span>
+                        <span class="bold_billnum" ng-bind="info.invoiceNo"></span>
+                        <span class="spa_name" ng-bind="info.coreCustName"></span>
+                        <span class="spa_taxes" ng-bind="info.coreCustTaxpayerNo"></span>
+                        <span class="spa_site" ng-bind="info.coreCustPhone"></span>
+                        <span class="spa_id" ng-bind="info.coreCustAccount"></span>
+                        <!-- 密码区 -->
+                        <span class="password_box"></span>
+                        <!-- 服务列表 -->
+                        <div class="tb_body" style="top:{{195 + (7+1) *18}}px">
+                            <span class="acurrentname" ></span>
+                            <span class="standard_type" ></span>
+                            <span class="spa_unit" ></span> 
+                            <span class="tb_number" ></span>
+                            <span class="tb_pirce" ></span>
+                            <span class="tb_money" ></span>
+                            <span class="tb_taxrate" ></span>
+                            <span class="tb_tax" ></span>
+                        </div>
+                        <!-- 金额合计 -->
+                        <span class="all_money" ng-bind="info.balance"></span>
+                        <span class="all_pirce" ></span>
+                        <span class="big_money" ng-bind="info.balance |moneybigf"></span>
+                        <span class="tiny_money" ng-bind="info.balance"></span>
+                        <!-- 销售方 -->
+                        <span class="sell_name" ng-bind="info.custName"></span>
+                        <span class="sell_taxes" ng-bind="info.custTaxpayerNo"></span>
+                        <span class="sell_site" ng-bind="info.custPhone"></span>
+                        <span class="sell_id" ng-bind="info.custAccount"></span>
+                        <span class="remarks_box" ng-bind="info.description"></span>
+                        <span class="receiver" ></span>
+                        <span class="audit" ></span>
+                        <span class="drawer" ng-bind="info.drawer"></span>
+                    </div>
+                    <ul class="footer_ul">  
+                      <li>发票状态：<span  ng-bind="info.businStatus | kindf:'billVersionBusinStatus'"></span></li>
+                      <li>使用状态：<span  ng-bind="info.businStatus | kindf :'effectiveVersionUsingBusinStatus'"></span></li>
+                      <li>登记人：<span  ng-bind="info.regOperName"></span></li>
+                      <li>登记时间：<span ng-bind="info.regDate"></span></li>
+                    </ul>
+
+                    <!-- 附件列表 -->
+                              <table class="table table-striped table-hover table-bordered">
+                                  <caption class="table-caption table-caption-green clearFix">
+                                    <span class="title-left">附件列表</span>
+                                  </caption>
+                                <thead>
+                                  <tr class="result-head-gray">
+                                    <td width="10%">序号</td>
+                                    <td width="20%">附件类型</td>
+                                    <td width="40%">附件名称</td>
+                                    <td width="30%">操作</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr ng-repeat="file in uploadList" ng-repeat-end ng-class="{even:$even}">
+                                      <td>{{$index + 1}}</td>
+                                     <td>发票详情</td>
+                                     <td>
+                                       <a href="{{file.id|downf}}"><span ng-bind="file.fileName"></span></a>
+                                     </td>
+                                     <td>
+                                       <a href="{{file.id|downf}}">下载查看</a>
+                                     </td>
+                                   </tr>
+                                </tbody>
+                              </table>
+          
+        <!-- 组件引入 -->
+        <!-- <div bt-upload conf="uploadConf" ></div> -->
+                    <div class="center-buttons">
+                        <button class="btn btn-primary" ng-click="doCancel($event.target,info)" ng-show="info.isCancel==1">作废</button>
+                        <button class="btn btn-primary" ng-click="doCheck($event.target,info)" ng-show="info.isCheck==1">审核</button>
+                        <button class="btn btn-primary" bt-close-modal>返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    `   

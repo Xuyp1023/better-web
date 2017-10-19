@@ -1,0 +1,21 @@
+<div class="single-line margin-top-10 back-white underline padding-vertical-3" ng-click="skipPublic()">
+	<a href="#/news/notice">
+		<p>
+			<i class="new-icon icon-notice"></i>
+		</p>
+		<i class="title black padding-left-12">公告消息</i>
+		<i class="tip" ng-show="unreadNoticeCount !== '0'" ng-bind="unreadNoticeCount"></i>
+		<i class="detail new-icon icon-go gray9"></i>			
+	</a>
+</div>
+
+<div class="single-line back-white underline padding-vertical-3" ng-click="skipPersonal()">
+	<a href="#/news/personal">
+		<p>
+			<i class="new-icon icon-msg"></i>
+		</p>
+		<i class="title black padding-left-12">个人消息</i>
+		<i class="tip" ng-show="unreadNotificationCount !== '0'" ng-bind="unreadNotificationCount"></i>
+		<i class="detail new-icon icon-go gray9"></i>			
+	</a>
+</div>

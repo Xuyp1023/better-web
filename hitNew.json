@@ -1,0 +1,128 @@
+{
+    "background": "长投网创始人、资深投资者。从2007年到2015年，个人美股投资累计收益263%，平均年化收益率12%；从2013年到2015年，A股投资累计收益203%，平均年化收益率32.7%。",
+    "description": "长投打新课程",
+    "feature": "",
+    "period": 30,
+    "pic": "http://source.ichangtou.com/file/pic/course/p/21/demonstration/dxk750x560.png",
+    "portrait": "http://source.ichangtou.com/file/pic/portrait/d9a3e3f2/1.png",
+    "price": 10000,
+    "studentCount": 315,
+    "difficulty": 0,
+    "subtitle": "长投打新课程",
+    "teacher": "小熊之家",
+    "title": "长投打新课",
+    "type": "M",
+    "relatedMajorSubjectId": 0,
+    "relatedMajorSubjectTitle": null,
+    "features": null,
+    "acquisitions": null,
+    "studentFeedbackUrl": null,
+    "similarSubjects": null,
+    "lessonList": [
+        {
+            "lessonId": 1007,
+            "title": "打新第一课 简介",
+            "type": "C",
+            "lessonDetailsList": [
+                {
+                    "title": "打新收益和原理",
+                    "audio": "http://source.ichangtou.com/file/sound/d9a3e3f2/21/Im7s4eh6dxfwk_01_01.mp3",
+                    "ppts": [
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_01.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_02.png"
+                    ]
+                },
+                {
+                    "title": "长投打新的规则",
+                    "audio": "http://source.ichangtou.com/file/sound/d9a3e3f2/21/cgo04iU8dxfwk_01_02.mp3",
+                    "ppts": [
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_03.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_04.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_05.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_06.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_07.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_08.png"
+                    ]
+                },
+                {
+                    "title": "参加长投打新服务的流程",
+                    "audio": "http://source.ichangtou.com/file/sound/d9a3e3f2/21/T4P8B733dxfwk_01_03.mp3",
+                    "ppts": [
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_09.png"
+                    ]
+                },
+                {
+                    "title": "常见问题：如何配市值？",
+                    "audio": "http://source.ichangtou.com/file/sound/d9a3e3f2/21/J9r2259ddxfwk_01_04.mp3",
+                    "ppts": [
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_09_01.png"
+                    ]
+                },
+                {
+                    "title": "最重要的问题（一定要看）",
+                    "audio": "http://source.ichangtou.com/file/sound/empty.mp3",
+                    "ppts": [
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_09_03.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_09_02.png"
+                    ]
+                }
+            ],
+            "essayQuestion": {
+                "assignmentType": "N",
+                "assignmentContent": null
+            },
+            "chapters": [
+                "打新收益和原理",
+                "长投打新的规则",
+                "参加长投打新服务的流程",
+                "常见问题：如何配市值？",
+                "最重要的问题（一定要看）"
+            ],
+            "choiceQuestion": []
+        },
+        {
+            "lessonId": 1008,
+            "title": "打新第二课 进阶服务",
+            "type": "S",
+            "lessonDetailsList": [
+                {
+                    "title": "对冲和配市值",
+                    "audio": "http://source.ichangtou.com/file/sound/d9a3e3f2/21/Gwse0jc4dxfwk_02_01.mp3",
+                    "ppts": [
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_10.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_11.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_12.png"
+                    ]
+                },
+                {
+                    "title": "国金证券开户",
+                    "audio": "http://source.ichangtou.com/file/sound/d9a3e3f2/21/6hs1q854dxfwk_02_02.mp3",
+                    "ppts": [
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_13.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_14.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_15.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_16.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_17.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_18.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_19.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_20.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_21.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_22.png",
+                        "http://source.ichangtou.com/file/ppt/lesson/d9a3e3f2/21/dxfwk_23.png"
+                    ]
+                }
+            ],
+            "essayQuestion": {
+                "assignmentType": "S",
+                "assignmentContent": "<div>\r\n\t为了参与长投打新服务，我们需要收集你的一些信息，比如支付宝的账户来发钱，国金的账户来帮你自动打新。所以请点击该网址，填写这些必要的信息。如果点击不了的话，可以把该网址拷贝到浏览器的地址栏。</div>\r\n<div>\r\n\thttps://jinshuju.net/f/Gq05yr</div>\r\n"
+            },
+            "chapters": [
+                "对冲和配市值",
+                "国金证券开户"
+            ],
+            "choiceQuestion": []
+        }
+    ],
+    "branchSubjectList": [],
+    "notice": null
+}

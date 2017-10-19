@@ -1,0 +1,73 @@
+<div>
+  <div id="fund_search_way" class="row-fluid">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/flow_money.png" alt="">
+      融资标的
+    </h1>          
+    <table class="table table-condensed div-width-70 div-center search-table">
+      <tr>
+        <td width="30%"><span class="required">*</span>融资模式</td>
+        <td class="div-text-left" width="30%">
+          <select ng-model="info.receivableRequestType" style="width:100%!important">
+            <option ng-repeat="item in newModelList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.receivableRequestType == item.value"></option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td width="30%"><span class="required">*</span>融资类型</td>
+        <td class="div-text-left" width="30%">
+          <select ng-model="info.financeType" style="width:100%!important">
+            <option ng-repeat="item in financeTypeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.financeType == item.value"></option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="required">*</span>融资方式</td>
+        <td class="div-text-left">
+          <select ng-model="info.financeModel" style="width:100%!important">
+            <option ng-repeat="item in financeModelList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.financeModel == item.value"></option>
+          </select>
+        </td>
+        <td><input type="text" ng-model="info.financeProportion" class="ng-pristine ng-valid">&nbsp;%</td>
+      </tr>      
+    </table>      
+  </div>
+  <div id="search_info" class="row-fluid">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/flow_money.png" alt="">
+      融资标的清单
+    </h1>
+    <table class="div-width-100 table table-striped table-hover search-result main-list">
+      <thead>
+        <tr class="result-head">
+          <td width="22%">选择</td>
+          <td width="16%">类型</td>
+          <td width="16%">名称</td>
+          <td width="22%">数据来源</td>
+          <td width="10%">表单数据</td>
+          <td width="18%">附件</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in assetDictList">
+          <td>
+            <input type="checkbox" ng-model="item.checkOne" ng-bind="item.id">
+          </td>
+          <td class="ng-binding">
+           <!--  <select ng-model="tempObject" ng-options="temp.value as temp.name for temp in financerTypeList " ng-init="tempObject=financerTypeList[0].value" ng-change="reqTypeChange()">              
+            </select> -->
+             <!-- <select ng-model="tempObject[$index]">
+              <option ng-repeat="item in financerTypeList" ng-option-filter value="{{item.value}}" ng-bind="item.name"  ng-disabled="setSelectDisabled()"></option>
+             </select> -->
+              <select ng-model="tempObject[$index]" ng-change="setSelectDisabled()" ng-init="tempObject[$index]=item.type||0">
+                <option value="0"  ng-selected="item.type == '0'">辅助材料</option>
+                <option value="1"  ng-disabled="selected" ng-selected="item.type == '1'">主体资产</option>
+              </select>            
+          </td>
+          <td ng-bind="item.dictType|kindf:'DictType'" class="ng-binding"></td>
+          <td ng-bind="item.dataSource|kindf:'AssetDictSettleType'" class="ng-binding"></td>
+          <td ng-bind="item.formData|kindf:'RequestData'" class="ng-binding"></td>
+          <td ng-bind="item.attach|kindf:'RequestData'" class="ng-binding"></td>         
+        </tr>           
+      </tbody>
+    </table>  
+  </div>
+</div>

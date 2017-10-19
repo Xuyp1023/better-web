@@ -1,0 +1,57 @@
+<div class="pjce">
+	<ul>
+    	<li>
+            <p><span>授信核心企业：</span>{{info.buyer}}</p>
+            <p><span>商业汇票号：</span>{{info.billNo}}</p>
+            <p><span>收款方：</span>{{info.supplier}}</p>
+            <p><span>收款账号：</span>{{info.suppBankAccount}}</p>
+            <p><span>票据流通方式：</span>{{info.billMode|kindf:'BillMode'}}</p>
+            <p class="inlint"><span>付款方：</span>{{info.buyer}}</p>
+            <p><span>付款账号：</span>{{info.buyerBankAccount}}</p>
+            <p><span>汇票金额(元)：</span>{{info.balance|moneyFilter}}</p>
+            <p><span>有效期从：</span>{{info.invoiceDate}} 到 {{info.endDate}}</p>
+            <p><span>融资状态：</span>{{info.financeFlag|kindf:'BillNoteStatus'}}</p>
+        </li>
+    </ul>
+</div>
+
+<div class="butn butn2 bottom-holder no-margin">
+    <!-- <a href="#/inquiryDo" class="btn btn2">询价</a> -->
+    <button class="mui-btn mui-btn-success long" ng-click="uploadImage('invoiceFile');">上传发票附件</button>
+    <button class="mui-btn mui-btn-success long" ng-click="uploadImage('agreeAccessory');">上传合同附件</button>
+    <button class="mui-btn mui-btn-success long" ng-click="uploadImage('acceptBillFile');">上传票据附件</button>
+</div>
+
+<div class="pTab">
+    <ul>
+        <li>
+            <table>
+                <tbody>
+                <tr class="ta">
+                    <td>附件类型</td>
+                    <td>附件名称</td>
+                    <td>操作</td>
+                </tr>
+               <tr class="tb" ng-repeat="item in upLoadList">
+                    <td>{{item.fileInfoType|kindf:'BaseInfoFile'}}</td>
+                    <td><a href="javascript:void(0);" ng-click="preImg(item)">{{item.fileName}}</a></td>
+                    <td>
+                       <a href="javascript:void(0);" ng-click="delUpload(item);">删除</a>
+                    </td>
+                </tr>
+            </tbody></table>
+        </li>
+    </ul>
+</div>
+
+
+
+<div class="butn butn2 bottom-holder">
+	<button class="mui-btn mui-btn-primary" ng-click="applyFinance();">申请融资</button>
+    <button class="mui-btn mui-btn-primary" ng-click="applyInquiry();">询价</button>
+</div>
+
+<div class="pBtnc pBtnc2">
+    <a href="javascript:void(0);" ng-click="toInvoiceList()" class="rod">发票信息</a>
+    <a href="#/billUpload/{{info.id}}">附件信息</a>
+</div>

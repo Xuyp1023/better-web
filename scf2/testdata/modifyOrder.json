@@ -1,0 +1,32 @@
+{
+    "message": "订单信息编辑成功",
+    "data": {
+        "id": 1,
+        "orderNo": "O201608040001",
+        "custNo": 1117,
+        "orderType": "0",
+        "regDate": "2016-08-04",
+        "goodsName": "手机壳",
+        "orderDate": "2016-08-04",
+        "endDate": "2016-08-01",
+        "unit": 15,
+        "amount": 1000,
+        "balance": 15000,
+        "coreCustNo": 100000171,
+        "modiDate": "2016-08-07",
+        "modiTime": "175349",
+        "settlement": "1",
+        "businStatus": "0",
+        "requestNo": "",
+        "batchNo": "",
+        "otherBatchNo": "",
+        "balanceUsed": "",
+        "balanceRest": "",
+        "invoiceList": "",
+        "receivableList": "",
+        "transportList": "",
+        "acceptBillList": ""
+    },
+    "page": "",
+    "code": 200
+}

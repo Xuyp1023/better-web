@@ -1,0 +1,42 @@
+<div class="row-fluid">
+      <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/flow_money.png" alt="">
+        客户关系列表
+        <small class="small-select">
+              <span>选择机构</span>
+              <select ng-model="searchData.coreCustNo" ng-change="changeQueryCust();">
+                <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.coreCustNo == item.value"></option>
+              </select>
+        </small>
+      </h1>
+      <table class="div-width-100 table table-striped table-hover search-result">
+        <thead>
+          <tr>
+            <td class="modi-group" colspan="6">
+              <a href="{{'#/process/create/'}}"><button class="btn btn-info" >新增关联</button></a>
+            </td>
+          </tr>
+          <tr class="result-head">
+            <td width="20%">客户类型</td>
+            <td width="60%">客户名称</td>
+            <td width="20%">状态</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in XXX" ng-repeat-end ng-class="{even:$even}" >
+            <td ng-bind=""></td>
+            <td ng-bind=""></td>
+            <td ng-bind=""></td>
+          </tr>
+          <tr>
+            <td>wwww</td>
+            <td>wwww</td>
+            <td>wwww</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td colspan="3">
+            <div bt-pagination conf="listPage"></div>
+          </td>
+        </tfoot>
+      </table>
+  </body>

@@ -1,0 +1,44 @@
+<div class="top-box" id="edit_box">
+	<h1 class="content-title-1 content-title-condensed content-title-blue">
+		<img src="img/operator.png" alt="">
+		合同模板信息管理
+	</h1>
+	<div class="row-fluid div-center div-margin-top">
+		<table class="table table-striped table-hover table-bordered div-margin-top">
+			<tr>
+				<td width="30%">保理公司:</td>
+				<td width="70%" ng-bind="info.factorName">
+					
+				</td>
+			</tr>
+			<tr>
+				<td width="30%">模板类型:</td>
+				<td width="70%" ng-bind="info.templateType|kindf:'ContractTempType' ">
+
+				</td>
+			</tr>
+			<tr>
+				<td width="30%">模板文件:</td>
+				<td width="70%" class="btn-td-group">
+					<button class="btn btn-info btn-left" ng-click="openUpload($event,'signTemplateFile','合同模板','uploadList')" ng-show="uploadList.length===0">修改模板</button>
+					<a href="{{uploadList[0].id|downf}}" ng-bind="uploadList[0].fileName" ng-show="uploadList.length!=0"></a>
+				</td>
+			</tr>
+			<tr>
+				<td width="30%">模板状态:</td>
+				<td width="70%">
+					<select ng-model="info.templateStatus">
+							 <option ng-repeat="item in templateStatus" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.templateStatus == item.value">
+                   		     </option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="center-buttons">
+      <button class="btn btn-primary" type="button" ng-click="addInfo($event.target);">保存</button>
+      <button class="btn btn-primary" type="button" ng-click="goBack();">返回</button>
+    </div>
+</div>
+
+<div bt-upload conf="uploadConf" ></div>

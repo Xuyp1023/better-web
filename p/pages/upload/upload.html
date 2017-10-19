@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>查询机构信息</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/upload.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" class="span12">
+          <input type="hidden" id="upload_flag" value="upload">
+          <form action="" id="upload_form" method="post" enctype="multipart/form-data" class="div-width-100">
+            <table id="upload_table" class="table table-striped table-bordered table-hover div-width-80 div-center">
+            <tbody>
+              <tr>
+                <td width="20%">文件类别</td>
+                <td width="80%" id="file_name"></td>
+              </tr>
+              <tr>
+                <td>文件选择</td>
+                <td class="td-file">
+                  <input type="file" name="Filedata">
+                  <!-- <input type="hidden" id="fileTypeName" name="fileTypeName"> -->
+                </td>
+              </tr>
+              <tr>
+                <td>备注</td>
+                <td class="td-file">
+                  <div class="alert alert-info">请选择不大于10MB的文件，文件类型需要为:*.jpg;*.jpeg;*.png;*.gif;*.doc;*.docx;*.pdf;*.xls;*.xlsx</div>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </form>
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<!-- <script type="text/javascript">seajs.use('p/js/upload');</script> -->
+  </body>
+</html>

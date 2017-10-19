@@ -1,0 +1,33 @@
+<div id="search_info" class="row-fluid">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/flow_money.png" alt="">
+    资产类型维护
+  </h1>
+  <table class="div-width-100 table table-striped table-hover search-result main-list">
+    <thead>
+      <tr class="result-head">
+        <td width="13%">资产类型编号</td>
+        <td width="15%">资产类型名称</td>
+        <td width="15%">数据来源</td>
+        <td width="8%">表单数据</td>
+        <td width="8%">附件</td>
+<!--         <td width="15%">附件类型</td> -->
+        <td width="30%">备注</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in infoList">
+         <td ng-bind="item.id" class="ng-binding"></td>
+         <td ng-bind="item.dictType|kindf:'DictType'" class="ng-binding"></td>
+         <td ng-bind="item.dataSource|kindf:'AssetDictSettleType'" class="ng-binding">121</td>
+         <td ng-bind="item.formData|kindf:'RequestData'" class="ng-binding"></td>
+         <td ng-bind="item.attach|kindf:'RequestData'" class="ng-binding"></td>
+         <td ng-bind="item.description" class="ng-binding"></td>    
+      </tr>      
+    <tfoot>
+      <td colspan="9">
+        <div bt-pagination conf="listPage" func="queryList(false);"></div>
+      </td>
+    </tfoot>
+  </table>
+  
+</div>

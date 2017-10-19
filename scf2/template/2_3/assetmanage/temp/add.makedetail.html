@@ -1,0 +1,107 @@
+ <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed"><img src="img/fast_money.png" alt="">作废应付账款
+                    </h1>
+           <table id="loanBox" class="table table-striped table-hover table-bordered table-condensed">
+             <caption class="table-caption clearFix">
+               <span class="title-left">作废应付账款</span>
+             </caption>
+            <tbody>
+            <tr>
+                  <td>凭证编号:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.period" >
+                  </td>
+                  <td>账款状态:</td>
+                  <td class="div-text-left double_box">
+                     <input type="text">
+                  </td>
+                </tr> 
+                <tr>
+                  <td width="20%">债务人名称:</td>
+                  <td width="30%" class="div-text-left">
+                   <select  name="" id="" ng-model="loanInfo.creditMode" >
+                      <option ng-repeat="mode in creditModes" ng-option-filter value="{{mode.value}}" ng-bind="mode.name" ng-selected="loanInfo.creditMode==mode.value"></option>
+                    </select>
+                  </td>
+                  <td width="20%">债权人名称:</td>
+                  <td width="30%" class="div-text-left">
+                      <select name="" id="" ng-model="loanInfo.creditMode" >
+                      <option ng-repeat="mode in creditModes" ng-option-filter value="{{mode.value}}" ng-bind="mode.name" ng-selected="loanInfo.creditMode==mode.value"></option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>账款编号:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.period" >
+                  </td>
+                  <td><strong class="red">*</strong> 应付账款结算日:</td>
+                  <td class="div-text-left double_box">
+                     <input type="text" id="draft_edit_start" bt-date="searchData.GTEinvoiceDate1">
+                  </td>
+                </tr> 
+                <tr>
+                  <td><strong class="red">*</strong> 应付账款金额:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.payid1" >
+                  </td>
+                  <td>金额大写:</td>
+                  <td class="div-text-left double_box">
+                    <strong class="deep-gray ng-binding" ng-bind="loanInfo.payid1|moneybigf"></strong>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong class="red">*</strong> 应付款账号余额:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.paybank1" >
+                  </td>
+                  <td>金额大写:</td>
+                  <td class="div-text-left double_box">
+                    <strong class="deep-gray ng-binding" ng-bind="loanInfo.paybank1|moneybigf"></strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>抵扣金额:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.bill_numnber" >
+                  </td>
+                  <td>已结算金额:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.mybill_id">
+                  </td>
+                </tr>
+                 <tr>
+                  <td width="20%">贸易合同号:</td>
+                  <td width="30%" class="div-text-left">
+                        <input type="text" ng-model="loanInfo.requestBalance" >
+                  </td>
+                  <td width="20%">发票号:</td>
+                  <td width="30%" class="div-text-left">
+                       <input type="text" ng-model="loanInfo.req" placeholder="输入发票号,多个发票用逗号隔开">
+                  </td>
+                </tr>
+                <tr>
+                  <td>备注:</td>
+                  <td class="div-text-left double_box" colspan="3">
+                    <textarea ng-model="info.description" name="name" class="ng-pristine ng-valid ttare" style="margin: 0px; height: 100px; width: 600px;"></textarea>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+         <p class="div-text-right" style="font-size: 10px; margin-top: 5px;">提示：应付账款金额 = 应付账款余额 + 抵扣金额 + 已结算金额</p>
+        <div class="center-buttons">
+          <button class="btn btn-primary" ng-click="deleteInfot($event.target);">作废</button>
+          <button class="btn btn-primary" bt-close-modal="">返回</button>
+        </div>
+                    
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+

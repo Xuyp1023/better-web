@@ -1,0 +1,11 @@
+{
+    "message": "获取详细列表成功",
+    "data": {
+    		"name":"xxxxx",
+			"content":"xxxxx",
+			"date":"xxxx-xx-xx",
+            "id":1,
+            "requestNo":1
+    	},
+    "code": 200
+}

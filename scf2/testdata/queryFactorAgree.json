@@ -1,0 +1,49 @@
+{
+  "message": "分页查询保理合同",
+  "data": [
+    {
+      "appNo": "2016101098b159",
+      "agreeName": "保理合同法人增加测试",
+      "agreeNo": "12345672",
+      "requestNo": "",
+      "buyerNo": 102202021,
+      "supplierNo": 102202021,
+      "factorNo": "102202019",
+      "signDate": "",
+      "batchNo": 8170,
+      "signBatchNo": "",
+      "regDate": "2016-10-10",
+      "modiDate": "2016-10-10",
+      "signStatus": "1",
+      "agreeType": "3",
+      "balance": 20000,
+      "signId": "",
+      "dealFlag": "1",
+      "supplier": "深圳市润翔工程有限公司",
+      "des": "",
+      "resrepentName": "测试",
+      "resrepentAddr": "深圳福田车公庙",
+      "agreeStartDate": "20161010",
+      "agreeEndDate": "20161030",
+      "signerlist": "",
+      "buyer": "",
+      "stubInfos": "",
+      "factorName": "102202019",
+      "subscribed": "",
+      "billNo": "",
+      "description": "",
+      "confirmBalance": "",
+      "productName": "",
+      "billMode": "",
+      "invoiceDate": "",
+      "endDate": ""
+    }
+  ],
+  "page": {
+    "pageNum": 1,
+    "pageSize": 10,
+    "pages": 0,
+    "total": -1
+  },
+  "code": 200
+}

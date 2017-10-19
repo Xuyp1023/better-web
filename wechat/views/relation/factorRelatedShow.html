@@ -1,0 +1,16 @@
+
+<h4 class="text-center margin-tips orange_default">申请受理成功</h4>
+
+<div class="wid wid3">
+    <p class="title">以下是您本次关联的保理机构：</p>
+    <ul>
+        <li ng-repeat="item in factorList">
+            <a href="javascript:void(0)" class="gray9">
+                <i ng-class="{mr5:true}"></i><!-- {{item.name}} -->
+                <span class="gray9" ng-bind="item.name"></span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="text-center margin-tips gray9">保理公司已受理您的请求，审批结果企e金服平台将及时告知，5s后返回主页....</div>

@@ -1,0 +1,45 @@
+{"message": "查询成功",
+  "data": [
+    {
+      "id": 30689,
+      "factorNo": 102202253,
+      "custNo": 102202253,
+      "coreCustNo": 102202253,
+      "payCustNo": 102202253, 
+      "requestNo": "4340",
+      "payPlanId": 32972,
+      "payDate": "20150826",
+      "planPayDate": "20150826",
+      "dStartDate": "20150526",
+      "principalBalance": 10000,//本金
+      "interestBalance": 1000,  //利息
+      "overdueDays": 0,
+      "managementBalance": 1000,//管理费
+      "penaltyBalance": 0,      //滞纳金
+      "latefeeBalance": 0,      //罚息
+      "servicefeeBalance": 0,   
+      "totalBalance": 12000,    //总额
+      "ratio": "",
+      "managementRatio": "",
+      "payType": "展期",
+      "deliverys": "",
+      "operOrg": "biet;Developer.Factoring.Operator.one",
+      "regOperId": 1259,
+      "regOperName": "管理员-保理",
+      "regDate": "20160826",
+      "regTime": "165126",
+      "modiOperId": "",
+      "modiOperName": "",
+      "modiDate": "",
+      "modiTime": "",
+      "version": ""
+    }
+  ],
+  "page": {
+    "pageNum": 1,
+    "pageSize": 10,
+    "pages": 1,
+    "total": 1
+  },
+  "code": 200
+}

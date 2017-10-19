@@ -1,0 +1,25 @@
+{
+    "message": "获得保理产品信息",
+    "data": {
+        "id": 104,
+        "factorCorp": "yqr",
+        "factorCode": "358",
+        "factorName": "核心保理",
+        "fitCrowd": "1、围绕核心企业的上游供应商；2、供应商的应收账款经核心企业确认；3、至少与核心企业生意往来1年以上。",
+        "productFeature": "依托“1+N”供应链融资模式，以大型企业为核心企业，在上游供应商将其对核心企业的应收账款经核心企业确认并整体转让给保理公司的前提下，由保理公司对供应商提供的集贸易融资、应收账款管理及账款收取等服务于一体的综合性金融服务。",
+        "startMoney": 10000,
+        "endMoney": 50000000,
+        "financeType": "1",
+        "commonRate": "10.0",
+        "shelvesDate": "20160906",
+        "productStatus": "1",
+        "regDate": "20160628",
+        "modiDate": "20160923",
+        "custNo": 102200332,
+        "scfId": "",
+        "coreCustName": "拜特科技",
+        "factorCorpName": "百乐润保理"
+    },
+    "page": "",
+    "code": 200
+}

@@ -1,0 +1,30 @@
+	<div class="pjce">
+    	<ul>
+        	<li>
+                <p><span>授信核心企业：</span>{{info.order.buyer}}</p>
+                <p><span>商业汇票号：</span>{{info.order.billNo}}</p>
+                <p><span>票据流通方式：</span>{{info.order.billMode |kindf:'BillFlowMode'}}</p>
+                <p><span>汇票金额：</span>{{info.order.balance|moneyFilter}}</p>
+                <p><span>有效期：</span>{{info.order.invoiceDate}}到{{info.order.endDate}}</p>
+                <p><span>金融机构：</span>{{enquiryObject.factorName}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="wid wid3">
+    	<p class="title">放弃理由</p>
+    	<ul>
+        	<li ng-repeat="item in dropReason" ng-click="toggleCheckItem(item);">
+            	<a href="javascript:void(0)">
+                	<i ng-class="{ico:true,ico7:item.isChecked,ico8:!item.isChecked,mr5:true}"></i>{{item.text}}
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="texrea mt10"> 
+    	<div class="wTxar mt10">
+        	<textarea placeholder="放弃融资的其他想法..." class="text" ng-model="abandon.description"></textarea>
+        </div>
+    </div>
+    <div class="butn">
+    	<a  ng-click="saveAbandon();" class="btn">放弃融资</a>
+    </div>

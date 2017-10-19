@@ -1,0 +1,96 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">付款结果确认
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">      
+                      <tr>
+                        <td>付款日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEregDate">-
+                          <input type="text" id="end_date" bt-date="searchData.LTEregDate">
+                        </td>
+                      </tr>
+
+                    <tr>                        
+                        <td width="25%">状态:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.businStatus">
+                            <option value="">----所有----</option>
+                            <option ng-repeat="item in businStatus" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>                            
+                          </select>
+                        </td>                        
+                    </tr>                       
+                     
+                        
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+                        付款结果列表
+                        </h1>
+
+                        <form class="form-inline">  
+                            <button type="button" class="btn btn-info" ng-click="uploadResult();">+上传付款结果</button>                           
+                        </form>
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                            <thead class="result-head">
+                                <tr class="font-size-12 info-title">
+                                    <td width="15%">付款指令文档标识</td>
+                                    <td width="15%">导出日期</td>
+                                    <td width="15%">付款日期</td>
+                                    <td width="10%">付款笔数</td>
+                                    <td width="15%">付款总额</td>                                    
+                                    <td width="15%">状态</td>
+                                    <td width="15%">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                                    <td ng-bind="item.requestNo"></td>
+                                    <td ng-bind="item.totalBalance|moneyFilter"></td>
+                                    <td ng-bind="item.balance|moneyFilter"></td>
+                                    <td>
+                                        <span ng-bind="item.period"></span>
+                                    </td>
+                                    <td ng-bind="item.factorName"></td>                                
+                                    <td ng-bind="item.regDate"></td>                        
+                                    <td ng-show="item.businStatus == 2">
+                                        <a href="javascript:void(0);" ng-click="audit(item);">审核</a>  &nbsp;
+                                        <a href="javascript:void(0);" ng-click="delete(item);">删除</a>  
+                                    </td>
+                                    <td ng-show="item.businStatus == 1">
+                                        <a href="javascript:void(0);" ng-click="lookDetail(item);">详情</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="10">
+                                    <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                                </td>
+                            </tfoot>
+                        </table>
+                    </div>
+                
+                <!-- 温馨提示END -->
+                <!--审核 -->
+                <div id="auditDetail" bt-roll-modal="template/prePay_1/purchaser/temp/resultAudit.html" bt-z-index="9993"></div>
+                <!--删除 -->
+                <div id="delDetail" bt-roll-modal="template/prePay_1/purchaser/temp/resultDel.html" bt-z-index="9993"></div>
+                <!--详情 -->
+                <div id="resultDetail" bt-roll-modal="template/prePay_1/purchaser/temp/resultDetail.html" bt-z-index="9993"></div>
+             
+            
+        </div>
+    </div>
+
+
+

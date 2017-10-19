@@ -1,0 +1,157 @@
+<div id="processStepDefine" class="div-center top-box top-box-active">
+
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+      <span ng-bind="processName"></span>&nbsp;步骤定义
+    </h1>
+    
+    <!-- 基本信息 -->
+    <table class="table table-striped table-hover table-bordered div-margin-top" ng-box-active="readonly=false">
+      <thead class="result-td-head result-head-green">
+        <tr>
+          <td colspan="2">基本信息</td>
+        </tr>
+      </thead>
+      <tbody>
+       <tr>
+          <td width="30%">流程步骤:</td>
+          <td width="70%" ng-class="{'div-text-left':!readonly}">
+              <span ng-bind="selectStep.nickname"></span>
+          </td>
+        </tr>
+        <tr>
+          <td width="30%">审批方式:</td>
+          <td width="70%" class="div-text-left">
+            <select  id="" ng-model="info.auditWay">
+                <option ng-repeat="item in auditWayList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.auditWay==item.value"></option>
+            </select>
+          </td>
+        </tr>
+       <tr>
+         <td width="30%">金额段审批</td>
+         <td width="70%" class="div-text-left">
+           <select  id="" ng-model="info.moneyAudit">
+                <option ng-repeat="item in moneyEnableList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.moneyAudit==item.value"></option>
+            </select>
+         </td>
+       </tr>
+      </tbody>
+    </table>
+  
+
+    <!-- 审批人  串行 -->
+    <table class="table table-striped table-hover table-bordered div-margin-top" ng-show="info.moneyAudit==='0' && info.auditWay==='0'" ng-box-active="readonly=false">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">审批人</span>
+      </caption>
+        <tbody>
+          <tr ng-class="{even:$even}" >
+            <td width="30%">选择操作员</td>
+            <td width="70%" class="div-text-left">
+              <select ng-model="operator00">
+                  <option ng-repeat="operator in operatorList" ng-option-filter value="{{operator.value}}" ng-bind="operator.name" ng-selected="operator00==operator.value"></option>
+              </select>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <!--  串行 金额区间审批 -->
+    <table class="table table-striped table-hover table-bordered div-margin-top" ng-show="info.moneyAudit==='1' && info.auditWay==='0'" ng-box-active="readonly=false">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">金额区间审批</span>
+      </caption>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="20%">起始金额</td>
+          <td width="20%">结束金额</td>
+          <td width="60%">操作员</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="section in operator01" ng-repeat-end ng-class="{even:$even}" >
+          <td class="tab-text-right" ng-bind="section.moneySection.beginMoney"></td>
+          <td class="tab-text-right" ng-bind="section.moneySection.endMoney === -1 ? '无限大':section.moneySection.endMoney"></td>
+          <td>
+            <select ng-model="section.operId">
+                <option ng-repeat="type in operatorList" ng-option-filter value="{{type.value}}" ng-bind="type.name" ng-selected="section.operId==type.value"></option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!-- 审批人  并行 -->
+    <table class="table table-striped table-hover table-bordered div-margin-top" ng-show="info.moneyAudit==='0' && info.auditWay==='1'" ng-box-active="readonly=false">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">审批人</span>
+        <button class="btn btn-info btn-right" ng-click="openOperateBox(operator10);" ng-show="!readonly">+添加操作员</button>
+      </caption>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="50%">操作员</td>
+          <td width="30%">权重</td>
+          <td width="20%" ng-show="!readonly">操作</td>
+        </tr>
+      </thead>
+      <thead>
+          <tr ng-repeat="item in operator10" ng-repeat-end>
+            <td ng-bind="item.value|kindf:'OperateDict' "></td>
+            <td>
+              <input type="text" placeholder="请输入数字" ng-model="item.weight" ng-keyup="validateInput(item,'weight');">
+            </td>
+            <td ng-show="!readonly">
+              <a href="javascript:void(0);" ng-click="delOperate(item)">删除</a>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+      </tbody>
+    </table>
+
+    <!-- 并行 金额区间审批 -->
+    <table class="table table-striped table-hover table-bordered div-margin-top" ng-show="info.moneyAudit==='1' && info.auditWay==='1'"  ng-box-active="readonly=false">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">金额区间审批</span>
+      </caption>
+      <thead>
+        <tr class="result-head-gray">
+          <!-- <td width="20%">起始金额</td>
+          <td width="20%">结束金额</td> -->
+          <td width="20%">操作员</td>
+          <td width="20%">权重</td>
+          <td width="20%" ng-show="!readonly">操作</td>
+        </tr>
+      </thead>
+      <tbody ng-repeat="section in operator11">
+        <tr>
+           <td class="left" colspan="2">
+              <span>金额段:</span>
+              <strong ng-bind="section.moneySection.beginMoney + '-' + (section.moneySection.endMoney === -1 ? '无限大':section.moneySection.endMoney) "></strong>
+           </td>
+           <td class="right" ng-show="!readonly">
+              <button class="btn btn-info" ng-click="openOperateBox(section.opers);">+添加</button>
+           </td>
+        </tr>
+        <tr ng-repeat="item in section.opers" ng-repeat-end ng-class="{even:$even}" >
+          <td>
+            <span ng-bind="item.value|kindf:'OperateDict' "></span>
+          </td>
+          <td><input type="text" ng-model="item.weight"></td>
+          <td  ng-show="!readonly">
+            <a href="javascript:void(0);" ng-click="delOperate(item,$parent.$index)">删除</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  <div class="center-buttons">
+    <button class="btn btn-primary" ng-show="!readonly" ng-click="saveStepDefine($event.target);">保存</button>
+    <!-- <button class="btn btn-primary" ng-show="!readonly" ng-click="resetStepDefine();">重置</button> -->
+    <button class="btn btn-primary" ng-click="goBack();">返回</button>
+  </div>
+</div>
+
+<!-- 选择操作员 -->
+<div id="select_operate_box" bt-roll-modal="template/flowDefine/processSelectOperate.html" bt-z-index="9991"></div>

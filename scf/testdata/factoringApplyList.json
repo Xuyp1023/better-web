@@ -1,0 +1,62 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [
+    	{
+			"billNo":"N1031",
+			"requestNo":"KD123123",
+			"factorRequestNo": "XX-101",
+			"supplier":"广发银行",
+			"requestDate":"20150212",
+			"requestTime":"20181211",
+			"productId":"BZ0001",
+			"productName":"保理产品1",
+			"balance": "1000.00",
+			"status": "2"
+		},{
+			"billNo":"N1032",
+			"requestNo":"KD123124",
+			"factorRequestNo": "XX-102",
+			"supplier":"广发银行",
+			"requestDate":"20150212",
+			"requestTime":"20181211",
+			"productId":"BZ0001",
+			"productName":"保理产品1",
+			"balance": "1000.00",
+			"status": "3"
+		},{
+			"billNo":"N1033",
+			"requestNo":"KD123124",
+			"factorRequestNo": "XX-102",
+			"supplier":"广发银行",
+			"requestDate":"20150212",
+			"requestTime":"20181211",
+			"productId":"BZ0001",
+			"productName":"保理产品1",
+			"balance": "1000.00",
+			"status": "6"
+		},{
+			"billNo":"N1034",
+			"requestNo":"KD123124",
+			"factorRequestNo": "XX-102",
+			"supplier":"广发银行",
+			"requestDate":"20150212",
+			"requestTime":"20181211",
+			"productId":"BZ0001",
+			"productName":"保理产品1",
+			"balance": "1000.00",
+			"status": "7"
+		},{
+			"billNo":"N1036",
+			"requestNo":"KD123124",
+			"factorRequestNo": "XX-102",
+			"supplier":"广发银行",
+			"requestDate":"20150212",
+			"requestTime":"20181211",
+			"productId":"BZ0001",
+			"productName":"保理产品1",
+			"balance": "1000.00",
+			"status": "8"
+		}
+	]
+}

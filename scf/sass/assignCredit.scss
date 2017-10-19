@@ -1,0 +1,95 @@
+@charset "UTF-8";
+/* 用户资料页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+@import "common/pie";
+@import "common/pages";
+
+#container{
+	@include init;
+	@include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+	@include Spage_plugin;
+}
+
+#content{
+	@include plus-nav-tabs;
+	@include center-buttons;
+	@include td-input-width(95%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+	@include double-check;
+}
+
+#letter{
+	margin:20px auto;
+	
+	input{
+		border-top-style: none!important;
+		border-left-style: none!important;
+		border-right-style: none!important;
+		width: 100px;
+		border-radius: 0;
+
+	}
+	.right{
+		//text-align: right;
+		float: right;
+		display: block;
+	}
+	p{
+		text-indent: 2em;
+		line-height: 35px;
+
+	}
+	.div-center{
+		text-align: center;
+	}
+	table{
+		width: 80%;
+		margin-top: 20px;
+		caption{
+			font-size: 15px;
+			font-weight: bold;
+		}
+		tr{
+			height: 30px;
+		}
+
+	}
+	.letter-foot{
+		margin-top: 20px;
+		table{
+			float: right;
+		}
+	}
+	h6{
+		margin-top: 40px;
+	}
+	.input-detail{
+	input{
+		width: 400px;
+	}
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+

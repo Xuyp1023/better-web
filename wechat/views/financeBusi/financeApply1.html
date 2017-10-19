@@ -1,0 +1,89 @@
+<div class="wid m10">
+	<ul class="clearfix">
+		<li>
+			<span class="ti gray9">申请企业</span>
+			<div class="ci">----</div>
+		</li>
+		<li>
+			<span class="ti gray9">核心企业</span>
+			<div class="ci">----</div>
+		</li>
+		<li>
+			<span class="ti gray9">申请类型</span>
+			<div class="ci">----</div>
+		</li>
+		<li>
+			<span class="ti gray9">融资类型</span>
+			<div class="ci">----</div>
+		</li>
+	</ul>
+</div>
+
+<!-- 折叠面板 -->
+<ul class="mui-table-view">
+	<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">融资需求</a>
+		<div class="mui-collapse-content">
+			<div class="wid">
+				<ul>				
+					<li>
+						<span class="ti">保理机构</span>			
+						<input type="text"placeholder="请选择保理机构" class="text" readonly>
+						
+					</li>
+					<li>
+						<span class="ti">贷款金额</span>			
+						<input type="text"placeholder="请选择贷款金额" class="text">
+						
+					</li>
+					<li>
+						<span class="ti">贷款期限</span>			
+						<input type="text"placeholder="请选择贷款期限" class="textSel">
+						<i ng-bind="info.periodUnitName"></i>
+						<i class="ico ico11 m15">	
+						</i>
+						
+					</li>
+					<li>
+						<span class="ti">使用授信</span>			
+						<input type="text"placeholder="请选择授信" class="text">		
+					</li>
+					<li>
+						<span class="ti">保理产品</span>			
+						<input type="text"placeholder="请选择保理产品" class="text" readonly>						
+					</li>
+				</ul>
+			</div>
+		</div>
+	</li>
+	<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">上传合同附件</a>
+		<div class="mui-collapse-content">
+			<div class="mui-row upload-wrap">
+				<div class="mui-col-sm-4 mui-col-xs-4">
+					<div class="upload-area">
+						<div class="line-hori">					
+						</div>
+						<div class="line-vert">				
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+	<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">上传发票附件</a>
+		<div class="mui-collapse-content">
+			<div class="mui-row upload-wrap">
+				<div class="mui-col-sm-4 mui-col-xs-4">
+					<div class="upload-area">
+						<div class="line-hori">					
+						</div>
+						<div class="line-vert">				
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+</ul>
+<div class="butn mt10">
+	<a href="" class="mui-btn mui-btn-primary">融资申请</a>
+</div>

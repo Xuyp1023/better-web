@@ -1,0 +1,89 @@
+<div class="div-center div-width div-margin-top">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">佣金导入详情
+  </h1>
+  
+  <table class="table table-striped table-bordered table-hover">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">基本信息</span>
+      </caption>
+      <tbody>
+        <tr>          
+          <td width="20%">企业名称:</td>
+          <td width="80%" class="div-text-left" colspan="3" ng-bind="info.custName"></td>
+        </tr>
+        <tr>
+          <td width="20%">文件名称:</td>
+          <td class="div-text-left" width="30%"><span ng-bind="info.fileName"></span></td>
+          <td width="20%">当前状态:</td>
+       
+             <td class="div-text-left" width="30%" ng-show="info.businStatus != 1" > 
+                <span ng-bind="info.businStatus | kindf:'commissionFileStatus'"></span>
+             </td>
+             <td class="div-text-left" width="30%" ng-show="info.businStatus == 1" > 
+                <span ng-bind="info.resolveStatus | kindf:'commissionFileRESOLVEStatus'"></span>
+             </td>
+    
+        </tr>
+        <tr>
+          <td>操作员:</td>
+          <td class="div-text-left"><span ng-bind="info.regOperName"></span></td>
+          <td>导入时间:</td>
+          <td class="div-text-left">
+            <span ng-bind="info.importDate"></span>  
+            <span ng-bind="info.importTime"></span>
+          </td>
+        </tr>                        
+      </tbody>
+  </table>
+
+  <table class="table table-striped table-bordered table-hover">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">拜特确认信息</span>
+      </caption>
+      <tbody>
+        <tr>
+          <td width="20%">确认状态:</td>
+          <td width="30%" class="div-text-left" class="red"><span ng-bind="info.confirmStatus | kindf : 'commissionFileConfirmStatus'"></span></td>
+          <td width="20%">确认时间:</td>
+          <td width="30%" class="div-text-left">
+          
+            <span ng-bind="info.confirmDate"></span>  
+            <span ng-bind="info.confirmTime"></span>
+
+          </td>
+        </tr>        
+        <tr>
+          <td width="20%">确认意见:</td>
+          <td class="div-text-left" width="80%" ng-bind="info.confirmMessage" colspan="3">            
+          </td>
+          
+        </tr>                  
+      </tbody>
+  </table>
+  <!-- 附件 -->
+  <table class="table table-striped table-hover table-bordered">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">附件(1个)</span>
+       
+      </caption>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="10%">序号</td>          
+          <td width="82%">附件名称</td>
+          <td width="8%">操作</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+           <td>1</td>          
+           <td ng-bind="info.fileName"></td>
+           <td>
+               <a href="{{info.fileId|downf}}" download>下载</a>
+           </td>
+         </tr>
+      </tbody>
+  </table>
+  <div class="center-buttons">         
+    <button class="btn btn-primary" bt-close-modal>返回</button>
+  </div>
+</div>

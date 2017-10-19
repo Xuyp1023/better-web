@@ -1,0 +1,33 @@
+<div class="div-width-90 div-center detail-box">    
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt=""> 
+      融资产品定制
+    </h1>
+    <div class="content-title-consended breadBumb">
+      <ul>
+        <li ng-class="{active:step>=1}" class="flow">1.基本信息</li>
+        <li ng-class="{active:step>=2}" class="flow">2.设置融资标的</li>
+        <li ng-class="{active:step>=3}" class="flow">3.关联核心企业</li>        
+      </ul>
+    </div>
+    <div id="basic-info" ng-show="step==1">
+      <div ng-include="'template/2_3/factoring/temp/basicInfo.html'"></div>    
+      <div class="center-buttons">
+        <button class="btn btn-primary" ng-click="goBackMake()">返回</button>
+        <button class="btn btn-primary" ng-click="next($event.target)" >下一步</button>
+      </div>
+    </div>
+    <div id="set-finance" ng-show="step==2">
+        <div ng-include="'template/2_3/factoring/temp/setFinance.html'"></div>
+        <div class="center-buttons">
+            <button class="btn btn-primary" ng-click="pre()">上一步</button>
+            <button class="btn btn-primary" ng-click="next($event.target)">下一步</button>
+        </div>
+    </div>
+    <div id="finishing" ng-show="step==3">        
+        <div ng-include="'template/2_3/factoring/temp/finishing.html'"></div>       
+        <div class="center-buttons">
+            <button class="btn btn-primary" ng-click="pre()">上一步</button>
+            <button class="btn btn-primary" ng-click="addInfo($event.target)">完成</button>
+        </div>
+    </div>        
+</div>

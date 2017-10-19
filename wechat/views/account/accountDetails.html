@@ -1,0 +1,42 @@
+	<div class="wid wid5">
+    	<ul class="clearfix">
+            <li ng-click="changeProduct()">
+            	<span class="ti">企业名称</span>
+            	<div class="ci">
+                	深圳市润翔工程技术有限公司
+                </div>
+            </li>
+            <li>
+            	<span class="ti">经办人</span>
+            	<div class="ci">
+                	王培新
+                </div>
+            </li>
+            <li>
+            	<span class="ti">电子邮箱</span>
+            	<div class="ci">
+                	wang@rxia.com  
+                </div>
+            </li>
+            <li>
+            	<span class="ti">手机号码</span>
+            	<div class="ci">
+                	13996999826
+                </div>
+            </li>
+            <li>
+            	<span class="ti">开户认证文件(12/12)</span>
+            </li>
+        </ul>
+    </div>
+    
+    <div ng-show="true">
+        <h4 class="text-center margin-tips font-red">审核中</h4>
+        <div class="text-center margin-tips">我们将尽快处理您的请求，企e金服平台将通过短信或邮件进行告知......</div>
+    </div>
+
+    <div ng-show="false">
+        <h4 class="text-center margin-tips font-red">尊敬的客户，您已开户！</h4>
+        <div class="text-center margin-tips"><a class="btn" href="javascript:void(0)" ng-click="openAccount();">开启供应链金融之旅</a></div>
+    </div>
+    

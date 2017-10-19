@@ -1,0 +1,78 @@
+<div class="div-center div-width div-margin-top">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">账单投递详情
+  </h1>
+  <table class="table table-striped table-bordered table-hover">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">投递信息</span>
+      </caption>
+      <tbody>
+        <tr>
+          <td width="20%">投递编号:</td>
+          <td width="30%" class="div-text-left" class="red"><span ng-bind="info.productCode"></span></td>
+          <td width="20%">投递时间:</td>
+          <td width="30%" class="div-text-left"><span ng-bind="info.productName"></span></td>
+        </tr>
+        <tr>
+          <td>投递企业:</td>
+          <td class="div-text-left"><span ng-bind="info.factorType|kindf:'FactorType'"></span></td>
+          <td>接收企业:</td>
+          <td class="div-text-left"><span ng-bind="info.actionModel|kindf:'ActionModel'"></span></td>
+        </tr>
+        <tr>
+          <td>账单总额（元）:</td>
+          <td class="div-text-left"><span ng-bind="info.ratio|percentf"></span></td>
+          <td>金额大写:</td>
+          <td class="div-text-left">
+            <span ng-bind="info.minDays"></span> ~ <span ng-bind="info.maxDays+' 天'"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>状态:</td>
+          <td class="div-text-left"><span ng-bind="info.minFactorAmmount|moneyFilter"></span></td>
+          <td>确认时间:</td>
+          <td class="div-text-left">
+            <span ng-bind="info.maxFactorAmmount|moneyFilter">
+          </td>
+        </tr>                 
+      </tbody>
+  </table>
+
+  <table id="order_list_table" class="table table-striped table-hover table-bordered">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">投递清单</span>
+      </caption>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="15%">账单编号</td>
+          <td width="15%">账单金额</td>
+          <td width="15%">起始日期</td>
+          <td width="15%">终止日期</td>
+          <td width="15%">对账企业</td>
+          <td width="15%">账单详情</td>              
+          <td width="10%">下载账单</td>              
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat-end="" ng-class="{even:$even}" class="ng-scope">
+          <td>
+            <a href="javascript:void(0);" ng-click="lookDetail(item);" ng-bind="item.productCode"></a>
+          </td>
+          <td ng-bind="item.assetType|kindf:'FinancerTypeList'" class="ng-binding"></td>
+          <td ng-bind="item.dictType|kindf:'DictType'" class="ng-binding"></td>
+          <td ng-bind="item.dictType|kindf:'DictType'" class="ng-binding"></td>
+          <td ng-bind="item.dataSource|kindf:'AssetDictSettleType'" class="ng-binding"></td>
+          <td>
+            <a href="javascript:void(0);" ng-click="lookDetail(item);">查看详情</a>
+          </td>
+          <td>
+            <a href="{{item.id|downf}}" download>下载</a>
+          </td>             
+          <td></td>             
+       </tr>           
+      </tbody>
+   </table>
+  <div class="center-buttons">
+    <button class="btn btn-primary" ng-click="ensureInfo()" ng-show="info.state=='1'">确认</button>           
+    <button class="btn btn-primary" bt-close-modal>返回</button>
+  </div>
+</div>

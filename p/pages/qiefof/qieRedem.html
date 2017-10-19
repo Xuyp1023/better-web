@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>基金赎回</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/qieRedem.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body>
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" class="span12">
+  				<ul  class="nav nav-tabs plus-nav-tabs-init">
+            <!-- <li class="active"><a href="#select_fund">选基金</a></li> -->
+            <li class="active"><a id="confirm_amount_link" href="#confirm_amount">确认金额</a></li>
+            <li><a id="pree_see_link" href="#pree_see">预览</a></li>
+            <li><a id="finish_select_link" href="#finish_select">完成</a></li>
+          </ul>
+
+
+
+        <div class="tab-content plus-nav-tabs-content">
+          <!-- <div id="select_fund" class="tab-pane fade active in">
+            <div class="div-width-100 tip-message">
+              投资视点:<span>预计近期股市崩盘，请多关注货币或债券基金。</span>
+            </div>
+            <div class="div-width-100 clearFix">
+              <div class="fast-search">
+                <span>交易账户: </span>
+                <select name="" id="fund_partment" data-bind="event:{change:searchFund}">
+                  <option value="0">大成基金</option>
+                  <option value="1">南方基金</option>
+                  <option value="2">民生加银</option>
+                </select>
+              </div>
+            </div>
+            <table class="div-width-100 table table-striped table-hover fund-list">
+              <thead>
+                <tr>
+                  <td width="25%">基金名称</td>
+                  <td width="15%">净值日期</td>
+                  <td width="10%">最新净值</td>
+                  <td width="10%">持有份额</td>
+                  <td width="10%">可用份额</td>
+                  <td width="10%">参考市值</td>
+                  <td width="10%">基金状态</td>
+                  <td width="10%">操作</td>
+                </tr>
+              </thead>
+              <tbody data-bind="visible:redemListBind().length<1">
+                <tr>
+                  <td colspan="8" class="green">该账号下暂无该类资产 ！</td>
+                </tr>
+              </tbody>
+              <tbody data-bind="foreach:redemListBind,visible:redemListBind().length>0">
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td>
+                    <a href="#">
+                      <span data-bind="text:fundName"></span><br>
+                      <span data-bind="text:fundCode"></span>
+                    </a>
+                  </td>
+                  <td data-bind="text:$parent.parseDate(netDate)"></td>
+                  <td class="deep-gray"><strong data-bind="text:$parent.parsePoint4(netValue)">1.1650</strong></td>
+                  <td class="red"><strong data-bind="text:disShares">2000.34</strong></td>
+                  <td class="red"><strong data-bind="text:disValidShares">1800</strong></td>
+                  <td data-bind="text:$parent.parseTotalValue($data)"></td>
+                  <td data-bind="text:$parent.parseStaus($data)">可赎回</td>
+                  <td data-bind="">
+                    <a href="#" data-bind="click:$parent.redemFund,visible:trading">赎回</a>
+                    <span class="disabled" data-bind="visible:!trading">赎回</span>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                  <td colspan="8">
+                    <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                      <ul>
+                        <li class="previous hidden" data-bind="visible:redemListPageBind().pageNum==1"><span>首页</span></li>
+                        <li class="previous" data-bind="visible:redemListPageBind().pageNum!=1,click:firstPage"><a href="#">首页</a></span></li>
+                        <li class="previous hidden" data-bind="visible:redemListPageBind().pageNum==1"><span>上一页</span></li>
+                        <li class="previous" data-bind="visible:redemListPageBind().pageNum!=1,click:prevPage"><a href="#">上一页</a></li>
+                        <li class="next hidden" data-bind="visible:redemListPageBind().pageNum>=redemListPageBind().pages"><span>下一页</span></li>
+                        <li class="next" data-bind="visible:redemListPageBind().pageNum<redemListPageBind().pages,click:nextPage"><a href="#">下一页</a></li>
+                        <li class="next hidden" data-bind="visible:redemListPageBind().pageNum>=redemListPageBind().pages"><span>尾页</span></li>
+                        <li class="next" data-bind="visible:redemListPageBind().pageNum<redemListPageBind().pages,click:endPage"><a href="#">尾页</a></li>
+                        <li>共<span data-bind="text:redemListPageBind().pageNum"></span>/<span data-bind="text:redemListPageBind().pages"></span>页</li>
+                        <li>共<span data-bind="text:redemListPageBind().total"></span>条记录</li>
+                        <li class="toPage">
+                            <div>
+                              <span>跳转到</span>
+                              <input type="text" name="skipToPageNum" data-bind="disable:redemListPageBind().pages==1">
+                              <span>页</span>
+                              <button class="btn" data-bind="disable:redemListPageBind().pages==1,click:skipPage">跳转</button>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+              </tfoot>
+            </table>
+          </div> -->
+          <div id="confirm_amount" class="tab-pane fade active in">
+            <div class="div-width-100 clearFix qie-info">
+              <span class="title">企额宝总资产:</span>
+              <span class="content" data-bind="text:formaterMoney(qieInfoBind().balance)"></span>
+              <span class="title">企额宝总收益:</span>
+              <span class="content" data-bind="text:formaterMoney(qieInfoBind().floatProfit)"></span>
+            </div>
+            <div class="div-width-100 clearFix">
+              <div class="fast-search">
+                <span>交易账户: </span>
+                <select name="fundCompany" id="select_cust_list" data-bind="event:{change:searchFund}">
+                  <option value="">加载中...</option>
+                </select>
+                <span class="fast-purchase-lab">快速推荐: </span>
+                <input id="fast_purchase_money" type="text" placeholder="请输入赎回份额"> 
+                <button class="btn btn-primary" data-bind="click:reFreshRedemOrder">预览</button>
+              </div>
+            </div>
+            <table id="fund_detail_table" class="div-width-100 table table-striped table-hover fund-list">
+              <thead>
+                <tr>
+                  <td width="16%">基金名称</td>
+                  <td width="11%">最新净值</td>
+                  <td width="11%">持有份额</td>
+                  <td width="11%">可用份额</td>
+                  <td width="11%">参考市值</td>
+                  <td width="11%">浮动盈亏</td>
+                  <td width="11%">基金状态</td>
+                  <td width="17%">赎回金额</td>
+                </tr>
+              </thead>
+              <tbody data-bind="visible:redemListBind().length<1">
+                <tr>
+                  <td colspan="9" class="green">暂无可赎回企额宝资产 ！</td>
+                </tr>
+              </tbody>
+              <tbody data-bind="foreach:redemListBind,visible:redemListBind().length>0">
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td>
+                    <a data-bind="attr:{href:$parent.formaterFundDetail($data)}">
+                      <span data-bind="text:fundName"></span><br>
+                      <span data-bind="text:fundCode"></span>
+                    </a>
+                  </td>
+                  <td class="deep-gray">
+                    <strong data-bind="text:$parent.formaterPoint4(netValue)"></strong><br/>
+                    <!-- <span data-bind="text:$parent.formaterDate(netDate)"></span> -->
+                  </td>
+                  <td class="red"><strong data-bind="text:disShares"></strong></td>
+                  <td class="red"><strong data-bind="text:disValidShares"></strong></td>
+                  <td data-bind="text:$parent.parseTotalValue($data)"></td>
+                  <td data-bind="text:$parent.formaterMoney(floatProfit)"></td>
+                  <td data-bind="text:$parent.parseStaus($data)"></td>
+                  <td><input type="text" name="share" data-bind="value:share,enable:trading,attr:{placeholder:'赎回限额:'+(combPriceMax>=999999999?'无限制':combPriceMax)},event:{blur:$parent.validShare,keyup:$parent.shareKeyUp}"></td>
+                </tr>
+              </tbody>
+              <!-- <tfoot>
+                <tr>
+                  <td colspan="3">合计申购金额(元)</td>
+                  <td colspan="6" class="red"><strong data-bind="text:formaterTotalBalance(totalBalanceBind())">12,300,000.00</strong></td>
+                </tr>
+              </tfoot> -->
+            </table>
+            <div class="center-buttons">
+              <!-- <button target="0" data-bind="click:nextStep" class="btn btn-primary">上一步</button> -->
+              <button data-bind="click:toPreeSee,visible:redemListBind().length>0" class="btn btn-primary">赎回预览</button>
+            </div>
+          </div>
+          <div id="pree_see" class="tab-pane fade in">
+            <div class="div-width-100 clearFix qie-info">
+              <span class="title">交易账户: </span>
+              <span class="content" data-bind="text:redemFundBind().fund_partment_name"></span>
+              <span class="title">企额宝总资产:</span>
+              <span class="content" data-bind="text:formaterMoney(qieInfoBind().balance)"></span>
+              <span class="title">企额宝总收益:</span>
+              <span class="content" data-bind="text:formaterMoney(qieInfoBind().floatProfit)"></span>
+            </div>
+            <table id="fund_pree_see_table" class="div-width-100 table table-striped table-hover fund-list">
+              <thead>
+                <tr>
+                  <td width="16%">基金名称</td>
+                  <td width="11%">最新净值</td>
+                  <td width="11%">持有份额</td>
+                  <td width="11%">可用份额</td>
+                  <td width="11%">参考市值</td>
+                  <td width="11%">浮动盈亏</td>
+                  <td width="11%">基金状态</td>
+                  <td width="17%">赎回金额</td>
+                </tr>
+              </thead>
+              <tbody data-bind="foreach:redemListBind">
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td>
+                    <a href="#">
+                      <span data-bind="text:fundName"></span><br>
+                      <span data-bind="text:fundCode"></span>
+                    </a>
+                  </td>
+                  <td class="deep-gray">
+                    <strong data-bind="text:$parent.formaterPoint4(netValue)"></strong><br/>
+                    <!-- <span data-bind="text:$parent.formaterDate(netDate)"></span> -->
+                  </td>
+                  <td class="red"><strong data-bind="text:disShares"></strong></td>
+                  <td class="red"><strong data-bind="text:disValidShares"></strong></td>
+                  <td data-bind="text:$parent.parseTotalValue($data)"></td>
+                  <td data-bind="text:$parent.formaterMoney(floatProfit)"></td>
+                  <td data-bind="text:$parent.parseStaus($data)"></td>
+                  <td><strong class="red" name="share"></strong></td>
+                </tr>
+              </tbody>
+              <!-- <tfoot>
+                <tr>
+                  <td colspan="3">合计申购金额(元)</td>
+                  <td colspan="6" class="red"><strong data-bind="text:formaterTotalBalance(totalBalanceBind())">12,300,000.00</strong></td>
+                </tr>
+              </tfoot> -->
+            </table>
+            <div class="center-buttons">
+              <button target="0" data-bind="click:nextStep" class="btn btn-primary">上一步</button>
+              <button target="3" data-bind="click:confirmRedem" class="btn btn-primary">确认赎回</button>
+            </div>
+          </div>
+          <div id="finish_select" class="tab-pane fade in">
+            <div class="alert alert-success alert-block div-center div-width-40 finish-info">
+              <p><i class="icon-ok-sign"></i> 赎回<!-- <span class="red" data-bind="text:redemFundBind().redemShares"></span>份<span class="red" data-bind="text:redemFundBind().fundName"></span> -->企额宝产品的申请已提交</p>
+<!--               <p><i class="icon-ok-sign"></i> <span>20150925</span>预计份额确认</p>
+              <p><i class="icon-ok-sign"></i> <span>20150926</span>预计到账</p> -->
+              <p><i class="icon-ok-sign"></i><span class="red"> 注:赎回交易已经完成,请提醒复核人员复核!</p>
+            </div>
+            <div class="center-buttons">
+              <button target="0" data-bind="click:function(){window.location.reload()}" class="btn btn-primary">返回首页</button>
+              <!-- <button class="btn btn-primary btn-bg-middle">查看基金产品</button> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 温馨提示 -->
+        <div id="warm_prompt_box" class="div-width-100">
+          <h1 class="prompt-title">
+            <img class="prompt-icon" src="../../img/warm_prompt.png" alt="">
+            温馨提示
+          </h1>
+          <div class="warm-prompt-content">
+            <p>1.如遇网络或系统问题等特殊情况，赎回资金划出时间可能会有延迟，请最终以银行卡入账时间为准。</p>
+            <p>2.理财型基金在每个运作期的赎回开放日，可以提交赎回申请；在非赎回开放日，不能提交赎回申请，但可预约至赎回开放日进行基金份额赎回。</p>
+            <p>3.如当期赎回开放日未赎回，则该基金份额进入下一个运作期。</p>
+          </div>
+        </div>
+        <!-- 温馨提示END -->
+
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">seajs.use('p/js/qieRedem');</script>
+  </body>
+</html>

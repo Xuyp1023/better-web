@@ -1,0 +1,26 @@
+{
+  "message": "新增豁免成功",
+  "data": {
+    "id": 31695,
+    "factorNo": 100000212,
+    "custNo": "",
+    "requestNo": "4483",
+    "pressType": "",
+    "actualDate": "",
+    "balance": "",
+    "agent": "",
+    "description": "",
+    "operOrg": "biet;Developer.Core.Enterprise",
+    "regOperId": 1258,
+    "regOperName": "管理员-核心",
+    "regDate": "20160823",
+    "regTime": "173104",
+    "modiOperId": "",
+    "modiOperName": "",
+    "modiDate": "",
+    "modiTime": "",
+    "version": ""
+  },
+  "page": "",
+  "code": 200
+}

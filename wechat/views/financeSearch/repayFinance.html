@@ -1,0 +1,43 @@
+<div class="mAito graid2">
+  <ul class="clearfix">
+      <li>
+          <a href="javascript:void(0)" ng-click="changeStatus('begin');">
+            <strong>起始日期</strong><br>
+            <span>{{searchData.GTErequestDate}}</span>
+            <i class="ico ico14"></i>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" ng-click="changeStatus('end');" class="border-none">
+            <strong>截止日期</strong><br>
+            <span>{{searchData.LTErequestDate}}</span>
+            <i class="ico ico14"></i>
+          </a>
+        </li>
+    </ul>
+</div>
+
+
+<!-- 融资列表 -->
+<div class="collapse-list">
+  <ul>
+      <li ng-repeat="item in financeList">
+          <div class="ti">
+            <span ng-bind="item.requestType |kindf:'RaiseCapitalType' "></span>
+            <em class="co co1">{{item.lastStatus|kindf:'RequestLastStatus'}}<i class="ico ico13 ml5"></i></em>
+          </div>
+          <div class="bi"></div>
+          <div class="ci">
+              <p class="con">融资编号:&nbsp;<span ng-bind="item.requestNo"></span></p>
+              <p class="con">申请金额:&nbsp;<span ng-bind="item.balance"></span></p>
+              <p class="con">放款金额:&nbsp;<span ng-bind="item.loanBalance"></span></p>
+              <p class="con">贷款期限:&nbsp;<span ng-bind="item.startDate"></span>&nbsp;至&nbsp;<span ng-bind="item.endDate"></p>
+              <p class="con">保理机构:&nbsp;<span ng-bind="item.factorName"></span></p>
+          </div>
+          <div class="ti">
+            <span ng-click="lookDetail(item);">点击查看详情...</span>
+          </div>
+      </li>
+  </ul>
+  <div ng-page="listPage" func="queryFinanceList(false)" class="more"></div>
+</div>

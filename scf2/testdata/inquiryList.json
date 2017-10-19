@@ -1,0 +1,30 @@
+{
+    "message": "询价列表",
+    "data": [
+        {
+            "enquiryNo": "XUNJIA-1",
+            "actualDate": "2015-02-11",
+            "deadline": "2015-02-15",
+            "businStatus":0,
+            "offerCount": "2",
+            "requestType":1,
+            "custNo":"7123",
+            "factors":"V1,V2"
+        },{
+            "enquiryNo": "XUNJIA-2",
+            "businStatus":1,
+            "actualDate": "2015-03-11",
+            "deadline": "2015-04-15",
+            "requestType":2,
+            "custNo":"7124",
+            "offerCount": "1"
+        }
+    ],
+    "page": {
+          "pageNum": 1,
+          "pageSize": 10,
+          "pages": 1,
+          "total": 2
+    },
+    "code": 200
+}

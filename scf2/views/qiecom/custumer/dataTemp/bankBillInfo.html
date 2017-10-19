@@ -1,0 +1,57 @@
+<div class="div-width-90 detail-box div-center">
+
+    <div class="div-center div-width div-margin-top">
+
+     <!-- 银行流水 -->
+
+     <table class="table table-striped table-hover table-bordered">
+        <caption class="table-caption table-caption-green clearFix">
+           <span class="title-left">模板下载</span>
+        </caption>
+        
+        <tbody>
+        <tr>
+          <td width="50%">银行流水模板:</td>
+          <td width="50%">
+            <a href="">下载</a>
+          </td>
+            <!-- <button type="button" class="btn btn-primary" ng-click="openUpload($event,'','模板文件','','import_box')">+上传模板</button> -->
+        </tr>
+        </tbody>
+      </table>
+
+
+     <table class="table table-striped table-hover">
+         <caption class="table-caption table-caption-green clearFix table-caption-noborder">
+           <span class="title-left">银行流水列表</span>
+           <button class="btn btn-info btn-right"  ng-click="openAddBox('bankFlow');">+添加银行流水</button>
+         </caption>
+       <thead>
+         <tr class="result-head-gray">
+           <td width="20%">序号</td>
+           <td width="20%">数据开始时间</td>
+           <td width="20%">数据结束时间</td>
+           <td width="20%">操作</td>
+         </tr>
+       </thead>
+       <tbody>
+          <tr ng-repeat="item in bankFlowList" ng-repeat-end ng-class="{even:$even}">
+           <td ng-bind="$index+1"></td>
+           <td ng-bind="item.startDate"></td>
+           <td ng-bind="item.endDate"></td>
+           <td>
+             <a href="javascript:void(0);"  ng-click="">下载</a>
+             <a href="" ng-click="deleteRecord(item,'bankFlow');">删除</a>
+           </td>
+         </tr>
+       </tbody>
+       <tfoot>
+            <td colspan="4">
+              <div bt-pagination conf="bankFlowPage" func="queryOperateList(false,'bankFlow')" ></div>
+            </td>
+        </tfoot>
+     </table>
+
+    </div>
+    
+</div> 

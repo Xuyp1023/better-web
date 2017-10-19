@@ -1,0 +1,33 @@
+<div class="div-center detail-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    选择操作员
+  </h1>
+
+    <!-- 节点列表 -->
+    <table class="table table-striped table-hover table-bordered div-margin-top">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">操作员列表</span>
+        
+      </caption>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="20%">操作员名称</td>
+          <td width="20%">是否选择</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in operatorList" ng-repeat-end ng-class="{even:$even}" >
+          <td ng-bind="item.name"></td>
+          <td>
+            <input type="checkbox" ng-checked="item.isChecked" ng-click="toggleCheckItem(item);">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="center-buttons">
+      <button class="btn btn-primary" bt-close-modal ng-click="addOperate($event.target);">确认</button>
+      <button class="btn btn-primary" bt-close-modal ng-click="closeOperateBox();">返回</button>
+    </div>
+
+</div>

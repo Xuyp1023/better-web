@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>贷款审批</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/sfccom/loansManage/loansApprove.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+    <div id="container" class="container-fluid div-center">
+      <div class="row-fluid">
+        <div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">贷款审批</h1>
+             <ul id="nav_tabs"  class="nav nav-tabs plus-nav-tabs-init">
+               <li class="active"><a href="#wait_handle_tab" ng-click="switchTab($event)">待处理订单</a></li>
+               <li><a href="#handel_complete_tab" ng-click="switchTab($event)">已处理订单</a></li>
+             </ul>
+          </div>
+
+         
+          <!-- tab 栏 begin -->
+          <div class="tab-content plus-nav-tabs-content">
+
+            <!-- 待处理订单 -->
+            <div id="wait_handle_tab" class="tab-pane fade active in">
+              <div bt-include="temp/waitHandle.html"></div>
+            </div>
+
+            <!-- 已处理订单 -->
+            <div id="handel_complete_tab" class="tab-pane fade in">
+              <div bt-include="temp/handleComplete.html"></div>
+            </div>
+
+          </div>
+          <!-- tab 栏 end -->
+
+  
+          <!-- 一般审批 -->
+          <div id="approve_flow_box" bt-roll-modal="temp/approveFlow.html" bt-z-index="9991"></div>
+          <!-- 出具贷款方案 -->
+          <div id="issue_plan_box" bt-roll-modal="temp/issuePlan.html" bt-z-index="9991"></div>
+          <!-- 签约  发起背景确认 -->
+          <div id="sign_action_box" bt-roll-modal="temp/signAction.html" bt-z-index="9991"></div>
+
+          <!-- 融资详情 -->
+          <div id="fix_operator_info_box" bt-roll-modal="temp/financeInfo.html" bt-z-index="9991"></div>
+
+          <!-- 待财务放款 -->
+          <!-- <div id="wait_loan_box" bt-roll-modal="temp/waitLoan.html" bt-z-index="9991"></div> -->
+          <!-- 放款确认 -->
+          <div id="loan_ensure_box" bt-roll-modal="temp/loanEnsure.html" bt-z-index="9991"></div>
+          <!-- 补充资料 -->
+          <div id="add_other_file_box" bt-roll-modal="temp/addOtherFile.html" bt-z-index="9992"></div>
+          
+          <!-- 查看协议详情 -->
+          <div id="look_agree_info_box" bt-roll-modal="temp/showAgreeInfo.html" bt-z-index="9992" bt-max-width="900px"></div>
+
+          <!-- 订单详情 -->
+          <div id="proof_order_detail_box" bt-roll-modal="../../commonTemp/orderDetailShow.html" bt-z-index="9993"></div>
+          <!-- 票据详情 -->
+          <div id="proof_draft_detail_box" bt-roll-modal="../../commonTemp/draftDetailShow.html" bt-z-index="9993"></div>
+          <!-- 应收详情 -->
+          <div id="proof_recieve_detail_box" bt-roll-modal="../../commonTemp/recieveDetailShow.html" bt-z-index="9993"></div>
+
+          <div bt-upload conf="uploadConf" ></div>
+
+
+        
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+  <!-- 引用js文件 -->
+  <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+  <![endif]-->
+  <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/sfccom/loansManage/loansApprove");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/sfccom/loansManage/loansApprove");
+      } 
+  </script>
+  </body>
+</html>

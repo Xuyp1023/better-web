@@ -1,0 +1,17 @@
+<div>
+    <div ng-include="'template/2_3.1/temp/flowPublic.html'"></div>
+    <div ng-include="'template/2_3.1/temp/onlyReadApprove.html'"></div>
+    <!-- 资产登记结果显示隐藏 -->
+    <div ng-show="temporary.result==1">
+    	<div ng-include="'template/2_3.1/temp/resultList.html'"></div>	
+    </div>
+    <!-- 融资批复显示隐藏 -->
+    <div ng-show="temporary.reply==1">
+    	<div ng-include="'template/2_3.1/temp/approveList.html'"></div> 
+    </div>
+    <!-- 最终融资批复显示隐藏 -->
+     <div ng-show="temporary.reply1==1">  
+		<div ng-include="'template/2_3.1/temp/approveList1.html'"></div> 
+     </div>
+</div>
+

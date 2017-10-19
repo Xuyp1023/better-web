@@ -1,0 +1,29 @@
+<div id="container" class="container-fluid div-center">
+    <div class="row-fluid">
+        <div id="content" class="div-width-100">
+            <div id="fund_search_way" class="row-fluid">
+                <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">更新供应商服务费率
+                </h1>
+                <table class="table table-condensed div-width-70 div-center search-table">                     
+                  <tr>
+                    <td width="30%">供应商:</td>
+                    <td width="30%">
+                        <span>{{info.custName}}</span>
+                    </td>                        
+                  </tr>
+                  <tr>
+                      <td>服务费率:</td>  
+                      <td><input type="text" ng-model="info.coreCustRate" class="ng-pristine ng-valid">&nbsp;%</td>     
+                  </tr>
+                  
+                </table>
+                <div class="center-buttons">
+                  <button class="btn btn-primary btn-bg-middle" ng-click="doUpdate($event.target,info);">更新</button>
+                  <button class="btn btn-primary btn-bg-middle" bt-close-modal>返回</button>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</div>

@@ -1,0 +1,15 @@
+{
+    "message": "消息模板-设置启用 成功",
+    "data": {
+        "id": 20001,
+        "profileName": "开户成功通知",
+        "profileType": "0",
+        "subscribeEnable": "0",
+        "businStatus": "1",
+        "lastStatus": "",
+        "custNo": 102202018,
+        "custName": "深圳市前海拜特互联网金融服务有限公司"
+    },
+    "page": "",
+    "code": 200
+}

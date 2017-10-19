@@ -1,0 +1,177 @@
+@charset "UTF-8";
+/* 用户资料页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+
+#container_frame{
+	@include init;
+	@include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+	@include plus-nav-tabs(70%,30%);
+	@include center-buttons;
+	@include td-input-width(95%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+	@include div-margin;
+	background-color:whitesmoke;
+}
+
+#banner{
+	width:1180px;
+	height:100px;
+	line-height:100px;
+	padding:0 10px;
+	background:white;
+	margin-bottom:5px;
+	#logo{
+		display:block;
+		width:240px;
+		float:left;
+		height:100px;
+		line-height:100px;
+		a{
+			cursor:pointer;
+
+		}
+		img{
+			height:100px;
+			vertical-align:top;
+		}
+	}
+	#hori_nav{
+		display:block;
+		float:left;
+		height:100px;
+		margin:0 0 0 15px;
+		li{
+			cursor:pointer;
+			float:left;
+			list-style-type:none;
+			height:100px;
+			line-height:100px;
+			img{
+				height:100px;
+			}
+			a{
+				color:#EF7F19;
+				font-size:14px;
+				&:hover{
+					color:rgb(0, 136, 204);
+				}
+				&.active{
+					color:rgb(0, 136, 204);
+				}
+			}
+		}
+	}
+}
+
+#user_info{
+	height:100px;
+	width:1200px;
+	#user{
+		float:left;
+		display:block;
+		background:white;
+		width:200px;
+		height:95px;
+		margin:0 0 5px 0;
+		li{
+			list-style-type:none;
+			height:50px;
+			line-height:50px;
+			font-size:16px;
+			font-weight:bold;
+			color:rgb(0, 136, 204);
+		}
+		.user-info{
+			text-align:center;
+			height:48px;
+			line-height:48px;
+			border-bottom:2px solid #248AC9;
+		}
+		.user-modi{
+			text-align:center;
+			height:40px;
+			line-height:40px;
+			padding:5px;
+			a{
+				font-size:13px;
+				font-weight:normal;
+				color:#EF7F19;
+				margin-left:15px;
+			}
+		}
+	}
+	#advice{
+		float:left;
+		display:block;
+		width:996px;
+		height:100px;
+		margin-left:4px;
+		img{
+			width:996px;
+			height:100px;
+			vertical-align:top;
+		}
+	}
+}
+
+#content{
+	width:1200px;
+}
+
+#content_navbar{
+	width:200px;
+	float:left;
+	min-height:400px;
+	background:white;
+}
+
+#content_area{
+	width:996px;
+	float:right;
+	min-height:500px;
+	background:white;
+}
+
+#nav_iframe,#content_iframe{
+	width:100%;
+	min-height:400px;
+	border:0;
+}
+
+#modi_pwd_box{
+	table{margin-bottom:0;}
+	input{
+		margin:0;
+	}
+	.modal-header{
+		*height:30px;
+		*min-height:30px;
+	}
+}
+
+#modi_pwd_form{
+	margin-bottom:0;
+}
+
+
+
+
+
+
+
+
+
+
+

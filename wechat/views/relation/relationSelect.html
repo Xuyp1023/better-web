@@ -1,0 +1,18 @@
+    <!-- <p class="p10 f12">尊敬的客户，以下是您在企e金服平台的开户信息！</p> -->
+    <div class="pjce">
+        <ul>
+            <li>
+                <div class="inlint" ng-repeat="item in custTypeList">
+                    <a ng-href="{{item.value=='FACTOR_USER' ? '#/relation/factor/link' : '#/relation/core/link'}}" ng-click="cacheSelect(item);">
+                    <p >
+                        <span class="ti" ng-bind=" '关联'+item.name"></span>
+                        <i class="ico ico13 fr"></i>
+                    </p>
+                    </a>
+                    
+                </div>
+            </li>
+        </ul>
+        <em class="ico ico9"></em>
+    </div>
+    

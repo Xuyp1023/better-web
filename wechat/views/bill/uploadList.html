@@ -1,0 +1,17 @@
+	<div class="pTab">
+       <ul>
+           <li>
+               <table>
+                   <tr class="ta">
+                       <td>附件类型</td>
+                       <td>附件名称</td>
+                   </tr>
+                   <tr ng-repeat="item in billFileInfo">
+                       <td>{{item.fileInfoType|kindf:'BaseInfoFile'}}</td>
+                       <td><a href="javascript:void(0);" ng-click="preImg(item)">{{item.fileName}}</a></td>
+                    </tr>
+                   </table>
+               </li>
+
+           </ul>
+</div>

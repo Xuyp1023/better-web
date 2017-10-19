@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>路由页</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/flow.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/byte/app/css/pop.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+</head>
+
+<body id="body">
+    <div id="container" class="container-fluid div-center hide">
+        <div class="row-fluid">
+            <div id="content" class="span12">
+                <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">
+                <span ng-bind="currentTask.workFlowBase.nickname + '--' + currentTask.workFlowNode.nickname + (currentTask.workFlowStep ? ('--' + currentTask.workFlowStep.nickname):'')"></span></h1>
+                <div id="view_wrap" ng-view></div>
+
+                <!-- Tab -->
+                <ul class="nav nav-tabs " ng-if="readonly !== 'readonly'">
+                  <li class="active" ><a data-target="#fund_search_way" href="javascript:void(0);" ng-click="switchTab($event)">审批</a></li>
+                  <li><a data-target="#search_info" href="javascript:void(0);" ng-click="switchTab($event)">审批历史</a></li>
+                </ul>
+
+                <!-- Tab  不要审批-->
+                <ul class="nav nav-tabs " ng-if="readonly === 'readonly'">
+                  <li class="active"><a data-target="#search_info" href="javascript:void(0);" ng-click="switchTab($event)">审批历史</a></li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content">
+
+                    <!-- 审批 -->
+                    <!-- class="row-fluid tab-pane fade active in" -->
+                    <div id="fund_search_way" ng-class="{'row-fluid tab-pane fade in':true,'active':readonly !== 'readonly'}">
+                        <!-- <h1 class="content-title-1 content-title-condensed content-title-blue" ng-show="currentTask.workFlowNode.type == '3'"><img src="img/fast_money.png" alt="">流程审批</h1>
+                        <h1 class="content-title-1 content-title-condensed content-title-blue" ng-show="currentTask.workFlowNode.type == '2'"><img src="img/fast_money.png" alt="">流程办理</h1> -->
+                        <table class="div-width-100 table table-bordered table-striped table-hover recieve-table handleTask div-text-center">
+                            <tbody>
+                                <tr>
+                                    <td width="30%">审批内容</td>
+                                    <td width="60%" class="div-text-left"><textarea ng-model="auditResult.content"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>审批结果</td>
+                                    <td class="div-text-left">
+                                        <select  id="" ng-model="auditResult.result" ng-change="$emit('ngRepeatFinished');">
+                                            <option ng-repeat="item in resultDict" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="auditResult.result==item.value"></option>
+                                        </select>
+
+                                    </td>
+                                </tr>
+                                <tr ng-show="auditResult.result == 1">
+                                    <td>驳回步骤</td>
+                                    <td class="div-text-left">
+                                        <select ng-model="auditResult.rejectNode">
+                                          <option ng-repeat="item in rejectNodeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="auditResult.rejectNode == item.value"></option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <!-- <tr>
+                                    <td colspan="2">
+                                        <button class="btn btn-primary" ng-show="currentTask.workFlowNode.type == '2'" ng-click="saveData($event.target)" >保存</button>
+                                        <button class="btn btn-primary" ng-click="submit($event.target)" >提交</button>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 审批记录 -->
+                    <!-- class="row-fluid tab-pane fade in" -->
+                    <div id="search_info" ng-class="{'row-fluid tab-pane fade in':true,'active':readonly === 'readonly'}" >
+                        <!-- <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/flow_money.png" alt="">
+                          审批记录
+                        </h1> -->
+                        <table class="div-width-100 table table-striped table-hover search-result main-list ellipsis_table">
+                            <thead>
+                                <tr class="result-head">
+                                    <td width="15%">审批节点</td>
+                                    <td width="15%">审批步骤</td>
+                                    <td width="20%">审批机构</td>
+                                    <td width="10%">审批人</td>
+                                    <td width="20%">审批内容</td>
+                                    <td width="8%">审批结果</td>
+                                    <td width="12%">审批时间</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  ng-repeat="item in auditRecord" ng-class="{even:$even,red:currentTask.taskId==item.taskId}" ng-repeat-end>
+                                    <td ng-bind="item.nodeName"></td>
+                                    <td ng-bind="item.stepName?item.stepName:'---'"></td>
+                                    <td ng-bind="item.custName"></td>
+                                    <td ng-bind="item.operName"></td>
+                                    <td class="ellipsis">
+                                        <span ng-bind="item.auditContent" title='{{item.auditContent}}'></span>
+                                    </td>
+                                    <td ng-bind="item.auditResult|kindf:'WorkFlowAuditResultType'"></td>
+                                    <td ng-bind="item.auditDate + ' ' + item.auditTime"></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="9">
+                                    <div bt-pagination conf="auditListPage" func="queryAuditRecord(false);"></div> 
+                                </td>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                </div>
+
+
+                <div class="center-buttons">
+                    <button ng-show="readonly !== 'readonly'" class="btn btn-primary" ng-click="submit($event.target)" >提交</button>
+                    <button class="btn btn-primary" ng-click="goBack()" >返回</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+        seajs.use("scf2/flow");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+
+<!-- 编辑贸易合同 -->
+<div class="wid">
+    <ul>
+        <li>
+            <span class="ti">合同编号:</span>
+            <div class="ci">
+                <input type="text" placeholder="请输入合同编号" class="text" ng-model="info.agreeNo">
+            </div>
+        </li>
+        <li>
+            <span class="ti">合同名称:</span>
+            <div class="ci">
+                <input type="text" placeholder="请输入合同名称" class="text" ng-model="info.agreeName">
+            </div>
+        </li>
+        <li>
+            <span class="ti">买方名称:</span>
+            <div class="ci">
+                <input type="text" placeholder="请选择买方" class="text" ng-model="info.buyer" ng-click="changeCore();">
+            </div>
+        </li>
+        <li>
+            <span class="ti">卖方名称:</span>
+            <div class="ci">
+                <input type="text" placeholder="请输入卖方名称" class="text" ng-model="info.supplier">
+            </div>
+        </li>
+        <li>
+            <span class="ti">合同金额:</span>
+            <div class="ci">
+                <input type="text" placeholder="请输入合同金额" class="text" ng-model="info.balance">
+            </div>
+        </li>
+        <li>
+            <span class="ti">合同期限:</span>
+            <div class="ci">
+                <input type="text" placeholder="请选择开始时间" class="date" ng-model="info.agreeStartDate" ng-click="changeDate('begin');">至&nbsp;&nbsp;
+                <input type="text" placeholder="请选择结束时间" class="date" ng-model="info.agreeEndDate" ng-click="changeDate('end');">
+            </div>
+        </li>
+        <li>
+            <span class="ti">签订日期:</span>
+            <div class="ci">
+                <input type="text" placeholder="请选择签订日期" class="text" readonly ng-click="changeDate('sign');" ng-model="info.signDate">
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<div class="butn mt10">
+   <p><a class="btn" href="javascript:void(0)" ng-click="nextStep();">下一步</a></p>
+</div>

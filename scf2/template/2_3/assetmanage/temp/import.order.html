@@ -1,0 +1,58 @@
+<div id="container" class="container-fluid div-center">
+  <div class="row-fluid">
+    <div id="content" class="div-width-100">
+      <div id="fund_search_way" class="row-fluid">
+        <h1 class="content-title-1 content-title-condensed">
+          <img src="img/fast_money.png" alt="">订单录入</h1>
+        <table class="table table-condensed div-width-70 div-center search-table" >
+          <tr>
+            <td>核心企业名称:</td>
+            <td class="div-text-left double_box">
+              <select ng-model="exportInfo.coreCustNo">
+                <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="exportInfo.coreCustNo == item.value"></option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>选择供应商:</td>
+            <td class="div-text-left double_box">
+              <select ng-model="exportInfo.custNo">
+                <option ng-repeat="item in receiver" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="exportInfo.custNo == item.value"></option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <table class="table table-condensed div-width-70 div-center search-table">
+          <tr>
+            <td width="30%"> <strong class="red">*</strong>
+              上传批量订单文件:
+            </td>
+            <td class="div-text-left double_box">
+              <div>
+                  <a href="javascript:void(0);" class=""  ng-click="openUpload($event,'orderFile','订单','uploadList')" ng-show="uploadList.length==0">浏览</a>
+                  <ul ng-repeat="file in uploadList" ng-repeat-end ng-class="{even:$even}">
+                    <li>
+                      <a href="javascript:void(0);">
+                        <span style="color:#333" ng-bind="file.fileName"></span>
+                      </a>
+                      <a href="javascript:void(0);" ng-click="delUploadItem(file,'uploadList')" style="margin-left: 32px;">删除</a>
+                    </li>
+                  </ul>  
+              </div>
+            </td>
+          </tr>
+          <tr>
+          <td></td>
+            <td>
+              <a href="javascript:void(0);">下载批量导入模板</a>
+            </td>
+          </tr>
+        </table>
+
+        <div class="center-buttons">
+          <button class="btn btn-primary" ng-click="importtBox($event.target);">导入</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

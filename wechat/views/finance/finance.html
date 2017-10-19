@@ -1,0 +1,35 @@
+	<div class="mAito">
+    	<ul class="clearfix">
+        	<li>
+                <a href="javascript:void(0)" ng-click="changeStatus();">融资状态<i class="ico ico14"></i></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"></a>
+            </li>
+        </ul>
+    </div>
+	<div class="mpLt">
+    	<ul>
+        	<li ng-repeat="item in infoList" ng-click="showDetail(item)">
+            	<div class="ti" >
+                	<span>{{item.buyer}}</span>
+                    <em class="co co4">{{item.request.tradeStatus|kindf:'FinanceReqStatus'}}<i class="ico ico13 ml5"></i></em>
+                </div>
+                <div class="bi"></div>
+                <div class="ci">
+                    <!-- <p class="tit">商务票据：¥1,460,000.11</p> -->
+                	<p class="tit">融资业务({{item.request.requestNo}})</p>
+                    <p class="con">
+                        <span>票面<em class="red">￥{{item.bill.balance|moneyFilter}}</em></span>
+                        <span class="ml20">融资<em class="red">￥{{item.request.balance|moneyFilter}}</em></span>
+                    </p>
+                    <p class="pjc">票据号：{{item.bill.billNo}}</p>
+                    <p class="time">有效期：{{item.bill.invoiceDate}}至{{item.bill.endDate}}</p>
+                </div>
+            </li>
+        </ul>
+        <div ng-page="listPage" func="queryList(false)" class="more"></div>
+    </div>

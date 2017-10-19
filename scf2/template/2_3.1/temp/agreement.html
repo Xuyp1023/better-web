@@ -1,0 +1,32 @@
+<div class="div-center">
+    <h1 class="content-title-1 content-title-condensed content-title-blue">
+    协议清单
+  </h1>    
+    <table id="order_list_table" class="div-width-100 table table-striped table-hover search-result main-list">
+      <thead>
+        <tr class="table-caption-green">          
+          <td width="30%">协议名称</td>
+          <td width="20%">协议类型</td>
+          <td width="20%">签署方式</td>
+          <td width="15%">签约截止时间</td>
+          <td width="20%">操作</td>          
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in historyList" ng-repeat-end="" ng-class="{even:$even}" class="ng-scope">
+          <td class="ng-binding" ng-bind="$index+1"></td>
+          <td ng-bind="item.assetType|kindf:'FinancerTypeList'" class="ng-binding"></td>
+          <td ng-bind="item.dictType|kindf:'DictType'" class="ng-binding"></td>
+          <td ng-bind="item.dataSource|kindf:'AssetDictSettleType'" class="ng-binding"></td>
+          <td ng-bind="item.formData|kindf:'RequestData'" class="ng-binding"></td>
+          <td ng-bind="item.attach|kindf:'RequestData'" class="ng-binding"></td>         
+       </tr>           
+      </tbody>
+   </table>
+    <p style="font-size: 16; text-align: right;">共计<span style="color:red; font-size: 16px;">11</span>份协议</p>
+
+    <div class="center-buttons">
+       <button class="btn btn-primary" ng-click="addsignContract($event.target)">添加协议</button>
+       <button class="btn btn-primary" bt-close-modal >退出</button>
+     </div>   
+</div>

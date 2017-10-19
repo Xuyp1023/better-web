@@ -1,0 +1,16 @@
+<div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">付款结果删除
+                    </h1>
+                    <div ng-include="'template/prePay_1/purchaser/temp/basicInfo.html'"></div>
+                    <div ng-include="'template/prePay_1/purchaser/temp/orderList.html'"></div>
+                    <div class="center-buttons">                        
+                        <button class="btn btn-primary" ng-click="doDelete($event.target)">删除</button>
+                        <button class="btn btn-primary" bt-close-modal>返回</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="top-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue div-margin-bottom-none"><img src="img/operator.png" alt="">
+    标准合同登记
+  </h1>
+  <div>
+    <form class="form-inline">
+      <button class="btn btn-info" ng-click="addInfo();">新增标准合同</button>
+    </form>
+
+    <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+            <tr class="result-head">
+              <td width="20%">标准合同编号</td>
+              <td width="40%">标准合同名称</td>
+              <td width="20%">合同类型</td>
+              <td width="20%">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td class="red" ng-bind="item.id"></td>
+            <td ng-bind="item.name"></td>
+            <td ng-bind="item.typeIdName"></td>
+            <td>
+              <a href="javascript:void(0);" ng-click="editInfo(item);">编辑</a>
+              <a href="javascript:void(0);" ng-click="deleteInfo($event.target,item);">删除</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="4">
+                <div bt-pagination conf="listPage" func="queryList(false)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+  </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "message": "ok",
+  "data": {
+    "id": 30006,
+    "enquiryNo": "55",
+    "custNo": 102200322,
+    "factorNo": 102200331,
+    "coreCustNo": 102200333,
+    "balance": 202001,
+    "ratio": 1.4,
+    "period": 4,
+    "minCycle": 2,
+    "maxCycle": 6,
+    "businStatus": "1",
+    "operOrg": "Biet  Supplychain;Operational Department",
+    "regOperId": 1111,
+    "regOperName": "管理员",
+    "regDate": "2016-07-25",
+    "regTime": "163145",
+    "modiOperId": 1111,
+    "modiOperName": "管理员",
+    "modiDate": "2016-07-28",
+    "modiTime": "162656",
+    "version": "",
+    "custName": "广汇(0001)",
+    "factorName": "海底捞餐饮集团"
+  },
+  "page": "",
+  "code": 200
+}

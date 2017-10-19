@@ -1,0 +1,114 @@
+ <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">开票登记
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                   
+                     <tr>
+                        <td>出票日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEinvoiceDate">-<input type="text" id="end_date" bt-date="searchData.LTEinvoiceDate">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>到期日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="out_date" bt-date="searchData.GTEendDate">-<input type="text" id="end_date" bt-date="searchData.LTEendDate">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="25%">开票企业:</td>
+                        <td width="75%" class="div-text-left">
+                           <select ng-model="searchData.coreCustNo">
+           						<option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.coreCustNo == item.value"></option>
+       					   </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="25%">收款人:</td>
+                        <td width="75%" class="div-text-left">
+                           <select ng-model="searchData.supplierNo">
+            					        <option value="">所有</option>
+           						        <option ng-repeat="item in receiver" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.supplierNo == item.value"></option>
+       					            </select>
+                        </td>
+                      </tr>   
+                       <tr>
+                        <td width="25%"></td>
+                        <td width="75%" class="div-text-left">
+                           <input type="text" placeholder="输入票据号码进行搜索" ng-model="searchData.LIKEbillNo">
+                        </td>
+                      </tr>  
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+                        票据列表
+                        </h1>
+                   <table class="div-width-100 table table-striped table-hover search-result main-list">
+              			<thead>
+                <tr>
+                  <td class="modi-group" colspan="13">
+                    <button class="btn btn-info" ng-click="addInfoBox();">登记票据</button>
+                  </td>
+                </tr>
+                <tr class="result-head">
+                  <td width="12.5%">凭证编号</td>
+                  <td width="12.5%">票据号码</td>
+                  <td width="12.5%">票据金额(元)</td>
+                  <td width="12.5%">出票日期</td>
+                  <td width="12.5%">到期日期</td>
+                  <td width="12.5%">开票企业</td>
+                  <td width="12.5%">收款人</td>
+                  <td width="12.5%">操作</td>
+                </tr>
+              </thead>
+
+                <tbody>
+               	  <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in infoList">
+                     <td ng-bind="item.refNo"></td>
+                     <td>
+                       <a href="javascript:void(0);" ng-Click="detailsBox(item)" ng-bind="item.billNo"></a>
+                     </td>
+                     <td ng-bind="item.balance"></td>
+                     <td ng-bind="item.invoiceDate"></td>
+                     <td ng-bind="item.endDate"></td>
+                	   <td ng-bind="item.coreCustName"></td>
+                       <td ng-bind="item.supplierName"></td>
+                 	   <td> 
+                		    <a href="javascript:void(0);" ng-click="editInfoBox(item);">编辑</a>
+                		    <a href="javascript:void(0);" ng-click="delInfo($event.target,item);">作废</a>
+                	   </td>
+              	  </tr>
+             	 </tbody>
+            	  <tfoot>
+                	<td colspan="8">
+                 		 <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                	</td>
+            	  </tfoot>
+            </table>
+        
+                    </div>
+
+				
+				<!-- 登记票据 -->
+      				  <div id="add_box"  bt-roll-modal="template/2_3/assetmanage/temp/add.acctinbill.html" bt-z-index="9991"></div>
+        <!-- 票据编辑 -->
+                <div id="edit_box"  bt-roll-modal="template/2_3/assetmanage/temp/edit.acctinbill.html" bt-z-index="9991"></div>
+        <!-- 票据详情 -->                             
+                <div id="details_box"  bt-roll-modal="template/2_3/assetmanage/temp/detail.details.html" bt-z-index="9991"></div>
+        <!-- 票据作废 -->
+                <div id="delete_box"  bt-roll-modal="template/2_3/assetmanage/temp/delete.details.html" bt-z-index="9991"></div>
+            </div>
+        </div>
+    </div>
+
+
+

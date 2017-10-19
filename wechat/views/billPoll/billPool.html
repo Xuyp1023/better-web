@@ -1,0 +1,53 @@
+<div class="mAito">
+    <ul class="clearfix">
+        <li>
+            <a href="javascript:void(0)" ng-click="changeStatus();">融资状态<i class="ico ico14"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"></a>
+        </li>
+    </ul>
+</div>
+<div class="mpLt margin-bottom-50">
+    <ul>
+        <li ng-repeat="item in infoList" ng-click="showDetail(item);">
+            <div class="ti">
+                <i ng-class="{ico:true,ico7:item.isChecked,ico8:!item.isChecked}"></i>{{item.text}}
+                <span ng-bind="item.buyer"></span>
+                <em class="co co1">{{item.businStatus|kindf:'BillNoteStatus'}}</em>
+            </div>
+            <div class="bi"></div>
+            <div class="ci nbr">
+                <p class="tit">票据编号：¥{{item.balance|moneyFilter}}</p>
+                <p class="con">票据金额：{{item.billNo}}</p>
+                <p class="time">有效期从：{{item.invoiceDate}}至{{item.endDate}}</p>
+            </div>
+            <div class="btnLi br5">
+              <a href="javascript:void(0);" class="btnA" ng-click="showDetail(item);">详情</a>
+              <!-- <a href="javascript:void(0);" class="btnA" ng-click="showDetail(item);">编辑</a> -->
+            </div>
+        </li>
+    </ul>
+    <div ng-page="listPage" func="queryList(false)" class="more"></div>
+</div>
+
+
+<div class="mAito half position-fixed-bottom width-100 box-shadow-gray">
+    <ul class="clearfix">
+        <li>
+            <a href="javascript:void(0)" class="background-blue color-white">
+                <span>申请融资</span>
+                <i class="ico ico14"></i>
+            </a>
+        </li>
+        <li ng-click="goDidFlow()">
+            <a href="javascript:void(0)" class="background-blue color-white border-none">
+                <span>询价</span>
+                <i class="ico ico14"></i>
+            </a>
+        </li>
+    </ul>
+</div>

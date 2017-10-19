@@ -1,0 +1,316 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      融资详情
+    </h1>
+
+     <table class="table table-striped table-hover table-bordered">
+         <caption class="table-caption table-caption-green clearFix">
+             <span class="title-left">基本信息</span>
+         </caption>
+         <tbody>
+           <tr>
+             <td width="15%">申请编号:</td>
+             <td width="35%" ng-bind="financeInfo.requestNo"></td>
+             <td width="15%">融资金额:</td>
+             <td width="35%">
+                <span ng-show="!financeInfo.approvedBalance" ng-bind="financeInfo.balance|moneyFilter"></span>
+                <span ng-show="financeInfo.approvedBalance" ng-bind="financeInfo.approvedBalance|moneyFilter"></span>
+             </td>
+           </tr>
+           <tr>
+             <td width="15%">本金余额:</td>
+             <td width="35%" ng-bind="financeInfo.payPlan.surplusPrincipalBalance|moneyFilter"></td>
+             <td width="15%">融资利率:</td>
+             <td width="35%">
+               <span ng-show="!financeInfo.approvedRatio" ng-bind="financeInfo.ratio|percentf"></span>
+               <span ng-show="financeInfo.approvedRatio" ng-bind="financeInfo.approvedRatio|percentf"></span>
+             </td>
+           </tr>
+           <tr>
+             <td width="15%">利息总额:</td>
+             <td width="35%" ng-bind="financeInfo.payPlan.shouldInterestBalance|moneyFilter"></td>
+             <td width="15%">利息余额:</td>
+             <td width="35%" ng-bind="financeInfo.payPlan.surplusInterestBalance|moneyFilter"></td>
+           </tr>
+           <tr>
+             <td width="15%">其它费用利率:</td>
+             <td width="35%" ng-bind="financeInfo.managementRatio|percentf"></td>
+             <td width="15%">其它费用总额:</td>
+             <td width="35%" ng-bind="financeInfo.payPlan.shouldManagementBalance|moneyFilter"></td>
+           </tr>
+           <tr>
+             <td width="15%">其它费用余额:</td>
+             <td width="35%" ng-bind="financeInfo.payPlan.surplusManagementBalance|moneyFilter"></td>
+             <td width="15%">贷款期限:</td>
+             <td width="35%"><span ng-bind="financeInfo.period+(financeInfo.periodUnit+''|kindf:'RequestPeriodUnit')"></span></td>
+           </tr>
+           <tr>
+             <td width="15%">贷款总额:</td>
+             <td width="35%" ng-bind="financeInfo.payPlan.shouldTotalBalance|moneyFilter"></td>
+             <td width="15%">贷款余额:</td>
+             <td width="35%" ng-bind="financeInfo.payPlan.surplusTotalBalance|moneyFilter"></td>
+           </tr>
+           <tr>
+             <td width="15%">保证金:</td>
+             <td width="35%" ng-bind="financeInfo.bondBalance|moneyFilter"></td>
+             <td width="15%">核心企业:</td>
+             <td width="35%" ng-bind="financeInfo.coreCustName"></td>
+           </tr>
+           <tr>
+             <td width="15%">手续费:</td>
+             <td width="35%" ng-bind="financeInfo.servicefeeBalance|moneyFilter"></td>
+             <td width="15%">融资企业:</td>
+             <td width="35%" ng-bind="financeInfo.custName"></td>
+           </tr>
+           <tr>
+             <td width="15%">放款日:</td>
+             <td width="35%" ng-bind="financeInfo.actualDate"></td>
+             <td width="15%">到期日:</td>
+             <td width="35%" ng-bind="financeInfo.endDate"></td>
+           </tr>
+           <tr>
+             <td width="15%">贷款状态:</td>
+             <td width="35%" ng-bind="financeInfo.lastStatus|kindf:'RequestLastStatus'"></td>
+             <td width="15%">逾期天数:</td>
+             <td width="35%" ng-bind="financeInfo.payPlan.overdueDays"></td>
+           </tr>
+           <tr>
+             <td width="15%">逾期罚息:</td>
+             <td width="35%" ng-bind="financeInfo.payPlan.shouldPenaltyBalance|moneyFilter"></td>
+             <td width="15%">逾期滞纳金:</td>
+             <td width="35%" ng-bind="financeInfo.payPlan.shouldLatefeeBalance|moneyFilter"></td>
+           </tr>
+         </tbody>
+       </table>
+
+        
+       <!-- 订单列表 -->
+       <table id="order_list_table" class="div-width-100 table table-striped table-hover table-bordered" ng-show="linkedType=='order' && orderList.length!=0">
+         <caption class="table-caption table-caption-green clearFix">
+             <span class="title-left">订单列表</span>
+         </caption>
+         <thead>
+           <tr class="result-head-gray">
+             <td width="15%">订单编号</td>
+             <td width="15%">订单金额</td>
+             <td width="12.5%">结算方式</td>
+             <td width="15%">核心企业</td>
+             <td width="15%">产品名称</td>
+             <td width="15%">订单日期</td>
+             <!-- <td width="12.5%">是否使用</td> -->
+             <td width="12.5%">操作</td>
+           </tr>
+         </thead>
+         <tbody>
+           <tr ng-repeat="order in orderList" ng-repeat-end ng-class="{even:$even}">
+             <td ng-bind="order.orderNo"></td>
+             <td ng-bind="order.balance|moneyFilter"></td>
+             <td ng-bind="order.settlement|kindf:'OrderSettleType'"></td>
+             <td ng-bind="order.coreCustName"></td>
+             <td ng-bind="order.goodsName"></td>
+             <td ng-bind="order.orderDate"></td>
+             <td>
+               <a href="#" ng-click="showfactorProofDetail('order',order)" >查看详情</a>
+             </td>
+           </tr>
+         </tbody>
+       </table>
+
+       <!-- 应收账款列表 -->
+       <table id="recieve_list_table" class="div-width-100 table table-striped table-hover table-bordered" ng-show="linkedType=='recieve' && recieveList.length!=0">
+         <caption class="table-caption table-caption-green clearFix">
+             <span class="title-left">应收账款列表</span>
+         </caption>
+         <thead>
+           <tr class="result-head-gray">
+             <td width="15%">应收账款编号</td>
+             <td width="13%">债权人</td>
+             <td width="12%">债务人</td>
+             <td width="10%">商品名称</td>
+             <td width="10%">商品价格</td>
+             <td width="10%">采购数量</td>
+             <td width="10%">金额</td>
+             <td width="10%">付款到期日期</td>
+             <!-- <td width="10%">是否使用</td> -->
+             <td width="10%">操作</td>
+           </tr>
+         </thead>
+         <tbody>
+           <tr ng-repeat="item in recieveList" ng-repeat-end ng-class="{even:$even}">
+             <td ng-bind="item.receivableNo"></td>
+             <td ng-bind="item.debtor"></td>
+             <td ng-bind="item.creditor"></td>
+             <td ng-bind="item.goodsName"></td>
+             <td ng-bind="item.unit"></td>
+             <td ng-bind="item.amount"></td>
+             <td ng-bind="item.balance|moneyFilter"></td>
+             <td ng-bind="item.endDate"></td>
+             <td>
+               <a href="#" ng-click="showfactorProofDetail('recieve',item)" >查看详情</a>
+             </td>
+           </tr>
+         </tbody>
+       </table>
+
+       <!-- 汇票列表 -->
+       <table id="bill_list_table" class="div-width-100 table table-striped table-hover table-bordered" ng-show="linkedType=='bill' && billList.length!=0 ">
+         <caption class="table-caption table-caption-green clearFix">
+             <span class="title-left">汇票列表</span>
+         </caption>
+         <thead>
+           <tr class="result-head-gray">
+             <td width="16%">汇票编号</td>
+             <td width="12%">汇票类型</td>
+             <td width="12%">流通方式</td>
+             <td width="12%">票据金额</td>
+             <td width="12%">开票日期</td>
+             <!-- <td width="11%">兑付日期</td> -->
+             <td width="12%">融资标志</td>
+             <td width="12%">票据状态</td>
+             <!-- <td width="12%">是否使用</td> -->
+             <td width="12%">操作</td>
+           </tr>
+         </thead>
+         <tbody>
+           <tr ng-repeat="bill in billList" ng-repeat-end ng-class="{even:$even}">
+             <td ng-bind="bill.billNo"></td>
+             <td ng-bind="bill.billType|kindf:'BillNoteType'"></td>
+             <td ng-bind="bill.billMode|kindf:'BillFlowMode'"></td>
+             <td ng-bind="bill.balance|moneyFilter"></td>
+             <td ng-bind="bill.invoiceDate"></td>
+             <!-- <td ng-bind="bill.cashDate"></td> -->
+             <td ng-bind="bill.financeFlag|kindf:'FinancingMark'"></td>
+             <td ng-bind="bill.businStatus|kindf:'BillNoteStatus'"></td>
+             <td>
+               <a href="#" ng-click="showfactorProofDetail('draft',bill)" >查看详情</a>
+             </td>
+           </tr>
+         </tbody>
+       </table>
+
+
+      <!-- 融资协议 -->
+      <table class="table table-striped table-hover table-bordered div-width-100" ng-show="contractList.length!=0">
+        <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">融资协议</span>
+        </caption>
+        <thead class="result-head-gray">
+          <tr>
+            <td width="25%">序号</td>
+            <td width="25%">合同类型</td>
+            <td width="25%">合同名称</td>
+            <td width="25%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in contractList" ng-repeat-end ng-class="{even:$even}">
+             <td ng-bind="$index+1"></td>
+             <td ng-bind="item.agreeType|kindf:'SignType' "></td>
+             <td ng-bind="item.agreeName"></td>
+             <td>
+               <a href="" ng-click="showAgreeInfo(item);" >查看详情</a>
+               <a href="{{item.appNo|elecf}}">下载</a>
+             </td>
+           </tr>
+        </tbody>
+      </table>
+
+
+
+      <table class="table table-striped table-hover table-bordered div-width-100"  ng-show="paymentRecordList.length!=0">
+        <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">还款记录(贷后记录)</span>
+        </caption>
+        <thead class="result-head-gray">
+          <tr>
+            <td width="12.5%">序号</td>
+            <td width="12.5%">还款时间</td>
+            <td width="12.5%">本金</td>
+            <td width="12.5%">利息</td>
+            <td width="12.5%">其他费用</td>
+            <td width="12.5%">罚息</td>
+            <td width="12.5%">手续费</td>
+            <td width="12.5%">总额</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in paymentRecordList" ng-repeat-end ng-class="{even:$even}">
+             <td ng-bind="$index+1"></td>
+             <td ng-bind="item.payDate"></td>
+             <td ng-bind="item.principalBalance"></td>
+             <td ng-bind="item.interestBalance"></td>
+             <td ng-bind="item.managementBalance"></td>
+             <td ng-bind="item.penaltyBalance"></td>
+             <td ng-bind="item.servicefeeBalance"></td>
+             <td ng-bind="item.totalBalance"></td>
+           </tr>
+        </tbody>
+      </table>
+
+
+      <table class="table table-striped table-hover table-bordered div-width-100" ng-show="exemptList.length!=0">
+        <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">豁免记录列表</span>
+        </caption>
+        <thead class="result-head-gray">
+          <tr>
+            <td width="12.5%">总额</td>
+            <td width="12.5%">本金</td>
+            <td width="12.5%">利息</td>
+            <td width="12.5%">其他费用</td>
+            <td width="12.5%">罚息</td>
+            <td width="12.5%">滞纳金</td>
+            <td width="12.5%">时间</td>
+            <td width="12.5%">备注</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in exemptList" ng-repeat-end ng-class="{even:$even}">
+             <td ng-bind="item.totalBalance"></td>
+             <td ng-bind="item.principalBalance"></td>
+             <td ng-bind="item.interestBalance"></td>
+             <td ng-bind="item.managementBalance"></td>
+             <td ng-bind="item.penaltyBalance"></td>
+             <td ng-bind="item.latefeeBalance"></td>
+             <td ng-bind="item.exemptDate"></td>
+             <td ng-bind="item.description"></td>
+           </tr>
+        </tbody>
+      </table>
+
+
+
+      <table class="table table-striped table-hover table-bordered div-width-100" ng-show="pressMoneyList.length!=0">
+        <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">催收记录</span>
+        </caption>
+        <thead class="result-head-gray">
+          <tr>
+            <td width="14%">申请编号</td>
+            <td width="14%">企业名称</td>
+            <td width="14%">催收金额</td>
+            <td width="14%">催收员</td>
+            <td width="14%">催收日期</td>
+            <td width="14%">催收方式</td>
+            <td width="16%">备注</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in pressMoneyList" ng-repeat-end ng-class="{even:$even}">
+             <td ng-bind="item.requestNo"></td>
+             <td ng-bind="item.custName"></td>
+             <td ng-bind="item.balance|moneyFilter"></td>
+             <td ng-bind="item.agent"></td>
+             <td ng-bind="item.actualDate"></td>
+             <td ng-bind="item.pressType"></td>
+             <td ng-bind="item.description"></td>
+           </tr>
+        </tbody>
+      </table>
+
+      
+      
+    <div class="center-buttons">
+      <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+  </div>

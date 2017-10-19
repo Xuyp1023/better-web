@@ -1,0 +1,55 @@
+<div class="mAito graid2">
+  <ul class="clearfix">
+      <li>
+          <a href="javascript:void(0)" ng-click="changeStatus('begin');">
+            <strong>起始日期</strong><br>
+            <span>{{searchData.GTEauditDate}}</span>
+            <i class="ico ico14"></i>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" ng-click="changeStatus('end');" class="border-none">
+            <strong>截止日期</strong><br>
+            <span>{{searchData.LTEauditDate}}</span>
+            <i class="ico ico14"></i>
+          </a>
+        </li>
+    </ul>
+</div>
+<div class="mpLt margin-bottom-100">
+  <ul>
+      <li ng-repeat="item in infoList" ng-click="openHandle(item);">
+          <div class="ti">
+              <span>{{item.workFlowBase.nickname}}</span>
+                <em class="co co1">
+                  <a href="javascript:void(0);">办理</a>
+                  <i class="ico ico13 ml5"></i>
+                </em>
+            </div>
+            <div class="bi"></div>
+            <div class="ci">
+              <p class="tit">流程节点：{{item.workFlowNode.nickname}}</p>
+              <p class="con">业务单号：{{item.workFlowBusiness.businessId}}</p>
+              <p class="time">到达时间：{{item.taskCreateTime}}</p>
+            </div>
+        </li>
+    </ul>
+    <div ng-page="listPage" func="queryList(false)" class="more"></div>
+</div>
+
+<div class="mAito graid2 position-fixed-bottom width-100 box-shadow-gray">
+  <ul class="clearfix">
+      <li>
+          <a href="javascript:void(0)" class="background-blue color-white">
+            <span>待办任务</span>
+            <i class="ico ico14"></i>
+          </a>
+        </li>
+        <li ng-click="goDidFlow()">
+          <a href="javascript:void(0)" class="border-none" >
+            <span>已办任务</span>
+            <i class="ico ico14"></i>
+          </a>
+        </li>
+    </ul>
+</div>

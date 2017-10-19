@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>基本信息</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/supplier/info/basicInfo.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">基本信息</h1>
+             <ul id="nav_tabs"  class="nav nav-tabs plus-nav-tabs-init">
+               <li class="active"><a href="#company_info_tab" data-flag="basic" ng-click="switchTab($event)">基础信息</a></li>
+               <li><a href="#corporation_info_tab" data-flag="lawyer" ng-click="switchTab($event)">法人信息</a></li>
+               <li><a href="#shareholder_info_tab" data-flag="holder" ng-click="switchTab($event)">股东信息</a></li>
+               <li><a href="#executive_info_tab" data-flag="manager" ng-click="switchTab($event)">高管信息</a></li>
+               <li><a href="#business_licence_tab" data-flag="license" ng-click="switchTab($event)">营业执照</a></li>
+               <li><a href="#contact_info_tab" data-flag="contactor" ng-click="switchTab($event)">联系人信息</a></li>
+               <li><a href="#account_info_tab" data-flag="account" ng-click="switchTab($event)">银行账户信息</a></li>
+             </ul>
+          </div>
+
+         
+         <!-- tab 栏 begin -->
+         <div class="tab-content plus-nav-tabs-content">
+
+            <!-- 基础信息 -->
+            <div id="company_info_tab" class="tab-pane fade active in">
+              <div bt-id="company_info_tab_content" bt-include="temp/companyTab.html"></div>
+            </div>
+
+            <!-- 法人信息 -->
+            <div id="corporation_info_tab" class="tab-pane fade in">
+              <div bt-id="corporation_info_tab_content" bt-include="temp/corpTab.html"></div>
+            </div>
+
+            <!-- 股东信息 -->
+            <div id="shareholder_info_tab" class="tab-pane fade in">
+              <div bt-include="temp/holderTab.html"></div>
+            </div>
+
+            <!-- 高管信息 -->
+            <div id="executive_info_tab" class="tab-pane fade in">
+              <div bt-include="temp/executorTab.html"></div>
+            </div>
+
+            <!-- 营业执照 -->
+            <div id="business_licence_tab" class="tab-pane fade in">
+              <div bt-id="business_licence_tab_content" bt-include="temp/licenceTab.html"></div>
+            </div>
+
+            <!-- 联系人信息 -->
+            <div id="contact_info_tab" class="tab-pane fade in">
+              <div bt-include="temp/contactTab.html"></div>
+            </div>
+
+            <!-- 银行账户信息 -->
+            <div id="account_info_tab" class="tab-pane fade in">
+              <div bt-include="temp/accountTab.html"></div>
+            </div>
+
+          </div>
+          <!-- tab 栏 end -->
+          
+
+          <!-- 从保理融资开户页面跳转而来 -->
+          <!-- <div class="center-buttons" ng-show="onlyLook && origin=='scfAccount' ">
+              <a href="../account/scfAccount.html"><button class="btn btn-primary">返回开户</button></a>
+          </div>
+          从白名单受理页面跳转而来
+          <div class="center-buttons" ng-show="onlyLook && origin=='whiteListAccept' ">
+              <a href="../../sfccom/whitelist/whiteListAccept.html"><button class="btn btn-primary">返回受理页面</button></a>
+          </div>
+          从白名单审核页面跳转而来
+          <div class="center-buttons" ng-show="onlyLook && origin=='whiteListAudit' ">
+              <a href="../../sfccom/whitelist/whiteListAudit.html"><button class="btn btn-primary">返回审核页面</button></a>
+          </div> -->
+
+
+          <!-- 返回跳转来源页面 -->
+          <div class="center-buttons" ng-show="onlyLook && origin ">
+              <button class="btn btn-primary" ng-click="goBack();"><span ng-bind="originInfo.name"></span></button>
+          </div>
+
+
+
+          <!-- 附件上传 start -->
+          <div bt-upload conf="uploadConf" ></div>
+          
+          <!-- 股东新增 -->
+          <div id="holder_add_box" bt-roll-modal="temp/holderAdd.html" bt-z-index="9991"></div>
+          <!-- 股东编辑 -->
+          <div id="holder_edit_box" bt-roll-modal="temp/holderEdit.html" bt-z-index="9991"></div>
+          <!-- 高管新增 -->
+          <div id="executor_add_box" bt-roll-modal="temp/executorAdd.html" bt-z-index="9991"></div>
+          <!-- 高管编辑 -->
+          <div id="executor_edit_box" bt-roll-modal="temp/executorEdit.html" bt-z-index="9991"></div>
+          <!-- 联系人新增 -->
+          <div id="contact_add_box" bt-roll-modal="temp/contactAdd.html" bt-z-index="9991"></div>
+          <!-- 联系人编辑 -->
+          <div id="contact_edit_box" bt-roll-modal="temp/contactEdit.html" bt-z-index="9991"></div>
+          <!-- 银行账户新增 -->
+          <div id="account_add_box" bt-roll-modal="temp/accountAdd.html" bt-z-index="9991"></div>
+          <!-- 银行账户编辑 -->
+          <div id="account_edit_box" bt-roll-modal="temp/accountEdit.html" bt-z-index="9991"></div>
+          <!-- 基础信息查看变更详情 -->
+          <div id="company_change_detail" bt-roll-modal="temp/companyChangeDetail.html" bt-z-index="9991"></div>
+          <!-- 法人信息查看变更详情 -->
+          <div id="corp_change_detail" bt-roll-modal="temp/corpChangeDetail.html" bt-z-index="9991"></div>
+          <!-- 股东信息变更列表 -->
+          <div id="holder_change_list" bt-roll-modal="temp/holderChangeList.html" bt-z-index="9991"></div>
+          <!-- 股东信息查看变更详情  -->
+          <div id="holder_change_detail" bt-roll-modal="temp/holderChangeDetail.html" bt-z-index="9991"></div>
+          <!-- 高管信息变更列表 -->
+          <div id="executor_change_list" bt-roll-modal="temp/executorChangeList.html" bt-z-index="9991"></div>
+          <!-- 高管信息查看变更详情  -->
+          <div id="executor_change_detail" bt-roll-modal="temp/executorChangeDetail.html" bt-z-index="9991"></div>
+          <!-- 营业执照查看变更详情  -->
+          <div id="licence_change_detail" bt-roll-modal="temp/licenceChangeDetail.html" bt-z-index="9991"></div>
+          <!-- 联系人信息变更列表 -->
+          <div id="contact_change_list" bt-roll-modal="temp/contactChangeList.html" bt-z-index="9991"></div>
+          <!-- 联系人信息查看变更详情  -->
+          <div id="contact_change_detail" bt-roll-modal="temp/contactChangeDetail.html" bt-z-index="9991"></div>
+          <!-- 银行账户变更列表 -->
+          <div id="account_change_list" bt-roll-modal="temp/accountChangeList.html" bt-z-index="9991"></div>
+          <!-- 银行账户查看变更详情  -->
+          <div id="account_change_detail" bt-roll-modal="temp/accountChangeDetail.html" bt-z-index="9991"></div>
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/supplier/info/basicInfo");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/supplier/info/basicInfo");
+      } 
+  </script>
+  </body>
+</html>

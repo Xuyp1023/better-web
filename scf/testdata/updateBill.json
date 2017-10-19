@@ -1,0 +1,16 @@
+{
+    "message": "关联商业承兑汇票成功，请查看",
+    "data": {
+            "invoiceNo":"P1033",
+            "corpVocate":"What?",
+            "balance": "10000.00",
+            "subject":"基建",
+            "unit":"个",
+            "amount":"12",
+            "regDate":"20161021",
+            "itemId": "11271",
+            "status": "0"
+    },
+    "page": "",
+    "code": 200
+}

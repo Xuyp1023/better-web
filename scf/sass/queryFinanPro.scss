@@ -1,0 +1,132 @@
+@charset "UTF-8";
+/* 用户资料页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+@import "common/pie";
+@import "common/pages";
+
+body{
+	@include div-width(100%);
+	.detail-box{
+		@include content-title;
+		@include init;
+		@include center-buttons;
+		@include deep-blue-border;
+		@include td-input-width(95%);
+		@include td-line-checkbox;
+		table td{
+			text-align:center!important;
+			vertical-align:middle!important;
+		}
+		.content-title-1{
+			border-bottom:2px solid #248AC9;
+		}
+		.fix_operator_info{
+			margin-top:10px;
+			input,select{
+				margin-bottom:0;
+			}
+		}
+	}
+}
+
+#container{
+	@include init;
+	@include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+	@include Spage_plugin;
+}
+
+#content{
+	@include plus-nav-tabs;
+	@include center-buttons;
+	@include td-input-width(95%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+}
+
+
+#search_info{
+	.content-title-1{
+		margin-bottom:10px;
+		border-bottom:2px solid #248AC9;
+		position:relative;
+		.search-info{
+			display:inline-block;
+			*zoom:1;
+			*display:inline;
+			height:50px;
+			line-height:50px;
+			margin-left:30px;
+			.lab{
+				font-size:16px;
+				color:gray;
+			}
+			select{
+				margin-bottom:0;
+				*height:25px;
+				*margin-top:10px;
+			}
+		}
+	}
+}
+
+#comp_info_box{
+	.detail-box{
+		.content-title-1{
+			border-bottom:2px solid #248AC9;
+		}
+	}
+	.center-buttons{
+		.btn{
+			min-height:20px!important;
+		}
+	}
+
+	table{
+		margin-top:15px;
+		margin-bottom:25px;
+		thead td{
+			background-color: rgb(223, 240, 216);
+			font-weight:bold;
+			color:rgb(0, 136, 204);
+		}
+	}
+}
+
+#tradeDetail{
+	.modal-header{
+		color: #8e7b62;
+		border-bottom:2px solid #248AC9;
+		*height:30px;
+	}
+	.modal-body{
+		max-height:570px;
+	}
+	.modal-footer{
+		.btn-primary{
+			min-height:20px;
+			*min-height:25px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

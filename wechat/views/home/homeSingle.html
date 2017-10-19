@@ -1,0 +1,93 @@
+  <a href="#/home/informa">
+<div class="single-line back-white underline my-opend">
+		<p>
+			<i class="new-icon icon-personal"></i>
+		</p>
+		<i class="title black" ng-bind="operCustInfo.operator.name"></i>
+ 		<i class="detail new-icon icon-go"></i> 
+</div>
+ </a>
+<div class="single-line margin-top-10 back-white underline my-company">
+	<!-- <a href="javascript:void(0);"> -->
+		<p>
+			<i class="new-icon icon-company"></i>
+		</p>
+		<i class="title font-15 black" ng-bind="operCustInfo.custInfo.custName"></i>
+		<!-- <i class="detail new-icon icon-go"></i> -->
+	<!-- </a> -->
+</div>
+<div class="margin-top-10  back-white  div-ul-width100 ul-list-height">
+	<a href="#/relation/manage">
+	<ul class='single-line padding-vertical-3'>
+		<li>
+			<p>
+				<i class="new-icon icon-link"></i>
+			</p>
+			<i class="title black">客户关系</i>
+			<i class="detail new-icon icon-go"></i>
+		</li>
+	</ul>
+	</a>
+
+	<a href="#/news/center">
+	<ul class='single-line padding-vertical-3'>
+		<li>
+			<p>
+				<i class="new-icon icon-chat"></i>
+			</p>
+			<i class="title black">消息中心</i>
+			<i class="tip" ng-show="unreadNotificationCount !== '0'" ng-bind="unreadNotificationCount"></i>
+			<i class="detail new-icon icon-go"></i>
+		</li>
+	</ul>
+	</a>
+	<!-- <ul class='single-line'>
+		<li>
+			<a href="javascript:void(0);">
+		<p>
+			<i class="new-icon icon-tip"></i>
+		</p>
+		<i class="title black">帮助中心</i>
+		<i class="detail new-icon icon-go"></i>
+			</a>
+		</li>
+	</ul> -->
+	<a href="#/more/more">
+	<ul class='single-line padding-vertical-3'>
+		<li>
+			<p>
+				<i class="new-icon icon-more"></i>
+			</p>
+			<i class="title black">更多</i>
+			<i class="detail new-icon icon-go"></i>
+		</li>
+	</ul>
+	</a>
+</div>
+
+
+
+
+<!-- 底部 -->
+<footer class="home-footer">
+    <ul class="clearfix">
+    	<li ng-click="switch('finance')">
+    		<div>
+    			<i class="new-icon icon-finance"></i>
+    		</div>
+    		<span>融资</span>
+    	</li>
+    	<li ng-click="switch('invest')">
+    		<div>
+    			<i class="new-icon icon-invest"></i>
+    		</div>
+    		<span>投资</span>
+    	</li>
+    	<li >
+    		<div>
+    			<i class="new-icon icon-person-active"></i>
+    		</div>
+    		<span>个人</span>
+    	</li>
+    </ul>
+</footer>

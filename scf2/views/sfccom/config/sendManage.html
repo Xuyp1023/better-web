@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>发货通知单管理</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/sfccom/config/sendManage.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+    <div id="container" class="container-fluid div-center">
+      <div class="row-fluid">
+        <div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">发货通知单管理</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="25%">操作企业:</td>
+                <td width="75%" class="div-text-left">
+                  <select ng-model="searchData.custNo">
+                    <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%">通知单编号:</td>
+                <td width="75%" class="div-text-left">
+                <input type="text" name="" ng-model="searchData.noticeNo">
+                </td>
+              </tr>
+              <tr>
+               <td>上传时间:</td>
+               <td class="div-text-left date">
+                  <input type="text" id="search_start_date" bt-date="searchData.GTEregDate" bt-max-date="search_end_date"> - 
+                  <input type="text" id="search_end_date" bt-date="searchData.LTEregDate" bt-min-date="search_start_date">
+               </td>
+              </tr>
+              <tr>
+                <td width="25%">状态:</td>
+                <td width="75%" class="div-text-left">
+                  <select ng-model="searchData.businStatus">
+                    <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              发货通知列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result main-list">
+              <thead>
+                <tr>
+                  <td class="modi-group" colspan="13">
+                    <button class="btn btn-info" ng-click="addInfoBox();">上传发货单</button>
+                  </td>
+                </tr>
+                <tr class="result-head">
+                  <td width="38%">订单编号</td>
+                  <td width="31%">发货金额</td>
+                  <td width="31%">操作</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in infoList">
+                  <td ng-bind="item.noticeNo"></td>
+                  <td class="tab-text-right"><strong class="red" ng-bind="item.balance|moneyFilter"></strong></td>
+                  <td>
+                    <a href="javascript:void(0);" ng-click="editInfoBox(item);">编辑</a>
+                    <a href="javascript:void(0);" ng-click="delInfo($event.target,item);">删除</a>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <td colspan="4">
+                  <div bt-paginations conf="listPage" func="queryList(false);"></div>
+                </td>
+              </tfoot>
+            </table>
+            
+          </div>
+
+
+          <!-- 新增发货单 -->
+          <div id="add_box" bt-roll-modal="temp/addSend.html" bt-z-index="9991"></div>
+
+          <!-- 编辑发货单 -->
+          <div id="edit_box" bt-roll-modal="temp/editSend.html" bt-z-index="9991"></div>
+
+          <!-- 附件上传 start -->
+          <div bt-upload conf="uploadConf" ></div>
+       
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+  <!-- 引用js文件 -->
+  <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/sfccom/config/sendManage");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/sfccom/config/sendManage");
+      } 
+  </script>
+  </body>
+</html>

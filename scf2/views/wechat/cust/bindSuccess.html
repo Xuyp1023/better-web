@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>绑定成功</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/wechat/cust/bindSuccess.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+          
+          <div id="fund_search_way" class="row-fluid">
+
+            <h1 class="content-title-1 content-title-condensed"><img src="../../../img/info-title-icon.png" alt="">绑定微信</h1>
+
+              <div class="qrcode">
+                
+                <div class="wechatBindSuccess"><img src="../../../img/wechatBindSuccess.png" alt=""><span>微信绑定成功</span></div>
+
+              </div>
+
+            
+            
+          </div>
+          <!-- 温馨提示 -->
+            <div id="warm_prompt_box" class="div-width-100">
+              <h1 class="prompt-title">
+                <img class="prompt-icon" src="../../../img/warm_prompt.png" alt="">
+                温馨提示
+              </h1>
+              <div class="warm-prompt-content">
+                <p>1.微信绑定成功后您可以在企e金牌平台微信端进行各类业务办理。</p>
+                <p>2.请妥善保管您的交易密码。</p>
+                <p>3.平台不承担因个人疏忽泄露密码造成的任何损失。</p>
+              </div>
+            </div>
+             <!-- 温馨提示END --> 
+        </div>
+      </div>
+    </div>
+
+          
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/wechat/cust/bindSuccess");
+      }
+      // For production
+      else {
+        seajs.use("scf2/js/wechat/cust/bindSuccess");
+      } 
+  </script>
+  </body>
+</html>

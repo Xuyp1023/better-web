@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>机构投资者风险承受力调查问卷</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/report.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="testController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/info-title-icon.png" alt="">风险特征评估
+                <small class="small-select">
+                  <span>基金机构: </span>
+                  <select name="" id="fund_partment" data-bind="">
+                  </select>
+                  <span>交易账户: </span>
+                  <select name="" id="trade_account" data-bind="">
+                  </select>
+                </small>
+            </h1>
+            <p><strong>您当前的风险等级为：</strong><span data-bind="text:evaluateDataBind().gradeInfo"></span></p>
+            <p><strong>风险等级描述：</strong><span data-bind="text:evaluateDataBind().description"></span></p><br>
+
+            <p>尊敬的客户：</p>
+            <p class="tab2em">根据中国证监会颁布的《证券投资基金销售管理办法》、《证券投资基金销售适用性指导意见》等法规的要求，我司作为基金销售机构，应当基金投资人的风险承受能力进行调查和评价，并且定期或不定期地提示基金投资人进行风险承受能力调查的更新。为此，我司制作了《机构投资者风险承受力调查问卷》对您的风险承受能力进行评测，请您根据实际情况如实填写。（所有题目均为单选）</p>
+
+            <h3>柜台机构风险调查问卷</h3>
+
+            <form action="#">
+              <p required="true">1.贵单位是否建立了金融产品投资相关的管理制度<br/>
+                <input type="radio" id="1incomeA" name="reason" value="1" data-bind="checked:evaluateDataBind().reason"/>
+                <label for="1incomeA" >没有。因为要保证操作的灵活性</label><br/>
+                <input type="radio" id="1incomeB" name="reason" value="2" data-bind="checked:evaluateDataBind().reason"/>
+                <label for="1incomeB" >已建立。包括了分工和授权的要求，但未包括投资风险控制的规则</label><br/>
+                <input type="radio" id="1incomeC" name="reason" value="3" data-bind="checked:evaluateDataBind().reason"/>
+                <label for="1incomeC" >已建立。包括了分工与授权、风险控制等一系列与金融产品投资有关的规则</label><br/>
+              </p>
+              <p required="true">2.贵单位用于证券投资的大部分资金不会用作其它用途的时间段为<br/>
+                <input type="radio" id="2incomeA" name="invest_years" value="1" data-bind="checked:evaluateDataBind().invest_years"/>
+                <label for="2incomeA">短期——0到1年</label><br/>
+                <input type="radio" id="2incomeB" name="invest_years" value="2" data-bind="checked:evaluateDataBind().invest_years"/>
+                <label for="2incomeB">中期——1到5年</label><br/>
+                <input type="radio" id="2incomeC" name="invest_years" value="3" data-bind="checked:evaluateDataBind().invest_years"/>
+                <label for="2incomeC">长期——5年以上</label><br/>
+              </p>
+              <p required="true">3.贵单位的性质<br/>
+                <input type="radio" id="3incomeA" name="target" value="1" data-bind="checked:evaluateDataBind().target"/>
+                <label for="3incomeA">国有企事业单位</label><br/>
+                <input type="radio" id="3incomeB" name="target" value="2" data-bind="checked:evaluateDataBind().target"/>
+                <label for="3incomeB">非上市民营企业</label><br/>
+                <input type="radio" id="3incomeC" name="target" value="3" data-bind="checked:evaluateDataBind().target"/>
+                <label for="3incomeC">外资企业 </label><br/>
+                <input type="radio" id="3incomeD" name="target" value="4" data-bind="checked:evaluateDataBind().target"/>
+                <label for="3incomeD">上市公司 </label><br/>
+              </p>
+              <p required="true">4.贵单位的净资产规模为<br/>
+                <input type="radio" id="4incomeA" name="time" value="1" data-bind="checked:evaluateDataBind().time"/>
+                <label for="4incomeA">500万元以下</label><br/>
+                <input type="radio" id="4incomeB" name="time" value="2" data-bind="checked:evaluateDataBind().time"/>
+                <label for="4incomeB">500万元-2000万元</label><br/>
+                <input type="radio" id="4incomeC" name="time" value="3" data-bind="checked:evaluateDataBind().time"/>
+                <label for="4incomeC">2000万元-1亿元 </label><br/>
+                <input type="radio" id="4incomeD" name="time" value="4" data-bind="checked:evaluateDataBind().time"/>
+                <label for="4incomeD">超过1亿元 </label><br/>
+              </p>
+              <p required="true">5.贵单位年营业收入为<br/>
+                <input type="radio" id="5incomeA" name="fund_number" value="1" data-bind="checked:evaluateDataBind().fund_number"/>
+                <label for="5incomeA">500万元以下</label><br/>
+                <input type="radio" id="5incomeB" name="fund_number" value="2" data-bind="checked:evaluateDataBind().fund_number"/>
+                <label for="5incomeB">500万元以下</label><br/>
+                <input type="radio" id="5incomeC" name="fund_number" value="3" data-bind="checked:evaluateDataBind().fund_number"/>
+                <label for="5incomeC">2000万元-1亿元</label><br/>
+                <input type="radio" id="5incomeD" name="fund_number" value="4" data-bind="checked:evaluateDataBind().fund_number"/>
+                <label for="5incomeD">超过1亿元</label><br/>
+              </p>
+              <p required="true">6.贵单位证券账户资产为<br/>
+                <input type="radio" id="6incomeA" name="oneincome_loss" value="1" data-bind="checked:evaluateDataBind().oneincome_loss"/>
+                <label for="6incomeA">300万元以内</label><br/>
+                <input type="radio" id="6incomeB" name="oneincome_loss" value="2" data-bind="checked:evaluateDataBind().oneincome_loss"/>
+                <label for="6incomeB">300万元-1000万元</label><br/>
+                <input type="radio" id="6incomeC" name="oneincome_loss" value="3" data-bind="checked:evaluateDataBind().oneincome_loss"/>
+                <label for="6incomeC">1000万元-3000万元</label><br/>
+                <input type="radio" id="6incomeD" name="oneincome_loss" value="4" data-bind="checked:evaluateDataBind().oneincome_loss"/>
+                <label for="6incomeD">超过3000万元</label><br/>
+              </p>
+              <p required="true">7.对于金融产品投资工作，贵单位打算配置怎样的人员力量<br/>
+                <input type="radio" id="7incomeA" name="thrincome_loss" value="1" data-bind="checked:evaluateDataBind().thrincome_loss"/>
+                <label for="7incomeA">一名兼职人员（包括负责人自行决策）</label><br/>
+                <input type="radio" id="7incomeB" name="thrincome_loss" value="2" data-bind="checked:evaluateDataBind().thrincome_loss"/>
+                <label for="7incomeB">一名专职人员</label><br/>
+                <input type="radio" id="7incomeC" name="thrincome_loss" value="3" data-bind="checked:evaluateDataBind().thrincome_loss"/>
+                <label for="7incomeC">多名兼职或专职人员，相互之间分工不明确</label><br/>
+                <input type="radio" id="7incomeD" name="thrincome_loss" value="4" data-bind="checked:evaluateDataBind().thrincome_loss"/>
+                <label for="7incomeD">多名兼职或专职人员，相互之间有明确分工</label><br/>
+              </p>
+              <p required="true">8.贵单位所配置的负责金融产品投资工作的人员是否符合以下情况<br/>
+                <input type="radio" id="8incomeA" name="eight" value="1" data-bind="checked:evaluateDataBind().eight"/>
+                <label for="8incomeA">现在或此前曾从事金融、经济或财会等与金融产品投资相关的工作超过两年</label><br/>
+                <input type="radio" id="8incomeB" name="eight" value="2" data-bind="checked:evaluateDataBind().eight"/>
+                <label for="8incomeB">已取得金融、经济或财会等与金融产品投资相关专业学士以上学位</label><br/>
+                <input type="radio" id="8incomeC" name="eight" value="3" data-bind="checked:evaluateDataBind().eight"/>
+                <label for="8incomeC">取得证券从业资格、期货从业资格、注册会计师证书（CPA）或注册金融分析师证书（CFA）中的一项及以上</label><br/>
+                <input type="radio" id="8incomeD" name="eight" value="4" data-bind="checked:evaluateDataBind().eight"/>
+                <label for="8incomeD">本单位所配置的人员不符合以上任何一项描述</label><br/>
+              </p>
+              <p required="true">9.贵单位的投资经验可以被概括为<br/>
+                <input type="radio" id="9incomeA" name="nine" value="1" data-bind="checked:evaluateDataBind().nine"/>
+                <label for="9incomeA">有限：除银行存款外，基本没有其他投资经验</label><br/>
+                <input type="radio" id="9incomeB" name="nine" value="2" data-bind="checked:evaluateDataBind().nine"/>
+                <label for="9incomeB">一般：除银行存款外，购买过基金、保险等理财产品，但还需要进一步的指导</label><br/>
+                <input type="radio" id="9incomeC" name="nine" value="3" data-bind="checked:evaluateDataBind().nine"/>
+                <label for="9incomeC">丰富：具有相当投资经验，参与过股票、基金等产品的交易，并倾向于自己做出投资决策</label><br/>
+                <input type="radio" id="9incomeD" name="nine" value="4" data-bind="checked:evaluateDataBind().nine"/>
+                <label for="9incomeD">非常丰富：对于投资非常有经验，参与过权证、期货或创业板等高风险产品的交易</label><br/>
+              </p>
+              <p required="true">10.贵单位认为自己能承受的最大投资损失是多少<br/>
+                <input type="radio" id="10incomeA" name="ten" value="1" data-bind="checked:evaluateDataBind().ten"/>
+                <label for="10incomeA">10%以内</label><br/>
+                <input type="radio" id="10incomeB" name="ten" value="2" data-bind="checked:evaluateDataBind().ten"/>
+                <label for="10incomeB">10%-30%</label><br/>
+                <input type="radio" id="10incomeC" name="ten" value="3" data-bind="checked:evaluateDataBind().ten"/>
+                <label for="10incomeC">30%-50%</label><br/>
+                <input type="radio" id="10incomed" name="ten" value="4" data-bind="checked:evaluateDataBind().ten"/>
+                <label for="10incomed">超过50%</label><br/>
+              </p>
+              <p required="true">11.有一位投资者一个月内做了15笔交易（同一品种买卖各一次算一笔），贵单位认为这样的交易频率<br/>
+                <input type="radio" id="11incomeA" name="eleven" value="1" data-bind="checked:evaluateDataBind().eleven"/>
+                <label for="11incomeA">太高了</label><br/>
+                <input type="radio" id="11incomeB" name="eleven" value="2" data-bind="checked:evaluateDataBind().eleven"/>
+                <label for="11incomeB">偏高</label><br/>
+                <input type="radio" id="11incomeC" name="eleven" value="3" data-bind="checked:evaluateDataBind().eleven"/>
+                <label for="11incomeC">正常</label><br/>
+                <input type="radio" id="11incomed" name="eleven" value="4" data-bind="checked:evaluateDataBind().eleven"/>
+                <label for="11incomed">偏低</label><br/>
+              </p>
+              <p required="true">12.过去一年时间内，您购买的不同金融产品（含同一类型的不同金融产品）的数量是<br/>
+                <input type="radio" id="12incomeA" name="twelve" value="1" data-bind="checked:evaluateDataBind().twelve"/>
+                <label for="12incomeA">5个以下</label><br/>
+                <input type="radio" id="12incomeB" name="twelve" value="2" data-bind="checked:evaluateDataBind().twelve"/>
+                <label for="12incomeB">6至10个</label><br/>
+                <input type="radio" id="12incomeC" name="twelve" value="3" data-bind="checked:evaluateDataBind().twelve"/>
+                <label for="12incomeC">11至15个</label><br/>
+                <input type="radio" id="12incomed" name="twelve" value="4" data-bind="checked:evaluateDataBind().twelve"/>
+                <label for="12incomed">16个以上</label><br/>
+              </p>
+              <p required="true">13.贵单位进行投资时的首要目标是<br/>
+                <input type="radio" id="13incomeA" name="thirteen" value="1" data-bind="checked:evaluateDataBind().thirteen"/>
+                <label for="13incomeA">资产保值，我不愿意承担任何投资风险</label><br/>
+                <input type="radio" id="13incomeB" name="thirteen" value="2" data-bind="checked:evaluateDataBind().thirteen"/>
+                <label for="13incomeB">尽可能保证本金安全，不在乎收益率比较低</label><br/>
+                <input type="radio" id="13incomeC" name="thirteen" value="3" data-bind="checked:evaluateDataBind().thirteen"/>
+                <label for="13incomeC">产生较多的收益，可以承担一定的投资风险</label><br/>
+                <input type="radio" id="13incomed" name="thirteen" value="4" data-bind="checked:evaluateDataBind().thirteen"/>
+                <label for="13incomed">实现资产大幅增长，愿意承担很大的投资风险</label><br/>
+              </p>
+              <p required="true">14.贵单位参与金融产品投资的主要目的是什么<br/>
+                <input type="radio" id="14incomeA" name="fourteen" value="1" data-bind="checked:evaluateDataBind().fourteen"/>
+                <label for="14incomeA">闲置资金保值增值</label><br/>
+                <input type="radio" id="14incomeB" name="fourteen" value="2" data-bind="checked:evaluateDataBind().fourteen"/>
+                <label for="14incomeB">闲置资金保值增值</label><br/>
+                <input type="radio" id="14incomeC" name="fourteen" value="3" data-bind="checked:evaluateDataBind().fourteen"/>
+                <label for="14incomeC">现货套期保值、对冲主营业务风险</label><br/>
+                <input type="radio" id="14incomed" name="fourteen" value="4" data-bind="checked:evaluateDataBind().fourteen"/>
+                <label for="14incomed">减持已持有的股票</label><br/>
+              </p>
+              <p required="true">15.以下金融产品，贵单位投资经验在两年以上的有<br/>
+                <input type="radio" id="15incomeA" name="fifteen" value="1" data-bind="checked:evaluateDataBind().fifteen"/>
+                <label for="15incomeA">银行存款</label><br/>
+                <input type="radio" id="15incomeB" name="fifteen" value="2" data-bind="checked:evaluateDataBind().fifteen"/>
+                <label for="15incomeB">债券、货币市场基金、债券型基金或其它固定收益类产品</label><br/>
+                <input type="radio" id="15incomeC" name="fifteen" value="3" data-bind="checked:evaluateDataBind().fifteen"/>
+                <label for="15incomeC">股票、混合型基金、偏股型基金、股票型基金等权益类投资品种</label><br/>
+                <input type="radio" id="15incomed" name="fifteen" value="4" data-bind="checked:evaluateDataBind().fifteen"/>
+                <label for="15incomed">期货、融资融券</label><br/>
+                <input type="radio" id="15incomee" name="fifteen" value="5" data-bind="checked:evaluateDataBind().fifteen"/>
+                <label for="15incomee">复杂金融产品或其他产品</label><br/>
+              </p>
+              <p required="true">16.贵单位是否有尚未清偿的数额较大的债务？如有，主要是<br/>
+                <input type="radio" id="16incomeA" name="sixteen" value="1" data-bind="checked:evaluateDataBind().sixteen"/>
+                <label for="16incomeA">银行贷款</label><br/>
+                <input type="radio" id="16incomeB" name="sixteen" value="2" data-bind="checked:evaluateDataBind().sixteen"/>
+                <label for="16incomeB">公司债券或企业债券</label><br/>
+                <input type="radio" id="16incomeC" name="sixteen" value="3" data-bind="checked:evaluateDataBind().sixteen"/>
+                <label for="16incomeC">通过担保公司等中介机构募集的借款</label><br/>
+                <input type="radio" id="16incomed" name="sixteen" value="4" data-bind="checked:evaluateDataBind().sixteen"/>
+                <label for="16incomed">民间借贷</label><br/>
+                <input type="radio" id="16incomee" name="sixteen" value="5" data-bind="checked:evaluateDataBind().sixteen"/>
+                <label for="16incomee">没有数额较大的债务</label><br/>
+              </p>
+              <p required="true">17.如果贵单位曾经从事过金融产品投资，在交易较为活跃的月份，平均月交易额大概是多少<br/>
+                <input type="radio" id="17incomeA" name="seventeen" value="1" data-bind="checked:evaluateDataBind().seventeen"/>
+                <label for="17incomeA">100万元以内</label><br/>
+                <input type="radio" id="17incomeB" name="seventeen" value="2" data-bind="checked:evaluateDataBind().seventeen"/>
+                <label for="17incomeB">100万元-300万元</label><br/>
+                <input type="radio" id="17incomeC" name="seventeen" value="3" data-bind="checked:evaluateDataBind().seventeen"/>
+                <label for="17incomeC">300万元-1000万元</label><br/>
+                <input type="radio" id="17incomed" name="seventeen" value="4" data-bind="checked:evaluateDataBind().seventeen"/>
+                <label for="17incomed">1000万元以上</label><br/>
+                <input type="radio" id="17incomee" name="seventeen" value="5" data-bind="checked:evaluateDataBind().seventeen"/>
+                <label for="17incomee">从未投资过金融产品</label><br/>
+              </p>
+              <p required="true">18.贵单位打算重点投资于哪个种类的投资品种<br/>
+                <input type="radio" id="18incomeA" name="eighteen" value="1" data-bind="checked:evaluateDataBind().eighteen"/>
+                <label for="18incomeA">以债券、货币市场基金、债券基金等固定收益类投资品种为主，权益类投资品种为辅</label><br/>
+                <input type="radio" id="18incomeB" name="eighteen" value="2" data-bind="checked:evaluateDataBind().eighteen"/>
+                <label for="18incomeB">以股票、混合型基金、偏股型基金、股票型基金等权益类投资品种为主，固定收益类投资品种为辅</label><br/>
+                <input type="radio" id="18incomeC" name="eighteen" value="3" data-bind="checked:evaluateDataBind().eighteen"/>
+                <label for="18incomeC">期货、融资融券等复杂金融产品，但不排除投资权益类及固定收益类产品</label><br/>
+                <input type="radio" id="18incomed" name="eighteen" value="4" data-bind="checked:evaluateDataBind().eighteen"/>
+                <label for="18incomed">只投资债券、货币市场基金、债券基金等固定收益类投资品种</label><br/>
+                <input type="radio" id="18incomee" name="eighteen" value="5" data-bind="checked:evaluateDataBind().eighteen"/>
+                <label for="18incomee">以上所有产品或者服务</label><br/>
+              </p>
+              <p required="true">19.假设有两种不同的投资：投资A预期获得5%的收益，有可能承担非常小的损失；投资B预期获得20%的收益，但有可能面临25%甚至更高的亏损。您将您的投资资产分配为<br/>
+                <input type="radio" id="19incomeA" name="nineteen" value="1" data-bind="checked:evaluateDataBind().nineteen"/>
+                <label for="19incomeA">全部投资于A</label><br/>
+                <input type="radio" id="19incomeB" name="nineteen" value="2" data-bind="checked:evaluateDataBind().nineteen"/>
+                <label for="19incomeB">大部分投资于A</label><br/>
+                <input type="radio" id="19incomeC" name="nineteen" value="3" data-bind="checked:evaluateDataBind().nineteen"/>
+                <label for="19incomeC">两种投资各一半</label><br/>
+                <input type="radio" id="19incomed" name="nineteen" value="4" data-bind="checked:evaluateDataBind().nineteen"/>
+                <label for="19incomed">大部分投资于B</label><br/>
+                <input type="radio" id="19incomee" name="nineteen" value="5" data-bind="checked:evaluateDataBind().nineteen"/>
+                <label for="19incomee">全部投资于B</label><br/>
+              </p>
+              <p required="true">20.贵公司在填写本问卷前的一年内，在一行三会网站、国家企业信用信息公示系统、地方工商信息网、证券期货市场失信记录查询平台、“信用中国”平台、中华人民共和国最高人民法院“全国法院被执行人信息查询”平台及“全国法院失信被执行人名单信息公布与查询”平台等诚信状况记录平台上有多少失信记录<br/>
+                <input type="radio" id="20incomeA" name="twenty" value="1" data-bind="checked:evaluateDataBind().twenty"/>
+                <label for="20incomeA">无</label><br/>
+                <input type="radio" id="20incomeB" name="twenty" value="2" data-bind="checked:evaluateDataBind().twenty"/>
+                <label for="20incomeB">1条</label><br/>
+                <input type="radio" id="20incomeC" name="twenty" value="3" data-bind="checked:evaluateDataBind().twenty"/>
+                <label for="20incomeC">2条</label><br/>
+                <input type="radio" id="20incomed" name="twenty" value="4" data-bind="checked:evaluateDataBind().twenty"/>
+                <label for="20incomed">3条</label><br/>
+                <input type="radio" id="20incomee" name="twenty" value="5" data-bind="checked:evaluateDataBind().twenty"/>
+                <label for="20incomee">超过3条</label><br/>
+              </p>
+            </form>
+
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle"  data-bind="click:submitReport">提交</button>
+            </div>
+  
+            <div id="tips">
+              <h4 id="prompt-title">
+              <img class="prompt-icon" src="../../img/warm_prompt.png" alt="">温馨提示
+              </h4>
+              <p>1.本机构已知悉本问卷的设计方法和评价说明，以及南方基金旗下各基金的风险等级；</p>
+              <p>2.本机构愿意接受此问卷的调查方法，并已如实回答；</p>
+              <p>3.本机构承诺在风险承受能力发生变化时，及时重新填写并提交此问卷；</p>
+              <p>4.如本机构所选择的基金产品风险等级超过我司的风险承受等级时，本机构确认此投资行为为本机构意愿行为，自行承担此投资的风险。</p>
+            </div>
+
+
+
+            <!-- 风险特征报告弹出框 -->
+            <div id="risk_level_box" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">风险评估报告</h3>
+              </div>
+              <div class="modal-body">
+                  <strong>您当前的风险等级为:</strong>
+                  <pre data-bind="text:evaluateDataBind().gradeInfo"></pre>
+                  <strong>风险等级描述:</strong>
+                  <pre data-bind="text:evaluateDataBind().description"></pre>
+              </div>
+              <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+              </div>
+            </div>
+            <!-- 风险特征报告弹出框END -->
+
+
+
+          </div>
+
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+  <script type="text/javascript">
+    window.reportVo = {
+      agencyNo:'203'
+    };
+  </script>
+	<script type="text/javascript">seajs.use('p/js/report')</script>
+  </body>
+</html>

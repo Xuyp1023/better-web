@@ -1,0 +1,14 @@
+{
+  "name": "libs_library",
+  "content": {
+    "./l/mui/js/mui.js": 1,
+    "./l/mui/js/mui.picker.js": 2,
+    "./l/mui/js/mui.dtpicker.js": 3,
+    "./l/mui/js/mui.poppicker.js": 4,
+    "./l/jquery/jquery-1.8.3.js": 5,
+    "./node_modules/webpack/buildin/amd-options.js": 6,
+    "./l/angular/1.2.5/angular.js": 7,
+    "./l/angular/1.2.5/angular-route.js": 8,
+    "./l/angular/1.2.5/angular-touch.js": 9
+  }
+}

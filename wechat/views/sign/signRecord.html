@@ -1,0 +1,24 @@
+<div class="pTab pTab2">
+ 	<ul>
+         <li  ng-repeat="item in infoList">
+             <p class="f14 mb5">{{item.custName}}</p>
+             <div class="pbb">
+                 <table>
+                     <tbody>
+                     <tr class="ta">
+                             <td>业务员</td>
+                             <td>IP地址</td>
+                             <td>签约时间</td>
+                             <td>状态</td>
+                     </tr>
+                    <tr>
+                         <td>{{item.operName}}</td>
+                         <td>{{item.ipaddr}}</td>
+                         <td>{{item.operTime}}</td>    
+                         <td>{{item.operStatus|kindf:'ElecSignContractStatus'}}</td>
+                     </tr>
+                 </tbody></table>
+             </div>
+         </li>
+     </ul>
+ </div>

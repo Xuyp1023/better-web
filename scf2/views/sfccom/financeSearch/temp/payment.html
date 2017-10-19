@@ -1,0 +1,342 @@
+<div class="div-width-90 div-center detail-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+    还款
+  </h1>
+  
+  <table class="table table-striped table-hover table-bordered">
+    <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">基本信息</span>
+    </caption>
+    <tbody>
+       <tr>
+         <td width="15%">申请编号:</td>
+         <td width="35%" ng-bind="info.requestNo"></td>
+         <td width="15%">放款金额:</td>
+         <td class="tab-text-right" width="35%" ng-bind="info.loanBalance|moneyFilter"></td>
+       </tr>
+       <tr>
+         <td width="15%">本金余额:</td>
+         <td class="tab-text-right" width="35%" ng-bind="info.payPlan.surplusPrincipalBalance|moneyFilter"></td>
+         <td width="15%">融资利率:</td>
+         <td width="35%" ng-bind="info.approvedRatio|percentf"></td>
+       </tr>
+       <tr>
+         <td width="15%">利息总额:</td>
+         <td class="tab-text-right" width="35%" ng-bind="info.payPlan.shouldInterestBalance|moneyFilter"></td>
+         <td width="15%">利息余额:</td>
+         <td class="tab-text-right" width="35%" ng-bind="info.payPlan.surplusInterestBalance|moneyFilter"></td>
+       </tr>
+       <tr>
+         <td width="15%">其它费用利率:</td>
+         <td width="35%" ng-bind="info.managementRatio|percentf"></td>
+         <td width="15%">其它费用总额:</td>
+         <td class="tab-text-right" width="35%" ng-bind="info.payPlan.shouldManagementBalance|moneyFilter"></td>
+       </tr>
+       <tr>
+         <td width="15%">其它费用余额:</td>
+         <td class="tab-text-right" width="35%" ng-bind="info.payPlan.surplusManagementBalance|moneyFilter"></td>
+         <td width="15%">贷款期限:</td>
+         <td width="35%"><span ng-bind="info.approvedPeriod+(info.approvedPeriodUnit+''|kindf:'RequestPeriodUnit')"></span></td>
+       </tr>
+       <tr>
+         <td width="15%">贷款总额:</td>
+         <td class="tab-text-right" width="35%" ng-bind="info.payPlan.shouldTotalBalance|moneyFilter"></td>
+         <td width="15%">贷款余额:</td>
+         <td class="tab-text-right" width="35%" ng-bind="info.payPlan.surplusTotalBalance|moneyFilter"></td>
+       </tr>
+       <tr>
+         <td width="15%">保证金:</td>
+         <td class="tab-text-right" width="35%" ng-bind="info.bondBalance|moneyFilter"></td>
+         <td width="15%">核心企业:</td>
+         <td width="35%" ng-bind="info.coreCustName"></td>
+       </tr>
+       <tr>
+         <td width="15%">手续费:</td>
+         <td class="tab-text-right" width="35%" ng-bind="info.servicefeeBalance|moneyFilter"></td>
+         <td width="15%">融资企业:</td>
+         <td width="35%" ng-bind="info.custName"></td>
+       </tr>
+       <tr>
+         <td width="15%">放款日:</td>
+         <td width="35%" ng-bind="info.actualDate"></td>
+         <td width="15%">到期日:</td>
+         <td width="35%" ng-bind="info.endDate"></td>
+       </tr>
+       <tr>
+         <td width="15%">贷款状态:</td>
+         <td width="35%" ng-bind="info.lastStatus|kindf:'RequestLastStatus'"></td>
+         <td width="15%">逾期天数:</td>
+         <td width="35%" ng-bind="info.payPlan.overdueDays"></td>
+       </tr>
+       <tr>
+         <td width="15%">逾期罚息:</td>
+         <td class="tab-text-right" width="35%" ng-bind="info.payPlan.shouldPenaltyBalance|moneyFilter"></td>
+         <td width="15%">逾期滞纳金:</td>
+         <td class="tab-text-right" width="35%" ng-bind="info.payPlan.shouldLatefeeBalance|moneyFilter"></td>
+       </tr>
+     </tbody>
+  </table>
+  
+
+  <table class="table table-striped table-hover table-bordered">
+    <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">还款信息</span>
+    </caption>
+    <thead>
+      <td width="20%"></td>
+      <td width="20%">应还</td>
+      <td width="20%">已还</td>
+      <td width="20%">豁免</td>
+      <td width="20%">未还</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>本金：</td>
+        <td ng-bind="info.payPlan.shouldPrincipalBalance"></td>
+        <td ng-bind="info.payPlan.alreadyPrincipalBalance"></td>
+        <td ng-bind="info.payPlan.exemptPrincipalBalance"></td>
+        <td ng-bind="info.payPlan.surplusPrincipalBalance"></td>
+      </tr>
+      <tr>
+        <td>利息：</td>
+        <td ng-bind="info.payPlan.shouldInterestBalance"></td>
+        <td ng-bind="info.payPlan.alreadyInterestBalance"></td>
+        <td ng-bind="info.payPlan.exemptInterestBalance"></td>
+        <td ng-bind="info.payPlan.surplusInterestBalance"></td>
+      </tr>
+      <tr>
+        <td>其他费用：</td>
+        <td ng-bind="info.payPlan.shouldManagementBalance"></td>
+        <td ng-bind="info.payPlan.alreadyManagementBalance"></td>
+        <td ng-bind="info.payPlan.exemptManagementBalance"></td>
+        <td ng-bind="info.payPlan.surplusManagementBalance"></td>
+      </tr>
+      <tr>
+        <td>罚息：</td>
+        <td ng-bind="info.payPlan.shouldPenaltyBalance"></td>
+        <td ng-bind="info.payPlan.alreadyPenaltyBalance"></td>
+        <td ng-bind="info.payPlan.exemptPenaltyBalance"></td>
+        <td ng-bind="info.payPlan.surplusPenaltyBalance"></td>
+      </tr>
+      <tr>
+        <td>滞纳金：</td>
+        <td ng-bind="info.payPlan.shouldLatefeeBalance"></td>
+        <td ng-bind="info.payPlan.alreadyLatefeeBalance"></td>
+        <td ng-bind="info.payPlan.exemptLatefeeBalance"></td>
+        <td ng-bind="info.payPlan.surplusLatefeeBalance"></td>
+      </tr>
+      <tr>
+        <td>合计：</td>
+        <td ng-bind="info.payPlan.shouldTotalBalance"></td>
+        <td ng-bind="info.payPlan.alreadyTotalBalance"></td>
+        <td ng-bind="info.payPlan.exemptTotalBalance"></td>
+        <td ng-bind="info.payPlan.surplusTotalBalance"></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- 发货通知单 经销商还款才有 -->
+  <table class="table table-striped table-hover table-bordered" ng-show="paymentInfo.payType==6">
+    <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">发货通知</span>
+    </caption>
+    <tbody>
+      <tr>
+        <td width="15%">发货通知单:</td>
+        <td width="35%">
+          <div bt-multiple bt-select-all="false" bt-option-map="value-name" list="sendNoticeList" model="deliverys"></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+  <table class="table table-striped table-hover table-bordered">
+    <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">本次还款信息</span>
+    </caption>
+    <tbody>
+      <tr>
+        <td>实际还款日期:</td>
+        <td><input type="text" bt-date="paymentInfo.payDate"></td>
+        <td>计划还款日期:</td>
+        <td><input type="text" bt-date="paymentInfo.planPayDate" disabled></td>
+      </tr>
+      <tr>
+        <td width="15%">还款方式:</td>
+        <td width="35%">
+          <select ng-model="paymentInfo.payType" ng-change="payTypeChange();">
+            <option ng-repeat="item in paymentTypes" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="paymentInfo.payType == item.value"></option>
+          </select>
+        </td>
+        <td width="15%">还款总额:</td>
+        <td width="35%"><input type="text" ng-disabled="paymentInfo.payType!='6' && paymentInfo.payType!='1' " ng-model="paymentInfo.totalBalance"></td>
+      </tr>
+      <tr>
+        <td>还款人:</td>
+        <td>
+          <select ng-model="paymentInfo.payCustNo">
+            <option ng-repeat="item in payCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="paymentInfo.payCustNo == item.value"></option>
+          </select>
+        </td>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left">
+          <strong class="deep-gray" ng-bind="paymentInfo.totalBalance|moneybigf"></strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+  <!-- 正常还款 -->
+  <table class="table table-striped table-hover table-bordered" ng-show="paymentInfo.payType==1">
+    <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">还款分配</span>
+    </caption>
+    <tbody>
+      <tr>
+        <td width="15%">其他费用:</td>
+        <td width="35%"><input type="text" ng-model="paymentInfo.managementBalance" disabled></td>
+        <td width="15%">利息:</td>
+        <td width="35%"><input type="text" ng-model="paymentInfo.interestBalance" disabled></td>
+      </tr>
+      <tr>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.managementBalance|moneybigf"></strong></td>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.interestBalance|moneybigf"></strong></td>
+      </tr>
+      <tr>
+        <td>本金:</td>
+        <td><input type="text" ng-model="paymentInfo.principalBalance" disabled></td>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.principalBalance|moneybigf"></strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- 提前还款 -->
+  <table class="table table-striped table-hover table-bordered" ng-show="paymentInfo.payType==2">
+    <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">还款分配</span>
+    </caption>
+    <tbody>
+      <tr>
+        <td width="15%">提前还款手续费:</td>
+        <td width="35%"><input type="text" ng-model="paymentInfo.servicefeeBalance"></td>
+        <td width="15%">其他费用:</td>
+        <td width="35%"><input type="text" ng-model="paymentInfo.managementBalance"></td>
+      </tr>
+      <tr>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.servicefeeBalance|moneybigf"></strong></td>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.managementBalance|moneybigf"></strong></td>
+      </tr>
+      <tr>
+        <td>利息:</td>
+        <td><input type="text" ng-model="paymentInfo.interestBalance"></td>
+        <td>本金:</td>
+        <td><input type="text" ng-model="paymentInfo.principalBalance"></td>
+      </tr>
+      <tr>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.interestBalance|moneybigf"></strong></td>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.principalBalance|moneybigf"></strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+  <!-- 逾期还款 -->
+  <table class="table table-striped table-hover table-bordered" ng-show="paymentInfo.payType==3">
+    <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">还款分配</span>
+    </caption>
+    <tbody>
+      <tr>
+        <td rowspan="2">逾期天数:</td>
+        <td rowspan="2"><input type="text" ng-model="paymentInfo.overdueDays"></td>
+        <td>利息:</td>
+        <td><input type="text" ng-model="paymentInfo.interestBalance"></td>
+      </tr>
+      <tr>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.interestBalance|moneybigf"></strong></td>
+      </tr>
+      <tr>
+        <td width="15%">罚息:</td>
+        <td width="35%"><input type="text" ng-model="paymentInfo.penaltyBalance"></td>
+        <td>其他费用:</td>
+        <td><input type="text" ng-model="paymentInfo.managementBalance"></td>
+      </tr>
+      <tr>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.penaltyBalance|moneybigf"></strong></td>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.managementBalance|moneybigf"></strong></td>
+      </tr>
+      <tr>
+        <td width="15%">滞纳金:</td>
+        <td width="35%"><input type="text" ng-model="paymentInfo.latefeeBalance"></td>
+        <td>本金:</td>
+        <td><input type="text" ng-model="paymentInfo.principalBalance"></td>
+      </tr>
+      <tr>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.latefeeBalance|moneybigf"></strong></td>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.principalBalance|moneybigf"></strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+
+
+  <!-- 经销商还款 -->
+  <table class="table table-striped table-hover table-bordered" ng-show="paymentInfo.payType==6">
+    <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">还款分配</span>
+    </caption>
+    <tbody>
+      <tr>
+        <td width="15%">其他费用:</td>
+        <td width="35%"><input type="text" ng-model="paymentInfo.managementBalance"></td>
+        <td width="15%">利息:</td>
+        <td width="35%"><input type="text" ng-model="paymentInfo.interestBalance"></td>
+      </tr>
+      <tr>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.managementBalance|moneybigf"></strong></td>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.interestBalance|moneybigf"></strong></td>
+      </tr>
+      <tr>
+        <td>本金:</td>
+        <td><input type="text" ng-model="paymentInfo.principalBalance"></td>
+        <td rowspan="2">剩余金额还款利率:</td>
+        <td rowspan="2" class="double_input">
+          <span>利率:</span><input type="text" ng-model="paymentInfo.ratio">
+          <span>其它费用利率:</span><input type="text" ng-model="paymentInfo.managementRatio">
+        </td>
+      </tr>
+      <tr>
+        <td class="deep-gray">金额大写:</td>
+        <td class="div-text-left"><strong class="deep-gray" ng-bind="paymentInfo.principalBalance|moneybigf"></strong></td>
+      </tr>
+    </tbody>
+  </table>
+  
+
+  
+
+  <div class="center-buttons">
+    <button class="btn btn-primary" ng-click="saveRepayment($event.target);">确认还款</button>
+    <button class="btn btn-primary" bt-close-modal >返回</button>
+  </div>
+</div>

@@ -1,0 +1,317 @@
+<div class="top-box">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    贸易合同审核
+    </h1>
+    <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+            <tr>
+                <td colspan="4">基本信息</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">合同编号:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.agreeNo"></td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">合同名称:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.agreeName">
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">买方名称:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.buyer"></td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">卖方名称:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.supplier">
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">签订日期:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.signDate">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">签订地点:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.signAddr">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+            <tr>
+                <td colspan="4">合同期限</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">生效日期:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.agreeStartDate">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">到期日期:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.agreeEndDate">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+            <tr>
+                <td colspan="4">合同价款</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">合同金额:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.balance">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">金额大写:</span>
+                </td>
+                <td width="30%" class="div-text-left">
+                    <strong class="deep-gray" ng-bind="info.balance|moneybigf"></strong></td>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+            <tr>
+                <td colspan="4">验收标准</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">验收方式:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.checkAccept">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">提出异议期限(天):</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.objectionPeriod">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+            <tr>
+                <td colspan="4">交付条款</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">交付日期:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.deliveryDate">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">交付地址:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.deliveryAddr">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+            <tr>
+                <td colspan="4">合同签署方</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2"><strong class="blue">买方</strong></td>
+                <td colspan="2"><strong class="blue">卖方</strong></td>
+            </tr>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">企业名称:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.buyerInfo.custName">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">企业名称:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.supplierInfo.custName">
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">经办人/授权代表:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.buyerInfo.representative">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">经办人/授权代表:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.supplierInfo.representative">
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">开户银行:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.buyerInfo.bankName">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">开户银行:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.supplierInfo.bankName">
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">户名:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.buyerInfo.bankAccountName">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">户名:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.supplierInfo.bankAccountName">
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">银行账号:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.buyerInfo.bankAccount">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">银行账号:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.supplierInfo.bankAccount">
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">税务登记号:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.buyerInfo.taxCode">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">税务登记号:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.supplierInfo.taxCode">
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">联系电话:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.buyerInfo.phone">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">联系电话:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.supplierInfo.phone">
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">传真:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.buyerInfo.fax">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">传真:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.supplierInfo.fax">
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">联系地址:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.buyerInfo.address">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">联系地址:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.supplierInfo.address">
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="div-text-right">
+                    <span class="title">邮编:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.buyerInfo.zipCode">
+                </td>
+                <td width="20%" class="div-text-right">
+                    <span class="title">邮编:</span>
+                </td>
+                <td width="30%" class="div-text-left" ng-bind="info.supplierInfo.zipCode">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+            <tr>
+                <td>备注</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td >
+                  <textarea name="des" id="des" cols="30" rows="10" placeholder="合同详细信息请查看附件内容" ng-model="info.des" readonly></textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+     <table class="table table-striped table-hover table-bordered upload-list-table">
+          <thead>
+            <tr>
+              <td width="30%">附件类型</td>
+              <td width="30%">附件名称</td>
+              <td width="40%">操作</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in uploadList" ng-repeat-end>
+              <td>合同附件</td>
+              <td ng-bind="item.fileName"></td>
+              <td class="modi-upload-btn">
+                <a ng-href="{{item.id|downf}}">下载</a>
+              </td>
+            </tr>
+          </tbody>
+    </table>
+    </div>
+        
+
+    <div class="center-buttons">
+        <button class="btn btn-primary" type="button" ng-click="aduitContract('1');" ng-show="businStatus==1">审核生效</button>
+        <button class="btn btn-primary" type="button" ng-click="aduitContract('0');" ng-show="businStatus==0">取消审核</button>
+        <button class="btn btn-primary" type="button" ng-click="goBack();">返回</button>
+    </div>
+</div>
+
+
+<!-- 上传组件 -->
+<div bt-upload conf="uploadConf" ></div>

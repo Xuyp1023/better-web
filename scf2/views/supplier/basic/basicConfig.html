@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>基础设置</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/supplier/basic/basicConfig.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">基础设置
+            <small class="small-select">
+                <span>选择账户</span>
+                <select name="custNo" id="" ng-model="config.custNo" ng-change="searchParam();">
+                  <option ng-repeat="item in supplierList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo==item.value"></option>
+                </select>
+            </small>
+            </h1>
+          </div>
+          
+
+          <div id="" class="row-fluid">
+            <h2 class="content-title content-title-2 text_color_green first">金融机构推荐设置，企e金服平台将根据以下设置向您推荐可办理融资业务的金融机构：</h2>
+            <form class="form-horizontal" action="">
+              <label for="check_1">
+                <input id="check_1" type="checkbox" ng-model="config.creditFirst" ng-checked="config.creditFirst==1" ng-true-value="1" ng-false-value="0"><span>已授信优先</span>
+              </label>
+              <label for="check_2">
+                <input id="check_2" type="checkbox" ng-model="config.businessFirst" ng-checked="config.businessFirst==1" ng-true-value="1" ng-false-value="0"><span>已办理业务优先</span>
+              </label>
+            </form>
+          </div>
+
+
+          <div id="" class="row-fluid">
+            <h2 class="content-title content-title-2 text_color_green first">数据接收授权设置，是否接收非合作关系的资金方信息推送：</h2>
+            <form class="form-horizontal" action="">
+              <label for="radio_1">
+                <input id="radio_1" name="radio_g1" type="radio" value="1" ng-model="config.isPush"><span>接收</span>
+              </label>
+              <label for="radio_2">
+                <input id="radio_2" name="radio_g1" type="radio" value="0" ng-model="config.isPush"><span>不接收</span>
+              </label>
+            </form>
+          </div>
+        
+
+          <div class="center-buttons">
+            <button class="btn btn-primary btn-bg-middle" ng-click="saveParam($event.target)">保存</button>
+          </div>
+
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+  
+
+
+
+
+	<!-- 引用js文件 -->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/supplier/basic/basicConfig");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/supplier/basic/basicConfig");
+      } 
+  </script>
+  </body>
+</html>

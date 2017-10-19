@@ -1,0 +1,32 @@
+  <!-- 应收账款 -->
+  <table id="order_list_table" class="div-width-100 table table-striped table-hover search-result main-list">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">审批历史</span>        
+      </caption>
+      <thead>
+        <tr class="result-head-gray">          
+          <td width="20%">审批时间</td>
+          <td width="15%">审批结果</td>
+          <td width="15%">审批</td>
+          <td width="15%">操作企业</td>
+          <td width="15%">审核人</td>              
+          <td width="20%">审批意见</td>           
+                       
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in historyList" ng-repeat-end="" ng-class="{even:$even}" class="ng-scope">
+          <td class="ng-binding" ng-bind="$index+1"></td>
+          <td ng-bind="item.assetType|kindf:'FinancerTypeList'" class="ng-binding"></td>
+          <td ng-bind="item.dictType|kindf:'DictType'" class="ng-binding"></td>
+          <td ng-bind="item.dataSource|kindf:'AssetDictSettleType'" class="ng-binding"></td>
+          <td ng-bind="item.formData|kindf:'RequestData'" class="ng-binding"></td>
+          <td ng-bind="item.attach|kindf:'RequestData'" class="ng-binding"></td>         
+       </tr>           
+      </tbody>
+      <tfoot>
+          <td colspan="10">
+              <div bt-pagination conf="listPage" func="queryList(false);"></div>
+          </td>
+      </tfoot>
+   </table>

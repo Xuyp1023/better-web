@@ -1,0 +1,92 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">选择开票账单
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                     
+                       
+                      <tr>
+                        <td>选择对账月份:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEbillMonth" bt-format="yyyy-MM">-
+                          <input type="text" id="end_date" bt-date="searchData.LTEbillMonth" bt-format="yyyy-MM">
+                        </td>
+                      </tr>                      
+                      <tr>                        
+                        <td width="25%">选择委托企业:</td>
+                          <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.coreCustNo">
+                            <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.coreCustNo == item.value"></option>
+                          </select>
+                        </td>                         
+                      </tr>               
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                          <thead>
+                            <tr class="result-head">
+                               <td width="3%">选择</td>
+                               <td width="10%">账单编号</td>
+                               <td width="13%">委托企业</td>
+                               <td width="5%">月份</td>
+                               <td width="13%">佣金本金</td>
+                               <td width="13%">佣金利息</td>
+                               <td width="12.5%">税率%</td>
+                               <td width="12.5%">手续费</td>
+                               <td width="12.5%">账单金额</td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="item in infoList" ng-repeat-end ng-class="{even:$even}">
+                              <td>
+                                <input type="checkbox" ng-model="item.checkOne" ng-bind="item.id" ng-change="selectOne()">
+                              </td>
+                            <td ng-bind="item.refNo"></td>
+                              <td ng-bind="item.ownCustName"></td>
+                               <td ng-bind="item.billMonth"></td>
+                               <td ng-bind="item.paySuccessBalance"></td>
+                               <td ng-bind="item.interest"></td>
+                               <td ng-bind="item.taxRate"></td>
+                              <td ng-bind="item.taxBalance"></td>
+                               <td ng-bind="item.interestBalance"></td>     
+                            </tr>           
+                          </tbody>
+                          <tfoot>
+                          <tr>
+                          <td>
+                          <div class="btn btn-default" style="padding:0;">
+                            <label for="isAllCheck" style="width: 80px;height: 35px;line-height: 35px; margin-bottom: 0"><input type="checkbox" id="isAllCheck" ng-model="tmpVo.tmpCheckbox" ng-click="toggleCheckbox()">选择全部</label>     
+                        </div>
+                          </td>
+                            <td colspan="8">
+                                 <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                             </td>
+                          </tr>
+
+                          </tfoot>
+                        </table>
+                                <ul class="result-head div-width-100" style="height:50px; ">
+                                    <li style="float:left; line-height: 50px;">已选总金额：<span style="width:120px;display: inline-block;" ng-bind="selectedBalance | floatTo2"></span></li>
+                                    <li style="float:left; line-height: 50px;">（账单总金额：<span ng-bind="totalBalance | floatTo2"></span>）</li>
+                                    <li style="float:right; line-height: 50px;"> <button class="btn btn-primary btn-bg-middle" ng-click="applyinvoic($event.target);" ng-disabled="isChange">索取发票</button></li>
+                                    <li style="float:right; line-height: 50px;">待开票金额：<span style="width:120px;display: inline-block;" ng-bind="waitInvoiceBalance | floatTo2"></span></li>
+                                </ul>
+                       </div>    
+                          </div> 
+                             </div> 
+                               </div>    
+                                  </div> 
+                                      </div>     
+
+
+
+

@@ -1,0 +1,14 @@
+<div class="pop-up" style="height:420px">
+  <h2 class="">申请提交成功，请耐心等候...
+  </h2>
+  <ul>
+    <li><b>申请编号:</b> <span ng-bind="info.requestNo"></span></li>
+    <li><b>融资编号:</b> <span ng-bind="info.requestNo"></span></li>
+    <li><b>融资金额:</b> <span ng-bind="info.balance | moneyFilter"></span></li>
+    <li><b>提交人:</b> <span ng-bind="info.regOperName"></span></li>
+    <li><b>提交时间:</b> <span ng-bind="info.regDate"></span></li>    
+  </ul>
+  <p>    
+    <span style="float:right">{{count}}s后返回...</span>
+  </p>
+</div>

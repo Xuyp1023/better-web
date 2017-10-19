@@ -1,0 +1,56 @@
+<div id="fund_search_way" class="row-fluid margin-bottom-40">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">关联授信核心企业</h1>
+  <table class="table table-condensed div-width-70 div-center search-table">
+    <tr>
+     <td width="30%">企业名称:</td>
+     <td width="70%" class="div-text-left">
+       <select ng-model="searchData.coreCustNo">
+         <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.coreCustNo == item.value"></option>
+       </select>
+     </td>
+    </tr>
+    <tr>
+      <td>核心企业:</td>
+      <td class="div-text-left">
+        <input type="text" name="" ng-model="searchData.">
+      </td>
+    </tr>
+  </table>
+  <div class="center-buttons">
+    <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+  </div>
+</div>
+
+
+<div id="search_info" class="row-fluid">
+  <table class="div-width-100 table table-striped table-hover search-result table-bordered">
+        <thead>
+          <tr class="result-head">
+            <td width="30%">选择</td>
+            <td width="70%">核心企业名称</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in XXX" ng-repeat-end ng-class="{even:$even}" >
+            <td><input type="checkbox"></td>
+            <td ng-bind=""></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>广东德豪润达电气股份有限公司</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>广西建工集团有限责任公司</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td colspan="2">
+            <div bt-pagination conf="listPage"></div>
+          </td>
+        </tfoot>
+      </table>
+  <div class="center-buttons">
+    <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">确定添加</button>
+  </div>
+</div>

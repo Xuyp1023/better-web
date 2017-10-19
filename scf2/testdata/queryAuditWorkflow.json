@@ -1,0 +1,102 @@
+{
+    "message": "开通保理融资业务审批流程查询成功",
+    "data": [
+        {
+            "id": 52,
+            "custNo": 100000156,
+            "custName": "深圳市华强公益基金会",
+            "relateId": 1442,
+            "relateCustno": 100000121,
+            "relateCustname": "百乐润小微保理(深圳)有限公司",
+            "relateType": "0",
+            "taskName": "开通保理融资业务申请",
+            "auditOperName": "管理员",
+            "auditDate": "2016-08-07",
+            "auditTime": "130303",
+            "auditResult": "0",
+            "auditOpinion": "我司申请开通保理融资业务"
+        },
+        {
+            "id": 55,
+            "custNo": 100000156,
+            "custName": "深圳市华强公益基金会",
+            "relateId": 1445,
+            "relateCustno": 100000122,
+            "relateCustname": "深圳国投商业保理有限公司",
+            "relateType": "0",
+            "taskName": "开通保理融资业务申请",
+            "auditOperName": "管理员",
+            "auditDate": "2016-08-07",
+            "auditTime": "130303",
+            "auditResult": "0",
+            "auditOpinion": "我司申请开通保理融资业务"
+        },
+        {
+            "id": 53,
+            "custNo": 100000156,
+            "custName": "深圳市华强公益基金会",
+            "relateId": 1443,
+            "relateCustno": 100000121,
+            "relateCustname": "百乐润小微保理(深圳)有限公司",
+            "relateType": "2",
+            "taskName": "开通保理融资业务申请",
+            "auditOperName": "管理员",
+            "auditDate": "2016-08-07",
+            "auditTime": "130303",
+            "auditResult": "0",
+            "auditOpinion": "我司申请开通保理融资业务"
+        },
+        {
+            "id": 56,
+            "custNo": 100000156,
+            "custName": "深圳市华强公益基金会",
+            "relateId": 1446,
+            "relateCustno": 100000122,
+            "relateCustname": "深圳国投商业保理有限公司",
+            "relateType": "2",
+            "taskName": "开通保理融资业务申请",
+            "auditOperName": "管理员",
+            "auditDate": "2016-08-07",
+            "auditTime": "130303",
+            "auditResult": "0",
+            "auditOpinion": "我司申请开通保理融资业务"
+        },
+        {
+            "id": 54,
+            "custNo": 100000156,
+            "custName": "深圳市华强公益基金会",
+            "relateId": 1444,
+            "relateCustno": 100000121,
+            "relateCustname": "百乐润小微保理(深圳)有限公司",
+            "relateType": "3",
+            "taskName": "开通保理融资业务申请",
+            "auditOperName": "管理员",
+            "auditDate": "2016-08-07",
+            "auditTime": "130303",
+            "auditResult": "0",
+            "auditOpinion": "我司申请开通保理融资业务"
+        },
+        {
+            "id": 57,
+            "custNo": 100000156,
+            "custName": "深圳市华强公益基金会",
+            "relateId": 1447,
+            "relateCustno": 100000122,
+            "relateCustname": "深圳国投商业保理有限公司",
+            "relateType": "3",
+            "taskName": "开通保理融资业务申请",
+            "auditOperName": "管理员",
+            "auditDate": "2016-08-07",
+            "auditTime": "130303",
+            "auditResult": "0",
+            "auditOpinion": "我司申请开通保理融资业务"
+        }
+    ],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 10,
+        "pages": 1,
+        "total": 6
+    },
+    "code": 200
+}

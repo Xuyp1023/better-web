@@ -1,0 +1,128 @@
+@charset "UTF-8";
+/* 待收页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+@import "common/pie";
+@import "common/pages";
+@import "supplier/financeSearch/temp/detailFinance";
+@import "supplier/financeSearch/temp/extenInfo";
+@import "supplier/financeSearch/temp/intExem";
+@import "supplier/financeSearch/temp/signContract";
+
+
+#container{
+	@include init;
+	@include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+	@include Spage_plugin;
+}
+
+#content{
+	@include plus-nav-tabs;
+	@include center-buttons;
+	@include td-input-width(95%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+	@include double-check;
+}
+
+
+#fund_search_way{
+	.search-table{
+		margin-top:15px;
+		select,input{
+			margin:0;
+		}
+		select{
+			width:53%!important;
+			padding:0;
+			*position:relative;
+			*top:4px;
+		}
+		input{
+			width:50%!important;
+		}
+		.date{
+			input{
+				width:22.5%!important;
+			}
+		}
+		@include double-check;
+	}
+}
+
+
+//订单签约
+#sign_contract_box{
+	@include signContract;
+}	
+
+#fix_operator_info_box,#fix_edit_info_box{
+	@include detailFinance;
+}
+
+#fix_extension_info_box{
+	@include extenInfo;
+}
+
+#fix_intexem_info_box{
+	@include intExem; 
+}
+
+//协议详情iframe
+#detail_iframe{
+	height:400px;
+	margin-top:10px;
+    border-bottom-color: grey;
+    border-bottom-width: thin;
+}
+
+
+//操作记录
+#identify_box{ 
+	.action_table {
+		td{
+			border:0px;
+		}
+		#identify{
+			width:210px!important;
+		}
+		
+	}
+}
+
+//签署信息
+#signInfo_box{
+	table{
+		margin-top:15px;
+		margin-bottom:25px;
+		thead td{
+			background-color: rgb(223, 240, 216);
+			font-weight:bold;
+			color:rgb(0, 136, 204);
+		}
+	}
+}
+
+//倒计时读秒提示
+.count_down{
+	margin-left: 5px;
+    color: gray;
+}
+
+
+//文件下载按钮
+.download{
+	float:right;
+	margin-right:30px;
+	margin-top: 15px;
+}

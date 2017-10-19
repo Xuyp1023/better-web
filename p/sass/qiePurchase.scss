@@ -1,0 +1,153 @@
+@charset "UTF-8";
+/* 用户资料页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+@import "common/pages";
+
+#container{
+	@include Spage_plugin;
+	@include init;
+	@include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+}
+
+#content{
+	@include plus-nav-tabs(70%,30%);
+	@include center-buttons;
+	@include td-input-width(95%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+	@include div-margin;
+}
+
+#select_fund,#confirm_amount{
+	.tip-message{
+		margin-top:10px;
+		font-size:14px;
+		font-family:宋体;
+		height:25px;
+		line-height:25px;
+		span{
+			color:#F03D36;
+			letter-spacing:0.2em;
+		}
+	}
+	.fast-search{
+		float:right;
+		margin-top:10px;
+		height:35px;
+		line-height:35px;
+		input,select{
+			margin-bottom:0;
+		}
+		#search_fund_company{
+			margin-right:10px;
+		}
+	}
+	.fund-kind{
+		width:100%;
+		margin-bottom:2px;
+		background-color:#DBDDDD;
+		li{
+			width:10%;
+			margin-left:1%;
+			margin-right:1%;
+			a{
+				&:hover{
+					font-size:16px;
+					color:#c51338;
+				}
+			}
+		}
+	}
+
+	.fund-list{
+		margin-top:10px;
+	}
+}
+
+#confirm_amount{
+	.fast-search{
+		margin-top: 5px;
+		float:left;
+		.fast-purchase-lab{
+			margin-left:40px;
+		}
+	}
+
+	.fund-list{
+		thead td{
+			background-color:#FCFAE8;
+		}
+		tbody td{
+			input{
+				width:85%;
+				margin-bottom:0;
+				behaviour:none;
+				*position:static;
+			}
+		}
+	}
+
+	.qie-info{
+		margin-top: 10px;
+		margin-bottom: 3px;
+		height:35px;
+		line-height:35px;
+		background-color:#FCFAE8;
+		text-align:center;
+		.title{
+			font-size:16px;
+			font-weight:bold;
+			color:gray;
+		}
+		.content{
+			font-size:18px;
+			color:red;
+			margin-right:100px;
+		}
+	}
+}
+
+#confirm_amount_form,#pree_see_form{
+	margin-top:20px;
+	.text{
+		padding:3px;
+		height:25px;
+		line-height:25px;
+		*padding-left:25px;
+	}
+	.red{
+		display:inline-block;
+		font-size:16px;
+	}
+
+}
+
+#finish_select{
+	.finish-info{
+		margin-top:30px;
+	}
+}
+
+#warm_prompt_box{
+	@include warm-prompt-box;
+}
+
+
+
+
+
+
+
+
+

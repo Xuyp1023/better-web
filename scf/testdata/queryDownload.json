@@ -1,0 +1,27 @@
+{
+    "message": "查询客户合同成功",
+    "data": [{
+        "accountCode": 122017043000000001,
+        "id":"11",
+        "dictType": "1",
+        "dataSource": "1",
+        "formData": "1",
+        "attach": "1",
+        "billType": "0"
+    },{
+        "accountCode": 122017043000000002,
+        "id":"12",
+        "dictType": "2",
+        "dataSource": "2",
+        "formData": "2",
+        "attach": "2",
+        "billType": "0"
+    }],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 10,
+        "pages": 1,
+        "total": 9
+    },
+    "code": 200
+}

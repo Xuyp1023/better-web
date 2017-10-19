@@ -1,0 +1,50 @@
+<div class="top-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue div-margin-bottom-none"><img src="img/operator.png" alt="">
+    <span>电子印章管理</span>
+     <small class="small-select">
+        <span>机构名称</span>
+        <select ng-model="searchData.custNo" ng-change="queryList();">
+          <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+        </select>
+    </small>
+  </h1>
+
+  <div>
+    
+    <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+          <tr ng-show="infoList.length <1">
+              <td class="modi-group" colspan="6">
+               <button class="btn btn-info" ng-click="newEseal();" >新增印章</button>
+              </td>
+            </tr>
+            <tr class="result-head">
+              <td width="30%">企业名称</td>
+              <td width="30%">印章名称</td>
+              <td width="20%">状态</td>
+              <td width="20%">查看详情</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td ng-bind="item.custName"></td>
+            <td ng-bind="item.name"></td>
+            <td ng-bind="item.businStatus|kindf:'ContractStamperBusinStatus'"></td>
+            <td>
+              <a href="javascript:void(0);" ng-click="lookSealDetail(item);">查看详情</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="5">
+                <div bt-pagination conf="listPage" func="queryList(false)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+  </div>
+</div>
+
+<!-- 模态框 -->
+<div id="esealDetail_box" bt-roll-modal="template/2_3/contract/eseal/temp/esealDetail.html" bt-z-index="9991"></div>
+<div id="esealNew_box" bt-roll-modal="template/2_3/contract/eseal/temp/esealNew.html" bt-z-index="9991"></div>

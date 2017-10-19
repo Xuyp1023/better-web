@@ -1,0 +1,47 @@
+<div class="div-width-90 div-center detail-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+    催收信息详情
+  </h1>
+  
+  <table class="table table-striped table-hover table-bordered">
+    <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">催收信息</span>
+    </caption>
+    <tbody>
+      <tr>
+        <td width="15%">订单编号</td>
+        <td width="35%"><strong ng-bind="pressMoneyInfo.requestNo" ></strong></td>
+        <td width="15%">催收企业</td>
+        <td width="35%">
+          <!-- <select name="" id="" ng-model="pressMoneyInfo.custNo">
+              <option ng-repeat="item in pressCmpList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="pressMoneyInfo.custNo==item.value"></option>
+          </select> -->
+          <span ng-bind="pressMoneyInfo.custName"></span>
+        </td>
+      </tr>
+      <tr>
+        <td>催收金额</td>
+        <td class="tab-text-right"><span ng-bind="pressMoneyInfo.balance" ></span></td>
+        <td>催收方式</td>
+        <td><span ng-bind="pressMoneyInfo.pressType" ></span></td>
+      </tr>
+      <tr>
+        <td>经办人</td>
+        <td><span ng-bind="pressMoneyInfo.agent" ></span></td>
+        <td>催收时间</td>
+        <td><span ng-bind="pressMoneyInfo.actualDate" ></span></td>
+      </tr>
+      <tr>
+        <td>备注</td>
+        <td colspan="3" class="div-text-left">
+          <div class="height_100" ng-bind="pressMoneyInfo.description"></div>
+          <!-- <textarea name="" id="" cols="30" rows="10" ng-bind="pressMoneyInfo.description" disabled></textarea> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="center-buttons">
+    <button class="btn btn-primary" bt-close-modal >取消</button>
+  </div>
+</div>

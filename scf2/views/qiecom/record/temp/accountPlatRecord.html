@@ -1,0 +1,379 @@
+      
+<div id="accountPlatRecord" class="div-width-90 div-center detail-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+    开户代录
+  </h1>
+  <div  class="row-fluid div-center div-margin-top" ng-box-enabled="childInfo.modiType=add,edit">
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">基本资料</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">申请机构名称:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="childInfo.custName"></td>
+            <td width="40%" class="div-text-left"><span class="info">长度不超过120位，请与法定注册名称一致，请勿使用简称！</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">组织机构代码:</span>
+            </td>
+            <td><input type="text" ng-model="childInfo.orgCode"></td>
+            <td class="div-text-left"><span class="info">组织机构代码长度不超过30位，若用户已取得统一社会信用代码，组织机构代码栏请填写统一社会信用代码</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">税务登记证号码:</span>
+            </td>
+            <td><input type="text" ng-model="childInfo.taxNo"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">营业执照号码:</span>
+            </td>
+            <td><input type="text" ng-model="childInfo.businLicence"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位，由英文字母、数字或汉字组成，若用户已取得统一社会信用代码，营业执照号码栏请填写统一社会信用代码</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">营业执照有效期:</span>
+            </td>
+            <td  ng-show="(childInfo.modiType=='add')||(childInfo.modiType=='edit')" class="date date-input">
+              <input type="text" bt-date="childInfo.businLicenceValidDate">
+              <span ng-max-date>长期有效</span>
+            </td>
+            <td  ng-show="childInfo.modiType=='read'"  ng-bind="childInfo.businLicenceValidDate"></td>
+            <td><!-- <span class="info"></span> -->
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">业务联系电话:</span>
+            </td>
+            <td><input type="text" ng-model="childInfo.phone"></td>
+            <td class="div-text-left"><span class="info">请填写区号，长度不超过20位</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">传真:</span>
+            </td>
+            <td><input type="text" ng-model="childInfo.fax"></td>
+            <td class="div-text-left"><span class="info">请填写区号，长度不超过20位</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">邮政编码:</span>
+            </td>
+            <td><input type="text" ng-model="childInfo.zipCode"></td>
+            <td class="div-text-left"><span class="info">长度为6位，由数字组成</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">办公地址:</span>
+            </td>
+            <td><input type="text" ng-model="childInfo.address"></td>
+            <td class="div-text-left"><span class="info">请正确填写，如有变更，请及时登录系统修改，长度不超过120位</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">账户信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">银行账户名称:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="childInfo.bankAccoName"></td>
+            <td width="40%" class="div-text-left"><span class="info">长度不超过120位</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">银行账号:</span>
+            </td>
+            <td><input type="text" ng-model="childInfo.bankAcco"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位，由数字组成</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="title">开户许可证核准号:</span>
+            </td>
+            <td><input type="text" ng-model="childInfo.openLicense"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">所属银行:</span>
+            </td>
+            <td>
+                <select ng-model="childInfo.bankNo" id="bt_search_refer">
+                  <option ng-repeat="item in bankList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="childInfo.bankNo == item.value"></option>
+                </select>
+            </td>
+            <td><span class="info"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">开户行全称:</span>
+            </td>
+            <td>
+              <input type="text" ng-model="childInfo.bankName" refer-id="bt_search_refer" refer="childInfo.paySysNum" bt-search="../../../../Platform/BankAccount/findBankCode"   class="bt-search-icon">
+            </td>
+            <td class="div-text-left"><span class="info">长度不超过120位</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">开户行所在地:</span>
+            </td>
+            <td class="double-select">
+              <select ng-model="childInfo.provinceNo">
+                <option value="">请选择省份</option>
+                <option ng-repeat="item in provinceList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="childInfo.provinceNo == item.value"></option>
+              </select>
+              <select ng-model="childInfo.bankCityno">
+                <option value="">请选择城市</option>
+                <option ng-repeat="item in cityList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="childInfo.bankCityno == item.value"></option>
+              </select>
+            </td>
+            <td><span class="info"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">法定代表人/负责人信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%" class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">姓名:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="childInfo.lawName"></td>
+            <td width="40%" class="div-text-left"><span class="info">长度不超过20位</span></td>
+          </tr>
+         <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">证件类型:</span>
+            </td>
+            <td>
+              <select ng-model="childInfo.lawIdentType" ng-change="$emit('ngRepeatFinished')">
+                <option ng-repeat="item in lawIdentTypeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="childInfo.lawIdentType  == item.value"></option>
+              </select>
+            </td>
+            <td class="div-text-left"><span class="info"></span></td>
+          </tr>
+          <tr ng-show="childInfo.lawIdentType==7 ">
+            <td width="20%" class="div-text-right">
+              <span class="title">证件类型名称:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="childInfo.lawOtherIdentType"></td>
+            <td width="40%" class="div-text-left"><span class="info">长度不超过20位</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">证件号码:</span>
+            </td>
+            <td>
+              <input type="text" ng-model="childInfo.lawIdentNo">
+            </td>
+            <td class="div-text-left"><span class="info">请按所选证件类型正确填写号码</span></td>
+          </tr>
+           <tr>
+             <td class="div-text-right">
+              <span class="required">*</span>
+               <span class="title">证件有效期:</span>
+             </td>
+             <td  ng-show="(childInfo.modiType=='add')||(childInfo.modiType=='edit')"  class="date date-input">
+               <input type="text" bt-date="childInfo.lawValidDate">
+               <span ng-max-date>长期有效</span>
+             </td>
+             <td  ng-show="childInfo.modiType=='read'" ng-bind="childInfo.lawValidDate"></td>
+             <td><!-- <span class="info"></span> -->
+             </td>
+           </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">经办人信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">姓名:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="childInfo.operName" readonly></td>
+            <td width="40%"></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">证件类型:</span>
+            </td>
+            <td>
+              <select ng-model="childInfo.operIdenttype" ng-change="$emit('ngRepeatFinished')">
+                <option ng-repeat="item in operIdenttypeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="childInfo.operIdenttype  == item.value"></option>
+              </select>
+            </td>
+            <td class="div-text-left"><span class="info"></span></td>
+          </tr>
+          <tr ng-show="childInfo.operIdenttype==7 ">
+            <td width="20%" class="div-text-right">
+              <span class="title">证件类型名称:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="childInfo.operOtherIdenttype"></td>
+            <td width="40%" class="div-text-left"><span class="info">长度不超过20位</span></td>
+          </tr>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">证件号码:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="childInfo.operIdentno"></td>
+            <td width="40%"></td>
+          </tr>
+          <tr>
+             <td class="div-text-right">
+              <span class="required">*</span>
+               <span class="title">证件有效期:</span>
+             </td>
+             <td ng-show="(childInfo.modiType=='add')||(childInfo.modiType=='edit')" class="date date-input">
+               <input type="text" bt-date="childInfo.operValiddate">
+               <span ng-max-date>长期有效</span>
+             </td>
+             <td ng-show="childInfo.modiType=='read'" ng-bind="childInfo.operValiddate"></td>
+             <td></td>
+           </tr>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">手机号码:</span>
+            </td>
+            <td width="40%"><input type="text" readonly ng-model="childInfo.operMobile"></td>
+            <td width="40%"></td>
+          </tr>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">电子邮箱:</span>
+            </td>
+            <td width="40%"><input type="text" readonly ng-model="childInfo.operEmail"></td>
+            <td width="40%"></td>
+          </tr>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">联系电话:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="childInfo.operPhone"></td>
+            <td width="40%"></td>
+          </tr>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">传真:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="childInfo.operFaxNo"></td>
+            <td width="40%"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      
+      <!-- 附件列表 -->
+      <table class="table table-striped table-hover table-bordered">
+          <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">开户资料清单</span>
+          </caption>
+          <thead>
+          <tr class="result-head-gray">
+            <td width="30%">附件类型</td>
+            <td width="40%">附件名称</td>
+            <td width="30%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in childUploadList" ng-repeat-end>
+            <td class="div-text-right"><span ng-bind="item.fileInfoType|kindf:'CustOpenAccountFile'"></span></td>
+            <td ng-bind="item.fileName"></td>
+            <td>
+              <a href="javascript:void(0);" ng-show="!item.id" ng-click="openUploadCopy($event,item.fileInfoType,'childUploadList');">上传</a>
+              <a href="{{item.id|downf}}" ng-show="item.id">下载</a>
+              <a href="javascript:void(0);" ng-show="(childInfo.modiType=='add')||(childInfo.modiType=='edit')" ng-click="delUploadItemCopy(item,'childUploadList');">移除</a>
+            </td>
+          </tr>
+            
+        </tbody>
+      </table>
+
+
+    </div>
+
+    
+    <div class="center-buttons" >
+        <button class="btn btn-primary"  ng-show="childInfo.modiType === 'add'" ng-click="addRecord($event.target,childInfo.insteadItem);">提交</button>
+        <button class="btn btn-primary"  ng-show="childInfo.modiType === 'edit'" ng-click="editRecord($event.target,childInfo.insteadItem);">保存</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+
+
+    <!-- 温馨提示 -->
+    <div id="warm_prompt_box" class="div-width-100">
+      <h1 class="prompt-title">
+        <img class="prompt-icon" src="../../../img/warm_prompt.png" alt="">
+        温馨提示
+      </h1>
+      <div class="warm-prompt-content">
+        <p>1、上传格式为图片、PDF、RAR、ZIP格式；</p>
+        <p>2、请上传：营业执照、组织机构代码证、税务登记证、机构信用代码证、银行账户开户许可证、经办人和法人身份证(头像面、国徽面、手持证件面)，复印件加盖公章或原件扫描件；</p>
+        <p>3、您可以按以上要求逐一上传以上开户认证文件 或 将所有资料压缩后选择"开户资料包" 的方式上传。</p>
+      </div>
+    </div>
+    <!-- 温馨提示END -->
+
+</div>
+      

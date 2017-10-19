@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>余额宝赎回</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/redem.css">
+
+    <style type="text/css">
+      #container a.btn:hover {
+        color:#fff;
+      }
+    </style>
+
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body>
+    <div id="container" class="container-fluid div-center">
+      <div class="row-fluid">
+        <div id="content" class="span12">
+          <ul  class="nav nav-tabs plus-nav-tabs-init">
+            <li><a href="#select_fund">选基金</a></li>
+            <li  class="active"><a id="confirm_amount_link" href="#confirm_amount">确认金额</a></li>
+            <li><a id="pree_see_link" href="#pree_see">预览</a></li>
+            <li><a id="finish_select_link" href="#finish_select">完成</a></li>
+          </ul>
+
+
+
+        <div class="tab-content plus-nav-tabs-content">
+          <!-- <div id="select_fund" class="tab-pane fade active in">
+            <div class="div-width-100 clearFix">
+              <div class="fast-search">
+                <span>交易账户: </span>
+                <select name="" id="fund_partment" data-bind="event:{change:searchFund}">
+                  <option value="">全部-</option>
+                </select>
+              </div>
+            </div>
+            <table class="div-width-100 table table-striped table-hover fund-list">
+              <thead>
+                <tr>
+                  <td width="25%">基金名称</td>
+                  <td width="15%">净值日期</td>
+                  <td width="10%">最新净值</td>
+                  <td width="10%">持有份额</td>
+                  <td width="10%">可用份额</td>
+                  <td width="10%">参考市值</td>
+                  <td width="10%">基金状态</td>
+                  <td width="10%">操作</td>
+                </tr>
+              </thead>
+              <tbody data-bind="visible:redemListBind().length<1">
+                <tr>
+                  <td colspan="8" class="green">该账号下暂无该类资产 ！</td>
+                </tr>
+              </tbody>
+              <tbody data-bind="foreach:redemListBind,visible:redemListBind().length>0">
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td>
+                    <a data-bind="attr:{href:$parent.formaterFundDetail($data)}">
+                      <span data-bind="text:fundName"></span><br>
+                      <span data-bind="text:fundCode"></span>
+                    </a>
+                  </td>
+                  <td data-bind="text:$parent.parseDate(netDate)"></td>
+                  <td class="deep-gray"><strong data-bind="text:$parent.parsePoint4(netValue)"></strong></td>
+                  <td class="red"><strong data-bind="text:disShares"></strong></td>
+                  <td class="red"><strong data-bind="text:disValidShares"></strong></td>
+                  <td data-bind="text:$parent.parseTotalValue($data)"></td>
+                  <td data-bind="text:$parent.parseStaus($data)"></td>
+                  <td data-bind="">
+                    <a href="#" data-bind="click:$parent.redemFund,visible:trading">赎回</a>
+                    <span class="disabled" data-bind="visible:!trading">赎回</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div> -->
+          <div id="confirm_amount" class="tab-pane active fade in">
+            <form action="" id="confirm_amount_form" class="form-horizontal div-center div-width-60">
+              <div class="control-group">
+                <label for="" class="control-label">交易账户:</label>
+                <div class="controls text" data-bind="text:parseCustNo(redemFundBind().custNo)">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">基金销售机构:</label>
+                <div class="controls text" data-bind="text:redemFundBind().agencyName"> 
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">基金名称:</label>
+                <div class="controls text" data-bind="text:redemFundBind().fundName+'['+redemFundBind().fundCode+']'">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">收费方式:</label>
+                <div class="controls text">
+                  前端收费
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">可用份额:</label>
+                <div class="controls text" data-bind="text:parseShares(redemFundBind())">
+                  10000万
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label"><span class="red">* </span>赎回份额:</label>
+                <div class="controls">
+                  <input type="text" id="input_amount" placeholder="最低为1000份额" name="redemShares">
+                </div>
+              </div>
+            </form>
+            <div class="center-buttons">
+               <a href="../../../byte/home.html#/p/fund/yulibao" class="btn btn-primary">上一步</a>
+              <!-- <button target="0" data-bind="click:nextStep" class="btn btn-primary">上一步</button> -->
+              <button data-bind="click:toPreeSee" class="btn btn-primary">预览</button>
+            </div>
+          </div>
+          <div id="pree_see" class="tab-pane fade in">
+            <form action="" id="pree_see_form" class="form-horizontal div-center div-width-60">
+              <div class="control-group">
+                <label for="" class="control-label">交易账户:</label>
+                <div class="controls text" data-bind="text:parseCustNo(redemFundBind().custNo)">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">基金销售机构:</label>
+                <div class="controls text" data-bind="text:redemFundBind().agencyName"> 
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">基金名称:</label>
+                <div class="controls text" data-bind="text:redemFundBind().fundName+'['+redemFundBind().fundCode+']'">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">收费方式:</label>
+                <div class="controls text">
+                  前端收费
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">可用份额:</label>
+                <div class="controls text" >
+                  <span class="red" data-bind="text:parseShares(redemFundBind())"></span>份
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">赎回份额:</label>
+                <div class="controls text">
+                  <strong class="red" data-bind="text:parseRedemShares(redemFundBind())"></strong> 份                  
+                </div>
+              </div>
+            </form>
+            <div class="center-buttons">
+              <button target="1" data-bind="click:nextStep" class="btn btn-primary">上一步</button>
+              <button target="3" data-bind="click:confirmRedem" class="btn btn-primary">确认</button>
+            </div>
+          </div>
+          <div id="finish_select" class="tab-pane fade in">
+            <div class="alert alert-success alert-block div-center div-width-40 finish-info">
+              <p><i class="icon-ok-sign"></i> 赎回<span class="red" data-bind="text:redemFundBind().redemShares"></span>份<span class="red" data-bind="text:redemFundBind().fundName"></span>的申请已提交</p>
+<!--               <p><i class="icon-ok-sign"></i> <span>20150925</span>预计份额确认</p>
+              <p><i class="icon-ok-sign"></i> <span>20150926</span>预计到账</p> -->
+              <p><i class="icon-ok-sign"></i><span class="red"> 注:赎回交易已经完成,请提醒复核人员复核!</p>
+            </div>
+            <div class="center-buttons">
+              <a target="0" data-bind="click:nextStep" class="btn btn-primary">返回首页</a>
+              <a class="btn btn-primary btn-bg-middle" href="../purchase/purchase.html">查看基金产品</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 温馨提示 -->
+        <div id="warm_prompt_box" class="div-width-100">
+          <h1 class="prompt-title">
+            <img class="prompt-icon" src="../../img/warm_prompt.png" alt="">
+            温馨提示
+          </h1>
+          <div class="warm-prompt-content">
+            <p>1.如遇网络或系统问题等特殊情况，赎回资金划出时间可能会有延迟，请最终以银行卡入账时间为准。</p>
+            <p>2.理财型基金在每个运作期的赎回开放日，可以提交赎回申请；在非赎回开放日，不能提交赎回申请，但可预约至赎回开放日进行基金份额赎回。</p>
+            <p>3.如当期赎回开放日未赎回，则该基金份额进入下一个运作期。</p>
+          </div>
+        </div>
+        <!-- 温馨提示END -->
+        
+        <!-- 基金机构相关信息 -->
+        <div id="error_info_box" class="hide div-width-100">
+          <div class="div-width-80 div-center alert alert-error">
+            <p><strong>温馨提示:</strong>系统检测到您还未拥有已开户的账户，请先进行基金开户后再尝试赎回操作!</p>
+          </div>
+        </div>
+        <!-- 基金机构相关信息 -->
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+  <!-- 引用js文件 -->
+  <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+  <![endif]-->
+  <script type="text/javascript">seajs.use('p/js/balanceRedem');</script>
+  </body>
+</html>

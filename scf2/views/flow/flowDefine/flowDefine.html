@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>流程定义</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/flow/flowDefine/flowDefine.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+</head>
+
+<body id="body">
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" ng-controller="mainController" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/fast_money.png" alt="">流程步骤定义
+                    </h1>
+
+                    <table class="table table-condensed div-width-70 div-center search-table">
+                      <tr>
+                        <td>流程类型:</td>
+                        <td class="div-text-left">
+                          <select ng-model="searchData.flowType">
+                            <option ng-repeat="item in typeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.flowType == item.value"></option>
+                          </select>
+                        </td>
+                      </tr> 
+                      <tr>
+                        <td>流程监控人:</td>
+                        <td class="div-text-left">
+                          <select ng-model="searchData.monitorOperId">
+                            <option ng-repeat="item in operSelectList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.monitorOperId == item.value"></option>
+                          </select>
+                        </td>
+                      </tr>
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询所有步骤</button>
+                    </div>
+
+                </div>
+                <div id="search_info" class="row-fluid">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="reqQuota">
+                            <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+                            流程节点步骤列表
+                            </h1>
+                            <table class="div-width-100 table table-striped table-hover search-result main-list">
+                                <thead>
+                                    <tr class="font-size-12 info-title">
+                                        <td width="20%">流程步骤序号</td>
+                                        <td width="20%">流程节点名称</td>
+                                        <td width="20%">节点角色类型</td>
+                                        <td width="20%">是否已定义</td>
+                                        <td width="20%">操作</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                                        <td><strong ng-bind="$index"></strong></td>
+                                        <td class="red" ng-bind="item.nodeCustomName"></td>
+                                        <td ng-bind="item.nodeRole|kindf:'FlowNodeRole'"></td>
+                                        <td class="red">
+                                            <i class="icon-ok" ng-show="item.isDefined"></i>
+                                            <i class="icon-remove" ng-hide="item.isDefined"></i>
+                                        </td>
+                                        <td>
+                                            <!-- <a href="javascript:void(0);" ng-show="$index !== 0" ng-click="UpInfo(item);">上移</a>
+                                            <a href="javascript:void(0);" ng-show="$index !== infoList.length-1" ng-click="DownInfo(item);">下移</a> -->
+                                            <a href="javascript:void(0);" ng-hide="item.must+'' === '1'" ng-click="delFlowNode(item);">删除</a>
+                                            <a href="javascript:void(0);" ng-click="editInfoBox(item);">详情定义</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="center-buttons">
+                    <button class="btn btn-primary" ng-click="editInfoList($event.target);">完成流程步骤定义</button>
+                </div>
+
+                <!-- 温馨提示END -->
+                <!-- 模板区域 -->
+                <!-- 新增角色模板 -->
+                <div id="edit_box" bt-roll-modal="temp/flowModify.html" bt-z-index="6661"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+  <![endif]-->
+    <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/flow/flowDefine/flowDefine");
+      }
+      // For production
+      else {
+        seajs.use("scf2/js/flow/flowDefine/flowDefine");
+      }
+    </script>
+</body>
+
+</html>

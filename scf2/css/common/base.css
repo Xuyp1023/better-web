@@ -1,0 +1,665 @@
+@charset "UTF-8";
+/**
+*项目基础文件、公用组件样式文件
+*/
+/* IE兼容配置 */
+/* line 7, ../../sass/common/base.scss */
+#container {
+  width: 900px;
+  padding-top: 10px; }
+
+/* line 14, ../../sass/common/base.scss */
+.div-center {
+  margin-left: auto;
+  margin-right: auto; }
+
+/* line 569, ../../sass/common/base.scss */
+input[type="checkbox"] {
+  margin-top: 0; }
+
+/* line 887, ../../sass/common/base.scss */
+.tab-text-right {
+  text-align: right !important; }
+
+/* line 955, ../../sass/common/base.scss */
+.details_bosstyle {
+  background-image: url(../img/billbox3.png);
+  width: 820px;
+  height: 550px;
+  position: relative; }
+  /* line 961, ../../sass/common/base.scss */
+  .details_bosstyle span {
+    color: #053988; }
+  /* line 964, ../../sass/common/base.scss */
+  .details_bosstyle .bill_date {
+    position: absolute;
+    top: 70px;
+    left: 80px;
+    width: 120px; }
+  /* line 970, ../../sass/common/base.scss */
+  .details_bosstyle .title-as {
+    color: #ff6c02;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    left: 325px; }
+  /* line 978, ../../sass/common/base.scss */
+  .details_bosstyle .spa_y {
+    position: absolute;
+    top: 75px;
+    left: 75px; }
+  /* line 983, ../../sass/common/base.scss */
+  .details_bosstyle .spa_m {
+    position: absolute;
+    top: 75px;
+    left: 123px; }
+  /* line 988, ../../sass/common/base.scss */
+  .details_bosstyle .spa_d {
+    position: absolute;
+    top: 75px;
+    left: 155px; }
+  /* line 993, ../../sass/common/base.scss */
+  .details_bosstyle .bill_number {
+    position: absolute;
+    color: black;
+    top: 52px;
+    left: 655px;
+    font-size: 16px;
+    width: 150px;
+    height: 12px; }
+  /* line 1002, ../../sass/common/base.scss */
+  .details_bosstyle .bold_billnum {
+    position: absolute;
+    top: 75px;
+    left: 655px;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    width: 150px;
+    height: 12px; }
+  /* line 1012, ../../sass/common/base.scss */
+  .details_bosstyle .spa_name {
+    position: absolute;
+    top: 107px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1018, ../../sass/common/base.scss */
+  .details_bosstyle .spa_taxes {
+    position: absolute;
+    top: 129px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1024, ../../sass/common/base.scss */
+  .details_bosstyle .spa_site {
+    position: absolute;
+    top: 150px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1030, ../../sass/common/base.scss */
+  .details_bosstyle .spa_id {
+    position: absolute;
+    top: 172px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1036, ../../sass/common/base.scss */
+  .details_bosstyle .password_box {
+    display: inline-block;
+    overflow: hidden;
+    width: 325px;
+    height: 83px;
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 108px;
+    left: 493px;
+    font-size: 12px; }
+  /* line 1047, ../../sass/common/base.scss */
+  .details_bosstyle .tb_body {
+    position: absolute;
+    width: 820px;
+    font-size: 12px; }
+  /* line 1052, ../../sass/common/base.scss */
+  .details_bosstyle .acurrentname {
+    position: relative;
+    left: 5px;
+    display: inline-block;
+    width: 212px;
+    height: 20px; }
+  /* line 1059, ../../sass/common/base.scss */
+  .details_bosstyle .tb_tax {
+    position: relative;
+    right: -132px;
+    display: inline-block;
+    width: 90px;
+    height: 20px; }
+  /* line 1066, ../../sass/common/base.scss */
+  .details_bosstyle .tb_taxrate {
+    position: relative;
+    right: -101px;
+    display: inline-block;
+    height: 20px;
+    width: 30px; }
+  /* line 1073, ../../sass/common/base.scss */
+  .details_bosstyle .tb_money {
+    position: relative;
+    right: -97px;
+    width: 90px;
+    height: 20px;
+    display: inline-block;
+    text-align: right; }
+  /* line 1081, ../../sass/common/base.scss */
+  .details_bosstyle .tb_pirce {
+    position: relative;
+    right: -65px;
+    width: 80px;
+    height: 20px;
+    text-align: right;
+    display: inline-block; }
+  /* line 1089, ../../sass/common/base.scss */
+  .details_bosstyle .tb_number {
+    position: relative;
+    right: -45px;
+    width: 65px;
+    height: 20px;
+    text-align: right;
+    display: inline-block; }
+  /* line 1098, ../../sass/common/base.scss */
+  .details_bosstyle .spa_unit {
+    position: relative;
+    right: -18px;
+    display: inline-block;
+    width: 45px;
+    height: 20px; }
+  /* line 1105, ../../sass/common/base.scss */
+  .details_bosstyle .standard_type {
+    position: relative;
+    right: -13px;
+    display: inline-block;
+    width: 50px;
+    height: 20px; }
+  /* line 1114, ../../sass/common/base.scss */
+  .details_bosstyle .all_money {
+    position: absolute;
+    font-weight: bold;
+    top: 355px;
+    right: 169px; }
+  /* line 1120, ../../sass/common/base.scss */
+  .details_bosstyle .all_pirce {
+    position: absolute;
+    font-weight: bold;
+    top: 355px;
+    right: 8px; }
+  /* line 1126, ../../sass/common/base.scss */
+  .details_bosstyle .big_money {
+    position: absolute;
+    top: 379px;
+    left: 260px; }
+  /* line 1131, ../../sass/common/base.scss */
+  .details_bosstyle .tiny_money {
+    position: absolute;
+    top: 379px;
+    left: 660px;
+    font-weight: bold;
+    font-size: 16px; }
+  /* line 1139, ../../sass/common/base.scss */
+  .details_bosstyle .sell_name {
+    position: absolute;
+    top: 408px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1145, ../../sass/common/base.scss */
+  .details_bosstyle .sell_taxes {
+    position: absolute;
+    top: 428px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1152, ../../sass/common/base.scss */
+  .details_bosstyle .sell_site {
+    position: absolute;
+    top: 448px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1159, ../../sass/common/base.scss */
+  .details_bosstyle .sell_id {
+    position: absolute;
+    top: 466px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1166, ../../sass/common/base.scss */
+  .details_bosstyle .remarks_box {
+    display: inline-block;
+    overflow: hidden;
+    width: 313px;
+    height: 69px;
+    max-width: 313px;
+    min-width: 313px;
+    max-height: 69px;
+    min-height: 69px;
+    /* border: 1px solid red; */
+    color: black;
+    background-color: #dceffd;
+    position: absolute;
+    top: 405px;
+    left: 491px;
+    font-size: 12px; }
+  /* line 1183, ../../sass/common/base.scss */
+  .details_bosstyle .receiver {
+    position: absolute;
+    top: 495px;
+    left: 67px;
+    font-size: 12px;
+    width: 160px;
+    height: 15px; }
+  /* line 1192, ../../sass/common/base.scss */
+  .details_bosstyle .audit {
+    position: absolute;
+    top: 495px;
+    left: 285px;
+    font-size: 12px;
+    width: 120px;
+    height: 15px; }
+  /* line 1201, ../../sass/common/base.scss */
+  .details_bosstyle .drawer {
+    position: absolute;
+    top: 495px;
+    left: 470px;
+    font-size: 12px;
+    width: 110px;
+    height: 15px; }
+
+/* line 1212, ../../sass/common/base.scss */
+.details_boxstyle {
+  background-image: url(../img/billbox2.png);
+  width: 820px;
+  height: 550px;
+  position: relative; }
+  /* line 1218, ../../sass/common/base.scss */
+  .details_boxstyle span {
+    color: #053988; }
+  /* line 1221, ../../sass/common/base.scss */
+  .details_boxstyle .spa_y {
+    position: absolute;
+    top: 75px;
+    left: 75px; }
+  /* line 1226, ../../sass/common/base.scss */
+  .details_boxstyle .spa_m {
+    position: absolute;
+    top: 75px;
+    left: 123px; }
+  /* line 1231, ../../sass/common/base.scss */
+  .details_boxstyle .spa_d {
+    position: absolute;
+    top: 75px;
+    left: 155px; }
+  /* line 1236, ../../sass/common/base.scss */
+  .details_boxstyle .bill_number {
+    position: absolute;
+    color: black;
+    top: 52px;
+    left: 655px;
+    font-size: 16px; }
+  /* line 1243, ../../sass/common/base.scss */
+  .details_boxstyle .bold_billnum {
+    position: absolute;
+    top: 75px;
+    left: 655px;
+    color: black;
+    font-weight: bold;
+    font-size: 22px; }
+  /* line 1251, ../../sass/common/base.scss */
+  .details_boxstyle .spa_name {
+    position: absolute;
+    top: 107px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1257, ../../sass/common/base.scss */
+  .details_boxstyle .spa_taxes {
+    position: absolute;
+    top: 129px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1263, ../../sass/common/base.scss */
+  .details_boxstyle .spa_site {
+    position: absolute;
+    top: 150px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1269, ../../sass/common/base.scss */
+  .details_boxstyle .spa_id {
+    position: absolute;
+    top: 172px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1275, ../../sass/common/base.scss */
+  .details_boxstyle .password_box {
+    display: inline-block;
+    overflow: hidden;
+    width: 325px;
+    height: 83px;
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 108px;
+    left: 493px;
+    font-size: 12px; }
+  /* line 1287, ../../sass/common/base.scss */
+  .details_boxstyle .tb_body {
+    position: absolute;
+    width: 820px;
+    font-size: 12px; }
+  /* line 1292, ../../sass/common/base.scss */
+  .details_boxstyle .acurrentname {
+    position: relative;
+    left: 5px; }
+  /* line 1296, ../../sass/common/base.scss */
+  .details_boxstyle .tb_tax {
+    position: relative;
+    right: -320px; }
+  /* line 1300, ../../sass/common/base.scss */
+  .details_boxstyle .tb_taxrate {
+    position: relative;
+    right: -275px; }
+  /* line 1304, ../../sass/common/base.scss */
+  .details_boxstyle .tb_money {
+    position: relative;
+    right: -260px;
+    width: 80px;
+    text-align: right;
+    display: inline-block; }
+  /* line 1311, ../../sass/common/base.scss */
+  .details_boxstyle .tb_pirce {
+    position: relative;
+    right: -220px;
+    width: 80px;
+    text-align: right;
+    display: inline-block; }
+  /* line 1318, ../../sass/common/base.scss */
+  .details_boxstyle .tb_number {
+    position: relative;
+    right: -200px;
+    width: 30px;
+    text-align: right;
+    display: inline-block; }
+  /* line 1326, ../../sass/common/base.scss */
+  .details_boxstyle .spa_unit {
+    position: relative;
+    right: -135px; }
+  /* line 1330, ../../sass/common/base.scss */
+  .details_boxstyle .standard_type {
+    position: relative;
+    right: -110px; }
+  /* line 1336, ../../sass/common/base.scss */
+  .details_boxstyle .all_money {
+    position: absolute;
+    font-weight: bold;
+    top: 355px;
+    right: 169px; }
+  /* line 1342, ../../sass/common/base.scss */
+  .details_boxstyle .all_pirce {
+    position: absolute;
+    font-weight: bold;
+    top: 355px;
+    right: 8px; }
+  /* line 1348, ../../sass/common/base.scss */
+  .details_boxstyle .big_money {
+    position: absolute;
+    top: 379px;
+    left: 260px; }
+  /* line 1353, ../../sass/common/base.scss */
+  .details_boxstyle .tiny_money {
+    position: absolute;
+    top: 379px;
+    left: 660px;
+    font-weight: bold;
+    font-size: 16px; }
+  /* line 1361, ../../sass/common/base.scss */
+  .details_boxstyle .sell_name {
+    position: absolute;
+    top: 408px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1367, ../../sass/common/base.scss */
+  .details_boxstyle .sell_taxes {
+    position: absolute;
+    top: 428px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1374, ../../sass/common/base.scss */
+  .details_boxstyle .sell_site {
+    position: absolute;
+    top: 448px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1381, ../../sass/common/base.scss */
+  .details_boxstyle .sell_id {
+    position: absolute;
+    top: 466px;
+    left: 125px;
+    font-size: 12px; }
+  /* line 1388, ../../sass/common/base.scss */
+  .details_boxstyle .remarks_box {
+    display: inline-block;
+    overflow: hidden;
+    width: 325px;
+    height: 83px;
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 408px;
+    left: 493px;
+    font-size: 12px; }
+  /* line 1399, ../../sass/common/base.scss */
+  .details_boxstyle .receiver {
+    position: absolute;
+    top: 495px;
+    left: 67px;
+    font-size: 12px; }
+  /* line 1406, ../../sass/common/base.scss */
+  .details_boxstyle .audit {
+    position: absolute;
+    top: 495px;
+    left: 285px;
+    font-size: 12px; }
+  /* line 1413, ../../sass/common/base.scss */
+  .details_boxstyle .drawer {
+    position: absolute;
+    top: 495px;
+    left: 470px;
+    font-size: 12px; }
+
+/* line 1423, ../../sass/common/base.scss */
+.details_style {
+  width: 820px;
+  height: 446px;
+  background-image: url(../img/billbox.png); }
+  /* line 1428, ../../sass/common/base.scss */
+  .details_style span {
+    color: #05388a;
+    font-weight: bold; }
+  /* line 1432, ../../sass/common/base.scss */
+  .details_style .spa_y {
+    position: absolute;
+    top: 130px;
+    left: 410px; }
+  /* line 1437, ../../sass/common/base.scss */
+  .details_style .spa_m {
+    position: absolute;
+    top: 130px;
+    left: 510px; }
+  /* line 1442, ../../sass/common/base.scss */
+  .details_style .spa_d {
+    position: absolute;
+    top: 130px;
+    left: 580px; }
+  /* line 1447, ../../sass/common/base.scss */
+  .details_style .payer_name {
+    position: absolute;
+    top: 170px;
+    left: 230px;
+    line-height: 15px;
+    height: 30px;
+    width: 250px;
+    word-wrap: break-word;
+    word-break: break-all; }
+  /* line 1457, ../../sass/common/base.scss */
+  .details_style .payee_name {
+    position: absolute;
+    top: 170px;
+    left: 600px;
+    line-height: 15px;
+    height: 30px;
+    width: 250px;
+    word-wrap: break-word;
+    word-break: break-all; }
+  /* line 1467, ../../sass/common/base.scss */
+  .details_style .payer_id {
+    position: absolute;
+    top: 200px;
+    left: 230px; }
+  /* line 1472, ../../sass/common/base.scss */
+  .details_style .payer_bank {
+    position: absolute;
+    top: 225px;
+    left: 230px;
+    line-height: 15px;
+    height: 30px;
+    width: 250px;
+    word-wrap: break-word;
+    word-break: break-all; }
+  /* line 1482, ../../sass/common/base.scss */
+  .details_style .payee_id {
+    position: absolute;
+    top: 200px;
+    left: 600px; }
+  /* line 1487, ../../sass/common/base.scss */
+  .details_style .payee_bank {
+    position: absolute;
+    top: 225px;
+    left: 600px;
+    line-height: 15px;
+    height: 30px;
+    width: 250px;
+    word-wrap: break-word;
+    word-break: break-all; }
+  /* line 1497, ../../sass/common/base.scss */
+  .details_style .spa_money {
+    position: absolute;
+    text-align: right;
+    top: 270px;
+    left: 637px;
+    letter-spacing: 9px;
+    width: 220px;
+    font-size: 20px; }
+  /* line 1506, ../../sass/common/base.scss */
+  .details_style .bigspa_money {
+    position: absolute;
+    top: 265px;
+    left: 280px;
+    font-size: 18px; }
+  /* line 1512, ../../sass/common/base.scss */
+  .details_style .apa_y {
+    position: absolute;
+    top: 300px;
+    left: 230px; }
+  /* line 1517, ../../sass/common/base.scss */
+  .details_style .apa_Numb {
+    position: absolute;
+    top: 330px;
+    left: 230px; }
+  /* line 1522, ../../sass/common/base.scss */
+  .details_style .bpa_Numb {
+    position: absolute;
+    top: 300px;
+    left: 600px; }
+  /* line 1527, ../../sass/common/base.scss */
+  .details_style .number_one {
+    color: #000;
+    font-size: 24px;
+    position: absolute;
+    top: 100px;
+    left: 730px;
+    display: block;
+    width: 110px;
+    word-break: break-all;
+    height: 20px; }
+  /* line 1538, ../../sass/common/base.scss */
+  .details_style .number_two {
+    color: #000;
+    font-size: 22px;
+    position: absolute;
+    top: 120px;
+    left: 735px; }
+
+/* line 1546, ../../sass/common/base.scss */
+.footer_ul {
+  display: block;
+  list-style: none;
+  margin: 0;
+  font-size: 12px;
+  height: 20px; }
+  /* line 1553, ../../sass/common/base.scss */
+  .footer_ul li {
+    float: left;
+    display: block;
+    width: 25%; }
+
+/* line 1559, ../../sass/common/base.scss */
+.details_table {
+  height: 30px; }
+  /* line 1561, ../../sass/common/base.scss */
+  .details_table ul {
+    margin: 0px;
+    height: 100%;
+    line-height: 30px; }
+  /* line 1566, ../../sass/common/base.scss */
+  .details_table ul > li {
+    display: inline-block;
+    text-align: center; }
+
+/* line 1575, ../../sass/common/base.scss */
+.bt-hidden {
+  display: none !important; }
+
+/* line 1578, ../../sass/common/base.scss */
+.bt-search-icon {
+  background-image: url(../../../img/bt-select3.png);
+  background-position: 98% 7px;
+  background-repeat: no-repeat; }
+
+/* line 1583, ../../sass/common/base.scss */
+.bt-search-icon:focus {
+  background-image: url(../../../img/bt-select1.png);
+  outline: 0;
+  border-color: #063c95; }
+
+/* line 1588, ../../sass/common/base.scss */
+.bt-search-icon.ng-dirty.ng-invalid {
+  background-image: url(../../../img/bt-select2.png); }
+
+/* line 1591, ../../sass/common/base.scss */
+.bt-search-downdrop {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-radius: 4px;
+  margin-top: 4px;
+  border-color: #063c95;
+  min-width: 333px; }
+
+/* line 1600, ../../sass/common/base.scss */
+.bt-search-downdrop li {
+  padding: 8px;
+  list-style: none;
+  height: 32px;
+  cursor: pointer;
+  font-size: 14px; }
+
+/* line 1607, ../../sass/common/base.scss */
+.bt-search-downdrop li:hover {
+  background-color: #e9f3ff; }
+
+/* line 1612, ../../sass/common/base.scss */
+#search_info .info-title, #serch_repay_info .info-title {
+  background: #bad5ff !important; }
+
+/* line 1615, ../../sass/common/base.scss */
+.asdadaasdasdsa {
+  background-color: 111; }

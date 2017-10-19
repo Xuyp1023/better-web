@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>机构开户</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="../../l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../p/css/crtcount.css">
+    <script type="text/javascript" src="../../l/seajs/sea.js"></script>
+    <script type="text/javascript" src="../../base/config.js"></script>
+
+  </head>
+  <body>
+	<!-- <div class="div-center div-width-90 account-list" data-bind="foreach:accountInfoBind">
+		<div class="line-checkbox" data-bind="foreach:$data">
+			<span data-bind="text:data_desc"></span><input type="checkbox" data-bind="value:data_code,checked:isChecked">
+		</div>
+	</div>
+	<button id="refresh" data-bind="click:refreshInfo">刷新</button>
+	<div class="div-center div-width-90 account-list" data-bind="foreach:accountInfoBind">
+		<div class="line-checkbox" data-bind="foreach:$data">
+			<span data-bind="text:data_desc"></span><span data-bind="text:isChecked"></span><input type="checkbox" data-bind="value:data_code,checked:isChecked">
+		</div>
+	</div> 
+
+	<div class="div-width-80 div-center">
+		<span data-bind="text:currentData.info.firstName"></span>
+		<input type="text" data-bind="value:infoBind().firstName">
+		<input type="text" data-bind="value:infoBind().lastName">
+		<button data-bind="click:refresh">refresh</button>
+		<span data-bind="text:infoBind().lastName"></span>
+	</div>
+
+
+	<div id="container1" style="width: 550px; height: 400px; margin: 0 auto"></div> -->
+	<div class="container-fluid" id="testId">
+		<div class="row-fluid" ng-controller="testController">
+			<p ng-bind="test.testName"></p>
+			<p ng-bind="test.testAge"></p>
+			<p><input type="text" ng-model="test.testName"></p>
+			<p><input type="text" ng-model="test.testAge"></p>
+			<button class="btn btn-primary"  id="testchange">发出数据改变</button>
+			<button class="btn btn-primary" ng-click="printPdf()">打印PDF</button>
+		</div>
+	</div>
+	
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">seajs.use('p/js/test');</script>
+  </body>
+</html>

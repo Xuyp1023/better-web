@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>企业认证</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf/css/companyCertificate.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" ng-controller="mainController" class="span12">
+
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/fast_money.png" alt="">企业认证
+              <small class="small-select">
+                <span>选择账户</span>
+                <select ng-model="searchData.custNo" ng-change="changeCust();" ng-disabled="uploading">
+                  <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+                </select>
+              </small>
+            </h1>
+
+            <!-- <h1 class="content-title-1 content-title-condensed"><img src="../../img/fast_money.png" alt="">企业认证</h1> -->
+            <ul id="nav_tabs"  class="nav nav-tabs plus-nav-tabs-init" ng-hide="uploading">
+              <li class="active"><a href="#basic_info_tab" ng-click="switchTab($event)">基本信息</a></li>
+              <li><a href="#factor_info_agency_tab" ng-click="switchTab($event)">保理融资申请材料 (企业)</a></li>
+              <li><a href="#factor_info_person_tab" ng-click="switchTab($event)">保理融资申请材料 (个人)</a></li>
+              <li><a href="#fund_info_tab" ng-click="switchTab($event)">基金申请材料</a></li>
+            </ul>
+
+            <div id="file_upload_box" class="div-center div-width-100 top-box tab-content plus-nav-tabs-content">
+
+                <!--基本信息 Tab start-->
+                <div id="basic_info_tab" class="tab-pane fade active in">
+                  <!-- 企业有效营业执照 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >企业有效营业执照(或民政部门注册登记证书)
+                        <span ng-bind="uploadList.bizLicenseFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td>
+                        <button class="btn btn-info upload_btn" ng-show="itemUpload('bizLicenseFile',true)"  ng-click="openUpload($event,'bizLicenseFile','企业有效营业执照(或民政部门注册登记证书)')">+上传
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.bizLicenseFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}" download>下载</a> 
+                          <a href="#" ng-show="uploadList.bizLicenseFile.status==0 || uploadList.bizLicenseFile.status==9" ng-click="removeUpload(item,'bizLicenseFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 企业有效营业执照 end-->
+
+
+                  <!-- 企业组织机构代码证 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >企业组织机构代码证
+                        <span ng-bind="uploadList.orgCodeFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('orgCodeFile',true)"  ng-click="openUpload($event,'orgCodeFile','企业组织机构代码证')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.orgCodeFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.orgCodeFile.status==0 || uploadList.orgCodeFile.status==9" ng-click="removeUpload(item,'orgCodeFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 企业组织机构代码证 end-->
+
+
+                  <!-- 法定代表人身份证件 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >法定代表人身份证件
+                        <span ng-bind="uploadList.representIdFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('representIdFile',true)"  ng-click="openUpload($event,'representIdFile','法定代表人身份证件')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.representIdFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.representIdFile.status==0 || uploadList.representIdFile.status==9" ng-click="removeUpload(item,'representIdFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 法定代表人身份证件 end-->
+
+
+                   <!-- 企业税务登记证 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >企业税务登记证
+                        <span ng-bind="uploadList.taxRegistFile.status | kindf:'CompanyCertStatus'"></span> 
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('taxRegistFile',true)"  ng-click="openUpload($event,'taxRegistFile','企业税务登记证')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.taxRegistFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.taxRegistFile.status==0 || uploadList.taxRegistFile.status==9" ng-click="removeUpload(item,'taxRegistFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 企业税务登记证 end-->
+
+
+                  <!-- 银行开户确认文件 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >银行开户确认文件
+                        <span ng-bind="uploadList.bankAcctAckFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('bankAcctAckFile',true)"  ng-click="openUpload($event,'bankAcctAckFile','银行开户确认文件')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.bankAcctAckFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.bankAcctAckFile.status==0 || uploadList.bankAcctAckFile.status==9" ng-click="removeUpload(item,'bankAcctAckFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 银行开户确认文件 end-->
+
+
+                  <!-- 经办人身份证件 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >经办人身份证件
+                        <span ng-bind="uploadList.brokerIdFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('brokerIdFile',true)"  ng-click="openUpload($event,'brokerIdFile','经办人身份证件')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.brokerIdFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.brokerIdFile.status==0 || uploadList.brokerIdFile.status==9" ng-click="removeUpload(item,'brokerIdFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 经办人身份证件 end-->
+
+                </div>
+                <!--基本信息 Tab end-->
+
+
+                <!--保理融资申请材料（机构） Tab start-->
+                <div id="factor_info_agency_tab" class="tab-pane fade in">
+
+                  
+
+
+                  
+
+                  <!-- 公司章程 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >公司章程
+                        <span ng-bind="uploadList.companyRule.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('companyRule',true)"  ng-click="openUpload($event,'companyRule','公司章程')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.companyRule.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.companyRule.status==0 || uploadList.companyRule.status==9" ng-click="removeUpload(item,'companyRule',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 公司章程 end-->
+
+                  <!-- 企业连续三期的财务报表 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >企业连续三期的财务报表
+                        <span ng-bind="uploadList.companyFinancialStatement.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('companyFinancialStatement',false)"  ng-click="openUpload($event,'companyFinancialStatement','企业连续三期的财务报表')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.companyFinancialStatement.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.companyFinancialStatement.status==0 || uploadList.companyFinancialStatement.status==9" ng-click="removeUpload(item,'companyFinancialStatement',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 企业连续三期的财务报表 end-->
+
+                  <!-- 企业征信报告 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >企业征信报告
+                        <span ng-bind="uploadList.companyCreditReport.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('companyCreditReport',true)"  ng-click="openUpload($event,'companyCreditReport','企业征信报告')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.companyCreditReport.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.companyCreditReport.status==0 || uploadList.companyCreditReport.status==9" ng-click="removeUpload(item,'companyCreditReport',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 企业征信报告 end-->
+
+
+                  <!-- 企业纳税证明 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >企业纳税证明
+                        <span ng-bind="uploadList.companyTaxCertificate.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('companyTaxCertificate',true)"  ng-click="openUpload($event,'companyTaxCertificate','企业纳税证明')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.companyTaxCertificate.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.companyTaxCertificate.status==0 || uploadList.companyTaxCertificate.status==9" ng-click="removeUpload(item,'companyTaxCertificate',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 企业纳税证明 end-->
+
+
+
+                  
+
+                 
+                  <!-- 合同电子印章 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >合同电子印章
+                        <span ng-bind="uploadList.signStampFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('signStampFile',true)"  ng-click="openUpload($event,'signStampFile','合同电子印章')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.signStampFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.signStampFile.status==0 || uploadList.signStampFile.status==9" ng-click="removeUpload(item,'signStampFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 合同电子印章 end-->
+
+                  
+
+                  <!-- 实景图 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >企业（店）实景
+                          <span ng-bind="uploadList.officeSiteFile.status | kindf:'CompanyCertStatus'"></span>
+                          </td>
+                          <td><button class="btn btn-info upload_btn" ng-show="itemUpload('officeSiteFile',false)" ng-click="openUpload($event,'officeSiteFile','企业（店）实景')">+上传</button>
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody> 
+                      <tr ng-repeat="item in uploadList.officeSiteFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <!-- <td>实景图片</td> -->
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a>
+                          <a href="#" ng-show="uploadList.officeSiteFile.status==0 || uploadList.officeSiteFile.status==9" ng-repeat-end ng-click="removeUpload(item,'officeSiteFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 实景图 end-->
+
+
+                  <!-- 交易账单 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >交易账单
+                        <span ng-bind="uploadList.orderFlowFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('orderFlowFile',false)"  ng-click="openUpload($event,'orderFlowFile','交易账单')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.orderFlowFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.orderFlowFile.status==0 || uploadList.orderFlowFile.status==9" ng-click="removeUpload(item,'orderFlowFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 交易账单 end-->
+
+
+                  <!-- 银行流水 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >企业银行流水
+                        <span ng-bind="uploadList.bankFlowFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('bankFlowFile',false)"  ng-click="openUpload($event,'bankFlowFile','银行流水')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.bankFlowFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.bankFlowFile.status==0 || uploadList.bankFlowFile.status==9" ng-click="removeUpload(item,'bankFlowFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 银行流水 end-->
+
+
+                  <!-- 应收账款明细 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >应收账款明细
+                        <span ng-bind="uploadList.accountsReceivableDetailFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('accountsReceivableDetailFile',false)"  ng-click="openUpload($event,'accountsReceivableDetailFile','应收账款明细')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.accountsReceivableDetailFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.accountsReceivableDetailFile.status==0 || uploadList.accountsReceivableDetailFile.status==9" ng-click="removeUpload(item,'accountsReceivableDetailFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 应收账款明细 end-->
+
+
+
+
+                  <!-- 资产证明文件 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >资产证明文件
+                        <span ng-bind="uploadList.proveAssetsFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('proveAssetsFile',true)"  ng-click="openUpload($event,'proveAssetsFile','资产证明文件')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.proveAssetsFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.proveAssetsFile.status==0 || uploadList.proveAssetsFile.status==9" ng-click="removeUpload(item,'proveAssetsFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 资产证明文件 end-->
+
+
+                  <!-- 董事或股东决议文件 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >董事或股东决议文件
+                        <span ng-bind="uploadList.shareholderResolutionFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('shareholderResolutionFile',true)"  ng-click="openUpload($event,'shareholderResolutionFile','董事或股东决议文件')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.shareholderResolutionFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.shareholderResolutionFile.status==0 || uploadList.shareholderResolutionFile.status==9" ng-click="removeUpload(item,'shareholderResolutionFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 董事或股东决议文件 end-->
+
+
+                  
+                  <!-- 验资报告 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >验资报告
+                        <span ng-bind="uploadList.capitalReportFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('capitalReportFile',true)"  ng-click="openUpload($event,'capitalReportFile','验资报告')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.capitalReportFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.capitalReportFile.status==0 || uploadList.capitalReportFile.status==9" ng-click="removeUpload(item,'capitalReportFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 验资报告 end-->
+
+                </div>
+                <!--保理融资申请材料（机构） Tab end-->
+
+
+                <!--保理融资申请材料（个人） Tab start-->
+                <div id="factor_info_person_tab" class="tab-pane fade in">
+                  <!-- 实际控制人身份证 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >实际控制人身份证
+                        <span ng-bind="uploadList.controllerldFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('controllerldFile',true)"  ng-click="openUpload($event,'controllerldFile','实际控制人身份证')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.controllerldFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.controllerldFile.status==0 || uploadList.controllerldFile.status==9" ng-click="removeUpload(item,'controllerldFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 实际控制人身份证 end-->
+
+                  <!-- 法人/实际控制人主要银行账户流水 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >法人/实际控制人主要银行账户流水
+                        <span ng-bind="uploadList.corporationBankAccountFlow.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('corporationBankAccountFlow',false)"  ng-click="openUpload($event,'corporationBankAccountFlow','法人/实际控制人主要银行账户流水')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.corporationBankAccountFlow.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.corporationBankAccountFlow.status==0 || uploadList.corporationBankAccountFlow.status==9" ng-click="removeUpload(item,'corporationBankAccountFlow',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 法人/实际控制人主要银行账户流水 end-->
+
+
+                  <!-- 法人授权办理保理业务委托书 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >法人授权办理保理业务委托书
+                        <span ng-bind="uploadList.corporationAuthorizeLetter.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('corporationAuthorizeLetter',true)"  ng-click="openUpload($event,'corporationAuthorizeLetter','法人授权办理保理业务委托书')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.corporationAuthorizeLetter.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.corporationAuthorizeLetter.status==0 || uploadList.corporationAuthorizeLetter.status==9" ng-click="removeUpload(item,'corporationAuthorizeLetter',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 法人授权办理保理业务委托书 end-->
+
+                  <!-- 法人或实际控制人征信报告 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >法人或实际控制人征信报告
+                        <span ng-bind="uploadList.corporationCreditReport.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('corporationCreditReport',true)"  ng-click="openUpload($event,'corporationCreditReport','法人或实际控制人征信报告')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.corporationCreditReport.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.corporationCreditReport.status==0 || uploadList.corporationCreditReport.status==9" ng-click="removeUpload(item,'corporationCreditReport',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 法人或实际控制人征信报告 end-->
+
+
+                  <!-- 法人证明书 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >法人证明书
+                        <span ng-bind="uploadList.corporationCertificate.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('corporationCertificate',true)"  ng-click="openUpload($event,'corporationCertificate','法人证明书')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.corporationCertificate.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.corporationCertificate.status==0 || uploadList.corporationCertificate.status==9" ng-click="removeUpload(item,'corporationCertificate',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 法人证明书 end-->
+
+
+                  <!-- 法人或实际控制人配偶身份证 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >法人或实际控制人配偶身份证
+                        <span ng-bind="uploadList.coupleIdFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('coupleIdFile',true)"  ng-click="openUpload($event,'coupleIdFile','法人或实际控制人配偶身份证')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.coupleIdFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.coupleIdFile.status==0 || uploadList.coupleIdFile.status==9" ng-click="removeUpload(item,'coupleIdFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 法人或实际控制人配偶身份证 end-->
+
+                  <!-- 沃通电子合同签署授权书 start-->
+                  <table class="table table-striped table-hover table-bordered upload_list_table">
+                    <thead>
+                      <tr>
+                        <td width ="70%" >沃通电子合同签署授权书
+                        <span ng-bind="uploadList.signCertificateFile.status | kindf:'CompanyCertStatus'"></span>
+                        </td>
+                        <td><button class="btn btn-info upload_btn" ng-show="itemUpload('signCertificateFile',true)"  ng-click="openUpload($event,'signCertificateFile','沃通电子合同签署授权书')">+上传</button></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in uploadList.signCertificateFile.list" ng-repeat-end ng-class="{even:$even}">
+                        <td ng-bind="item.fileName"></td>
+                        <td width="30%" class="modi-upload-btn">
+                          <a href="{{item.id|downf}}">下载</a> 
+                          <a href="#" ng-show="uploadList.signCertificateFile.status==0 || uploadList.signCertificateFile.status==9" ng-click="removeUpload(item,'signCertificateFile',$event);">删除</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 沃通电子合同签署授权书 end-->
+
+                </div>
+                <!--保理融资申请材料（个人） Tab end-->
+
+
+                <!-- 基金相关材料 Tab start -->
+                <div id="fund_info_tab" class="tab-pane fade in">
+
+
+                    <!-- 授权书 start-->
+                    <table class="table table-striped table-hover table-bordered upload_list_table">
+                      <thead>
+                        <tr>
+                          <td width ="70%" >授权书
+                          <span ng-bind="uploadList.authorizeFile.status | kindf:'CompanyCertStatus'"></span>
+                          </td>
+                          <td><button class="btn btn-info upload_btn" ng-show="itemUpload('authorizeFile',true)"  ng-click="openUpload($event,'authorizeFile','授权书')">+上传</button></td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="item in uploadList.authorizeFile.list" ng-repeat-end ng-class="{even:$even}">
+                          <td ng-bind="item.fileName"></td>
+                          <td width="30%" class="modi-upload-btn">
+                            <a href="{{item.id|downf}}">下载</a> 
+                            <a href="#" ng-show="uploadList.authorizeFile.status==0 || uploadList.authorizeFile.status==9" ng-click="removeUpload(item,'authorizeFile',$event);">删除</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- 授权书 end-->
+
+
+                    <!-- 服务协议 start-->
+                    <table class="table table-striped table-hover table-bordered upload_list_table">
+                      <thead>
+                        <tr>
+                          <td width ="70%" >服务协议
+                          <span ng-bind="uploadList.serviceContractFile.status | kindf:'CompanyCertStatus'"></span>
+                          </td>
+                          <td><button class="btn btn-info upload_btn" ng-show="itemUpload('serviceContractFile',true)"  ng-click="openUpload($event,'serviceContractFile','服务协议')">+上传</button></td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="item in uploadList.serviceContractFile.list" ng-repeat-end ng-class="{even:$even}">
+                          <td ng-bind="item.fileName"></td>
+                          <td width="30%" class="modi-upload-btn">
+                            <a href="{{item.id|downf}}">下载</a> 
+                            <a href="#" ng-show="uploadList.serviceContractFile.status==0 || uploadList.serviceContractFile.status==9" ng-click="removeUpload(item,'serviceContractFile',$event);">删除</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- 服务协议 end-->
+
+
+                </div>
+                <!-- 基金相关材料 Tab end -->
+
+
+                <!-- 上传下拉框 -->
+                <div bt-upload conf="uploadConf" ></div>
+                <!-- 上传下拉框  end -->
+
+                <div  class="center-buttons" ng-show="!uploadComplete">
+                    <button  class="btn btn-primary" ng-click="submitCertificate($event.target);">确定认证</button>
+                </div>
+
+                <div  class="alert alert-success" ng-show="uploadComplete">
+                  认证所需文件已全部上传。
+                </div>
+
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+        <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+    <![endif]-->
+    <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("../../provider_dev/src/companyCertificate");
+      }
+      // For production
+      else {
+        seajs.use("scf/provider/1.0.0/companyCertificate");
+      } 
+    </script>
+
+	
+</body>
+</html>

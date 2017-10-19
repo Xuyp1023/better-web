@@ -1,0 +1,182 @@
+<div class="row-fluid detail-info div-center">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">银行保理融资申请详情
+                    </h1>
+    <table class="table table-striped table-bordered table-hover">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">基本信息</span>
+      </caption>
+      <tbody>
+        <tr>
+          <td width="20%">申请编号:</td>
+          <td width="30%" class="div-text-left" class="red"><span ng-bind="info.requestNo"></span></td>
+          <td width="20%">融资编号:</td>
+          <td width="30%" class="div-text-left"><span ng-bind="info.requestNo"></span></td>
+        </tr>
+        <tr>
+          <td>申请企业:</td>
+          <td class="div-text-left"><span ng-bind="info.custName"></span></td>
+          <td>收款账号:</td>
+          <td class="div-text-left"><span ng-bind="info.custBankAccount"></span></td>
+        </tr>
+        <tr>
+          <td>开户名称:</td>
+          <td class="div-text-left"><span ng-bind="info.custBankAccountName"></span></td>
+          <td>开户银行:</td>
+          <td class="div-text-left">
+            <span ng-bind="info.custBankName">
+          </td>
+        </tr> 
+        <tr>
+          <td>融资银行:</td>
+          <td class="div-text-left"><span ng-bind="info.factoryName"></span></td>
+          <td>核心企业:</td>
+          <td class="div-text-left">
+            <span ng-bind="info.coreCustName"></span>
+          </td>
+        </tr>
+        <tr>          
+          <td>业务类型:</td>
+          <td class="div-text-left">
+            应收账款保理
+          </td>
+          <td>当前状态:</td>
+          <td class="div-text-left"><span ng-bind="info.businStatus|kindf:'ReceivbaleRequestModeFourStatus' "></span></td>
+        </tr>                     
+      </tbody>
+    </table>
+
+    <!-- 应收账款 -->
+    <table id="list_table_1" class="table table-striped table-hover table-bordered">
+        <caption class="table-caption table-caption-green clearFix">
+          <span class="title-left">应收账款</span>          
+        </caption>
+        <thead>
+          <tr class="result-head-gray">
+            <td width="10%">凭证编号</td>
+            <td width="15%">账款编号</td>
+            <td width="15%">账款金额</td>
+            <td width="15%">账款余额</td>
+            <td width="15%">结算日期</td>
+            <td width="10%">发票号</td>              
+            <td width="20%">贸易合同号</td>       
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in assetInfo.basedataMap.receivableList" ng-repeat-end="" ng-class="{even:$even}" class="ng-scope">
+            <td class="ng-binding" ng-bind="item.refNo"></td>
+            <td ng-bind="item.receivableNo" class="ng-binding"></td>
+            <td ng-bind="item.balance |moneyFilter" class="ng-binding"></td>
+            <td ng-bind="item.surplusBalance |moneyFilter" class="ng-binding"></td>
+            <td ng-bind="item.endDate" class="ng-binding"></td>
+            <td ng-bind="item.invoiceNos" class="ng-binding"></td>             
+            <td ng-bind="item.agreeNo"></td>       
+         </tr>           
+        </tbody>
+     </table>
+
+    <!-- 贸易合同 -->
+    <table id="list_table_2" class="table table-striped table-hover table-bordered">
+        <caption class="table-caption table-caption-green clearFix">
+          <span class="title-left">贸易合同</span>
+          
+        </caption>
+        <thead>
+          <tr class="result-head-gray">
+            <td width="15%">凭证编号</td>
+            <td width="15%">合同编号</td>
+            <td width="15%">合同名称</td>
+            <td width="15%">合同金额</td>
+            <td width="20%">签订日期</td>
+            <td width="20%">到期日期</td>         
+                      
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in assetInfo.basedataMap.agreementList" ng-repeat-end="" ng-class="{even:$even}" class="ng-scope">
+            <td class="ng-binding" ng-bind="item.refNo"></td>
+            <td ng-bind="item.agreeNo" class="ng-binding"></td>
+            <td ng-bind="item.agreeName" class="ng-binding"></td>
+            <td ng-bind="item.balance |moneyFilter" class="ng-binding"></td>
+            <td ng-bind="item.signDate" class="ng-binding"></td>
+            <td ng-bind="item.agreeEndDate" class="ng-binding"></td>         
+         </tr>           
+        </tbody>
+     </table>  
+
+       <!-- 发票清单 -->
+    <table id="list_table_3" class="table table-striped table-hover table-bordered" >
+        <caption class="table-caption table-caption-green clearFix">
+          <span class="title-left">发票清单</span>          
+        </caption>
+        <thead>
+          <tr class="result-head-gray">
+            <td width="20%">凭证编号</td>
+            <td width="20%">发票号码</td>
+            <td width="20%">发票代码</td>
+            <td width="20%">发票金额</td>
+            <td width="20%">开票日期</td>         
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in assetInfo.basedataMap.invoiceList" ng-repeat-end="" ng-class="{even:$even}" class="ng-scope">
+            <td class="ng-binding" ng-bind="item.refNo"></td>
+            <td ng-bind="item.invoiceCode" class="ng-binding"></td>
+            <td ng-bind="item.balance |moneyFilter" class="ng-binding"></td>
+            <td ng-bind="item.invoiceDate" class="ng-binding"></td>         
+            <td ng-bind="item.invoiceDate" class="ng-binding"></td>       
+         </tr>           
+        </tbody>
+     </table>
+
+      <!-- 融资需求 -->
+  <table class="table table-striped table-bordered table-hover">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">融资需求</span>
+      </caption>
+      <tbody>
+        <tr>
+          <td width="20%">当前资产总额(元):</td>
+          <td width="30%" class="div-text-left">
+            <span ng-bind="info.balance | moneyFilter"></span>            
+            <!-- <input type="text" ng-model="info.totalBalance" disabled> -->
+          </td>
+          <td width="20%">当前授信剩余(元):</td>
+          <td width="30%" class="div-text-left"> 
+            <span ng-bind="info.creditBalance | moneyFilter"></span>         
+            <!-- <input type="text" ng-model="info.creditBalance" disabled> -->
+          </td>
+        </tr>
+        <tr>
+          <td>申请融资金额(元):</td>
+          <td class="div-text-left">
+            <span ng-bind="info.requestBalance | moneyFilter"></span>  
+            <!-- <input type="text" ng-model="info.balance" disabled> -->
+          </td>
+          <td>金额大写:</td>
+          <td class="div-text-left"><span ng-bind="info.requestBalance|moneybigf"></span></td>
+        </tr>
+        <tr>
+          <td>申请融资期限:</td>
+          <td class="div-text-left double_box">
+            <span ng-bind="info.requestPayDate"></span>
+            <!-- <input type="text" ng-model="info.period" style="display:inline-block;width:67% !important" disabled>            
+            <select name="" id="" ng-model="info.periodUnit" style="width:25% !important;float:right" disabled>
+                <option ng-repeat="unit in periodUnits" ng-option-filter value="{{unit.value}}" ng-bind="unit.name" ng-selected="info.periodUnit==unit.value"></option>
+            </select> -->
+          </td>
+          <td colspan="2" ><span style="float:right">提示:是否核准融资及最终金额由保理公司确认！</span></td>          
+        </tr> 
+
+        <tr>
+          <td>备注:</td>
+          <td class="div-text-left" colspan="3">
+            <textarea ng-model="info.description" disabled></textarea>
+          </td>
+          
+        </tr>                     
+      </tbody>
+    </table>
+    <div class="center-buttons">
+      <button class="btn btn-primary" bt-close-modal>返回</button>        
+    </div>    
+</div>

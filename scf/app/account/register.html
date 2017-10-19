@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>注册</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf/css/register.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/fast_money.png" alt="">注册</h1>
+
+            <form action="#" id="register_form" class="div-width-100">
+            <input type="hidden" name="custType" value="1"> 
+            <input type="hidden" name="identType" value="1"> 
+
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="30%"><span class="required">*</span>公司名称:</td>
+                <td width="70%" class="div-text-left">
+                <input type="text" name="custName" valid="{'required':true}">
+                </td>
+              </tr> 
+              <tr>
+                <td><span class="required">*</span>营业执照:</td>
+                <td class="div-text-left">
+                <input type="text" name="identNo" valid="{'required':true}">
+                </td>
+              </tr>
+              <tr>
+                <td><span class="required">*</span>银行账号:</td>
+                <td class="div-text-left">
+                <input type="text" name="bankAccount" valid="{'required':true}">
+                </td>
+              </tr>
+              <tr>
+                <td><span class="required">*</span>账户名称:</td>
+                <td class="div-text-left">
+                <input type="text" name="bankAcountName" valid="{'required':true}">
+                </td>
+              </tr> 
+              <tr>
+                <td><span class="required">*</span>经办人名字:</td>
+                <td class="div-text-left">
+                <input type="text" name="contName" valid="{'required':true}">
+                </td>
+              </tr>
+              <tr>
+                <td><span class="required">*</span>经办人联系电话:</td>
+                <td class="div-text-left">
+                <input type="text" name="contMobileNo" valid="{'required':true}">
+                </td>
+              </tr>
+              <tr>
+                <td><span class="required">*</span>经办人邮箱:</td>
+                <td class="div-text-left">
+                <input type="text" name="contEmail" valid="{'required':true}">
+                </td>
+              </tr>
+              <tr>
+                <td>留言:</td>
+                <td class="div-text-left">
+               <textarea  name="description"></textarea>
+                </td>
+              </tr>
+              
+            </table>
+            </form>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" id="register_btn" ng-click="register($event);" >注册</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+          
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("../../provider_dev/src/register");
+      }
+      // For production
+      else {
+        seajs.use("p/provider/1.0.0/register");
+      } 
+  </script>
+  </body>
+</html>

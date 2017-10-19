@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>融资管理</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/supplier/inquiry/financeManage.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center"> 
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+
+          <!-- 查询区 -->
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">融资查询</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="30%">当前机构:</td>
+                <td class="div-text-left">
+                  <select name="custNo" id="" ng-model="searchData.custNo">
+                    <option ng-repeat="item in supplierList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo==item.value"></option>
+                </select>
+                </td>
+              </tr>
+              <tr>
+                <td width="30%">保理公司:</td>
+                <td class="div-text-left">
+                  <select name="factorNo" id="" ng-model="searchData.factorNo" ng-change="searchProduct();">
+                    <option value="">--全部--</option>
+                        <option ng-repeat="factor in factorList" ng-option-filter value="{{factor.value}}" ng-bind="factor.name" ng-selected="searchData.factorNo==factor.value"></option>
+                    </select>
+                </td>
+              </tr>
+              <tr>
+                <td width="30%">核心企业:</td>
+                <td class="div-text-left">
+                  <select name="coreCustNo" id="" ng-model="searchData.coreCustNo" ng-change="searchProduct();">
+                    <option value="">--全部--</option>
+                    <option ng-repeat="core in coreCustList" ng-option-filter value="{{core.value}}" ng-bind="core.name" ng-selected="searchData.coreCustNo==core.value"></option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>申请日期:</td>
+                <td class="div-text-left date">
+                   <input type="text" id="start_date" bt-date="searchData.GTEactualDate" bt-max-date="end_date"> - 
+                   <input type="text" id="end_date" bt-date="searchData.LTEactualDate" bt-min-date="start_date">
+                </td>
+              </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="searchList(true);">查询</button>
+            </div>
+          </div>
+          
+
+
+          <!-- 查询结果区 -->
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              融资列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr>
+                  <td class="modi-group" colspan="10">
+                    <button class="btn btn-info" ng-click="showAddBox();">融资申请</button>
+                  </td>
+                </tr>
+                <tr class="result-head">
+                  <td width="10%">融资申请号</td>
+                  <td width="15%">核心企业</td>
+                  <td width="15%">金融机构</td>
+                  <td width="10%">商业票据</td>
+                  <td width="10%">类型</td>
+                  <td width="12%">票据金额</td>
+                  <td width="10%">申请日期</td>
+                  <td width="10%">申请金额</td>
+                  <td width="8%">状态</td>
+                  <!-- <td width="8%">操作</td> -->
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-repeat="apply in applyList" ng-repeat-end ng-class="{even:$even}">
+                  <td ng-bind="apply.request.requestNo"></td>
+                  <td class="red" ng-bind="apply.request.coreCustName"></td>
+                  <td class="red" ng-bind="apply.request.factorName"></td>
+                  <td ng-bind="apply.bill.billNo"></td>
+                  <td ng-bind="apply.bill.billType | kindf:'BillNoteType'"></td>
+                  <td class="red tab-text-right" ng-bind="apply.bill.balance | moneyFilter"></td>
+                  <td ng-bind="apply.request.requestDate"></td>
+                  <td class="tab-text-right" ng-bind="apply.request.balance | moneyFilter"></td>
+                  <td class="red" ng-bind="apply.request.tradeStatus | kindf:'FinanceReqStatus'"></td>
+                  <!-- <td>
+                       <a href="javascript:void(0);" ng-click="showDetailBox(apply)">查看</a> 
+                       <a href="javascript:void(0);" ng-click="showUpdateBox(apply)">资料补充</a> 
+                  </td> -->
+                </tr>
+              </tbody>
+              <tfoot>
+                <td colspan="11">
+                  <div bt-pagination conf="pageConf" func="queryList(false);"></div>
+                </td>
+              </tfoot>
+            </table>
+          </div>
+        
+        <!-- 融资申请-->
+        <div id="add_box" bt-roll-modal="temp/addFinanceApply.html" bt-z-index="9991"></div>
+        <!-- 完善资料 -->
+        <!-- <div id="edit_box" bt-roll-modal="temp/editFinanceApply.html" bt-z-index="9991"></div> -->
+
+        <!-- 产品详情 -->
+        <div id="product_detail_box" bt-roll-modal="temp/productDetail.html" bt-z-index="9993"></div>
+
+        <!-- 票据详情 -->
+        <div id="proof_draft_detail_box" bt-roll-modal="../../commonTemp/draftDetailShow.html" bt-z-index="9993"></div>
+
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+  
+
+
+
+
+	<!-- 引用js文件 -->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/supplier/inquiry/financeManage");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/supplier/inquiry/financeManage");
+      } 
+  </script>
+  </body>
+</html>

@@ -1,0 +1,561 @@
+@charset "UTF-8";
+/* 开户页面样式文件 */
+/**
+*项目基础文件、公用组件样式文件
+*/
+/* IE兼容配置 */
+/* line 9, ../sass/common/base.scss */
+#container {
+  width: 900px;
+  padding-top: 10px; }
+
+/* line 16, ../sass/common/base.scss */
+.div-center {
+  margin-left: auto;
+  margin-right: auto; }
+
+/* line 115, ../sass/common/base.scss */
+.unchecked {
+  color: #A0A0A0 !important; }
+
+/* line 119, ../sass/common/base.scss */
+.checkbox-left-sp, .checkbox-right-sp {
+  cursor: pointer; }
+
+/* line 123, ../sass/common/base.scss */
+input[type="checkbox"] {
+  margin-top: 0; }
+
+/**
+*bootstrap自定义增强文件
+*/
+/**
+*bootstrap中IE兼容区域
+*/
+/* 提示工具条的样式插件 */
+/* line 6, ../sass/common/tooltip.scss */
+.tipbar-wrap {
+  min-width: 100px;
+  min-height: 16px;
+  line-height: 16px;
+  padding: 6px;
+  color: #8c3901;
+  display: block;
+  font-family: 'trebuchet ms', arial, helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  border: 1px solid #A7A7A7;
+  background-color: #FEF9D9;
+  border-radius: 8px;
+  position: absolute;
+  left: 30px;
+  top: 10px;
+  behavior: url(../../css/common/pie/PIE.htc);
+  z-index: 500; }
+
+/* line 25, ../sass/common/tooltip.scss */
+.tipbar-wrap-arrow {
+  width: 10px;
+  height: 20px;
+  background: transparent url(../img/tip-yellow_arrows.png) no-repeat -49px 0;
+  position: absolute;
+  left: -8px;
+  top: 6px;
+  z-index: 9998; }
+
+/* line 35, ../sass/common/tooltip.scss */
+.tipbar-wrap-arrow-top {
+  width: 20px;
+  height: 10px;
+  background: transparent url(../img/tip-yellow_arrows.png) no-repeat -29px 0;
+  position: absolute;
+  left: 20px;
+  bottom: -10px;
+  z-index: 9998; }
+
+/* line 45, ../sass/common/tooltip.scss */
+.tipbar-wrap-arrow-left {
+  width: 10px;
+  height: 20px;
+  background: transparent url(../img/tip-yellow_arrows.png) no-repeat -20px 0;
+  position: absolute;
+  right: -10px;
+  top: 6px;
+  z-index: 9998; }
+
+/* line 26, ../sass/common/base.scss */
+#container a:hover {
+  text-decoration: none;
+  color: #f14e32; }
+/* line 30, ../sass/common/base.scss */
+#container a:visited {
+  text-decoration: none; }
+/* line 33, ../sass/common/base.scss */
+#container a:focus {
+  text-decoration: none; }
+/* line 38, ../sass/common/base.scss */
+#container .div-center {
+  margin-left: auto;
+  margin-right: auto; }
+/* line 46, ../sass/common/base.scss */
+#container .clearFix:after {
+  display: block;
+  content: ' ';
+  clear: both;
+  zoom: 1;
+  width: 0;
+  height: 0; }
+/* line 56, ../sass/common/base.scss */
+#container .red {
+  color: red; }
+/* line 59, ../sass/common/base.scss */
+#container .green {
+  color: green; }
+/* line 62, ../sass/common/base.scss */
+#container .deep-gray {
+  color: #888889; }
+/* line 65, ../sass/common/base.scss */
+#container .required {
+  color: red !important;
+  margin-right: 3px; }
+/* line 70, ../sass/common/base.scss */
+#container input[readonly].Wdate {
+  cursor: pointer; }
+/* line 74, ../sass/common/base.scss */
+#container #error_info_box {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  z-index: 9999;
+  background: #EFEEEF;
+  opacity: 0.9;
+  filter: Alpha(Opacity=90); }
+  /* line 82, ../sass/common/base.scss */
+  #container #error_info_box .alert {
+    margin-top: 300px; }
+    /* line 84, ../sass/common/base.scss */
+    #container #error_info_box .alert p {
+      text-align: center;
+      margin-bottom: 0; }
+  /* line 89, ../sass/common/base.scss */
+  #container #error_info_box * {
+    opacity: 1;
+    filter: Alpha(Opacity=100); }
+/* line 325, ../sass/common/base.scss */
+#container input[type="text"], #container input[type="password"], #container textarea, #container select {
+  border: 1px solid #248AC9; }
+/* line 328, ../sass/common/base.scss */
+#container input[type="checkbox"] {
+  border: 0; }
+/* line 336, ../sass/common/base.scss */
+#container .line-checkbox {
+  width: 80%;
+  height: 25px;
+  line-height: 25px;
+  font-size: 12px;
+  margin-top: 10px; }
+  /* line 342, ../sass/common/base.scss */
+  #container .line-checkbox input {
+    margin-right: 6%;
+    *margin-right: 3%;
+    margin-top: 0; }
+  /* line 167, ../sass/common/base.scss */
+  #container .line-checkbox .input-underline {
+    border: 0;
+    border-bottom: 1px solid #248AC9;
+    width: 10%;
+    border-radius: 0;
+    background-color: transparent;
+    margin-left: 5px; }
+    /* line 174, ../sass/common/base.scss */
+    #container .line-checkbox .input-underline:focus {
+      box-shadow: 0; }
+/* line 353, ../sass/common/base.scss */
+#container .td-line-checkbox {
+  width: 98%;
+  height: 25px;
+  line-height: 25px;
+  font-size: 12px;
+  padding-left: 1%; }
+  /* line 359, ../sass/common/base.scss */
+  #container .td-line-checkbox input {
+    margin-right: 5%;
+    *margin-right: 3%;
+    margin-top: 0; }
+  /* line 167, ../sass/common/base.scss */
+  #container .td-line-checkbox .input-underline {
+    border: 0;
+    border-bottom: 1px solid #248AC9;
+    width: 10%;
+    border-radius: 0;
+    background-color: transparent;
+    margin-left: 5px; }
+    /* line 174, ../sass/common/base.scss */
+    #container .td-line-checkbox .input-underline:focus {
+      box-shadow: 0; }
+/* line 370, ../sass/common/base.scss */
+#container .control-group {
+  cursor: pointer; }
+  /* line 372, ../sass/common/base.scss */
+  #container .control-group:hover {
+    cursor: pointer; }
+/* line 182, ../sass/common/base.scss */
+#container .div-width {
+  width: 100%; }
+/* line 185, ../sass/common/base.scss */
+#container .div-width-10 {
+  width: 10%; }
+/* line 188, ../sass/common/base.scss */
+#container .div-width-20 {
+  width: 20%; }
+/* line 191, ../sass/common/base.scss */
+#container .div-width-30 {
+  width: 30%; }
+/* line 194, ../sass/common/base.scss */
+#container .div-width-40 {
+  width: 40%; }
+/* line 197, ../sass/common/base.scss */
+#container .div-width-50 {
+  width: 50%; }
+/* line 200, ../sass/common/base.scss */
+#container .div-width-60 {
+  width: 60%; }
+/* line 203, ../sass/common/base.scss */
+#container .div-width-70 {
+  width: 70%; }
+/* line 206, ../sass/common/base.scss */
+#container .div-width-80 {
+  width: 80%; }
+/* line 209, ../sass/common/base.scss */
+#container .div-width-90 {
+  width: 90%; }
+/* line 212, ../sass/common/base.scss */
+#container .div-width-100 {
+  width: 100%; }
+@media screen\9 {
+  /* line 107, ../sass/common/bootstrapplus.scss */
+  #container .even {
+    background-color: #f4f4f4; } }
+@media screen\9 {
+  /* line 117, ../sass/common/bootstrapplus.scss */
+  #container input[type="text"], #container input[type="password"], #container textarea {
+    border: 1px solid #248AC9;
+    behavior: url(../../css/common/pie/PIE.htc);
+    position: relative;
+    z-index: 10; }
+    /* line 119, ../sass/common/bootstrapplus.scss */
+    #container input[type="text"]:hover, #container input[type="password"]:hover, #container textarea:hover {
+      box-shadow: #52D9EF 0px 0px 10px; } }
+
+/* line 9, ../sass/common/bootstrapplus.scss */
+#content .plus-nav-tabs-init {
+  width: 70%;
+  margin: 0;
+  padding-left: 30%;
+  background: transparent url(../img/bytter_skin.png) repeat 0 -298px; }
+  /* line 16, ../sass/common/bootstrapplus.scss */
+  #content .plus-nav-tabs-init li {
+    min-width: 14%;
+    text-align: center;
+    margin-left: 1%; }
+    /* line 20, ../sass/common/bootstrapplus.scss */
+    #content .plus-nav-tabs-init li a {
+      *min-width: 100px;
+      border-color: #eee #eee #ddd;
+      text-decoration: none;
+      background-color: #eee;
+      *padding-left: 1px;
+      *padding-right: 1px;
+      *margin-left: 0;
+      *margin-right: 0;
+      behavior: url(../../css/common/pie/PIE.htc);
+      position: relative;
+      z-index: 10; }
+      /* line 33, ../sass/common/bootstrapplus.scss */
+      #content .plus-nav-tabs-init li a:hover {
+        border: 1px solid transparent;
+        background-color: transparent;
+        color: #f14e32; }
+    /* line 41, ../sass/common/bootstrapplus.scss */
+    #content .plus-nav-tabs-init li.active a {
+      *min-width: 100px;
+      border-color: #dddddd;
+      text-decoration: none;
+      background-color: white;
+      border-bottom: 0;
+      position: relative;
+      z-index: 10;
+      bottom: -1px;
+      *zoom: 1;
+      behavior: url(../../css/common/pie/PIE.htc);
+      position: relative;
+      z-index: 10; }
+/* line 57, ../sass/common/bootstrapplus.scss */
+#content .plus-nav-tabs-content {
+  width: 100%; }
+  /* line 59, ../sass/common/bootstrapplus.scss */
+  #content .plus-nav-tabs-content > div {
+    width: 100%; }
+/* line 64, ../sass/common/bootstrapplus.scss */
+#content .tab-content {
+  overflow: hidden; }
+/* line 152, ../sass/common/base.scss */
+#content .center-buttons {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px; }
+  /* line 156, ../sass/common/base.scss */
+  #content .center-buttons button {
+    margin: 0 40px 0 20px; }
+  /* line 159, ../sass/common/base.scss */
+  #content .center-buttons .prev-step {
+    margin-left: 130px; }
+/* line 381, ../sass/common/base.scss */
+#content table td input[type="text"], #content table td input[type="password"], #content table td textarea {
+  width: 95%; }
+/* line 384, ../sass/common/base.scss */
+#content table td select {
+  width: 99%; }
+/* line 99, ../sass/common/base.scss */
+#content .double-check-sp {
+  display: inline-block;
+  width: 90%;
+  cursor: pointer;
+  border: 1px solid #D3D4D5;
+  border-radius: 5px;
+  behavior: url(../../css/common/pie/PIE.htc);
+  position: relative;
+  z-index: 10; }
+  /* line 105, ../sass/common/base.scss */
+  #content .double-check-sp.active {
+    border: 1px solid #54B6E5;
+    box-shadow: 0 0 10px #54B6E5;
+    *background-color: white; }
+/* line 392, ../sass/common/base.scss */
+#content table td {
+  text-align: center;
+  vertical-align: middle; }
+/* line 222, ../sass/common/base.scss */
+#content .content-title {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 25px;
+  padding-left: 15px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  background: transparent url(../img/bytter_skin.png) repeat-x 0 -264px; }
+  /* line 233, ../sass/common/base.scss */
+  #content .content-title.first {
+    margin-top: 10px; }
+/* line 238, ../sass/common/base.scss */
+#content .content-title-1 {
+  border-bottom-color: #d1d1d1;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  color: #8e7b62;
+  display: block;
+  font-family: 'microsoft yahei';
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  height: 70px;
+  line-height: 70px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  position: relative; }
+  /* line 260, ../sass/common/base.scss */
+  #content .content-title-1 img {
+    width: 37px;
+    height: 37px;
+    margin-right: 10px; }
+  /* line 265, ../sass/common/base.scss */
+  #content .content-title-1 small {
+    color: #D32349;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif; }
+  /* line 270, ../sass/common/base.scss */
+  #content .content-title-1 .plus-info-right {
+    color: #888889;
+    font-family: ' Arial, 宋体';
+    font-size: 16px;
+    *zoom: 1;
+    float: right;
+    *position: absolute;
+    *right: 0; }
+    /* line 278, ../sass/common/base.scss */
+    #content .content-title-1 .plus-info-right span {
+      color: #d32349;
+      display: inline;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px; }
+/* line 287, ../sass/common/base.scss */
+#content .content-title-condensed {
+  height: 50px;
+  line-height: 50px; }
+/* line 292, ../sass/common/base.scss */
+#content .content-title-noborder {
+  border: 0; }
+/* line 296, ../sass/common/base.scss */
+#content .content-first-title {
+  color: #837b62;
+  font-size: 24px;
+  height: 40px;
+  line-height: 40px;
+  font-family: "Microsoft Yahei"; }
+/* line 304, ../sass/common/base.scss */
+#content .content-banner-info {
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  font-family: "Microsoft Yahei"; }
+/* line 311, ../sass/common/base.scss */
+#content .content-split {
+  margin-top: 0; }
+/* line 426, ../sass/common/base.scss */
+#content .prepare-align {
+  text-align: left !important; }
+  /* line 428, ../sass/common/base.scss */
+  #content .prepare-align input {
+    margin-left: 0 !important; }
+/* line 27, ../sass/addAccount.scss */
+#content .tab-content {
+  position: relative;
+  overflow: hidden; }
+  /* line 30, ../sass/addAccount.scss */
+  #content .tab-content .tab-pane {
+    overflow: hidden; }
+
+/* line 36, ../sass/addAccount.scss */
+select {
+  background-color: transparent !important; }
+
+/* line 40, ../sass/addAccount.scss */
+#select_department {
+  text-align: left !important; }
+  /* line 42, ../sass/addAccount.scss */
+  #select_department .btn-group, #select_department input, #select_department .info {
+    margin-left: 2%;
+    *margin-left: 0.5%; }
+  /* line 46, ../sass/addAccount.scss */
+  #select_department .btn-group {
+    min-width: 16% !important; }
+  /* line 49, ../sass/addAccount.scss */
+  #select_department .info {
+    display: inline-block;
+    overflow: hidden;
+    border: 1px solid #d3d4d5;
+    border-radius: 5px;
+    padding: 4px;
+    vertical-align: middle;
+    height: 20px;
+    line-height: 20px;
+    width: 33%; }
+    /* line 59, ../sass/addAccount.scss */
+    #select_department .info span {
+      color: #0088cc; }
+
+/* line 65, ../sass/addAccount.scss */
+#select_comp {
+  *position: relative; }
+
+/* line 69, ../sass/addAccount.scss */
+#check_protocol_info {
+  float: right;
+  *position: absolute;
+  *right: 0; }
+  /* line 76, ../sass/addAccount.scss */
+  #check_protocol_info .dropdown-menu {
+    min-width: 120px; }
+
+/* line 81, ../sass/addAccount.scss */
+#reg_company_form, #set_password_form {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px; }
+
+/* line 92, ../sass/addAccount.scss */
+#finish_company_form .Wdate, #sign_agreement_table .Wdate {
+  width: 50% !important; }
+/* line 95, ../sass/addAccount.scss */
+#finish_company_form .double-check-sp, #sign_agreement_table .double-check-sp {
+  width: 25%;
+  margin-left: 2%;
+  padding: 4px 6px;
+  vertical-align: middle; }
+/* line 101, ../sass/addAccount.scss */
+#finish_company_form .department-name, #sign_agreement_table .department-name {
+  width: 60% !important; }
+
+/* line 107, ../sass/addAccount.scss */
+#crt_area_info select, .crt_area_info select {
+  width: 40% !important;
+  margin-left: 2%; }
+
+/* line 114, ../sass/addAccount.scss */
+#finish_crt .alert {
+  margin-top: 30px; }
+
+/* line 120, ../sass/addAccount.scss */
+#sign_agreement .checkCompanyFund {
+  cursor: pointer; }
+
+/* line 126, ../sass/addAccount.scss */
+#pre_see input, #pre_see select {
+  border: 0; }
+
+/* line 131, ../sass/addAccount.scss */
+#warm_prompt_box {
+  margin-top: 20px; }
+  /* line 401, ../sass/common/base.scss */
+  #warm_prompt_box .prompt-title {
+    border-bottom: 2px solid #248AC9;
+    margin: 3px 0 3px 0;
+    height: 35px;
+    line-height: 35px;
+    font-size: 18px;
+    font-weight: bold; }
+    /* line 408, ../sass/common/base.scss */
+    #warm_prompt_box .prompt-title .prompt-icon {
+      width: 20px;
+      height: 20px; }
+  /* line 413, ../sass/common/base.scss */
+  #warm_prompt_box .warm-prompt-content {
+    margin-top: 10px;
+    padding: 4px; }
+    /* line 416, ../sass/common/base.scss */
+    #warm_prompt_box .warm-prompt-content p {
+      color: #2da7e0;
+      font-family: 宋体;
+      font-size: 14px; }
+
+/* line 135, ../sass/addAccount.scss */
+#comp_info_box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  background: white; }
+  /* line 142, ../sass/addAccount.scss */
+  #comp_info_box .detail-box .content-title-1 {
+    border-bottom: 2px solid #248AC9; }
+  /* line 147, ../sass/addAccount.scss */
+  #comp_info_box .center-buttons .btn {
+    min-height: 20px !important; }
+  /* line 152, ../sass/addAccount.scss */
+  #comp_info_box table {
+    margin-top: 15px;
+    margin-bottom: 25px; }
+    /* line 155, ../sass/addAccount.scss */
+    #comp_info_box table thead td {
+      background-color: #dff0d8;
+      font-weight: bold;
+      color: #0088cc; }

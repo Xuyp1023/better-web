@@ -1,0 +1,47 @@
+<div id="container" class="container-fluid div-center">
+<div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed"><img src="img/operator.png" alt="">
+                        订单批量导入结果
+                        </h1>
+                   <table class="div-width-100 table table-striped table-hover search-result main-list">
+                    <thead>
+                <tr class="result-head">
+                  <td width="12%">凭证编号</td>
+                  <td width="12%">订单编号</td>
+                  <td width="12.5%">订单日期</td>
+                  <td width="13%">商品名称</td>
+                  <td width="13%">金额(元)</td>
+                  <td width="12.5%">订货商名称</td>
+                  <td width="12.5%">供应商名称</td>
+                </tr>
+              </thead>
+
+                <tbody>
+                  <tr ng-class="{even:$even}" ng-repeat="item in infoImportList" ng-repeat-end>
+                     <td ng-bind="item.refNo"></td>
+                     <td>
+                       <a href="javascript:void(0);" ng-Click="detailsBox(item)" ng-bind="item.orderNo"></a>
+                     </td>
+                     <td ng-bind="item.orderDate"></td>
+                     <td ng-bind="item.goodsName"></td>
+                     <td ng-bind="item.balance"></td>
+                     <td ng-bind="item.coreCustName"></td>
+                     <td ng-bind="item.custName"></td>
+                  </tr>
+               </tbody>
+                <tfoot>
+                  <td colspan="8">
+                     <div bt-pagination conf="listPage" func="queryList2(false);"></div>
+                  </td>
+                </tfoot>
+            </table>
+			</div>
+		</div>
+
+        <div class="center-buttons">
+          <button class="btn btn-primary" ng-click="quitbox();">返回</button>
+        </div>
+	</div>
+  </div>

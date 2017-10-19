@@ -1,0 +1,269 @@
+<div class="div-width-90 detail-box div-center">
+	<!-- 应收账款基本信息 -->
+	<div id="" class="row-fluid">
+		<h1 class="content-title-1 content-title-condensed content-title-blue"><img ng-src="{{'/scf2/img/operator.png'|urlf}}" alt="">应收账款信息详情</h1>
+		<form action="" id="" class="form-horizontal">
+			<div class="div-center div-width div-margin-top">
+				<table class="table table-striped table-bordered table-hover">
+				  	<caption class="table-caption table-caption-green clearFix">
+					  	<span class="title-left">应收账款信息</span>
+				  	</caption>
+					<tbody>
+					<tr>
+						<td width="20%">应收账款编号:</td>
+						<td width="30%" class="div-text-left red"><span ng-bind="proof_info.receivableNo"></span></td>
+						<td width="20%">债务人:</td>
+						<td width="30%" class="div-text-left"><span ng-bind="proof_info.debtor"></span></td>
+					</tr>
+					<tr>
+						<td>债权人:</td>
+						<td class="div-text-left"><span ng-bind="proof_info.creditor"></span></td>
+						<td>付款到期日期:</td>
+						<td class="div-text-left"><span ng-bind="proof_info.endDate"></span></td>
+					</tr>
+					<tr>
+						<td>商品名称:</td>
+						<td class="div-text-left"><span ng-bind="proof_info.goodsName"></span></td>
+						<td>商品价格:</td>
+						<td class="div-text-left"><span ng-bind="proof_info.unit"></span></td>
+					</tr>
+					<tr>
+						<td>金额:</td>
+						<td class="div-text-left"><span ng-bind="proof_info.balance"></span></td>
+						<td>采购数量:</td>
+						<td class="div-text-left"><span ng-bind="proof_info.amount"></span></td>
+					</tr>
+					</tbody>
+				</table>
+
+				<!-- 其他资料列表 -->
+				<table class="table table-striped table-hover table-bordered" ng-show="proof_otherFileList.length!=0">
+				  	<caption class="table-caption table-caption-green clearFix">
+					  	<span class="title-left">其它资料</span>
+				  	</caption>
+				  	<thead>
+				    <tr class="result-head-gray">
+						<td width="25%">附件类型</td>
+		                <td width="40%">附件名称</td>
+		                <td width="15%">操作</td>
+				    </tr>
+				  </thead>
+				  <tbody>
+				      <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in proof_otherFileList">
+				        <td>其他资料</td>
+				        <td ng-bind="item.fileName"></td>
+				        <td>
+				        	<a href="{{item.id|downf}}">下载</a>
+				        </td>
+				      </tr>
+				  </tbody>
+				</table>
+
+
+				<!-- 附件信息列表 -->
+				<table class="table table-striped table-hover table-bordered" ng-show="proof_infoFileList.length!=0">
+				  	<caption class="table-caption table-caption-green clearFix">
+					  	<span class="title-left">附件信息</span>
+				  	</caption>
+				  	<thead>
+					    <tr class="result-head-gray">
+					      <td width="20%">附件类型</td>
+					      <td width="40%">附件名称</td>
+					      <td width="10%">操作</td>
+					    </tr>
+					  </thead>
+					  <tbody>
+					     <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in proof_infoFileList">
+					       <td ng-bind="item.fileInfoType|kindf:'BaseInfoFile'"></td>
+					       <td ng-bind="item.fileName"></td>
+					       <td>
+					       	<a href="{{item.id|downf}}">下载</a>
+					       </td>
+					     </tr>
+					  </tbody>
+				</table>
+			</div>
+			
+		</form>
+	</div>
+	<div id="test_tree"></div>
+	<h1 class="content-title-1 content-title-condensed content-title-blue"><img ng-src="{{'/scf2/img/operator.png'|urlf}}" alt="">应收账款关联信息</h1>
+	
+	<!-- 订单信息列表 -->
+	<table class="table table-striped table-hover table-bordered" ng-show="proof_info.orderList!=0">
+	  	<caption class="table-caption table-caption-green clearFix">
+		  	<span class="title-left">订单信息</span>
+	  	</caption>
+	  <thead>
+	    <tr class="result-head-gray">
+	      <td width="14.5%">订单编号</td>
+	      <td width="12.5%">订单金额</td>
+	      <td width="14.5%">核心企业</td>
+	      <td width="12.5%">订单日期</td>
+	      <td width="12.5%">商品名称</td>
+	      <td width="12.5%">数量</td>
+	      <td width="12.5%">单价</td>
+	      <td width="8.5%">操作</td>
+	    </tr>
+	  </thead>
+	  <tbody>
+	      <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in proof_info.orderList">
+	        <td ng-bind="item.orderNo"></td>
+	        <td><strong class="red" ng-bind="item.balance|moneyFilter"></strong></td>
+	        <td ng-bind="item.coreCustNo|kindf:'CoreCustListDic'"></td>
+	        <td ng-bind="item.orderDate"></td>
+	        <td ng-bind="item.goodsName"></td>
+	        <td class="red" ng-bind="item.amount"></td>
+	        <td class="red" ng-bind="item.unit|moneyFilter"></td>
+	        <td>
+	        	<span class="deep-gray">无</span>
+	        </td>
+	      </tr>
+	  </tbody>
+	</table>
+
+	<!-- 汇票信息列表 -->
+	<table class="table table-striped table-hover table-bordered" ng-show="proof_info.acceptBillList!=0">
+	  	<caption class="table-caption table-caption-green clearFix">
+		  	<span class="title-left">汇票信息</span>
+	  	</caption>
+	  <thead>
+	    <tr class="result-head-gray">
+	      <td width="14.5%">汇票编号</td>
+	      <td width="12.5%">票据类型</td>
+	      <td width="12.5%">票据金额</td>
+	      <td width="14.5%">开票企业</td>
+	      <td width="12.5%">开票日期</td>
+	      <td width="12.5%">到期日期</td>
+	      <td width="12.5%">确认企业</td>
+	      <td width="8.5%">操作</td>
+	    </tr>
+	  </thead>
+	  <tbody>
+	      <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in proof_info.acceptBillList">
+	        <td ng-bind="item.billNo"></td>
+	        <td ng-bind="item.billType|kindf:'BillNoteType'"></td>
+	        <td class="red" ng-bind="item.balance|moneyFilter"></td>
+	        <td ng-bind="item.coreCustNo|kindf:'CoreCustListDic'"></td>
+	        <td ng-bind="item.invoiceDate"></td>
+	        <td ng-bind="item.endDate"></td>
+	        <td ng-bind="item.coreCustNo|kindf:'CoreCustListDic'"></td>
+	        <td>
+	        	<span class="deep-gray">无</span>
+	        </td>
+	      </tr>
+	  </tbody>
+	</table>
+
+
+	<!-- 贸易合同列表 -->
+	<table class="table table-striped table-hover table-bordered" ng-show="proof_info.agreementList!=0">
+	  	<caption class="table-caption table-caption-green clearFix">
+		  	<span class="title-left">贸易合同</span>
+		  	<button class="btn btn-info btn-right"  ng-click="openAddContractBox();">+添加贸易合同</button>
+	  	</caption>
+	  <thead>
+	    <tr class="result-head-gray">
+	      <td width="16.5%">合同编号</td>
+	      <td width="18.5%">采购方</td>
+	      <td width="18.5%">供货方</td>
+	      <!-- <td width="16.5%">签署日期</td> -->
+	      <td width="16.5%">交付日期</td>
+	      <td width="16.5%">合同金额</td>
+	      <td width="12.5%">操作</td>
+	    </tr>
+	  </thead>
+	  <tbody>
+	      <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in proof_info.agreementList">
+	        <td ng-bind="item.agreeNo"></td>
+	        <td ng-bind="item.buyer"></td>
+	        <td ng-bind="item.supplier"></td>
+	        <td ng-bind="item.deliveryDate"></td>
+	        <td class="red" ng-bind="item.balance|moneyFilter"></td>
+	        <td>
+	        	<span class="deep-gray"  ng-show="item.defaultFlag!=2">无</span>
+            	<a href="javascript:void(0);" ng-show="item.defaultFlag==2" ng-click="deleteContract($event.target,item.id);">删除</a>
+	        </td>
+	      </tr>
+	  </tbody>
+	</table>
+
+
+
+	<!-- 发票信息列表 -->
+  	<table class="table table-striped table-hover table-bordered">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">订单发票</span>
+        <button class="btn btn-info btn-right"  ng-click="openAddInvoiceBox();">+添加发票</button>
+      </caption>
+      <thead>
+      <tr class="result-head-gray">
+        <td width="12.5%">发票代码</td>
+        <td width="12.5%">发票号码</td>
+        <td width="12.5%">纳税人识别号</td>
+          <td width="12.5%">行业类别</td>
+          <td width="12.5%">开票日期</td>
+          <td width="12.5%">金额</td>
+          <!-- <td width="12.5%">项目</td>
+          <td width="12.5%">单价</td>
+          <td width="12.5%">数量</td> -->
+          <td width="12.5%">开票人</td>
+          <td width="12.5%">操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in proof_info.invoiceList">
+          <td class="red" ng-bind="item.invoiceCode"></td>
+          <td ng-bind="item.invoiceNo"></td>
+          <td ng-bind="item.taxpayerNo"></td>
+          <td ng-bind="item.corpVocate"></td>
+          <td ng-bind="item.invoiceDate"></td>
+          <td ng-bind="item.balance|moneyFilter"></td>
+          <!-- <td ng-bind="item.subject"></td>
+          <td ng-bind="item.unit"></td>
+          <td ng-bind="item.amount"></td> -->
+          <td ng-bind="item.drawer"></td>
+          <td>
+            <span class="deep-gray" ng-show="item.isDeleted!=2">无</span>
+            <a href="javascript:void(0);" ng-show="item.isDeleted==2" ng-click="deleteInvoice($event.target,item.id);">删除</a>
+          </td>
+        </tr>
+    </tbody>
+  	</table>
+
+
+
+	<!-- 运输单据列表 -->
+	<table class="table table-striped table-hover table-bordered" ng-show="proof_info.transportList!=0">
+	  	<caption class="table-caption table-caption-green clearFix">
+		  	<span class="title-left">运输单据</span>
+	  	</caption>
+	  <thead>
+	    <tr class="result-head-gray">
+	      <td width="16.5%">发货人</td>
+	      <td width="16.5%">收货人</td>
+	      <td width="16.5%">发货日期</td>
+	      <td width="16.5%">收货日期</td>
+	      <td width="20.5%">收货地址</td>
+	      <td width="12.5%">操作</td>
+	    </tr>
+	  </thead>
+	  <tbody>
+	      <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in proof_info.transportList">
+	        <td ng-bind="item.supplier"></td>
+	        <td ng-bind="item.buyer"></td>
+	        <td ng-bind="item.sendDate"></td>
+	        <td ng-bind="item.receiveDate"></td>
+	        <td ng-bind="item.receiveAddress"></td>
+	        <td>
+	          <span class="deep-gray">无</span>
+	        </td>
+	      </tr>
+	  </tbody>
+	</table>
+
+	<div class="center-buttons">
+	  <button class="btn btn-primary" bt-close-modal >返回</button>
+	</div>
+
+</div>

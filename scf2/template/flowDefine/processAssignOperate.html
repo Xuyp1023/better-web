@@ -1,0 +1,22 @@
+<div class="div-center detail-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    <span ng-bind="currentItem.nickname"></span>&nbsp;分配操作员
+  </h1>
+    <table class="div-width-100 table table-bordered table-striped table-hover recieve-table">
+
+        <tr>
+          <td width="30%">选择操作员:</td>
+          <td width="70%" class="div-text-left">
+            <select  id="" ng-model="selectOper.operId">
+                <option ng-repeat="item in operList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="selectOper.operId==item.value"></option>
+            </select>
+          </td>
+        </tr>
+       
+    </table>
+
+  <div class="center-buttons">
+    <button class="btn btn-primary" ng-click="assigneeOperator($event.target);">确定</button>
+    <button class="btn btn-primary" bt-close-modal>返回</button>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+    <div class="mAito">
+    	<ul class="clearfix">
+        	<li>
+            	<a href="javascript:void(0)" ng-click="changeStatus();">融资状态<i class="ico ico14"></i></a>
+            </li>
+            <li>
+            	<a href="javascript:void(0)"></a>
+            </li>
+            <li>
+            	<a href="javascript:void(0)"></a>
+            </li>
+        </ul>
+    </div>
+	<div class="mpLt">
+    	<ul>
+        	<li ng-repeat="item in infoList" ng-click="showDetail(item);">
+            	<div class="ti">
+                	<span>{{item.coreCustName}}</span>
+                    <em class="co co1"><i class="ico ico13 ml5"></i></em>
+                </div>
+                <div class="bi" ng-bind="item.coreCustName"></div>
+                <div class="ci">
+                	<p class="tit">商业票据：¥</p>
+                    <p class="con">票据号：</p>
+                    <p class="time">有效期：</p>
+                </div>
+            </li>
+        </ul>
+        <!-- 分页 -->
+        <div ng-page="listPage" func="queryList(false)" class="more"></div>
+    </div>

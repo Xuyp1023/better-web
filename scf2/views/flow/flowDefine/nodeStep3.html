@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>流程步骤3</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/flow/flowDefine/nodeStep3.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+          <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">流程步骤3
+            <!-- <small class="small-select">
+              <span>流程类型</span>
+              <select ng-model="searchData.custNo" ng-change="changeCust();">
+                <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+              </select>
+            </small> -->
+          </h1>
+          <form action="" id="" class="form-horizontal">
+          <!-- <h2 class="content-title content-title-2 content-back-none first">1.申请信息</h2> -->
+            <div class="div-center div-width div-margin-top">
+              <table class="table table-striped table-bordered table-hover table-condensed">
+                <tr>
+                  <td width="30%">流程节点:</td>
+                  <td class="div-text-left">
+                    <select name="" id="">
+                      <option value="">初审</option>
+                      <option value="">受理</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="30%">驳回节点:</td>
+                  <td class="div-text-left">
+                    <select name="" id="">
+                      <option value="">退回到开始</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class="even">
+                  <td width="30%">审批方式:</td>
+                  <td width="70%" class="div-text-left">
+                    <input type="radio" name="style" >串行
+                    <input type="radio" name="style" >并行
+                  </td>
+                </tr>
+                <tr>
+                  <td width="30%">分金额段审批:</td>
+                  <td class="div-text-left">
+                    <select name="" id="">
+                      <option value="">是</option>
+                      <option value="">否</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="30%">贷款期限:</td>
+                  <td class="div-text-left">
+                  <input type="text" name="" >&nbsp;月
+                  </td>
+                </tr>
+                <tr>
+                  <td width="30%">保理公司:</td>
+                  <td class="div-text-left">
+                    <select name="" id="">
+                      <option value="">江南大江</option>
+                      <option value="">深圳高科</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="30%">产品:</td>
+                  <td class="div-text-left">
+                    <select name="" id="">
+                      <option value="">产品1</option>
+                      <option value="">产品2</option>
+                    </select>
+                  </td>
+                </tr>
+
+              </table>
+            </div>
+          </form>
+
+
+            
+        </div>
+
+
+        
+        <!-- 新增节点-->
+        <div id="add_flow_node_box" bt-roll-modal="temp/addNode.html" bt-z-index="9991"></div>
+
+        <!-- 编辑节点-->
+        <div id="edit_flow_node_box" bt-roll-modal="temp/editNode.html" bt-z-index="9991"></div>
+
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/flow/flowDefine/nodeStep3");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/flow/flowDefine/nodeStep3");
+      } 
+  </script>
+  </body>
+</html>

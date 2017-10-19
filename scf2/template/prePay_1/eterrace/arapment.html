@@ -1,0 +1,83 @@
+<div id="container" class="container-fluid div-center">
+	<div class="row-fluid">
+		<div id="content" class="div-width-100">
+			<div id="fund_search_way" class="row-fluid">
+				<h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">应收账款提前付款申请
+				</h1>
+				<table class="table table-condensed div-width-70 div-center search-table">
+					<tr>
+						<td>录入日期:</td>
+						<td class="div-text-left date">
+							<input type="text" id="begin_date" bt-date="searchData.GTEregDate">-
+							<input type="text" id="end_date" bt-date="searchData.LTEregDate">
+						</td>
+					</tr>
+					<tr>
+						<td width="25%">采购企业:</td>
+						<td width="75%" class="div-text-left">
+							<select ng-model="searchData.coreCustNo">
+                            <option value="">----所有----</option>
+                            <option ng-repeat="item in factorList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.coreCustNo == item.value"></option>                            
+              </select>
+						</td>
+					</tr>
+					<tr>
+						<td width="25%"></td>
+						<td width="75%" class="div-text-left">
+							<input type="text" placeholder="输入申请编号进行搜索" ng-model="searchData.requestNo" class="ng-pristine ng-valid">
+						</td>
+					</tr>
+				</table>
+				<div class="center-buttons">
+					<button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+				</div>
+			</div>
+
+			<div id="search_info" class="row-fluid">
+				<div class="tab-content">
+					<div class="tab-pane active" id="reqQuota">
+						<h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+						</h1>
+						<table class="div-width-100 table table-striped table-hover search-result main-list">
+							<thead>
+								<tr>
+								</tr>
+								<tr class="result-head font-size-12 info-title">
+									<td width="15%">申请编号</td>
+									<td width="13%">资产总额(元)</td>
+									<td width="15%">申请金额(元)</td>
+									<td width="8%">折扣率(%)</td>
+									<td width="14%">采购企业</td>
+									<td width="15%">录入日期</td>
+									<td width="12%">操作</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+									<td>
+										<a href="javascript:void(0);" ng-click="detail_adpay($event.target,item);" ng-bind="item.requestNo" ></a>
+									</td>
+									<td ng-bind="item.balance"></td>
+									<td ng-bind="item.requestPayBalance"></td>
+									<td ng-bind="item.depositRate"></td>
+									<td ng-bind="item.coreCustName"></td>
+									<td ng-bind="item.regDate"></td>
+									<td>
+										<a href="javascript:void(0);"  ng-show="item.businStatus=='1' || item.businStatus=='2'" ng-click="apply_adpay(item);">继续申请</a>
+										<a href="javascript:void(0);" ng-show="item.businStatus=='1' || item.businStatus=='2'" ng-click="delete_adpay($event.target,item);">作废</a>
+										<a href="javascript:void(0);" ng-show="item.businStatus!='1' && item.businStatus!='2'" ng-click="detail_adpay($event.target,item);">查看详情</a>
+									</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<td colspan="10">
+									<div bt-pagination conf="listPage" func="queryList(false);"></div>
+								</td>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

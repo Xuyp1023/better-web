@@ -1,0 +1,101 @@
+<div class="div-width-90 detail-box div-center">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    账单投递
+  </h1>
+  <div  class="row-fluid div-center div-margin-top">
+
+    <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">基本信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%">
+              <span class="title">投递企业:</span>
+            </td>
+            <td width="30%">
+              <span ng-bind="deliveryRecordInfo.custName"></span>
+            </td>
+            <td width="20%">
+              <span class="title">接收企业:</span>
+            </td>
+            <td width="30%">
+              <span ng-bind="deliveryRecordInfo.postCustName"></span>
+            </td>
+          </tr>
+          <tr>
+            <td width="20%">
+              <span class="title">账单总额(元):</span>
+            </td>
+            <td width="30%">
+              <span  ng-bind="deliveryRecordInfo.totalBlance | moneyFilter"></span>
+            </td>
+            <td width="20%">
+              <span class="title">金额大写(元):</span>
+            </td>
+            <td width="30%">
+              <span>{{ deliveryRecordInfo.totalBlance | moneybigf  }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+        <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td>账单编号</td>
+            <td>账单金额</td>
+            <td>起始日期</td>
+            <td>截止日期</td>
+            <td>对账企业</td>
+            <td>操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in deliveryRecordInfo.recordStatementList" ng-repeat-end>
+            <td width="20%">
+              <a href="javascript:void(0);" ng-click="lookDetail($event.target,item.monthlyStatementId);"  ng-bind="item.monthlyStatementRefNo"></a>
+            </td>
+            <td width="10%">
+              <span  ng-bind="item.interestBalance | moneyFilter"></span>
+            </td>
+            <td width="15%">
+              <span  ng-bind="item.payBeginDate"></span>
+            </td>
+            <td width="15%">
+              <span  ng-bind="item.payEndDate"></span>
+            </td>
+            <td width="30%">
+              <span  ng-bind="item.ownCustName"></span>
+            </td>
+            <td width="10%">
+              <a href="javascript:void(0);" ng-click="removeBill($event.target,item);">移除</a>
+            </td>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="2">添加备注</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%">备注</td>
+            <td width="80%" class="div-text-left"><textarea ng-model="deliveryRecordInfo.description"></textarea></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="center-buttons" >
+        <button class="btn btn-primary" ng-click="addInfo($event.target,deliveryRecordInfo.refNo,deliveryRecordInfo.description)">提交</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+
+</div>
+      

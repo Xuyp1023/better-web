@@ -1,0 +1,45 @@
+<div class="div-width-90 div-center detail-box">
+    <div class="row-fluid detail-info div-center">
+      <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+      该机构所需资料
+      </h1>
+      <table class="table table-striped table-hover">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="2">开户资料</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in fundCompInfoList" ng-repeat-end>
+            <td width="50%" ng-bind="item.paperName"></td>
+            <td width="50%">
+              <a ng-href="{{item.dowloadUrl}}" ng-show="item.dowloadUrl.length>1" title="资料下载">下载</a>
+              <span class="deep-gray" ng-show="item.dowloadUrl.length<2">需要提供资料</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="2">开户协议</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in fundCompProList" ng-repeat-end>
+            <td width="50%" ng-bind="item.paperName"></td>
+            <td width="50%">
+              <a ng-href="{{item.dowloadUrl}}" ng-show="item.dowloadUrl.length>1" title="资料下载">下载</a>
+              <span class="deep-gray" ng-show="item.dowloadUrl.length<2">需要提供资料</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="center-buttons">
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+      </div>
+      
+    </div>
+
+</div>

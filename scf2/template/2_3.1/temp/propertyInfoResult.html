@@ -1,0 +1,58 @@
+<div class="search-pop">
+    <h3>资产登记查询</h3>
+    <div>
+        <strong>提示：以下为中登网(动产融资统一登记系统)查询结果。</strong>
+    </div>
+    <ul>
+        <li>
+            <span class="text-align-right" width="30%">申请企业:</span>
+            <span ng-bind="assReg.custName"></span>
+        </li>
+        <li>
+            <span class="text-align-right" width="30">融资编号:</span> 
+            <span ng-bind="assReg.requestNo"></span>
+        </li>
+        <li>
+            <span class="text-align-right" width="30">查询人:</span>
+            <span ng-bind="assReg.custName"></span>             
+        </li>
+        <li>
+            <span class="text-align-right" width="30">查询日期: </span>
+            <!-- <input type="text" ng-model="info.checkDate" > -->
+            <span ng-bind="assReg.checkDate"></span>
+            <!-- <span class="div-text-left date" style="position:relative;top:8px">
+              <input type="text" id="assReg.checkDate" bt-date="assReg.checkDate">              
+            </span> -->
+        </li>
+        <li>
+            <span class="text-align-right" width="30">查询结果: </span>
+            <span ng-show="assReg.checkResult==1">资产已登记</span>
+            <span ng-show="assReg.checkResult==0">资产未登记</span>
+            <!-- <input type="radio" name="checkResult" value='1' style="margin-left:10px" ng-model="assReg.checkResult">资产已登记
+            <input type="radio" name="checkResult" value='0' ng-model="assReg.checkResult">资产未登记 -->
+        </li>
+        <li ng-show="assReg.checkResult=='1'">
+            <span class="text-align-right" width="30">登记证明编号:</span> 
+            <span ng-bind="assReg.zdwRegCode"></span>
+            <!-- <input type="text" ng-model="assReg.zdwRegCode" style="position:relative;top:3px;margin-left:8px"> -->
+        </li>
+        <li ng-show="assReg.checkResult=='1'">
+            <span class="text-align-right" width="30">资产登记日期</span>
+            <span ng-bind="assReg.zdwRegDate"></span> 
+            <!-- span class="div-text-left date">
+              <input type="text" id="assReg.zdwRegDate" bt-date="assReg.zdwRegDate" style="position:relative;top:8px">              
+            </span> -->
+        </li>
+        <li ng-show="assReg.checkResult=='1'">
+            <span class="text-align-right" width="30">附件:</span>
+            <span ng-bind="attachList[0].fileName"></span> 
+           <!--  <button class="btn btn-info btn-right" ng-click="openUpload($event,'zdwFlie','中登网登记文件','attachList')">+上传</button> -->
+        </li>
+    </ul>
+    <div class="center-buttons">                
+        <button class="btn btn-primary" bt-close-modal>退出</button>        
+    </div>
+</div>
+
+  <!-- 上传组件引用 -->
+  <!-- <div bt-upload conf="uploadConf" ></div> -->

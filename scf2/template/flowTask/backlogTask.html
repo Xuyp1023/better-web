@@ -1,0 +1,60 @@
+<!-- 待办任务 -->
+<div id="fund_search_way" class="row-fluid">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">流程任务</h1>
+  <table class="table table-condensed div-width-70 div-center search-table">
+    <tr>
+     <td width="30%">流程名称:</td>
+     <td width="70%" class="div-text-left">
+       <input type="text" ng-model="searchData.title">
+     </td>
+    </tr>
+    <tr>
+      <td>到达时间:</td>
+      <td class="div-text-left date">
+        <input type="text" id="begin_in_date" bt-date="searchData.GTEauditDate" bt-max-date="end_in_date">-
+        <input type="text" bt-min-date="begin_in_date" id="end_in_date" bt-date="searchData.LTEauditDate">
+      </td>
+    </tr>
+  </table>
+  <div class="center-buttons">
+    <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+  </div>
+</div>
+
+
+<div id="search_info" class="row-fluid">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/flow_money.png" alt="">
+    待办任务
+  </h1>
+  <table class="div-width-100 table table-striped table-hover search-result main-list">
+    <thead>
+      <tr class="result-head">
+        <td width="22%">业务类型</td>
+        <td width="15%">申请企业</td>
+        <td width="20%">流程节点</td>
+        <td width="10%">业务单号</td>
+        <td width="18%">到达时间</td>
+        <td width="15%">操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in infoList">
+        <td ng-bind="item.workFlowBase.nickname"></td>
+        <td ng-bind="item.workFlowBusiness.custName"></td>
+        <td ng-bind="item.workFlowNode.nickname"></td>
+        <td ng-bind="item.workFlowBusiness.businessId"></td>
+        <td ng-bind="item.taskCreateTime"></td>
+        <td>
+          <span><a href="javascript:void(0);" ng-click="openForm(item);">办理</a></span>
+          <span><a href="javascript:void(0);" ng-click="showWorkFlowGraph(item);">流程图</a></span>
+        </td>
+      </tr>           
+    </tbody>
+    <tfoot>
+      <td colspan="9">
+        <div bt-pagination conf="listPage" func="queryList(false);"></div>
+      </td>
+    </tfoot>
+  </table>
+  
+</div>

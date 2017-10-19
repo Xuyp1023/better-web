@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>贸易合同管理</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/supplier/data/tradeConManage.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">贸易合同管理</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="25%">合同编号:</td>
+                <td width="75%" class="div-text-left">
+                <input type="text" name="">
+                </td>
+              </tr>
+              <tr>
+               <td width="25%">采购企业:</td>
+               <td width="75%" class="div-text-left">
+               <input type="text" name="">
+               </td>
+             </tr>
+              <tr>
+               <td width="25%">供货企业:</td>
+               <td width="75%" class="div-text-left">
+               <input type="text" name="">
+               </td>
+             </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="">查询</button>
+              <!-- <button class="btn btn-primary btn-bg-middle" ng-click="">重置</button> -->
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              贸易合同
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr>
+                  <td class="modi-group" colspan="13">
+                    <button class="btn btn-info" ng-click="addContractBox($event);">添加合同</button>
+                  </td>
+                </tr>
+                <tr class="result-head">
+                  <td width="11%">合同编号</td>
+                  <td width="11%">采购企业</td>
+                  <td width="11%">供货企业</td>
+                  <td width="11%">签定地点</td>
+                  <td width="11%">签订时间</td>
+                  <td width="11%">合同金额</td>
+                  <td width="11%">登记日期</td>
+                  <td width="11%">附件</td>
+                  <td width="12%">操作</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat-end ng-class="{even:$even}" >
+                  <td>C1001</td>
+                  <td>中钢衡重</td>
+                  <td>恒丰</td>
+                  <td>盟军基地大道31号</td>
+                  <td>2015-05-01</td>
+                  <td>50000.00</td>
+                  <td>2015-05-01</td>
+                  <td><a href="">fujian.doc</a></td>
+                  <td>
+                    <span><a href="" ng-click="editContractBox(x);">编辑</a></span>
+                    <span><a href="" ng-click="">删除</a></span>
+                  </td>
+                </tr>
+                <tr ng-repeat-end ng-class="{even:$even}" >
+                   <td>C1002</td>
+                   <td>中钢衡重</td>
+                   <td>恒丰</td>
+                   <td>盟军基地大道31号</td>
+                   <td>2015-05-02</td>
+                   <td>50000.00</td>
+                   <td>2015-05-03</td>
+                   <td><a href="">fujian2.doc</a></td>
+                   <td>
+                     <span><a href="" ng-click="editContractBox(x);">编辑</a></span>
+                     <span><a href="" ng-click="">删除</a></span>
+                   </td>
+                 </tr>            
+              </tbody>
+              <tfoot>
+                <td colspan="9">
+                  <div bt-pagination conf="pageConf"></div>
+                </td>
+              </tfoot>
+            </table>
+            
+          </div>
+        
+
+        <!-- 添加合同 -->
+        <div id="add_contract_box" bt-roll-modal="temp/addContract.html" bt-z-index="9991"></div>
+
+        <!-- 编辑合同 -->
+        <div id="edit_contract_box" bt-roll-modal="temp/editContract.html" bt-z-index="9991"></div>
+
+        <!-- 附件上传 start -->
+        <div bt-upload conf="uploadConf" ></div>
+
+        
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/supplier/data/tradeConManage");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/supplier/data/tradeConManage");
+      } 
+  </script>
+  </body>
+</html>

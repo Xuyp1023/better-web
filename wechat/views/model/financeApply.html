@@ -1,0 +1,143 @@
+
+<div class="mpLt margin-top-20">    
+    <ul class="mui-table-view">
+        <li class="mui-table-view-cell caption">融资产品
+            <span ng-click="changeFac();">{{info.productName}}
+                <i class="ico ico14"></i>
+            </span>
+        </li>
+        <li class="mui-table-view-cell">
+        	<div class="left">金额：</div>
+            <div class="text">{{info.balance}}</div>
+        </li>
+        <li class="mui-table-view-cell">
+        	<div class="left">融资模式：</div>
+            <div class="text">{{info.receivableRequestType | kindf:'NewFinanceModel'}}</div>
+        </li>
+        <li class="mui-table-view-cell">
+        	<div class="left">资金机构：</div>
+            <div class="text">{{info.factoryName}}</div>
+        </li>
+        <li class="mui-table-view-cell">
+        	<div class="left">期望付款日期：</div>
+			<input type="text" ng-model="info.requestPayDate" placeholder="请输入日期" ng-click="changeDate()" readonly class="text" id="ipt">  
+			
+        	      
+
+        </li>
+    </ul>
+
+    <ul class="mui-table-view"> 
+    	<!-- 申请信息 -->
+	    <li class="mui-table-view-cell mui-collapse" style="font-size: 16px">
+	        <a class="mui-navigate-right" href="javascript:void(0);">申请信息</a>
+	        <div class="mui-collapse-content">	        
+		        	<p class="line">
+			        	<span class="left">申请编号：</span>
+			        	<span class="layout">{{info.requestNo}}</span>
+		        	</p>
+	                <p class="line">
+		                <span class="left">申请企业：</span>
+		                <span class="layout">{{info.custName}}</span>
+	                </p>
+	                <p class="line">
+		                <span class="left">账户：</span>
+		                <span class="select layout" ng-click="changeAccount();">{{info.custBankAccount}}<i class="ico ico14"></i></span>
+	                </p>
+	                <p class="line">
+		                <span class="left">开户行：</span>
+		                <span class="layout">{{info.custBankName}}</span>
+	                </p>       
+	                <p class="line">
+		                <span class="left">核心企业：</span>
+		                <span class="layout">{{info.coreCustName}}</span>
+	                </p>       
+	                <p class="line">
+	                	<span class="left">备注：</span>
+						<textarea cols="20" rows="3" class="description layout" ng-model="info.description" placeholder="请输入"></textarea>
+	                </p>       
+	        </div>
+	    </li>
+	    <!-- 应收账款 -->
+	    <li class="mui-table-view-cell mui-collapse" style="font-size: 16px">
+	        <a class="mui-navigate-right" href="javascript:void(0);">应收账款</a>
+	        <div class="mui-collapse-content" ng-repeat="item in info.asset.basedataMap.receivableList">	        
+		        	<p class="line">
+			        	<span class="left">应收账款金额：</span>
+			        	<span class="layout">{{item.balance}}</span>
+		        	</p>
+	                <p class="line">
+	                	<span class="left">账款编号：</span>
+			        	<span class="layout">{{item.receivableNo}}</span>	                
+	                </p>
+	                <p class="line">
+	                	<span class="left">结算日期：</span>
+			        	<span class="layout">{{item.endDate}}</span>	                
+	                </p>	                      
+	                <p class="line">
+	                	<span class="left">贸易合同号：</span>
+			        	<span class="layout">{{item.agreeNo}}</span>	                
+	                </p>       
+	                <p class="line">
+	                	<span class="left">发票号：</span>
+			        	<span class="layout">{{item.invoiceNos}}</span>	                
+	                </p>        
+	        </div>
+	    </li>
+	    <!-- 合同附件上传 -->
+	    <li class="mui-table-view-cell mui-collapse" ng-if="pageInfo.assetType.3">
+	        <a class="mui-navigate-right" href="javascript:void(0);">上传合同附件</a>
+	        <div class="mui-collapse-content">
+	            <!-- 附件遍历 -->
+	            <div class="mui-row ac-grid upload-wrap">
+	                <div ng-repeat="item in agreeUploadList" class="mui-col-sm-4 mui-col-xs-4">
+	                    <div class="upload-area"  ng-show="!item.id" ng-click="uploadImage('agree');" > 
+	                        <div class="line-hori"></div>
+	                        <div class="line-vert"></div>
+	                    </div>
+	                    <div class="upload-img"  ng-show="item.id" ng-click="preImg(item);">
+	                        <img ng-src="{{item.id ? (item.id|downf) :''}}" alt="">
+	                    </div>
+	                    <p class="type-exam font-gray" ng-show="item.id" ng-click="delUpload(item,'agree');">删除</p>
+	                </div>
+	            </div>
+	            
+	        </div>
+	    </li>
+	    <!-- 发票附件上传 -->
+	    <li class="mui-table-view-cell mui-collapse" ng-if="pageInfo.assetType.4">
+	        <a class="mui-navigate-right" href="javascript:void(0);">上传发票附件</a>
+	        <div class="mui-collapse-content">
+	            <!-- 附件遍历 -->
+	            <div class="mui-row ac-grid upload-wrap">
+	                <div ng-repeat="item in invoiceUploadList" class="mui-col-sm-4 mui-col-xs-4">
+	                    <div class="upload-area"  ng-show="!item.id" ng-click="uploadImage('invoice');" > 
+	                        <div class="line-hori"></div>
+	                        <div class="line-vert"></div>
+	                    </div>
+	                    <div class="upload-img"  ng-show="item.id" ng-click="preImg(item);">
+	                        <img ng-src="{{item.id ? (item.id|downf) :''}}" alt="">
+	                    </div>
+	                    <p class="type-exam font-gray" ng-show="item.id" ng-click="delUpload(item,'invoice');">删除</p>
+	                </div>
+	            </div>
+
+	        </div>
+	    </li>   
+	</ul>
+	
+</div>
+
+<div class="mAito comp position-fixed-bottom width-100 box-shadow-gray">
+	<ul class="clearfix">
+		<li ng-click="submit()">
+			<a href="javascript:void(0)" class="background-blue color-white border-none">
+				<span>提交</span>
+				<i class="ico ico14"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+
+

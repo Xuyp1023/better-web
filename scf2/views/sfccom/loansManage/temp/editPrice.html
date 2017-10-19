@@ -1,0 +1,56 @@
+<div class="div-width-90 detail-box div-center">
+  <!-- 修改报价 -->
+  <div id="" class="row-fluid">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">修改报价</h1>
+    <form action="" id="editPrive_form" class="form-horizontal" >
+      <div class="div-center div-width div-margin-top">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <caption class="table-caption table-caption-green clearFix">
+              <span class="title-left">报价信息</span>
+            </caption>
+          <tbody>
+            <tr>
+              <td width="15%">核心企业:</td>
+              <td width="35%" class="div-text-left">
+                <select name="" id="" ng-model="editPriceInfo.coreCustNo">
+                    <option ng-repeat="core in coreList" ng-option-filter value="{{core.value}}" ng-bind="core.name" ng-selected="editPriceInfo.coreCustNo==core.value"></option>
+                </select>
+              </td>
+              <td width="15%">报价企业:</td>
+              <td width="35%" class="div-text-left">
+                  <input type="text" ng-model="editPriceInfo.factorName" disabled>
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="2">贷款期限:</td>
+              <td rowspan="2" class="div-text-left"><input type="text" ng-model="editPriceInfo.period">&nbsp;月</td>
+              <td width="15%">融资金额:</td>
+              <td width="35%" class="tab-text-left"><input type="text" ng-model="editPriceInfo.balance"></td>
+            </tr>
+            <tr>
+              <td class="deep-gray">金额大写:</td>
+              <td class="tab-text-left">
+                <strong class="deep-gray" ng-bind="editPriceInfo.balance|moneybigf"></strong>
+              </td>
+            </tr>
+            <tr>
+              <td>放款周期:</td>
+              <td class="div-text-left date">
+                <input type="text" ng-model="editPriceInfo.minCycle"> - 
+                <input type="text" ng-model="editPriceInfo.maxCycle">&nbsp;&nbsp;日</td>
+              <td>融资利率:</td>
+              <td class="div-text-left"><input type="text" ng-model="editPriceInfo.ratio">&nbsp;%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+     <div class="center-buttons">
+       <button class="btn btn-primary" ng-click="updatePrice($event.target);">提交</button>
+       <button class="btn btn-danger" ng-click="cancelPrice($event.target);">取消报价</button>
+       <button class="btn btn-primary" bt-close-modal >返回</button>
+     </div>
+    </form>
+  </div>
+
+
+</div>

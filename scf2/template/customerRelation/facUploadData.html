@@ -1,0 +1,51 @@
+<div id="content" class="div-width-100">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    保理材料
+  </h1>
+  <div id="mainContent" class="row-fluid div-center div-margin-top">
+    <h5> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尊敬的<span ng-bind="custInfo.disCustName"></span>，以下是<span ng-bind="custInfo.disRelateCustName"></span>开通保理业务需要提供的材料，为了方便审批，请您按以下要求上传附件，谢谢！</h5><br>
+    <table class="table table-striped table-hover table-bordered big-input">
+      
+      <thead class="result-head result-head-gray">
+        <tr>
+          <td width="30%">类型名称</td>
+          <td width="40%">文件名称</td>
+          <td width="20%" ng-show="custInfo.businStatus">审核状态</td>
+          <td width="{{custInfo.businStatus?'20%':'40%'}}">操作</td>
+        </tr>
+      </thead>
+      <tbody>
+       <tr ng-repeat="file in attachList" ng-repeat-end ng-class="{even:$even}">
+          <td ng-bind="file.fileDescription"></td>
+          <td>
+            <a href=""><span ng-bind="file.fileName"></span></a>
+          </td>
+          <td ng-show="custInfo.businStatus">
+            <span ng-show="file.businStatus!=null && file.businStatus=='1'">审核通过</span>
+            <span ng-show="file.businStatus!=null && file.businStatus=='0'">审核失败</span>
+            <span ng-show="file.businStatus!=null && file.businStatus=='2'">已上传</span>
+          </td>
+          <td>
+            <a href="{{file.id|downf}}" ng-show="file.id">下载</a>
+            <span ng-show="!file.id">
+              <a href="javascript:void(0);" ng-click="openUpload($event,file.fileInfoType,file.fileDescription,'attachList')">上传</a>
+              <!-- <a href="javascript:void(0);" ng-show="custInfo.isDel=='true' && file.id" ng-click="delUploadItem(file,'attachList');">删除</a> -->
+            </span>
+            <span ng-show="file.id">
+              <a href="javascript:void(0);" ng-show='!custInfo.businStatus || custInfo.businStatus==4' ng-click="openUpload($event,file.fileInfoType,file.fileDescription,'attachList')">重新上传</a>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  
+  
+  <div class="center-buttons" >
+      <button class="btn btn-primary" ng-click="goBack(true);" ng-show='!custInfo.businStatus || custInfo.businStatus==4'>确定</button>
+      <button class="btn btn-primary" ng-click="goBack(false);">返回</button>
+  </div>
+
+  <!-- 附件上传 start -->
+  <div bt-upload conf="uploadConf"></div>

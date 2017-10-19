@@ -1,0 +1,22 @@
+
+<div id="alldiv" class="row-fluid">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="./img/operator.png" alt="">
+      选择关联客户类型
+    </h1>
+
+    <div id="mainContent" class="row-fluid div-center">
+        
+      <div class="div-margin-top">
+        <label class="margin-20" ng-repeat="item in custTypeList" ng-repeat-end>
+              <input type="radio" name="way" ng-model="currData.selectedType" value="{{item.value}}"> {{item.name}}
+        </label> 
+      </div>
+
+    </div>
+
+    <div class="center-buttons" >
+        <button class="btn btn-primary" ng-click="skipPage();">下一步</button>
+    </div>  
+
+</div>
+

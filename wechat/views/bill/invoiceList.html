@@ -1,0 +1,28 @@
+	<div class="pTab">
+    	<ul>
+        	<li ng-repeat="item in invoiceList">
+            	<table>
+                	<tr class="ta">
+                    	<td>发票号</td>
+                        <td>行业类别</td>
+                        <td>发票金额(元)</td>
+                    </tr>
+                    <tr>
+                    	<td>{{item.invoiceNo}}</td>
+                        <td>{{item.corpVocate}}</td>
+                        <td>{{item.balance}}</td>
+                    </tr>
+                    <tr class="tc" ng-show='item.invoiceItemList.length > 0'>
+                    	<td>项目</td>
+                        <td>单位</td>
+                        <td>数量</td>
+                    </tr>
+                    <tr ng-repeat="childItem in item.invoiceItemList">
+                    	<td>{{childItem.subject}}</td>
+                        <td>{{childItem.unit}}</td>
+                        <td>{{childItem.amount}}</td>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+    </div>

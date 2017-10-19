@@ -1,0 +1,32 @@
+{
+    "message": "查询用户供应链融资申请单详情成功",
+    "data": 
+    {
+        "requestNo": "2",
+        "factorRequestNo":"N1023",
+        "productId": "BZ0001",
+        "productName":"保理产品1",
+        "buyerNo": 100000170,
+        "supplierNo": 100000156,
+        "billId": "D00002",
+        "billNo": "JF00002",
+        "balance": 150000,
+        "confirmBalance": "",
+        "requestDate": "20160325",
+        "requestTime": "170429",
+        "operDate": "",
+        "operTime": "",
+        "checker": "",
+        "operCode": "9857",
+        "checkerNo": "",
+        "contName": "欧尼",
+        "aduit": "0",
+        "status": "0",
+        "lastStatus": "0",
+        "operOrg": "aXXAAAFWQWEQWEQWEEQWEXXXXddpppp",
+        "buyer": "深圳前海拜特测试1",
+        "supplier": "深圳市华强公益基金会1",
+        "lawName": ""
+    },
+    "code": 200
+}

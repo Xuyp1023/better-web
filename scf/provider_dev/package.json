@@ -1,0 +1,19 @@
+{
+  "family": "scf",
+  "name": "provider",
+  "version": "1.0.0",
+
+  "spm": {
+    "alias": {
+      "jquery": "jquery",
+      "dicTool":"dicTool",
+      "bootstrap":"bootstrap",
+      "datePicker":"datePicker",
+      "angular":"angular",
+      "BTDictData":"BTDictData",
+      "swfuploader":"swfuploader",
+      "dialogEx":"dialogEx"	
+    },
+    "output": ["applyFac.js", "recieveFac.js","repayPlan.js"]
+  }
+}

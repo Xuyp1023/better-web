@@ -1,0 +1,240 @@
+
+<!-- 融资详情 -->
+<div class="row-fluid top-box">
+
+       <table class="table table-striped table-bordered table-hover">
+             <caption class="table-caption table-caption-green clearFix">
+               <span class="title-left">融资信息</span>
+             </caption>
+           <tbody>
+           <tr>
+             <td width="30%">融资企业:</td>
+             <td width="70%" class="div-text-left red"><span ng-bind="financeInfo.custName"></span></td>
+           </tr>
+           <tr>
+             <td width="30%">贷款金额:</td>
+             <td width="70%" class="div-text-left red"><span ng-bind="financeInfo.balance|moneyFilter"></span></td>
+           </tr>
+           <tr>
+             <td width="30%">贷款期限:</td>
+             <td width="70%" class="div-text-left">
+               <span ng-bind="financeInfo.period"></span>
+               <span ng-bind="financeInfo.periodUnit|kindf:'PeriodUnit'"></span>
+             </td>
+           </tr>
+           <tr>
+             <td width="30%">核心企业:</td>
+             <td width="70%" class="div-text-left"><span ng-bind="financeInfo.coreCustName"></span></td>
+           </tr>
+           <tr>
+             <td width="30%">保理产品:</td>
+             <td width="70%" class="div-text-left"><span ng-bind="financeInfo.productName"></span></td>
+           </tr>
+           <!-- <tr>
+             <td width="30%">融资状态:</td> 
+             核心企业确认状态
+             <td width="70%" class="div-text-left"><span ng-bind="financeInfo.tradeStatus|kindf:'FlowTypeDic' "></span></td>
+           </tr> -->
+           <tr>
+             <td width="30%">授信类型:</td>
+             <td width="70%" class="div-text-left"><span ng-bind="financeInfo.creditMode|kindf:'CreditMode'"></span></td>
+           </tr>
+           <tr>
+             <td width="30%">申请类型:</td>
+             <td width="70%" class="div-text-left"><span ng-bind="financeInfo.requestType|kindf:'RaiseCapitalType'"></span></td>
+           </tr>
+           <!-- 经销商才有保证金 -->
+           <tr>
+             <td width="30%">已交保证金:</td>
+             <td width="70%" class="div-text-left"><span ng-bind="financeInfo.bondBalance|moneyFilter"></span></td>
+           </tr>
+           </tbody>
+       </table>
+
+
+       <!-- 申请材料列表 -->
+       <table class="table table-striped table-hover table-bordered" ng-show="applyDocList.length!=0">
+           <caption class="table-caption table-caption-green clearFix">
+             <span class="title-left">申请材料</span>
+           </caption>
+         <thead>
+           <tr class="result-head-gray">
+             <td width="20%">序号</td>
+             <td width="20%">材料名称</td>
+             <td width="20%">材料类型</td>
+             <td width="20%">上传时间</td>
+             <td width="20%">操作</td>
+           </tr>
+         </thead>
+         <tbody>
+           <tr ng-repeat="item in applyDocList" ng-repeat-end ng-class="{even:$even}">
+             <td ng-bind="$index+1"></td>
+             <td ng-bind="item.fileName"></td>
+             <td ng-bind="item.fileInfoType|kindf:'BaseInfoFile' "></td>
+             <td ng-bind="item.regDate"></td>
+             <td>
+               <a href="{{item.id|downf}}" >下载</a>
+             </td>
+           </tr>
+         </tbody>
+       </table>
+
+        
+       <!-- 订单列表 -->
+       <table id="order_list_table" class="div-width-100 table table-striped table-hover table-bordered" ng-show="orderList.length!=0">
+         <caption class="table-caption table-caption-green clearFix">
+             <span class="title-left">订单列表</span>
+         </caption>
+         <thead>
+           <tr class="result-head-gray">
+             <td width="15%">订单编号</td>
+             <td width="15%">订单金额</td>
+             <td width="12.5%">结算方式</td>
+             <td width="15%">核心企业</td>
+             <td width="15%">产品名称</td>
+             <td width="15%">订单日期</td>
+             <!-- <td width="12.5%">是否使用</td> -->
+             <td width="12.5%">操作</td>
+           </tr>
+         </thead>
+         <tbody>
+           <tr ng-repeat="order in orderList" ng-repeat-end ng-class="{even:$even}">
+             <td ng-bind="order.orderNo"></td>
+             <td ng-bind="order.balance|moneyFilter"></td>
+             <td ng-bind="order.settlement|kindf:'OrderSettleType'"></td>
+             <td ng-bind="order.coreCustNo"></td>
+             <td ng-bind="order.goodsName"></td>
+             <td ng-bind="order.orderDate"></td>
+             <td>
+               <a href="javascript:void(0);" ng-click="showfactorProofDetail('order',order)" >查看详情</a>
+             </td>
+           </tr>
+         </tbody>
+       </table>
+
+
+       <!-- 其它资料列表 -->
+       <table class="table table-striped table-hover table-bordered" ng-show="otherInfoList.length!=0">
+           <caption class="table-caption table-caption-green clearFix">
+             <span class="title-left">其它资料列表</span>
+             <!-- <button class="btn btn-info btn-right"  ng-click="addOtherFileBox($event.target);">+补充资料</button> -->
+           </caption>
+         <thead>
+           <tr class="result-head-gray">
+             <td width="35%">资料名称</td>
+             <td width="35%">上传节点</td>
+             <td width="30%">上传时间</td>
+             <!-- <td width="25%">操作</td> -->
+           </tr>
+         </thead>
+         <tbody>
+             <tr ng-repeat="item in otherInfoList" ng-repeat-end ng-class="{even:$even}">
+             <td ng-bind="item.fileName"></td>
+             <td ng-bind="item.node"></td>
+             <td ng-bind="item.regDate"></td>
+             <!-- <td>
+               <a href="javascript:void(0);" ng-click="deleteOtherFile(item)">删除</a>
+             </td> -->
+           </tr>
+         </tbody>
+       </table>
+
+
+       <!--  预警信息 -->
+       <table class="table table-striped table-hover table-bordered">
+           <caption class="table-caption table-caption-green clearFix">
+             <span class="title-left">预警信息</span>
+           </caption>
+           <tr ng-repeat-end ng-class="{even:$even}">
+             <td width="35%">黑名单结果：</td>
+             <td width="65%">
+               <span ng-bind="blackExist"></span>
+             </td>
+           </tr>
+       </table>
+
+
+       <!-- 审贷结果 -->
+       <table class="table table-striped table-hover table-bordered" ng-show="loanInfo && loanInfo.approvedBalance">
+          <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">审贷结果</span>
+          </caption>
+         <tbody>
+             <tr>
+               <td width="20%">申请金额:</td>
+               <td width="30%" class="div-text-left">
+                 <span ng-bind="loanInfo.requestBalance|moneyFilter"></span> 
+               </td>
+               <td width="20%">审批金额:</td>
+               <td width="30%" class="div-text-left"><span ng-bind="loanInfo.approvedBalance|moneyFilter"></td>
+             </tr>
+             <tr>
+               <td>申请期限:</td>
+               <td class="div-text-left double_box">
+                 <span ng-bind="loanInfo.period"></span>
+                 <span ng-bind="loanInfo.periodUnit|kindf:'PeriodUnit' "></span>
+               </td>
+               <td>审批期限:</td>
+               <td class="div-text-left double_box">
+                 <span ng-bind="loanInfo.approvedPeriod"></span>
+                 <span ng-bind="loanInfo.approvedPeriodUnit|kindf:'PeriodUnit' "></span>
+               </td>
+             </tr>
+             <tr>
+               <td>融资利率:</td>
+               <td class="div-text-left"><span ng-bind="loanInfo.approvedRatio"></span>&nbsp;%</td>
+               <td>其他费用利率:</td>
+               <td class="div-text-left"><span ng-bind="loanInfo.approvedManagementRatio"></span>&nbsp;%</td>
+             </tr>
+             <tr>
+               <td>手续费费率:</td>
+               <td class="div-text-left"><span ng-bind="loanInfo.servicefeeRatio"></span>&nbsp;‰</td>
+               <td>使用授信类型:</td>
+               <td class="div-text-left">
+                 <span ng-bind="loanInfo.creditMode|kindf:'CreditMode' "></span>
+               </td>
+             </tr>
+         </tbody>
+       </table>
+
+
+      <!-- 融资协议 -->
+      <table class="table table-striped table-hover table-bordered" ng-show="contractList.length!=0">
+          <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">融资协议</span>
+          </caption>
+          <thead>
+            <tr class="result-head-gray">
+              <td width="10%">序号</td>
+              <td width="20%">协议类型</td>
+              <td width="50%">协议名称</td>
+              <td width="20%">操作</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in contractList" ng-repeat-end ng-class="{even:$even}">
+               <td ng-bind="$index + 1"></td>
+               <td ng-bind="item.agreeType|kindf:'SignType' "></td>
+               <td ng-bind="item.agreeName"></td>
+               <td>
+                 <a href="javascript:void(0);" ng-click="showAgreeInfo(item);" >查看详情</a>
+                 <a href="{{item.appNo|elecf}}">下载</a>
+               </td>
+             </tr>
+          </tbody>
+      </table>
+
+  </div>
+
+
+  <div>
+    <!-- 查看协议详情 -->
+    <div id="look_agree_info_box" bt-roll-modal="template/flow/agencyFinance/temp/showAgreeInfo.html" bt-z-index="9992" bt-max-width="900px"></div>
+
+    <!-- 订单详情 -->
+    <div id="proof_order_detail_box" bt-roll-modal="views/commonTemp/orderDetailShow.html" bt-z-index="9993"></div>
+    <!-- 票据详情 -->
+    <div id="proof_draft_detail_box" bt-roll-modal="views/commonTemp/draftDetailShow.html" bt-z-index="9993"></div>
+    <!-- 应收详情 -->
+    <div id="proof_recieve_detail_box" bt-roll-modal="views/commonTemp/recieveDetailShow.html" bt-z-index="9993"></div>
+  </div>

@@ -1,0 +1,67 @@
+<div class="div-width-90 div-center detail-box">
+    <!-- <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      银行账户列表变更审核
+    </h1> -->
+
+   <div id="fund_search_way" class="row-fluid">
+      <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">基本信息查看</h1>
+       <ul id="nav_tabs"  class="nav nav-tabs plus-nav-tabs-init">
+         <li class="active"><a href="#company_info_tab" ng-click="switchTab($event)">基础信息</a></li>
+         <li><a href="#corporation_info_tab" ng-click="switchTab($event)">法人信息</a></li>
+         <li><a href="#shareholder_info_tab" ng-click="switchTab($event)">股东信息</a></li>
+         <li><a href="#executive_info_tab" ng-click="switchTab($event)">高管信息</a></li>
+         <li><a href="#business_licence_tab" ng-click="switchTab($event)">营业执照</a></li>
+         <li><a href="#contact_info_tab" ng-click="switchTab($event)">联系人信息</a></li>
+         <li><a href="#account_info_tab" ng-click="switchTab($event)">银行账户信息</a></li>
+       </ul>
+    </div>
+
+         
+     <!-- tab 栏 begin -->
+     <div class="tab-content plus-nav-tabs-content">
+
+        <!-- 基础信息 -->
+        <div id="company_info_tab" class="tab-pane fade active in">
+          <div bt-include="dataTemp/companyInfo.html"></div>
+        </div>
+
+        <!-- 法人信息 -->
+        <div id="corporation_info_tab" class="tab-pane fade in">
+          <div bt-include="dataTemp/corpInfo.html"></div>
+        </div>
+
+        <!-- 股东信息 -->
+        <div id="shareholder_info_tab" class="tab-pane fade in">
+          <div bt-include="dataTemp/holderInfo.html"></div>
+        </div>
+
+        <!-- 高管信息 -->
+        <div id="executive_info_tab" class="tab-pane fade in">
+          <div bt-include="dataTemp/executorInfo.html"></div>
+        </div>
+
+        <!-- 营业执照 -->
+        <div id="business_licence_tab" class="tab-pane fade in">
+          <div bt-include="dataTemp/licenceInfo.html"></div>
+        </div>
+
+        <!-- 联系人信息 -->
+        <div id="contact_info_tab" class="tab-pane fade in">
+          <div bt-include="dataTemp/contactInfo.html"></div>
+        </div>
+
+        <!-- 银行账户信息 -->
+        <div id="account_info_tab" class="tab-pane fade in">
+          <div bt-include="dataTemp/accountInfo.html"></div>
+        </div>
+
+    </div>
+    <!-- tab 栏 end -->
+
+    
+    <div class="center-buttons">
+        <!-- <button class="btn btn-primary" ng-show="changeWaitAudit" ng-click="auditChangeRecordPass($event.target,'account')" >审核通过</button>
+        <button class="btn btn-danger" ng-show="changeWaitAudit" ng-click="auditChangeRecordReject($event.target,'account')" >驳回变更</button> -->
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

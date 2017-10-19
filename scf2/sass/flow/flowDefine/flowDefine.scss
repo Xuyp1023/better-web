@@ -1,0 +1,239 @@
+@charset "UTF-8";
+/* 用户资料页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+@import "common/pie";
+@import "common/pages";
+
+
+#container{
+	@include init;
+	@include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+	@include Spage_plugin;
+}
+
+#content{
+	@include plus-nav-tabs;
+	@include center-buttons;
+	@include td-input-width(95%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+	@include double-check;
+}
+
+
+#fund_search_way,#repay_serach_way{
+	.content-title-1{
+		border-bottom:2px solid #248AC9;
+	}
+	.search-table{
+		margin-top:15px;
+		// margin-left:30px;
+		select,input{
+			margin:0;
+		}
+		select{
+			width:52%!important;
+			padding:0;
+			*position:relative;
+			*top:4px;
+		}
+		input{
+			width:50%!important;
+		}
+		.date{
+			input{
+				width:22.5%!important;
+			}
+		}
+		@include double-check;
+	}
+	.center-buttons{
+		margin-top:15px;
+		margin-bottom:10px;
+	}
+}
+
+
+#search_info,#serch_repay_info{
+	.content-title-1{
+		border-bottom:2px solid #248AC9;
+		position:relative;
+		.search-info{
+			display:inline-block;
+			*zoom:1;
+			*display:inline;
+			height:50px;
+			line-height:50px;
+			margin-left:30px;
+			input{
+				margin-bottom:0;
+			}
+			.btn-group{
+				height:30px;
+				line-height:30px;
+				position:relative;
+				bottom:1px;
+			}
+			.dropdown-toggle{
+				min-width:0;
+			}
+			.dropdown-menu{
+				min-width:107px;
+			}
+		}
+
+	}
+	.font-size-12{
+		font-size: 12px;
+	}
+
+	.info-title{
+		background:#F9CC9D;
+	}
+
+	//下拉帘列表样式
+	.search-repay-result{
+		.left-btn{
+			margin-right: 10px;
+		}
+	}
+	.lightbg{
+		background:#45B6AF;
+		color: #fff;
+	//	height: 17px;
+		line-height: 12px;
+	    font-size:12px;
+		padding:3px;
+	}
+	.graybg{
+		background:#C6C6C6;
+		color:#fff;
+		line-height: 12px;
+	    font-size:12px;
+		padding:3px;
+	}
+	.redbg{
+		background:#F3565D;
+		color:#fff;
+		line-height: 12px;
+	    font-size:12px;
+		padding:3px;
+	}
+}
+
+#fix_operator_info_box{
+	.content-title-1{
+		border-bottom:2px solid #248AC9;
+	}
+	margin-top:10px;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:9999;
+	background:white;
+	input,select{
+		margin-bottom:0;
+	}
+	table{
+		margin-top:10px;
+	}
+	.Wdate{
+		width:50%!important;
+	}
+	.double-check-sp{
+		width:25%;
+		margin-left:2%;
+		padding:4px 6px;
+		vertical-align:middle;
+	}
+	.info-title{
+		background:#F9CC9D;
+	}
+}
+
+#quota_part{
+	color:#fff;
+	min-width:10px;
+	margin:10px auto;	
+	text-align:center;
+	width:900px;
+	margin-bottom:30px;
+	// position:relative;
+	div{	
+		width:200px;
+		height:120px;
+		background-color:#6699FF;
+		float: left;
+		margin:0 50px;
+	}
+	dl{
+		margin-bottom: 0px; 
+	}
+	dt{
+		color:#fff;
+		text-align: left;
+		text-indent: 2em;
+		font-weight: normal;
+		font-size: 12px;
+	}
+	a{
+		background:#26A69A;
+		color:#fff;
+		padding:5px;
+		float: right;
+		margin-right: 8px;
+		font-size: 12px;
+		//$:onmouseover{color:#fff;}
+	}
+	
+	span{
+		display:inline-block;
+		font-size: 20px;
+		margin:13px;
+		font-weight:bolder;
+	}
+	
+	.totalQuota span{
+		color: #EC6F10;
+	}
+	.usedQuota span{
+		color: #008000;
+	}
+	.lastQuota span{
+		color: #CCFF00;
+	}
+}
+
+#content #edit_box{
+	.table-intable-multiple{
+		td{
+			padding-top:3px;
+			padding-bottom:3px;
+			label{
+				margin-bottom:0;
+			}
+			input[type="text"]{
+				width:58%!important;
+				margin-left:5px;
+			}
+		}
+
+	}
+
+	.big-input .result-td-head{
+		td{
+			text-align:center; 
+		}
+	}
+}

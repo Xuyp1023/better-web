@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>保理查询</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf/css/applyFac.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="testController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/fast_money.png" alt="">保理申请查询</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="15%">申请时间:</td>
+<!--                 <td width="15%"><span objValue="allDate" class="double-check-sp">全部</span></td> -->
+                <td width="70%" class="date div-text-left">
+                  <input type="text" id="begin_date" readonly="true" dateData="searchData" dateName="GTErequestDate" ng-model="searchData.GTErequestDate" onclick="WdatePicker({startDate:'%y-%M-%d',maxDate:'#F{$dp.$D(\'end_date\')}',dateFmt:'yyyy-MM-dd',readOnly:true});" ng-focus="dateEmitter.changeDateInfo($event)"> 
+                  - <input  id="end_date" readonly="true" dateData="searchData" dateName="LTErequestDate" type="text" ng-model="searchData.LTErequestDate" onclick="WdatePicker({startDate:'%y-%M-%d',maxDate:'#F{$dp.$D(\'end_date\')}',dateFmt:'yyyy-MM-dd',readOnly:true});" ng-focus="dateEmitter.changeDateInfo($event)">
+                </td>
+              </tr>
+              <tr>
+                <td>保理单号:</td>
+                <td class="div-text-left">
+                <input type="text" ng-model="searchData.factorRequestNo">
+                </td>
+              </tr>
+              <tr>
+                <td>申请保理产品:</td>
+                <td class="div-text-left">  
+
+                <select ng-model="searchData.productId">
+                   <option value="">--请选择--</option>
+                   <option ng-repeat="item in productList" ng-option-filter ng-selected="searchData.productId == item.value" value="{{item.value}}" ng-bind="item.name"></option>
+                </select>
+
+                </td>
+              </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="reFreshFacApplyList();">查询</button>
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+              保理申请单列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr class="font-size-12 info-title">
+                  <td width="8%">票据编号</td>
+                  <!-- <td width="10%">申请单编号</td> -->
+                  <td width="8%">保理单号</td>
+                  <td width="9%">融资金额（元）</td>
+                  <!-- <td width="9%">实际融资金额（元）</td> -->
+                  <td width="12%">供应商名称</td>
+                  <td width="13%">债务人姓名/企业名称</td>
+                  <td width="10%">申请保理产品</td>
+                  <td width="10%">实际申请日期</td>
+                  <!-- <td width="8%">申请时间</td> -->
+                  <td width="7%">状态</td>
+                  <td width="6%">操作</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in facApplyList" ng-class="{even:$even}" ng-repeat-end> 
+                  <td ng-bind="item.billNo"></td>
+                  <!-- <td ng-bind="item.requestNo"></td> -->
+                  <td ng-bind="item.factorRequestNo "></td>
+                  <td class="red" ng-bind="item.balance | moneyFilter"></td>  
+                  <!-- <td ng-bind="item.confirmBalance"></td> -->
+                  <td ng-bind="item.supplier"></td>
+                  <td ng-bind="item.buyer"></td>
+                  <td ng-bind="item.productName"></td>
+                  <td ng-bind="item.requestDate"></td>
+                  <!-- <td ng-bind="item.requestTime | timeFilter:':'"></td> -->
+                  <td ng-bind="item.status |kindf:'FinancingAppStatus'"></td>
+                  <td><a href="#" ng-click="showDetail(item);">详情</a></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                  <td colspan="9">
+                    <!-- 分页 -->
+                    <div bt-pagination conf="tradeListPage"></div>
+                  </td>
+              </tfoot>
+            </table>
+
+          </div>
+        
+
+        <!-- 下拉帘start -->
+        <div id="fix_operator_info_box" class="div-width-100 hide top-box">
+        <div class="div-width-90 div-center detail-box">
+          <h1 class="content-title-1 content-title-condensed"><img src="../../img/operator.png" alt="">
+            融资详情
+          </h1>
+
+          <div id="repay_serach_way" class="row-fluid">
+            <table class="table table-hover table-striped table-bordered div-width-100 search-table">
+              <thead>
+                <tr>
+                  <td colspan="2" width="50%" class="div-text-left info-title">申请单编号：<span ng-bind="factoringDetail.requestNo"></span></td>
+              </tr>
+              </thead>
+              <tbody>
+                 <tr>
+                  <td>票据编号:</td>     
+                  <td class="div-text-left" ng-bind="factoringDetail.billNo"></td>     
+                </tr>
+                 <tr>
+                  <td>申请单编号:</td>     
+                  <td class="div-text-left" ng-bind="factoringDetail.requestNo"></td>     
+                </tr>
+                <tr>
+                  <td>保理公司业务单号:</td>     
+                  <td class="div-text-left" ng-bind="factoringDetail.factorRequestNo"></td>     
+                </tr>                
+                <tr>
+                  <td width="50%">实际申请日期:</td>
+                  <td width="50%" class="div-text-left" ng-bind="factoringDetail.requestDate "></td>
+                </tr>
+                <tr>
+                  <td width="50%">申请时间:</td>
+                  <td width="50%" class="div-text-left" ng-bind="factoringDetail.requestTime | timeFilter:':' "></td>
+                </tr>
+             <!--    <tr>
+               <td>商业汇票金额:</td>
+               <td class="div-text-left"></td>
+             </tr> -->
+                <tr>
+                  <td>供应商名称:</td>     
+                  <td class="div-text-left" ng-bind="factoringDetail.supplier"></td>     
+                </tr>
+                <tr>
+                  <td>债务人姓名/企业名称:</td>     
+                  <td class="div-text-left" ng-bind="factoringDetail.buyer"></td>
+                </tr>
+                 <tr>
+                  <td>申请保理产品:</td>     
+                  <td class="div-text-left" ng-bind="factoringDetail.productName"></td>     
+                </tr>
+                <tr>
+                  <td>融资金额:</td>
+                  <td class="div-text-left" ng-bind="factoringDetail.balance | moneyFilter"></td>
+                </tr>
+                <tr>
+                  <td>申请单状态:</td>
+                  <td class="div-text-left" ng-bind="factoringDetail.status |kindf:'FinancingAppStatus' "></td>
+                </tr>
+
+              </tbody>     
+              
+            </table>
+
+          </div>
+
+
+
+          <div id="data_list_info" class="row-fluid">
+
+            <table class="table table-striped table-hover table-bordered" id="invoice_list_table">
+            <caption class="table-caption">发票信息列表</caption>
+              <thead>
+                <tr>
+                  <td width="10%">发票号</td>
+                  <td width="10%">行业类别</td>
+                  <td width="10%">发票金额</td>
+                  <td width="10%">项目</td>
+                  <td width="10%">单位</td>
+                  <td width="10%">数量</td>
+                  <td width="10%">登记日期</td>
+                  <td width="15%">附件</td> 
+                </tr>
+              </thead>
+              <tbody>
+                  <tr ng-repeat="invoice in invoiceList" ng-class="{even:$even}" ng-repeat-end>
+                    <td ng-bind="invoice.invoiceNo"></td>
+                    <td ng-bind="invoice.corpVocate | kindf:'InvestCorpVocate'"></td>
+                    <td ng-bind="invoice.balance | moneyFilter"></td>
+                    <td ng-bind="invoice.subject"></td>
+                    <td ng-bind="invoice.unit"></td>
+                    <td ng-bind="invoice.amount"></td>
+                    <td ng-bind="invoice.regDate"></td>
+                    <td>
+                      <a ng-show="invoice.itemId" href="{{invoice.itemId|downf}}">下载</a>
+                    </td>
+                    
+                  </tr>
+              </tbody>
+            </table>
+
+
+            <table class="table table-striped table-hover table-bordered upload-list-table" id="attach_list_table">
+              <caption class="table-caption">附件信息列表</caption>
+              <thead>
+                <tr>
+                  <td width="30%">附件类型</td>
+                  <td width="30%">附件名称</td>
+                  <td width="40%">操作</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in agreeAttachList" ng-class="{even:$even}" ng-repeat-end>
+                  <td >交易合同附件</td>
+                  <td ng-bind="item.fileName"></td>
+                  <td class="modi-upload-btn">
+                    <a href="{{item.id|downf}}">下载</a>
+                  </td>
+                </tr>
+                <tr ng-repeat="item in billAttachdList" ng-class="{even:$even}" ng-repeat-end>
+                  <td>票据附件</td>
+                  <td ng-bind="item.fileName"></td>
+                  <td class="modi-upload-btn">
+                    <a href="{{item.id|downf}}">下载</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+
+          </div>
+
+
+
+
+          <div class="center-buttons">
+            <!-- <button class="btn btn-primary" data-bind="click:addOper">确定</button> -->
+            <!-- <button class="btn btn-primary" data-bind="click:reset">重置</button> -->
+            <button ng-show="!backToRecieve" class="btn btn-primary" ng-click="backForward();">返回</button>
+            <a ng-show="backToRecieve" href="{{prePath+'/recieveFac.html'}}"><button class="btn btn-primary">返回应收账款</button></a>
+          </div>
+        </div>
+        </div>
+        <!-- 下拉帘结束 -->
+
+        <!-- 温馨提示 -->
+        <div id="warm_prompt_box" class="div-width-100">
+          <h1 class="prompt-title">
+            <img class="prompt-icon" src="../../img/warm_prompt.png" alt="">
+            温馨提示
+          </h1>
+          <div class="warm-prompt-content">
+            <p>1.供应商可以根据保理单号和所选时间段查询保理申请的状态。</p>
+          </div>
+        </div>
+        <!-- 温馨提示END -->
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("../../provider_dev/src/applyFac");
+      }
+      // For production
+      else {
+        seajs.use("p/provider/1.0.0/applyFac");
+      } 
+  </script>
+  </body>
+</html>

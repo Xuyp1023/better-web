@@ -1,0 +1,88 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">验签证书管理
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                     
+                      <tr>
+                        <td>登记日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEregDate">-
+                          <input type="text" id="end_date" bt-date="searchData.LTEregDate">
+                        </td>
+                      </tr>                      
+                      <tr>                        
+                        <td width="25%">公司名称:</td>
+                        <td width="75%" class="div-text-left">
+                          <input type="text" ng-model="searchData.LIKEcustName">
+                        </td>                        
+                      </tr>
+                       <tr>                        
+                        <td width="25%">状态:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.businStatus">
+                            <option value="">----所有----</option>
+                            <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+                          </select>
+                        </td>                        
+                      </tr>
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+                    </div>
+                </div>
+
+
+      <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+            <tr>
+              <td class="modi-group" colspan="13">
+                    <button class="btn btn-info" ng-click="addBox();">添加证书</button>
+              </td>
+            </tr>
+            <tr class="result-head">
+              <td width="25%">公司名称</td>
+              <td width="10%">证书类型</td>
+              <td width="25%">证书名称</td>
+              <td width="10%">登记日期</td>
+              <td width="10%">状态</td>
+              <td width="20%">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}"  ng-repeat="item in infoList" ng-repeat-end>
+            <td class="red" ng-bind="item.custName"></td>
+            <td ng-bind="item.type | kindf: 'VerifySignCertType'"></td>
+            <td ng-bind="item.name"></td>
+            <td ng-bind="item.regDate"></td>
+            <td ng-bind="item.businStatus | kindf: 'VerifySignCertStatus'"></td>
+            <td>
+              <a href="javascript:void(0);" ng-click="lookDetail(item);">详情</a>
+              <a ng-show="item.businStatus==='0'" href="javascript:void(0);" ng-click="editBox(item);">编辑</a>
+              <a ng-show="item.businStatus==='0'" href="javascript:void(0);" ng-click="activeCertModal(item);">启用</a>
+              <a ng-show="item.businStatus==='1'" href="javascript:void(0);" ng-click="disableCertModal(item);">停用</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="6">
+                <div bt-pagination conf="listPage" func="queryList(false)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+        </div>
+
+
+    </div>
+
+<!-- 添加证书 -->
+<div id="add_box" bt-roll-modal="template/1qh-mobile/check/certificat/addcertificat.html" bt-z-index="9991"></div>
+<!-- 编辑证书 -->
+<div id="edit_box" bt-roll-modal="template/1qh-mobile/check/certificat/editcertificat.html" bt-z-index="9991"></div>
+<!-- 启用/禁用证书 -->
+<div id="detail_box" bt-roll-modal="template/1qh-mobile/check/certificat/uncertificat.html" bt-z-index="9991"></div>
+
+

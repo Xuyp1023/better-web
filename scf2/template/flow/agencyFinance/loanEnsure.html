@@ -1,0 +1,156 @@
+ 
+  <!-- 放款确认 -->
+  <div id="approve_handle_loan" class="row-fluid">
+
+    <form action="" id="" class="form-horizontal">
+      <div class="div-center div-width div-margin-top">
+      
+      <!-- 融资详细 -->
+      <div bt-include="template/flow/agencyFinance/temp/auditMain.html"></div>
+
+
+      <!-- 确认放款  阶段 -->
+      <!-- 审贷结果 -->
+      <table class="table table-striped table-hover table-bordered">
+         <caption class="table-caption table-caption-green clearFix">
+           <span class="title-left">审贷结果</span>
+         </caption>
+        <tbody>
+            <tr>
+              <td width="20%">申请金额:</td>
+              <td width="30%" class="div-text-left">
+                <span ng-bind="loanInfo.requestBalance|moneyFilter"></span> 
+              </td>
+              <td width="20%">审批金额:</td>
+              <td width="30%" class="div-text-left"><span ng-bind="loanInfo.approvedBalance|moneyFilter"></td>
+            </tr>
+            <tr>
+              <td>申请期限:</td>
+              <td class="div-text-left double_box">
+                <span ng-bind="loanInfo.period"></span>
+                <span ng-bind="loanInfo.periodUnit|kindf:'PeriodUnit' "></span>
+              </td>
+              <td>审批期限:</td>
+              <td class="div-text-left double_box">
+                <span ng-bind="loanInfo.approvedPeriod"></span>
+                <span ng-bind="loanInfo.approvedPeriodUnit|kindf:'PeriodUnit' "></span>
+              </td>
+            </tr>
+            <tr>
+              <td>融资利率:</td>
+              <td class="div-text-left"><span ng-bind="loanInfo.approvedRatio"></span>&nbsp;%</td>
+              <td>其他费用利率:</td>
+              <td class="div-text-left"><span ng-bind="loanInfo.approvedManagementRatio"></span>&nbsp;%</td>
+            </tr>
+            <tr>
+              <td>手续费费率:</td>
+              <td class="div-text-left"><span ng-bind="loanInfo.servicefeeRatio"></span>&nbsp;‰</td>
+              <td>使用授信类型:</td>
+              <td class="div-text-left">
+                <span ng-bind="loanInfo.creditMode|kindf:'CreditMode' "></span>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+      
+
+      <!-- 融资协议 -->
+      <table class="table table-striped table-hover table-bordered" ng-show="contractList.length!=0">
+          <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">融资协议</span>
+          </caption>
+          <thead>
+            <tr class="result-head-gray">
+              <td width="10%">序号</td>
+              <td width="20%">协议类型</td>
+              <td width="50%">协议名称</td>
+              <td width="20%">操作</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in contractList" ng-repeat-end ng-class="{even:$even}">
+               <td ng-bind="$index + 1"></td>
+               <td ng-bind="item.agreeType|kindf:'SignType' "></td>
+               <td ng-bind="item.agreeName"></td>
+               <td>
+                 <a href="javascript:void(0);" ng-click="showAgreeInfo(item);" >查看详情</a>
+                 <a href="{{item.appNo|elecf}}">下载</a>
+               </td>
+             </tr>
+          </tbody>
+      </table>
+
+
+
+     <!-- 审批 -->
+     <div id="approve_handle_loan">
+        <table class="table table-striped table-hover table-bordered table-condensed">
+          <caption class="table-caption clearFix">
+            <span class="title-left">审批</span>
+          </caption>
+          <tbody>
+          <tr ng-repeat-end ng-class="{even:$even}">
+            <td width="20%">实际放款金额:</td>
+            <td width="30%" class="div-text-left"><input type="text" ng-model="auditInfo.loanBalance"></td>
+            <td width="20%">已收手续费:</td>
+            <td width="30%" class="div-text-left"><input type="text" ng-model="auditInfo.servicefeeBalance"></td>
+          </tr>
+          <tr>
+            <td class="deep-gray">金额大写:</td>
+            <td class="div-text-left">
+              <strong class="deep-gray" ng-bind="auditInfo.loanBalance|moneybigf"></strong> 
+            </td>
+            <td class="deep-gray">金额大写:</td>
+            <td class="div-text-left">
+              <strong class="deep-gray" ng-bind="auditInfo.servicefeeBalance|moneybigf"></strong>
+            </td>
+          </tr>
+          <tr ng-repeat-end ng-class="{even:$even}">
+            <td width="20%">实际放款日期:</td>
+            <td width="30%" class="div-text-left"><input type="text" bt-date="auditInfo.loanDate"></td>
+            <td width="20%">到期日期:</td>
+            <td width="30%" class="div-text-left"><input type="text" bt-date="auditInfo.endDate"></td>
+          </tr>
+          <tr ng-repeat-end ng-class="{even:$even}">
+            <td width="20%">利息总额:</td>
+            <td width="30%" class="div-text-left"><input type="text" ng-model="auditInfo.interestBalance"></td>
+            <td width="20%">其它费用总额:</td>
+            <td width="30%" class="div-text-left"><input type="text" ng-model="auditInfo.managementBalance"></td>
+          </tr>
+          <tr>
+            <td class="deep-gray">金额大写:</td>
+            <td class="div-text-left">
+              <strong class="deep-gray" ng-bind="auditInfo.interestBalance|moneybigf"></strong> 
+            </td>
+            <td class="deep-gray">金额大写:</td>
+            <td class="div-text-left">
+              <strong class="deep-gray" ng-bind="auditInfo.managementBalance|moneybigf"></strong>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+     </div>
+
+      </div>
+    </form>
+  </div>
+
+
+
+  <div>
+    <!-- 补充资料 -->
+    <div id="add_other_file_box" bt-roll-modal="template/flow/agencyFinance/temp/addOtherFile.html" bt-z-index="9992"></div>
+
+    <!-- 查看协议详情 -->
+    <div id="look_agree_info_box" bt-roll-modal="template/flow/agencyFinance/temp/showAgreeInfo.html" bt-z-index="9992" bt-max-width="900px"></div>
+
+    <!-- 订单详情 -->
+    <div id="proof_order_detail_box" bt-roll-modal="views/commonTemp/orderDetailShow.html" bt-z-index="9993"></div>
+    <!-- 票据详情 -->
+    <div id="proof_draft_detail_box" bt-roll-modal="views/commonTemp/draftDetailShow.html" bt-z-index="9993"></div>
+    <!-- 应收详情 -->
+    <div id="proof_recieve_detail_box" bt-roll-modal="views/commonTemp/recieveDetailShow.html" bt-z-index="9993"></div>
+
+    <div bt-upload conf="uploadConf" ></div>
+    
+  </div>

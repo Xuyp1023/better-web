@@ -1,0 +1,25 @@
+{ 
+	"message": "公司基本信息-详情查询 成功", 
+	"data": { 
+		"custNo": 100000177, 
+		"category": "", 
+		"regAddress": "", 
+		"orgCode": "11111111111111111111", 
+		"businLicence": "214213412342314", 
+		"regCapital": "", 
+		"paidCapital": "20W", 
+		"premisesArea": 20, 
+		"premisesYear": 5, 
+		"premisesType": "1", 
+		"premisesAddress": "深圳市福田区泰然7路", 
+		"businScope": "金融", 
+		"address": "", 
+		"phone": "13808060501", 
+		"fax": "13808060501", 
+		"email": "liuwl@bytter.com", 
+		"corpName": "公司名称", 
+		"batchNo": 0 
+	}, 
+		"page": "", 
+		"code": 200 
+}

@@ -1,0 +1,11 @@
+{
+    "message": "获取授信详细成功",
+    "data": [{
+            "value":"FACTOR_USER",
+            "name":"保理公司"
+        },{
+            "value":"CORE_USER",
+            "name":"核心企业"
+        }],
+    "code": 200
+}

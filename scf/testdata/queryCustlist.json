@@ -1,0 +1,20 @@
+{
+    "message": "查询客户合同成功",
+    "data": [{
+        "id": 1845,
+        "minFactorAmmount": 10000,
+        "productName": "XXXX产品",
+        "productCode": "FP123213123121111111",
+        "maxFactorAmmount": 500000,
+        "factorType": "1",
+        "financeType": "1",
+        "coreCredict": "1" 
+    }],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 10,
+        "pages": 1,
+        "total": 9
+    },
+    "code": 200
+}

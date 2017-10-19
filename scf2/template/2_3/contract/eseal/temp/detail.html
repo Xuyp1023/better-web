@@ -1,0 +1,150 @@
+<div class="div-width-90 detail-box div-center">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    电子合同模板详情
+  </h1>
+  <div id="mainContent" class="row-fluid div-center div-margin-top">
+
+    <form action="" id="addAccount_form" class="form-horizontal">
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">基本信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-right" width="15%">模板所属机构</td>
+            <td class="div-text-center" width="35%" ng-bind="info.selectInfo.custName"></td>
+            <td class="div-text-right" width="15%">标准合同名称：</td>
+            <td class="div-text-center" width="35%" ng-bind="info.selectInfo.name"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">标准合同文本 <a href="javascript:void(0);" ng-click="downloadSel()"  style="float: right;">下载文件</a></td>
+         </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-right" width="15%">标准合同文本：</td>
+            <td class="div-text-center" width="35%"><span ng-bind="info.selectInfo.originTemplateName"></span></td>
+            <td class="div-text-right" width="15%">标准合同样例：</td>
+            <td class="div-text-center" width="35%"><span ng-bind="info.selectInfo.originSimpleName"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">合同参数</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-right" width="20%">合同签署方数量：</td>
+            <td class="div-text-center" width="30%" ng-bind="info.selectInfo.originSignerCount"></td>
+            <td class="div-text-right" width="20%">合同编码规则：</td>
+            <td class="div-text-center" width="30%">{{info.selectInfo.originNoPattern}}+日期+5位流水码</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">上传合同模板<a href="javascript:void(0);" ng-click="downloadTemplate()"  style="float: right;">下载文件</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-right" width="15%">电子合同模板：</td>
+            <td class="div-text-center" width="35%">
+              <span name="https://static.qiejf.com/better/Platform/CustFile/fileDownload?id=1" ng-bind="info.selectInfo.templateName"></span>
+              </td>
+            <td class="div-text-right" width="15%">签章位置：</td>
+            <td class="div-text-center" width="35%">
+              <a href="javascript:void(0)" ng-click="lookKeyWord()">查看签章位置</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="2">备注信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%">备注</td>
+            <td width="80%" class="div-text-left" ng-bind="info.selectInfo.common"></td>
+          </tr>
+        </tbody>
+      </table>
+
+     <table class="table table-striped table-hover table-bordered big-input" ng-if="info.selectInfo.templateAuditStatus != '00'">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">审核结果</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-right" width="15%">审核结果：</td>
+            <td class="div-text-center" width="35%" ng-bind="info.selectInfo.templateAuditStatus|kindf:'ContractTemplateAuditStatus'"></td>
+            <td class="div-text-right" width="15%">审核人：</td>
+            <td class="div-text-center" width="35%" ng-bind="info.selectInfo.templateAuditOperName"></td>
+          </tr>
+          <tr>
+            <td class="div-text-right" width="15%">审核机构：</td>
+            <td class="div-text-center" width="35%" ng-bind="info.selectInfo.custName"></td>
+            <td class="div-text-right" width="15%">审核时间：</td>
+            <td class="div-text-center" width="35%" ng-bind="info.selectInfo.templateAuditDate + ' ' + info.selectInfo.templateAuditTime"></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">审核意见：</td>
+            <td colspan="5" class="div-text-center" ng-bind="info.selectInfo.templateAuditRemark"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered big-input">
+      <thead class="result-td-head result-head-green">
+        <tr>
+          <td class="left" colspan="5">历史轨迹 <a style="float: right;">展开/收缩</a></td>
+      </thead>
+      <thead class="result-head result-head-gray">
+        <tr>
+          <td width="20%">操作时间</td>
+          <td width="15%">操作人</td>
+          <td width="25%">操作机构</td>
+          <td width="10%">操作类型</td>
+          <td width="30%">操作内容</td>
+        </tr>
+       
+      </thead>
+      <tbody id="aduitFile">
+       <tr ng-repeat="templateLog in templateLogList">
+          <td ng-bind="templateLog.operDate + ' ' + templateLog.operTime"></td>
+          <td ng-bind="templateLog.regOperName"></td>
+          <td ng-bind="templateLog.custName"></td>
+          <td ng-bind="templateLog.operType | kindf: 'ContractTemplateOperType'"></td>
+          <td ng-bind="templateLog.operContent"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    </form>
+    
+  </div>
+  
+    <div class="center-buttons" >
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+    <div style="height: 30px"></div>
+  </div>

@@ -1,0 +1,77 @@
+<div class="div-width-90 detail-box div-center">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    客户电子印章制作
+  </h1>
+  <div  class="row-fluid div-center div-margin-top">
+
+    <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">基本信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="title">客户名称:</span>
+            </td>
+            <td width="80%"><span ng-bind="makeInfo.custName"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">印章名称:</span>
+            </td>
+            <td><span ng-bind="makeInfo.name"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 附件列表 -->
+      <table class="table table-striped table-hover table-bordered">
+          <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">制作电子印章</span>
+          </caption>
+          <thead>
+          <tr class="result-head-gray">
+            <td width="20%">附件类型</td>
+            <td width="40%">附件名称</td>
+            <td width="40%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-right"><span class="required">*</span>
+              <span class="title">客户印章文件:</span></td>
+            <td ng-bind="makeInfo.originStamperName"></td>
+            <td>
+              <a href="{{makeInfo.originStamperId|downf}}">下载</a>
+            </td>
+          </tr>
+
+           <tr>
+            <td class="div-text-right"><span class="required">*</span>
+              <span class="title">制作的电子印章:</span></td>
+            <td ng-bind="makeInfo.fileName"></td>
+            <td>
+              <a href="javascript:void(0);" ng-show="!makeInfo.fileId" ng-click="openUpload($event,'otherInfoFile','电子印章','attachList','makeFile')">上传</a>
+              <a href="{{makeInfo.fileId|downf}}" ng-show="makeInfo.fileId">下载</a>
+              <a href="javascript:void(0);" ng-show="makeInfo.fileId" ng-click="delUploadItem('makeFile');">移除</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+     
+    </div>
+
+    <div class="center-buttons" >
+        <button class="btn btn-primary" ng-disabled="uploadFlag" ng-click="uploadMake($event.target)">提交</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+
+
+    <!-- 附件上传 start -->
+    <div bt-upload conf="uploadConf"></div>
+
+</div>
+      

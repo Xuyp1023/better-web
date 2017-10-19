@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>还款异常</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/supplier/exception/payException.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+
+          <!-- 查询区 -->
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">还款异常</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="30%">当前机构:</td>
+                <td class="div-text-left">
+                  <select name="custNo" id="" ng-model="searchData.custNo">
+                    <option ng-repeat="item in supplierList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo==item.value"></option>
+                </select>
+                </td>
+              </tr>
+              <tr>
+                <td>放款日期:</td>
+                <td class="div-text-left date">
+                   <input type="text" id="start_date" bt-date="searchData.GTEactualDate" bt-max-date="end_date"> - 
+                   <input type="text" id="end_date" bt-date="searchData.LTEactualDate" bt-min-date="start_date">
+                </td>
+              </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="searchList(true);">查询</button>
+            </div>
+          </div>
+          
+
+
+          <!-- 查询结果区 -->
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              异常列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr class="result-head">
+                  <td width="10%">融资编号</td>
+                  <td width="10%">融资企业</td>
+                  <td width="10%">票据号</td>
+                  <td width="10%">票据类型</td>
+                  <td width="10%">票面金额</td>
+                  <td width="10%">融资金额</td>
+                  <td width="10%">放款日期</td>
+                  <td width="10%">到期日期</td>
+                  <td width="10%">状态</td>
+                  <td width="10%">操作</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-repeat="apply in exceptionList" ng-repeat-end ng-class="{even:$even}">
+                  <td ng-bind="apply.enquiryNo"></td>
+                  <td ng-bind="apply.enquiryNo"></td>
+                  <td ng-bind="apply.enquiryNo"></td>
+                  <td ng-bind="apply.enquiryNo"></td>
+                  <td class="tab-text-right" ng-bind="apply.enquiryNo"></td>
+                  <td class="tab-text-right" ng-bind="apply.enquiryNo"></td>
+                  <td ng-bind="apply.enquiryNo"></td>
+                  <td ng-bind="apply.enquiryNo"></td>
+                  <td ng-bind="apply.enquiryNo"></td>
+                  <td>
+                      <a href="javascript:void(0);" ng-click="">查看</a>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <td colspan="11">
+                  <div bt-pagination conf="pageConf" func="queryList(false);"></div>
+                </td>
+              </tfoot>
+            </table>
+            
+          </div>
+        
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+  
+
+
+
+
+	<!-- 引用js文件 -->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/supplier/exception/payException");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/supplier/exception/payException");
+      } 
+  </script>
+  </body>
+</html>

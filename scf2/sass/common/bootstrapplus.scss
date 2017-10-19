@@ -1,0 +1,129 @@
+@charset "utf-8";
+/**
+*bootstrap自定义增强文件
+*/
+
+@import "pie";
+
+@mixin plus-nav-tabs($width:92%,$paddingLeft:8%,$liwidth:14%,$awidth:100px){
+	.plus-nav-tabs-init{
+		width:$width;
+		margin:0;
+		padding:{
+			left:$paddingLeft;
+		};
+		background:transparent url(../../../img/bytter_skin.png) repeat 0 -298px;
+		li{
+			min-width:$liwidth;
+			text-align:center;
+			margin-left:1%;
+			a{	
+				*min-width:$awidth;
+				border-color: #eee #eee #ddd;
+				text-decoration: none;
+				background-color: #eee;
+				*padding:{
+					left:1px;
+					right:1px;
+				}
+				*margin:{
+					left:0;
+					right:0;
+				}
+				&:hover{
+					border:1px solid transparent;
+					background-color:transparent;
+					color:#f14e32;
+				};
+				@include plus-ie;
+			};
+			&.active{
+				a{	
+					*min-width:$awidth;
+					border-color:rgb(221, 221, 221);
+					text-decoration: none;
+					background-color: rgb(255, 255, 255);
+					border-bottom:0;
+					position: relative;
+				    z-index: 10;
+				    bottom: -1px;
+				    *zoom:1;
+				    @include plus-ie;
+				};
+			};
+		}
+	}
+
+	.plus-nav-tabs-content{
+		width:100%;
+		> div{
+			width:100%;
+		}
+	}
+
+	.tab-content{
+		overflow:hidden;
+	}
+}
+
+//增强表格
+@mixin plus-table{
+	.td-text-left{
+		text-align:left;
+	}
+	.td-text-right{
+		text-align:right;
+	}
+}
+
+
+
+
+/**
+*bootstrap中IE兼容区域
+*/
+
+
+//IE下按钮兼容
+@mixin plus-ie-btn{
+	.btn-primary{
+		// filter: Alpha(Opacity=80, FinishOpacity=60, Style=2, StartX=30, StartY=30, FinishX=200, FinishY=200);
+		// filter:progid:dXImageTransform.Microsoft.Glow(color=blue,Strength=2);
+		// *background:transparent url(../../../img/btn-primary.png) no-repeat center center;
+
+		// min-width:68px;
+		// min-height:30px;
+	}
+	.btn-bg-middle{
+		// *background:transparent url(../../../img/btn_bg_middle.png) no-repeat center center;
+		// min-width:100px;
+		// min-height:30px;
+	}
+}
+
+//IE下表格兼容措施
+@mixin plus-ie-table{
+	@media screen\9{
+		.even{
+			background-color: rgb(244, 244, 244);
+		}
+	}
+}
+
+
+//IE下兼容css3
+@mixin plus-ie-css3{
+	@media screen\9{
+		input[type="text"],input[type="password"],textarea{
+	    	border: 1px solid #248AC9;
+	    	&:hover{
+	    		box-shadow: #52D9EF 0px 0px 10px;
+	    	}
+	    	@include plus-ie;
+		}
+	}
+}
+
+
+
+

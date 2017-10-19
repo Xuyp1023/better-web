@@ -1,0 +1,132 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [
+        {
+            "fundCode": "090005",
+            "fundCompany": "大成基金",
+            "fundName": "XX健康产业股票",
+            "netDate": "2015-06-29",
+            "netValue": "1.1650",
+            "swingRate": "1.75%",
+            "buildRate": "36.20%",
+            "yearRate": "26.30%",
+            "riskLevel": "高",
+            "trading": true
+        },
+        {
+            "fundCode": 112324,
+            "fundCompany": "大成基金",
+            "fundName": "XX证券分级股票",
+            "netDate": "2015-06-29",
+            "netValue": "1.3420",
+            "swingRate": "0.96%",
+            "buildRate": "12.30%",
+            "yearRate": "46.21%",
+            "riskLevel": "高",
+            "trading": true
+        },
+        {
+            "fundCode": 114524,
+            "fundCompany": "大成基金",
+            "fundName": "XX纯债股票",
+            "netDate": "2015-06-29",
+            "netValue": "2.3212",
+            "swingRate": "0.03%",
+            "buildRate": "12.12%",
+            "yearRate": "6.20%",
+            "riskLevel": "中",
+            "trading": true
+        },
+        {
+            "fundCode": 110024,
+            "fundCompany": "大成基金",
+            "fundName": "XX货币增值",
+            "netDate": "2015-06-29",
+            "netValue": "1.2432",
+            "swingRate": "0.06%",
+            "buildRate": "12.31%",
+            "yearRate": "1.60%",
+            "riskLevel": "低",
+            "trading": true
+        },
+        {
+            "fundCode": 110024,
+            "fundCompany": "大成基金",
+            "fundName": "XX货币增值",
+            "netDate": "2015-06-29",
+            "netValue": "1.2432",
+            "swingRate": "0.06%",
+            "buildRate": "12.31%",
+            "yearRate": "1.60%",
+            "riskLevel": "低",
+            "trading": true
+        },
+        {
+            "fundCode": 110024,
+            "fundCompany": "大成基金",
+            "fundName": "XX货币增值",
+            "netDate": "2015-06-29",
+            "netValue": "1.2432",
+            "swingRate": "0.06%",
+            "buildRate": "12.31%",
+            "yearRate": "1.60%",
+            "riskLevel": "低",
+            "trading": true
+        },
+        {
+            "fundCode": 110024,
+            "fundCompany": "大成基金",
+            "fundName": "XX货币增值",
+            "netDate": "2015-06-29",
+            "netValue": "1.2432",
+            "swingRate": "0.06%",
+            "buildRate": "12.31%",
+            "yearRate": "1.60%",
+            "riskLevel": "低",
+            "trading": true
+        },
+        {
+            "fundCode": 965362,
+            "fundCompany": "大成基金",
+            "fundName": "XX腾安100指数",
+            "netDate": "2015-06-29",
+            "netValue": "1.7650",
+            "swingRate": "-3.65%",
+            "buildRate": "143.20%",
+            "yearRate": "23.30%",
+            "riskLevel": "高",
+            "trading": true
+        },
+        {
+            "fundCode": 965362,
+            "fundCompany": "大成基金",
+            "fundName": "XX腾安100指数",
+            "netDate": "2015-06-29",
+            "netValue": "1.7650",
+            "swingRate": "-3.65%",
+            "buildRate": "143.20%",
+            "yearRate": "23.30%",
+            "riskLevel": "高",
+            "trading": true
+        },
+        {
+            "fundCode": 965362,
+            "fundCompany": "大成基金",
+            "fundName": "XX腾安100指数",
+            "netDate": "2015-06-29",
+            "netValue": "1.7650",
+            "swingRate": "-3.65%",
+            "buildRate": "143.20%",
+            "yearRate": "23.30%",
+            "riskLevel": "高",
+            "trading": true
+        }
+    ],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 6,
+        "pages": 6,
+        "total": 6
+    }
+}

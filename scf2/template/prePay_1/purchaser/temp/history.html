@@ -1,0 +1,46 @@
+<div class="row-fluid detail-info div-center">    
+    <div>
+        <h1 class="content-title-1 content-title-condensed content-title-blue">
+          <img src="img/fast_money.png" alt="">付款指令文件下载历史           
+        </h1>                 
+        <table id="order_list_table" class="div-width-100 table table-striped table-hover search-result main-list">          
+            <thead>
+              <tr class="result-head-gray">
+                <td width="13%">文件标识</td>
+                <td width="12%">文件名称</td>
+                <td width="8%">笔数</td>
+                <td width="12%">金额</td>
+                <td width="13%">付款日期</td>
+                <td width="10%">操作人员</td>
+                <td width="10%">操作终端</td>              
+                <td width="14%">导出时间</td>       
+                <td width="8%">下载</td>       
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in historyList">
+                <td class="ng-binding" ng-bind="item.refNo"></td>
+                <td ng-bind="item.receivableNo" class="ng-binding"></td>
+                <td ng-bind="item.balance" class="ng-binding"></td>
+                <td ng-bind="item.surplusBalance" class="ng-binding"></td>
+                <td ng-bind="item.endDate" class="ng-binding"></td>
+                <td ng-bind="item.invoiceNos" class="ng-binding"></td>             
+                <td ng-bind="item.agreeNo"></td>
+                <td ng-bind="item.agreeNo"></td>
+                <td>
+                    <a href="{{item.id | downf}}">下载</a>
+                </td>
+             </tr>           
+            </tbody>
+            <tfoot>
+                <td colspan="10">                  
+                    <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                </td>
+            </tfoot>
+         </table>
+         <div class="center-buttons">
+            <button class="btn btn-primary" bt-close-modal>返回</button>            
+        </div> 
+     </div>
+
+  </div>

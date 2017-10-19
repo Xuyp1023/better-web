@@ -1,0 +1,15 @@
+{
+    "code": 200,//正常 401//未登录
+    "message": "ok",
+    "data": {
+        "contEmail": "",
+        "identNo": "",
+        "custName": "一级结算中心",
+        "contName": "",
+        "address": "",
+        "bankName": "中国工商银行股份有限公司阳江分行西平支行",
+        "bankCode": "1016",
+        "bankAccount": "430482199008010033302",
+        "bankAddress": ""
+    }
+}

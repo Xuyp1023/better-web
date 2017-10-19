@@ -1,0 +1,38 @@
+<div class="div-width-90 detail-box div-center">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      添加发票项目
+    </h1>
+    <form action="#" id="addInvoice_form_more">
+    <table class="div-width-100 table table-bordered table-striped table-hover recieve-table">
+        <tr>
+          <td width="30%"><span class="required">*</span>项目:</td>
+          <td class="div-text-left" width="70%"><input type="text" name="subject" ng-model="infoMore.subject" valid="{'required':true}"></td>
+        </tr>
+        <tr>
+          <td width="30%"><span class="required">*</span>单价:</td>
+          <td class="div-text-left" width="70%"><input type="text" name="unit" ng-model="infoMore.unit" valid="{'required':true}"></td>
+        </tr>
+        <tr>
+          <td width="30%"><span class="required">*</span>数量:</td>
+          <td class="div-text-left" width="70%"><input type="text" name="amount" ng-model="infoMore.amount" valid="{'required':true}"></td>
+        </tr>
+        <tr>
+          <td width="30%"><span class="required">*</span>金额:</td>
+          <td class="div-text-left" width="70%"><input type="text" name="balance" ng-model="infoMore.balance" valid="{'required':true}"></td>
+        </tr>
+        <tr>
+          <td width="30%"><span class="required">*</span>备注:</td>
+          <td class="div-text-left" width="70%">
+            <textarea name="description" ng-model="infoMore.description" cols="30" rows="10"></textarea>
+          </td>
+        </tr>
+    </table>
+    </form>
+
+    <div>
+         <div class="center-buttons">
+           <button class="btn btn-primary" ng-click="addInfoMore($event.target);">确定添加</button>
+           <button class="btn btn-primary" bt-close-modal >取消</button>
+         </div>
+    </div>
+</div> 

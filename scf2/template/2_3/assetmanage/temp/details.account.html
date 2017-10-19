@@ -1,0 +1,111 @@
+ <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed"><img src="img/fast_money.png" alt="">应收账款详情
+                    </h1>
+           <table id="loanBox" class="table table-striped table-hover table-bordered table-condensed" >
+            <tr>
+                  <td>凭证编号:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.refNo" disabled>
+                  </td>
+                  <td>账款状态:</td>
+                  <td class="div-text-left double_box">
+                     <!-- <input type="text" ng-bind="loanInfo.businStatus | kindf :'orderVersionBusinStatus'" > --> 
+                      <span  ng-show="loanInfo.isCustDetail!=1" ng-bind="loanInfo.businStatus | kindf:'billVersionBusinStatus'"></span>  
+                       <span  ng-show="loanInfo.isCustDetail==1" ng-bind="loanInfo.businStatus | kindf:'effectiveVersionUsingBusinStatus'"></span>          
+                  </td>
+                </tr> 
+                <tr>
+                  <td width="20%">债务人名称:</td>
+                  <td width="30%" class="div-text-left">
+                  <input type="text" ng-model="loanInfo.coreCustName" disabled>
+                  </td>
+                  <td width="20%">债权人名称:</td>
+                  <td width="30%" class="div-text-left">
+                   <input type="text" ng-model="loanInfo.custName" disabled>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="red">*</strong> 账款编号:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.receivableNo" disabled>
+                  </td>
+                  <td><strong class="red">*</strong> 应收账款结算日:</td>
+                  <td class="div-text-left double_box">
+                     <input type="text" id="draft_edit_start" bt-date="loanInfo.endDate" disabled>
+                  </td>
+                </tr> 
+                <tr>
+                  <td><strong class="red">*</strong> 应收账款金额:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.balance" value="500" disabled>
+                  </td>
+                  <td>金额大写:</td>
+                  <td class="div-text-left double_box">
+                    <strong class="deep-gray ng-binding" ng-bind="loanInfo.balance|moneybigf"></strong>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong class="red">*</strong> 应收账款余额:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.surplusBalance" disabled>
+                  </td>
+                  <td>金额大写:</td>
+                  <td class="div-text-left double_box">
+                    <strong class="deep-gray ng-binding" ng-bind="loanInfo.surplusBalance|moneybigf"></strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>抵扣金额:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.deductionBalance" disabled>
+                  </td>
+                  <td>已结算金额:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="loanInfo.statementBalance" disabled>
+                  </td>
+                </tr>
+                 <tr>
+                  <td width="20%">贸易合同号:</td>
+                  <td width="30%" class="div-text-left">
+                        <input type="text" ng-model="loanInfo.agreeNo" disabled>
+                  </td>
+                  <td width="20%">发票号:</td>
+                  <td width="30%" class="div-text-left">
+                       <input type="text" ng-model="loanInfo.invoiceNos" disabled>
+                  </td>
+                </tr>
+                <tr>
+                  <td>备注:</td>
+                  <td class="div-text-left double_box" colspan="3">
+                    <textarea ng-model="loanInfo.description" name="name" class="ng-pristine ng-valid ttare" style="margin: 0px; height: 100px; width: 600px;" disabled></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>登记人:</td>
+                  <td class="div-text-left double_box">
+                    <span ng-bind="loanInfo.modiOperName" ></span>
+                  </td>
+                  <td>登记时间:</td>
+                  <td class="div-text-left double_box">
+                    <span ng-bind="loanInfo.regDate" ></span>
+                    <span ng-bind="loanInfo.regTime"></span>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+         <p class="div-text-right" style="font-size: 10px; margin-top: 5px;">提示：应收账款金额 = 应收账款余额 + 抵扣金额 + 已结算金额</p>
+        <div class="center-buttons">
+          <button class="btn btn-primary" bt-close-modal="">返回</button>
+        </div>
+                    
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+

@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+// 消息内容
+@mixin newsContent{
+	.tip-content{
+		padding:10px 5px;
+		margin-top:10px;
+		div:first-child{		
+			padding-bottom:15px;
+			border-bottom:1px solid #ddd;
+		}
+		div:last-child{
+			padding-top:15px;		
+				
+		}
+	}
+}

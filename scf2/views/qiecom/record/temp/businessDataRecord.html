@@ -1,0 +1,102 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      营业信息代录
+    </h1>
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered big-input" ng-box-enabled="childInfo.modiType=add,edit">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">基本资料</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%">企业名称</td>
+            <td width="30%"><strong ng-bind="childInfo.custName"></strong></td>
+            <td width="20%">企业类型</td>
+            <td width="30%" class="div-text-left">
+              <select ng-model="childInfo.corpType">
+                <option ng-repeat="item in corpType" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="childInfo.corpType == item.value"></option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>注册号</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.regNo"></td>
+            <td>住所</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.address"></td>
+          </tr>
+          <tr>
+            <td>组织机构代码证号</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.orgCode"></td>
+            <td>法定代表人</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.lawName"></td>
+          </tr>
+          <tr>
+            <td>税务登记证号</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.taxNo"></td>
+            <td>经营范围</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.businScope"></td>
+          </tr>
+          <tr>
+            <td>注册资本</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.regCapital"></td>
+            <td>实收资本</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.paidCapital"></td>
+            
+          </tr>
+          <tr>
+            <td>成立日期</td>
+            <td class="div-text-left"><input type="text" bt-date="childInfo.setupDate"></td>
+            <td>营业期限</td>
+            <td class="div-text-left double-date">
+              <input type="text" id="business_start_date" bt-date="childInfo.startDate" bt-max-date="business_end_date">
+               至 
+               <input type="text" id="business_end_date" bt-date="childInfo.endDate" bt-min-date="business_start_date">
+            </td>
+          </tr>
+          <tr>
+            <td>登记机关</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.regBranch"></td>
+            <td>制证日期</td>
+            <td class="div-text-left"><input type="text" bt-date="childInfo.certifiedDate"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td class="left" colspan="3">营业信息相关附件</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td>附件类型</td>
+            <td>附件名称</td>
+            <td>操作</td>
+          </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td>经营信息</td>
+           <td>附件一</td>
+           <td>
+             <a href="javascript:void(0);">下载</a>
+             <a href="javascript:void(0);" ng-show="childInfo.modiType !== 'read'">删除</a>
+           </td>
+         </tr>
+        </tbody>
+      </table>
+
+
+      
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-show="childInfo.modiType === 'add'" ng-click="addRecord($event.target,childInfo.insteadItem);">确认新增</button>
+        <button class="btn btn-primary" ng-show="childInfo.modiType === 'edit'" ng-click="editRecord($event.target,childInfo.insteadItem);">确认编辑</button>
+        <!-- <button class="btn btn-primary" bt-close-modal>暂存</button> -->
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>询价</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/supplier/apply/inquiry.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">询价</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="25%">询价企业:</td>
+                <td width="75%" class="div-text-left">
+                  <select name="" id="" ng-model="searchData.custNo" ng-change="supplySwitch();">
+                      <option ng-repeat="su in supplierList" ng-option-filter value="{{su.value}}" ng-bind="su.name" ng-selected="searchData.custNo==su.value"></option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>发布日期:</td>
+                <td class="div-text-left date">
+                   <input type="text" id="GTEactualDate" bt-date="searchData.GTEactualDate" bt-max-date="LTEactualDate"> - 
+                   <input type="text" id="LTEactualDate" bt-date="searchData.LTEactualDate" bt-min-date="GTEactualDate">
+                </td>
+              </tr>
+              <tr>
+                <td>截止日期:</td>
+                <td class="div-text-left date">
+                   <input type="text" id="GTEendDate" bt-date="searchData.GTEendDate" bt-max-date="LTEendDate"> - 
+                   <input type="text" id="LTEendDate" bt-date="searchData.LTEendDate" bt-min-date="GTEendDate">
+                </td>
+              </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="reFreshInquiryList(true);">查询</button>
+            </div>
+          </div>
+          
+
+
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              询价列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr>
+                  <td class="modi-group" colspan="6">
+                    <button class="btn btn-info" ng-click="showAddPanel();">发布询价</button>
+                  </td>
+                </tr>
+                <tr class="result-head">
+                  <td width="20%">询价编号</td>
+                  <td width="20%">发布时间</td>
+                  <td width="20%">截止日期</td>
+                  <td width="20%">报价次数</td>
+                  <td width="20%">操作</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-repeat="inquiry in inquiryList" ng-repeat-end ng-class="{even:$even}">
+                  <td ng-bind="inquiry.enquiryNo"></td>
+                  <td class="red" ng-bind="inquiry.actualDate"></td>
+                  <td ng-bind="inquiry.endDate"></td>
+                  <td class="red" ng-bind="inquiry.offerCount"></td>
+                  <td>
+                    <!-- businStatus:0 未报价 -->
+                   <!--  <span><a href="#" ng-show="inquiry.businStatus==0" ng-click="showEditBox(inquiry);">修改</a></span> -->
+                    <span><a href="#" ng-click="showQuoteBox(inquiry);">查看报价</a></span>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <td colspan="6">
+                  <div bt-pagination conf="pageConf" func="reFreshInquiryList(false);"></div>
+                </td>
+              </tfoot>
+            </table>
+            
+          </div>
+        
+        <!-- 发布询价-->
+        <div id="fix_operator_info_box" bt-roll-modal="temp/addInquiry.html" bt-z-index="9991"></div>
+
+        <!-- 编辑询价-->
+        <div id="fix_edit_info_box" bt-roll-modal="temp/editInquiry.html" bt-z-index="9991"></div>
+
+        <!-- 查看报价 -->
+        <div id="fix_quote_info_box" bt-roll-modal="temp/quoteInquiry.html" bt-z-index="9991"></div>
+
+        <!-- 订单详情 -->
+        <div id="proof_order_detail_box" bt-roll-modal="../../commonTemp/orderDetailShow.html" bt-z-index="9993"></div>
+        <!-- 票据详情 -->
+        <div id="proof_draft_detail_box" bt-roll-modal="../../commonTemp/draftDetailShow.html" bt-z-index="9993"></div>
+        <!-- 应收详情 -->
+        <div id="proof_recieve_detail_box" bt-roll-modal="../../commonTemp/recieveDetailShow.html" bt-z-index="9993"></div>
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+  
+
+
+
+
+	<!-- 引用js文件 -->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/supplier/apply/inquiry");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/supplier/apply/inquiry");
+      } 
+  </script>
+  </body>
+</html>

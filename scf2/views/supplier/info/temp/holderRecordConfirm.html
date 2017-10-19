@@ -1,0 +1,54 @@
+<div class="div-width-90 detail-box div-center">
+
+    <div class="div-center div-width div-margin-top">
+
+     <!-- 股东列表 -->
+     <table class="table table-striped table-hover table-bordered">
+         <caption class="table-caption table-caption-green clearFix">
+           <span class="title-left">股东列表</span>
+         </caption>
+       <thead>
+         <tr class="result-head-gray">
+           <td width="15%">序号</td>
+           <td width="15%">姓名</td>
+           <td width="15%">性别</td>
+           <td width="20%">出资比例</td>
+           <td width="20%">出资形式</td>
+           <td width="15%">操作</td>
+         </tr>
+       </thead>
+       <tbody>
+          <tr ng-repeat-end ng-class="{even:$even}">
+            <td>1</td>
+            <td>张三</td>
+            <td>男</td>
+            <td>30%</td>
+            <td>AAA</td>
+            <td>
+              <a href="javascript:void(0);"  ng-click="">详情</a>
+            </td>
+          </tr>
+          <tr ng-repeat-end ng-class="{even:$even}">
+            <td>2</td>
+            <td>张红</td>
+            <td>女</td>
+            <td>70%</td>
+            <td>BBB</td>
+            <td>
+              <a href="javascript:void(0);"  ng-click="">详情</a>
+            </td>
+          </tr>
+       </tbody>
+     </table>
+
+
+     <div class="center-buttons">
+         <button class="btn btn-primary" ng-click="" bt-close-modal>代录资料确认</button>
+         <button class="btn btn-primary" ng-click="" bt-close-modal>代录资料作废</button>
+       </div>
+
+      
+    </div>
+
+
+</div> 
