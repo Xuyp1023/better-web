@@ -1,0 +1,485 @@
+/*!
+ * 主页面的样式文件
+ */
+/* ========================================================================
+   布局: layout.less
+ ========================================================================== */
+html,
+body {
+  height: 100%;
+  background-color: cadetblue;
+}
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+.wrapper {
+  position: relative;
+  height: 100%;
+}
+.wrapper > .aside {
+  position: absolute;
+  width: 171px;
+  top: 66px;
+  bottom: 0;
+  margin-right: 10px;
+  z-index: 116;
+  background-color: #fff;
+}
+.wrapper > .aside .aside-inner {
+  width: 171px;
+  height: 100%;
+  overflow: hidden;
+}
+.wrapper > .aside .aside-inner .sidebar > ul {
+  width: 171px;
+}
+.wrapper .section {
+  position: relative;
+  height: 100%;
+  padding-top: 66px;
+}
+.wrapper .section > .bt-content {
+  height: 100%;
+  background-color: #fff;
+}
+.wrapper .section > .bt-content .content-warpper {
+  display: block;
+  height: 100% !important;
+}
+.wrapper > .footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  padding: 20px;
+  z-index: 109;
+}
+.wrapper > .footer > p {
+  margin: 0;
+}
+.wrapper > .section,
+.wrapper > .footer {
+  margin-left: 181px;
+}
+.layout-boxed .wrapper {
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 0 13px rgba(0, 0, 0, 0.25);
+}
+.layout-boxed .wrapper,
+.layout-boxed .wrapper .topnavbar-wrapper {
+  min-width: 1262px;
+}
+.layout-boxed .wrapper .topnavbar-wrapper {
+  position: fixed;
+  z-index: 117;
+  width: 100%;
+}
+/* ========================================================================
+   头部导航: top-navbar.less
+ ========================================================================== */
+.navbar {
+  min-height: 60px;
+}
+.navbar-brand {
+  float: left;
+  height: 60px;
+}
+.topnavbar {
+  z-index: 1050;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+  position: relative;
+  background-color: white;
+  background-image: linear-gradient(to right, white 0%, white 100%);
+  background-repeat: repeat-x;
+}
+.topnavbar .user-block {
+  height: 60px;
+  width: 268px;
+  float: left;
+  margin: 0 auto;
+  padding: 10px 0 8px 0;
+}
+.topnavbar .user-block .user-comList span {
+  margin-left: -4px;
+  margin-right: 7px;
+  display: inline-block;
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+.topnavbar .user-block .user-icon {
+  margin-right: 8px;
+}
+.topnavbar .user-block .user-span {
+  margin-right: 16px;
+}
+.topnavbar .user-block img {
+  vertical-align: middle;
+}
+.topnavbar .user-block span {
+  color: #666;
+  font-size: 12px;
+}
+.topnavbar .navbar-nav li {
+  float: left;
+}
+.topnavbar .navbar-nav img {
+  float: left;
+}
+.topnavbar .navbar-nav a {
+  height: 36px;
+  width: 118px;
+  float: left;
+  text-decoration: none;
+  text-align: center;
+  line-height: 36px;
+  background-color: #bad7ff;
+  margin-right: 1px;
+}
+.topnavbar .navbar-nav a span {
+  color: #333;
+  font-size: 16px;
+  font-family: "Microsoft YaHei";
+  padding: 4px 7px;
+}
+.topnavbar .navbar-nav a span:hover {
+  background-color: white;
+}
+.topnavbar .navbar-nav a.active span {
+  background-color: white;
+}
+.nav-wrapper {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 7px;
+}
+/* ========================================================================
+   头部导航: top-navbar.less
+ ========================================================================== */
+.sidebar {
+  height: 100%;
+  padding-bottom: 20px;
+  margin-right: -17px;
+  overflow-y: scroll;
+}
+.sidebar .nav-heading {
+  padding: 12px 15px;
+  color: #919DA8;
+  font-size: 13px;
+  letter-spacing: .035em;
+  pointer-events: none;
+  cursor: default;
+}
+.sidebar > .nav {
+  position: relative;
+}
+.sidebar > .nav > li > a,
+.sidebar > .nav > li > .nav-item {
+  padding: 12px 10px 12px 20px;
+  color: #515253;
+  letter-spacing: .025em;
+  font-weight: normal;
+  cursor: pointer;
+}
+.sidebar > .nav > li > a:focus,
+.sidebar > .nav > li > .nav-item:focus,
+.sidebar > .nav > li > a:hover,
+.sidebar > .nav > li > .nav-item:hover {
+  text-decoration: none;
+  outline: none;
+  color: #063c94;
+}
+.sidebar > .nav > li > a > em,
+.sidebar > .nav > li > .nav-item > em {
+  width: 2em;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  color: inherits;
+}
+.sidebar > .nav > li.active,
+.sidebar > .nav > li.active > a,
+.sidebar > .nav > li.active > .nav-item,
+.sidebar > .nav > li.active .nav {
+  color: #063c94;
+}
+.sidebar > .nav > li.active > .nav-item > em,
+.sidebar > .nav > li.active > a > em {
+  color: #063c94;
+}
+.sidebar-subnav {
+  background-color: #fff;
+  font-size: 12px;
+}
+.sidebar-subnav > .sidebar-subnav-header {
+  color: #515253;
+  display: none;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+.sidebar-subnav > li {
+  border-left: 0 !important;
+  border-right: 3px solid transparent;
+}
+.sidebar-subnav > li > a,
+.sidebar-subnav > li > .nav-item {
+  display: block;
+  position: relative;
+  padding: 10px 20px;
+  padding-left: 46px;
+  font-weight: normal;
+  background-color: transparent !important;
+  color: #515253;
+}
+.sidebar-subnav > li > a:focus,
+.sidebar-subnav > li > .nav-item:focus,
+.sidebar-subnav > li > a:hover,
+.sidebar-subnav > li > .nav-item:hover {
+  color: #063c94;
+}
+.sidebar-subnav > li > a > em,
+.sidebar-subnav > li > .nav-item > em {
+  display: inline-block;
+  width: 2em;
+  margin: 0 0 0 -2em;
+}
+.sidebar-subnav > li.active {
+  border-right-color: #063c94;
+  background-color: #e5f5fd;
+}
+.sidebar-subnav > li.active > a,
+.sidebar-subnav > li.active > .nav-item {
+  color: #063c94;
+}
+/* ========================================================================
+   css初始化: normalize.less
+ ========================================================================== */
+body {
+  font-size: 14px;
+  line-height: 1.52857143;
+  font-family: "Roboto", sans-serif;
+  color: rgba(0, 0, 0, 0.8);
+}
+ul,
+ol {
+  margin-top: 0;
+}
+.nav {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  cursor: pointer;
+}
+.nav > li {
+  position: relative;
+  display: block;
+}
+.nav > li > a {
+  position: relative;
+  display: block;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+img {
+  border: 0;
+}
+a {
+  text-decoration: none;
+}
+/* ========================================================================
+   消息提示: pop.less
+ ========================================================================== */
+.bt-pop {
+  width: 412px;
+  min-height: 138px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border-color: #cccccc;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+  overflow: hidden;
+}
+.bt-pop .bt-pop-title {
+  font-size: 16px;
+  color: #333;
+  padding: 24px 16px 3px 16px;
+}
+.bt-pop .bt-pop-title .bt-pop-icon {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.bt-pop .bt-pop-content {
+  min-height: 81px;
+  font-size: 14px;
+  color: #666;
+  padding: 0 20px 16px 48px;
+  overflow: hidden;
+  word-break: break-all;
+  line-height: 22px;
+}
+.bt-pop span.icon {
+  margin-right: 16px;
+}
+.bt-pop-close {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 11px;
+  height: 11px;
+  background-image: url(../img/bt-pop-close.png);
+}
+.bt-pop-close:hover {
+  background-image: url(../img/bt-pop-close-hover.png);
+}
+.bt-pop-info {
+  background-color: #d7edfd;
+}
+.bt-pop-info span.icon {
+  background-image: url(../img/bt-pop-info.png);
+}
+.bt-pop-success {
+  background-color: #dafeed;
+}
+.bt-pop-success span.icon {
+  background-image: url(../img/bt-pop-success.png);
+}
+.bt-pop-warning {
+  background-color: #fff7e0;
+}
+.bt-pop-warning span.icon {
+  background-image: url(../img/bt-pop-warning.png);
+}
+.bt-pop-error {
+  background-color: #fddedb;
+}
+.bt-pop-error span.icon {
+  background-image: url(../img/bt-pop-error.png);
+}
+/* ========================================================================
+   工具类: utils.less
+ ========================================================================== */
+.pull-right {
+  float: right !important;
+}
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+.label-info {
+  background-color: #2196F3;
+}
+.collapse {
+  display: none;
+}
+.collapse.in {
+  display: block;
+}
+.btn {
+  cursor: pointer;
+}
+.btn-red span {
+  color: red !important;
+}
+.btn-info span {
+  color: #063c94 !important;
+}
+.bt-icon {
+  vertical-align: middle;
+  background-image: url(../img/frame/bt-arrow.png);
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  width: 16px;
+  height: 16px;
+  background-position: 0 16px;
+}
+.bt-icon.active {
+  background-position: 0 0;
+}
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.alert,
+.alert h4 {
+  color: #c09853;
+}
+.alert h4 {
+  margin: 0;
+}
+.alert .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: 20px;
+}
+.alert-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.alert-success h4 {
+  color: #468847;
+}
+.alert-danger,
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+.alert-danger h4,
+.alert-error h4 {
+  color: #b94a48;
+}
+.alert-info {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.alert-info h4 {
+  color: #3a87ad;
+}
+.alert-block {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.alert-block > p,
+.alert-block > ul {
+  margin-bottom: 0;
+}
+.alert-block p + p {
+  margin-top: 5px;
+}

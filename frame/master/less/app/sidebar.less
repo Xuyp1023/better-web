@@ -1,0 +1,154 @@
+/* ========================================================================
+   头部导航: top-navbar.less
+ ========================================================================== */
+@sidebar-bg:                      @aside-bg;
+
+@scrollbar-wd:                    17px;
+
+@sidebar-item-color:              #515253;
+@sidebar-item-color-active:       #063c94;
+@sidebar-item-bg-active:          #e5f5fd;
+
+@sidebar-icon-color:              inherits;
+@sidebar-icon-color-active:       #063c94;
+
+@sidebar-heading-color:           #919DA8;
+@sidebar-item-border-wd:          3px;
+
+.sidebar {
+  height: 100%;
+  padding-bottom: 20px;
+  margin-right: -@scrollbar-wd;
+  overflow-y: scroll;
+
+  .nav-heading {
+    padding: 12px 15px;
+    color: @sidebar-heading-color;
+    font-size: 13px;
+    letter-spacing: .035em;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  > .nav {
+  	position: relative;
+
+  	> li {
+      > a,
+      > .nav-item {
+        padding: 12px 10px 12px 20px;
+        color: @sidebar-item-color;
+        letter-spacing: .025em;
+        font-weight: normal;
+        cursor: pointer;
+
+        &:focus, &:hover {
+          text-decoration: none;
+          outline: none;
+          color: @sidebar-item-color-active;
+        }
+
+        // Item icon
+        > em {
+          width: 2em;
+          display: inline-block;
+          font-style: normal;
+          font-weight: normal;
+          line-height: 1;
+          -webkit-font-smoothing: antialiased;
+          color: @sidebar-icon-color;
+        }
+
+      }
+
+      // Active item state
+      &.active {
+        &,
+        > a,
+        > .nav-item,
+        .nav {
+          
+          color: @sidebar-item-color-active;
+        }
+        > .nav-item > em,
+        > a > em {
+          color: @sidebar-icon-color-active;
+        }
+      }
+    }
+  }
+
+}
+// Sub Levels
+.sidebar-subnav {
+  background-color: @sidebar-bg;
+  font-size: 12px;
+
+  > .sidebar-subnav-header {
+    color: @sidebar-item-color;
+    display: none;
+    padding: 10px 20px;
+    font-weight: bold;
+  }
+
+  > li  {
+    border-left: 0 !important;
+    border-right: @sidebar-item-border-wd solid transparent;
+    > a,
+    > .nav-item {
+      display: block;
+      position: relative;
+      padding: 10px 20px;
+      padding-left: 46px;
+      font-weight: normal;
+      background-color: transparent !important;
+      color: @sidebar-item-color;
+      &:focus, &:hover {
+        color: @sidebar-item-color-active;
+      }
+      // submenu icons
+      > em {
+        display: inline-block;
+        width: 2em;
+        margin: 0 0 0 -2em;
+      }
+    }
+
+    &.active {
+      border-right-color: @sidebar-item-color-active;
+      background-color: @sidebar-item-bg-active;
+      > a,
+      > .nav-item {
+        color: @sidebar-icon-color-active;
+        
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

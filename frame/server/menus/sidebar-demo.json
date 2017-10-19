@@ -1,0 +1,61 @@
+[
+  {
+    "title": "模板",
+    "icon": "icon-tag",
+    "children": []
+  },
+  {
+    "title": "lius",
+    "heading": "true"
+  },
+  {
+    "title": "UI组件",
+    "icon": "icon-speedometer",
+    "children": [
+      {
+        "title": "对话框",
+        "url": "../gou/index.html#/demo/components/dialog"
+      },
+      {
+        "title": "表格",
+        "url": "../gou/index.html#/demo/components/table"
+      },
+      {
+        "title": "表单效验",
+        "url": "../gou/index.html#/demo/components/form"
+      },
+      {
+        "title": "时间选择",
+        "url": "../gou/index.html#/demo/components/time"
+      },
+      {
+        "title": "下拉选择",
+        "url": "../gou/index.html#/demo/components/select"
+      }
+    ]
+  },
+  {
+    "title": "功能",
+    "icon": "icon-speedometer",
+    "children": [
+      {
+        "title": "http请求",
+        "url": "../gou/index.html#/demo/functions/http"
+      },
+      {
+        "title": "过滤器",
+        "url": "../gou/index.html#/demo/functions/filter"
+      },
+      {
+        "title": "文件上传",
+        "url": "../gou/index.html#/demo/functions/upload"
+      }
+    ]
+  },
+  {
+    "title": "常用界面",
+    "icon": "icon-speedometer",
+    "children": [
+    ]
+  }
+]

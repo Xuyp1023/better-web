@@ -1,0 +1,17 @@
+[
+  {
+    "title": "微信管理",
+    "heading": "true"
+  },{
+  "title":"微信公众号",
+  "icon": "icon-speedometer",
+  "children":[
+    {
+      "title":"菜单管理",
+      "url":"home1.html#/wechat/menus"
+    },{
+      "title":"消息推送",
+      "url":"home1.html#/wechat/msg"
+    }
+  ]}
+]

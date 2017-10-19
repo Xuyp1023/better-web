@@ -1,0 +1,20 @@
+<div class="aside-inner">
+    <div class="sidebar">
+      <ul class="nav">
+          <li class="has-user-block"></li>
+          <li ng-repeat="item in menuItems" ng-class="getMenuItemPropClasses(item)">
+            <span ng-if="item.heading">{{item.title}}</span>
+            <a ng-if="!item.heading" ng-click="mianMenuC(item)">
+                <div class="pull-right"><span class="bt-icon" ng-class="{'active':item.children && activeMenu.openItem===item.$$hashKey}"></span></div>
+                <!-- <em class="{{item.icon}}"></em> -->
+                <span>{{item.title}}</span>
+            </a>
+            <ul class="nav sidebar-subnav collapse in" ng-if="item.children && activeMenu.openItem===item.$$hashKey">
+                <li ng-repeat="submenu in item.children" ng-class="{'active':activeMenu.activeSubItem===submenu.$$hashKey}">
+                    <a ng-click="subMenuC(submenu,item)"><span>{{submenu.title}}</span></a>
+                </li>
+            </ul>
+          </li>
+      </ul>
+    </div>
+</div>

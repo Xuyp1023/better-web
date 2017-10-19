@@ -1,12 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>企e金服</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>企e金服-后台</title>
+
+	<link rel="stylesheet" href="app/css/app.css">
+
 </head>
-<body>
-  <p>hello1111 !</p>
+
+<body class="layout-boxed">
+
+	<div class="wrapper">
+		<div class="topnavbar-wrapper" ng-controller="HeaderController">
+			<div class="navbar topnavbar">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">
+						<div class="brand-logo">
+							<img src="app/img/frame/logo2.png" alt="">
+						</div>
+						<div class="brand-logo-collased"></div>
+					</a>
+				</div>
+				<div class="user-block">
+					<div class="user-comList">
+						<a class="btn" ng-click="lookComList()">
+							<img class="user-icon" src="app/img/frame/user-msg1.png" alt="" />
+							<span ng-bind="companyInfo.value"></span>
+							<span class="bt-icon"></span>
+						</a>
+					</div>
+					<div class="user-info">
+						<a class="btn" ng-click="lookUserInfo()"><img class="user-icon" src="app/img/frame/user-msg2.png" alt=""><span class="user-span" ng-bind="userInfo.username"></span></a>
+						<a class="btn btn-red" ng-click="lookMsg()"><img class="user-icon" src="app/img/frame/user-msg3.png" alt=""><span class="user-span">[{{msgInfo.totalNum}}]</span><span class="user-span"></span><span class="user-span"></span></a>
+						<a class="btn  btn-info" ng-click="logout()"><span>安全退出</span></a>
+					</div>
+				</div>
+				<div class="nav-wrapper">
+					<ul class="nav navbar-nav">
+						<li>
+							<img src="app/img/frame/topnavbar-icon.png" alt="">
+						</li>
+						<li>
+							<a ng-click="switchMenu(1)" ng-class="{'active':menuid ==1}">
+								<span>微信管理</span>
+							</a>
+						</li>
+						<li>
+							<a ng-click="switchMenu(2)" ng-class="{'active':menuid ==2}">
+								<span>供应链金融</span>
+							</a>
+						</li>
+						<li>
+							<a ng-click="switchMenu(3)" ng-class="{'active':menuid ==3}">
+								<span>基金</span>
+							</a>
+						</li>
+						<li>
+							<a ng-click="switchMenu(4)" ng-class="{'active':menuid ==4}">
+								<span>理财</span>
+							</a>
+						</li>
+						<li>
+							<a ng-click="switchMenu(5)" ng-class="{'active':menuid ==5}">
+								<span>帮助</span>
+							</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right"></ul>
+				</div>
+			</div>
+		</div>
+		<div class="aside" ng-include="'app/views/partials/sidebar.html'" onload="notifyMenu()" ng-controller="SidebarController">
+		</div>
+		<div class="section">
+			<div class="bt-content">
+				<iframe class="content-warpper" name="content_iframe" src="../pages/welcome.html" marginheight="0" marginwidth="0" frameborder="0"
+					width="100%"></iframe>
+			</div>
+		</div>
+		<!-- <div class="footer"> -->
+		<!-- <span>@ 2017</span> -->
+		<!-- </div> -->
+	</div>
+	<script src="app/js/BTServerPath.js"></script>
+	<script src="app/js/base.js"></script>
+	<script src="app/js/app.js"></script>
 </body>
+
 </html>
