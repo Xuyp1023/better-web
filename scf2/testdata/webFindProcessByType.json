@@ -1,0 +1,81 @@
+{
+    "message": "ok",
+    "data": {
+        "id": 1001,
+        "flowType": "Trade",
+        "monitorOperId": 1259,
+        "monitorOperName": "",
+        "operOrg": "唐中文测试",
+        "regDate": 1470883597000,
+        "modiDate": "",
+        "regOperId": "",
+        "regOperName": "",
+        "stepList": [{
+            "flowBaseId": 1001,
+            "nodeName": "出具保理方案",
+            "nodeId": 11,
+            "nodeRole": "Factoring",
+            "auditType": "serial",
+            "orderNum": 1,
+            "stepApprovers": [{ "stepId": 2000, "auditOperId": 1259, "auditOperName": "admin", "auditMoneyId": 5000, "weight": 100 }]
+        }, {
+            "flowBaseId": 1001,
+            "nodeName": "融资方确认方案",
+            "nodeId": 12,
+            "nodeRole": "Financer",
+            "auditType": "serial",
+            "orderNum": 2,
+            "stepApprovers": []
+        }, {
+            "flowBaseId": 1001,
+            "nodeName": "融资背景确认",
+            "nodeId": 13,
+            "nodeRole": "Factoring",
+            "auditType": "serial",
+            "orderNum": 3,
+            "stepApprovers": [{ "stepId": 2002, "auditOperId": 1259, "auditOperName": "admin", "auditMoneyId": 5000, "weight": 100 }]
+        }, {
+            "flowBaseId": 1001,
+            "nodeName": "核心企业确认背景",
+            "nodeId": 14,
+            "nodeRole": "Core",
+            "auditType": "serial",
+            "orderNum": 4,
+            "stepApprovers": []
+        }, {
+            "flowBaseId": 1001,
+            "nodeName": "放款",
+            "nodeId": 15,
+            "nodeRole": "Factoring",
+            "auditType": "serial",
+            "orderNum": 5,
+            "stepApprovers": [{ "stepId": 2004, "auditOperId": 1259, "auditOperName": "admin", "auditMoneyId": 5000, "weight": 100 }]
+        }, {
+            "flowBaseId": 1001,
+            "nodeName": "还款中",
+            "nodeId": 16,
+            "nodeRole": "Factoring",
+            "auditType": "serial",
+            "orderNum": 6,
+            "stepApprovers": [{ "stepId": 2005, "auditOperId": 1259, "auditOperName": "admin", "auditMoneyId": 5000, "weight": 100 }]
+        }, {
+            "flowBaseId": 1001,
+            "nodeName": "逾期",
+            "nodeId": 17,
+            "nodeRole": "Factoring",
+            "auditType": "serial",
+            "orderNum": 7,
+            "stepApprovers": [{ "stepId": 2006, "auditOperId": 1259, "auditOperName": "admin", "auditMoneyId": 5000, "weight": 100 }]
+        }, {
+            "flowBaseId": 1001,
+            "nodeName": "展期",
+            "nodeId": 18,
+            "nodeRole": "Factoring",
+            "auditType": "serial",
+            "orderNum": 8,
+            "stepApprovers": [{ "stepId": 2007, "auditOperId": 1259, "auditOperName": "admin", "auditMoneyId": 5000, "weight": 100 }]
+        }]
+    },
+    "page": "",
+    "code": 200
+}

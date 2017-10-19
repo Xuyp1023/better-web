@@ -1,0 +1,63 @@
+<div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    开票方信息维护
+  </h1>
+  <div  class="row-fluid div-center div-margin-top" id="setting-info">
+
+    <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">基本信息</td>
+          </tr>
+        </thead>
+        <tbody>
+           <tr>
+                  <td width="20%"><strong class="red">*</strong> 企业名称:</td>
+                  <td  class="div-text-left" colspan="3">
+                       <input type="text" ng-model="editInfo.coreCustName" style="width:98%!important;" ng-disabled="edit">
+                  </td>
+           </tr>
+           <tr>
+                  <td width="20%"><strong class="red">*</strong> 开户银行:</td>
+                  <td width="30%" class="div-text-left">
+                       <input type="text" ng-model="editInfo.coreBank" ng-disabled="edit">
+                  </td>
+                  <td width="20%"><strong class="red">*</strong> 银行账号:</td>
+                  <td width="30%" class="div-text-left">
+                       <input type="text" ng-model="editInfo.coreBankAccount" ng-disabled="edit">
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="red">*</strong> 纳税人识别号:</td> 
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="editInfo.coreTaxPayerNo"  ng-disabled="edit">
+                  </td>
+                  <td><strong class="red">*</strong> 电话:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" ng-model="editInfo.corePhone"  ng-disabled="edit">
+                  </td>
+                </tr> 
+                <tr>
+                  <td><strong class="red">*</strong> 地址:</td>
+                  <td colspan="3" class="div-text-left double_box">
+                    <input type="text" ng-model="editInfo.coreAddress" style="width:98%!important;"  ng-disabled="edit">
+                  </td>
+                </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="center-buttons" >
+        <button class="btn btn-primary" ng-click="editchange()" ng-show="edit">编辑</button>
+        <button class="btn btn-primary" ng-click="saveInfo($event.target)" ng-show="add">保存</button>
+        <button class="btn btn-primary" ng-click="editinvoice($event.target)" ng-show="editt">保存</button>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+      

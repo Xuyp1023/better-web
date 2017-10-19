@@ -1,0 +1,50 @@
+<div class="div-width-90 detail-box div-center">
+  <div id="" class="row-fluid">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">选择标准合同申请记录</h1>
+    <table class="table table-condensed div-width-70 div-center search-table">
+      <tr>
+       <td width="30%">申请机构:</td>
+       <td width="70%" class="div-text-left">
+         <select ng-model="unusedSearchData.custNo" ng-change="queryUnusedList(true)">
+           <option value="">---所有公司---</option>
+           <option ng-repeat="item in factorCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="unusedSearchData.custNo == item.value"></option>
+         </select>
+       </td>
+      </tr>
+    </table>
+    <!-- <div class="center-buttons">
+      <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+    </div> -->
+  </div>
+
+
+  <div id="search_info" class="row-fluid">
+    <table class="div-width-100 table table-striped table-hover search-result table-bordered">
+          <thead>
+            <tr class="result-head">
+              <td width="10%">选择</td>
+              <td width="20%">申请编号</td>
+              <td width="50%">标准合同名称</td>
+              <td width="20%">当前状态</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in unusedInfoList" ng-repeat-end ng-class="{even:$even}" >
+               <td><input type="radio" ng-model="info.index" ng-value="$index"></td>
+              <td ng-bind="item.originApplyNo"></td>
+              <td ng-bind="item.name"></td>
+              <td ng-bind="item.textAuditStatus|kindf:'ContractTemplateAuditStatus'"></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <td colspan="4">
+              <div bt-pagination conf="unusedListPage" func="queryList(false)"></div>
+            </td>
+          </tfoot>
+        </table>
+    <div class="center-buttons">
+      <button class="btn btn-primary btn-bg-middle" ng-click="uploadBox();">下一步</button>
+      <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="pjce">
+	<ul>
+    	<li>
+        	<p><span>授信核心企业：</span>{{info.buyer}}</p>
+            <p><span>商业汇票号：</span>{{info.billNo}}</p>
+            <p><span>收款方：</span>{{info.supplier}}</p>
+            <p><span>收款账号：</span>{{info.suppBankAccount}}</p>
+            <p><span>票据流通方式：</span>{{info.billMode|kindf:'BillFlowMode'}}</p>
+        </li>
+    </ul>
+</div>
+<div class="wid wid2">
+	<ul>
+    	<li ng-click="changeDate()">
+            <span class="ti">报价截至日期</span>
+            <div class="ci">
+                {{inquiry.endDate}}<i class="ico ico11 ml5"></i>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="wid wid3 mt10">
+	<p class="title">金融机构</p>
+	<ul>
+
+        <li ng-repeat="item in factorList" ng-click="toggleCheckItem(item);">
+            <a href="javascript:void(0)">
+                <i ng-class="{ico:true,ico7:item.isChecked,ico8:!item.isChecked,mr5:true}"></i>{{item.name}}
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="wid wid4 mt10">
+	<p class="title">询价策略</p>
+	<ul class="clearfix">
+        <li ng-repeat="item in enquiryStrategy" ng-click="singleToggleItem(item,enquiryStrategy);">
+            <a href="javascript:void(0)">
+                <i ng-class="{ico:true,ico7:item.isChecked,ico8:!item.isChecked,mr5:true}"></i>{{item.text}}
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="wid wid3">
+	<ul class="clearfix">
+        <li>
+        	<input ng-model="inquiry.ratio" name="" type="text" class="text" placeholder="请输入指定成本、融资利率(%)">
+        </li>
+    </ul>
+</div>
+<div class="wid wid2 mt10">
+	<ul class="clearfix">
+        <li>
+        	<span class="ti">融资金额(元)</span>
+        	<input ng-model="inquiry.balance" name="" type="text" class="text" placeholder="请输入融资金额">
+        </li>
+    </ul>
+</div>
+<div class="texrea">
+	<div class="wTxar">
+    	<textarea ng-model="inquiry.description" placeholder="想对金融机构说点啥..." class="text"></textarea>
+    </div>
+</div>
+<div class="butn">
+	<a ng-click="applyInquiry();" class="btn">询价</a>
+</div>

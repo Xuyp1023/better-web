@@ -1,0 +1,31 @@
+  <!-- 资产登记查询结果 -->
+  <table id="order_list_table" class="div-width-100 table table-striped table-hover search-result main-list table-bordered">
+      <caption class="table-caption table-caption-green clearFix">
+        <span  class="title-left">合同签署方</span>     
+        <a href="javascript:void(0);" style="float: right;" ng-Click="addinfolist()">+添加</a>   
+      </caption>
+      <thead>
+        <tr>
+            <td style="border-bottom: 1px solid #ddd;" colspan="5" width="80%">签署方信息</td>
+            <td style="border-bottom: 1px solid #ddd;" colspan="2" width="20%">签署顺序</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr ng-class="{even:$even}" class="gloop" ng-repeat="item in infoList" ng-repeat-end>
+            <td width="5%" ng-bind="$index|filindex"></td>
+            <td width="45%">
+              <select ng-model="searchData.businStatus">
+                    <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+              </select>
+            </td>
+            <td width="10%">丘比特</td>
+            <td ng-bind="aaa" width="10%">186****9908</td>
+            <td width="15%">qiubit@bytter.com</td>
+            <td width="5%">{{$index + 1}}</td>
+            <td width="10%">
+                <a href="javascript:void(0);" ng-click="deleinfo()">移除</a>
+            </td>
+          </tr>
+      </tbody>      
+   </table>
+   

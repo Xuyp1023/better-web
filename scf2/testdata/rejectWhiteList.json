@@ -1,0 +1,6 @@
+{
+"message":"客户白名单受理驳回成功",
+"data":{"id":1442,"custNo":100000156,"custName":"深圳市华强公益基金会","bankAcco":"","bankAccoName":"","custType":"0","btNo":"","corpId":"","relateCustno":100000121,"relateCustname":"百乐润小微保理(深圳)有限公司","relateType":"0","operName":"管理员","regDate":"2016-08-07","regTime":"130303","modiDate":"","modiTime":"","businStatus":"4","lastStatus":"1"},
+"page":"",
+"code":200
+}

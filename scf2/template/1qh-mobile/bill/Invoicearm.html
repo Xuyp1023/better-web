@@ -1,0 +1,102 @@
+ <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">添加发票
+                    </h1>
+                    
+                    <table id="loanBox" class="table table-striped table-hover table-bordered table-condensed">
+                        <tbody>
+                        <tr>
+                              <td>销售方:</td>
+                              <td class="div-text-left double_box">
+                                    <input type="text" ng-model="invoiceInfo.custInvoiceInfo.coreCustName" disabled>
+                              </td>
+                              <td>购买方:</td>
+                               <td class="div-text-left double_box">
+                                    <input type="text" ng-model="invoiceInfo.coreCustInvoiceInfo.coreCustName" disabled>
+                              </td>
+                            </tr> 
+                            <tr>
+                              <td width="15%"><strong class="red">*</strong> 发票号码:</td>
+                              <td width="30%" class="div-text-left">
+                                  <input type="text" ng-model="invoiceInfo.invoiceNo">
+                              </td>
+                              <td width="15%"><strong class="red">*</strong> 发票代码:</td>
+                              <td width="30%" class="div-text-left">
+                                  <input type="text" ng-model="invoiceInfo.invoiceCode">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><strong class="red">*</strong> 发票金额:</td>
+                              <td class="div-text-left double_box">
+                                <input type="text" ng-model="invoiceInfo.balance"  disabled>
+                              </td>
+                              <td>金额大写:</td>
+                              <td class="div-text-left double_box">
+                                 <strong class="deep-gray ng-binding" ng-bind="invoiceInfo.balance|moneybigf"></strong>
+                              </td>
+                            </tr> 
+                            <tr>
+                              <td><strong class="red">*</strong> 开票日期:</td>
+                              <td class="div-text-left double_box">
+                                <input type="text" id="draft_edit_start" bt-date="invoiceInfo.invoiceDate">
+                              </td>
+                              <td><strong class="red">*</strong> 开票人:</td>
+                              <td class="div-text-left double_box">
+                                 <input type="text" ng-model="invoiceInfo.drawer">
+                                 
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>备注:</td>
+                              <td class="div-text-left double_box" colspan="3">
+                                <textarea ng-model="invoiceInfo.description" name="name" class="ng-pristine ng-valid ttare" style="margin: 0px; height: 100px; width: 600px;"></textarea>
+                              </td>
+                            </tr>
+                        </tbody>
+                 </table>
+
+                 <!-- 附件列表 -->
+                              <table class="table table-striped table-hover table-bordered">
+                                  <caption class="table-caption table-caption-green clearFix">
+                                    <span class="title-left">附件列表</span>
+                                    <button class="btn btn-info btn-right"  ng-click="openUpload($event,'invoiceFile','发票','uploadList')">+添加</button>
+                                  </caption>
+                                <thead>
+                                  <tr class="result-head-gray">
+                                    <td width="10%">序号</td>
+                                    <td width="20%">附件类型</td>
+                                    <td width="40%">附件名称</td>
+                                    <td width="30%">操作</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr ng-repeat="file in uploadList" ng-repeat-end ng-class="{even:$even}">
+                                      <td>{{$index + 1}}</td>
+                                     <td>发票附件</td>
+                                     <td>
+                                       <a href="{{file.id|downf}}"><span ng-bind="file.fileName"></span></a>
+                                     </td>
+                                     <td>
+                                       <a href="{{file.id|downf}}">下载</a>
+                                       <a href="javascript:void(0);" ng-click="delUploadItem(file,'uploadList')">删除</a>
+                                     </td>
+                                   </tr>
+                                </tbody>
+                              </table>
+          
+        <!-- 组件引入 -->
+        <div bt-upload conf="uploadConf" ></div>
+                    <div class="center-buttons">
+                        <button class="btn btn-primary" ng-click="goCheck($event.target)">提交</button>
+                        <button class="btn btn-primary" ng-click="goback()">返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    `   

@@ -1,0 +1,59 @@
+<div class="top-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue div-margin-bottom-none"><img src="img/operator.png" alt="">
+    <span>电子合同服务</span>
+     <small class="small-select">
+        <span>机构名称</span>
+        <select ng-model="searchData.anCustNo" ng-change="queryList();">
+          <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+        </select>
+  </h1>
+
+  <div>
+    
+    <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+          <tr>
+            <td class="modi-group" colspan="6">
+               企业账户：<button class="btn btn-info" ng-click="companyRegister();" ng-show="infoList.length <1" >注册</button>
+               <span ng-show="infoList.length >0">已注册</span>
+              </td>
+            </tr>
+            <tr class="result-head">
+              <td width="25%">企业名称</td>
+              <td width="10%">证件形式</td>
+              <td width="15%">注册证件号码</td>
+              <td width="10%">注册类型</td>
+              <td width="10%">姓名</td>
+              <td width="15%">身份证</td>
+              <td width="15%">手机号码</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td ng-bind="item.custName"></td>
+            <td ng-bind="item.orgRegType | kindf:'ContractCorpAccountOrgRegType'"></td>
+            <td ng-bind="item.orgCode"></td>
+            <td ng-bind="item.type | kindf:'ContractCorpAccountRegType'"></td>
+            <td ng-bind="item.name"></td>
+            <td ng-bind="item.identNo"></td>
+            <td ng-bind="item.mobileNo"></td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="7">
+                <div bt-pagination conf="corpAccountListPage" func="queryCorpAccountList(false)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+    
+
+  </div>
+</div>
+
+<!-- 模态框 -->
+  <div id="companyRegister_box" bt-roll-modal="template/2_3/contract/eseal/temp/comRegisterNew.html" bt-z-index="9991"></div>
+  <div id="companySet_box" bt-roll-modal="template/2_3/contract/eseal/temp/comSet.html" bt-z-index="9991"></div>
+  <div id="companyDetail_box" bt-roll-modal="template/2_3/contract/eseal/temp/comDetail.html" bt-z-index="9991"></div>
+  <div id="personRegister_box" bt-roll-modal="template/2_3/contract/eseal/temp/personRegisterNew.html" bt-z-index="9991"></div>
+  <div id="personDetail_box" bt-roll-modal="template/2_3/contract/eseal/temp/personDetail.html" bt-z-index="9991"></div>

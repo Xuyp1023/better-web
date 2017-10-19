@@ -1,0 +1,48 @@
+<div id="fund_search_way" class="row-fluid">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">调配操作员</h1>
+  <table class="table table-condensed div-width-70 div-center search-table">
+    <tr>
+     <td width="30%">业务类型:</td>
+     <td width="70%" class="div-text-left">
+       <span ng-bind="info.workFlowBase.nickname"></span>
+     </td>
+    </tr>
+    <tr>
+     <td width="30%">流程节点:</td>
+     <td width="70%" class="div-text-left">
+       <span ng-bind="info.workFlowNode.nickname"></span>
+     </td>
+    </tr>
+    <tr>
+     <td width="30%">当前步骤:</td>
+     <td width="70%" class="div-text-left">
+       <span ng-bind="info.workFlowStep.nickname"></span>
+     </td>
+    </tr>
+    <tr>
+     <td width="30%">到达时间:</td>
+     <td width="70%" class="div-text-left">
+       <span ng-bind="info.taskCreateTime"></span>
+     </td>
+    </tr>
+    <tr>
+     <td width="30%">当前经办人:</td>
+     <td width="70%" class="div-text-left">
+       <span ng-bind="info.actorNames"></span>
+     </td>
+    </tr>
+    <tr>
+     <td width="30%">重新分配经办人:</td>
+     <td width="70%" class="div-text-left">
+       <select ng-model="info.operator">
+         <option ng-repeat="item in operatorList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.operator == item.value"></option>
+       </select>
+     </td>
+    </tr>
+    
+  </table>
+  <div class="center-buttons">
+    <button class="btn btn-primary btn-bg-middle" ng-click="assignOperator();">确定</button>
+    <button class="btn btn-primary" ng-click="goBack();">返回</button>
+  </div>
+</div>

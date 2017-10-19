@@ -1,0 +1,45 @@
+<div>
+  <div class="row-fluid">
+      <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">核心企业授信              
+      </h1>        
+      <div id="mainContent" class="row-fluid div-center">
+        <div class="margin-20">
+          <label for="own">
+              <input type="radio" id="own" name="coreCredict" value="1" ng-model="info.coreCredict" class="ng-valid ng-dirty">占用授信
+          </label>
+        </div>
+        <div class="margin-20">
+           <label for="replace">
+              <input type="radio" id="replace" name="coreCredict" value="0" ng-model="info.coreCredict" class="ng-valid ng-dirty">不占用授信
+           </label>
+        </div>
+      </div>
+  </div>
+  <div class="row-fluid">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">核心企业</h1>
+    <table class="div-width-100 table table-striped table-hover search-result">
+          <thead>
+            <tr class="result-head">
+              <td width="30%">选择</td>
+              <td width="70%">核心企业名称</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in coreList" ng-repeat-end ng-class="{even:$even}">
+              <td id="td">
+                <input type="checkbox" ng-model="item.isSelected" ng-bind="item.value" ng-click="selectOne()">
+              </td>
+              <td ng-bind="item.name"></td>              
+            </tr>            
+          </tbody>
+          <tfoot>
+            <td colspan="8">
+              <div bt-pagination conf="listPage"></div>
+            </td>
+          </tfoot>
+    </table>
+     <div class="btn">
+        <label for="isAllCheck"><input type="checkbox" id="isAllCheck" ng-model="tmpVo.tmpCheckbox" ng-click="toggleCheckbox()">选择</label>     
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      公告详情
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="2">公告主体内容</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="30%">公告标题</td>
+            <td width="70%" ><span class="red" ng-bind="noticeInfo.subject"></span></td>
+          </tr>
+          <tr>
+            <td>发布时间</td>
+            <td>
+              <span ng-bind="noticeInfo.publishDate"></span>
+              <span ng-bind="noticeInfo.publishTime"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>公告范围</td>
+            <td>
+              <span ng-bind="noticeInfo.targetCustName"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>公告内容</td>
+            <td >
+              <div bt-editor="noticeInfoContent" bt-no-toolbar="true" ></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <!-- 附件列表 -->
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td class="left" colspan="3">公告相关附件</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td>附件类型</td>
+            <td>附件名称</td>
+            <td>操作</td>
+          </tr>
+        </thead>
+        <tbody>
+         <tr ng-repeat="file in attachList" ng-repeat-end ng-class="{even:$even}">
+            <td>公告附件</td>
+            <td>
+              <a href=""><span ng-bind="file.fileName"></span></a>
+            </td>
+            <td><a href="{{file.id|downf}}">下载</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

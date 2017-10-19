@@ -1,0 +1,236 @@
+<div class="div-width-90 detail-box div-center">
+	<!-- 订单基本信息 -->
+	<div id="" class="row-fluid">
+		<h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">订单详情</h1>
+		<form action="" id="" class="form-horizontal">
+			<div class="div-center div-width div-margin-top">
+				<table class="table table-striped table-bordered table-hover">
+				  	<caption class="table-caption table-caption-green clearFix">
+					  	<span class="title-left">订单信息</span>
+				  	</caption>
+					<tbody>
+						<tr>
+							<td width="20%">订单编号:</td>
+							<td width="30%" class="div-text-left"><span>bg-0001</span></td>
+							<td width="20%">商品名称:</td>
+							<td width="30%" class="div-text-left"><span>潮牌</span></td>
+						</tr>
+						<tr>
+							<td>订单总额:</td>
+							<td class="div-text-left"><span>125845.00</span></td>
+							<td>采购数量:</td>
+							<td class="div-text-left"><span>12</span></td>
+						</tr>
+						<tr>
+							<td>核心企业:</td>
+							<td class="div-text-left"><span>恒丰</span></td>
+							<td>商品价格:</td>
+							<td class="div-text-left"><span>524</span></td>
+						</tr>
+						<tr>
+							<td>订购日期:</td>
+							<td class="div-text-left"><span>2015-12-02</span></td>
+							<td>结算方式:</td>
+							<td class="div-text-left"><span>商业汇票</span></td>
+						</tr>
+						<tr>
+							<td>状态:</td>
+							<td class="div-text-left"><span>可用</span></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+		</form>
+	</div>
+
+	
+	<!-- 汇票信息列表 -->
+	<table class="table table-striped table-hover table-bordered">
+	  	<caption class="table-caption table-caption-green clearFix">
+		  	<span class="title-left">汇票信息</span>
+	  	</caption>
+	  <thead>
+	    <tr class="result-head-gray">
+	      <td width="10%">汇票编号</td>
+	      <td width="10%">票据类型</td>
+	      <td width="10%">票据金额</td>
+	      <td width="10%">开票企业</td>
+	      <td width="10%">开票时间</td>
+	      <td width="10%">到期日期</td>
+	      <td width="10%">确认企业</td>
+	      <td width="8%">转让协议书</td> 
+	      <td width="8%">转让确认书</td>
+	    </tr>
+	  </thead>
+	  <tbody>
+	      <tr ng-repeat-end ng-class="{even:$even}">
+	        <td>A0001</td>
+	        <td>办公</td>
+	        <td>128.00</td>
+	        <td>穗彩</td>
+	        <td>2014-12-24</td>
+	        <td>2015-12-15</td>
+	        <td>中钢衡重</td>
+	        <td><a href="" >查看</a></td>
+	        <td><a href="" >查看</a></td>
+	      </tr>
+	  </tbody>
+	</table>
+
+
+	<!-- 贸易合同列表 -->
+	<table class="table table-striped table-hover table-bordered">
+	  	<caption class="table-caption table-caption-green clearFix">
+		  	<span class="title-left">贸易合同</span>
+	  	</caption>
+	  <thead>
+	    <tr class="result-head-gray">
+	      <td width="12.5%">合同编号</td>
+	      <td width="12.5%">采购方</td>
+	      <td width="12.5%">供货方</td>
+	      <td width="12.5%">签署日期</td>
+	      <td width="12.5%">合同金额</td>
+	      <td width="12.5%">操作</td>
+	    </tr>
+	  </thead>
+	  <tbody>
+	      <tr ng-repeat-end ng-class="{even:$even}">
+	        <td>BT210-43</td>
+	        <td>华北重工</td>
+	        <td>大器物流</td>
+	        <td>北京惠安楼</td>
+	        <td>2015-12-02</td>
+	        <td><a href="">下载</a></td>
+	      </tr>
+	  </tbody>
+	</table>
+
+
+	<!-- 发票信息列表 -->
+	<table class="table table-striped table-hover table-bordered">
+	  	<caption class="table-caption table-caption-green clearFix">
+		  	<span class="title-left">发票信息</span>
+	  	</caption>
+	  <thead>
+	    <tr class="result-head-gray">
+			<td width="8.3%">发票代码</td>
+			<td width="8.3%">发票号码</td>
+			<td width="8.3%">纳税人识别号</td>
+			<td width="8.3%">行业类别</td>
+			<td width="8.3%">开票日期</td>
+			<td width="8.3%">金额</td>
+			<td width="8.3%">项目</td>
+			<td width="8.3%">单价</td>
+			<td width="8.3%">数量</td>
+			<td width="8.3%">开票人</td>
+			<td width="8.3%">附件</td> 
+	    </tr>
+	  </thead>
+	  <tbody>
+  		<tr ng-repeat-end ng-class="{even:$even}">
+  	      <td>FP000001</td>
+  	      <td>餐饮</td>
+  	      <td>105</td>
+  	      <td>日常</td>
+  	      <td>深圳大江</td>
+  	      <td>18</td>
+  	      <td>2013-02-21</td>
+  	      <td>2013-02-21</td>
+  	      <td>2013-02-21</td>
+  	      <td>2013-02-21</td>
+  	      <td>
+  	        <a href="" >下载</a>
+  	      </td>
+  	    </tr>
+	  </tbody>
+	</table>
+
+
+
+	<!-- 运输单据列表 -->
+	<table class="table table-striped table-hover table-bordered">
+	  	<caption class="table-caption table-caption-green clearFix">
+		  	<span class="title-left">运输单据</span>
+	  	</caption>
+	  <thead>
+	    <tr class="result-head-gray">
+	      <td width="14%">发货人</td>
+	      <td width="14%">收货人</td>
+	      <td width="14%">发货时间</td>
+	      <td width="14%">收货时间</td>
+	      <!-- <td width="15%">发货地址</td> -->
+	      <td width="15%">收货地址</td>
+	      <td width="14%">操作</td>
+	    </tr>
+	  </thead>
+	  <tbody>
+	      <tr ng-repeat-end ng-class="{even:$even}">
+            <td>李宁</td>
+            <td>周雪</td>
+            <td>2015-12-21</td>
+            <td>2016-2-14</td>
+            <!-- <td>深圳雪松大厦</td> -->
+            <td>南京天安</td>
+            <td>
+    	        <a href="editShipdocBox();" >下载</a>
+            </td>
+	      </tr>
+	  </tbody>
+	</table>
+
+
+	<!-- 其他资料列表 -->
+	<table class="table table-striped table-hover table-bordered">
+	  	<caption class="table-caption table-caption-green clearFix">
+		  	<span class="title-left">其它资料</span>
+	  	</caption>
+	  <thead>
+	    <tr class="result-head-gray">
+	      <td width="10%">资料编号</td>
+	      <td width="10%">资料名称</td>
+	      <td width="10%">操作</td>
+	    </tr>
+	  </thead>
+	  <tbody>
+	      <tr ng-repeat-end ng-class="{even:$even}">
+	        <td>A001</td>
+	        <td>恒丰1</td>
+	        <td><a href="" >下载</a></td>
+	      </tr>
+	  </tbody>
+	</table>
+
+
+
+	<!-- 附件信息列表 -->
+	<table class="table table-striped table-hover table-bordered">
+	  	<caption class="table-caption table-caption-green clearFix">
+		  	<span class="title-left">附件信息</span>
+	  	</caption>
+	  <thead>
+	    <tr class="result-head-gray">
+	      <td width="10%">序号</td>
+	      <td width="25%">所属文件</td>
+	      <td width="25%">文件类型</td>
+	      <td width="40%">附件名称</td>
+	    </tr>
+	  </thead>
+	  <tbody>
+	     <tr ng-repeat-end ng-class="{even:$even}">
+	       <td>1</td>
+	       <td>A文件</td>
+           <td>交易合同附件</td>
+           <td><a href="">a.jpg</a></td>
+         </tr>
+	  </tbody>
+	</table>
+
+	<div class="center-buttons">
+	  <button class="btn btn-primary" bt-close-modal >返回</button>
+	  <!-- <a ng-show="backPath" href="{{backPath}}"><button class="btn btn-primary">返回</button></a> -->
+	</div>
+
+</div>

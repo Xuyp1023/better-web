@@ -1,0 +1,298 @@
+      
+<div id="openAccountSuccess" class="top-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    激活账户
+  </h1>
+  <div  class="row-fluid div-center div-margin-top">
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">基本资料</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="30%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">申请机构名称:</span>
+            </td>
+            <td width="70%"><span ng-bind="info.custName"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">组织机构代码:</span>
+            </td>
+            <td><span ng-bind="info.orgCode"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">税务登记证号码:</span>
+            </td>
+            <td><span ng-bind="info.taxNo"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">营业执照号码:</span>
+            </td>
+            <td><span ng-bind="info.businLicence"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">营业执照有效期:</span>
+            </td>
+            <td>
+              <span ng-bind="info.businLicenceValidDate"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">业务联系电话:</span>
+            </td>
+            <td><span ng-bind="info.phone"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">传真:</span>
+            </td>
+            <td><span ng-bind="info.fax"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">邮政编码:</span>
+            </td>
+            <td><span ng-bind="info.zipCode"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">办公地址:</span>
+            </td>
+            <td><span ng-bind="info.address"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">账户信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="30%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">银行账户名称:</span>
+            </td>
+            <td width="70%"><span ng-bind="info.bankAccoName"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">银行账号:</span>
+            </td>
+            <td><span ng-bind="info.bankAcco"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="title">开户许可证核准号:</span>
+            </td>
+            <td><span ng-bind="info.openLicense"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">所属银行:</span>
+            </td>
+            <td>
+              <span ng-bind="info.bankNo|kindf:'SaleBankCode' "></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">开户行全称:</span>
+            </td>
+            <td>
+              <span ng-bind="info.bankName"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">开户行所在地:</span>
+            </td>
+            <td>
+              <span ng-bind="info.bankCityno|areaf"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">法定代表人/负责人信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="30%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">姓名:</span>
+            </td>
+            <td width="70%"><span ng-bind="info.lawName"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">证件类型:</span>
+            </td>
+            <td>
+              <span ng-bind="info.lawIdentType|kindf:'PersonIdentType' "></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">证件号码:</span>
+            </td>
+            <td>
+              <span ng-bind="info.lawIdentNo"></span>
+            </td>
+          </tr>
+           <tr>
+             <td class="div-text-right">
+              <span class="required">*</span>
+               <span class="title">证件有效期:</span>
+             </td>
+             <td>
+               <span ng-bind="info.lawValidDate"></span>
+             </td>
+           </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">经办人信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="30%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">姓名:</span>
+            </td>
+            <td width="70%">
+              <span ng-bind="info.operName "></span>
+            </td>
+          </tr>
+          <tr>
+            <td width="30%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">证件类型:</span>
+            </td>
+            <td width="70%"><span ng-bind="info.operIdenttype|kindf:'PersonIdentType' "></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">证件号码:</span>
+            </td>
+            <td><span ng-bind="info.operIdentno"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">证件有效期:</span>
+            </td>
+            <td><span ng-bind="info.operValiddate"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">手机号码:</span>
+            </td>
+            <td>
+              <span ng-bind="info.operMobile"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">电子邮箱:</span>
+            </td>
+            <td>
+              <span ng-bind="info.operEmail"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">联系电话:</span>
+            </td>
+            <td>
+              <span ng-bind="info.operPhone"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">传真:</span>
+            </td>
+            <td>
+              <span ng-bind="info.operFaxNo"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      
+      <!-- 附件列表 -->
+       <table class="table table-striped table-hover table-bordered">
+          <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">开户资料清单</span>
+          </caption>
+          <thead>
+          <tr class="result-head-gray">
+            <td width="30%">附件类型</td>
+            <td width="40%">附件名称</td>
+            <td width="30%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in uploadFileList" ng-repeat-end>
+            <td class="div-text-right"><span class="required">*</span><span ng-bind="item.fileInfoType|kindf:'CustOpenAccountFile'"></span></td>
+            <td ng-bind="item.fileName"></td>
+            <td>
+              <a href="{{item.id|downf}}" ng-show="item.id">下载</a>
+            </td>
+          </tr>
+            
+        </tbody>
+      </table>
+
+
+      <div class="center-buttons" >
+        <button class="btn btn-primary" ng-click="activeAccount($event.target);">激活</button>
+      </div>
+
+
+
+    <!-- 附件上传 start -->
+    <div bt-upload conf="uploadConf"></div>
+
+</div>
+      

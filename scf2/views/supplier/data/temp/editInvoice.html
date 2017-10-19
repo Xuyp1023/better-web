@@ -1,0 +1,51 @@
+<div class="div-width-90 detail-box div-center">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      编辑发票
+    </h1>
+    <form action="#" id="addInvoice_form">
+    <table class="div-width-100 table table-bordered table-striped table-hover recieve-table">
+        <tr>
+          <td width="30%"><span class="required">*</span>发票号:</td>
+          <td class="div-text-left" width="70%"><input type="text" name="invoiceNo" ng-model="addInvoiceInfo.invoiceNo" valid="{'required':true}"></td>
+        </tr>
+        <tr>
+          <td width="30%">行业类别:</td>
+          <td class="div-text-left" width="70%">
+            <select name="" id="" name="" ng-model="addInvoiceInfo.corpVocate">
+              <option  ng-option-filter></option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="30%"><span class="required">*</span>发票金额(元):</td>
+          <td class="div-text-left"><input type="text" name="balance" ng-model="addInvoiceInfo.balance" valid="{'required':true}" ></td>
+        </tr>
+        <tr>
+          <td width="30%"><span class="required">*</span>项目:</td>
+          <td class="div-text-left"><input type="text" name="subject" ng-model="addInvoiceInfo.subject" valid="{'required':true}" ></td>
+        </tr>
+        <tr>
+          <td width="30%"><span class="required">*</span>单位:</td>
+          <td class="div-text-left"><input type="text" name="unit" ng-model="addInvoiceInfo.unit" valid="{'required':true}" ></td>
+        </tr>
+        <tr>
+          <td width="30%"><span class="required">*</span>数量:</td>
+          <td class="div-text-left"><input type="text" name="amount" ng-model="addInvoiceInfo.amount" valid="{'required':true}" ></td>
+        </tr>
+        <tr>
+          <td width="30%">附件:</td>   
+          <td width="70%">
+              <button class="btn btn-info" type="button" 
+              ng-click="openUpload($event,'InvoiceAccessory','发票附件','invoiceAttach')" ng-show="!invoiceAttach[0].fileName" mapping="upload_open_btn">上传附件</button>
+              <a href="{{invoiceAttach[0].url}}" ng-bind="invoiceAttach[0].fileName" ng-show="invoiceAttach[0].fileName"></a>
+          </td>
+        </tr>
+    </table>
+    </form>
+    <div>
+         <div class="center-buttons">
+           <button class="btn btn-primary" ng-click="">确定编辑</button>
+           <button class="btn btn-primary" bt-close-modal >取消</button>
+         </div>
+    </div>
+</div> 

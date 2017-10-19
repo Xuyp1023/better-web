@@ -1,0 +1,11 @@
+<div>
+    <div ng-include="'template/2_3.1/temp/flowPublic.html'"></div>
+    <div ng-include="'template/2_3.1/temp/onlyReadApprove.html'"></div>
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-click="queryProperty()" id="targetEle">资产登记查询</button>        
+    </div>
+</div>
+  <!-- 上传组件引用 -->
+  <div bt-upload conf="uploadConf" ></div>
+<!-- 资产登记查询 -->
+<div id="propertyInfo" bt-roll-modal="template/2_3.1/temp/propertyInfo.html" bt-z-index="9991"></div>

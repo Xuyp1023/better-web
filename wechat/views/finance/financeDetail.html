@@ -1,0 +1,55 @@
+<div class="pjce">
+	<ul>
+    	<li>
+            <p><span>授信核心企业：</span>{{info.bill.invoiceCorp}}</p>
+            <p><span>商业汇票号：</span>{{info.bill.billNo}}</p>
+            <p><span>汇票金额(元)：</span>{{info.bill.balance|moneyFilter}}</p>
+            <p><span>有效期：</span>{{info.bill.invoiceDate}}至{{info.bill.endDate}}</p>
+            <p><span>融资业务单号：</span>{{info.request.requestNo}}</p>
+            <p><span>融资申请日期：</span>{{info.request.requestDate}}</p>
+            <!-- <p><span>贸易合同名称：</span>工程实施合同</p> -->
+            <!-- <p><span>保理产品：</span>{{info.request.productName}}</p> -->
+            <p><span>实际融资金额：</span>
+                {{info.request.approvedBalance?(info.request.approvedBalance|moneyFilter):(info.request.balance|moneyFilter)}}
+            </p>
+            <p><span>融资成本：</span>
+                {{info.request.approvedRatio?(info.request.approvedRatio):(info.request.ratio)|percentf}}
+            </p>
+            <p><span>实际放款金额：</span>{{info.request.loanBalance|moneyFilter }}</p>
+            <p><span>还款日期：</span>{{info.request.endDate}}</p>
+            <p><span>融资状态：</span>{{info.request.tradeStatus|kindf:'FinanceReqStatus'}}</p>
+          <!--   <p><span>发票金额：</span>{{info.bill.balance|moneyFilter}}</p> -->
+<!--             <p><span>合同金额：</span>{{info.bill.agreeBalance|moneyFilter}}</p> -->
+            <div class="inlint">
+        	<p><span>收款方：</span>{{info.bill.supplier}}</p>
+            <p><span>收款账号：</span>{{info.bill.suppBankAccount}}</p>
+            <p><span>收款银行全称：</span>{{info.bill.suppBankName}}</p>
+            <p><span>付款方：</span>{{info.bill.buyer}}</p>
+            <p><span>付款账号：</span>{{info.bill.buyerBankAccount}}</p>
+            </div>
+        </li>
+    </ul>
+    <em class="ico ico9"></em>
+</div>
+
+<div class="pTab">
+    <ul>
+        <li>
+            <table>
+                <tbody>
+                <tr class="ta">
+                    <td>附件类型</td>
+                    <td>附件名称</td>
+                    <td>操作</td>
+                </tr>
+               <tr class="tb" ng-repeat="item in upLoadList">
+                    <td>{{item.fileInfoType|kindf:'ScfAppBusinFileGroup'}}</td>
+                    <td><a href="javascript:void(0);" ng-click="preImg(item)">{{item.fileName}}</a></td>
+                    <td>
+                       无
+                    </td>
+                </tr>
+            </tbody></table>
+        </li>
+    </ul>
+</div>

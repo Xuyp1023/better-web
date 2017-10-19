@@ -1,0 +1,145 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      消息模板管理
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      
+      <table class="table table-striped table-hover table-bordered table-module">
+        <tbody>
+          <tr>
+            <td width="20%">模板名称</td>
+            <td width="80%" class="red" ng-bind="info.profileName">
+            </td>
+          </tr>
+          <tr>
+            <td >模板渠道类型</td>
+            <td class="div-text-left">
+              <select ng-model="info.channel" ng-change="changeInfoModule();">
+                <option ng-repeat="item in infoModuleChannelType" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.channel == item.value"></option>
+              </select>
+            </td>
+          </tr>
+          <tr ng-hide="info.channel === '2'||info.channel === '3'">
+            <td >模板标题</td>
+            <td class="div-text-left">
+              <input type="text" ng-model="infoModule.subject">
+            </td>
+          </tr>
+          <tr>
+            <td >模板状态</td>
+            <td class="div-text-left">
+              <select ng-model="infoModule.businStatus">
+                <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="infoModule.businStatus == item.value"></option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td >模板预定规则</td>
+            <td class="div-text-left">
+              <table class="table table-striped table-hover table-bordered no-margin-bottom">
+                <thead class="result-td-head result-head-green result-head-center">
+                    <tr class="font-size-12 info-title">
+                        <td width="50%">变量名称</td>
+                        <td width="50%">变量描述</td>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr ng-class="{even:$even}" ng-repeat="item in infoVariableList" ng-repeat-end>
+                    <td ng-bind="item.variableName"></td>
+                    <td ng-bind="item.variableMark"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr ng-hide="info.channel === '3'">
+            <td >模板内容</td>
+            <td class="div-text-left">
+              <div bt-editor="message_editor"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- <ul class="nav nav-tabs plus-nav-tabs-init div-margin-top">
+        <li class="active"><a href="#tab_website">站内消息模板</a></li>
+        <li><a href="#tab_email">电子邮件模板</a></li>
+        <li><a href="#tab_messages">短信模板</a></li>
+      </ul>
+      
+      
+      
+      <div class="tab-content">
+        <div class="tab-pane active" id="tab_website">
+          <table class="table table-striped table-hover table-bordered">
+            <tbody>
+              <tr>
+                <td width="30%">模板标题</td>
+                <td class="div-text-left"><input type="text"></td>
+              </tr>
+              <tr>
+                <td width="30%">模板状态</td>
+                <td width="70%" class="div-text-left">
+                  <select name="" id=""></select>
+                </td>
+              </tr>
+              <tr>
+                <td width="30%">模板内容</td>
+                <td width="70%" class="div-text-left">
+                  <div bt-editor="tab_website_editor"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane" id="tab_email">
+          <table class="table table-striped table-hover table-bordered">
+            <tbody>
+              <tr>
+                <td width="30%">模板标题</td>
+                <td width="70%" class="div-text-left"><input type="text"></td>
+              </tr>
+              <tr>
+                <td width="30%">模板状态</td>
+                <td width="70%" class="div-text-left">
+                  <select name="" id=""></select>
+                </td>
+              </tr>
+              <tr>
+                <td width="30%">模板内容</td>
+                <td width="70%" class="div-text-left">
+                  <div bt-editor="tab_email_editor"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane" id="tab_messages">
+          <table class="table table-striped table-hover table-bordered">
+            <tbody>
+              <tr>
+                <td width="30%">模板状态</td>
+                <td width="70%" class="div-text-left">
+                  <select name="" id=""></select>
+                </td>
+              </tr>
+              <tr>
+                <td width="30%">模板内容</td>
+                <td width="70%" class="div-text-left">
+                  <div bt-editor="tab_messages_editor"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div> -->
+
+      
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-click="editInfo($event.target);">保存</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

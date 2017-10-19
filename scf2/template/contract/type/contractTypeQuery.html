@@ -1,0 +1,22 @@
+<div class="row-fluid">
+      <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/flow_money.png" alt="">
+        合同类型查询
+      </h1>
+
+      <table class="div-width-100 table table-striped table-hover search-result margin-top-30">
+        <thead>
+          <tr class="result-head">
+            <td width="50%">合同类型编号</td>
+            <td width="50%">合同类型名称</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in infoList"  ng-class="{even:$even}" >
+            <td ng-bind="item.agreementTypeNo"></td>
+            <td ng-bind="item.agreementTypeName"></td>
+          </tr>
+        </tbody>
+       
+      </table>
+
+  </body>

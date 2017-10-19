@@ -1,0 +1,89 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">对账单投递记录
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                     
+                      <tr>
+                        <td>投递日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEpostDate">-
+                           <input type="text" id="end_date" bt-date="searchData.LTEpostDate">
+                        </td>
+                      </tr>                      
+                      <tr>                        
+                        <td width="25%">委托企业:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.postCustNo">
+                            <option value="">----所有----</option>
+                            <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.postCustNo == item.value"></option>                        
+                          </select>
+                        </td>                        
+                      </tr>
+                       <tr>                        
+                        <td width="25%">状态:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.businStatus">
+                           <option value="">----所有----</option>
+                            <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+                            
+                          </select>
+                        </td>                        
+                      </tr>
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+                    </div>
+                </div>
+
+
+      <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+            <tr>
+              <td class="modi-group" colspan="5">
+               <button class="btn btn-info" ng-click="add();" >投递账单</button>
+              </td>
+            </tr>
+            <tr class="result-head">
+              <td width="20%">投递编号</td>
+              <td width="10%">投递日期</td>
+              <td width="30%">接收企业</td>
+              <td width="10%">账单金额</td>
+              <td width="20%">状态</td>
+              <td width="10%">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td ng-show="item.businStatus==0"><a href="javascript:void(0);" ng-click="goConfirmRecord(item);" ng-bind="item.refNo" ></a></td>
+            <td class="red" ng-show="item.businStatus==1 || item.businStatus==2"><a href="javascript:void(0);" ng-click="lookRecordDetail(item);" ng-bind="item.refNo" ></a></td>
+            <td ng-bind="item.postDate"></td>
+            <td ng-bind="item.postCustName"></td>
+            <td ng-bind="item.totalBlance | moneyFilter"></td>
+            <td ng-show="item.businStatus==0">未投递</td>
+            <td ng-show="item.businStatus==1">投递成功，待对方确认</td>
+            <td ng-show="item.businStatus==2">确认完毕</td>
+            <td ng-show="item.businStatus==0"><a href="javascript:void(0);" ng-click="deleteRecord($event.target,item);">删除</a></td>
+            <td ng-show="item.businStatus==1 || item.businStatus==2">--</td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="6">
+                <div bt-pagination conf="listPage" func="queryList(false)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+        </div>
+
+
+    </div>
+
+<div id="detail_box" bt-roll-modal="template/1qh-mobile/check/mail/detail.html" bt-z-index="9991"></div>
+
+<div id="mailCheck_box" bt-roll-modal="template/1qh-mobile/check/mail/confirm.html" bt-z-index="9991"></div>
+
+<div id="detail_monthly_box" bt-roll-modal="template/1qh-mobile/check/monthManager/detail.html" bt-z-index="9991"></div>
+<div id="dayDetail_box" bt-roll-modal="template/1qh-mobile/check/monthManager/dayDetail.html" bt-z-index="9991"></div>

@@ -1,0 +1,11 @@
+<div>
+    <div ng-include="'template/2_3.1/temp/flowPublic.html'"></div>
+    <div ng-include="'template/2_3.1/temp/onlyReadApprove.html'"></div>
+    <div ng-include="'template/2_3.1/temp/resultList.html'"></div>
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-click="approveReview()" id="targetEle">融资批复</button>        
+    </div>
+</div>
+
+<!-- 融资批复 -->
+<div id="approveBox" bt-roll-modal="template/2_3.1/temp/approveBox.html" bt-z-index="9991"></div>

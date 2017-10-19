@@ -1,0 +1,40 @@
+{
+    "message": "消息模板-列表查询 成功",
+    "data": [
+        {
+            "id": 20001,
+            "profileName": "开户成功通知",
+            "profileType": "0",
+            "subscribeEnable": "0",
+            "businStatus": "1",
+            "lastStatus": "",
+            "custNo": 102202018,
+            "custName": "深圳市前海拜特互联网金融服务有限公司"
+        },{
+            "id": 20002,
+            "profileName": "开户成功通知1",
+            "profileType": "0",
+            "subscribeEnable": "0",
+            "businStatus": "0",
+            "lastStatus": "",
+            "custNo": 102202018,
+            "custName": "深圳市前海拜特互联网金融服务有限公司"
+        },{
+            "id": 20003,
+            "profileName": "开户成功通知2",
+            "profileType": "0",
+            "subscribeEnable": "0",
+            "businStatus": "1",
+            "lastStatus": "",
+            "custNo": 102202018,
+            "custName": "深圳市前海拜特互联网金融服务有限公司"
+        }
+    ],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 10,
+        "pages": 1,
+        "total": 1
+    },
+    "code": 200
+}

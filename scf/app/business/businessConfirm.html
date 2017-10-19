@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>业务确认</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf/css/businessConfirm.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/fast_money.png" alt="">业务确认
+              <small class="small-select">
+                <span>选择账户</span>
+                <select ng-model="searchData.custNo" ng-change="changeCust();">
+                  <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+                </select>
+              </small>
+            </h1>
+            <table class="table table-condensed div-width-60 div-center search-table" >
+              <tr>
+                <td width="30%">票据单号:</td>
+                <td width="70%" class="div-text-left">
+                <input type="text" ng-model="searchData.billNo">
+                </td>
+              </tr>
+              <tr>
+                <td>供应商名称:</td>
+                <td class="div-text-left">
+                <input type="text" ng-model="searchData.supplier">
+                </td>
+              </tr>
+              <tr>
+                <td width="30%">开票日期:</td>
+<!--                 <td width="15%"><span objValue="allDate" class="double-check-sp">全部</span></td> -->
+                <td width="70%" class="date div-text-left">
+                  <input type="text" id="begin_date" readonly="true" dateData="searchData" dateName="GTEregDate" ng-model="searchData.GTEregDate" onclick="WdatePicker({startDate:'%y-%M-%d',maxDate:'#F{$dp.$D(\'end_date\')}',dateFmt:'yyyy-MM-dd',readOnly:true});" ng-focus="dateEmitter.changeDateInfo($event)"> - <input  id="end_date" readonly="true" dateData="searchData" dateName="LTEregDate" type="text" ng-model="searchData.LTEregDate" onclick="WdatePicker({startDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'begin_date\')}',dateFmt:'yyyy-MM-dd',readOnly:true});" ng-focus="dateEmitter.changeDateInfo($event)">
+                </td>
+              </tr>
+              <tr>
+                <td>签署状态:</td>
+                <td class="div-text-left">
+                  <select name="" id="" ng-model="searchData.signStatus">
+                      <option value="">----所有----</option>
+                      <option ng-repeat="item in statusList" value="{{item.value}}" ng-bind="item.name"></option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+           
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr class="font-size-12 info-title">
+                  <td width="11%">票据单号</td>
+                  <td width="11%">企业名称</td>
+                  <td width="11%">保理用途</td>
+                  <td width="14%">融资申请金额</td>
+                  <td width="11%">保理金额</td>
+                  <td width="11%">供应商</td>
+                  <td width="11%">地址</td>
+                  <td width="11%">签署状态</td>
+                  <td width="8%">操作</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in infoList" ng-repeat-end ng-class="{even:$even}">
+                  <td ng-bind="item.billNo"></td>
+                  <td ng-bind="item.buyer"></td>
+                  <td ng-bind="item.description"></td>
+                  <td><strong class="red" ng-bind="item.balance|moneyFilter"></strong></td>
+                  <td ng-bind="item.confirmBalance|moneyFilter"></td>
+                  <td ng-bind="item.supplier"></td>
+                  <td ng-bind="item.address"></td>
+                  <td ng-bind="item.signStatus | kindf:'ElecSignContractStatus'"></td>
+                  <td>
+                    <a href="#" ng-click="showInfoDetail(item);" ng-show="(item.subscribed === '0')||(item.subscribed === '2')">确认</a>
+                    <a href="#" ng-click="showInfoDetail(item);" ng-hide="(item.subscribed === '0')||(item.subscribed === '2')">查看</a>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                  <td colspan="9">
+                    <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                      <ul>
+                        <li class="previous hidden" ng-show="listPage.pageNum<=1"><span>首页</span></li>
+                        <li class="previous" ng-show="listPage.pageNum>1" ng-click="pageEmitter.firstPage()"><a href="#">首页</a></span></li>
+                        <li class="previous hidden" ng-show="listPage.pageNum<=1"><span>上一页</span></li>
+                        <li class="previous" ng-show="listPage.pageNum>1" ng-click="pageEmitter.prevPage()"><a href="#">上一页</a></li>
+                        <li class="next hidden" ng-show="listPage.pageNum>=listPage.pages"><span>下一页</span></li>
+                        <li class="next" ng-show="listPage.pageNum<listPage.pages" ng-click="pageEmitter.nextPage()"><a href="#">下一页</a></li>
+                        <li class="next hidden" ng-show="listPage.pageNum>=listPage.pages"><span>尾页</span></li>
+                        <li class="next" ng-show="listPage.pageNum<listPage.pages" ng-click="pageEmitter.endPage()"><a href="#">尾页</a></li>
+                        <li>共<span ng-bind="listPage.pageNum"></span>/<span ng-bind="listPage.pages"></span>页</li>
+                        <li>共<span ng-bind="listPage.total"></span>条记录</li>
+                        <li class="toPage">
+                            <div>
+                              <span>跳转到</span>
+                              <input type="text" name="skipToPageNum" ng-disabled="listPage.pages<=1">
+                              <span>页</span>
+                              <button class="btn" ng-disabled="listPage.pages<=1" ng-click="skipPage()">跳转</button>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+              </tfoot>
+            </table>
+
+          </div>
+        
+        <!-- 下拉帘start -->
+        <div id="fix_operator_info_box" class="div-width-100 hide top-box">
+        <div class="div-width-90 div-center detail-box ">
+          <h1 class="content-title-1 content-title-condensed clearFix"><img src="../../img/operator.png" alt="">
+            买方确认意见
+            <span class="float-right"><a ng-href="{{downloadurl+info.appNo}}" class="btn btn-info">下载此合同文件</a></span>
+          </h1>
+
+          
+        <!-- <div class="letter_left">
+          <p>致：<strong ng-bind="info.supplier"></strong>  (卖方名称)</p>
+          <p class="content">我方已收到你方签署的《应收账款转让通知书》(编号:52133636），现确认同意你方在该通知书中就相关账款转让所作出的各项安排和约定，我方将遵守其中所载各项指示。应收账款到期日，我方应主动支付《应收账款转让通知书》中所载的应收账款，如x xx商业保理有限公司(保理公司名称，以下简称保理公司)未收到我方付款的:(适用本条内容请在“□”打“√”，不适用则“□”不填写。)</p>
+
+          <p>
+            <input id="check_01" type="checkbox" ng-disabled="true" ng-checked="true"/>
+            <label for="check_01">1、我方授权保理公司自应收账款到期日起(含到期日)从我方在商业保理公司指定银行的存款账户中扣收我方应支付的应收账款金额。</label><br/>
+            <input type="checkbox"  id="check_02" ng-disabled="true" ng-checked="true"/>
+            <label for="check_02">2、保理公司有权就我方应付未付款项，按交易合同载明的违约金率自应收账款到期日起计收违约金。</label>
+          </p>
+
+          <p>附：商业纠纷通知书</p>
+        </div>
+
+        <div class="letter_right clearFix">
+          <table>
+            <tr>
+              <td>买方企业名：</td>
+              <td ng-bind="info.buyer"></td>
+            </tr>
+            <tr>
+              <td>法定代表人/负责人：</td>
+              <td ng-bind="info.lawName"></td>
+            </tr>
+            <tr>
+              <td>签署时间：</td>
+              <td ng-bind="today"></td>
+            </tr>
+          </table>
+        </div> -->
+
+        <div class="pro-box div-width-100">
+          <iframe id="detail_iframe" width="100%" frameborder="1"></iframe>
+        </div>
+
+        <h1 ng-hide="info.subscribed === '0'" class="content-title-1 content-title-condensed"><img src="../../img/operator.png" alt="">
+          合同签署信息
+        </h1>
+        <table ng-hide="info.subscribed === '0'" class="table table-striped table-condensed">
+          <thead>
+            <tr class="">
+              <td width="20%">客户名称</td>
+              <td width="20%">网络地址</td>
+              <td width="20%">操作员名字</td>
+              <td width="20%">操作时间</td>
+              <td width="20%">状态</td>
+            </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="item in signList" ng-class="{even:$even}" ng-repeat-end> 
+                <td ng-bind="item.custName"></td>
+                <td ng-bind="item.ipaddr" ></td>
+                <td ng-bind="item.operName" ></td>
+                <td ng-bind="item.operTime | datetimef" ></td> 
+                <td ng-bind="item.operStatus | cstatusf" class="red"></td>
+            </tr>
+          </tbody>
+        </table> 
+        
+        <h1 ng-show="(info.subscribed === '0')||(info.subscribed === '2')" class="content-title-1 content-title-condensed"><img src="../../img/operator.png" alt="">
+          合同签署
+        </h1>
+        <table ng-show="(info.subscribed === '0')||(info.subscribed === '2')" class="table table-bordered table-hover table-striped">
+          <tr>
+            <td width="30%">验证码</td>
+            <td width="30%"><input type="text" placeholder="请输入验证码" ng-model="checkCode"></td>
+            <td width="40%">
+              <button class="btn" ng-show="isCanGet" ng-click="setCodeInterval();">确认签署并且获取验证码</button>
+              <span class="deep-gray" ng-show="!isCanGet">还需<span class="green" ng-bind="initSecond"></span>秒后,可重新获取</span>
+            </td>
+          </tr>
+        </table>
+        
+
+
+        <div class="center-buttons">
+          <button class="btn btn-primary" ng-show="(info.subscribed === '0')||(info.subscribed === '2')" ng-click="confirmInfo($event.target);">提交验证码</button>
+          <button class="btn btn-primary" ng-show="(info.subscribed === '0')||(info.subscribed === '2')" ng-click="forbiddenContr();">作废</button>
+          <button class="btn btn-primary" ng-click="hideInfoDetail();">返回</button>
+        </div>
+
+        </div>
+        </div>
+        <!-- 下拉帘结束 -->
+        
+        <!-- 温馨提示 -->
+        <div id="warm_prompt_box" class="div-width-100">
+          <h1 class="prompt-title">
+            <img class="prompt-icon" src="../../img/warm_prompt.png" alt="">
+            温馨提示
+          </h1>
+          <div class="warm-prompt-content">
+            <p>1.列表中显示的是供应商申请保理融资的应收账款清单，核心企业需严格核对业务的真实性及数据的准确性，审核无误后，点击确认转让相应的应付账款。</p>
+          </div>
+        </div>
+        <!-- 温馨提示END -->
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("../../provider_dev/src/businessConfirm");
+      }
+      // For production
+      else {
+        seajs.use("scf/provider/1.0.0/businessConfirm");
+      } 
+  </script>
+  </body>
+</html>

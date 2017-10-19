@@ -1,0 +1,28 @@
+
+<div id="alldiv" class="row-fluid shadow hide">
+
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="./img/operator.png" alt="">
+      请选择开户途径
+    </h1>
+
+    <div id="mainContent" class="row-fluid div-center">
+
+        <div class="margin-20">
+          <label for="own"><input type="radio" id="own" name="way" value="own" ng-model="openInfo.type"> 自主开户</label>
+        </div>
+
+        <div class="margin-20">
+          <label for="replace"><input type="radio" id="replace" name="way" value="replace" ng-model="openInfo.type"> 由企e金服平台代开户</label>
+        </div>
+
+    </div>
+
+    <div class="center-buttons" >
+        <button class="btn btn-primary" ng-click="nextStep($event.taget);">下一步</button>
+    </div>
+
+    <!-- 附件上传 start -->
+    <div bt-upload conf="uploadConf"></div>
+
+
+</div>

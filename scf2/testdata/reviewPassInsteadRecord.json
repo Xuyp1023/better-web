@@ -1,0 +1,19 @@
+{
+  "message": "代录记录 复核通过",
+  "data": {
+    "id": 29,
+    "applyId": 28,
+    "insteadItem": "0",
+    "tmpIds": "46",
+    "regOperId": 1111,
+    "regOperName": "管理员",
+    "regDate": "2016-07-29",
+    "modiOperId": 1111,
+    "modiDate": "2016-07-29",
+    "businStatus": "2",
+    "lastStatus": "",
+    "custNo": ""
+  },
+  "page": "",
+  "code": 200
+}

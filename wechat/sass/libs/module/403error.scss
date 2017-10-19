@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+@mixin error{
+	//403相关
+	.container-for403{
+		box-sizing: border-box;
+		color: rgb(255, 255, 255);
+		display: block;
+		font-family: "Open Sans",
+		sans-serif;
+		font-size: 13px;
+		height: 780px;
+		line-height: 18.5714px;
+		margin-left: 0px;
+		margin-right: 0px;
+		padding-left: 15px;
+		padding-right: 15px;
+		background-attachment: scroll;
+		background-clip: border-box;
+		background-color: rgb(24, 212, 203);
+		background-image: none;
+		background-origin: padding-box;
+		background-size: auto;
+
+
+		&:before{
+			box-sizing: border-box;
+			content: " ";
+			display: table;
+			height: 0px;
+		}
+
+		.error-wrapper{
+			box-sizing: border-box;
+			color: rgb(255, 255, 255);
+			display: block;
+			font-family: "Open Sans",
+			sans-serif;
+			font-size: 13px;
+			height: 429px;
+			line-height: 18.5714px;
+			margin-top: 34.5px;
+			text-align: center;
+		}
+
+		.icon-404{
+			background-attachment: scroll;
+			background-clip: border-box;
+			background-color: rgba(0, 0, 0, 0);
+			background-image: url(../images/404_icon.png);
+			background-origin: padding-box;
+			background-position: 0% 0%;
+			background-repeat: no-repeat;
+			background-size: auto;
+			box-sizing: border-box;
+			color: rgb(255, 255, 255);
+			display: inline-block;
+			font-family: FontAwesome;
+			font-size: 13px;
+			font-style: normal;
+			font-weight: normal;
+			height: 274px;
+			line-height: normal;
+			margin-left: 30px;
+			margin-top: 0px;
+			text-align: center;
+			text-decoration: none;
+			vertical-align: baseline;
+			width: 289px;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		.page-404{
+			box-sizing: border-box;
+			color: rgb(125, 255, 247);
+			display: block;
+			font-family: "Open Sans",
+			sans-serif;
+			font-size: 18px;
+			font-weight: 300;
+			height: 50px;
+			line-height: 25.7143px;
+			margin-bottom: 10px;
+			margin-left: 0px;
+			margin-right: 0px;
+			margin-top: 0px;
+			text-align: center;
+
+		}
+	}
+
+}

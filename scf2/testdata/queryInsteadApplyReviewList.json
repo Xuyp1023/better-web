@@ -1,0 +1,21 @@
+{ "message": "代录申请 复核列表 查询成功", 
+	"data": [ 
+	{ 	"id": 27, 
+		"insteadType": "1", 
+		"batchNo": "", 
+		"regOperId": 1111, 
+		"regOperName": "管理员", 
+		"regDate": "2016-07-28", 
+		"modiDate": "2016-07-28", 
+		"businStatus": "3", 
+		"lastStatus": "", 
+		"custNo": 100000177, 
+		"custName": "安阳华强新城市发展有限公司2" 
+		} ], 
+		"page": { "pageNum": 1, 
+		"pageSize": 10, 
+		"pages": 1, 
+		"total": 1 
+	}, 
+	"code": 200 
+}

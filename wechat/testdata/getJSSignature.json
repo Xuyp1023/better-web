@@ -1,0 +1,11 @@
+{
+    "message": "获取JSTicket Signature成功",
+    "data": {
+        "signature": "382a97bc73e725a4886f279b04ab46eff6efd7ef",
+        "url": "http://url",
+        "nonceStr": "776683cf-c43a-44b1-a201-fb722b4b3482",
+        "timestamp": "1474703844"
+    },
+    "page": "",
+    "code": 200
+}

@@ -1,0 +1,45 @@
+<h3 class="title-h3">应收账款  <small class="color-red">状态</small></h3>
+<div class="pjce">
+	<ul>
+		<li>
+			<p><span>债权人：</span>{{info.buyer}}</p>
+			<p><span>债务人：</span>{{info.billNo}}</p>
+			<p><span>应收账款编号：</span>{{info.supplier}}</p>
+			<p><span>应收账款金额：</span>{{info.suppBankAccount}}</p>
+			<p><span>付款到期日期：</span>{{info.billMode|kindf:'BillMode'}}</p>
+			<p class="inlint"><span>商品名称：</span>{{info.buyer}}</p>
+			<p><span>商品价格：</span>{{info.buyerBankAccount}}</p>
+			<p><span>采购数量：</span>{{info.balance|moneyFilter}}</p>
+			<p><span>金额：</span>{{info.invoiceDate}} 到 {{info.endDate}}</p>
+		</li>
+	</ul>
+</div>
+
+
+<h3 class="title-h3">应收账款附件</h3>
+
+<div class="mui-row ac-grid upload-wrap">
+    <div ng-repeat="item in agreeList" class="mui-col-sm-4 mui-col-xs-4">
+        <div class="upload-area"  ng-show="!item.id" ng-click="uploadImage();" > 
+            <div class="line-hori"></div>
+            <div class="line-vert"></div>
+        </div>
+        <div class="upload-img"  ng-show="item.id" ng-click="preImg(item);">
+            <img ng-src="{{item.id ? (item.id|downf) :''}}" >
+        </div>
+        <p class="type-exam font-gray" ng-show="item.id" ng-click="delUpload(item);">删除</p>
+    </div>
+</div>
+
+
+
+<div class="mAito comp position-fixed-bottom width-100 box-shadow-gray">
+	<ul class="clearfix">
+		<li ng-click="goDidFlow()">
+			<a href="javascript:void(0)" class="background-blue color-white border-none">
+				<span>查看融资详情</span>
+				<i class="ico ico14"></i>
+			</a>
+		</li>
+	</ul>
+</div>

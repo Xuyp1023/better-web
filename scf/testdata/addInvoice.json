@@ -1,0 +1,16 @@
+{
+    "message": "新增发票成功，请查看",
+    "data": {
+            "invoiceNo":"P1033",
+            "corpVocate":"102",
+            "balance": "10000.00",
+            "subject":"基建",
+            "unit":"个",
+            "amount":"12",
+            "regDate":"20161021",
+            "itemId": "11271",
+            "status": "0"
+    },
+    "page": "",
+    "code": 200
+}

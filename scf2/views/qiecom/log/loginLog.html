@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>登陆日志</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/qiecom/log/loginLog.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../../img/fast_money.png" alt=""">登陆日志查询</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="30%">开始日期:</td>
+                <td width="70%" class="div-text-left"><input type="text" id="begin_date" bt-date="searchData.GTEregDate"></td>
+              </tr>
+              <tr>
+                <td>结束日期:</td>
+                <td class="div-text-left"><input type="text" id="end_date" bt-date="searchData.LTEregDate"></td>
+              </tr>
+              <tr>
+                <td>登陆账号:</td>
+                <td class="div-text-left"><input type="text"></td>
+              </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="reFreshFacApplyList();">查询</button>
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../../img/fast_money.png" alt="">
+              登陆日志列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr class="font-size-12 info-title">
+                  <td width="20%">登陆日期</td>
+                  <td width="20%">登陆时间</td>
+                  <td width="20%">登陆账号</td>
+                  <td width="20%">登陆IP</td>
+                  <td width="20%">登陆结果</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in facApplyList" ng-class="{even:$even}" ng-repeat-end> 
+                  <td ng-bind="item.billNo"></td>
+                  <!-- <td ng-bind="item.requestNo"></td> -->
+                  <td ng-bind="item.factorRequestNo "></td>
+                  <td class="red" ng-bind="item.balance | moneyFilter"></td>  
+                  <!-- <td ng-bind="item.confirmBalance"></td> -->
+                  <td ng-bind="item.supplier"></td>
+                  <td ng-bind="item.buyer"></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                  <td colspan="5">
+                    <!-- 分页 -->
+                    <div bt-pagination conf="tradeListPage"></div>
+                  </td>
+              </tfoot>
+            </table>
+          </div>
+        
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (location.href.indexOf("vip") < 0) {
+        seajs.use("scf2/js/qiecom/log/loginLog");
+      }
+      // For production
+      else {
+        seajs.use("scf2/js/qiecom/log/loginLog");
+      } 
+  </script>
+  </body>
+</html>

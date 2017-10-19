@@ -1,0 +1,20 @@
+<!-- 温馨提示 -->
+
+<div class="back-white pb10">
+    <h3 class="title-message"><span class="mui-icon mui-icon-help mui-active font-18"></span>以下为合同（
+    编号：<span>{{contractInfo.agreeNo}}</span>，
+    名称：<span>{{contractInfo.agreeName}}</span>）的附件信息！</h3>
+    <!-- 附件遍历 -->
+    <div class="mui-row ac-grid upload-wrap">
+        <div ng-repeat="item in agreeList" class="mui-col-sm-4 mui-col-xs-4">
+            <div class="upload-img"  ng-click="preImg(item);">
+                <img ng-src="{{item.id ? (item.id|downf) :''}}">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="butn mt10">
+   <p><a class="btn" href="#/tradeContract/list" >返回</a></p>
+</div>

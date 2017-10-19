@@ -1,0 +1,89 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">佣金账单确认
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                     
+                      <tr>
+                        <td width="25%">操作机构:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.postCustNo">
+                            <option ng-repeat="item in factorList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.postCustNo == item.value"></option>
+                          </select>
+                        </td>
+                      </tr>       
+                      <tr>
+                        <td>投递日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEpostDate">-
+                          <input type="text" id="end_date" bt-date="searchData.LTEpostDate">
+                        </td>
+                      </tr>                      
+                      <tr>                        
+                        <td width="25%">状态:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.businStatus">
+                            <option value="">----所有----</option>
+                            <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>                            
+                          </select>
+                        </td>                        
+                      </tr>                       
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+                        待确认账单
+                        </h1>
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                            <thead class="result-head">
+                                <tr class="font-size-12 info-title">
+                                    <td width="15%">投递编号</td>
+                                    <td width="15%">投递日期</td>
+                                    <td width="20%">代理方名称</td>
+                                    <td width="15%">账单总额</td>
+                                    <td width="15%">状态</td>
+                                    <td width="15%">操作</td>                                
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                                    <td>
+                                        <a href="javascript:void(0);" ng-click="LookdetailInfo(item);" ng-bind="item.refNo"></a>
+                                    </td>
+                                    <td ng-bind="item.postDate"></td>
+                                    <td ng-bind="item.custName"></td>
+                                    <td ng-bind="item.totalBlance | moneyFilter" class="red"></td>
+                                    <!-- <td ng-show="item.businStatus==1">待确认</td> -->
+                                    <td>
+                                        <span ng-bind="item.businStatus | kindf:'deliveryRecordCoreCustStatus'"></span>
+                                    </td>      
+                                    <td ng-show="item.businStatus==1"><a href="javascript:void(0);" ng-click="ensure(item);">确认</a></td>
+                                    <td ng-show="item.businStatus==2">- -</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="10">
+                                    <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                                </td>
+                            </tfoot>
+                        </table>
+                    </div>               
+             
+               
+        </div>
+    </div>
+
+<div id="accountDetail" bt-roll-modal="template/1qh-mobile/check/mail/detail.html" bt-z-index="9991"></div> 
+<div id="detail_monthly_box" bt-roll-modal="template/1qh-mobile/check/monthManager/detail.html" bt-z-index="9991"></div>
+<div id="dayDetail_box" bt-roll-modal="template/1qh-mobile/check/monthManager/dayDetail.html" bt-z-index="9991"></div>
+
+
+

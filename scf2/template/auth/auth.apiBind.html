@@ -1,0 +1,97 @@
+<div class="div-width-100 top-box">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="./img/operator.png" alt="">
+    菜单与接口相关联
+  </h1>
+    <!--未选列表  -->
+    <!-- 搜索工具栏 -->
+    <form class="form-inline">
+        <label><input type="text" class="width-300" placeholder="请输入查询条件"></label>
+        <label>
+          <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">查询未选功能<span class="caret"></span></button>
+
+            <ul class="dropdown-menu">
+              <li><a href="javascript:void(0);">按API查询</a></li>
+              <li><a href="javascript:void(0);">按名称查询</a></li>
+            </ul>
+          </div>
+        </label>
+    </form>
+
+    <div class="div-width-100 max-width-400 scroll-auto">
+        <table class="table table-striped table-hover table-bordered big-input">
+            <thead class="result-td-head result-head-green">
+                <tr>
+                    <td colspan="4" class="left">未选择功能列表</td>
+                    <td colspan="1" class="right">
+                    </td>
+                </tr>
+            </thead>
+            <thead>
+                <tr class="result-head-gray">
+                    <td width="15%">操作</td>
+                    <td width="20%">功能名称</td>
+                    <td width="25%">功能路径</td>
+                    <td width="20%">实现类</td>
+                    <td width="20%">实现方法</td>
+                </tr>
+            </thead>
+            <tbody ng-show="unSelectList.length<1">
+                <tr>
+                    <td colspan="5" class="green">暂无未选项！</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in unSelectList">
+                    <td><input type="checkbox" ng-model="item.isChecked" ng-checked="item.isChecked"></td>
+                    <td class="red"></td>
+                    <td ></td>
+                    <td ></td>
+                    <td ></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-click="addSelectList();">添加功能</button>
+        <button class="btn btn-primary" ng-click="delSelectList();">删除功能</button>
+    </div>
+
+    <div class="div-width-100 max-width-400 scroll-auto">
+        <table class="table table-striped table-hover table-bordered big-input">
+            <thead class="result-td-head result-head-green">
+                <tr>
+                    <td colspan="4" class="left">已选择功能列表</td>
+                    <td colspan="1" class="right">
+
+                    </td>
+                </tr>
+            </thead>
+            <thead>
+                <tr class="result-head-gray">
+                    <td width="15%">操作</td>
+                    <td width="20%">功能名称</td>
+                    <td width="25%">功能路径</td>
+                    <td width="20%">实现类</td>
+                    <td width="20%">实现方法</td>
+                </tr>
+            </thead>
+            <tbody ng-show="selectedList.length<1">
+                <tr>
+                    <td colspan="5" class="green">暂无已选项！</td>
+                </tr>
+            </tbody>
+            <tbody class="height-500 scroll-auto">
+                <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in selectedList">
+                    <td><input type="checkbox" ng-model="item.isChecked" ng-checked="item.isChecked"></td>
+                    <td class="red"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

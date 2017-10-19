@@ -1,0 +1,57 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [
+        {
+            "fundCode": 110024,
+            "businFlag": "申购",
+            "department": "大成基金一部",
+            "fundCompany": "大成基金",
+            "fundName": "XX健康产业股票",
+            "tradeDate":"2015-06-29",
+            "operDate": "2015-06-29",
+            "agencyNo":"张三",
+            "netValue": 1.165,
+            "share": 2000.34,
+            "balance": 1800,
+            "totalNetValue": 2.1315,
+            "trading": true
+        },
+        {
+            "fundCode": 128,
+            "businFlag": "赎回",
+            "department": "大成基金一部",
+            "fundCompany": "大成基金",
+            "fundName": "XX景安短融债券A",
+            "tradeDate":"2015-06-29",
+            "operDate": "2015-06-29",
+            "agencyNo":"张三",
+            "netValue": 1.9654,
+            "share": 10230.34,
+            "balance": 9854,
+            "totalNetValue": 2.4565,
+            "trading": false
+        },
+        {
+            "fundCode": 24168,
+            "businFlag": "申购",
+            "department": "大成基金一部",
+            "fundCompany": "大成基金",
+            "fundName": "XX债券分级A",
+            "tradeDate":"2015-06-29",
+            "operDate": "2015-06-29",
+            "agencyNo":"张三",
+            "netValue": 1.165,
+            "share": 6221.34,
+            "balance": 5659,
+            "totalNetValue": 2.3654,
+            "trading": true
+        }
+    ],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 6,
+        "pages": 6,
+        "total": 6
+    }
+}

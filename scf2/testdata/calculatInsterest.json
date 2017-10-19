@@ -1,0 +1,9 @@
+{
+  "message": "操作成功",
+  "data": {
+    "interestBalance": 5000,
+    "managementBalance": 5000
+  },
+  "page": "",
+  "code": 200
+}

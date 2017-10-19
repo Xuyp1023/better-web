@@ -1,0 +1,60 @@
+
+<div class="wid wid3 mt10">
+    <ul>
+        <li>
+            <div class="ci">
+                <span class="mui-icon mui-icon-search"></span>
+                <input type="text" placeholder="请输入关键字搜索" class="text ng-pristine ng-valid pl30" name="" ng-click="openPanel();" readonly="">
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- 弹出层 -->
+<div id="search_popover" class="mui-popover wid wid3 mt10 width-98">
+   <ul>
+       <li>
+           <div class="ci">
+               <input type="text" id="search_key" placeholder="请输入关键字搜索" class="text ng-pristine ng-valid" name="" ng-model="searchData.custName">
+           </div>
+       </li>
+       <!-- 搜索结果列表 -->
+        <li ng-show="!searchData.custName || searchList.length==0">无结果</li>
+        <li ng-show="searchData.custName" ng-repeat="item in searchList = (coreCustList|filter:searchData.custName) track by item.name" class="mui-table-view-cell" ng-click="clickcChekedItem(item);">
+            <a href="javascript:void(0)">
+                <i ng-class="{mr5:true}"></i>{{item.name}}
+            </a>
+        </li>
+   </ul>
+</div>
+
+
+<div class="wid wid3" ng-hide="selectedList.length==0">
+    <p class="title">已选择</p>
+    <ul>
+        <li ng-repeat="item in selectedList" class="mui-table-view-cell" >
+            <div class="mui-slider-right mui-disabled">
+                <a class="mui-btn mui-btn-red" ng-click="delThisItem(item)">删除</a>
+            </div>
+            <div class="mui-slider-handle" ng-bind="item.name">
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<div class="wid wid3 mt10">
+    <p class="title">核心企业</p>
+    <ul>
+        <li ng-repeat="item in coreCustList" ng-click="toggleCheckItem(item);">
+            <a href="javascript:void(0)">
+                <i ng-class="{ico:true,ico7:item.isChecked,ico8:!item.isChecked,mr5:true}"></i>{{item.name}}
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="butn butn2 bottom-holder">
+    <a class="mui-btn mui-btn-primary" ng-click="applyAction($event.target);">申请</a>
+</div>

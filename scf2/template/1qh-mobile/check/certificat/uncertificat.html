@@ -1,0 +1,91 @@
+ <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">启用验签证书
+                    </h1>
+           <table id="loanBox" class="table table-striped table-hover table-bordered table-condensed" ng-disabled="true">
+             <thead class="result-td-head result-head-green">
+                 <tr>
+                   <td colspan="2">
+                     <span class="title-left">证书详情</span>
+                   </td>
+                 </tr>
+             </thead>
+            <tbody>
+                <tr>
+                  <td width="20%">公司名称:</td>
+                  <td width="80%" class="div-text-left">
+                      <span  class="div-text-left" ng-bind="currentItem.custName"></span>
+                  </td>
+                  </tr>
+                  <tr>
+                  <td width="20%">证书类型:</td>
+                  <td width="30%" class="div-text-left">
+                       <span  class="div-text-left" ng-bind="currentItem.type | kindf: 'VerifySignCertType'"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">证书名称:</td>
+                  <td class="div-text-left double_box">
+                  <span class="div-text-left" ng-bind="currentItem.name"></span>
+                  </td>
+                  </tr>
+                  <tr>
+                  <td>证书序列号:</td>
+                  <td class="div-text-left double_box">
+                   <span class="div-text-left" ng-bind="currentItem.serialNo"></span>
+                  </td>
+                </tr> 
+                <tr style="height:60px;">
+                  <td>证书内容:</td>
+                  <td class="div-text-left double_box" colspan="3">
+                    <span  class="div-text-left" ng-bind="currentItem.certInfo"></span>
+                  </td>
+                </tr>
+                 <tr>
+                  <td>登记人:</td>
+                  <td class="div-text-left double_box">
+                    <span  class="div-text-left" ng-bind="currentItem.regOperName"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>登记时间:</td>
+                  <td class="div-text-left double_box">
+                    <span  class="div-text-left" ng-bind="currentItem.regDate + currentItem.regTime"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>最后修改人:</td>
+                  <td class="div-text-left double_box">
+                    <span  class="div-text-left" ng-bind="currentItem.modiOperName"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>最后修改时间:</td>
+                  <td class="div-text-left double_box">
+                    <span  class="div-text-left" ng-bind="currentItem.modiDate + currentItem.modiTime"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>当前状态:</td>
+                  <td class="div-text-left double_box">
+                    <span  class="div-text-left" ng-bind="currentItem.businStatus | kindf: 'VerifySignCertStatus'"></span>
+                  </td>
+                </tr>
+            </tbody>
+        </table>          
+        <!-- 上传调用 -->
+        <div class="center-buttons">
+          <button ng-show="operFlag===1" class="btn btn-primary" ng-click="enableCert($event.target);">启用</button>
+          <button ng-show="operFlag===2" class="btn btn-primary" ng-click="disableCert($event.target);">停用</button>
+          <button class="btn btn-primary" bt-close-modal="">返回</button>
+        </div>
+                    
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+

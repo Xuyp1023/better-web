@@ -1,0 +1,53 @@
+<div class="pjce">
+	<ul>
+    	<li>
+        	<p><span>授信核心企业：</span>{{info.order.buyer}}</p>
+            <p><span>商业汇票号：</span>{{info.order.billNo}}</p>
+            <p><span>票据流通方式：</span>{{info.order.billMode |kindf:'BillFlowMode'}}</p>
+            <p><span>汇票金额：</span>{{info.order.balance|moneyFilter}}</p>
+            <p><span>有效期：</span>{{info.order.invoiceDate}}至{{info.order.endDate}}</p>
+            <p><span>询价金额(元)：</span>{{info.balance|moneyFilter}}</p>
+            <p><span>询价策略：</span>{{info.strategy | kindf:'ScfEnquiryStrategy'}}</p>
+            <p class="inlint"><span>收款方：</span>{{info.order.supplier}}</p>
+            <p><span>收款账号：</span>{{info.order.suppBankAccount}}</p>
+            <p><span>收款银行全称：</span>{{info.order.suppBankName}}</p>
+            <p><span>付款方：</span>{{info.order.buyer}}</p>
+            <p><span>付款账号：</span>{{info.order.buyerBankAccount}}</p>
+        </li>
+    </ul>
+    <em class="ico ico10"></em>
+</div>
+<div class="pTab">
+	<ul>
+        <li ng-repeat="item in objectList">
+        	<table>
+            	<tbody>
+                <tr class="ta">
+                	<td>金融机构</td>
+                    <td>报价额度</td>
+                    <td>利率</td>
+                    <td>放款周期</td>
+                    <td>状态</td>
+                </tr>
+               <tr class="tb">
+                	<td>{{item.factorName}}</td>
+                    <td><span ng-bind="item.offer === ''?'-':(item.offer.balance|moneyFilter)"></span></td>
+                    <td><span ng-bind="item.offer === ''?'-':(item.offer.ratio|percentf)"></span></td>
+                    <td><span ng-bind="item.offer === ''?'-':('T+'+item.offer.minCycle)"></span></td>
+                    <td><span ng-bind="item.businStatus | kindf:'EnquiryObjectStatusTypes'"></span></td>
+                </tr>
+                <tr ng-show= "item.businStatus==='1' ">
+                	<td colspan="5">
+                    	<div class="tpac">
+                    	<a ng-href="{{'#/inquiry/abandon/'+(item.offer.enquiryNo+','+item.offer.factorNo)}}" class="tca">放弃</a>
+                    	<a ng-href="{{'#/inquiry/reply/'+(item.offer.enquiryNo+','+item.offer.factorNo)}}" class="tca">回复</a>
+                        <a ng-href="{{'#/inquiry/offerRecord/'+item.enquiryNo+','+item.factorNo}}" class="tcb">报价记录</a>
+                        <a ng-click="applyFinance(item)" class="tcb blue">融资申请</a>
+                        </div>
+                    </td>
+                </tr>
+               </tbody>
+            </table>
+        </li>
+    </ul>
+</div>

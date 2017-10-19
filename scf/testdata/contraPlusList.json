@@ -1,0 +1,35 @@
+{
+    "message": "查询客户合同附件成功",
+    "data": [
+        {
+            "id": 11323,
+            "batchNo": 62,
+            "fileName": "优迈资产合作接口方案V1.4  更新版.docx",
+            "fileType": "docx",
+            "fileNo": "",
+            "filePath": "/20160405/1a33f6b61c014bf893b176736fb4b60c",
+            "fileLength": 116065,
+            "regDate": "20160405",
+            "regTime": "030428",
+            "fileInfoType": "agreeAccessory",
+            "fileInfo": "",
+            "inner": false
+        },
+        {
+            "id": 11324,
+            "batchNo": 62,
+            "fileName": "新-公司加班管理制度(范本)2015.doc",
+            "fileType": "doc",
+            "fileNo": "",
+            "filePath": "/20160405/6fceac046c99485e888757227a725004",
+            "fileLength": 74240,
+            "regDate": "20160405",
+            "regTime": "030435",
+            "fileInfoType": "agreeAccessory",
+            "fileInfo": "",
+            "inner": false
+        }
+    ],
+    "page": "",
+    "code": 200
+}

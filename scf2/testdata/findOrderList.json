@@ -1,0 +1,35 @@
+{
+  "message": "订单信息查询成功",
+  "data": [
+    {
+      "id": 1,
+      "orderNo": "O201608040001",
+      "custNo": 102202021,
+      "orderType": "0",
+      "regDate": "2016-08-04",
+      "goodsName": "手机壳",
+      "orderDate": "2016-08-04",
+      "endDate": "2016-08-01",
+      "unit": 15,
+      "amount": 1000,
+      "balance": 15000,
+      "coreCustNo": 102202020,
+      "modiDate": "2016-08-17",
+      "modiTime": "095926",
+      "settlement": "1",
+      "businStatus": "0",
+      "requestNo": "3488",
+      "batchNo": "",
+      "otherBatchNo": "",
+      "balanceUsed": "",
+      "balanceRest": "",
+      "agreementList": "",
+      "invoiceList": "",
+      "receivableList": "",
+      "transportList": "",
+      "acceptBillList": ""
+    }
+  ],
+  "page": "",
+  "code": 200
+}

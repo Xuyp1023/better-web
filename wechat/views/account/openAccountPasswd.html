@@ -1,0 +1,85 @@
+
+
+
+<!-- 提示 -->
+<p class="s_tip">
+    <a href="javascript:void(0);" class="ico ico12"></a>
+    设置<span class="key_word">登录帐号和密码</span>账号为5-12位字符，由字母、数字、下划线组成；密码为6-16位字符，必须包含数字和字母(区分大小写)；该账号和密码将用于PC端登录企e金服平台使用。
+</p>
+
+<div class="wid wid3 mt10">
+    <ul>
+        <li>
+            <div class="ci">
+                <input type="text" placeholder="请输入登录帐号" class="text" name="" ng-model="info.loginUserName" ng-blur="accountNameValid();">
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+                <input type="password" placeholder="请输入登录密码" class="text" name="" ng-model="info.newLoginPassword">
+                <span ng-class="{'mui-icon mui-icon-eye eyeIcon':true,'mui-active':info.newLoginPasswordEye,'gray9':!info.newLoginPasswordEye}" ng-click="toggleEye('info','newLoginPassword');"></span>
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+                <input type="password" placeholder="请确认登录密码" class="text" name="" ng-model="info.okLoginPassword">
+                <span ng-class="{'mui-icon mui-icon-eye eyeIcon':true,'mui-active':info.okLoginPasswordEye,'gray9':!info.okLoginPasswordEye}" ng-click="toggleEye('info','okLoginPassword');"></span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+<!-- 提示 -->
+<p class="s_tip">
+    <a href="javascript:void(0);" class="ico ico12"></a>
+    设置<span class="key_word">交易密码</span>后，当您在微信端办理融资相关业务时，必须输入交易密码；交易密码为6-16位字符，必须包含数字和字母(区分大小写)
+</p>
+
+<div class="wid wid3 mt10">
+	<ul>
+        <li>
+            <div class="ci">
+            	<input type="password" placeholder="请输入交易密码" class="text" name="" ng-model="info.newDealPassword">
+                <span ng-class="{'mui-icon mui-icon-eye eyeIcon':true,'mui-active':info.newDealPasswordEye,'gray9':!info.newDealPasswordEye}" ng-click="toggleEye('info','newDealPassword');"></span>
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+            	<input type="password" placeholder="请确认交易密码" class="text" name="" ng-model="info.okDealPassword">
+                <span ng-class="{'mui-icon mui-icon-eye eyeIcon':true,'mui-active':info.okDealPasswordEye,'gray9':!info.okDealPasswordEye}" ng-click="toggleEye('info','okDealPassword');"></span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<div class="wid wid3 mt10">
+    <ul>
+        <li>
+            <div class="ci">
+                <input type="text" placeholder="验证码" class="text" name="" ng-model="info.verifyCode">
+                <a href=""><span class="validate" ng-show="identifyInfo.canSend"  ng-click="sendIdentifyCode();">获取验证码</span></a>
+                <!-- 读秒提示 -->
+                <span class="validate" ng-show="!identifyInfo.canSend" ng-bind="identifyInfo.timerMsg"></span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- 提示 -->
+<p class="s_tip">
+    <!-- <a href="javascript:void(0);" class="ico ico12"></a> -->
+    您好，企e金服平台要求您对输入的手机号码进行验证，您的手机号码是：<strong>{{info.operMobile}}</strong>
+</p>
+
+<div class="butn mt10">
+    <p><a class="btn" href="javascript:void(0)" ng-click="openAccount();">确定开户</a></p>
+    <div class="mt20">
+        <label for="agree">
+            <input id="agree" type="checkbox" ng-model="readAndAgree">
+            <span>我已阅读并同意<a href="javascript:void(0)">&lt;&lt;企e金服平台合作协议&gt;&gt;</a></span>
+        </label>
+    </div>
+</div>

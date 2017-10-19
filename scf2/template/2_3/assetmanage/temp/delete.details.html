@@ -1,0 +1,63 @@
+ <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed"><img src="img/fast_money.png" alt="">作废票据
+                    </h1>
+                    <div class="details_style">
+                    <!-- 发票编号 -->
+                    <span class="number_one" ng-bind='infoDetail.billNo'></span>
+                    <span class="number_two" ng-bind='infoDetail.billNo2'></span>
+                    <!-- 出票日期 -->
+                    <span class="spa_y" ng-bind=" infoDetail.invoiceDateArray[0] | numberFilter"></span>
+                    <span class="spa_m" ng-bind=" infoDetail.invoiceDateArray[1] | numberFilter"></span>
+                    <span class="spa_d" ng-bind=" infoDetail.invoiceDateArray[2] | numberFilter"></span>
+                    <!-- 付款人：全称、账号、开户银行 -->
+                    <span class="payer_name " ng-bind='infoDetail.buyer'></span>
+                    <span class=" payer_id" ng-bind='infoDetail.buyerBankAccount'></span>
+                    <span class=" payer_bank" ng-bind='infoDetail.buyerBankName'></span>
+                    <!-- 收款人：全称、账户、开户银行 -->
+                    <span class="payee_name "  ng-bind='infoDetail.supplier'></span>
+                    <span class="payee_id"  ng-bind='infoDetail.suppBankAccount'></span>
+                    <span class="payee_bank"  ng-bind='infoDetail.suppBankName'></span>
+                    <!-- 金额个十百千万单位、大写 -->
+                    <span class="spa_money" ng-bind='infoDetail.balance | moneytiny'></span>
+                    <span class="bigspa_money"  ng-bind='infoDetail.balance | moneybigf' ></span>
+                    <!-- 汇票到期时间 -->
+                    <span class="apa_y" ng-bind='infoDetail.endDate | numberFilter:0 '></span>
+                    <!-- 合同交易码、行号 -->
+                    <span class="apa_Numb" ng-bind='infoDetail.agreeNo'></span>
+                    <span class="bpa_Numb"></span>
+                    </div>
+                    <div class="details_table">
+                          <ul>
+                            <li class="div-width-20">
+                              <span>票据状态:</span>
+                              <span ng-bind="infoDetail.businStatus | kindf :'billVersionBusinStatus'"></span>
+                            </li>
+                             <li class="div-width-20">
+                              <span>使用状态:</span>
+                              <span ng-bind="infoDetail.businStatus | kindf :'effectiveVersionUsingBusinStatus'"></span>
+                            </li>
+                             <li class="div-width-25">
+                              <span>登记人:</span>
+                              <span  ng-bind='infoDetail.modiOperName'></span>
+                            </li>
+                             <li class="div-width-30">
+                              <span>登记时间:</span>
+                              <span  ng-bind='infoDetail.regDate'></span>
+                            </li>
+
+                          </ul>
+                     </div>
+                     <div class="center-buttons">
+                            <button class="btn btn-primary" ng-click="annulBillInfo($event.target,infoDetail.refNo,infoDetail.version);">作废</button>
+                            <button class="btn btn-primary" bt-close-modal="">返回</button>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+

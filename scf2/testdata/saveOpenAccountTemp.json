@@ -1,0 +1,6 @@
+{
+"message":"开户资料暂存成功",
+"data":{"id":2,"version":"","custName":"深圳前海拜特互联网金融服务有限公司","identNo":"","identType":"","validDate":"","businLicence":"44030111190343N","businLicenceRegDate":"","businLicenceValidDate":"20241231","address":"深圳市福田区车公庙泰然六路雪松大厦B座8楼BCE","zipCode":"518040","phone":"0755-33000719","fax":"0755-33001808","email":"","bankAcco":"621225665588770049","bankAccoName":"深圳前海拜特互联网金融服务有限公司","bankNo":"1001","bankCityno":"101","bankName":"兴业银行深圳高新区支行","operName":"沈梦慧","operIdenttype":"1","operIdentno":"421127199203100489","operValiddate":"20141009","operMobile":"15527776551","operEmail":"shenmh@bytter.com","operPhone":"0755-33000719","operFaxNo":"0755-33001808","lawName":"甘少煊","lawIdentType":"1","lawIdentNo":"450403197201300314","lawValidDate":"20271231","batchNo":"","regOperId":1111,"regOperName":"管理员","regDate":"20160729","regTime":"141705","modiOperId":"","modiOperName":"","modiDate":"","modiTime":"","businStatus":"0","lastStatus":"0","operOrg":"Biet  Supplychain;Operational Department","tmpType":"2","tmpOperType":"","orgCode":"32623114-1"},
+"page":"",
+"code":200
+}

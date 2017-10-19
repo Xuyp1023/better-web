@@ -1,0 +1,81 @@
+<div class="pjce">
+	<ul>
+    	<li>
+        	<p><span>授信核心企业：</span>{{info.order.buyer}}</p>
+            <p><span>商业汇票号：</span>{{info.order.billNo}}</p>
+            <p><span>收款方：</span>>{{info.order.supplier}}</p>
+            <p><span>收款账号：</span>{{info.order.suppBankAccount}}</p>
+            <p><span>票据流通方式：</span>{{info.order.billMode |kindf:'BillFlowMode'}}</p>
+        </li>
+    </ul>
+</div>
+<!-- <div class="wid wid2">
+	<ul>
+    	<li>
+        	<span class="ci">报价截止日期</span>
+            <div class="ci">
+            	<select class="text">
+                	<option>当前日期+1</option>
+                </select>
+            </div>
+        </li>
+    </ul>
+</div> -->
+<div class="wid wid3 mt10">
+	<p class="title">金融机构test</p>
+	<ul>
+    	<li>
+        	<a href="#">
+            	<i class="ico ico7 mr5"></i>百乐润保理
+            </a>
+        </li>
+        <li>
+        	<a href="#">
+            	<i class="ico ico8 mr5"></i>财富共赢
+            </a>
+        </li>
+        <li>
+        	<a href="#">
+            	<i class="ico ico8 mr5"></i>桂林银行
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="wid wid4 mt10">
+	<p class="title">询价策略</p>
+	<ul class="clearfix">
+    	<li>
+        	<a href="#">
+            	<i class="ico ico7 mr5"></i>时间优先
+            </a>
+        </li>
+        <li>
+        	<a href="#">
+            	<i class="ico ico8 mr5"></i>成本优先
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="wid wid3">
+	<ul class="clearfix">
+        <li>
+        	<input name="" type="text" class="text" placeholder="请输入指定成本、融资利率(%)">
+        </li>
+    </ul>
+</div>
+<div class="wid wid2 mt10">
+	<ul class="clearfix">
+        <li>
+        	<span class="ti">融资金额(元)</span>
+        	<input name="" type="text" class="text" placeholder="请输入融资金额">
+        </li>
+    </ul>
+</div>
+<div class="texrea">
+	<div class="wTxar">
+    	<textarea placeholder="想对金融机构说点啥..." class="text"></textarea>
+    </div>
+</div>
+<div class="butn">
+	<a href="#/billDetail" class="btn">询价</a>
+</div>

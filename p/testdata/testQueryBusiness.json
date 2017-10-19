@@ -1,0 +1,28 @@
+{
+    "code": 200,
+    "message": "查询交易申请成功",
+    "data": {
+        "totalConfirmShares": "25,010,000.00",
+        "totalBalance": "55,610,000.00",
+        "totalConfirmBalance": "25,010,000.00",
+        "tradeList": [{
+            "requestNo": "2015112514416344010122",
+            "custNo": 100000151,
+            "tradeAccount": "A0101000100000534",
+            "agencyNo": "201",
+            "fundCode": "202301",
+            "tradeDate": "20151126",
+            "businFlag": "22",
+            "balance": 600000,
+            "confirmBalance": 0,
+            "confirmShares": 0,
+            "custName": "深圳华强文化科技集团股份有限公司",
+            "fundName": "南方现金增利基金A级",
+            "businName": "申购",
+            "agencyName": "南方基金",
+            "disBalance": "600,000.00",
+            "disConfirmBalance": "0.00",
+            "disConfirmShares": "0.00"
+        }]
+    }
+}

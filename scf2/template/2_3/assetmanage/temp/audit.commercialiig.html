@@ -1,0 +1,94 @@
+ <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed"><img src="img/fast_money.png" alt="">票据详情
+                    </h1>
+                    <div class="details_boxstyle">
+                    <!-- 年月日 -->
+                        <span class="spa_y">2017</span>
+                        <span class="spa_m">12</span>
+                        <span class="spa_d">18</span>
+                        <!-- 购买方 -->
+                        <span class="bill_number">384873905012539</span>
+                        <span class="bold_billnum">05012539</span>
+                        <span class="spa_name">前海拜特前海拜特前海拜特前海拜特</span>
+                        <span class="spa_taxes">前海拜特前海拜特前海</span>
+                        <span class="spa_site">前海拜特前海拜特前海前海拜特前海拜特前海</span>
+                        <span class="spa_id">海拜特前海前海拜特前海拜特海拜特前海前海拜特前海拜特</span>
+                        <!-- 密码区 -->
+                        <span class="password_box">1拜特海拜特前海前海拜特拜特海特海拜特前海前海拜特海拜特前海前拜特海拜特前海前拜特海拜特前海前拜特拜特海拜特前海前海拜特1</span>
+                        <!-- 服务列表 -->
+                        <div class="tb_body" style="top:{{195 + ($index+1) *18}}px" ng-repeat="item in items">
+                            <span class="acurrentname">特海拜特特海拜特特海拜特</span>
+                            <span class="standard_type">无</span>
+                            <span class="spa_unit">个/只</span> 
+                            <span class="tb_number">12</span>
+                            <span class="tb_pirce">10,000,000,00</span>
+                            <span class="tb_money">10,000,000,00</span>
+                            <span class="tb_taxrate">50%</span>
+                            <span class="tb_tax">6123154153</span>
+                        </div>
+                        <!-- 金额合计 -->
+                        <span class="all_money">¥984985705856</span>
+                        <span class="all_pirce">¥48985233224</span>
+                        <span class="big_money">拾玖捌柒陆拾玖捌柒陆拾玖捌柒陆</span>
+                        <span class="tiny_money">¥26.55</span>
+                        <!-- 销售方 -->
+                        <span class="sell_name">前海拜特前海拜特前海拜特前海拜特</span>
+                        <span class="sell_taxes">前海拜特前海拜特前海</span>
+                        <span class="sell_site">前海拜特前海拜特前海前海拜特前海拜特前海</span>
+                        <span class="sell_id">海拜特前海前海拜特前海拜特海拜特前海前海拜特前海拜特</span>
+                        <span class="remarks_box">1拜特海拜特前海前海拜特拜特海特海拜特前海前海拜特海拜特前海前拜特海拜特前海前拜特海拜特前海前拜特拜特海拜特前海前海拜特1</span>
+                        <span class="receiver">前海拜特前海拜特</span>
+                        <span class="audit">前海拜特前海拜特</span>
+                        <span class="drawer">前海拜特前海拜特</span>
+                    </div>
+                    <ul class="footer_ul">
+                      <li>发票状态：<span></span></li>
+                      <li>使用状态：<span></span></li>
+                      <li>登记人：<span></span></li>
+                      <li>登记时间：<span></span></li>
+                    </ul>
+
+                    <!-- 附件列表 -->
+                              <table class="table table-striped table-hover table-bordered">
+                                  <caption class="table-caption table-caption-green clearFix">
+                                    <span class="title-left">附件列表</span>
+                                  </caption>
+                                <thead>
+                                  <tr class="result-head-gray">
+                                    <td width="10%">序号</td>
+                                    <td width="20%">附件类型</td>
+                                    <td width="40%">附件名称</td>
+                                    <td width="30%">操作</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr ng-repeat="file in uploadList" ng-repeat-end ng-class="{even:$even}">
+                                      <td>{{$index + 1}}</td>
+                                     <td>发货单</td>
+                                     <td>
+                                       <a href=""><span ng-bind="file.fileName"></span></a>
+                                     </td>
+                                     <td>
+                                       --
+                                     </td>
+                                   </tr>
+                                </tbody>
+                              </table>
+          
+        <!-- 组件引入 -->
+        <div bt-upload conf="uploadConf" ></div>
+                    <div class="center-buttons">
+                          <button class="btn btn-primary" ng-click="audit_box();">审核</button>
+                         <button class="btn btn-primary" ng-click="quitbox();">返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    `   

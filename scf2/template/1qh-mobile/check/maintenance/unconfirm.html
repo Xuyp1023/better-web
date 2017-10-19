@@ -1,0 +1,90 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">付款状态维护
+                    </h1>
+                </div>
+                <div>
+                    <div style="float: left;margin: 5px;">
+                      <button class="btn btn-info" ng-click="searchCheck(1);" >全部记录({{info.calcPayResult.totalAmount}})</button>
+                    </div>
+                    <div style="float: left;margin: 5px;">
+                      <button class="btn btn-info" ng-click="searchCheck(2);" >付款成功({{info.calcPayResult.paySuccessAmount}})</button>
+                    </div>
+                    <div style="float: left;margin: 5px;">
+                      <button class="btn btn-info" ng-click="searchCheck(3);" >付款失败({{info.calcPayResult.payFailureAmount}})</button>
+                    </div>
+                    <div style="float: left;margin: 5px;">
+                      <button class="btn btn-info" ng-click="searchCheck(4);" >未确认({{info.calcPayResult.unconfirmAmount}})</button>
+                    </div>
+                    <div style="float: right;margin: 5px;">
+                      <button class="btn btn-primary" bt-close-modal>返回</button>
+                    </div>
+                    <div style="float: right;margin: 5px;">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="confirmState($event.target);">确认</button>
+                    </div>
+                </div>
+                <table class="table table-condensed div-width-70 div-center search-table">                     
+                  <tr>
+                    <td>收款人:</td>
+                    <td class="div-text-left">
+                      <input type="text" ng-model="unconfirmSearchData.payTargetBankAccountName">
+                    </td>
+                  </tr>                      
+                  <tr>                        
+                    <td width="25%">收款账号:</td>
+                    <td width="75%" class="div-text-left">
+                      <input type="text" ng-model="unconfirmSearchData.payTargetBankAccount">
+                    </td>                        
+                  </tr>
+                  <tr>
+                </table>
+                <div class="center-buttons">
+                  <button class="btn btn-primary btn-bg-middle" ng-click="queryUnconfirmList(true);">过滤</button>
+                </div>
+                <table class="div-width-100 table table-striped table-hover search-result main-list">
+                  <thead>
+                      <tr class="result-head">
+                        <td width="8%">选择</td>
+                        <td width="12%">凭证编号</td>
+                        <td width="10%">付款金额</td>
+                        <td width="10%">收款人</td>
+                        <td width="15%">收款银行账号</td>
+                        <td width="15%">收款银行全称</td>
+                        <td width="15%">手机号</td>
+                        <td width="15%">导入日期</td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-class="{even:$even}" ng-repeat="item in unconfirmInfoList" ng-repeat-end>
+                      <td><input type="checkbox" ng-model="item.isSelected" ng-value="$index" ng-change="selectOne()"></td>
+                      <td class="red" ng-bind="item.refNo"></td>
+                      <td ng-bind="item.payBalance | moneyFilter"></td>
+                      <td ng-bind="item.payTargetBankAccountName"></td>
+                      <td ng-bind="item.payTargetBankAccount"></td>
+                      <td ng-bind="item.payTargetBankName"></td>
+                      <td ng-bind="item.payTargetMobileNo"></td>
+                      <td ng-bind="item.importDate"></td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                      <td colspan="8" style="padding: 8px 0;">
+                          <div bt-paginationx conf="unconfirmListPage" funcx="queryUnconfirmList(true)" func="queryUnconfirmList(false)"></div>
+                      </td>
+                  </tfoot>
+              </table>
+
+              <div class="center-buttons">
+                <div class="checkbox btn" style="float: left;"><label style="min-height: 20px;padding-left: 20px;margin-bottom: 0;font-weight: 400;cursor: pointer;">
+                <input type="checkbox" ng-model="tmpCheckbox"  style="margin-top: 3px;" ng-change="toggleCheckbox()"> 全选</label></div>
+                <button class="btn btn-primary btn-bg-middle" ng-click="confirmSuccess($event.target);">确认付款成功</button>
+                <button class="btn btn-primary btn-bg-middle" ng-click="confirmFailure($event.target);">确认付款失败</button>
+              </div>
+
+            
+        </div>
+
+
+    </div>

@@ -1,0 +1,45 @@
+{
+    "message": "查询当前用户审批历史数据成功",
+    "data": [
+        {
+            "flowName": "373532dd556f4d6090e1dfb0b41c2a01",
+            "flowType": "Account",
+            "createTime": 1471325191000,
+            "lastUpdateTime": 1471325192000,
+            "createOperator": "1262",
+            "operator": "1259",
+            "currentNodeName": "放款",
+            "currentNodeId": 15,
+            "businessId": -4450970492931294000
+        },
+        {
+            "flowName": "373532dd556f4d6090e1dfb0b41c2a01",
+            "flowType": "Account",
+            "createTime": 1471325191000,
+            "lastUpdateTime": 1471325192000,
+            "createOperator": "1262",
+            "operator": "1259",
+            "currentNodeName": "融资背景确认",
+            "currentNodeId": 13,
+            "businessId": -4450970492931294000
+        },
+        {
+            "flowName": "373532dd556f4d6090e1dfb0b41c2a01",
+            "flowType": "Account",
+            "createTime": 1471325191000,
+            "lastUpdateTime": 1471325191000,
+            "createOperator": "1262",
+            "operator": "1259",
+            "currentNodeName": "出具保理方案",
+            "currentNodeId": 11,
+            "businessId": -4450970492931294000
+        }
+    ],
+    "page": {
+        "pageNum": 0,
+        "pageSize": 12,
+        "pages": 1,
+        "total": 3
+    },
+    "code": 200
+}

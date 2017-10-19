@@ -1,0 +1,9 @@
+<div>
+    <div ng-include="'template/2_3.1/temp/flowPublic.html'"></div>
+    <div ng-include="'template/2_3.1/temp/approveList.html'"></div>
+    <div ng-include="'template/2_3.1/temp/history.html'"></div>
+    <div class="center-buttons">         
+        <button class="btn btn-primary" ng-click="doAgree($event.target)" ng-disabled="!temp.bSelect">同意</button>    
+        <button class="btn btn-primary" ng-click="doDisagree($event.target)">不同意</button>    
+    </div>
+</div>

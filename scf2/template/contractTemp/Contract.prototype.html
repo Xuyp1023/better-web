@@ -1,0 +1,73 @@
+<!-- 合同原型 -->
+<div id="fund_search_way" class="row-fluid ng-scope">
+  <h1 class="content-title-1 content-title-condensed content-title-blue">
+      <img src="img/flow_money.png" alt="">
+      用户合同模板管理
+  </h1>
+  <table class="table table-condensed div-width-70 div-center search-table">
+      <tbody>
+          <tr>
+              <td width="30%">保理公司:</td>
+              <td width="70%" class="div-text-left">
+                <select ng-model="searchData.factorNo">
+                    <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.factorNo == item.value"></option>
+                </select>
+              </td>
+          </tr>
+          <tr>
+              <td width="30%">合同类型:</td>
+              <td width="70%" class="div-text-left">
+
+                <select ng-model="searchData.templateType">
+                    <option value="">全部类型</option>
+                    <option ng-repeat="item in contractTempTypes" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.templateType == item.value"></option>
+
+                </select>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  <div class="center-buttons">
+      <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+  </div>
+</div>
+<div id="search_info" class="row-fluid ng-scope">
+    <h1 class="content-title-1 content-title-condensed content-title-blue">
+        <img src="img/flow_money.png" alt="">
+        合同模板列表
+    </h1>
+    <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+            <tr>
+                <td class="div-text-left" colspan="13">
+                  <button class="btn btn-info" ng-click="addInfo();">添加模板</button>
+                </td>
+            </tr>
+            <tr class="result-head">
+                <td width="20%">保理公司</td>
+                <td width="20%">模板名称</td>
+                <td width="20%">模板类型</td>
+                <td width="20%">模板状态</td>
+                <td width="20%">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in infoList">
+            <td ng-bind="item.factorName"></td>
+            <td ng-bind="item.templateName"></td>
+            <td ng-bind="item.templateType|kindf:'ContractTempType' "></td>
+            <td ng-bind="item.templateStatus|kindf:'ContractTemplateStatus'"></td>
+            <td>
+              <span><a href="javascript:void(0);" ng-click="editInfo(item);">编辑</a></span>
+              <!--  <span><a href="javascript:void(0);" ng-click="showWorkFlowGraph(item);">查看</a></span> -->
+            </td>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                   <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px;padding:10px;" bt-pagination conf="listPage" func="queryList(false);"></div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -1,0 +1,44 @@
+{
+    "message": "查询保理产品成功",
+    "data": [
+        {
+            "factorCorp": "德豪润达",
+            "value": "BZ0001",
+            "name": "德豪润达一号",
+            "fitCrowd": "",
+            "productFeature": "",
+            "startMoney": 1000000,
+            "endMoney": 10000000,
+            "financeType": "1",
+            "commonRate": "",
+            "shelvesDate": "",
+            "productStatus": "1",
+            "regDate": "20160330",
+            "modiDate": "",
+            "custNo": 100000170
+        },
+        {
+            "factorCorp": "德豪润达",
+            "value": "BZ0002",
+            "name": "德豪润达二号",
+            "fitCrowd": "",
+            "productFeature": "",
+            "startMoney": 1000000,
+            "endMoney": 10000000,
+            "financeType": "1",
+            "commonRate": "",
+            "shelvesDate": "",
+            "productStatus": "1",
+            "regDate": "20160330",
+            "modiDate": "",
+            "custNo": 100000170
+        }
+    ],
+    "page":{
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 1,
+            "total": 2
+        },
+    "code": 200
+}

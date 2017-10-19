@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>角色查询</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/flow/operator/roleSearch.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+</head>
+<body>
+	
+	
+
+	<div id="container" class="container-fluid div-center">
+		<div class="row-fluid">
+		<div id="content" ng-controller="mainController" class="span12">
+
+			<div id="fund_search_way" class="row-fluid">
+				<h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">角色查询</h1>
+				<table class="table table-condensed div-width-70 div-center search-table">
+				  <tr>
+				   <td width="25%">角色名称:</td>
+				   <td width="75%" class="div-text-left">
+				      <input type="text" name="" >
+				   </td>
+				  </tr>
+				</table>
+			<div class="center-buttons">
+			  <button class="btn btn-primary btn-bg-middle" ng-click="reFreshRoleList();">查询</button>
+			</div>
+			</div>
+
+
+			<div  id="search_info" class="row-fluid">
+				<h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              		角色列表
+            	</h1>
+				<table class="div-width-100 table table-striped table-hover search-result">
+				  <thead>
+					<tr>
+					   <td class="modi-group" colspan="3">
+					      <button class="btn btn-info" ng-click="showAddRole();">角色新增</button>
+					    </td>
+					 </tr>
+				    <tr class="result-head">
+				      <td>角色名称</td>
+				      <td>角色状态</td>
+				      <td>操作</td>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	<tr>
+				  		<td>角色1</td>
+				  		<td>启用</td>
+				  		<td>
+				  			<a href="#" ng-click="showEditRole();" >编辑</a>
+				  			<a href="#">删除</a>
+				  		</td>
+				  	</tr>
+				  	<tr>
+				  		<td>角色2</td>
+				  		<td>停用</td>
+				  		<td>
+				  			<a href="#" ng-click="showEditRole();" >编辑</a>
+				  			<a href="#">删除</a>
+				  		</td>
+				  	</tr>
+				  </tbody>
+				</table>
+				<!-- <tfoot>
+	                <td colspan="7">
+	                  <div bt-pagination conf="pageConf"></div>
+	                </td>
+	            </tfoot> -->
+			</div>
+
+			
+			<!-- 新增角色-->
+			<div id="add_role_box" bt-roll-modal="temp/addRole.html" bt-z-index="9991"></div>
+
+			<!-- 修改角色-->
+			<div id="edit_role_box" bt-roll-modal="temp/editRole.html" bt-z-index="9991"></div>
+	
+
+
+		</div>
+		</div>	
+	</div>
+	
+
+	<!-- 引用js文件 -->
+	<script type="text/javascript">
+      // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/flow/operator/roleSearch");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/flow/operator/roleSearch");
+      } 
+  </script>
+</body>
+</html>

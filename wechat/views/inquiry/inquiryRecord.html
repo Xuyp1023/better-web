@@ -1,0 +1,33 @@
+	<div class="pjce">
+    	<ul>
+        	<li>
+            	<p><span>授信核心企业：</span>{{info.order.buyer}}</p>
+                <p><span>商业汇票号：</span>{{info.order.billNo}}</p>
+                <p><span>票据流通方式：</span>{{info.order.billMode|kindf:'BillFlowMode'}}</p>
+                <p><span>汇票金额：</span>{{info.order.balance|moneyFilter}}</p>
+                <p><span>询价策略：</span>{{info.strategy|kindf:'ScfEnquiryStrategy'}}</p>
+                <p><span>报价机构：</span>{{enquiryObject.factorName}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="pTab">
+    	<ul>
+            <li>
+            	<table>
+                	<tbody>
+                    <tr class="ta">
+                    	<td>报价时间</td>
+                        <td>报价额度</td>
+                        <td>报价成本</td>
+                        <!-- <td>状态</td> -->
+                    </tr>
+                    <tr ng-repeat="offer in offerList" ng-repeat-end ng-class="{even:$even}">
+                    	<td><span ng-bind="offer.regDate"></span></td>
+                        <td><span ng-bind="offer.balance|moneyFilter"></span></td>
+                        <td><span ng-bind="offer.ratio|percentf"></span></td>
+                        <!-- <td>已报价</td> -->
+                    </tr>
+                </tbody></table>
+            </li>
+        </ul>
+    </div>

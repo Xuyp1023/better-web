@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>机构开户</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/crtcount.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body>
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" class="div-width-100 div-center">
+  				<ul id="nav_tabs"  class="nav nav-tabs plus-nav-tabs-init">
+  					<!-- <li class="active"><a href="#reg_company_info">验证机构信息</a></li> -->
+  					<li class="active"><a href="#finish_company_info">完善机构信息</a></li>
+  					<li><a href="#sign_agreement">签署协议</a></li>
+  					<li><a href="#pre_see">预览</a></li>
+  					<!-- <li><a id="test" href="#set_password">设置密码</a></li> -->
+  					<li><a href="#finish_crt">完成</a></li>
+  				</ul>
+
+
+
+				<div class="tab-content plus-nav-tabs-content">
+					<!-- <div id="reg_company_info" class="tab-pane fade active in">
+						<form id="reg_company_form" action="" class="form-horizontal">
+							<div class="control-group">
+								<label for="" class="control-label" ><span class="red">* </span>机构授权码:</label>
+								<div class="controls">
+									<input type="text" name="c_apply_code" data-bind="value:regInfoBind().c_apply_code">
+								</div>
+							</div>
+							<div class="control-group">
+								<label for="" class="control-label"><span class="red">* </span>手机号码:</label>
+								<div class="controls">
+									<input type="text" name="mobileNo" data-bind="value:regInfoBind().mobileNo">
+								</div>
+							</div>
+						</form>
+						<div class="center-buttons">
+							<button class="btn btn-primary prev-step">返回主页</button>
+							<button target="1" data-bind="click:nextStep" class="btn btn-primary next-step">下一步</button>
+						</div>
+					</div>  -->
+					<div id="finish_company_info" class="tab-pane fade active in">
+						<form action="" id="finish_company_form" class="form-horizontal">
+						<h2 class="content-title first">1.客户资料</h2>
+							<div class="div-center div-width">
+								<table class="table table-striped table-bordered table-hover table-condensed">
+									<tr>
+										<td colspan="1"><span class="required">*</span>申请机构名称:</td>
+										<td colspan="3" class="prepare-align" id="select_department">
+											<input type="text" valid="{'required':true}" class="department-name" name="custName" data-bind="value:regInfoBind().custName,attr:{readonly:common.isBFS()},css:{'department-name':common.isBFS()}">
+											<div class="btn-group" data-bind="visible:common.isBFS()">
+												<button data-bind="click:toSelectComp" class="btn btn-primary btn-bg-middle">机构选择</button>
+											</div>
+										</td>
+									</tr>
+									<tr class="even">
+										<td width="20%">组织机构代码证:</td>
+										<td width="30%"><input type="text" name="busiLicence" data-bind="value:regInfoBind().busiLicence" mapping="busiLicence"></td>
+										<td width="20%"><span class="required">*</span>开户证件有效期:</td>
+										<td width="40%" class="prepare-align">
+										<input type="text" readonly="readonly" dateName="certValidDate" dateData="custInfo" name="certValidDate" data-bind="value:regInfoBind().certValidDate,event:{click:setDateInfo,blur:changeDateInfo}"  readonly="readonly" class="Wdate"/>
+										<span class="double-check-sp longValidate">长期有效</span>
+										</td>
+									</tr>
+									<!-- <tr>
+										<td>机构营业执照号码:</td>
+										<td><input type="text" name="c_busy_code" data-bind="value:regInfoBind().c_busy_code"></td>
+										<td>实际控制人:</td>
+										<td><input type="text" name="custName" data-bind="value:regInfoBind().custName"></td>
+									</tr>
+									<tr class="even">
+										<td>税务登记证号码:</td>
+										<td><input type="text" name="c_tax_code" data-bind="value:regInfoBind().c_tax_code"></td>
+										<td>实际受益人:</td>
+										<td><input type="text" name="c_denifit_name" data-bind="value:regInfoBind().c_denifit_name"></td>
+									</tr> -->
+									<!-- <tr>
+										<td colspan="1">机构类型:</td>
+										<td colspan="3">
+											<div class="td-line-checkbox">
+												<span>农林牧渔</span><input name="corpVocate"  type="radio" d name="c_type_1"ata-bind="checked:regInfoBind().c_type_1">
+												<span>建筑制造</span><input name="corpVocate" type="radio" d name="c_type_2"ata-bind="checked:regInfoBind().c_type_2">
+												<span>金融地产</span><input name="corpVocate" type="radio" d name="c_type_3"ata-bind="checked:regInfoBind().c_type_3">
+												<span>教育卫生</span><input name="corpVocate" type="radio" d name="c_type_4"ata-bind="checked:regInfoBind().c_type_4">
+												<span>政府机关</span><input name="corpVocate" type="radio" d name="c_type_5"ata-bind="checked:regInfoBind().c_type_5">
+												其他<input type="text" name="c_other" data-bind="value:regInfoBind().c_other" class="input-underline">
+											</div>
+										</td>
+									</tr> -->
+									<tr>
+										<td><span class="required">*</span>营业执照号码:</td>
+										<td><input type="text" valid="{'required':true}" name="identNo" data-bind="value:regInfoBind().identNo" mapping="identNo"></td>
+										<td><span class="required">*</span>邮政编码:</td>
+										<td><input type="text" valid="{'required':true}" name="zipCode" data-bind="value:regInfoBind().zipCode"></td>
+									</tr>
+									<tr class="even">
+										<td colspan="1"><span class="required">*</span>通讯地址:</td>
+										<td colspan="3" class="prepare-align"><input type="text" valid="{'required':true}" name="address" data-bind="value:regInfoBind().address"></td>
+									</tr>
+									<tr>
+										<td><span class="required">*</span>业务联系电话:</td>
+										<td><input type="text" valid="{'required':true}" name="phone" data-bind="value:regInfoBind().phone"></td>
+										<td><span class="required">*</span>传真:</td>
+										<td><input type="text" valid="{'required':true}" name="faxNo" data-bind="value:regInfoBind().faxNo"></td>
+									</tr>
+								</table>
+							</div>
+							<h2 class="content-title bank-info">2.交收行信息</h2>
+							<button type="button" class="btn btn-primary select-bank" data-bind="click:showBankList,visible:bankListBind().length>0">选择已有的其他银行账户</button>
+								<div class="div-center div-width">
+									<table class="table table-striped table-bordered table-hover table-condensed">
+									<tr class="even">
+										<td colspan="1"><span class="required">*</span>银行账户名:</td>
+										<td colspan="3" class="prepare-align"><input type="text" valid="{'required':true}" name="bankAcountName" data-bind="value:regInfoBind().bankAcountName,disable:bankListBind().length>0"></td>
+									</tr>
+									<tr>
+										<td width="20%"><span class="required">*</span>银行账户:</td>
+										<td width="30%"><input type="text" valid="{'required':true}" name="bankAccount" data-bind="value:regInfoBind().bankAccount,disable:bankListBind().length>0" mapping="bankAccount"></td>
+										<td width="20%"><span class="required">*</span>所属银行:</td>
+										<td width="30%">
+											<select mapping="initBank" name="bankNo" data-bind="value:regInfoBind().bankNo">
+											</select>
+										</td>
+									</tr>
+									<tr class="even">
+										<td width="20%"><span class="required">*</span>开户行所在地:</td>
+										<td width="30%" id="crt_area_info">
+											<select mapping="province" name="" id="crt_province" name="provinceNo" data-bind="value:regInfoBind().provinceNo">
+											</select>
+											<select mapping="city" name="" id="crt_city" name="cityNo" data-bind="value:regInfoBind().cityNo">
+											</select>
+										</td>
+										<td width="20%"><span class="required">*</span>开户银行(全称):</td>
+										<td width="30%"><input type="text" valid="{'required':true}" name="bankName" data-bind="value:regInfoBind().bankName"></td>
+										<!-- <td width="20%" rowspan="2">开户证件有效期:</td> -->
+										<!-- <td width="40%" rowspan="2"><input type="text" dateName="certValidDate" dateData="custInfo" name="certValidDate" data-bind="value:regInfoBind().certValidDate,event:{click:setDateInfo,blur:changeDateInfo}"  readonly="readonly" class="Wdate"/>
+										<span class="double-check-sp longValidate">长期有效</span>
+										</td>
+									</tr>
+									<tr> -->
+									</tr>
+								</table>
+								</div>
+							<h2 class="content-title">3.经办人、法人信息</h2>
+								<div class="div-center div-width">
+								<table class="table table-striped table-bordered table-hover table-condensed">
+									<tr>
+										<td><span class="required">*</span>经办人姓名:</td>
+										<td><input type="text" valid="{'required':true}" name="contName" data-bind="value:regInfoBind().contName"></td>
+										<td><span class="required">*</span>经办人证件类型:</td>
+										<td>
+											<select name="" id="" name="contIdentType" data-bind="value:regInfoBind().contIdentType" mapping="identity">
+												<option value="">身份证</option>
+											</select>
+										</td>
+									</tr>
+									<tr class="even">
+										<td width="20%"><span class="required">*</span>经办人证件号码:</td>
+										<td width="30%"><input type="text" valid="{'required':true}" name="contIdentNo" data-bind="value:regInfoBind().contIdentNo"></td>
+										<td width="20%"><span class="required">*</span>证件有效期:</td>
+										<td width="30%" class="prepare-align"><input type="text" dateName="contCertValidDate" dateData="custInfo" name="contCertValidDate" data-bind="value:regInfoBind().contCertValidDate,event:{click:setDateInfo,blur:changeDateInfo}"  readonly="readonly" class="Wdate"/>
+										<span class="double-check-sp longValidate">长期有效</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span class="required">*</span>经办人手机:</td>
+										<td><input type="text" valid="{'required':true}" name="contMobileNo" data-bind="value:regInfoBind().contMobileNo"></td>
+										<td><span class="required">*</span>经办人邮箱:</td>
+										<td><input type="text" valid="{'required':true}" name="contEmail" data-bind="value:regInfoBind().contEmail"></td>
+									</tr>
+									<tr class="even"> 
+										<td><span class="required">*</span>经办人联系电话:</td>
+										<td><input type="text" valid="{'required':true}" name="contPhone" data-bind="value:regInfoBind().contPhone"></td>
+										<td>经办人传真:</td>
+										<td><input type="text" name="contFax" data-bind="value:regInfoBind().contFax"></td>
+									</tr>
+									<!-- <tr>
+										<td>复核人姓名:</td>
+										<td><input type="text" name="checker" data-bind="value:regInfoBind().checker"></td>
+										<td>复核人证件类型:</td>
+										<td>
+											<div class="td-line-checkbox">
+												<span>身份证</span><input type="checkbox" d name="checkerIdentType1"ata-bind="checked:regInfoBind().checkerIdentType1">
+												其他<input type="text" name="checkerIdentType" data-bind="value:regInfoBind().checkerIdentType" class="input-underline">
+											</div>
+										</td>
+									</tr>
+									<tr class="even">
+										<td>复核人证件号码:</td>
+										<td><input type="text" name="checkerIdentCode" data-bind="value:regInfoBind().checkerIdentCode"></td>
+										<td>证件有效期:</td>
+										<td><input type="text" dateName="checkerCertValidDate" dateData="custInfo" name="checkerCertValidDate" data-bind="value:regInfoBind().checkerCertValidDate,event:{click:setDateInfo,blur:changeDateInfo}"  readonly="readonly" class="Wdate"/></td>
+									</tr> -->
+									<tr>
+										<td><span class="required">*</span>法人姓名:</td>
+										<td><input type="text" valid="{'required':true}" name="lawName" data-bind="value:regInfoBind().lawName"></td>
+										<td><span class="required">*</span>法人证件类型:</td>
+										<td>
+											<select name="" id="" name="lawIdentType" data-bind="value:regInfoBind().lawIdentType" mapping="identity">
+												<option value="">身份证</option>
+												<option value="">军官证</option>
+												<option value="">XX证</option>
+											</select>
+										</td>
+									</tr>
+									<tr class="even">
+										<td><span class="required">*</span>法人证件号码:</td>
+										<td><input type="text" valid="{'required':true}" name="lawIdentNo" data-bind="value:regInfoBind().lawIdentNo"></td>
+										<td><span class="required">*</span>法人证件有效期:</td>
+										<td class="prepare-align">
+											<input type="text" dateName="lawCertValidDate" dateData="custInfo" name="lawCertValidDate" data-bind="value:regInfoBind().lawCertValidDate,event:{click:setDateInfo,blur:changeDateInfo}"  readonly="readonly" class="Wdate"/>
+											<span class="double-check-sp longValidate">长期有效</span>
+										</td>
+									</tr>
+ 								</table>
+								</div>
+						</form>
+						<div class="center-buttons">
+							<!-- <button target="0" data-bind="click:nextStep" class="btn btn-primary">上一步</button> -->
+							<button target="1" data-bind="click:nextStep" class="btn btn-primary">下一步</button>
+							<button class="btn btn-primary" data-bind="click:storgeInfo">暂存</button>
+						</div>
+					</div>
+					<div id="sign_agreement" class="tab-pane fade in">
+						<form action="" id="sign_agreement_form" class="form-horizontal">
+						<h2 class="content-title first">1.客户资料</h2>
+							<!-- <div class="div-center div-width">
+								<table id="sign_agreement_table" class="table table-striped table-bordered table-hover table-condensed">
+									<tr>
+										<td colspan="1">申请机构名称:</td>
+										<td colspan="3" id="select_department">
+											<input type="text" readonly="readonly" class="department-name" data-bind="value:regInfoBind().custName">
+											<div class="btn-group">
+												<button class="btn btn-primary btn-bg-middle dropdown-toggle" data-toggle="dropdown">
+													机构选择
+													<span class="caret"></span>
+												</button>
+												<ul class="dropdown-menu">
+													<li>
+														<a href="#">机构1</a>
+														<a href="#">机构2</a>
+														<a href="#">机构3</a>
+													</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr class="even">
+										<td width="20%">组织机构代码证:</td>
+										<td width="30%"><input type="text" data-bind="value:regInfoBind().identNo" mapping="identNo"></td>
+										<td width="20%">开户证件有效期:</td>
+										<td width="40%">
+										<input type="text" readonly="readonly" dateName="certValidDate" dateData="custInfo" data-bind="value:regInfoBind().certValidDate,event:{click:setDateInfo,blur:changeDateInfo}"  readonly="readonly" class="Wdate"/>
+										<span class="double-check-sp longValidate">长期有效</span>
+										</td>
+									</tr>
+									<tr>
+										<td>机构营业执照号码:</td>
+										<td><input type="text" data-bind="value:regInfoBind().c_busy_code"></td>
+										<td>实际控制人:</td>
+										<td><input type="text" data-bind="value:regInfoBind().custName"></td>
+									</tr>
+									<tr class="even">
+										<td>税务登记证号码:</td>
+										<td><input type="text" data-bind="value:regInfoBind().c_tax_code"></td>
+										<td>实际受益人:</td>
+										<td><input type="text" data-bind="value:regInfoBind().c_denifit_name"></td>
+									</tr>
+									<tr>
+										<td colspan="1">机构类型:</td>
+										<td colspan="3">
+											<div class="td-line-checkbox">
+												<span>农林牧渔</span><input name="corpVocate" type="radio" data-bind="checked:regInfoBind().c_type_1">
+												<span>建筑制造</span><input name="corpVocate" type="radio" data-bind="checked:regInfoBind().c_type_2">
+												<span>金融地产</span><input name="corpVocate" type="radio" data-bind="checked:regInfoBind().c_type_3">
+												<span>教育卫生</span><input name="corpVocate" type="radio" data-bind="checked:regInfoBind().c_type_4">
+												<span>政府机关</span><input name="corpVocate" type="radio" data-bind="checked:regInfoBind().c_type_5">
+												其他<input type="text" data-bind="value:regInfoBind().c_other" class="input-underline">
+											</div>
+										</td>
+									</tr>
+									<tr class="even">
+										<td>通讯地址:</td>
+										<td><input type="text" data-bind="value:regInfoBind().address"></td>
+										<td>邮政编码:</td>
+										<td><input type="text" data-bind="value:regInfoBind().zipCode"></td>
+									</tr>
+									<tr>
+										<td>业务联系电话:</td>
+										<td><input type="text" data-bind="value:regInfoBind().phone"></td>
+										<td>传真:</td>
+										<td><input type="text" data-bind="value:regInfoBind().faxNo"></td>
+									</tr>
+								</table>
+							</div> -->
+							<div class="div-center div-width">
+								<table class="table table-striped table-bordered table-hover table-condense">
+									<tr>
+										<td colspan="1">申请机构名称:</td>
+										<td colspan="3"><span type="text" data-bind="text:regInfoBind().custName"></td>
+									</tr>
+									<tr class="even">
+										<td width="20%">组织机构代码证号:</td>
+										<td width="30%"><span type="text" data-bind="text:regInfoBind().busiLicence"></td>
+										<td width="20%">开户证件有效期:</td>
+										<td width="40%"><span type="text" data-bind="text:regInfoBind().certValidDate"></td>
+									</tr>
+									<!-- <tr>
+										<td>机构营业执照号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().c_busy_code"></td>
+										<td>实际控制人:</td>
+										<td><span type="text" data-bind="text:regInfoBind().custName"></td>
+									</tr>
+									<tr class="even">
+										<td>税务登记证号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().c_tax_code"></td>
+										<td>实际受益人:</td>
+										<td><span type="text" data-bind="text:regInfoBind().c_denifit_name"></td>
+									</tr> -->
+									<!-- <tr>
+										<td colspan="1">机构类型:</td>
+										<td colspan="3">
+											<div class="td-line-checkbox">
+												<span>农林牧渔</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_1,css:{'unchecked':regInfoBind().c_type_1}">
+												<span>建筑制造</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_2">
+												<span>金融地产</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_3">
+												<span>教育卫生</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_4">
+												<span>政府机关</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_5">
+												其他<span type="text" data-bind="text:regInfoBind().c_other" class="input-underline">
+											</div>
+										</td>
+									</tr> -->
+									<tr>
+										<td>营业执照号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().identNo"></td>
+										<td>邮政编码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().zipCode"></td>
+									</tr>
+									<tr class="even">
+										<td colspan="1">通讯地址:</td>
+										<td colspan="3"><span type="text" data-bind="text:regInfoBind().address"></td>
+									</tr>
+									<tr>
+										<td>业务联系电话:</td>
+										<td><span type="text" data-bind="text:regInfoBind().phone"></td>
+										<td>传真:</td>
+										<td><span type="text" data-bind="text:regInfoBind().faxNo"></td>
+									</tr>
+								</table>
+							</div> 
+<!-- 							<h2 class="content-title" id="select_comp">2.选择开户基金销售机构
+								<div id="check_protocol_info" class="btn-group">
+									<button class="btn btn-primary btn-bg-middle dropdown-toggle" data-toggle="dropdown">
+										查看机构开户资料
+										<span class="caret"></span>
+									</button>
+									<ul id="fund_comp_list" class="dropdown-menu">
+										<li>
+											<a href="#">机构1</a>
+											<a href="#">机构2</a>
+											<a href="#">机构3</a>
+										</li>
+									</ul>
+								</div>
+							</h2>
+								<table class="table table-hover table-striped div-center div-width-100 account-list" data-bind="foreach:accountInfoBind">
+									<tr data-bind="foreach:$data,attr:{'index':$index}">
+										<td>
+										<span class="checkCompanyFund" data-bind="text:text,click:$parents[1].checkNear" ></span>
+										<input type="checkbox" data-bind="value:value,checked:$parents[1].fundListBind,attr:{'index':$index}">
+										</td>
+									</tr>
+								</table> -->
+								
+							<!-- <h2 class="content-title">2.上传开户影印资料&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>建议把相关文件保存在word文档中上传</small></h2>
+								<div id="file_upload_box" class="div-center div-width-90">
+									<table class="table table-hover div-width-100 upload-table">
+									<tbody id="upload_table" data-bind="foreach:uploadListBind">
+										<tr data-bind="attr:{'index':$index,'type':type}">
+											<td width="30%" data-bind="text:name"></td>
+											<td width="50%" class="pro-td">
+												<span data-bind="visible:!isUploaded" class="deep-gray">暂未上传</span>
+												<a data-bind="text:fileName,attr:{href:filePath},visible:isUploaded"></a>
+											</td>
+											<td width="20%" class="modi-td">
+												<button class="btn btn-primary" mapping="upload_open_btn" data-bind="visible:!isUploaded,click:$parent.openUploadBox">上传文件</button>
+												<a href="#" data-bind="visible:isUploaded,click:$parent.removeUpload">删除</a>
+											</td>
+										</tr>
+										</tbody>
+									</table>
+									<div id="upload_select_box" class="div-width-100 hide">
+										<input type="hidden" id="upload_index">
+										<iframe id="upload_page" name="upload_page" marginheight="0" marginwidth="0" scrolling="no" frameborder="0" width="100%" data-bind="event:{load:uploadIframeLoad}"></iframe>
+										<div class="center-buttons">
+											<button id="cancel_upload_btn" class="btn btn-primary" data-bind="click:cancelUpload">取消</button>
+											<button id="submit_upload_btn" class="btn btn-primary hide" data-bind="click:confirmUpload">上传该文件</button>
+										</div>
+									</div>
+								</div> -->
+							<h2 class="content-title">2.签署协议</h2>
+								<div class="div-center div-width-60">
+									<div class="control-group checkPro">
+											<input type="checkbox" mapping="isCheckPro" class="right-text-checkbox" data-bind="checked:regInfoBind().isCheckPro"><span>我已经阅读并同意 <a target="_blank" href="../protocol/protocol.html">《企额金服客户网上交易协议》</a></span></input>
+									</div>
+								</div>
+						</form>
+						<div class="center-buttons">
+							<button target="0" data-bind="click:nextStep" class="btn btn-primary">上一步</button>
+							<button target="2" data-bind="click:nextStep" class="btn btn-primary">开户预览</button>
+							<button class="btn btn-primary" data-bind="click:storgeInfo">暂存</button>
+						</div>
+					</div>
+					<div id="pre_see" class="tab-pane fade in">
+						<form action="" id="pre_see_form" class="form-horizontal">
+							<h2 class="content-title first">1.客户资料</h2>
+							<div class="div-center div-width">
+								<table class="table table-striped table-bordered table-hover table-condense">
+									<tr>
+										<td colspan="1">申请机构名称:</td>
+										<td colspan="3"><span type="text" data-bind="text:regInfoBind().custName"></td>
+									</tr>
+									<tr class="even">
+										<td width="20%">组织机构代码证号:</td>
+										<td width="30%"><span type="text" data-bind="text:regInfoBind().busiLicence"></td>
+										<td width="20%">开户证件有效期:</td>
+										<td width="40%"><span type="text" data-bind="text:regInfoBind().certValidDate"></td>
+									</tr>
+									<!-- <tr>
+										<td>机构营业执照号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().c_busy_code"></td>
+										<td>实际控制人:</td>
+										<td><span type="text" data-bind="text:regInfoBind().custName"></td>
+									</tr>
+									<tr class="even">
+										<td>税务登记证号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().c_tax_code"></td>
+										<td>实际受益人:</td>
+										<td><span type="text" data-bind="text:regInfoBind().c_denifit_name"></td>
+									</tr> -->
+									<!-- <tr>
+										<td colspan="1">机构类型:</td>
+										<td colspan="3">
+											<div class="td-line-checkbox">
+												<span>农林牧渔</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_1,css:{'unchecked':regInfoBind().c_type_1}">
+												<span>建筑制造</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_2">
+												<span>金融地产</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_3">
+												<span>教育卫生</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_4">
+												<span>政府机关</span><input name="corpVocate" type="radio" data-bind="disable:true,checked:regInfoBind().c_type_5">
+												其他<span type="text" data-bind="text:regInfoBind().c_other" class="input-underline">
+											</div>
+										</td>
+									</tr> -->
+									<tr>
+										<td>营业执照号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().identNo"></td>
+										<td>邮政编码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().zipCode"></td>
+									</tr>
+									<tr class="even">
+										<td colspan="1">通讯地址:</td>
+										<td colspan="3"><span type="text" data-bind="text:regInfoBind().address"></td>
+									</tr>
+									<tr>
+										<td>业务联系电话:</td>
+										<td><span type="text" data-bind="text:regInfoBind().phone"></td>
+										<td>传真:</td>
+										<td><span type="text" data-bind="text:regInfoBind().faxNo"></td>
+									</tr>
+								</table>
+							</div> 
+							<h2 class="content-title">2.交收行信息</h2>
+								<div class="div-center div-width">
+									<table class="table table-striped table-bordered table-hover table-condensed">
+									<tr>
+										<td colspan="1">银行账户名:</td>
+										<td colspan="3"><span type="text" data-bind="text:regInfoBind().bankAcountName"></td>
+									</tr>
+									<tr>
+										<td width="20%">银行账户:</td>
+										<td width="30%"><span type="text" data-bind="text:regInfoBind().bankAccount"></td>
+										<td width="20%">所属银行:</td>
+										<td width="30%">
+											<select disabled="" mapping="initBank" data-bind="value:regInfoBind().bankNo">
+											</select>
+										</td>
+									</tr>
+									<tr class="even">
+										<td width="20%">开户银行所在地:</td>
+										<td width="30%" class="crt_area_info">
+											<select mapping="province" disabled="" name="" id="crt_province" data-bind="value:regInfoBind().provinceNo">
+											</select>
+											<select mapping="city" disabled="" name="" id="crt_city" data-bind="value:regInfoBind().cityNo">
+											</select>
+										</td>
+										<td width="20%">开户银行(全称):</td>
+										<td width="30%"><span type="text" data-bind="text:regInfoBind().bankName"></td>
+										<!-- <td width="20%" rowspan="2">开户证件有效期:</td>
+										<td width="40%" rowspan="2"><span type="text" data-bind="text:regInfoBind().certValidDate"></td>
+									</tr>
+									<tr> -->
+									</tr>
+								</table>
+								</div>
+							<h2 class="content-title">2.经办人、法人信息</h2>
+								<div class="div-center div-width">
+								<table class="table table-striped table-bordered table-hover table-condensed">
+									<tr>
+										<td>经办人姓名:</td>
+										<td><span type="text" data-bind="text:regInfoBind().contName"></td>
+										<td>经办人证件类型:</td>
+										<td>
+											<select disabled="" name="" id="" data-bind="value:regInfoBind().contIdentType" mapping="identity">
+												<option value="">身份证</option>
+											</select>
+										</td>
+									</tr>
+									<tr class="even">
+										<td width="20%">经办人证件号码:</td>
+										<td width="30%"><span type="text" data-bind="text:regInfoBind().contIdentNo"></td>
+										<td width="20%">经办人证件有效期:</td>
+										<td width="40%"><span type="text" data-bind="text:regInfoBind().contCertValidDate"></td>
+									</tr>
+									<tr>
+										<td>经办人手机:</td>
+										<td><span type="text" data-bind="text:regInfoBind().contMobileNo"></td>
+										<td>经办人邮箱:</td>
+										<td><span type="text" data-bind="text:regInfoBind().contEmail"></td>
+									</tr>
+									<tr class="even"> 
+										<td>经办人联系电话:</td>
+										<td><span type="text" data-bind="text:regInfoBind().contPhone"></td>
+										<td>经办人传真:</td>
+										<td><span type="text" data-bind="text:regInfoBind().contFax"></td>
+									</tr>
+									<!-- <tr>
+										<td>复核人姓名:</td>
+										<td><span type="text" data-bind="text:regInfoBind().checker"></td>
+										<td>复核人证件类型:</td>
+										<td>
+											<div class="td-line-checkbox">
+												<span>身份证</span><input type="checkbox" data-bind="disable:true,checked:regInfoBind().checkerIdentType1">
+												其他<span type="text" data-bind="text:regInfoBind().checkerIdentType" class="input-underline">
+											</div>
+										</td>
+									</tr>
+									<tr class="even">
+										<td>复核人证件号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().checkerIdentCode"></td>
+										<td>证件有效期:</td>
+										<td><span type="text" data-bind="text:regInfoBind().checkerCertValidDate"></td>
+									</tr> -->
+									<tr>
+										<td>法人姓名:</td>
+										<td><span type="text" data-bind="text:regInfoBind().lawName"></td>
+										<td>法人证件类型:</td>
+										<td>
+											<select disabled="" name="" id="" data-bind="value:regInfoBind().lawIdentType" mapping="identity">
+												<option value="">身份证</option>
+												<option value="">军官证</option>
+												<option value="">XX证</option>
+											</select>
+										</td>
+									</tr>
+									<tr class="even">
+										<td>法人证件号码:</td>
+										<td><span type="text" data-bind="text:regInfoBind().lawIdentNo"></td>
+										<td>法人证件有效期:</td>
+										<td>
+											<span type="text" data-bind="text:regInfoBind().lawCertValidDate">
+										</td>
+									</tr>
+								</table>
+								</div>
+							<!-- <h2 class="content-title">3.已选基金销售机构</h2>
+								<table class="table table-hover table-striped div-center div-width-100 account-list" data-bind="foreach:accountInfoBind">
+									<tr data-bind="foreach:$data,attr:{'index':$index}">
+										<td>
+										<span class="checkCompanyFund" data-bind="text:text" ></span>
+										<input type="checkbox" data-bind="value:value,checked:$parents[1].fundListBind,attr:{'index':$index},disable:true">
+										</td>
+									</tr>
+								</table>
+							<h2 class="content-title">3.上传开户影印资料</h2>
+								<div class="div-center div-width-80">
+									<table class="table table-hover div-width-100 upload-table" data-bind="foreach:uploadListBind">
+										<tr data-bind="attr:{'index':$index,'type':type}">
+											<td width="40%" data-bind="text:name"></td>
+											<td width="60%" class="pro-td">
+												<a data-bind="text:fileName,attr:{href:filePath},visible:isUploaded"></a>
+												<span class="deep-gray" data-bind="visible:!isUploaded">暂未上传</span>
+											</td>
+										</tr>
+									</table>
+								</div> -->
+							<h2 class="content-title">3.签署协议</h2>
+								<div class="div-center div-width-60">
+									<div class="control-group">
+											<input type="checkbox" class="right-text-checkbox" data-bind="disable:true,checked:regInfoBind().isCheckPro"><span>基金机构客户网上交易协议</span></input>
+									</div>
+								</div>
+						</form>
+						<div class="center-buttons">
+							<button target="1" data-bind="click:nextStep" class="btn btn-primary">上一步</button>
+							<button target="3" data-bind="click:nextStep" class="btn btn-primary">开户</button>
+							<button class="btn btn-primary" data-bind="click:storgeInfo">暂存</button>
+						</div>
+					</div>
+					<!-- <div id="set_password" class="tab-pane fade in">
+						<form id="set_password_form" action="" class="form-horizontal">
+							<div class="control-group">
+								<label for="" class="control-label">经办人密码:</label>
+								<div class="controls">
+									<input type="text" name="">
+								</div>
+							</div>
+							<div class="control-group">
+								<label for="" class="control-label">经办人密码重复:</label>
+								<div class="controls">
+									<input type="text" name="">
+								</div>
+							</div>
+							<div class="control-group">
+								<label for="" class="control-label">复核人密码:</label>
+								<div class="controls">
+									<input type="text" name="">
+								</div>
+							</div>
+							<div class="control-group">
+								<label for="" class="control-label">复核人密码重复:</label>
+								<div class="controls">
+									<input type="text" name="">
+								</div>
+							</div>
+						</form>
+						<div class="center-buttons">
+							<button target="3" data-bind="click:nextStep" class="btn btn-primary">上一步</button>
+							<button target="5" data-bind="click:nextStep" class="btn btn-primary">完成</button>
+						</div>
+					</div> -->
+					<div id="finish_crt" class="tab-pane fade in">
+						<div class="alert alert-success alert-block div-center div-width-70">
+							<h4>恭喜!</h4>
+							<p>平台开户已经完成，请等待平台。</p>
+						</div>
+						<div class="center-buttons">
+							<button target="0" data-bind="click:nextStep" class="btn btn-primary">返回主页</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- 温馨提示 -->
+				<div id="warm_prompt_box" class="div-width-100">
+					<h1 class="prompt-title">
+						<img class="prompt-icon" src="../../img/warm_prompt.png" alt="">
+						温馨提示
+					</h1>
+					<div class="warm-prompt-content">
+						<p>1.请您认真核对机构名称、证件号码、联系方式等信息，保证资料真实、准确。</p>
+						<p>2.因网上交易的特殊性，请您务必填写真实、准确的个人信息并妥善保管登录账号及交易密码等重要信息。</p>
+						<p>3.平台不承担因您未提供真实、准确信息或未妥善保管网上交易登录账号及密码而产生的任何损失。</p>
+						<p>4.平台开户所需准备资料：营业执照复印件（加盖公章）、组织机构代码证复印件（加盖公章）、税务登记证复印件（加盖公章）、指定银行开户证明、经办人有效身份证复印件（加盖公章）、法人有效身份证复印件（加盖公章）、机构负责人有效身份证复印件（加盖公章）</p>
+					</div>
+				</div>
+				<!-- 温馨提示END -->
+
+
+				<!-- 机构选择框体 -->
+				<div id="comp_list_box" class="hide div-width-100">
+			        <div class="div-width-90 div-center detail-box">
+		          	<h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+		          	    选择机构
+		          	</h1>
+			        <div class="div-width-100 clearFix">
+		              <div class="fast-search div-width-100">
+		              	<span class="red lab">请点击选择机构!</span>
+		                <span class="fast-purchase-lab">快速查询: </span>
+		                <input id="fast_cust_name" type="text" placeholder="请输入机构名称"> 
+		                <button class="btn btn-primary" data-bind="click:searchComp">查询</button>
+		              </div>
+		            </div>
+		            <table class="div-width-100 table table-striped table-hover corp-info-list">
+		              <thead>
+		                <tr>
+		                  <td width="30%">机构代号</td>
+		                  <td width="70%">机构名称</td>
+		                </tr>
+		              </thead>
+		              <tbody data-bind="foreach:compListBind">
+		                <tr data-bind="css:{'even':$index()%2==0}">
+		                  <td data-bind="text:corpCode"></td>
+		                  <td><a href="" data-bind="text:custName,click:$parent.selectComp"></a></td>
+		                </tr>
+		              </tbody>
+		              <tfoot>
+		                <td colspan="8">
+		                  <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+		                    <ul>
+		                      <li class="previous hidden" data-bind="visible:compListPageBind().pageNum==1"><span>首页</span></li>
+		                      <li class="previous" data-bind="visible:compListPageBind().pageNum>1,click:firstPage"><a href="#">首页</a></span></li>
+		                      <li class="previous hidden" data-bind="visible:compListPageBind().pageNum==1"><span>上一页</span></li>
+		                      <li class="previous" data-bind="visible:compListPageBind().pageNum>1,click:prevPage"><a href="#">上一页</a></li>
+		                      <li class="next hidden" data-bind="visible:compListPageBind().pageNum>=compListPageBind().pages"><span>下一页</span></li>
+		                      <li class="next" data-bind="visible:compListPageBind().pageNum<compListPageBind().pages,click:nextPage"><a href="#">下一页</a></li>
+		                      <li class="next hidden" data-bind="visible:compListPageBind().pageNum>=compListPageBind().pages"><span>尾页</span></li>
+		                      <li class="next" data-bind="visible:compListPageBind().pageNum<compListPageBind().pages,click:endPage"><a href="#">尾页</a></li>
+		                      <li>共<span data-bind="text:compListPageBind().pageNum"></span>/<span data-bind="text:compListPageBind().pages"></span>页</li>
+		                      <li>共<span data-bind="text:compListPageBind().total"></span>条记录</li>
+		                      <li class="toPage">
+		                          <div>
+		                            <span>跳转到</span>
+		                            <input type="text" name="skipToPageNum" data-bind="disable:compListPageBind().pages==1">
+		                            <span>页</span>
+		                            <button class="btn" data-bind="disable:compListPageBind().pages==1,click:skipPage">跳转</button>
+		                          </div>
+		                      </li>
+		                    </ul>
+		                  </div>
+		                </td>
+		              </tfoot>
+		            </table>
+			          <div class="center-buttons">
+			            <a href="#" data-dismiss="modal" data-bind="click:closeBox" aria-hidden="true" class="btn btn-primary close-tipbar">返回</a>
+			          </div>
+			        </div>
+			    </div>
+				<!-- 机构选择框体END -->
+
+				<!-- 银行信息框体 -->
+				<div id="bank_list_box" class="hide div-width-100">
+			        <div class="div-width-90 div-center detail-box">
+		          	<h1 class="content-title-1 content-title-condensed"><img src="../../img/info-title-icon.png" alt="">
+		          	    选择银行账户
+		          	</h1>
+		            <table class="div-width-100 table table-striped table-hover corp-info-list">
+		              <thead>
+		                <tr>
+		                  <td width="30%">银行户名</td>
+		                  <td width="70%">银行账户</td>
+		                </tr>
+		              </thead>
+		              <tbody data-bind="foreach:bankListBind">
+		                <tr data-bind="css:{'even':$index()%2==0}">
+		                  <td data-bind="text:bankAccountName"></td>
+		                  <td><a href="" data-bind="text:bankAccount,click:$parent.selectBank"></a></td>
+		                </tr>
+		              </tbody>
+		            </table>
+			          <div class="center-buttons">
+			            <a href="#" data-dismiss="modal" data-bind="click:closeBankBox" aria-hidden="true" class="btn btn-primary close-tipbar">返回</a>
+			          </div>
+			        </div>
+			    </div>
+				<!-- 银行信息框体END -->
+				
+				<!-- 基金机构相关信息 -->
+				<div id="comp_info_box" class="hide div-width-100">
+					<div class="div-width-90 detail-box div-center">
+						<h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt=""><span id="fund_comp_name"></span>
+						</h1>
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<td colspan="2">开户资料</td>
+								</tr>
+							</thead>
+							<tbody data-bind="foreach:fundCompInfoListBind">
+								<tr data-bind="css:{'even':$index()%2==0}">
+									<td width="50%" data-bind="text:paperName"></td>
+									<td width="50%">
+										<a data-bind="attr:{href:dowloadUrl},visible:dowloadUrl.length>1" title="资料下载">下载</a>
+										<span class="deep-gray" data-bind="attr:{href:dowloadUrl},visible:dowloadUrl.length<2">需要提供资料</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<td colspan="2">开户协议</td>
+								</tr>
+							</thead>
+							<tbody data-bind="foreach:fundCompProListBind">
+								<tr data-bind="css:{'even':$index()%2==0}">
+									<td width="50%" data-bind="text:paperName"></td>
+									<td width="50%">
+										<a data-bind="attr:{href:dowloadUrl},visible:dowloadUrl.length>1" title="资料下载">下载</a>
+										<span class="deep-gray" data-bind="attr:{href:dowloadUrl},visible:dowloadUrl.length<2">需要提供资料</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="center-buttons">
+							<button class="btn btn-primary" data-bind="click:function(){$('#comp_info_box').slideUp(500);}">返回</button>
+						</div>
+					</div>
+				</div>
+				<!-- 基金机构相关信息 -->
+
+				<div id="test_upload">
+				</div>
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">seajs.use('p/js/crtcount');</script>
+  </body>
+</html>

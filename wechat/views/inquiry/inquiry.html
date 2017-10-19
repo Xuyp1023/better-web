@@ -1,0 +1,30 @@
+<!-- <div class="mAito">
+	<ul class="clearfix">
+    	<li>
+        	<a href="javascript:void(0);">全部分类<i class="ico ico14"></i></a>
+        </li>
+        <li>
+        	<a href="javascript:void(0);">状态分类<i class="ico ico14"></i></a>
+        </li>
+        <li>
+        	<a href="javascript:void(0);">类型分类<i class="ico ico14"></i></a>
+        </li>
+    </ul>
+</div> -->
+<div class="mpLt">
+	<ul>
+    	<li ng-repeat="apply in infoList" ng-repeat-end ng-class="{even:$even}">
+        	<div class="ti" ng-click="showDetail(apply);">
+            	<span>{{apply.custName}}</span>
+                <em class="co co1">{{apply.businStatusText}}<i class="ico ico13 ml5"></i></em>
+            </div>
+            <div class="bi"></div>
+            <div class="ci">
+            	<p class="tit">商务票据：¥{{apply.order.balance | moneyFilter}}</p>
+                <p class="con">票据号：{{apply.order.billNo}}</p>
+                <p class="time">有效期：{{apply.order.invoiceDate}}至{{apply.order.endDate}}</p>
+            </div>
+        </li>
+    </ul>
+    <div ng-page="listPage" func="queryList(false)" class="more"></div>
+</div>

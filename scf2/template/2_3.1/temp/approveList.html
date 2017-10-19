@@ -1,0 +1,36 @@
+  <!-- 融资批复 -->
+  <table class="table table-striped table-bordered table-hover">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">融资批复</span>
+      </caption>
+      <tbody>
+        <tr>
+          <td width="20%">批复金额(元):</td>
+          <td width="30%" class="div-text-left" ng-bind="info.approvedBalance">
+          </td>
+          <td width="20%">金额大写:</td>
+          <td width="30%" class="div-text-left" ng-bind="info.approvedBalance | moneybigf">
+          </td>
+        </tr>        
+        <tr>
+          <td>批复期限:</td>
+          <td class="div-text-left double_box">
+            <span ng-bind="info.approvedPeriod"></span>&nbsp;<span ng-bind="info.approvedPeriodUnit |kindf :'PeriodUnit'"></span>
+            <!-- <input type="text" ng-model="info.approvedPeriod" style="display:inline-block;width:67% !important" disabled>            
+            <select name="" id="" ng-model="info.approvedPeriodUnit" style="width:25% !important;float:right" disabled>
+                <option ng-repeat="unit in periodUnits" ng-option-filter value="{{unit.value}}" ng-bind="unit.name" ng-selected="info.approvedPeriodUnit==unit.value"></option>
+            </select> -->
+          </td>
+          <td>融资利率(%)：</td>
+          <td width="30%" class="div-text-left" ng-bind="info.approvedRatio">          
+        </tr>         
+        <tr>
+          <td width="20%">展期利率(%):</td>
+          <td width="30%" class="div-text-left" ng-bind="info.extensionRatio">
+          </td>
+          <td width="20%">逾期利率(%):</td>
+          <td width="30%" class="div-text-left" ng-bind="info.overdueRatio">
+          </td>
+        </tr>            
+      </tbody>
+    </table>

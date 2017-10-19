@@ -1,0 +1,48 @@
+{
+  "message": "查询日账单信息",
+  "all":198,
+  "sum":60000000.01,
+  "data": [
+    {
+      "id": 1,
+      "roleName": "初审",
+      "roleType": "0",
+      "businStatus": "1",
+      "operOrg": "",
+      "refNo":123123213
+    },
+    {
+      "id": 2,
+      "roleName": "复核",
+      "roleType": "0",
+      "businStatus": "1",
+      "operOrg": "",
+      "refNo":123123213
+    },{
+      "id": 3,
+      "roleName": "经办",
+      "roleType": "1",
+      "businStatus": "1",
+      "operOrg": ""
+    },{
+      "id": 4,
+      "roleName": "管理",
+      "roleType": "1",
+      "businStatus": "1",
+      "operOrg": ""
+    },{
+      "id": 5,
+      "roleName": "管理员",
+      "roleType": "1",
+      "businStatus": "1",
+      "operOrg": ""
+    }
+  ],
+  "page": {
+    "pageNum": 1,
+    "pageSize": 10,
+    "pages": 0,
+    "total": -1
+  },
+  "code": 200
+}

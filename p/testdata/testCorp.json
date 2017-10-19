@@ -1,0 +1,76 @@
+{
+    "code": "200",
+    "message": "ok",
+    "data": [
+        {
+            "id": 1,
+            "custName": "深圳华强集团财务有限公司",
+            "netSign": "1",
+            "corpCode": "0000",
+            "netNo": "1000",
+            "superId": 0
+        },
+        {
+            "id": 21,
+            "custName": "深圳华强文化科技集团股份有限公司",
+            "netSign": "0",
+            "corpCode": "0001",
+            "netNo": "1000",
+            "superId": 1
+        },
+        {
+            "id": 22,
+            "custName": "深圳华强供应链管理有限公司",
+            "netSign": "0",
+            "corpCode": "0002",
+            "netNo": "1000",
+            "superId": 1
+        },
+        {
+            "id": 25,
+            "custName": "深圳华强物流发展有限公司",
+            "netSign": "0",
+            "corpCode": "0003",
+            "netNo": "1000",
+            "superId": 1
+        },
+        {
+            "id": 31,
+            "custName": "深圳华强信息产业有限公司",
+            "netSign": "0",
+            "corpCode": "0005",
+            "netNo": "1000",
+            "superId": 1
+        },
+        {
+            "id": 32,
+            "custName": "深圳华强联合计算机工程有限公司",
+            "netSign": "0",
+            "corpCode": "0006",
+            "netNo": "1000",
+            "superId": 1
+        },
+        {
+            "id": 23,
+            "custName": "深圳华强集团有限公司",
+            "netSign": "0",
+            "corpCode": "0008",
+            "netNo": "1000",
+            "superId": 1
+        },
+        {
+            "id": 24,
+            "custName": "深圳华强新城市发展有限公司",
+            "netSign": "0",
+            "corpCode": "0009",
+            "netNo": "1000",
+            "superId": 1
+        }
+    ],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 20,
+        "pages": 5,
+        "total": 89
+    }
+}

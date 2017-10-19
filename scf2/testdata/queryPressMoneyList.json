@@ -1,0 +1,33 @@
+{
+  "message": "分页查询催收列表成功",
+  "data": [
+    {
+      "id": 31608,
+      "factorNo": 100000212,
+      "custNo": "",
+      "requestNo": "4483",
+      "pressType": "",
+      "actualDate": "",
+      "balance": "",
+      "agent": "",
+      "description": "",
+      "operOrg": "biet;Developer.Core.Enterprise",
+      "regOperId": 1258,
+      "regOperName": "管理员-核心",
+      "regDate": "20160823",
+      "regTime": "151013",
+      "modiOperId": "",
+      "modiOperName": "",
+      "modiDate": "",
+      "modiTime": "",
+      "version": ""
+    }
+  ],
+  "page": {
+    "pageNum": 1,
+    "pageSize": 10,
+    "pages": 1,
+    "total": 1
+  },
+  "code": 200
+}

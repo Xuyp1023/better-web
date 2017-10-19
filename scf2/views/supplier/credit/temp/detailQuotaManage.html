@@ -1,0 +1,59 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      授信额度变动明细
+      <small class="small-select" ng-show="isSelectShow">
+        <span>企业名称</span>
+        <select ng-model="searchData.custNo" ng-change="changeCust();">
+          <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+        </select>
+      </small>
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <form class="form-inline">
+          <label>
+              <span>授信日期</span> <input id="search_start_date" type="text" bt-date="searchData.GTEtradeDate" bt-max-date="search_end_date"> 到 <input id="search_end_date" type="text" bt-date="searchData.LTEtradeDate" bt-min-date="search_start_date ">
+          </label> 
+          <button type="submit" class="btn btn-primary">查询</button>
+      </form>
+      <table class="div-width-100 table table-striped table-hover search-result">
+          <thead>
+              <tr class="font-size-12 info-title">
+                  <td>变动日期</td>
+                  <td>变动额度</td>
+                  <td>方向</td>
+                  <td>业务单据</td>
+                  <td>业务类型</td>
+                  <td>授信使用企业</td>
+                  <td>单据金额</td>
+                  <td>状态</td>
+                  <td>备注</td>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                  <td ng-bind="item.requestNo"></td>
+                  <td ng-bind="item.requestDate"></td>
+                  <td class="red" ng-bind="item.productName"></td>
+                  <td><strong class="deep-gray" ng-bind="item.balance|moneyFilter"></strong></td>
+                  <td><strong class="red" ng-bind="item.confirmBalance|moneyFilter"></strong></td>
+                  <td class="red" ng-bind="item.status|kindf:'FinancingAppStatus'"></td>
+                  <td class="red" ng-bind="item.status|kindf:'FinancingAppStatus'"></td>
+                  <td class="red" ng-bind="item.status|kindf:'FinancingAppStatus'"></td>
+                  <td>
+                      <a href="javascript:void(0);">额度变动</a>
+                  </td>
+              </tr>
+          </tbody>
+          <tfoot>
+              <td colspan="9">
+                  <div bt-pagination conf="listPage"></div>
+              </td>
+          </tfoot>
+      </table>
+    </div>
+
+    <div class="center-buttons">
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

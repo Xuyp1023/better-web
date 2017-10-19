@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>交易查询</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/queryBusiness.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+</head>
+
+<body id="body">
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" ng-controller="mainController" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed"><img src="../../img/operator.png" alt="">交易查询
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">
+                      <tr>
+                        <td>交易日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEtradeDate">-
+                          <input type="text" id="end_date" bt-date="searchData.LTEtradeDate">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="25%">基金销售机构:</td>
+                        <td width="75%" class="div-text-left">
+                        <select ng-model="searchData.agencyNo">
+                          <option value="">--- 全部 ---</option>
+                          <option ng-repeat="item in agencyList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.agencyNo == item.value"></option>
+                        </select>
+                        </td>
+                      </tr>  
+                      <tr>
+                        <td width="25%">业务类型:</td>
+                        <td width="75%" class="div-text-left">
+                        <select ng-model="searchData.businFlag">
+                          <option value="">--- 全部 ---</option>
+                          <option ng-repeat="item in businessList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businFlag == item.value"></option>
+                        </select>
+                        </td>
+                      </tr>  
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="queryList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+                        查询结果
+                        </h1>
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                            <thead>
+                                <tr class="font-size-12 info-title">
+                                    <td width="24%">客户名称</td>
+                                    <td width="14%">基金名称</td>
+                                    <td width="12%">销售机构</td>
+                                    <!-- <td width="12%">交易账户</td> -->
+                                    <td width="10%">交易日期</td>
+                                    <td width="10%">业务类型</td>
+                                    <td width="10%">申请金额/份额</td>
+                                    <td width="10%">确认金额</td>
+                                    <td width="10%">确认份额</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                                    <td ng-bind="item.custName"></td>
+                                    <td ng-bind="item.fundName" class="red"></td>
+                                    <td ng-bind="item.agencyName"></td>
+                                    <!-- <td ng-bind="item.tradeAccount"></td> -->
+                                    <td ng-bind="item.tradeDate|dateFilter:'-'"></td>
+                                    <td ng-bind="item.businName"></td>
+                                    <td><strong class="red" ng-bind="item.balance|moneyFilter"></strong></td>
+                                    <td><strong class="red" ng-bind="item.confirmBalance|moneyFilter"></strong></td>
+                                    <td><strong class="red" ng-bind="item.confirmShares|moneyFilter"></strong></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="table-striped">
+                                    <td colspan="6" class="div-text-right"><strong>合计：</strong></td> 
+                                    <td><strong class="red" ng-bind="totalConfirmBalance"></strong></td>
+                                    <td><strong class="red" ng-bind="totalConfirmShares"></strong></td>
+                                </tr>
+                            </tfoot>
+                            
+                        </table>
+                    </div>
+
+
+                <!-- 温馨提示END -->
+  
+               
+
+            </div>
+        </div>
+    </div>
+    <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+  <![endif]-->
+   <script type="text/javascript">seajs.use('p/js/queryBusiness');</script>
+</body>
+
+</html>

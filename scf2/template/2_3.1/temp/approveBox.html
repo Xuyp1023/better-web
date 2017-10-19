@@ -1,0 +1,70 @@
+<div class="search-pop">
+    <h3>融资方案批复</h3>
+    <h1 class="content-title-1 content-title-condensed content-title-blue">
+    融资需求
+  </h1>    
+    <ul>
+        <li>
+            <span class="text-align-right" width="30%">申请企业:</span>
+            <span ng-bind="info.custName"></span>
+        </li>
+        <li>
+            <span class="text-align-right" width="30">融资编号:</span> 
+            <span ng-bind="info.requestNo"></span>
+        </li>
+        <li>
+            <span class="text-align-right" width="30">申请融资金额:</span> 
+            <span ng-bind="info.balance"></span>
+        </li>
+        <li>
+            <span class="text-align-right" width="30">申请融资期限: </span>
+            <span ng-bind="info.period"></span> <span ng-bind="info.periodUnit|kindf:'PeriodUnit' "></span>
+        </li>        
+    </ul>
+
+    <h1 class="content-title-1 content-title-condensed content-title-blue" style="margin-bottom:30px">
+        <a href="javascript:void">深圳市前海特智商业保理有限公司</a> &nbsp;针对上述申请的决定，批复如下：
+    </h1>  
+
+    <table class="table" id="approveBox">            
+            <tbody>
+              <tr>
+                <td width="20%">*批复金额:</td>
+                <td width="30%" class="div-text-left">
+                    <input type="text" ng-model="info.approvedBalance" >
+                </td>
+                <td width="20%">金额大写:</td>
+                <td width="30%" class="div-text-left" ng-bind="info.approvedBalance |moneybigf">                    
+                </td>                
+              </tr>
+              <tr>
+                <td width="20%">*批复期限:</td>
+                <td class="div-text-left double_box">
+                    <input type="text" ng-model="info.approvedPeriod" style="display:inline-block;width:56% !important">            
+                    <select ng-model="info.approvedPeriodUnit" style="width:25% !important">
+                        <option ng-repeat="unit in periodUnits" ng-option-filter value="{{unit.value}}" ng-bind="unit.name" ng-selected="info.approvedPeriodUnit==unit.value"></option>
+                    </select>
+                </td>
+                <td>*融资利率(%):</td>
+                <td class="div-text-left">
+                    <input type="text" ng-model="info.approvedRatio" >
+                </td>
+              </tr>             
+              <tr>
+                <td>*展期利率(%):</td>
+                <td class="div-text-left">
+                    <input type="text" ng-model="info.extensionRatio" >
+                </td>
+                <td>*逾期利率(%):</td>
+                <td class="div-text-left">
+                  <input type="text" ng-model="info.overdueRatio" >
+                </td>
+              </tr>                                  
+            </tbody>
+        </table>
+
+    <div class="center-buttons">
+       <button class="btn btn-primary" ng-click="saveReview($event.target)">保存</button>
+       <button class="btn btn-primary" ng-click="quit()" >退出</button>
+     </div>   
+</div>

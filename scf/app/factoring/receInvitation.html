@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>我收到的邀约</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf/css/receInvitation.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="testController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/fast_money.png" alt="">我的邀约</h1>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr class="font-size-12 info-title">
+                  <td width="30%">邀约内容</td>
+                  <td width="15%">状态</td>
+                  <td width="15%">邀约时间</td>
+                  <td width="18%">邀约企业</td>
+                  <td width="18%">操作</td>
+                </tr>
+              </thead>
+              <tbody data-bind="foreach:operListBind">
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td width="25%">保理产品，可以预付款，低保理费用......</td>
+                  <td width="18%">
+                    <span class="lightbg">已读</span>
+                    <span class="lightbg">未失效</span>
+                  </td>
+                  <td width="18%">2015/12/26 15:36 :24</td>
+                  <td width="18%">华为</td>
+                  <td width="18%"><a href="#" ng-click="showDetail($event);">查看邀约</a>
+                  </td>
+                </tr>
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td width="25%">保理产品，可以预付款，低保理费用......</td>
+                   <td width="18%">
+                    <span class="graybg">未读</span>
+                    <span class="lightbg">未失效</span>
+                  </td>
+                  <td width="18%">2015/12/26 15:36 :24</td>
+                  <td width="18%">腾讯</td>
+                  <td width="18%"><a href="#" data-bind="click:$parent.showTradeDetail">查看邀约</a>
+                  </td>
+                </tr>
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td width="25%">保理产品，可以预付款，低保理费用......</td>
+                   <td width="18%">
+                    <span class="graybg">未读</span>
+                    <span class="graybg">已失效</span>
+                  </td>
+                  <td width="18%">2015/12/26 15:36 :24</td>
+                  <td width="18%">百度</td>
+                  <td width="18%"><a href="#" data-bind="click:$parent.showTradeDetail">查看邀约</a>
+                  </td>
+                </tr>
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td width="25%">保理产品，可以预付款，低保理费用......</td>
+                   <td width="18%">
+                    <span class="lightbg">已读</span>
+                    <span class="graybg">已失效</span>
+                  </td>
+                  <td width="18%">2015/12/26 15:36 :24</td>
+                  <td width="18%">阿里</td>
+                  <td width="18%"><a href="#" data-bind="click:$parent.showTradeDetail">查看邀约</a>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                  <td colspan="12">
+                    <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                      <ul>
+                        <li class="previous hidden" ng-show="tradeListPage.pageNum<=1"><span>首页</span></li>
+                        <li class="previous" ng-show="tradeListPage.pageNum>1" ng-click="pageEmitter.firstPage()"><a href="#">首页</a></span></li>
+                        <li class="previous hidden" ng-show="tradeListPage.pageNum<=1"><span>上一页</span></li>
+                        <li class="previous" ng-show="tradeListPage.pageNum>1" ng-click="pageEmitter.prevPage()"><a href="#">上一页</a></li>
+                        <li class="next hidden" ng-show="tradeListPage.pageNum>=tradeListPage.pages"><span>下一页</span></li>
+                        <li class="next" ng-show="tradeListPage.pageNum<tradeListPage.pages" ng-click="pageEmitter.nextPage()"><a href="#">下一页</a></li>
+                        <li class="next hidden" ng-show="tradeListPage.pageNum>=tradeListPage.pages"><span>尾页</span></li>
+                        <li class="next" ng-show="tradeListPage.pageNum<tradeListPage.pages" ng-click="pageEmitter.endPage()"><a href="#">尾页</a></li>
+                        <li>共<span ng-bind="tradeListPage.pageNum"></span>/<span ng-bind="tradeListPage.pages"></span>页</li>
+                        <li>共<span ng-bind="tradeListPage.total"></span>条记录</li>
+                        <li class="toPage">
+                            <div>
+                              <span>跳转到</span>
+                              <input type="text" name="skipToPageNum" ng-disabled="tradeListPage.pages<=1">
+                              <span>页</span>
+                              <button class="btn" ng-disabled="tradeListPage.pages<=1" ng-click="skipPage()">跳转</button>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+              </tfoot>
+            </table>
+
+          </div>
+        
+        <!-- 下拉帘start -->
+        <div id="fix_operator_info_box" class="div-width-100 hide">
+        <div class="div-width-90 div-center detail-box">
+          <h1 class="content-title-1 content-title-condensed"><img src="../../img/operator.png" alt="">
+            邀约详情
+          </h1>
+
+          <div id="repay_serach_way" class="row-fluid">
+            <table class="table table-hover table-striped table-bordered div-width-100 search-table">
+              <thead>
+                <tr>
+                  <td colspan="2" width="50%" class="div-text-left info-title">申请单编号：ss001</td>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td width="50%">申请时间:</td>
+                  <td width="50%" class="div-text-left">2015/9/25</td>
+                </tr>
+                <tr>
+                  <td>申请融资金额:</td>
+                  <td class="div-text-left">5000000.00</td>
+                </tr>
+                <tr>
+                  <td>申请期限（月）</td>
+                  <td class="div-text-left">25</td>
+                </tr>
+                <tr>
+                  <td>保理类型：保理分期类型一</td>
+                  <td class="div-text-left">邀约企业：乐视</td>
+                </tr>
+              </tbody>
+              
+            </table>
+
+          </div>
+
+          <div id="serch_repay_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+               转让应收账款列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-repay-result ">
+              <thead>
+                <tr class="info-title">
+                  <td width="20%">发票编号</td>
+                  <td width="20%">发票金额(元)</td>
+                  <td width="20%">应收账款金额（元）</td>
+                  <td width="20%">应收账款到期日</td>
+                  <td width="20%">操作</td>
+
+                </tr>
+              </thead>
+              <tbody data-bind="foreach:operListBind">
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td width="20%">sss001</td>
+                  <td width="20%">10000,000,00</td>
+                  <td width="20%">50000，00，00</td>
+                  <td width="20%">2015/10/25</td>
+                  <td width="20%">
+                    <a href="#" class="btn btn-info">查看附件</a>
+                  </td>
+                </tr>
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td width="20%">sss001</td>
+                  <td width="20%">10000,000,00</td>
+                  <td width="20%">50000，00，00</td>
+                  <td width="20%">2015/10/25</td>
+                  <td width="20%">
+                    <a href="#" class="btn btn-info">查看附件</a>
+                  </td>
+                </tr>
+  
+              </tbody>
+              <tfoot>
+                  <td colspan="9">
+                    <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                      <ul>
+                        <li class="previous hidden" ng-show="tradeListPage.pageNum<=1"><span>首页</span></li>
+                        <li class="previous" ng-show="tradeListPage.pageNum>1" ng-click="pageEmitter.firstPage()"><a href="#">首页</a></span></li>
+                        <li class="previous hidden" ng-show="tradeListPage.pageNum<=1"><span>上一页</span></li>
+                        <li class="previous" ng-show="tradeListPage.pageNum>1" ng-click="pageEmitter.prevPage()"><a href="#">上一页</a></li>
+                        <li class="next hidden" ng-show="tradeListPage.pageNum>=tradeListPage.pages"><span>下一页</span></li>
+                        <li class="next" ng-show="tradeListPage.pageNum<tradeListPage.pages" ng-click="pageEmitter.nextPage()"><a href="#">下一页</a></li>
+                        <li class="next hidden" ng-show="tradeListPage.pageNum>=tradeListPage.pages"><span>尾页</span></li>
+                        <li class="next" ng-show="tradeListPage.pageNum<tradeListPage.pages" ng-click="pageEmitter.endPage()"><a href="#">尾页</a></li>
+                        <li>共<span ng-bind="tradeListPage.pageNum"></span>/<span ng-bind="tradeListPage.pages"></span>页</li>
+                        <li>共<span ng-bind="tradeListPage.total"></span>条记录</li>
+                        <li class="toPage">
+                            <div>
+                              <span>跳转到</span>
+                              <input type="text" name="skipToPageNum" ng-disabled="tradeListPage.pages<=1">
+                              <span>页</span>
+                              <button class="btn" ng-disabled="tradeListPage.pages<=1" ng-click="skipPage()">跳转</button>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="center-buttons">
+            <button class="btn btn-primary" data-bind="click:addOper">确定</button>
+            <button class="btn btn-primary" data-bind="click:reset">重置</button>
+            <button class="btn btn-primary" ng-click="backForward();">返回</button>
+          </div>
+        </div>
+        </div>
+        <!-- 下拉帘结束 -->
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("../../provider_dev/src/receInvitation");
+      }
+      // For production
+      else {
+        seajs.use("scf/provider/1.0.0/receInvitation");
+      } 
+  </script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<div class="div-width-90 detail-box div-center">
+
+    <div class="div-center div-width div-margin-top">
+    <form action="" id="" class="form-horizontal ng-pristine ng-valid">
+      <div class="div-center div-width div-margin-top">
+        <!-- 股东资料 -->
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <caption class="table-caption table-caption-green clearFix">
+              <span class="title-left">高管资料</span>
+            </caption>
+          <tbody>
+           <tr>
+            <td width="20%">姓名:</td>
+            <td width="30%" class="div-text-left"><input type="text"></td>
+            <td width="20%">性别:</td>
+            <td width="30%" class="div-text-left">
+               <select name="" id="">
+                <option value="">男</option>
+                <option value="">女</option>
+              </select></td>
+            </td>
+          </tr>
+          <tr>
+            
+            <td>证件类型:</td>
+            <td class="div-text-left">
+               <select name="" id="">
+                <option value="">身份证</option>
+                <option value="">军官证</option>
+              </select></td>
+            </td>
+            <td>证件号码:</td>
+            <td class="div-text-left"><input type="text"></td>
+          </tr>
+          <tr>
+            <td>出生日期:</td>
+            <td class="div-text-left"><input type="text"  bt-date="searchData.GTErequestDate"></td>
+            <td>最高学历:</td>
+            <td class="div-text-left">
+              <select name="" id="">
+                <option value="">本科</option>
+                <option value="">大专</option>
+              </select></td>
+            
+          </tr>
+          <tr>
+            <td>职位:</td>
+            <td class="div-text-left">
+               <select name="" id="">
+                <option value="">总经理</option>
+                <option value="">财务总监</option>
+                <option value="">人事总监</option>
+              </select></td>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+          </tbody>
+       
+
+      <!-- 附件信息列表 -->
+      <table class="table table-striped table-hover table-bordered">
+          <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">附件列表</span>
+            <button class="btn btn-info btn-right"  ng-click="selectDraftBox();">+新增附件</button>
+          </caption>
+        <thead>
+          <tr class="result-head-gray">
+
+            <td width="30%">附件类型</td>
+            <td width="40%">附件名称</td>
+            <td width="30%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+           <tr ng-repeat-end ng-class="{even:$even}">
+
+             <td>合同附件</td>
+             <td><a href="">a.jpg</a></td>
+             <td><a href="">下载</a>  <a href="">删除</a></td>
+           </tr>
+        </tbody>
+      </table>
+
+    </div>
+      <div>
+         <div class="center-buttons">
+           <button class="btn btn-primary" bt-close-modal >返回</button>
+         </div>
+    </div>
+    
+
+</div> 

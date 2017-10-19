@@ -1,0 +1,19 @@
+{
+    "message": "查询用户授信信息成功",
+    "data": {
+        "id": 3,
+        "custNo": 100000170,
+        "custType": "0",
+        "custName": "深圳前海拜特测试1",
+        "factorName": "百乐润小微保理(深圳)公司",
+        "factorNo": "1",
+        "scfId": "10010",
+        "custCredit": 7000000000,
+        "usedCredit": 5000000,
+        "userStatus": "1",
+        "regDate": "20160331",
+        "modiDate": "20160331"
+    },
+    "page": "",
+    "code": 200
+}

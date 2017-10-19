@@ -1,0 +1,83 @@
+@charset "UTF-8";
+/* 待收页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+@import "common/pie";
+@import "common/pages";
+
+
+#container{
+	@include init;
+	// @include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+	@include Spage_plugin;
+	@include div-margin;
+}
+
+#content{
+	@include plus-nav-tabs;
+	@include center-buttons;
+	@include td-input-width(42% , 44%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+	@include double-check;
+}
+
+
+
+//调整行间距
+// .form-horizontal .control-group{
+// 	margin-bottom:10px;
+// }
+
+
+/* input[type="radio"]:checked {
+  	background-color: rgb(172, 195, 206);
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 25px;
+    border: 1px solid gray;
+    font-weight: bold;
+} */
+
+.little-table{
+	width:40%;
+	margin-left:70px;
+	th{
+		// text-align:center;
+		vertical-align: middle!important;
+		padding-left:15px;
+	}
+	th select{
+		width:100%;
+		padding-left:0px;
+		padding-right:0px;
+	}
+	td{
+		text-align:left!important;
+	}
+	input[type="text"]{
+	    margin: 2px;
+	    padding: 1px 0px;
+	    width: 40px!important;
+	    text-align:center;
+	}
+
+	/* .weizhi{
+		background-color: rgb(172, 195, 206);
+	    padding-bottom: 5px;
+	    padding-right: 5px;
+	    padding-left: 25px;
+	    border: 1px solid gray;
+	    font-weight: bold;
+	} */
+}

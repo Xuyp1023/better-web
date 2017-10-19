@@ -1,0 +1,76 @@
+<div class="top-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue div-margin-bottom-none"><img src="img/operator.png" alt="">
+    电子合同模板审核
+  </h1>
+
+  <div class="row-fluid">
+      <table class="table table-condensed div-width-70 div-center search-table">
+        <tr>
+          <td>上传日期:</td>
+          <td class="div-text-left date">
+            <input type="text" id="begin_date" bt-date="searchData.GTEmakeDate" bt-max-date="end_date">-
+            <input type="text" bt-min-date="begin_date" id="end_date" bt-date="searchData.LTEmakeDate">
+          </td>
+        </tr>
+        <tr>
+          <td width="25%">申请机构:</td>
+          <td width="75%" class="div-text-left">
+          <select ng-model="searchData.custNo">
+            <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+          </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%">状态:</td>
+          <td width="75%" class="div-text-left">
+          <select ng-model="searchData.templateAuditStatus">
+            <option value="">---所有状态---</option>
+            <option ng-repeat="item in auditStatusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.templateAuditStatus == item.value"></option>
+          </select>
+          </td>
+        </tr>
+      </table>
+      <div class="center-buttons">
+        <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+      </div>
+
+    <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+            <tr class="result-head">
+              <td width="20%">申请编号</td>
+              <td width="30%">标准合同名称</td>
+              <td width="20%">上传日期</td>
+              <td width="10%">当前状态</td>
+              <td width="10%">查看详情</td>
+              <td width="10%">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td class="red" ng-bind="item.originApplyNo"></td>
+            <td ng-bind="item.name"></td>
+            <td ng-bind="item.makeDate"></td>
+            <td ng-bind="item.templateAuditStatus|kindf:'ContractTemplateAuditStatus'"></td>
+            <td>
+              <a href="javascript:void(0);" ng-click="lookDetail(item);">查看详情</a>
+            </td>
+            <td>
+              <a href="javascript:void(0);" ng-show="item.templateAuditStatus == '00'" ng-click="auditDetail(item);">审核</a>
+              <span ng-show="item.templateAuditStatus != '00'">--</span>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="5">
+                <div bt-pagination conf="listPage" func="queryList(false)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+  </div>
+</div>
+
+<!-- 模态框 -->
+<div id="detail_box" bt-roll-modal="template/2_3/contract/eseal/temp/detail.html" bt-z-index="9991"></div>
+<div id="keywordDetail_box" bt-roll-modal="template/2_3/contract/eseal/temp/keywordDetail.html" bt-z-index="9991"></div>
+<div id="auditDetail_box" bt-roll-modal="template/2_3/contract/eseal/temp/audit.html" bt-z-index="9991"></div>

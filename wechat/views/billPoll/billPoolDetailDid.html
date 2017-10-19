@@ -1,0 +1,52 @@
+<h3 class="title-h3">商业承兑汇票（纸票）<small class="color-red">状态</small></h3>
+<div class="pjce">
+	<ul>
+		<li>
+			<p><span>持票人：</span>{{info.buyer}}</p>
+			<p><span>汇票编号：</span>{{info.billNo}}</p>
+			<p><span>汇票金额(元)：</span>2017-02-12 至 2017-02-25</p>
+			<p><span>有效期从：</span>{{info.suppBankAccount}}</p>
+			<p class="inlint"><span>付款方：</span>{{info.billMode|kindf:'BillMode'}}</p>
+			<p><span>付款账号：</span>{{info.buyer}}</p>
+			<p><span>开户行：</span>{{info.buyerBankAccount}}</p>
+			<p class="inlint"><span>收款方：</span>{{info.billMode|kindf:'BillMode'}}</p>
+			<p><span>收款账号：</span>{{info.buyer}}</p>
+			<p><span>开户行：</span>{{info.buyerBankAccount}}</p>
+		</li>
+	</ul>
+</div>
+
+
+<h3 class="title-h3">应收账款附件</h3>
+
+<div class="mui-row ac-grid upload-wrap margin-bottom-50">
+	<div class="mui-col-sm-4 mui-col-xs-4">
+		<div class="upload-img" ng-click="preImg(upLoadList.CustBizLicenseFile);">
+			<img ng-src="{{upLoadList.CustBizLicenseFile.id|downf}}" alt="">
+		</div>
+	</div>
+	<div class="mui-col-sm-4 mui-col-xs-4">
+		<div class="upload-img" ng-click="preImg(upLoadList.CustBizLicenseFile);">
+			<img ng-src="{{upLoadList.CustBizLicenseFile.id|downf}}" alt="">
+		</div>
+	</div>
+	<div class="mui-col-sm-4 mui-col-xs-4">
+		<div class="upload-img" ng-click="preImg(upLoadList.CustBizLicenseFile);">
+			<img ng-src="{{upLoadList.CustBizLicenseFile.id|downf}}" alt="">
+		</div>
+	</div>
+
+</div>
+
+
+
+<div class="mAito comp position-fixed-bottom width-100 box-shadow-gray">
+	<ul class="clearfix">
+		<li ng-click="goDidFlow()">
+			<a href="#/financeBusi/detail/{{item.requestNo}}" class="background-blue color-white border-none">
+				<span>查看融资详情</span>
+				<i class="ico ico14"></i>
+			</a>
+		</li>
+	</ul>
+</div>

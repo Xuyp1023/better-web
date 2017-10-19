@@ -1,0 +1,179 @@
+  <div class="row-fluid detail-info div-center">
+        <!-- 应收账款 -->
+    <div ng-show="listSelect=='1'">
+        <h1 class="content-title-1 content-title-condensed content-title-blue">
+          <img src="img/fast_money.png" alt="">选择应收账款            
+        </h1>                 
+        <table id="order_list_table" class="div-width-100 table table-striped table-hover search-result main-list">          
+            <thead>
+              <tr class="result-head-gray">
+                <td width="8%">选择</td>
+                <td width="10%">凭证编号</td>
+                <td width="15%">账款编号</td>
+                <td width="15%">账款金额</td>
+                <td width="15%">账款余额</td>
+                <td width="15%">结算日期</td>
+                <td width="10%">发票号</td>              
+                <td width="12%">贸易合同号</td>       
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in accountList" ng-repeat-end="" ng-class="{even:$even}" class="ng-scope">
+                <td>
+                  <input type="checkbox" ng-model="item.selectOne">
+                </td>
+                <td class="ng-binding" ng-bind="item.refNo"></td>
+                <td ng-bind="item.receivableNo" class="ng-binding"></td>
+                <td ng-bind="item.balance" class="ng-binding"></td>
+                <td ng-bind="item.surplusBalance" class="ng-binding"></td>
+                <td ng-bind="item.endDate" class="ng-binding"></td>
+                <td ng-bind="item.invoiceNos" class="ng-binding"></td>             
+                <td ng-bind="item.agreeNo"></td>
+             </tr>           
+            </tbody>
+            <tfoot>
+                <td colspan="10">                  
+                    <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                </td>
+            </tfoot>
+         </table>
+         <div class="center-buttons">
+            <button class="btn btn-primary" bt-close-modal>返回</button>
+            <button class="btn btn-primary" ng-click="pushSelected($event.target,0)">选择</button>
+        </div> 
+     </div>
+
+       <!-- 贸易合同 -->
+    <div ng-show="listSelect=='2'">
+        <table id="order_list_table" class="div-width-100 table table-striped table-hover search-result main-list" >
+          <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">贸易合同</span>        
+          </caption>
+          <thead>
+            <tr class="result-head-gray">
+              <td width="8%">选择</td>
+              <td width="11%">凭证编号</td>
+              <td width="11%">合同编号</td>
+              <td width="15%">合同名称</td>
+              <td width="15%">合同金额</td>
+              <td width="15%">签订日期</td>
+              <td width="17%">到期日期</td>              
+              <td width="8%">操作</td>          
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in contractList" ng-repeat-end="" ng-class="{even:$even}" class="ng-scope">
+              <td>
+                  <input type="checkbox" ng-model="item.selectOne">
+              </td>
+              <td class="ng-binding" ng-bind="item.refNo"></td>
+              <td ng-bind="item.agreeNo" class="ng-binding"></td>
+              <td ng-bind="item.agreeName" class="ng-binding"></td>
+              <td ng-bind="item.balance" class="ng-binding"></td>
+              <td ng-bind="item.signDate" class="ng-binding"></td>
+              <td ng-bind="item.agreeEndDate" class="ng-binding"></td>      
+              <td>            
+                <a href="javascript:void(0);" ng-click="detailBox(item);">详情</a>  
+              </td>             
+           </tr>           
+          </tbody>
+          <tfoot>
+                  <td colspan="10">
+                      <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                  </td>
+          </tfoot>      
+       </table> 
+       <div class="center-buttons">
+              <button class="btn btn-primary" bt-close-modal>返回</button>
+              <button class="btn btn-primary" ng-click="pushSelected($event.target,1)">选择</button>    
+      </div> 
+    </div>
+
+         <!-- 选择发票 -->
+    <div ng-show="listSelect=='3'">
+        <table id="order_list_table" class="div-width-100 table table-striped table-hover search-result main-list" >
+          <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">选择发票</span>        
+          </caption>
+          <thead>
+            <tr class="result-head-gray">
+              <td width="8%">选择</td>
+              <td width="32%">凭证编号</td>
+              <td width="20%">发票号码</td>
+              <td width="20%">发票金额</td>
+              <td width="20%">开票日期</td>                    
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in billList" ng-repeat-end="" ng-class="{even:$even}" class="ng-scope">
+              <td>
+                  <input type="checkbox" ng-model="item.selectOne">
+              </td>
+              <td class="ng-binding" ng-bind="item.refNo"></td>
+              <td ng-bind="item.invoiceNo" class="ng-binding"></td>
+              <td ng-bind="item.balance" class="ng-binding"></td>
+              <td ng-bind="item.invoiceDate" class="ng-binding"></td>                  
+           </tr>           
+          </tbody>
+          <tfoot>
+                  <td colspan="10">
+                      
+                      <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                  </td>
+          </tfoot>      
+       </table> 
+       <div class="center-buttons">
+              <button class="btn btn-primary" bt-close-modal>返回</button>
+              <button class="btn btn-primary" ng-click="pushSelected($event.target,2)">选择</button>    
+      </div> 
+    </div>
+
+      <!-- 选择采购订单 -->
+    <div ng-show="listSelect=='4'">
+        <h1 class="content-title-1 content-title-condensed content-title-blue">
+          <img src="img/fast_money.png" alt="">选择采购订单           
+        </h1>                 
+        <table id="order_list_table" class="div-width-100 table table-striped table-hover search-result main-list">          
+            <thead>
+              <tr class="result-head-gray">
+                <td width="8%">选择</td>
+                <td width="10%">凭证编号</td>
+                <td width="15%">订单编号</td>
+                <td width="15%">订单日期</td>
+                <td width="15%">商品名称</td>
+                <td width="15%">金额</td>
+                <td width="10%">单价</td>              
+                <td width="12%">数量</td>       
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in orderList" ng-repeat-end="" ng-class="{even:$even}" class="ng-scope">
+                <td>
+                  <input type="checkbox" ng-model="item.selectOne">
+                </td>
+                <td class="ng-binding" ng-bind="item.refNo"></td>
+                <td ng-bind="item.orderNo" class="ng-binding"></td>
+                <td ng-bind="item.orderDate" class="ng-binding"></td>
+                <td ng-bind="item.goodsName" class="ng-binding"></td>
+                <td ng-bind="item.balance" class="ng-binding"></td>
+                <td ng-bind="item.unit" class="ng-binding"></td>             
+                <td ng-bind="item.amount"></td>
+             </tr>           
+            </tbody>
+            <tfoot>
+                <td colspan="10">
+                    <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                </td>
+            </tfoot>
+         </table>
+         <div class="center-buttons">
+            <button class="btn btn-primary" bt-close-modal>返回</button>
+            <button class="btn btn-primary" ng-click="pushSelected($event.target,3)">选择</button>
+        </div> 
+     </div>
+  </div>
+  
+
+
+  
+

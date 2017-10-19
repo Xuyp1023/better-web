@@ -1,0 +1,115 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      银行账户列表变更审核
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">银行账户列表变更详情</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%"></td>
+            <td width="35%">改前值</td>
+            <td width="35%">改后值</td>
+            <td width="10%">是否改变</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{true: 'red'}[accountInfo.nowData.bankAccoName!=accountInfo.befData.bankAccoName]">
+            <td >银行账户名</td>
+            <td ng-bind="accountInfo.befData.bankAccoName"></td>
+            <td ng-bind="accountInfo.nowData.bankAccoName"></td>
+            <td ng-bind="accountInfo.nowData.bankAccoName!=accountInfo.befData.bankAccoName?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[accountInfo.nowData.bankAcco!=accountInfo.befData.bankAcco]">
+            <td >银行账户</td>
+            <td ng-bind="accountInfo.befData.bankAcco"></td>
+            <td ng-bind="accountInfo.nowData.bankAcco"></td>
+            <td ng-bind="accountInfo.nowData.bankAcco!=accountInfo.befData.bankAcco?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[accountInfo.nowData.bankNo!=accountInfo.befData.bankNo]">
+            <td >所属银行</td>
+            <td ng-bind="accountInfo.befData.bankNo|kindf:'SaleBankCode'"></td>
+            <td ng-bind="accountInfo.nowData.bankNo|kindf:'SaleBankCode'"></td>
+            <td ng-bind="accountInfo.nowData.bankNo!=accountInfo.befData.bankNo?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[accountInfo.nowData.cityNo!=accountInfo.befData.cityNo]">
+            <td >开户行所在地</td>
+            <td ng-bind="accountInfo.befData.cityNo|areaf"></td>
+            <td ng-bind="accountInfo.nowData.cityNo|areaf"></td>
+            <td ng-bind="accountInfo.nowData.cityNo!=accountInfo.befData.cityNo?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[accountInfo.nowData.bankName!=accountInfo.befData.bankName]">
+            <td >开户银行（全称）</td>
+            <td ng-bind="accountInfo.befData.bankName"></td>
+            <td ng-bind="accountInfo.nowData.bankName"></td>
+            <td ng-bind="accountInfo.nowData.bankName!=accountInfo.befData.bankName?'是':'否'"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 变更前附件列表 -->
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">银行账户附件(变更前)</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%">序号</td>
+            <td width="35%">附件类型</td>
+            <td width="35%">附件名称</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="file in accountUploadList_bef" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="$index+1"></td>
+            <td>银行账户附件</td>
+            <td>
+              <a href=""><span ng-bind="file.fileName"></span></a>
+            </td>
+            <td><a href="{{file.id|downf}}">下载</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <!-- 变更后附件列表 -->
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">银行账户附件(变更后)</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%">序号</td>
+            <td width="35%">附件类型</td>
+            <td width="35%">附件名称</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="file in accountUploadList_now" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="$index+1"></td>
+            <td>银行账户附件</td>
+            <td>
+              <a href=""><span ng-bind="file.fileName"></span></a>
+            </td>
+            <td><a href="{{file.id|downf}}">下载</a></td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

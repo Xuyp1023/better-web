@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>付款计划</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf/css/paymentPlan.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/fast_money.png" alt="">付款查询
+              <small class="small-select">
+                <span>选择账户</span>
+                <select ng-model="searchData.custNo" ng-change="changeCust();">
+                  <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+                </select>
+              </small>
+            </h1>
+            <table class="table table-condensed div-width-60 div-center search-table">
+              <tr>
+                <td width="15%">付款时间:</td>
+<!--                 <td width="15%"><span objValue="allDate" class="double-check-sp">全部</span></td> -->
+                <td width="70%" class="date div-text-left">
+                  <input type="text" id="begin_date" class="Wdate" readonly="true" dateData="searchData" dateName="GTEendDate" ng-model="searchData.GTEendDate" onclick="WdatePicker({startDate:'%y-%M-%d',maxDate:'#F{$dp.$D(\'end_date\')}',dateFmt:'yyyy-MM-dd',readOnly:true});" ng-focus="dateEmitter.changeDateInfo($event)"> - <input  id="end_date" class="Wdate" readonly="true" dateData="searchData" dateName="LTEendDate" type="text" ng-model="searchData.LTEendDate" onclick="WdatePicker({startDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'begin_date\')}',dateFmt:'yyyy-MM-dd',readOnly:true});" ng-focus="dateEmitter.changeDateInfo($event)">
+                </td>
+              </tr>
+              <tr>
+                <td>保理编号:</td>
+                <td class="div-text-left">
+                <input type="text" ng-model="searchData.factorRequestNo">
+                </td>
+              </tr>
+              <!-- <tr>
+                <td>提现单号:</td>
+                <td class="div-text-left">
+                <input type="text" ng-model="searchData.reCode">
+                </td>
+              </tr> -->
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+              付款计划
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr class="font-size-12 info-title">
+                  <td width="20%">保理公司业务号</td>
+                  <td width="10%">保理产品</td>
+                  <!-- <td width="11.5%">付款状态</td> -->
+                  <!-- <td width="11.5%">提现申请单号</td> -->
+                  <td width="18%">付款单位</td>
+                  <td width="10.5%">实际放款金额(元)</td>
+                  <td width="10.5%">实际付款金额(元)</td>
+                  <td width="10.5%">待付款金额(元)</td>
+                  <td width="7%">是否逾期</td>
+                  <td width="11%">付款日期</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in infoList" ng-class="{even:$even}">
+                  <td class="red" ng-bind="item.factorRequestNo"></td>
+                  <td ng-bind="item.productName"></td>
+                  <!-- <td ng-bind="item.cashRequestNo"></td> -->
+                  <td ng-bind="item.supplier"></td>
+                  <td ng-bind="item.loanBalance|moneyFilter"></td>
+                  <td><strong class="green" ng-bind="item.repayment|moneyFilter"></strong></td>
+                  <td><strong class="red" ng-bind="(item.confirmBalance-item.repayment)+''|moneyFilter"></strong></td>
+                  <td >
+                    <strong class="red" ng-show="item.tradeStatus === '7'">已逾期</strong>
+                    <span ng-hide="item.tradeStatus === '7'" class="green">未逾期</span>
+                  </td>
+                  <td ng-bind="item.endDate"></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                  <td colspan="9">
+                    <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                      <ul>
+                        <li class="previous hidden" ng-show="listPage.pageNum<=1"><span>首页</span></li>
+                        <li class="previous" ng-show="listPage.pageNum>1" ng-click="pageEmitter.firstPage()"><a href="#">首页</a></span></li>
+                        <li class="previous hidden" ng-show="listPage.pageNum<=1"><span>上一页</span></li>
+                        <li class="previous" ng-show="listPage.pageNum>1" ng-click="pageEmitter.prevPage()"><a href="#">上一页</a></li>
+                        <li class="next hidden" ng-show="listPage.pageNum>=listPage.pages"><span>下一页</span></li>
+                        <li class="next" ng-show="listPage.pageNum<listPage.pages" ng-click="pageEmitter.nextPage()"><a href="#">下一页</a></li>
+                        <li class="next hidden" ng-show="listPage.pageNum>=listPage.pages"><span>尾页</span></li>
+                        <li class="next" ng-show="listPage.pageNum<listPage.pages" ng-click="pageEmitter.endPage()"><a href="#">尾页</a></li>
+                        <li>共<span ng-bind="listPage.pageNum"></span>/<span ng-bind="listPage.pages"></span>页</li>
+                        <li>共<span ng-bind="listPage.total"></span>条记录</li>
+                        <li class="toPage">
+                            <div>
+                              <span>跳转到</span>
+                              <input type="text" name="skipToPageNum" ng-disabled="listPage.pages<=1">
+                              <span>页</span>
+                              <button class="btn" ng-disabled="listPage.pages<=1" ng-click="skipPage()">跳转</button>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+              </tfoot>
+            </table>
+
+          </div>
+        
+
+        <div id="fix_operator_info_box" class="div-width-100 hide">
+        <div class="div-width-90 div-center detail-box">
+          <h1 class="content-title-1 content-title-condensed"><img src="../../img/operator.png" alt="">
+            付款详情
+            <small>
+              <span class="subtitle">提现单号：</span><span class="red">sd001</span>
+              <span class="subtitle">下期付款日：</span><span class="red">2016/01/20</span>
+            </small>
+          </h1>
+
+          <div id="repay_serach_way" class="row-fluid">
+            <table class="table table-condensed div-width-60 div-center search-table">
+              <tr>
+                <td width="15%">付款时间:</td>
+<!--                 <td width="15%"><span objValue="allDate" class="double-check-sp">全部</span></td> -->
+                <td width="70%" class="date div-text-left">
+                  <input type="text" id="begin_box_date" readonly="true" dateData="searchData" dateName="GTEtradeDate" ng-model="searchData.GTEtradeDate" onclick="WdatePicker({startDate:'%y-%M-%d',maxDate:'#F{$dp.$D(\'end_date\')}',dateFmt:'yyyy-MM-dd',readOnly:true});" ng-focus="dateEmitter.changeDateInfo($event)"> - <input  id="end_box_date" readonly="true" dateData="searchData" dateName="LTEtradeDate" type="text" ng-model="searchData.LTEtradeDate" onclick="WdatePicker({startDate:'%y-%M-%d',maxDate:'#F{$dp.$D(\'end_date\')}',dateFmt:'yyyy-MM-dd',readOnly:true});" ng-focus="dateEmitter.changeDateInfo($event)">
+                </td>
+              </tr>
+              <tr>
+                <td>付款状态:</td>
+                <td class="div-text-left">
+                  <select>
+                    <option value="0">未付款</option>
+                    <option value="0">已付款</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" data-bind="click:searchTrade">查询</button>
+            </div>
+          </div>
+
+          <div id="serch_repay_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+              付款计划表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr>
+                  <td width="11%">付款单号</td>
+                  <td width="11%">本金(元)</td>
+                  <td width="11%">利息(元)</td>
+                  <td width="11%">罚息(元)</td>
+                  <td width="11%">付款总金额(元)</td>
+                  <td width="11%">付款时间</td>
+                  <td width="11%">付款状态</td>
+                  <td width="11%">实际付款时间</td>
+                </tr>
+              </thead>
+              <tbody data-bind="foreach:operListBind">
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td>01</td>
+                  <td>2,000.00</td>
+                  <td>20.00</td>
+                  <td>0.00</td>
+                  <td>5050.00</td>
+                  <td>2016-02-09</td>
+                  <td>已还完</td>
+                  <td>2016-02-01</td>
+                </tr>
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td>02</td>
+                  <td>2,000.00</td>
+                  <td>20.00</td>
+                  <td>0.00</td>
+                  <td>5050.00</td>
+                  <td>2016-03-09</td>
+                  <td>已还完</td>
+                  <td>2016-03-01</td>
+                </tr>
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td>03</td>
+                  <td>2,000.00</td>
+                  <td>20.00</td>
+                  <td>0.00</td>
+                  <td>5050.00</td>
+                  <td>2016-04-09</td>
+                  <td>已还完</td>
+                  <td>2016-04-01</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                  <td colspan="9">
+                    <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                      <ul>
+                        <li class="previous hidden" ng-show="listPage.pageNum<=1"><span>首页</span></li>
+                        <li class="previous" ng-show="listPage.pageNum>1" ng-click="pageEmitter.firstPage()"><a href="#">首页</a></span></li>
+                        <li class="previous hidden" ng-show="listPage.pageNum<=1"><span>上一页</span></li>
+                        <li class="previous" ng-show="listPage.pageNum>1" ng-click="pageEmitter.prevPage()"><a href="#">上一页</a></li>
+                        <li class="next hidden" ng-show="listPage.pageNum>=listPage.pages"><span>下一页</span></li>
+                        <li class="next" ng-show="listPage.pageNum<listPage.pages" ng-click="pageEmitter.nextPage()"><a href="#">下一页</a></li>
+                        <li class="next hidden" ng-show="listPage.pageNum>=listPage.pages"><span>尾页</span></li>
+                        <li class="next" ng-show="listPage.pageNum<listPage.pages" ng-click="pageEmitter.endPage()"><a href="#">尾页</a></li>
+                        <li>共<span ng-bind="listPage.pageNum"></span>/<span ng-bind="listPage.pages"></span>页</li>
+                        <li>共<span ng-bind="listPage.total"></span>条记录</li>
+                        <li class="toPage">
+                            <div>
+                              <span>跳转到</span>
+                              <input type="text" name="skipToPageNum" ng-disabled="listPage.pages<=1">
+                              <span>页</span>
+                              <button class="btn" ng-disabled="listPage.pages<=1" ng-click="skipPage()">跳转</button>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="center-buttons">
+            <button class="btn btn-primary" data-bind="click:addOper">确定</button>
+            <button class="btn btn-primary" data-bind="click:reset">重置</button>
+            <button class="btn btn-primary" ng-click="backForward();">返回</button>
+          </div>
+        </div>
+        </div>
+
+        <!-- 温馨提示 -->
+        <div id="warm_prompt_box" class="div-width-100">
+          <h1 class="prompt-title">
+            <img class="prompt-icon" src="../../img/warm_prompt.png" alt="">
+            温馨提示
+          </h1>
+          <div class="warm-prompt-content">
+            <p>1.核心企业已经确认的需要支付的所有供应商付款详细列表，请核心企业务必按照付款日期支付应付款项，否则将影响企业授信。</p>
+          </div>
+        </div>
+        <!-- 温馨提示END -->
+        
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("../../provider_dev/src/paymentPlan");
+      }
+      // For production
+      else {
+        seajs.use("p/provider/1.0.0/paymentPlan");
+      } 
+  </script>
+  </body>
+</html>

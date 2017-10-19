@@ -1,0 +1,21 @@
+
+<div class="mpLt margin-bottom-50">
+  <ul>
+      <li ng-repeat="item in auditRecord">
+          <div class="ti">
+              <strong class="font-15">{{item.auditResult|kindf:'WorkFlowAuditResultType'}}</strong>
+              <strong ng-show="$index === 0" class="badge border-radius-9 color-white background-green">New</strong>
+            </div>
+            <div class="bi"></div>
+            <div class="ci">
+              <p class="con">审批机构：{{item.custName}}</p>
+              <p class="con">审批人：{{item.operName}}</p>
+              <p class="con">审批节点：{{item.nodeName}}</p>
+              <p class="con">审批步骤：{{item.stepName?item.stepName:'---'}}</p>
+              <p class="con">审批内容：{{item.auditContent}}</p>
+              <p class="time">审批时间：{{item.auditDate + ' ' + item.auditTime}}</p>
+            </div>
+        </li>
+    </ul>
+    <div ng-page="listPage" func="queryList(false)" class="more"></div>
+</div>

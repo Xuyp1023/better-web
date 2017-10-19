@@ -1,0 +1,112 @@
+<div class="div-width-90 div-center detail-box">
+  <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt=""> 操作员信息管理
+  </h1>
+
+  <div class="row-fluid detail-info div-center">
+    <table class="div-width-100 table table-striped table-hover table-bordered big-input table-form">
+      <tr>
+        <td width="15%"><span class="required">*</span>经办人姓名</td>
+        <td width="35%" class="div-text-left"><input type="text" name="name" valid="{'required':true}" ng-model="info.name"></td>
+        <td width="15%"><span class="required">*</span>证件类型</td>
+        <td width="35%" class="div-text-left">
+          <select ng-model="info.contIdentType">
+              <option ng-repeat="item in identType" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.contIdentType == item.value"></option>
+            </select>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="required">*</span>证件号码</td>
+        <td class="div-text-left"><input type="text" name="contIdentNo" valid="{'required':true}" ng-model="info.contIdentNo"></td>
+        <td><span class="required">*</span>证件有效期</td>
+        <td class="div-text-left date">
+          <input type="text" bt-date="info.contCertValidDate">
+          <span ng-max-date>长期有效</span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="required">*</span>邮政编码</td>
+        <td class="div-text-left"><input type="text" name="zipCode" valid="{'required':true}" ng-model="info.zipCode"></td>
+        <td><span class="required">*</span>通讯地址</td>
+        <td class="div-text-left"><input type="text" name="address" valid="{'required':true}" ng-model="info.address"></td>
+      </tr>
+      <tr>
+        <td><span class="required">*</span>联系电话</td>
+        <td class="div-text-left"><input type="text" name="phone" valid="{'required':true}" ng-model="info.phone"></td>
+        <td><span class="required">*</span>传真号码</td>
+        <td class="div-text-left"><input type="text" name="faxNo" ng-model="info.faxNo"></td>
+      </tr>
+      <tr>
+        <td><span class="required">*</span>手机号码</td>
+        <td class="div-text-left"><input type="text" name="mobileNo" valid="{'required':true}" ng-model="info.mobileNo"></td>
+        <td><span class="required">*</span>邮箱地址</td>
+        <td class="div-text-left"><input type="text" name="email" valid="{'required':true}" ng-model="info.email"></td>
+      </tr>
+      <tr>
+        <td><span class="required">*</span>登录账户</td>
+        <td class="div-text-left"><input type="text" name="operCode" valid="{'required':true}" ng-model="info.operCode"></td>
+        <td>对外经办人</td>
+        <td class="div-text-left"><input type="checkbox" name="clerkMan" ng-model="info.clerkMan" ng-true-value="1" ng-false-value="0"></td>
+      </tr>
+      <tr ng-show="info.clerkMan">
+        <td><span class="required">*</span>经办人身份证</td>
+        <td colspan="3">
+          <table class="table table-condensed table-intable">
+            <tr>
+              <td width="20%">头像面件</td>
+              <td width="50%" ng-bind="BrokerIdHeadFile.fileName"></td>
+              <td width="30%">
+                  <a href="javascript:void(0);" ng-show="!BrokerIdHeadFile.id" ng-click="openOperatorUpload($event,'BrokerIdHeadFile','经办人身份证-头像面件','BrokerIdHeadFile');">上传</a>
+                  <a href="{{BrokerIdHeadFile.id|downf}}" ng-show="BrokerIdHeadFile.id">下载</a>
+                  <a href="javascript:void(0);" ng-show="BrokerIdHeadFile.id" ng-click="delUploadItem('BrokerIdHeadFile');">移除</a>
+              </td>
+            </tr>
+            <tr>
+              <td width="20%">反面</td>
+              <td width="50%" ng-bind="BrokerIdNationFile.fileName"></td>
+              <td width="30%">
+                  <a href="javascript:void(0);" ng-show="!BrokerIdNationFile.id" ng-click="openOperatorUpload($event,'BrokerIdNationFile','经办人身份证-反面','BrokerIdNationFile');">上传</a>
+                  <a href="{{BrokerIdNationFile.id|downf}}" ng-show="BrokerIdNationFile.id">下载</a>
+                  <a href="javascript:void(0);" ng-show="BrokerIdNationFile.id" ng-click="delUploadItem('BrokerIdNationFile');">移除</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="required">*</span>用户密码</td>
+        <td class="div-text-left"><input type="password" name="password" valid="{'required':true}" ng-model="info.password"></td>
+        <td><span class="required">*</span>确认密码</td>
+        <td class="div-text-left"><input type="password" name="repassword" valid="{'required':true}" ng-model="info.repassword"></td>
+      </tr>
+      <tr>
+        <td><span class="required">*</span>机构名称：</td>
+        <td colspan="3">
+          <table mapping="checkboxCustGroup" class="table table-condensed table-intable">
+            <tr ng-class="{even:$even}" ng-repeat="item in custInfoList" ng-repeat-end>
+              <td width="25%" ng-repeat="child in item">
+                <label><input type="checkbox" name="custList" value="{{child.value}}" ng-checked="child.checked"><span ng-bind="child.name"></span></label>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="required">*</span>操作员角色</td>
+        <td colspan="3">
+          <table mapping="checkboxGroup" class="table table-condensed table-intable">
+            <tr ng-class="{even:$even}" ng-repeat="item in roleList" ng-repeat-end>
+              <td width="25%" ng-repeat="child in item">
+                <label ng-click="info.ruleList = child.value+'';"><i ng-class="{ico:true,ico8:true,ico7:(info.ruleList === child.value+'')}"></i><span ng-bind="child.name"></span></label>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="center-buttons">
+    <button class="btn btn-primary" ng-click="addInfo($event.target);">提交</button>
+    <button class="btn btn-primary" bt-close-modal>返回</button>
+  </div>
+</div>

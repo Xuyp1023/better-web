@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>机构投资者风险承受力调查问卷</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/report.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="testController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/info-title-icon.png" alt="">风险特征评估
+                <small class="small-select">
+                  <span>基金机构: </span>
+                  <select name="" id="fund_partment" data-bind="">
+                  </select>
+                  <span>交易账户: </span>
+                  <select name="" id="trade_account" data-bind="">
+                  </select>
+                </small>
+            </h1>
+            <p><strong>您当前的风险等级为：</strong><span data-bind="text:evaluateDataBind().gradeInfo"></span></p>
+            <p><strong>风险等级描述：</strong><span data-bind="text:evaluateDataBind().description"></span></p><br>
+
+            <p>尊敬的客户：</p>
+            <p class="tab2em">根据中国证监会颁布的《证券投资基金销售管理办法》、《证券投资基金销售适用性指导意见》等法规的要求，我司作为基金销售机构，应当基金投资人的风险承受能力进行调查和评价，并且定期或不定期地提示基金投资人进行风险承受能力调查的更新。为此，我司制作了《机构投资者风险承受力调查问卷》对您的风险承受能力进行评测，请您根据实际情况如实填写。（所有题目均为单选）</p>
+
+            <h3>机构投资者风险承受力调查问卷</h3>
+
+            <form action="#">
+              <p required="true">1.贵机构进行证券投资主要基于哪些方面的考虑<br/>
+                <input type="radio" id="1incomeA" name="reason" value="1" data-bind="checked:evaluateDataBind().reason"/>
+                <label for="1incomeA" >公司现金充裕，寻找其它投资渠道</label><br/>
+                <input type="radio" id="1incomeB" name="reason" value="2" data-bind="checked:evaluateDataBind().reason"/>
+                <label for="1incomeB" >短期具有闲置资金，适当进行证券投资</label><br/>
+                <input type="radio" id="1incomeC" name="reason" value="3" data-bind="checked:evaluateDataBind().reason"/>
+                <label for="1incomeC" >获取更高投资收益 </label><br/>
+                <input type="radio" id="1incomeD" name="reason" value="4" data-bind="checked:evaluateDataBind().reason"/>
+                <label for="1incomeD" >目前证券市场投资机会大</label><br/>
+              </p>
+              <p required="true">2.贵机构投资证券或基金的年限<br/>
+                <input type="radio" id="2incomeA" name="invest_years" value="1" data-bind="checked:evaluateDataBind().invest_years"/>
+                <label for="2incomeA">未运作</label><br/>
+                <input type="radio" id="2incomeB" name="invest_years" value="2" data-bind="checked:evaluateDataBind().invest_years"/>
+                <label for="2incomeB">1年</label><br/>
+                <input type="radio" id="2incomeC" name="invest_years" value="3" data-bind="checked:evaluateDataBind().invest_years"/>
+                <label for="2incomeC">1年以上(含1年)，5年以下 </label><br/>
+                <input type="radio" id="2incomeD" name="invest_years" value="4" data-bind="checked:evaluateDataBind().invest_years"/>
+                <label for="2incomeD">5年以上(含5年)</label><br/>
+              </p>
+              <p required="true">3.贵机构本笔投资追求的投资目标是什么<br/>
+                <input type="radio" id="3incomeA" name="target" value="1" data-bind="checked:evaluateDataBind().target"/>
+                <label for="3incomeA">保本</label><br/>
+                <input type="radio" id="3incomeB" name="target" value="2" data-bind="checked:evaluateDataBind().target"/>
+                <label for="3incomeB">安全地增值</label><br/>
+                <input type="radio" id="3incomeC" name="target" value="3" data-bind="checked:evaluateDataBind().target"/>
+                <label for="3incomeC">显著的增值 </label><br/>
+                <input type="radio" id="3incomeD" name="target" value="4" data-bind="checked:evaluateDataBind().target"/>
+                <label for="3incomeD">非常大的增值</label><br/>
+              </p>
+              <p required="true">4.贵机构预期本笔资金可进行投资的年限是多久 <br/>
+                <input type="radio" id="4incomeA" name="time" value="1" data-bind="checked:evaluateDataBind().time"/>
+                <label for="4incomeA">1年以下</label><br/>
+                <input type="radio" id="4incomeB" name="time" value="2" data-bind="checked:evaluateDataBind().time"/>
+                <label for="4incomeB">1～2年(含1年)</label><br/>
+                <input type="radio" id="4incomeC" name="time" value="3" data-bind="checked:evaluateDataBind().time"/>
+                <label for="4incomeC">2～3年(含2年) </label><br/>
+                <input type="radio" id="4incomeD" name="time" value="4" data-bind="checked:evaluateDataBind().time"/>
+                <label for="4incomeD">3年以上(含3年)</label><br/>
+              </p>
+              <p required="true">5.目前可使用的投资资金为多少<br/>
+                <input type="radio" id="5incomeA" name="fund_number" value="1" data-bind="checked:evaluateDataBind().fund_number"/>
+                <label for="5incomeA">一千万人民币以下</label><br/>
+                <input type="radio" id="5incomeB" name="fund_number" value="2" data-bind="checked:evaluateDataBind().fund_number"/>
+                <label for="5incomeB">一千万至五千万人民币</label><br/>
+                <input type="radio" id="5incomeC" name="fund_number" value="3" data-bind="checked:evaluateDataBind().fund_number"/>
+                <label for="5incomeC">五千万至一亿人民币 </label><br/>
+                <input type="radio" id="5incomeD" name="fund_number" value="4" data-bind="checked:evaluateDataBind().fund_number"/>
+                <label for="5incomeD">一亿人民币以上</label><br/>
+              </p>
+              <p required="true">6.半年内可承受的最大损失和最高收益<br/>
+                <input type="radio" id="6incomeA" name="oneincome_loss" value="1" data-bind="checked:evaluateDataBind().oneincome_loss"/>
+                <label for="6incomeA">最高收益10%，最大损失5%</label><br/>
+                <input type="radio" id="6incomeB" name="oneincome_loss" value="2" data-bind="checked:evaluateDataBind().oneincome_loss"/>
+                <label for="6incomeB">最高收益20%，最大损失10%</label><br/>
+                <input type="radio" id="6incomeC" name="oneincome_loss" value="3" data-bind="checked:evaluateDataBind().oneincome_loss"/>
+                <label for="6incomeC">最高收益40%，最大损失30%</label><br/>
+                <input type="radio" id="6incomeD" name="oneincome_loss" value="4" data-bind="checked:evaluateDataBind().oneincome_loss"/>
+                <label for="6incomeD">最高收益60%，最大损失50%</label><br/>
+              </p>
+              <p required="true">7.三年内可承受的最大损失和最高收益<br/>
+                <input type="radio" id="7incomeA" name="thrincome_loss" value="1" data-bind="checked:evaluateDataBind().thrincome_loss"/>
+                <label for="7incomeA">最高收益10%，最大损失5%</label><br/>
+                <input type="radio" id="7incomeB" name="thrincome_loss" value="2" data-bind="checked:evaluateDataBind().thrincome_loss"/>
+                <label for="7incomeB">最高收益20%，最大损失10%</label><br/>
+                <input type="radio" id="7incomeC" name="thrincome_loss" value="3" data-bind="checked:evaluateDataBind().thrincome_loss"/>
+                <label for="7incomeC">最高收益40%，最大损失30%</label><br/>
+                <input type="radio" id="7incomeD" name="thrincome_loss" value="4" data-bind="checked:evaluateDataBind().thrincome_loss"/>
+                <label for="7incomeD">最高收益60%，最大损失50%</label><br/>
+              </p>
+            </form>
+
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle"  data-bind="click:submitReport">提交</button>
+            </div>
+  
+            <div id="tips">
+              <h4 id="prompt-title">
+              <img class="prompt-icon" src="../../img/warm_prompt.png" alt="">温馨提示
+              </h4>
+              <p>1.本机构已知悉本问卷的设计方法和评价说明，以及南方基金旗下各基金的风险等级；</p>
+              <p>2.本机构愿意接受此问卷的调查方法，并已如实回答；</p>
+              <p>3.本机构承诺在风险承受能力发生变化时，及时重新填写并提交此问卷；</p>
+              <p>4.如本机构所选择的基金产品风险等级超过我司的风险承受等级时，本机构确认此投资行为为本机构意愿行为，自行承担此投资的风险。</p>
+            </div>
+
+
+
+            <!-- 风险特征报告弹出框 -->
+            <div id="risk_level_box" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">风险评估报告</h3>
+              </div>
+              <div class="modal-body">
+                  <strong>您当前的风险等级为:</strong>
+                  <pre data-bind="text:evaluateDataBind().gradeInfo"></pre>
+                  <strong>风险等级描述:</strong>
+                  <pre data-bind="text:evaluateDataBind().description"></pre>
+              </div>
+              <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+              </div>
+            </div>
+            <!-- 风险特征报告弹出框END -->
+
+
+
+          </div>
+
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+  <script type="text/javascript">
+    window.reportVo = {
+      agencyNo:'201'
+    };
+  </script>
+	<script type="text/javascript">seajs.use('p/js/report')</script>
+  </body>
+</html>

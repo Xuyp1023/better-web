@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/*
+主页加载中特效
+@author binhg
+ */
+/* line 7, ../../../sass/libs/wechat/spinner.scss */
+.spinner {
+  margin: 180px auto 20px;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  font-size: 10px; }
+
+/* line 15, ../../../sass/libs/wechat/spinner.scss */
+.spinner-text {
+  font-weight: bold;
+  color: #006fcd;
+  text-align: center; }
+
+/* line 21, ../../../sass/libs/wechat/spinner.scss */
+.spinner > div {
+  background-color: #67CF22;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out; }
+
+/* line 30, ../../../sass/libs/wechat/spinner.scss */
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s; }
+
+/* line 35, ../../../sass/libs/wechat/spinner.scss */
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s; }
+
+/* line 40, ../../../sass/libs/wechat/spinner.scss */
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s; }
+
+/* line 45, ../../../sass/libs/wechat/spinner.scss */
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s; }
+
+/* line 50, ../../../sass/libs/wechat/spinner.scss */
+.spinner .rect6 {
+  -webkit-animation-delay: -0.7s;
+  animation-delay: -0.7s; }
+
+/* line 54, ../../../sass/libs/wechat/spinner.scss */
+.spinner .rect7 {
+  -webkit-animation-delay: -0.6s;
+  animation-delay: -0.6s; }
+
+/* line 58, ../../../sass/libs/wechat/spinner.scss */
+.spinner .rect8 {
+  -webkit-animation-delay: -0.5s;
+  animation-delay: -0.5s; }
+
+/* line 62, ../../../sass/libs/wechat/spinner.scss */
+.spinner .rect9 {
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s; }
+
+/* line 66, ../../../sass/libs/wechat/spinner.scss */
+.spinner .rect10 {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s; }
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% {
+    -webkit-transform: scaleY(0.4); }
+  20% {
+    -webkit-transform: scaleY(1); } }
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4); }
+  20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1); } }

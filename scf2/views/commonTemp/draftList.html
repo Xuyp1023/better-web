@@ -1,0 +1,106 @@
+<div class="div-width-90 detail-box div-center child-list">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+      关联汇票信息
+    </h1>
+    <form class="form-inline">
+      <label>
+        <span>核心企业：</span>
+        <select ng-model="childInfoSearch.coreCustNo">
+          <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="childInfoSearch.coreCustNo == item.value"></option>
+        </select>
+      </label>
+      <label>
+        <span>开票日期：</span>
+        <input type="text" id="draft_search_start_date" bt-date="childInfoSearch.GTEinvoiceDate" bt-max-date="draft_search_end_date"> - <input type="text" id="draft_search_end_date" bt-date="childInfoSearch.LTEinvoiceDate" bt-min-date="draft_search_start_date">
+      </label>
+      <label for="">
+        <button type="button" class="btn btn-primary" ng-click="searchChildInfoList('3');">查询</button>
+      </label>
+    </form>
+    <table class="table table-striped table-hover table-bordered big-input">
+      <thead class="result-td-head result-head-green">
+        <tr>
+          <td colspan="8" class="left">关联汇票信息</td>
+        </tr>
+      </thead>
+      <thead class="result-head-center">
+        <tr>
+          <td colspan="8">已选择列表</td>
+        </tr>
+      </thead>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="8.5%">操作</td>
+          <td width="14.5%">汇票编号</td>
+          <td width="12.5%">票据类型</td>
+          <td width="12.5%">票据金额</td>
+          <td width="14.5%">开票企业</td>
+          <td width="12.5%">开票日期</td>
+          <td width="12.5%">到期日期</td>
+          <td width="12.5%">确认企业</td>
+        </tr>
+      </thead>
+      <tbody ng-show="chilidInfoSelectPool.length<1">
+        <tr>
+          <td colspan="8" class="green">暂无已选项！</td>
+        </tr>
+      </tbody>
+      <tbody>
+          <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in chilidInfoSelectPool">
+            <td>
+              <a href="javascript:void(0)" ng-click="removeChildInfoPool(item);">移除</a>
+            </td>
+            <td ng-bind="item.billNo"></td>
+            <td ng-bind="item.billType|kindf:'BillNoteType'"></td>
+            <td class="red tab-text-right" ng-bind="item.balance|moneyFilter"></td>
+            <td ng-bind="item.coreCustNo|kindf:'CoreCustListDic'"></td>
+            <td ng-bind="item.invoiceDate"></td>
+            <td ng-bind="item.endDate"></td>
+            <td ng-bind="item.coreCustNo|kindf:'CoreCustListDic'"></td>
+          </tr>
+      </tbody>
+      <thead class="result-head-center">
+        <tr>
+          <td colspan="8">可选择列表</td>
+        </tr>
+      </thead>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="8.5%">操作</td>
+          <td width="14.5%">汇票编号</td>
+          <td width="12.5%">票据类型</td>
+          <td width="12.5%">票据金额</td>
+          <td width="14.5%">开票企业</td>
+          <td width="12.5%">开票日期</td>
+          <td width="12.5%">到期日期</td>
+          <td width="12.5%">确认企业</td>
+        </tr>
+      </thead>
+      <tbody>
+          <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in childInfoList">
+            <td>
+              <a href="javascript:void(0)" ng-hide="item.isInPool" ng-click="addChildInfoPool(item);">添加</a>
+              <span ng-show="item.isInPool" class="deep-gray">已添加</span>
+            </td>
+            <td ng-bind="item.billNo"></td>
+            <td ng-bind="item.billType|kindf:'BillNoteType'"></td>
+            <td class="red tab-text-right" ng-bind="item.balance|moneyFilter"></td>
+            <td ng-bind="item.coreCustNo|kindf:'CoreCustListDic'"></td>
+            <td ng-bind="item.invoiceDate"></td>
+            <td ng-bind="item.endDate"></td>
+            <td ng-bind="item.coreCustNo|kindf:'CoreCustListDic'"></td>
+          </tr>
+      </tbody>
+      <tfoot>
+        <td colspan="8">
+          <div bt-pagination conf="childInfoListPage" func="queryChildInfoList('3',false);"></div>
+        </td>
+      </tfoot>
+    </table>
+    <div>
+         <div class="center-buttons">
+           <button class="btn btn-primary" ng-click="linkChildInfoList($event.target,'3');">确定添加</button>
+           <button class="btn btn-primary" bt-close-modal >取消</button>
+         </div>
+    </div>
+</div> 

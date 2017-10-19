@@ -1,0 +1,52 @@
+<div class="div-width-90 detail-box div-center">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    客户电子印章详情
+  </h1>
+  <div  class="row-fluid div-center div-margin-top">
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">基本信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="30%" class="div-text-right">
+              <span class="required"></span>
+              <span class="title">客户名称:</span>
+            </td>
+            <td width="70%"><span ng-bind="detailInfo.custName"></span></td>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="title">印章名称:</span>
+            </td>
+            <td><span ng-bind="detailInfo.name"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required"></span>
+              <span class="title">原始印章:</span>
+            </td>
+            <td><a  href="{{detailInfo.originStamperId|downf}}"><span ng-bind="detailInfo.originStamperName"></span></a></td>
+          </tr>           
+          <tr>
+            <td class="div-text-right">
+              <span class="required"></span>
+              <span class="title">电子印章:</span>
+            </td>
+            <td><a  href="{{detailInfo.stamperId|downf}}"><span ng-bind="detailInfo.stamperName"></span></a></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="center-buttons" >
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+
+</div>
+      

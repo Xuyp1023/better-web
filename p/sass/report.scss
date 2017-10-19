@@ -1,0 +1,114 @@
+@charset "UTF-8";
+/* 用户资料页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+@import "common/pie";
+@import "common/pages";
+
+
+#container{
+	@include init;
+	@include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+	@include Spage_plugin;
+}
+
+#content{
+	@include plus-nav-tabs;
+	@include center-buttons;
+	@include td-input-width(95%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+	@include double-check;
+}
+
+
+#fund_search_way{
+	.content-title-1{
+		border-bottom:2px solid #248AC9;
+	}
+	
+	.center-buttons{
+		margin-top:15px;
+		margin-bottom:10px;
+	}
+
+	p{
+		margin:10px;
+	}
+	h3{
+		text-align: center;
+		margin:20px;
+	}
+	label{
+		display: inline-block;
+	}
+	input{
+		margin:10px;
+		margin-right: 5px;
+	}
+	.prompt-icon{
+		width: 20px;
+		height: 20px;
+	}
+	#prompt-title{
+    	border-bottom: 2px solid #248AC9;
+    	margin: 20px 0;
+    	height: 35px;
+    	line-height: 35px;
+    	font-size: 18px;
+    	font-weight: bold;
+     }
+     #tips {
+		margin:30px 0;
+     	p {
+    	color: #2da7e0;
+   		font-family: 宋体;
+   		font-size: 14px;
+		}
+    }
+    .tab2em{
+    	text-indent: 2em;
+    }
+    .small-select{
+		margin-left:30px;
+		span{
+			font-size:14px;
+			margin-right:3px;
+			height: 30px;
+			line-height: 30px;
+			color:black;
+		}
+		select{
+			margin:0;
+		}
+	}
+
+}
+
+
+#risk_level_box{
+	table{margin-bottom:0;}
+	input{
+		margin:0;
+	}
+	.modal-header{
+		*height:30px;
+		*min-height:30px;
+	}
+
+	pre{
+		border: 0px;
+    	margin-top: 5px;
+	}
+}
+

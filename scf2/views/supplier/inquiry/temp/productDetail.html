@@ -1,0 +1,88 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      产品详情
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered">
+        <tbody>
+        <tr>
+          <td width="30%">核心企业</td>
+          <td width="70%" class="div-text-left">
+            <span ng-bind="productDetail.coreName"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>产品编号</td>
+          <td class="div-text-left">
+            <span ng-bind="productDetail.productCode"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>产品名称</td>
+          <td class="div-text-left">
+            <span ng-bind="productDetail.productName"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>融资方式</td>
+          <td class="div-text-left">
+            <span ng-bind="productDetail.financeType|kindf:'FinanceType' "></span>
+          </td>
+        </tr>
+        <tr>
+          <td>通用利率(%)</td>
+          <td class="div-text-left" >
+            <span ng-bind="productDetail.ratio"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>最早放款时间(天)</td>
+          <td class="div-text-left">
+            <span ng-bind="productDetail.minLoanDays"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>最晚放款时间(天)</td>
+          <td class="div-text-left">
+            <span ng-bind="productDetail.maxLoanDays"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>保理类型</td>
+          <td class="div-text-left">
+            <span ng-bind="productDetail.factorType|kindf:'FactorType' "></span>
+          </td>
+        </tr>
+        <tr>
+          <td>最低融资金额(元)</td>
+          <td class="div-text-left">
+            <span ng-bind="productDetail.minFactorAmmount|moneyFilter"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>最高融资金额(元)</td>
+          <td class="div-text-left">
+            <span ng-bind="productDetail.maxFactorAmmount|moneyFilter"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>产品特征</td>
+          <td class="div-text-left">
+            <textarea name="" id="" cols="10" rows="10" disabled ng-bind="productDetail.features"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>适用范围</td>
+          <td class="div-text-left">
+            <textarea name="" id="" cols="10" rows="10" disabled ng-bind="productDetail.fitCrowd"></textarea>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

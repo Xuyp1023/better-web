@@ -1,0 +1,19 @@
+<p class="p10 f14">请输入交易密码</p>
+<div class="wid wid3">
+    <ul>
+        <li>
+            <div class="ci">
+              <input type="text" placeholder="请输入交易密码" class="text" ng-model="info.password" ng-focus="typeChange($event.target);">
+              <span ng-class="{'mui-icon mui-icon-eye eyeIcon':true,'mui-active':info.passwordEye,'gray9':!info.passwordEye}" ng-click="toggleEye('info','password');"></span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="butn mt10">
+    <a class="btn" href="javascript:void(0);" ng-click="checkPwd();">验证交易密码</a>
+</div>
+<div class="mt30" align="center">
+    <p>温馨提示：</p>
+    <p class="mt10">
+输入交易密码登录企e金服微信平台</p>
+</div>

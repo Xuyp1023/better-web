@@ -1,0 +1,27 @@
+<div class="row-fluid">
+      <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/flow_money.png" alt="">
+        关于企e金服平台
+      </h1>
+      <table class="div-width-100 table table-striped table-hover search-result">
+        <thead>
+          <tr class="result-head">
+            <td width="40%">操作手册</td>
+            <td width="20%">上传时间</td>
+            <td width="20%">操作人</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in fileList" ng-repeat-end ng-class="{even:$even}" >
+            <td><span ng-bind="item.name"></span> <a href="javascript:void(0);">点击下载</a></td>
+            <td ng-bind="item.xxx"></td>
+            <td ng-bind="item.xxx"></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td colspan="3">
+            <div bt-pagination conf="listPage" func="queryList(false);"></div>
+          </td>
+        </tfoot>
+      </table>
+
+  </body>

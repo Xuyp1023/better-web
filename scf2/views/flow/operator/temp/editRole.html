@@ -1,0 +1,42 @@
+<div class="div-width-90 detail-box div-center">
+  <!-- 修改角色 -->
+  <div id="" class="row-fluid">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">修改角色</h1>
+
+    <form action="#" id="addInvoice_form">
+    <table class="div-width-100 table table-bordered table-striped table-hover recieve-table">
+        <tr>
+          <td width="30%">角色名称:</td>
+          <td class="div-text-left"><input type="text" name="balance" ng-model="addInvoiceInfo.balance" ></td>
+        </tr>
+        <tr>
+          <td width="30%">状态:</td>
+          <td class="div-text-left" width="70%">
+            <select name="" ng-model="addInvoiceInfo.corpVocate">
+              <option ng-repeat="item in corpVocates"  ng-option-filter value="{{item.value}}" ng-bind="item.text" ng-selected="addInvoiceInfo.corpVocate == item.value"></option>
+              <option value="">启用</option>
+              <option value="">停用</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="30%">角色类型:</td>
+          <td class="div-text-left" width="70%">
+            <select name="" ng-model="addInvoiceInfo.corpVocate">
+              <option ng-repeat="item in corpVocates"  ng-option-filter value="{{item.value}}" ng-bind="item.text" ng-selected="addInvoiceInfo.corpVocate == item.value"></option>
+              <option value="">审批</option>
+              <option value="">经办</option>
+            </select>
+          </td>
+        </tr>
+    </table>
+    </form>
+    <div>
+         <div class="center-buttons">
+           <button class="btn btn-primary">保存</button>
+           <button class="btn btn-primary" bt-close-modal >取消</button>
+         </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,50 @@
+
+
+
+
+<div ng-show="relationList.length==0">
+    <h4 class="text-center margin-tips blue_shallow">您还没有跟任何客户建立关系哦！</h4>
+    <p class="s_tip ng-scope">
+         您可以点击下方的“添加关联”与企e金服平台上的客户建立关系，马上试试吧！
+    </p>
+</div>
+
+
+
+<div class="mAito" ng-show="relationList.length!=0">
+    <ul class="clearfix">
+        <li>
+            <a href="javascript:void(0)" ng-click="changeStatus();">客户类型<i class="ico ico14"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"></a>
+        </li>
+    </ul>
+</div>
+
+<div class="pTab" ng-show="relationList.length!=0">
+    <ul>
+        <li>
+            <table>
+                <tbody>
+                <tr class="tb" ng-repeat="item in relationList"  ng-click="lookDetail(item);" >
+                    <td width="65%"><span ng-bind="item.relateCustname" ng-class="{'red':(item.businStatus==4)}"></span></td>
+                    <td width="8%">|</td>
+                    <td width="27%">
+                        <!-- <span ng-bind="item.relateType|kindf:'SupplierStatus'" ng-class="{'red':(item.businStatus==4)}"></span> -->
+                        <span ng-show="custType=='SUPPLIER_USER'" ng-bind="item.relateType|kindf:'SupplierStatus'" ng-class="{'red':(item.businStatus==4)}"></span>
+                        <span ng-show="custType=='SELLER_USER'" ng-bind="item.relateType|kindf:'SellerStatus'" ng-class="{'red':(item.businStatus==4)}"></span>
+                        <span ng-show="custType=='CORE_USER'" ng-bind="item.relateType|kindf:'CoreStatus'" ng-class="{'red':(item.businStatus==4)}"></span>
+                    </td>
+                </tr>
+            </tbody></table>
+        </li>
+    </ul>
+</div>
+
+<div class="butn butn2 bottom-holder">
+    <a class="mui-btn mui-btn-primary" href="#/relation/select">添加关联</a>
+</div>

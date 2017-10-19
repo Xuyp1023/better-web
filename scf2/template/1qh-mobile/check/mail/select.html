@@ -1,0 +1,67 @@
+<div class="div-width-90 detail-box div-center">
+  <div id="" class="row-fluid">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">选择月账单</h1>
+    <table class="table table-condensed div-width-70 div-center search-table">
+      <tr>
+          <td>对账月份:</td>
+          <td class="div-text-left">
+            <input type="text" id="begin_date" bt-format="yyyy-MM" bt-date="searchData.billMonth">
+          </td>
+        </tr>   
+      <tr>
+       <td width="30%">对账企业:</td>
+       <td width="70%" class="div-text-left">
+         <select ng-model="searchData.ownCustNo" ng-change="queryUnusedList(true)">
+           <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.ownCustNo == item.value"></option>
+         </select>
+       </td>
+      </tr>
+    </table>
+    <!-- <div class="center-buttons">
+      <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+    </div> -->
+  </div>
+
+
+  <div id="search_info" class="row-fluid">
+    <table class="div-width-100 table table-striped table-hover search-result table-bordered">
+          <thead>
+            <tr class="result-head">
+              <td width="10%">选择</td>
+              <td width="15%">账单编号</td>
+              <td width="15%">账单金额</td>
+              <td width="15%">起始日期</td>
+              <td width="15%">截止日期</td>
+              <td width="20%">对账企业</td>
+              <td width="10%">账单详情</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in infoList" ng-repeat-end ng-class="{even:$even}" >
+              <td><input type="checkbox" ng-model="item.isSelected" ng-value="$index"></td>
+              <td><a href="javascript:void(0);" ng-click="lookDetail($event.target,item.id);" ng-bind="item.refNo"></a></td>
+              <td ng-bind="item.interestBalance"></td>
+              <td ng-bind="item.payBeginDate"></td>
+              <td ng-bind="item.payEndDate"></td>
+              <td ng-bind="item.ownCustName"></td>
+              <td ><a href="javascript:void(0);" ng-click="lookDetail($event.target,item.id);">查看详情</a></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <td colspan="7">
+              <div bt-pagination conf="listPage" func="queryList(false)"></div>
+            </td>
+          </tfoot>
+        </table>
+    <div class="center-buttons">
+      <!-- <div class="checkbox btn" style="float: left;"><label style="min-height: 20px;padding-left: 20px;margin-bottom: 0;font-weight: 400;cursor: pointer;">
+      <input type="checkbox" ng-model="tmpCheckbox"  style="margin-top: 3px;" ng-change="toggleCheckbox()"> 全选</label></div> -->
+      <button class="btn btn-primary btn-bg-middle" ng-click="mailCheck($event.target);" ng-disabled="isDisabled">投递账单</button>
+      <button class="btn btn-primary" ng-click="goBack();">返回</button>
+    </div>
+  </div>
+</div>
+
+<div id="mailCheck_box" bt-roll-modal="template/1qh-mobile/check/mail/confirm.html" bt-z-index="9991"></div>
+<div id="monthDetail_box" bt-roll-modal="template/1qh-mobile/check/monthManager/detail.html" bt-z-index="9991"></div>
+<div id="dayDetail_box" bt-roll-modal="template/1qh-mobile/check/monthManager/dayDetail.html" bt-z-index="9991"></div>

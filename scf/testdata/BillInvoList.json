@@ -1,0 +1,55 @@
+{
+    "message": "查询申请单发票信息成功",
+    "data": [
+        {
+            "id": 14,
+            "billId": "D00002",
+            "billNo": "JF00002",
+            "invoiceNo": "zxc",
+            "corpVocate": "021",
+            "balance": 123213,
+            "subject": "asdas",
+            "unit": "asd",
+            "amount": "12",
+            "regDate": "20160328",
+            "batchNo": "",
+            "itemId": 10731,
+            "itemName": "新-公司加班管理制度(范本)2015.doc",
+            "fileType": "billAccessory"
+        },
+        {
+            "id": 15,
+            "billId": "D00003",
+            "billNo": "JF00003",
+            "invoiceNo": "asfdsadf",
+            "corpVocate": "021",
+            "balance": 123213,
+            "subject": "sadfasdf",
+            "unit": "sdf",
+            "amount": "12",
+            "regDate": "20160328",
+            "batchNo": "",
+            "itemId": 10731,
+            "itemName": "新-公司加班管理制度(范本)2015.doc",
+            "fileType": "billAccessory"
+        },
+        {
+            "id": 16,
+            "billId": "D00003",
+            "billNo": "JF00003",
+            "invoiceNo": "asdfsa",
+            "corpVocate": "021",
+            "balance": 123213,
+            "subject": "asdas",
+            "unit": "asdasd",
+            "amount": "12",
+            "regDate": "20160328",
+            "batchNo": 51,
+            "itemId": 11274,
+            "itemName": "digest.sh",
+            "fileType": "InvoiceAccessory"
+        }
+    ],
+    "page": "",
+    "code": 200
+}

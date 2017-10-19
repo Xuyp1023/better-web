@@ -1,0 +1,21 @@
+{
+  "message": "审核驳回成功！",
+  "data": {
+    "id": 32,
+    "custNo": 100000177,
+    "changeItem": "0",
+    "description": "",
+    "tmpIds": "43",
+    "regOperId": 1111,
+    "regOperName": "管理员",
+    "regDate": "2016-07-28",
+    "regTime": "193126",
+    "businStatus": "2",
+    "lastStatus": "0",
+    "auditDate": "",
+    "auditTime": "",
+    "auditResult": ""
+  },
+  "page": "",
+  "code": 200
+}

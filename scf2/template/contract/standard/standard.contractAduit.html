@@ -1,0 +1,48 @@
+<div class="top-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue div-margin-bottom-none"><img src="img/operator.png" alt="">
+    标准合同审核
+  </h1>
+  <div>
+    <form class="form-inline">
+      <label><span>按状态过滤:</span>
+        <select ng-model="searchData.businStatus" class="div-width-200"  ng-change="statusQuery();">
+          <option value="">---所有状态---</option>
+          <option ng-repeat="item in businStatusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+        </select>
+      </label>
+    </form>
+
+    <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+            <tr class="result-head">
+              <td width="10%">标准合同编号</td>
+              <td width="40%">标准合同名称</td>
+              <td width="20%">合同类型</td>
+              <td width="10%">登记日期</td>
+              <td width="10%">状态</td>
+              <td width="10%">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td class="red" ng-bind="item.id"></td>
+            <td ng-bind="item.name"></td>
+            <td ng-bind="item.typeIdName"></td>
+            <td ng-bind="item.regDate"></td>
+            <td  ng-bind="item.businStatus|kindf:'ContractStandardTypeBusinStatus'"></td>
+            <td>
+               <span ng-show="item.businStatus =='02'">--</span>
+               <a href="javascript:void(0);" ng-click="disable(item)" ng-show="item.businStatus=='01'">停用</a>
+               <a href="javascript:void(0);"  ng-click="enable(item)" ng-show="item.businStatus=='00'">启用</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="6">
+                <div bt-pagination conf="listPage" func="queryList(false)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+  </div>
+</div>

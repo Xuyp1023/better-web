@@ -1,0 +1,54 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [
+        {
+            "fundCode": "090005",
+            "moneyAccount":"1020",
+            "shareType":"A",
+            "fundCompany": "大成基金",
+            "fundName": "XX健康产业股票",
+            "tradeDate":"2015-06-29",
+            "netDate": "2015-06-29",
+            "netValue": 1.165,
+            "totalShares":2000,
+            "validShares": 1800,
+            "totalNetValue": 2.1315,
+            "trading": true
+        },
+        {
+            "fundCode": 128,
+            "moneyAccount":"1020",
+            "shareType":"A",
+            "fundCompany": "大成基金",
+            "fundName": "XX景安短融债券A",
+            "tradeDate":"2015-06-29",
+            "netDate": "2015-06-29",
+            "netValue": 1.9654,
+            "totalShares":10014,
+            "validShares": 9854,
+            "totalNetValue": 2.4565,
+            "trading": false
+        },
+        {
+            "fundCode": 24168,
+            "moneyAccount":"1020",
+            "shareType":"A",
+            "fundCompany": "大成基金",
+            "fundName": "XX债券分级A",
+            "tradeDate":"2015-06-29",
+            "netDate": "2015-06-29",
+            "netValue": 1.165,
+            "totalShares":6530,
+            "validShares": 5659,
+            "totalNetValue": 2.3654,
+            "trading": true
+        }
+    ],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 6,
+        "pages": 6,
+        "total": 6
+    }
+}

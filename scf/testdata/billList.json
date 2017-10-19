@@ -1,0 +1,47 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [{
+    			"id":"D1031",
+				"billNo":"No1031",
+				"coreCustNo": "中钢集团",
+				"realBuyer": "中钢集团",
+				"balance":"50002.0",
+				"confirmBalance":"49998",
+				"invoiceDate":"2015-02-12",
+				"endDate":"2018-02-11",
+				"agreeId":"1023",
+				"agreeNo":"1023",
+				"status": "0"
+			},{
+				"id":"D1032",
+				"billNo":"No1032",
+				"coreCustNo": "中钢集团",
+				"realBuyer": "中钢集团",
+				"balance":"50002.0",
+				"confirmBalance":"49998",
+				"invoiceDate":"2015-02-12",
+				"endDate":"2018-02-11",
+				"agreeId":"1022",
+				"agreeNo":"1022",
+				"status": "1"
+			},{
+				"id":"D1033",
+				"billNo":"No1033",
+				"coreCustNo": "中钢集团",
+				"realBuyer": "中钢集团",
+				"balance":"50002.0",
+				"confirmBalance":"49998",
+				"invoiceDate":"2015-02-12",
+				"endDate":"2018-02-11",
+				"agreeId":"1023",
+				"agreeNo":"1023",
+				"status": "2"
+			}],    
+	"page":{
+	        "pageNum": 1,
+	        "pageSize": 2,
+	        "pages": 2,
+	        "total": 2
+    }
+}

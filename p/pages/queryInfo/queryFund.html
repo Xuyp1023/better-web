@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>交易查询</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/queryFund.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" class="span12">
+          <div class="center-buttons"><button class="btn btn-primary" onclick="history.back();">返回上一页</button></div>
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+              基金信息
+            </h1>
+            <table class="table table-striped table-bordered table-hover div-width-100 fund-info">
+              <tr class="event">
+                <td width="15%">基金代码</td>
+                <td width="35%" data-bind="text:fundInfoBind().fundCode"></td>
+                <td width="15%">基金名称</td>
+                <td width="35%" data-bind="text:fundInfoBind().fundName"></td>
+              </tr>
+              <tr>
+                <td width="15%">基金销售机构</td>
+                <td width="35%" data-bind="text:fundInfoBind().agencyName"></td>
+                <td width="15%">风险等级</td>
+                <td width="35%" data-bind="text:formaterRiskLvel(fundInfoBind().riskLevel)"></td>
+              </tr>
+            </table>
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+              七日年化收益走势
+            </h1>
+            <div id="chart_search_box" class="row-fluid">
+              <div class="span4 search-date">
+                <input id="charts_begin_date" flag="charts" type="text" readonly="true" class="Wdate" dateData="searchData" dateName="beginDate" data-bind="value:searchDataBind().beginDate,event:{focus:setDateInfo,click:setDateInfo,blur:changeDateInfo}"> - 
+                <input id="charts_end_date" flag="charts" readonly="true" class="Wdate" dateData="searchData" dateName="endDate" type="text" data-bind="value:searchDataBind().endDate,event:{focus:setEndDate,click:setEndDate,blur:changeDateInfo}">
+              </div>
+              <ul class="span8 search-fast clearFix">
+                <li target="DD,7">7天</li>
+                <li target="MM,1">1月</li>
+                <li target="MM,3">3月</li>
+                <li target="YYYY,1">1年</li>
+                <li target="YYYY,3">3年</li>
+                <li target="YYYY,0">今年</li>
+                <li target="YYYY,50">成立至今</li>
+              </ul>
+            </div>
+            <div id="fund_netvalue_chart" class="div-width-100"></div>
+
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+              净值历史
+            </h1>
+            <div id="netValue_search_box" class="row-fluid">
+              <div class="span4 search-date">
+                <input id="netValue_begin_date" flag="netValue" type="text" readonly="true" class="Wdate" dateData="netValueSearchData" dateName="beginDate" data-bind="value:netValueSearchDataBind().beginDate,event:{focus:setDateInfo,click:setDateInfo,blur:changeDateInfo}"> - 
+                <input id="netValue_end_date" flag="netValue" readonly="true" class="Wdate" dateData="netValueSearchData" dateName="endDate" type="text" data-bind="value:netValueSearchDataBind().endDate,event:{focus:setEndDate,click:setEndDate,blur:changeDateInfo}">
+              </div>
+              <ul class="span8 search-fast clearFix">
+                <li target="DD,7">7天</li>
+                <li target="MM,1">1月</li>
+                <li target="MM,3">3月</li>
+                <li target="YYYY,1">1年</li>
+                <li target="YYYY,3">3年</li>
+                <li target="YYYY,0">今年</li>
+                <li target="YYYY,50">成立至今</li>
+              </ul>
+            </div>
+            <table id="fund_net_list_table" class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr>
+                  <td width="15%">净值日期</td>
+                  <td width="16%">调整日期</td>
+                  <td width="14%">当日净值</td>
+                  <td width="10%">七日年化收益</td>
+                  <td width="15%">万分收益</td>
+                </tr>
+              </thead>
+              <tbody data-bind="foreach:fundListBind">
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td data-bind="text:$parent.formaterDate(netDate)">2015-06-29</td>
+                  <!-- <td data-bind="text:$parent.formaterDate(netDate)"></td> -->
+                  <td data-bind="text:''"></td>
+                  <td>
+                      <span class="red" data-bind="text:$parent.formaterPoint4(netValue)"></span>
+                  </td>
+                  <td data-bind="text:$parent.formaterPercent(incomeRatio)"></td>
+                  <td class="red"><strong data-bind="text:$parent.formaterPoint4(incomeUnit)"></strong></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                  <td colspan="5">
+                    <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                      <ul>
+                        <li class="previous hidden" data-bind="visible:netValueListPageBind().pageNum<=1"><span>首页</span></li>
+                        <li class="previous" data-bind="visible:netValueListPageBind().pageNum>1,click:firstPage"><a href="#">首页</a></span></li>
+                        <li class="previous hidden" data-bind="visible:netValueListPageBind().pageNum<=1"><span>上一页</span></li>
+                        <li class="previous" data-bind="visible:netValueListPageBind().pageNum>1,click:prevPage"><a href="#">上一页</a></li>
+                        <li class="next hidden" data-bind="visible:netValueListPageBind().pageNum>=netValueListPageBind().pages"><span>下一页</span></li>
+                        <li class="next" data-bind="visible:netValueListPageBind().pageNum<netValueListPageBind().pages,click:nextPage"><a href="#">下一页</a></li>
+                        <li class="next hidden" data-bind="visible:netValueListPageBind().pageNum>=netValueListPageBind().pages"><span>尾页</span></li>
+                        <li class="next" data-bind="visible:netValueListPageBind().pageNum<netValueListPageBind().pages,click:endPage"><a href="#">尾页</a></li>
+                        <li>共<span data-bind="text:netValueListPageBind().pageNum"></span>/<span data-bind="text:netValueListPageBind().pages"></span>页</li>
+                        <li>共<span data-bind="text:netValueListPageBind().total"></span>条记录</li>
+                        <li class="toPage">
+                            <div>
+                              <span>跳转到</span>
+                              <input type="text" name="skipToPageNum" data-bind="disable:netValueListPageBind().pages==1">
+                              <span>页</span>
+                              <button class="btn" data-bind="disable:netValueListPageBind().pages==1,click:skipPage">跳转</button>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+              </tfoot>
+            </table>
+
+          </div>
+          <div class="center-buttons"><button class="btn btn-primary" onclick="history.back();">返回上一页</button></div>
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">seajs.use('p/js/queryFund');</script>
+  </body>
+</html>

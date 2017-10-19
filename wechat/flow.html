@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>拜特企e金服微信版</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="https://static.qiejf.com/better/wechat/css/index.css">
+</head>
+
+<body id="container">
+    <div class="head auto">
+        <div class="auto">
+            <span  ng-bind="pageTitle||'企e金服供应链金融'"></span>
+            <a href="javascript:void(0);" ng-click="goBack();" class="ico retu"></a>
+            <a href="index.html#/home/finance" class="ico home"></a>
+        </div>
+    </div>
+    <div id="progress" class="mui-progressbar mui-progressbar-success mui-progressbar-infinite hide">
+        <span></span>
+    </div>
+    <div class="main">
+        <div ng-view class="min-height-300">
+
+          <!-- 加载中动画 -->
+          <!-- <div class="spinner">
+              <div class="rect1"></div>
+              <div class="rect2"></div>
+              <div class="rect3"></div>
+              <div class="rect4"></div>
+              <div class="rect5"></div>
+              <div class="rect6"></div>
+              <div class="rect7"></div>
+              <div class="rect8"></div>
+              <div class="rect9"></div>
+              <div class="rect10"></div>
+          </div>
+          <div class="spinner-text">
+              玩命加载中
+              <(￣︶￣)↗[GO!] </div>
+          </div> -->
+
+
+          <!-- 加载中动画 小球旋转 -->
+          <div id="rotateWrap">
+            <div class="wrap" id="wrap1">
+              <div class="part" id="part1"></div>
+            </div>
+
+            <div class="wrap" id="wrap2">
+              <div class="part" id="part2"></div>
+            </div>
+            
+            <div class="wrap" id="wrap3">
+              <div class="part" id="part3"></div>
+            </div>
+            
+            <div class="wrap" id="wrap4">
+              <div class="part" id="part4"></div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+  <div id="footer" class="footer margin-bottom-20 hide">
+      <div class="texrea" id="content">
+          <div class="wTxar">
+              <textarea placeholder="请填写处理意见......" ng-model="auditResult.content" class="text short25 padding5"></textarea>
+          </div>
+      </div>
+      <div class="wid wid3" id="password">
+          <ul>
+              <li>
+                  <div class="ci">
+                      <input type="text" placeholder="请输入交易密码" class="text" ng-model="auditResult.password" ng-focus="typeChange($event.target);">
+                      <span ng-class="{'mui-icon mui-icon-eye eyeIcon':true,'mui-active':auditResult.passwordEye,'gray9':!auditResult.passwordEye}" ng-click="toggleEye('auditResult','password');"></span>
+                  </div>
+              </li>
+          </ul>
+      </div>
+      <div class="butn butn2" id="button">
+          <a href="javascript:void(0);" class="mui-btn mui-btn-primary" ng-click="submit()">同意</a>
+          <a href="javascript:void(0);" class="mui-btn mui-btn-primary" ng-click="cancelWorkFlow()">作废</a>
+      </div>
+      <p class="text-center">
+          <a href="javascript:void(0);" ng-click="flowRecord()">查看审批历史</a>
+      </p>
+
+  </div>
+</body>
+
+</html>
+<script type="text/javascript" src="https://static.qiejf.com/better/wechat/dist/libs.dll.js"></script>
+<script type="text/javascript" src="https://static.qiejf.com/better/wechat/dist/dicTool.js"></script>
+<script type="text/javascript" src="https://static.qiejf.com/better/p/generate/lib/BTDictData.js"></script>
+<script type="text/javascript" src="https://static.qiejf.com/better/l/weixin/1.1.0/jweixin.js"></script>
+<script type="text/javascript" src="https://static.qiejf.com/better/wechat/dist/flow.js"></script>

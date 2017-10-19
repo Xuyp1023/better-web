@@ -1,0 +1,93 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">新增月账单
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                     
+                      <tr>
+                        <td width="25%">设置结息日期:</td>
+                        <td width="75%" class="div-text-left date">
+                          <input style="width: 50% !important" type="text" id="begin_date" bt-date="searchData.endInterestDate">
+                        </td>
+                      </tr>    
+                    </table>
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">选择日账单
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">      
+                      <tr>
+                        <td>对账月份:</td>
+                        <td class="div-text-left date">
+                          <select style="width: 25% !important" ng-model="searchData.year" ng-options="item.key as item.key for item in yearList"></select>-
+                          <select style="width: 25% !important" ng-model="searchData.month" ng-options="item.key as item.key for item in monthList"></select>
+                        </td>
+                      </tr>              
+                      <tr>                        
+                        <td width="25%">对账企业:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.custNo">
+                            <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name"></option>
+                          </select>
+                        </td>                        
+                      </tr>  
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+                    </div>
+                </div>
+
+
+      <div>
+          <div style="float: left;margin: 5px;">
+            <button class="btn btn-info" ng-click="searchCheck('');" >全部记录{{basicInfo.totalAmount}}</button>
+          </div>
+          <div style="float: left;margin: 5px;">
+            <button class="btn btn-info" ng-click="searchCheck(2);" >已生效{{basicInfo.paySuccessAmount}}</button>
+          </div>
+          <div style="float: left;margin: 5px;">
+            <button class="btn btn-info" ng-click="searchCheck(1);" >未生效{{basicInfo.payFailureAmount}}</button>
+          </div>
+      </div>
+      <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+            <tr class="result-head">
+              <td width="30%">账单号码</td>
+              <td width="10%">对账日期</td>
+              <td width="10%">账单金额</td>
+              <td width="30%">对账企业</td>
+              <td width="20%">制表时间</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td ><a href="javascript:void(0);" ng-click="lookDayDetail($event.target,item);">{{item.refNo}}</a></td>
+            <td ng-bind="item.payDate"></td>
+            <td ng-bind="item.payTotalBalance  | moneyFilter"></td>
+            <td ng-bind="item.ownCustName"></td>
+            <td>
+                <span ng-bind="item.makeDate"></span> <span ng-bind="item.makeTime"></span> 
+            </td>
+          </tr>
+        </tbody>
+    </table>
+
+    <div class="center-buttons">
+      <div style="float: left;">
+      <span style="min-height: 20px;padding-left: 20px;margin-bottom: 0;font-weight: 400;cursor: pointer;">
+        总金额(元)：{{basicInfo.totalBalance | number}}
+      </span></div>
+      <button class="btn btn-primary btn-bg-middle" ng-click="nextStep($event.target);" ng-disabled="isDisabled">下一步</button>
+      <button class="btn btn-primary" ng-click="goBack();">返回</button>
+    </div>
+
+            
+        </div>
+
+
+    </div>
+
+    <div id="confirm_box" bt-roll-modal="template/1qh-mobile/check/monthManager/confirm.html" bt-z-index="9991"></div>
+    <div id="dayDetail_box" bt-roll-modal="template/1qh-mobile/check/dayManager/detail.html" bt-z-index="9991"></div>
+
+

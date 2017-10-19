@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>放款确认</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/sfccom/loansManage/loansConfirm.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">放款确认</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+               <td width="25%">融资编号:</td>
+               <td width="75%" class="div-text-left">
+               <input type="text" name="" ng-model="searchData.requestNo">
+               </td>
+             </tr>
+             <tr>
+                <td width="25%">申请时间:</td>
+                <td width="75%" class="div-text-left date">
+                   <input type="text" name="" bt-date="searchData.GTErequestDate"> - 
+                   <input type="text" name="" bt-date="searchData.LTErequestDate">
+                </td>
+             </tr>
+             <tr>
+              <td width="25%">申请类型:</td>
+              <td width="75%" class="div-text-left">
+                <select name="" id="" ng-model="searchData.requestType">
+                    <option value="">--请选择--</option>
+                    <option ng-repeat="type in requestTypes" ng-option-filter value="{{type.value}}" ng-bind="type.name" ng-selected="searchData.requestType==type.value"></option>
+                </select>
+              </td>
+            </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            <!-- <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              待放款融资列表
+            </h1> -->
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              待放款融资列表
+            </h1>
+            <table class="table table-striped table-hover">
+              <!-- <caption class="table-caption table-caption-green clearFix">
+                <span class="title-left">待放款融资列表</span>
+              </caption> -->
+              <thead>
+                <tr class="result-head">
+                  <td width="10%">融资编号</td>
+                  <td width="10%">融资企业</td>
+                  <td width="10%">核心企业</td>
+                  <td width="10%">融资类型</td>
+                  <td width="10%">审批金额</td>
+                  <td width="10%">融资利率(%)</td>
+                  <td width="10%">审批期限</td>
+                  <td width="10%">其他费用利率</td>
+                  <td width="10%">手续费利率</td>
+                  <td width="10%">操作</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in infoList" ng-repeat-end ng-class="{even:$even}">
+                 <td ng-bind="item.requestNo"></td>
+                 <td ng-bind="item.custName"></td>
+                 <td ng-bind="item.coreCustName"></td>
+                 <td ng-bind="item.requestType|kindf:'RaiseCapitalType'"></td>
+                 <td class="red tab-text-right" ng-bind="item.approvedBalance|moneyFilter"></td>
+                 <td ng-bind="item.approvedRatio|percentf"></td>
+                 <td>
+                   <span ng-bind="item.approvedPeriod"></span>
+                   <span ng-bind="item.approvedPeriodUnit|kindf:'PeriodUnit'"></span>
+                 </td>
+                 <td ng-bind="item.managementRatio|percentf"></td>
+                 <td><span ng-bind="item.servicefeeRatio|percentf "></span></td>
+                 <td>
+                    <a href="#" ng-click="openLoanBox(item);">放款</a>
+                 </td>
+                </tr>
+                <tfoot>
+                  <td colspan="10">
+                    <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                  </td>
+                </tfoot>
+              </tbody>
+            </table>
+            
+          </div>
+
+        <!-- 放款确认 -->
+        <div id="loan_action_box" bt-roll-modal="temp/loanAction.html" bt-z-index="9991"></div>
+
+        <!-- 补充资料 -->
+        <div id="add_other_file_box" bt-roll-modal="temp/addOtherFile.html" bt-z-index="9992"></div>
+        
+        <!-- 查看协议详情 -->
+        <div id="look_agree_info_box" bt-roll-modal="temp/showAgreeInfo.html" bt-z-index="9992" bt-max-width="900px"></div>
+
+        <!-- 订单详情 -->
+        <div id="proof_order_detail_box" bt-roll-modal="../../commonTemp/orderDetailShow.html" bt-z-index="9993"></div>
+        <!-- 票据详情 -->
+        <div id="proof_draft_detail_box" bt-roll-modal="../../commonTemp/draftDetailShow.html" bt-z-index="9993"></div>
+        <!-- 应收详情 -->
+        <div id="proof_recieve_detail_box" bt-roll-modal="../../commonTemp/recieveDetailShow.html" bt-z-index="9993"></div>
+
+        <div bt-upload conf="uploadConf" ></div>
+        
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/sfccom/loansManage/loansConfirm");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/sfccom/loansManage/loansConfirm");
+      } 
+  </script>
+  </body>
+</html>

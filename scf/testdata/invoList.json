@@ -1,0 +1,36 @@
+{
+    "code": 200,
+    "message": "asdasd",
+    "data": [
+        {
+            "id": "100",
+            "billNo": "JF00002",
+            "invoiceNo": "123213123123",
+            "corpVocate": "0",
+            "balance": "2000",
+            "subject": "sddsfd",
+            "unit": "sdfds",
+            "amount": "aaaaa",
+            "regDate": "20160325",
+            "batchNo": "28",
+            "itemId": "11212",
+            "itemName": "aaasd",
+            "fileType": "sdeffasdsa"
+        },
+        {
+            "id": "101",
+            "billNo": "JF00003",
+            "invoiceNo": "3412321312312",
+            "corpVocate": "0",
+            "balance": "2000",
+            "subject": "sddsfd",
+            "unit": "sdfds",
+            "amount": "aaaaa",
+            "regDate": "20160325",
+            "batchNo": "28",
+            "itemId": "11212",
+            "itemName": "aaasd",
+            "fileType": "sdeffasdsa"
+        }
+    ]
+}

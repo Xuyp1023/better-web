@@ -1,0 +1,88 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      产品详情
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered">
+        <tbody>
+          <tr>
+            <td width="30%">核心企业</td>
+            <td width="70%" ng-bind="info.coreName">
+            </td>
+          </tr>
+          <tr>
+            <td>产品编号</td>
+            <td ng-bind="info.productCode">
+            </td>
+          </tr>
+          <tr>
+            <td>产品名称</td>
+            <td ng-bind="info.productName">
+            </td>
+          </tr>
+          <tr>
+            <td>融资方式</td>
+            <td ng-bind="info.financeType|kindf:'FinanceType'">
+            </td>
+          </tr>
+          <tr>
+            <td>通用利率(%)</td>
+            <td ng-bind="info.ratio">
+            </td>
+          </tr>
+          <tr>
+            <td>最早放款时间(天)</td>
+            <td ng-bind="info.minLoanDays">
+            </td>
+          </tr>
+          <tr>
+            <td>最晚放款时间(天)</td>
+            <td ng-bind="info.maxLoanDays">
+            </td>
+          </tr>
+          <tr>
+            <td>保理类型</td>
+            <td ng-bind="info.factorType|kindf:'FactorType'">
+            </td>
+          </tr>
+          <tr>
+            <td>最低融资金额(元)</td>
+            <td class="tab-text-right" ng-bind="info.minFactorAmmount|moneyFilter">
+            </td>
+          </tr>
+          <tr>
+            <td>最高融资金额(元)</td>
+            <td class="tab-text-right" ng-bind="info.maxFactorAmmount|moneyFilter">
+            </td>
+          </tr>
+          <tr>
+            <td>录入时间</td>
+            <td class="red" ng-class="{'div-text-left':(info.businStatus === '0')}" ng-bind="info.regDate+' '+(info.regTime|timeFilter:':')"></td>
+          </tr>
+          <tr>
+            <td>上架日期</td>
+            <td class="red" ng-class="{'div-text-left':(info.businStatus === '0')}" ng-bind="info.shelvesDate+' '+(info.shelvesTime|timeFilter:':')"></td>
+          </tr>
+          <tr>
+            <td>下架日期</td>
+            <td class="red" ng-class="{'div-text-left':(info.businStatus === '0')}" ng-bind="info.offLineDate+' '+(info.offLineTime|timeFilter:':')"></td>
+          </tr>
+          <tr>
+            <td>产品特征</td>
+            <td ng-bind="info.features">
+            </td>
+          </tr>
+          <tr>
+            <td>适用范围</td>
+            <td ng-bind="info.fitCrowd">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

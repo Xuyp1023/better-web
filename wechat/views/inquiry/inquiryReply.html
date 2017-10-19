@@ -1,0 +1,58 @@
+	<div class="pjce">
+    	<ul>
+        	<li>
+            	<p><span>授信核心企业：</span>{{info.order.buyer}}</p>
+                <p><span>票据流通方式：</span>{{info.order.billMode |kindf:'BillFlowMode'}}</p>
+                <p><span>汇票金额：</span>{{info.order.balance|moneyFilter}}</p>
+                <p><span>有效期：</span>{{info.order.invoiceDate}}到{{info.order.endDate}}</p>
+                <p><span>融资额度：</span>{{info.balance}}</p>
+                <p><span>金融机构：</span>{{enquiryObject.factorName}}</p>
+                <p><span>融资成本：</span>{{info.ratio|percentf}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="wid wid2">
+    	<ul>
+        	<li>
+            	<span class="ci">年利率(%)</span>
+                <div class="ci">
+                	<input name="" ng-model="relyInfo.ratio" type="text" class="text" placeholder="请输入年利率(%)">
+                </div>
+            </li>
+            <li>
+            	<span class="ti">融资金额(元)</span>
+            	<input name="" type="text" ng-model="relyInfo.balance" class="text" placeholder="请输入融资金额">
+            </li>
+        </ul>
+    </div>
+    <div class="texrea">
+    	<div class="wTxar">
+        	<textarea placeholder="想对金融机构说点啥..." class="text" ng-model="relyInfo.description"></textarea>
+        </div>
+            <div class="butn mt10">
+            <!-- href="#/inquiry/detail" -->
+                <a  ng-click="saveReply();" class="btn">回复</a>
+            </div>
+    </div>
+
+    <div class="pTab">
+    	<ul>
+            <li>
+            	<table>
+                	<tbody>
+                    <tr class="ta">
+                    	<td>报价时间</td>
+                        <td>报价额度</td>
+                        <td>报价成本</td>
+                        <!-- <td>状态</td> -->
+                    </tr>
+                     <tr ng-repeat="offer in offerList" ng-repeat-end ng-class="{even:$even}">
+                        <td><span ng-bind="offer.regDate"></span></td>
+                        <td><span ng-bind="offer.balance|moneyFilter"></span></td>
+                        <td><span ng-bind="offer.ratio|percentf"></span></td>
+                        <!-- <td>已报价</td> -->
+                    </tr>
+                </tbody></table>
+            </li>
+        </ul>
+    </div>

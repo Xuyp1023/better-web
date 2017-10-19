@@ -1,0 +1,128 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      高管信息变更审核
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">高管信息变更详情</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%"></td>
+            <td width="35%">改前值</td>
+            <td width="35%">改后值</td>
+            <td width="10%">是否改变</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{true: 'red'}[managerInfo.nowData.name!=managerInfo.befData.name]">
+            <td>姓名</td>
+            <td ng-bind="managerInfo.befData.name"></td>
+            <td ng-bind="managerInfo.nowData.name"></td>
+            <td ng-bind="managerInfo.nowData.name!=managerInfo.befData.name?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[managerInfo.nowData.sex!=managerInfo.befData.sex]">
+            <td>性别</td>
+            <td ng-bind="managerInfo.befData.sex|kindf:'CustSexType' "></td>
+            <td ng-bind="managerInfo.nowData.sex|kindf:'CustSexType' "></td>
+            <td ng-bind="managerInfo.nowData.sex!=managerInfo.befData.sex?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[managerInfo.nowData.identType!=managerInfo.befData.identType]">
+            <td>证件类型</td>
+            <td ng-bind="managerInfo.befData.identType|kindf:'PersonIdentType' "></td>
+            <td ng-bind="managerInfo.nowData.identType|kindf:'PersonIdentType' "></td>
+            <td ng-bind="managerInfo.nowData.identType!=managerInfo.befData.identType?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[managerInfo.nowData.identNo!=managerInfo.befData.identNo]">
+            <td>证件号码</td>
+            <td ng-bind="managerInfo.befData.identNo"></td>
+            <td ng-bind="managerInfo.nowData.identNo"></td>
+            <td ng-bind="managerInfo.nowData.identNo!=managerInfo.befData.identNo?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[managerInfo.nowData.birthdate!=managerInfo.befData.birthdate]">
+            <td>出生日期</td>
+            <td ng-bind="managerInfo.befData.birthdate"></td>
+            <td ng-bind="managerInfo.nowData.birthdate"></td>
+            <td ng-bind="managerInfo.nowData.birthdate!=managerInfo.befData.birthdate?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[managerInfo.nowData.eduLevel!=managerInfo.befData.eduLevel]">
+            <td>最高学历</td>
+            <td ng-bind="managerInfo.befData.eduLevel|kindf:'EduLevel' "></td>
+            <td ng-bind="managerInfo.nowData.eduLevel|kindf:'EduLevel'"></td>
+            <td ng-bind="managerInfo.nowData.eduLevel!=managerInfo.befData.eduLevel?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[managerInfo.nowData.position!=managerInfo.befData.position]">
+            <td>职位</td>
+            <td ng-bind="managerInfo.befData.position|kindf:'CompanyPosition' "></td>
+            <td ng-bind="managerInfo.nowData.position|kindf:'CompanyPosition' "></td>
+            <td ng-bind="managerInfo.nowData.position!=managerInfo.befData.position?'是':'否'"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 变更前附件列表 -->
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">高管信息附件(变更前)</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%">序号</td>
+            <td width="35%">附件类型</td>
+            <td width="35%">附件名称</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="file in managerUploadList_bef" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="$index+1"></td>
+            <td>高管信息附件</td>
+            <td>
+              <a href=""><span ng-bind="file.fileName"></span></a>
+            </td>
+            <td><a href="{{file.id|downf}}">下载</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <!-- 变更后附件列表 -->
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">高管信息附件(变更后)</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%">序号</td>
+            <td width="35%">附件类型</td>
+            <td width="35%">附件名称</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="file in managerUploadList_now" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="$index+1"></td>
+            <td>高管信息附件</td>
+            <td>
+              <a href=""><span ng-bind="file.fileName"></span></a>
+            </td>
+            <td><a href="{{file.id|downf}}">下载</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

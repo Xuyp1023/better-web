@@ -1,0 +1,17 @@
+{
+    "message": "消息通道模板-保存 成功",
+    "data": {
+        "id": 20002,
+        "version": 0,
+        "profileId": 20001,
+        "profileName": "开户成功通知",
+        "channel": "1",
+        "subject": "${entity.custName} 机构开户成功 邮件通知",
+        "content": "<p> <br/> </p> <p> 恭喜您,开户成功<br/> </p> <p> <br/> </p> <table> <tbody> <tr class=\"firstRow\"> <td width=\"401\" valign=\"top\" style=\"word-break: break-all;\"> 客户编号: </td> <td width=\"401\" valign=\"top\" style=\"word-break: break-all;\"> ${entity.custNo} </td> </tr> <tr> <td width=\"401\" valign=\"top\" style=\"word-break: break-all;\"> 客户名称: </td> <td width=\"401\" valign=\"top\" style=\"word-break: break-all;\"> ${entity.custName} </td> </tr> <tr> <td width=\"401\" valign=\"top\" style=\"word-break: break-all;\"> 电子邮件: </td> <td width=\"401\" valign=\"top\" style=\"word-break: break-all;\"> ${entity.email} </td> </tr> <tr> <td width=\"401\" valign=\"top\" style=\"word-break: break-all;\"></td> <td width=\"401\" valign=\"top\" style=\"word-break: break-all;\"></td> </tr> </tbody> </table> <p> <br/> </p> <p> <br/> </p> <p> 发送人:#发送人# </p> <p> 发送机构:#发送机构# </p> <p> 邮件通知 </p>",
+        "reference": "${entity.custName} 机构开户成功 邮件通知",
+        "businStatus": "1",
+        "custNo": 102202018
+    },
+    "page": "",
+    "code": 200
+}

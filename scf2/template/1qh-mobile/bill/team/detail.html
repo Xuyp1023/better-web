@@ -1,0 +1,36 @@
+  <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">详情
+                    </h1>
+                    <table class="table table-striped table-bordered table-hover">
+			            <tbody>
+			              <tr>
+			                <td width="20%">委托企业:</td>
+			                <td width="30%" class="div-text-left">
+			                    <span ng-bind="detailParamInfo.coreCustName"></span>
+			                </td>
+			                
+			              </tr>
+			              <tr>
+			                <td>佣金年利率(%):</td>
+			                <td class="div-text-left">
+			                    <span ng-bind="detailParamInfo.interestRate"></span>
+			                </td>
+			              </tr>             
+			              <tr>
+			                <td>商业发票税率(%):</td>
+			                <td class="div-text-left">
+			                  <span ng-bind="detailParamInfo.taxRate"></span>
+			                </td>
+			              </tr>                  
+			            </tbody>
+       			 </table>
+         <div class="center-buttons">
+          <button class="btn btn-primary" bt-close-modal="">返回</button>
+        </div>
+            </div>                 
+        </div>
+      </div>
+    </div>

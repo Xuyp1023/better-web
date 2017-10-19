@@ -1,0 +1,47 @@
+<div class="msg-read back-white">
+	<ul>
+		<li ng-click="checkUnread()">
+			<i class="new-icon icon-unread"></i>
+			<span class="padding-2">未读</span>
+			<i class="tipset" ng-show="unReadPage.total!==0 && unReadPage.total<=99" ng-bind="unReadPage.total"></i>
+			<i class="tipset" ng-show="unReadPage.total>99">99+</i>
+		</li>
+		<li ng-click="checkRead()">
+			<i class="new-icon icon-read"></i>
+			<span class="padding-2">已读</span>			
+		</li>
+	</ul>
+	<hr id="tab-rt" ng-class="{rt:right}">
+</div>
+
+<div class="margin-top-10 back-white normal-list" ng-repeat="item in infoList" ng-show="listPage.total!==0">
+	<i class="new-icon big-icon-notice"></i><!-- 
+--><div class="normal-content">
+		<h4 ng-bind="item.custName" class="font-14 gray3"></h4>
+		<span class="gray6 font-10" ng-bind="item.publishDate"></span><!-- 
+		 --><span class="gray6 font-10" ng-bind="item.publishTime"></span>
+	</div>
+	<div class="background-gray margin-14-2 gray9 font-12 line-height-21" ng-bind="item.subject"></div>
+	<a href="#/news/noticeDetail/{{item.id}}" ng-click="checkDetail()">查看详情</a>
+</div>
+
+<div ng-page conf="listPage" func="queryMore(false)" ng-show="listPage.total!==0"></div>
+
+
+ <div class="bottom-fixed" ng-show="listPage.pageNum==listPage.pages && listPage.tatal!==0">		
+	<span class="gray9">	
+	<i></i>
+	已经到底了!
+	<i></i>
+	</span>		
+</div>
+
+<div z-index=9000 class="noNews" ng-show="listPage.total==0">
+	<p>
+		<img src="img/none_notice.png" alt="1">
+		<span class="gray9">没有更多消息!</span>
+	</p>	
+</div>
+
+
+

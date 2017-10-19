@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* 
+*导航栏样式
+ */
+@import "compass/reset","common/base";
+
+#container{
+	background:#fff url(../img/bfs_leftbg.gif) repeate-x;
+}
+
+#navbar{ 
+	%nav-common{
+		height:25px;
+		line-height:25px;
+		background:transparent url(../img/bfs_leftbg2.gif) no-repeat left center;
+		&:hover{
+			background:transparent url(../img/bfs_leftbg3.gif) no-repeat left center;
+		}
+	}
+
+	%no-border{
+		border:0;
+	}
+
+	.nav-header{
+		height:25px;
+		line-height:25px;
+		background:transparent url(../img/bytter_skin.png) no-repeat 0 -308px;
+		@extend %no-border;
+		padding:{
+			top:1px;
+			bottom:1px;
+			right:0;
+		};
+		font:{
+			size:14px;
+		}
+	}
+
+	.nav-body{
+		@extend %no-border;
+		padding:0 0 0 30px;
+	}
+
+	.nav-body-item{
+		@extend %nav-common;
+		padding-left:20px;
+		list-style:none;
+		font-size:12px;
+		cursor:pointer;
+		position:relative;
+		span{
+			position: absolute;
+			left:0;
+			top: 50%;
+			margin-top: -8px
+		};
+		a{
+			text-decoration:none;
+		}
+	}
+
+
+}

@@ -1,0 +1,47 @@
+<div class="div-width-90 detail-box div-center">
+
+    <div class="div-center div-width div-margin-top">
+
+     <!-- 合作企业 -->
+
+     <table class="table table-striped table-hover">
+         <caption class="table-caption table-caption-green clearFix table-caption-noborder">
+           <span class="title-left">企业列表</span>
+           <button class="btn btn-info btn-right" ng-show="!onlyLook" ng-click="openAddBox('cooperation');">+添加</button>
+         </caption>
+       <thead>
+         <tr class="result-head-gray">
+           <td width="13%">企业名称</td>
+           <td width="13%">合作类型</td>
+           <td width="13%">近一年发生额</td>
+           <td width="13%">结算方式</td>
+           <td width="13%">业务占比</td>
+           <td width="17%">合作年限</td>
+           <td width="18%">操作</td>
+         </tr>
+       </thead>
+       <tbody>
+          <tr ng-repeat="item in cooperationList" ng-repeat-end ng-class="{even:$even}">
+           <td ng-bind="item.corpName"></td>
+           <td ng-bind="item.coopType|kindf:'CooperationType'"></td>
+           <td ng-bind="item.balance|moneyFilter"></td>
+           <td ng-bind="item.payType|kindf:'SettlementType'"></td>
+           <td ng-bind="item.businRate"></td>
+           <td ng-bind="item.duration"></td>
+           <td>
+             <a href="javascript:void(0);" ng-show="!onlyLook" ng-click="openEditBox(item,'cooperation')">编辑</a>
+             <a href="javascript:void(0);" ng-show="!onlyLook" ng-click="deleteRecord(item,'cooperation');">删除</a>
+             <span ng-show="onlyLook" class="deep-gray">暂无</span>
+           </td>
+         </tr>
+       </tbody>
+       <tfoot>
+            <td colspan="7">
+              <div bt-pagination conf="cooperationPage" func="queryOperateList(false,'cooperation')" ></div>
+            </td>
+        </tfoot>
+     </table>
+
+    </div>
+    
+</div> 

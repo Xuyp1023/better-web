@@ -1,0 +1,1 @@
+webpack --config webpack.wechat.config.js

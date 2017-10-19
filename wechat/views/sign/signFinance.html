@@ -1,0 +1,37 @@
+    <div class="pjce">
+        <ul>
+            <li>
+                <!-- <p><span>授信核心企业：</span>{{info.buyer}}</p>
+                <p><span>商业汇票号：</span>{{info.billNo}}</p>
+                <p><span>票据流通方式：</span>{{info.billMode|kindf:'BillMode'}}</p>
+                <p><span>有效期：</span>{{info.invoiceDate}} 到 {{info.endDate}}</p>
+                <p><span>金融机构：</span>{{info.factorName}}</p>
+                <p><span>保理产品：</span>{{info.productName}}</p>
+                <p><span>融资金额(元)：</span>{{info.balance}}</p> -->
+                <p><span>协议：</span>{{info.agreeName}}</p>
+                <p><span>协议编号：</span>{{info.agreeNo}}</a>
+                </p>
+                <!-- <p><span>协议签署日期：</span>{{info.signDate}}</p> -->
+            </li>
+            <li><p ng-show="contractInfo"><img ng-click="showAllImage()" width="100%" src="{{contractInfo[0]}}" alt=""></p></li>
+        </ul>
+    </div>
+    <div class="wid wid3">
+    	<ul>
+        	<li>
+                <div class="ci">
+                	<input type="text" placeholder="请输入验证码" class="text" name=""  ng-model="vCode">
+                </div>
+                <a href="javascript:void(0)" class="yzm" ng-click="findValidCode(info.appNo,info.agreeType)" >获取验证码</a>
+            </li>
+            <!-- <li>
+                <div class="ci">
+                	<input type="text" placeholder="请输入交易密码" class="text" name="" ng-model="tradePwd">
+                </div>
+            </li> -->
+        </ul>
+    </div>
+    <div class="butn butn2 mt10">
+        <a class="btn btn1"  href="javascript:void(0)" ng-click="cancelElecAgreement(info.appNo,'放弃')">放弃</a>
+        <a class="btn" href="javascript:void(0)" ng-click="sendValidCode(info.appNo,info.agreeType)">签约</a>
+    </div>

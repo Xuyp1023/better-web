@@ -1,0 +1,22 @@
+{
+  "message": "查询成功",
+  "data": {
+    "totalLastShares": "500.00",   
+    "shareList": [
+      {
+        "custNo": 100000180,                         
+        "tradeAccount": "A0101000100000563",        
+        "costMoney": 500,                         
+        "lastShares": 500,                        
+        "fundCode": "000343",
+        "agencyNo": "203",
+        "regDate": "20160715",
+        "custName": "深圳市拜特科技股份有限公司",
+        "agencyName": "华夏基金",
+        "fundName": "财富宝基金"
+      }
+    ]
+  },
+  "page": "",
+  "code": 200
+}

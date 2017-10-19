@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>经营信息</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/supplier/info/businessInfo.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">经营信息</h1>
+             <ul id="nav_tabs"  class="nav nav-tabs plus-nav-tabs-init">
+               <li class="active"><a href="#financial_info_tab" ng-click="switchTab($event)">财务信息</a></li>
+               <li><a href="#tax_info_tab" ng-click="switchTab($event)">纳税信息</a></li>
+               <li><a href="#financing_info_tab" ng-click="switchTab($event)">融资情况</a></li>
+               <li><a href="#cooperatives_info_tab" ng-click="switchTab($event)">合作企业</a></li>
+               <li><a href="#tradeRecord_info_tab" ng-click="switchTab($event)">贸易记录</a></li>
+               <li><a href="#bankBill_info_tab" ng-click="switchTab($event)">银行流水</a></li>
+             </ul>
+          </div>
+
+         
+         <!-- tab 栏 begin -->
+         <div class="tab-content plus-nav-tabs-content">
+
+            <!-- 财务信息 -->
+            <div id="financial_info_tab" class="tab-pane fade active in">
+              <div bt-include="temp/financialTab.html"></div>
+            </div>
+
+            <!-- 纳税信息 -->
+            <div id="tax_info_tab" class="tab-pane fade in">
+              <div bt-include="temp/taxTab.html"></div>
+            </div>
+
+            <!-- 融资情况 -->
+            <div id="financing_info_tab" class="tab-pane fade in">
+              <div bt-include="temp/financingTab.html"></div>
+            </div>
+
+            <!-- 合作企业 -->
+            <div id="cooperatives_info_tab" class="tab-pane fade in">
+              <div bt-include="temp/cooperativesTab.html"></div>
+            </div>
+
+            <!-- 贸易记录 -->
+            <div id="tradeRecord_info_tab" class="tab-pane fade in">
+              <div bt-include="temp/tradeRecordTab.html"></div>
+            </div>
+            
+            <!-- 银行流水 -->
+            <div id="bankBill_info_tab" class="tab-pane fade in">
+              <div bt-include="temp/bankBillTab.html"></div>
+            </div>
+          </div>
+          <!-- tab 栏 end -->
+
+          <!-- 返回跳转来源页面 -->
+          <div class="center-buttons" ng-show="onlyLook && origin ">
+              <button class="btn btn-primary" ng-click="goBack();"><span ng-bind="originInfo.name"></span></button>
+          </div>
+
+
+          <!-- 模板 -->
+          
+          <!-- 财务信息新增 -->
+          <div id="finance_add_box" bt-roll-modal="busTemp/addFinanceInfo.html" bt-z-index="9991"></div>
+          <!-- 纳税信息新增 -->
+          <div id="tax_add_box" bt-roll-modal="busTemp/addTaxInfo.html" bt-z-index="9991"></div>
+          <!-- 贸易记录新增 -->
+          <div id="tradeRecord_add_box" bt-roll-modal="busTemp/addTradeRecord.html" bt-z-index="9991"></div>
+          <!-- 银行流水新增 -->
+          <div id="bankFlow_add_box" bt-roll-modal="busTemp/addBankFlow.html" bt-z-index="9991"></div>
+
+          <!-- 合作企业新增 -->
+          <div id="cooperation_add_box" bt-roll-modal="temp/cooperativesAdd.html" bt-z-index="9991"></div>
+          <!-- 合作企业编辑 -->
+          <div id="cooperation_edit_box" bt-roll-modal="temp/cooperativesEdit.html" bt-z-index="9991"></div>
+          <!-- 融资情况新增 -->
+          <div id="financing_add_box" bt-roll-modal="temp/financingAdd.html" bt-z-index="9991"></div>
+          <!-- 融资情况编辑 -->
+          <div id="financing_edit_box" bt-roll-modal="temp/financingEdit.html" bt-z-index="9991"></div>
+
+           <!-- 附件上传 start -->
+          <div bt-upload conf="uploadConf" ></div>
+         
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/supplier/info/businessInfo");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/supplier/info/businessInfo");
+      } 
+  </script>
+  </body>
+</html>

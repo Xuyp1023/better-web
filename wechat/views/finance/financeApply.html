@@ -1,0 +1,36 @@
+	<div class="pjce">
+    	<ul>
+        	<li>
+            	<p><span>授信核心企业：</span>{{info.buyer}}</p>
+                <p><span>票据流通方式：</span>{{info.billMode |kindf:'BillFlowMode'}}</p>
+                <p><span>汇票金额：</span>{{info.balance|moneyFilter}}</p>
+                <p><span>有效期：</span>{{info.invoiceDate}}到{{info.endDate}}</p>
+                <p><span>融资额度：</span>{{info.loanBalalce|moneyFilter}}</p>
+                <!-- <p><span>金融机构：</span>{{info.factorNo}}</p> -->
+                <p><span>融资成本：</span>{{info.ratio|percentf}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="wid wid2">
+    	<ul class="clearfix">
+            <li ng-click="changeFactorNo()">
+                <span class="ti">金融机构</span>
+                <div class="ci">
+                    {{request.factorNo|kindf:'FactorListDic'}}<i class="ico ico11 ml5"></i>
+                </div>
+            </li>
+            <li>
+            	<span class="ti">融资金额(元)</span>
+            	<input name="" type="text" ng-model="request.balance" class="text" placeholder="请输入融资金额">
+            </li>
+        </ul>
+    </div>
+    <div class="texrea">
+    	<div class="wTxar">
+        	<textarea placeholder="想说点啥..." class="text"></textarea>
+        </div>
+    </div>
+     <div class="butn butn2 mt10">
+        <a href="javascript:void(0);" class="mui-btn mui-btn-primary" ng-click="applyFinance();">融资申请</a>
+        <!-- <a href="javascript:void(0);" class="mui-btn mui-btn-success" ng-click="uploadImage('billAccessory');">上传附件</a> -->
+    </div>

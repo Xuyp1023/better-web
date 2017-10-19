@@ -1,0 +1,112 @@
+@charset "UTF-8";
+/* 用户资料页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+@import "common/pages";
+
+#container{
+	@include Spage_plugin;
+	@include init;
+	@include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+}
+
+#content{
+	@include plus-nav-tabs(70%,30%);
+	@include center-buttons;
+	@include td-input-width(95%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+	@include div-margin;
+}
+
+#select_fund{
+	.tip-message{
+		margin-top:10px;
+		font-size:14px;
+		font-family:宋体;
+		height:25px;
+		line-height:25px;
+		span{
+			color:#F03D36;
+			letter-spacing:0.2em;
+		}
+	}
+	.fast-search{
+		float:right;
+		margin-top:10px;
+		height:35px;
+		line-height:35px;
+		input,select{
+			margin-bottom:0;
+		}
+		#search_fund_company{
+			margin-right:10px;
+		}
+	}
+	.fund-kind{
+		width:100%;
+		margin-bottom:2px;
+		background-color:#DBDDDD;
+		li{
+			width:10%;
+			margin-left:1%;
+			// margin-right:1%;
+			a{
+				&:hover{
+					font-size:15px;
+					color:#c51338;
+					transition:all .3s;
+				}
+			}
+		}
+	}
+
+	.fund-list{
+
+	}
+}
+
+#confirm_amount_form,#pree_see_form{
+	margin-top:20px;
+	.text{
+		padding:3px;
+		height:25px;
+		line-height:25px;
+		*padding-left:25px;
+	}
+	.red{
+		display:inline-block;
+		font-size:16px;
+	}
+
+}
+
+#finish_select{
+	.finish-info{
+		margin-top:30px;
+	}
+}
+
+#warm_prompt_box{
+	@include warm-prompt-box;
+}
+
+
+
+
+
+
+
+
+
+

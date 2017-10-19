@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>已完结业务清单</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf/css/applyFund.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="testController" class="span12">
+          <div id="fund_search_way" class="row-fluid">
+              
+            <h1 class="content-title-1 content-title-condensed">
+              <img src="../../img/fast_money.png" alt="">已完结业务清单
+              <small class="small-select">
+                <span>选择账户</span>
+                <select ng-model="searchData.custNo" ng-change="custChangeFresh();" >
+                  <option ng-repeat="item in custList" ng-option-filter ng-selected="searchData.custNo == item.value" value="{{item.value}}" ng-bind="item.name"></option>
+                </select>
+              </small>
+            </h1>
+
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="40%">申请单编号:</td>
+                <td width="60%" class="div-text-left">
+                <input type="text" ng-model="searchData.requestNo">
+                </td>
+              </tr>
+              <tr>
+                <td>供应商名称:</td>
+                <td class="div-text-left">
+                <input type="text" ng-model="searchData.supplier">
+                </td>
+              </tr>
+              <tr>
+                <td>申请保理产品:</td>
+                <td class="div-text-left">
+                <select  ng-model="searchData.productId" >
+                  <option value="">--请选择--</option>
+                  <option ng-repeat="item in productList" value={{item.value}} ng-bind="item.name"></option>
+                </select>
+                </td>
+              </tr>
+              <tr>
+                <td width="15%">申请时间:</td>
+                <td width="70%" class="date div-text-left">
+                  <input type="text" id="begin_date" bt-date="searchData.GTErequestDate" bt-max-date="end_date">
+                  - 
+                  <input type="text" id="end_date" bt-date="searchData.LTErequestDate" bt-min-date="begin_date">
+                </td>
+              </tr>
+            </table>
+
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="reFreshFacApplyList(true);">查询</button>
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+              已完结业务列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr class="font-size-12 info-title">
+                  <td width="9%">票据编号</td>
+                  <td width="9%">申请单编号</td>
+                  <!-- <td width="12%">保理公司业务单号</td> -->
+                  <td width="12%">保理金额(元)</td>
+                  <td width="12%">供应商名称</td>
+                  <td width="12%">申请保理产品</td>
+                  <td width="12%">申请日期</td>
+                  <td width="12%">实际放款金额(元)</td> 
+                  <td width="8%">还款状态</td>
+                  <td width="8%">操作</td>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in facApplyList" ng-class="{even:$even}" ng-repeat-end>
+                  <td ng-bind="item.billNo"></td>
+                  <td ng-bind="item.requestNo"></td>
+                  <!-- <td ng-bind="item.factorRequestNo "></td> -->
+                  <td class="red" ng-bind="item.confirmBalance | moneyFilter"></td>  
+                  <td ng-bind="item.supplier"></td>
+                  <td ng-bind="item.productName"></td>
+                  <td ng-bind="item.requestDate"></td>
+                  <td class="red" ng-bind="item.loanBalance | moneyFilter"></td>  
+                  <td ng-bind="item.tradeStatus |kindf:'FinancingAppStatus'" ng-class=" {'repaydelayBg':item.tradeStatus==7} "></td>
+                  <td><a href="#" ng-click="showDetail(item);">详情</a></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                  <td colspan="12">
+                    <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                      <ul>
+                        <li class="previous hidden" ng-show="tradeListPage.pageNum<=1"><span>首页</span></li>
+                        <li class="previous" ng-show="tradeListPage.pageNum>1" ng-click="pageEmitter.firstPage()"><a href="#">首页</a></span></li>
+                        <li class="previous hidden" ng-show="tradeListPage.pageNum<=1"><span>上一页</span></li>
+                        <li class="previous" ng-show="tradeListPage.pageNum>1" ng-click="pageEmitter.prevPage()"><a href="#">上一页</a></li>
+                        <li class="next hidden" ng-show="tradeListPage.pageNum>=tradeListPage.pages"><span>下一页</span></li>
+                        <li class="next" ng-show="tradeListPage.pageNum<tradeListPage.pages" ng-click="pageEmitter.nextPage()"><a href="#">下一页</a></li>
+                        <li class="next hidden" ng-show="tradeListPage.pageNum>=tradeListPage.pages"><span>尾页</span></li>
+                        <li class="next" ng-show="tradeListPage.pageNum<tradeListPage.pages" ng-click="pageEmitter.endPage()"><a href="#">尾页</a></li>
+                        <li>共<span ng-bind="tradeListPage.pageNum"></span>/<span ng-bind="tradeListPage.pages"></span>页</li>
+                        <li>共<span ng-bind="tradeListPage.total"></span>条记录</li>
+                        <li class="toPage">
+                            <div>
+                              <span>跳转到</span>
+                              <input type="text" name="skipToPageNum" ng-disabled="tradeListPage.pages<=1">
+                              <span>页</span>
+                              <button class="btn" ng-disabled="tradeListPage.pages<=1" ng-click="pageEmitter.skipPage($event)">跳转</button>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+              </tfoot>
+            </table>
+
+          </div>
+        <div id="fix_operator_info_box" bt-roll-modal="applyTemp/detail.html" bt-z-index="9991"></div>
+
+        <!-- 温馨提示 -->
+        <div id="warm_prompt_box" class="div-width-100">
+          <h1 class="prompt-title">
+            <img class="prompt-icon" src="../../img/warm_prompt.png" alt="">
+            温馨提示
+          </h1>
+          <div class="warm-prompt-content">
+            <p>1.核心企业可以查询到该时间节点之前，已经完成所有应付的保理业务详细列表。显示所有已完成还款流程的业务信息。</p>
+          </div>
+        </div>
+        <!-- 温馨提示END -->
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("../../provider_dev/src/applyFund");
+      }
+      // For production
+      else {
+        seajs.use("p/provider/1.0.0/applyFund");
+      } 
+  </script>
+  </body>
+</html>

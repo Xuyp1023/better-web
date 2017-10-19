@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+//引导页
+@mixin lead{
+	// lead（融资类型）
+	.finance-content{
+		box-sizing:border-box;
+		height:249px;
+		border-bottom:1px solid #ddd;	
+	}
+}

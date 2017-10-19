@@ -1,0 +1,129 @@
+@charset "UTF-8";
+/* 
+*导航栏样式
+ */
+/* line 5, D:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+/* line 22, D:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1; }
+
+/* line 24, D:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none; }
+
+/* line 26, D:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 28, D:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+/* line 30, D:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none; }
+  /* line 103, D:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+/* line 32, D:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none; }
+
+/* line 116, D:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/**
+*项目基础文件、公用组件样式文件
+*/
+/* IE兼容配置 */
+/* line 9, ../sass/common/base.scss */
+#container {
+  width: 900px;
+  padding-top: 10px; }
+
+/* line 16, ../sass/common/base.scss */
+.div-center {
+  margin-left: auto;
+  margin-right: auto; }
+
+/* line 115, ../sass/common/base.scss */
+.unchecked {
+  color: #A0A0A0 !important; }
+
+/* line 119, ../sass/common/base.scss */
+.checkbox-left-sp, .checkbox-right-sp {
+  cursor: pointer; }
+
+/* line 123, ../sass/common/base.scss */
+input[type="checkbox"] {
+  margin-top: 0; }
+
+/* line 7, ../sass/sidebar.scss */
+#container {
+  background: #fff url(../img/bfs_leftbg.gif) repeate-x; }
+
+/* line 12, ../sass/sidebar.scss */
+#navbar .nav-body-item {
+  height: 25px;
+  line-height: 25px;
+  background: transparent url(../img/bfs_leftbg2.gif) no-repeat left center; }
+  /* line 16, ../sass/sidebar.scss */
+  #navbar .nav-body-item:hover {
+    background: transparent url(../img/bfs_leftbg3.gif) no-repeat left center; }
+/* line 21, ../sass/sidebar.scss */
+#navbar .nav-header, #navbar .nav-body {
+  border: 0; }
+/* line 25, ../sass/sidebar.scss */
+#navbar .nav-header {
+  height: 25px;
+  line-height: 25px;
+  background: transparent url(../img/bytter_skin.png) no-repeat 0 -308px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 0;
+  font-size: 14px; }
+/* line 40, ../sass/sidebar.scss */
+#navbar .nav-body {
+  padding: 0 0 0 30px; }
+/* line 45, ../sass/sidebar.scss */
+#navbar .nav-body-item {
+  padding-left: 20px;
+  list-style: none;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative; }
+  /* line 52, ../sass/sidebar.scss */
+  #navbar .nav-body-item span {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -8px; }
+  /* line 58, ../sass/sidebar.scss */
+  #navbar .nav-body-item a {
+    text-decoration: none; }

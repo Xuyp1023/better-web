@@ -1,0 +1,140 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      基本信息复核
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered big-input" ng-box-enabled="childInfo.modiType=add,edit">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">基本资料</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%">企业名称:</td>
+            <td width="30%" class="div-text-left"><input type="text" ng-model="childInfo.custName"></td>
+            <td width="20%">工商登记号:</td>
+            <td width="30%" class="div-text-left"><input type="text" ng-model="childInfo.businLicence"></td>
+          </tr>
+          <tr>
+            <td>注册地址:</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.regAddress"></td>
+            <td>公司类型:</td>
+            <td class="div-text-left">
+              <select name="" id=""  ng-model="childInfo.corpType">
+                <option ng-repeat="type in corpType" ng-option-filter value="{{type.value}}" ng-bind="type.name" ng-selected="childInfo.corpType==type.value"></option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>注册资本:</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.regCapital"></td>
+            <td>实收资本:</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.paidCapital"></td>
+          </tr>
+          <tr>
+            <td>经营范围:</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.businScope"></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- 联系信息 -->
+      <table class="table table-striped table-hover table-bordered big-input" ng-box-enabled="childInfo.modiType=add,edit">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">联系信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%">联系地址:</td>
+            <td width="80%" class="div-text-left" colspan="3" ><input type="text" ng-model="childInfo.address"></td>
+          </tr>
+          <tr>
+            <td width="20%">联系电话:</td>
+            <td width="30%" class="div-text-left"><input type="text" ng-model="childInfo.phone"></td>
+            <td width="20%">电子邮箱:</td>
+            <td width="30%" class="div-text-left"><input type="text" ng-model="childInfo.email"></td>
+          </tr>
+          <tr>
+            <td width="20%">邮政编码:</td>
+            <td width="30%" class="div-text-left"><input type="text" ng-model="childInfo.zipCode"></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+      <!-- 场地信息 -->
+      <table class="table table-striped table-hover table-bordered big-input" ng-box-enabled="childInfo.modiType=add,edit">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">场地信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td >场地地址:</td>
+            <td class="div-text-left" colspan="3" ><input type="text" ng-model="childInfo.premisesAddress"></td>
+          </tr>
+          <tr>
+            <td width="20%">场地类型:</td>
+            <td width="30%" class="div-text-left">
+              <select name="" id="" ng-model="childInfo.premisesType">
+                <option ng-repeat="type in premisesType" ng-option-filter value="{{type.value}}" ng-bind="type.name" ng-selected="childInfo.premisesType==type.value"></option>
+              </select>
+            </td>
+            <td width="20%">场地面积:</td>
+            <td width="30%" class="div-text-left"><input type="text" ng-model="childInfo.premisesArea"></td>
+          </tr>
+          <tr>
+            <td>使用期限:</td>
+            <td class="div-text-left"><input type="text" ng-model="childInfo.premisesYear"></td>
+            <td></td><td></td>
+          </tr>
+          </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td class="left" colspan="3">基本信息相关附件</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td>附件类型</td>
+            <td>附件名称</td>
+            <td>操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="file in basicUploadList" ng-repeat-end ng-class="{even:$even}">
+             <td>基本信息附件</td>
+             <td>
+                附件一
+             </td>
+             <td>
+                <a href="javascript:void(0);">下载</a>  
+                <a href="javascript:void(0);" ng-show="childInfo.modiType !== 'read'">删除</a>  
+             </td>
+           </tr>
+        </tbody>
+      </table>
+      
+      <div mapping="reject" bt-hide="true" bt-include="../../commonTemp/reject.html" bt-include-link="reject:childInfo.reason" bt-include-click="reject:rejectRecord($event.target);"></div>
+      <div mapping="pass" bt-hide="true" bt-include="../../commonTemp/reject.html" bt-include-link="reject:childInfo.reason" bt-include-click="reject:confirmRecord($event.target);"></div>
+
+      
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" mapping="passButton" ng-show="childInfo.modiType === 'confirm'" ng-disabled="childInfo.rejecting" ng-click="passChildInfoModal($event.target);">确认通过</button>
+        <button class="btn btn-primary" mapping="rejectButton" ng-show="childInfo.modiType === 'confirm'" ng-disabled="childInfo.rejecting" ng-click="rejectChildInfoModal($event.target);">确认驳回</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

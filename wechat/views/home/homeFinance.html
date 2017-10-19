@@ -1,0 +1,126 @@
+<img src="img/finance.jpg" alt="" class="width-100">
+
+<div class="icon-grid">
+	<ul class="clearfix">
+		<li>
+			<a href="#/lead/financing/">
+				<p>
+					<i class="new-icon icon-apply"></i>
+				</p>
+				<span>申请融资</span>
+			</a>
+		</li>
+		<li>
+			<a href="#/inquiry">
+				<p>
+					<i class="new-icon icon-ask"></i>
+				</p>
+				<span>询价</span>
+			</a>
+		</li>
+		<li>
+			<a href="#/billPool">
+				<p>
+					<i class="new-icon icon-pool"></i>
+				</p>
+				<span>票据</span>
+			</a>
+		</li>
+		<li>
+			<a href="#/home/financeAll">
+				<p>
+					<i class="new-icon icon-square"></i>
+				</p>
+				<span>全部</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+
+<!-- 待办事项 -->
+<div class="single-line margin-top-10 back-white underline" ng-click="lookTodo();">
+	<p>
+		<i class="new-icon big-icon-file"></i>
+	</p>
+	<i class="title gray9">我的待办事项</i>
+	<i class="tip" ng-show="todoTaskCount !== '0'" ng-bind="todoTaskCount"></i>
+	<i class="detail new-icon icon-go"></i>
+</div>
+
+
+<div class="home-canvas-wrap margin-top-10">
+	
+	<canvas id="pool" class="home-canvas">
+	</canvas>
+	
+	<!-- 遮罩层 -->
+	<div class="shade">
+		<p class="title">可用授信额度</p>
+		<p class="content" >
+			<span ng-bind="creditInfo.creditBalance|moneyFilter:'0' "></span><span class="decimal" ng-show="creditInfo.creditBalance">00</span>
+		</p>
+		<p class="bottom">
+			<span>当前授信总额</span>
+			<span class="black" ng-bind="creditInfo.creditLimit|moneyFilter"></span>
+		</p>
+	</div>
+
+</div>
+
+
+<!-- 融资足迹 -->
+<div class="single-line margin-top-10 back-white margin-bottom-60">
+	<p>
+		<i class="new-icon big-icon-footprint"></i>
+	</p>
+	<i class="title gray9">我的融资足迹</i>
+	<!-- <i class="content">一些内容</i> -->
+	<i class="detail new-icon icon-go"></i>
+</div>
+
+
+<!-- <div class="normal-list margin-bottom-60">
+    <ul>
+        <li ng-repeat="item in msgList">
+            <div class="list-header">
+                <i class="new-icon big-icon-message"></i>
+                <span ng-bind="item.name"></span>
+                <span ng-bind="item.date"></span>
+            </div>
+
+            <div class="list-content">
+                <span ng-bind="item.content"></span>
+            </div>
+
+            <div class="list-bottom">
+              <a href="javascript:void(0);" ng-click="showDetail(item);">查看详情</a>
+            </div>
+        </li>
+    </ul>
+</div> -->
+
+
+<!-- 底部 -->
+<footer class="home-footer">
+    <ul class="clearfix">
+    	<li>
+    		<div>
+    			<i class="new-icon icon-finance-active"></i>
+    		</div>
+    		<span>融资</span>
+    	</li>
+    	<li ng-click="switch('invest')">
+    		<div>
+    			<i class="new-icon icon-invest"></i>
+    		</div>
+    		<span>投资</span>
+    	</li>
+    	<li ng-click="switch('single')">
+    		<div>
+    			<i class="new-icon icon-person"></i>
+    		</div>
+    		<span>个人</span>
+    	</li>
+    </ul>
+</footer>

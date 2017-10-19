@@ -1,0 +1,107 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+      新增代录审核
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="2">代录申请</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="30%">代录类型</td>
+            <td width="70%" ng-bind="info.insteadType|kindf:'InsteadType'"></td>
+          </tr>
+          <tr ng-show="isShowMore">
+            <td>机构选择</td>
+            <td ng-bind="info.custNo|kindf:'CustListDic'">
+            </td>
+          </tr>
+          <tr ng-show="isShowMore">
+            <td>代录信息类别</td>
+            <td class="div-text-left">
+              <table mapping="checkboxGroup" class="table table-striped table-condensed table-bordered">
+                <tr>
+                  <td width="25%">
+                    <label><input type="checkbox" disabled="true">基本信息</label>
+                  </td>
+                  <td width="25%">
+                    <label><input type="checkbox" disabled="true">法人信息</label>
+                  </td>
+                  <td width="25%">
+                    <label><input type="checkbox" disabled="true">股东信息</label>
+                  </td>
+                  <td width="25%">
+                    <label><input type="checkbox" disabled="true">高管信息</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label><input type="checkbox" disabled="true">营业执照信息</label>
+                  </td>
+                  <td>
+                    <label><input type="checkbox" disabled="true">联系人信息</label>
+                  </td>
+                  <td>
+                    <label><input type="checkbox" disabled="true">银行账户信息</label>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+
+      <!-- 附件列表 -->
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td class="left" colspan="3">开户相关附件</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td>附件类型</td>
+            <td>附件名称</td>
+            <td>操作</td>
+          </tr>
+        </thead>
+        <tbody>
+         <tr ng-repeat="file in attachList" ng-repeat-end ng-class="{even:$even}">
+            <!-- <td>经营附件</td> -->
+            <td ng-bind="file.fileInfoType|kindf:'CustOpenAccountFile' "></td>
+            <td>
+              <a href=""><span ng-bind="file.fileName"></span></a>
+            </td>
+            <td>
+              <a href="{{file.id|downf}}">下载</a>
+              <!-- <a href="javascript:void(0);" ng-click="delUploadItem(file,'attachList');">删除</a> -->
+            </td>
+          </tr>
+          <tr>
+          <td ng-show="attachList.length!=0" colspan="3" >
+            <a ng-href="{{downListUrl}}">点击下载打包资料</a>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      <div mapping="reject" class="hide" bt-include="../../commonTemp/reject.html" bt-include-link="reject:info.reason" bt-include-click="reject:rejectInfo($event.target);"></div>
+      <div mapping="pass" class="hide" bt-include="../../commonTemp/reject.html" bt-include-link="reject:info.reason" bt-include-click="reject:passInfo($event.target);"></div>
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" mapping="passButton"  ng-disabled="info.rejecting" ng-click="passInfoModal($event.target)">审核通过</button>
+        <button class="btn btn-danger" mapping="rejectButton" ng-show="info.insteadType !== '0'" ng-disabled="info.rejecting" ng-click="rejectInfoModal($event.target)">驳回</button>
+        <button class="btn btn-primary" ng-disabled="info.rejecting" bt-close-modal>返回</button>
+    </div>
+</div>

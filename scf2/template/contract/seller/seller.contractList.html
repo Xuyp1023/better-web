@@ -1,0 +1,47 @@
+<div class="top-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue div-margin-bottom-none"><img src="img/operator.png" alt="">
+    贸易合同台账登记
+  </h1>
+  <div>
+    <form class="form-inline">
+      <label>
+        <a href="#/sellerContract/add"><button class="btn btn-info" type="button">+新增合同</button></a>
+      </label>
+    </form>
+
+    <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+            <tr class="result-head">
+              <td width="15%">合同编号</td>
+              <td width="15%">合同名称</td>
+              <td width="20%">买方</td>
+              <td width="20%">卖方</td>
+              <td width="10%">合同金额</td>
+              <td width="10%">登记日期</td>
+              <td width="10%">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td ng-bind="item.agreeNo"></td>
+            <td ng-bind="item.agreeName"></td>
+            <td ng-bind="item.buyer"></td>
+            <td ng-bind="item.supplier"></td>
+            <td ng-bind="item.balance"></td>
+            <td ng-bind="item.regDate"></td>
+            <td>
+              <a href="javascript:void(0);" ng-click="showEditPage(item.id)">编辑</a>
+              &nbsp;&nbsp;
+              <a href="javascript:void(0);" ng-click="showCancelPage(item.id)">作废</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="7">
+                <div bt-pagination conf="listPage" func="queryList(true)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+  </div>
+</div>

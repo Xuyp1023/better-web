@@ -1,0 +1,39 @@
+<div class="row-fluid top-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    <span ng-bind="processName"></span>&nbsp;金额段定义
+  </h1>
+
+    <!-- 区间列表 -->
+    <table class="table table-striped table-hover table-bordered div-margin-top">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">区间段</span>
+      </caption>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="35%">起始金额</td>
+          <td width="35%">结束金额</td>
+          <td width="30%">操作</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in sectionList" ng-repeat-end ng-class="{even:$even}" >
+          <td class="tab-text-right" ng-bind="item.start"></td>
+          <td class="tab-text-right">
+            <span ng-show="item.status==1" ng-bind="item.end?item.end:'无限大'"></span>
+            <input ng-show="item.status==0" type="text" ng-model="item.end" placeholder="留空表示无限大">
+          </td>
+          <td>
+            <span><a href="javascript:void(0);" ng-show="item.status===1 && (editFlag !== 0 && editFlag !== 1)" ng-click="editMoneySection(item);">修改</a></span>
+            <span><a href="javascript:void(0);" ng-show="item.status===1 && (editFlag !== 0 && editFlag !== 1)" ng-click="deleteMoneySection(item, $index);">删除</a></span>
+            <span><a href="javascript:void(0);" ng-show="item.status===0" ng-click="saveMoneySection(item,$index,$event.target);">保存</a></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="center-buttons">
+      <button class="btn btn-primary" ng-show="editFlag===3" ng-click="addMoneySection($event.target);">添加金额段</button>
+      <button class="btn btn-primary" ng-show="editFlag===2" ng-click="saveMoneySectionDefine($event.target);">保存定义</button>
+      <button class="btn btn-primary" ng-click="goBack();">返回</button>
+    </div>
+</div>

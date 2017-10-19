@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>融资产品信息</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf/css/queryFinanPro.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/flow_money.png" alt="">
+              融资产品信息
+              <div class="search-info">
+                <span class="lab">融资产品选择:</span>
+                <select ng-model="selectId" ng-change="changePro();" >
+                  <option ng-repeat="item in infoList" ng-option-filter ng-selected="selectId == item.value" value="{{item.value}}" ng-bind="item.name"></option>
+                </select>
+              </div>
+            </h1>
+            <table id="pro_info" class="div-width-100 table table-striped table-bordered table-hover search-result">
+<!--               <tr>
+                <td width="35%">销售机构代码</td>
+                <td width="65%" data-bind="text:parseEmpty(compInfoBind().tano)"></td>
+              </tr> -->
+              <tr class="even">
+                <td width="35%">产品代码</td>
+                <td width="65%" ng-bind="info.factorCode"></td>
+              </tr>
+              <tr>
+                <td>产品名称</td>
+                <td ng-bind="info.factorName"></td>
+              </tr>
+              <tr class="even">
+                <td>保理公司</td>
+                <td ng-bind="info.factorCorpName"></td>
+              </tr>
+              <tr>
+                <td>适应范围</td>
+                <td ng-bind="info.fitCrowd"></td>
+              </tr>
+              <tr class="even">
+                <td>产品特征</td>
+                <td ng-bind="info.productFeature"></td>
+              </tr>
+              <tr>
+                <td>最低融资金额</td>
+                <td ng-bind="info.startMoney|moneyFilter"></td>
+              </tr>
+              <tr class="even">
+                <td>最高融资金额</td>
+                <td ng-bind="info.endMoney|moneyFilter"></td>
+              </tr>
+              <tr>
+                <td>融资方式</td>
+                <td ng-bind="info.financeType|kindf:'FinancingAppType'"></td>
+              </tr>
+              <tr class="even">
+                <td>通用利率</td>
+                <td ng-bind="info.commonRate|percentf"></td>
+              </tr>
+              <tr>
+                <td>适用核心企业</td>
+                <td ng-bind="info.coreCustName"></td>
+              </tr>
+             
+              <!-- <tfoot>
+                  <td colspan="7">
+                    <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                      <ul>
+                        <li class="previous hidden" data-bind="visible:tradeListPageBind().pageNum==1"><span>首页</span></li>
+                        <li class="previous" data-bind="visible:tradeListPageBind().pageNum!=1,click:firstPage"><a href="#">首页</a></span></li>
+                        <li class="previous hidden" data-bind="visible:tradeListPageBind().pageNum==1"><span>上一页</span></li>
+                        <li class="previous" data-bind="visible:tradeListPageBind().pageNum!=1,click:prevPage"><a href="#">上一页</a></li>
+                        <li class="next hidden" data-bind="visible:tradeListPageBind().pageNum>=tradeListPageBind().pages"><span>下一页</span></li>
+                        <li class="next" data-bind="visible:tradeListPageBind().pageNum<tradeListPageBind().pages,click:nextPage"><a href="#">下一页</a></li>
+                        <li class="next hidden" data-bind="visible:tradeListPageBind().pageNum>=tradeListPageBind().pages"><span>尾页</span></li>
+                        <li class="next" data-bind="visible:tradeListPageBind().pageNum<tradeListPageBind().pages,click:endPage"><a href="#">尾页</a></li>
+                        <li>共<span data-bind="text:parseEmpty(tradeListPageBind().pageNum"></span>/<span data-bind="text:pars)eEmpty(tradeListPageBind().pages"></span)>页</li>
+                        <li>共<span data-bind="text:tradeListPageBind().total"></span>条记录</li>
+                        <li class="toPage">
+                            <div>
+                              <span>跳转到</span>
+                              <input type="text" name="skipToPageNum" data-bind="disable:tradeListPageBind().pages==1">
+                              <span>页</span>
+                              <button class="btn" data-bind="disable:tradeListPageBind().pages==1,click:skipPage">跳转</button>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+              </tfoot> -->
+            </table>
+            
+            <!-- 温馨提示 -->
+            <div id="warm_prompt_box" class="div-width-100">
+              <h1 class="prompt-title">
+                <img class="prompt-icon" src="../../img/warm_prompt.png" alt="">
+                温馨提示
+              </h1>
+              <div class="warm-prompt-content">
+                <p>1.合作保理公司所示保理产品信息列表。根据保理公司对核心企业授信额度参考，供应商可以融资金额区间为最低1万元到最高5000万元。采用折扣融资方式一般按照票面金额不高于九折进行融资。以上所列为保理公司已开发的保理产品具体细节内容，如未有合适产品或其他疑问，请与我司客服人员联系，联系电话：0755-33000719。</p>
+              </div>
+            </div>
+            <!-- 温馨提示END -->
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	 <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+        <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+    <![endif]-->
+    <script type="text/javascript">
+      // For development
+        if (isBTTest) {
+          seajs.use("../../provider_dev/src/queryFinanPro");
+        }
+        // For production
+        else {
+          seajs.use("scf/provider/1.0.0/queryFinanPro");
+        } 
+    </script>
+  </body>
+</html>

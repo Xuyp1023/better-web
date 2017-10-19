@@ -1,0 +1,78 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">付款结果维护
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                     
+                      <tr>
+                        <td>付款日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.payDate" style="width: 49% !important;">
+                        </td>
+                      </tr>                      
+                      <tr>                        
+                        <td width="25%">委托企业:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.custNo">
+                            <option value="">----所有----</option>
+                            <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+                          </select>
+                        </td>                        
+                      </tr>
+                      <tr>
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+                    </div>
+                </div>
+
+
+      <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+            <tr>
+              <td class="modi-group" colspan="8">
+               <button class="btn btn-info" ng-click="add();" >新增维护</button>
+              </td>
+            </tr>
+            <tr class="result-head">
+              <td width="20%">付款日期</td>
+              <td width="10%">付款笔数</td>
+              <td width="10%">付款金额</td>
+              <td width="10%">成功笔数</td>
+              <td width="10%">成功金额</td>
+              <td width="10%">失败笔数</td>
+              <td width="10%">失败金额</td>
+              <td width="10%">付款详情</td>
+              <td width="10%">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td class="red" ng-bind="item.payDate"></td>
+            <td ng-bind="item.payTotalAmount"></td>
+            <td ng-bind="item.payTotalBalance"></td>
+            <td ng-bind="item.paySuccessAmount"></td>
+            <td ng-bind="item.paySuccessBalance"></td>
+            <td ng-bind="item.payFailureAmount"></td>
+            <td ng-bind="item.payFailureBalance"></td>
+            <td ><a href="javascript:void(0);" ng-click="lookDetail($event.target,item);">查看详情</a></td>
+            <td><a href="javascript:void(0);" ng-click="dealState($event.target,item);">处理</a></td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="9">
+                <div bt-pagination conf="listPage" func="queryList(false)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+        </div>
+
+
+    </div>
+
+<div id="detail_box" bt-roll-modal="template/1qh-mobile/check/recheck/detail.html" bt-z-index="9991"></div>
+<div id="commissionDetail_box" bt-roll-modal="template/1qh-mobile/commission/temp/detailInfo.html" bt-z-index="9991"></div>
+

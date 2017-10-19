@@ -1,0 +1,67 @@
+<h3 class="title-h3">商业承兑汇票（纸票）<small class="color-red">{{info.businStatus|kindf:'BillNoteStatus'}}</small></h3>
+<div class="pjce">
+	<ul>
+		<li>
+			<p><span>持票人：</span>{{info.supplier}}</p>
+			<p><span>汇票编号：</span>{{info.billNo}}</p>
+			<p><span>汇票金额(元)：</span>{{info.balance|moneyFilter}}</p>
+			<p><span>有效期从：</span>{{info.invoiceDate}} 到 {{info.endDate}}</p>
+			<p class="inlint"><span>付款方：</span>{{info.buyer}}</p>
+			<p><span>付款账号：</span>{{info.buyerBankAccount}}</p>
+			<p><span>付款开户行：</span>{{info.buyerBankName}}</p>
+			<p class="inlint"><span>收款方：</span>{{info.supplier}}</p>
+			<p><span>收款账号：</span>{{info.suppBankAccount}}</p>
+			<p><span>收款开户行：</span>{{info.suppBankName}}</p>
+		</li>
+	</ul>
+</div>
+
+
+
+<!-- <h3 class="title-h3">应收账款附件</h3>
+
+<div class="mui-row ac-grid upload-wrap margin-bottom-80">
+	<div class="mui-col-sm-4 mui-col-xs-4">
+		<div class="upload-img" ng-click="preImg(upLoadList.CustBizLicenseFile);">
+			<img ng-src="{{upLoadList.CustBizLicenseFile.id|downf}}" alt="">
+		</div>
+	</div>
+	<div class="mui-col-sm-4 mui-col-xs-4">
+		<div class="upload-img" ng-click="preImg(upLoadList.CustBizLicenseFile);">
+			<img ng-src="{{upLoadList.CustBizLicenseFile.id|downf}}" alt="">
+		</div>
+	</div>
+	<div class="mui-col-sm-4 mui-col-xs-4">
+		<div class="upload-img" ng-click="preImg(upLoadList.CustBizLicenseFile);">
+			<img ng-src="{{upLoadList.CustBizLicenseFile.id|downf}}" alt="">
+		</div>
+	</div>
+
+</div> -->
+<div class="back-white pb10 margin-bottom-45">
+    <h3 class="title-message"><span class="mui-active font-18"></span>应收账款附件</h3>
+    <!-- 附件遍历 -->
+    <div class="mui-row ac-grid upload-wrap">
+        <div ng-repeat="item in upLoadList" class="mui-col-sm-4 mui-col-xs-4">
+            <div class="upload-area"  ng-show="!item.id" ng-click="uploadImage();" > 
+                <div class="line-hori"></div>
+                <div class="line-vert"></div>
+            </div>
+            <div class="upload-img"  ng-show="item.id" ng-click="preImg(item);">
+                <img ng-src="{{item.id ? (item.id|downf) :''}}" >
+            </div>
+            <p class="type-exam font-gray" ng-show="item.id" ng-click="delUpload(item);">删除</p>
+        </div>
+    </div>
+</div>
+
+<div class="mAito comp position-fixed-bottom width-100 box-shadow-gray">
+	<ul class="clearfix">
+		<li ng-click="goDidFlow()">
+			<a href="javascript:void(0)" class="background-blue color-white border-none">
+				<span>查看融资详情</span>
+				<i class="ico ico14"></i>
+			</a>
+		</li>
+	</ul>
+</div>

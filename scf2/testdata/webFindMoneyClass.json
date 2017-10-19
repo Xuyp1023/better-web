@@ -1,0 +1,9 @@
+{
+    "message": "ok",
+    "data": [
+        { "id": 5001, "auditMinAmount": 0.00, "auditMaxAmount": 10000.00, "aduitAll": "" },
+        { "id": 5002, "auditMinAmount": 10000.00, "auditMaxAmount": -1.00, "aduitAll": "" }
+    ],
+    "page": "",
+    "code": 200
+}

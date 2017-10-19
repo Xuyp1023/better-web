@@ -1,0 +1,75 @@
+<div class="div-width-90 detail-box div-center">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    电子印章上传
+  </h1>
+  <div  class="row-fluid div-center div-margin-top">
+
+    <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">基本信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="title">企业名称:</span>
+            </td>
+            <td width="40%">
+              <select ng-model="info.custNo" ng-change="checkStamper();">
+                <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.custNo == item.value"></option>
+              </select>
+            </td>
+            <td width="40%" class="div-text-left"><span class="info" ng-show="uploadFlag">您已上传过印章</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">印章名称:</span>
+            </td>
+            <td><input type="text" ng-model="info.name"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位，由数字组成</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 附件列表 -->
+      <table class="table table-striped table-hover table-bordered">
+          <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">上传印章文件</span>
+          </caption>
+          <thead>
+          <tr class="result-head-gray">
+            <td width="20%">附件类型</td>
+            <td width="40%">附件名称</td>
+            <td width="40%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-right"><span class="required">*</span>
+              <span class="title">印章文件:</span></td>
+            <td ng-bind="info.originFileName"></td>
+            <td>
+              <a href="javascript:void(0);" ng-show="!info.originFileId" ng-click="openUpload($event,'otherInfoFile','印章文件','attachList','noticeDoc')">上传</a>
+              <a href="{{info.originFileId | downf}}" ng-show="info.originFileId">下载</a>
+              <a href="javascript:void(0);" ng-show="info.originFileId" ng-click="delUploadItem(item,'infoFileList');">移除</a>
+            </td>
+          </tr>
+            
+        </tbody>
+      </table>
+     
+    </div>
+
+    <div class="center-buttons" >
+        <button class="btn btn-primary" ng-disabled="uploadFlag || !info.originFileId" ng-click="uploadSeal($event.target)">上传</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+
+
+    <!-- 附件上传 start -->
+    <div bt-upload conf="uploadConf"></div>
+
+</div>
+      

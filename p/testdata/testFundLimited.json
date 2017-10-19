@@ -1,0 +1,11 @@
+{
+    "statusCode": 200,
+    "message": "ok",
+    "data": {
+        "fundCode": 110024,
+        "custType": "4",
+        "businFlag": "申购",
+        "perMin": 100,
+        "perMax": 10000
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>交易查询</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/load.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" class="span12">
+
+          <table class="table table-striped table-hover table-bordered div-width-100">
+            <thead>
+              <tr>
+                <td width="30%">名称</td>
+                <td width="40%">操作</td>
+                <td width="30%">结果</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>拉取最新基金信息</td>
+                <td><button class="btn btn-primary" data-bind="click:pullFundInfo">拉取最新基金信息</button></td>
+                <td><div class="alert alert-success" data-bind="text:pullFundStateBind()" style="margin: 0"></div></td>
+              </tr> 
+            </tbody>
+          </table>
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">seajs.use('p/js/load');</script>
+  </body>
+</html>

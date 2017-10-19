@@ -1,0 +1,133 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      股东信息变更审核
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">股东信息变更详情</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%"></td>
+            <td width="35%">改前值</td>
+            <td width="35%">改后值</td>
+            <td width="10%">是否改变</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{true: 'red'}[holderInfo.nowData.name!=holderInfo.befData.name]">
+            <td >姓名</td>
+            <td ng-bind="holderInfo.befData.name"></td>
+            <td ng-bind="holderInfo.nowData.name"></td>
+            <td ng-bind="holderInfo.nowData.name!=holderInfo.befData.name?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[holderInfo.nowData.sex!=holderInfo.befData.sex]">
+            <td >性别</td>
+            <td ng-bind="holderInfo.befData.sex|kindf:'CustSexType'"></td>
+            <td ng-bind="holderInfo.nowData.sex|kindf:'CustSexType'"></td>
+            <td ng-bind="holderInfo.nowData.sex!=holderInfo.befData.sex?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[holderInfo.nowData.identType!=holderInfo.befData.identType]">
+            <td >证件类型</td>
+            <td ng-bind="holderInfo.befData.identType|kindf:'PersonIdentType' "></td>
+            <td ng-bind="holderInfo.nowData.identType|kindf:'PersonIdentType' "></td>
+            <td ng-bind="holderInfo.nowData.identType!=holderInfo.befData.identType?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[holderInfo.nowData.identNo!=holderInfo.befData.identNo]">
+            <td >证件号码</td>
+            <td ng-bind="holderInfo.befData.identNo"></td>
+            <td ng-bind="holderInfo.nowData.identNo"></td>
+            <td ng-bind="holderInfo.nowData.identNo!=holderInfo.befData.identNo?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[holderInfo.nowData.birthdate!=holderInfo.befData.birthdate]">
+            <td >出生日期</td>
+            <td ng-bind="holderInfo.befData.birthdate"></td>
+            <td ng-bind="holderInfo.nowData.birthdate"></td>
+            <td ng-bind="holderInfo.nowData.birthdate!=holderInfo.befData.birthdate?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[holderInfo.nowData.eduLevel!=holderInfo.befData.eduLevel]">
+            <td >最高学历</td>
+            <td ng-bind="holderInfo.befData.eduLevel|kindf:'EduLevel' "></td>
+            <td ng-bind="holderInfo.nowData.eduLevel|kindf:'EduLevel' "></td>
+            <td ng-bind="holderInfo.nowData.eduLevel!=holderInfo.befData.eduLevel?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[holderInfo.nowData.investmentRate!=holderInfo.befData.investmentRate]">
+            <td >出资比例</td>
+            <td ng-bind="holderInfo.befData.investmentRate"></td>
+            <td ng-bind="holderInfo.nowData.investmentRate"></td>
+            <td ng-bind="holderInfo.nowData.investmentRate!=holderInfo.befData.investmentRate?'是':'否'"></td>
+          </tr>
+          <tr ng-class="{true: 'red'}[holderInfo.nowData.investmentType!=holderInfo.befData.investmentType]">
+            <td >出资形式</td>
+            <td ng-bind="holderInfo.befData.investmentType|kindf:'InvestmentType'"></td>
+            <td ng-bind="holderInfo.nowData.investmentType|kindf:'InvestmentType'"></td>
+            <td ng-bind="holderInfo.nowData.investmentType!=holderInfo.befData.investmentType?'是':'否'"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 变更前附件列表 -->
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">股东信息附件(变更前)</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%">序号</td>
+            <td width="35%">附件类型</td>
+            <td width="35%">附件名称</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="file in holderUploadList_bef" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="$index+1"></td>
+            <td>股东信息附件</td>
+            <td>
+              <a href=""><span ng-bind="file.fileName"></span></a>
+            </td>
+            <td><a href="{{file.id|downf}}">下载</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <!-- 变更后附件列表 -->
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">股东信息附件(变更后)</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%">序号</td>
+            <td width="35%">附件类型</td>
+            <td width="35%">附件名称</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="file in holderUploadList_now" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="$index+1"></td>
+            <td>股东信息附件</td>
+            <td>
+              <a href=""><span ng-bind="file.fileName"></span></a>
+            </td>
+            <td><a href="{{file.id|downf}}">下载</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

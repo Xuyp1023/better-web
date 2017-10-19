@@ -1,0 +1,9 @@
+{
+    "message": "获取授信详细成功",
+    "data": {
+    		"creditUsed":200000,
+            "creditLimit":500000,
+            "creditBalance":3000000
+    	},
+    "code": 200
+}

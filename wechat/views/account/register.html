@@ -1,0 +1,95 @@
+
+<div class="wid wid5">
+    <ul class="clearfix">
+        <li ng-click="changeCoreCust()">
+            <span class="ti">选择核心企业</span>
+            <div class="ci">
+                {{info.coreCustNo|kindf:'ScfCoreGroup'}}<i class="ico ico11 ml5"></i>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="wid wid3 mt10">
+	<ul>
+        <li>
+            <div class="ci">
+            	<input type="text" placeholder="贵公司公司名称" class="text" name="" ng-model="info.custName">
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+            	<input type="text" placeholder="贵公司营业执照" class="text" name="" ng-model="info.identNo">
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+            	<input type="text" placeholder="和核心企业往来的银行账号" class="text" name="" ng-model="info.bankAccount">
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+                <input type="text" placeholder="开户银行名称" class="text" name="" ng-model="info.bankName">
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+            	<input type="text" placeholder="在企e金服平台上办理的经办人名字" class="text" name="" ng-model="info.contName">
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+            	<input type="text" placeholder="手机号码" class="text" name="" ng-model="info.contMobileNo">
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+            	<input type="text" placeholder="经办人的邮箱，企e金服将会发送一些资料给该邮箱" class="text" name="" ng-model="info.contEmail">
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+                <input type="text" placeholder="实际经营地址" class="text" name="" ng-model="info.premisesAddress">
+            </div>
+        </li>
+        <li>
+            <div class="ci">
+            	<input type="text" placeholder="有什么不清楚的，想说点啥" class="text" name="" ng-model="info.description">
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="butn butn2 bottom-holder no-margin">
+    <!-- <a href="#/inquiryDo" class="btn btn2">询价</a> -->
+    <button class="mui-btn mui-btn-success long" ng-click="uploadImage('bizLicenseFile');">上传营业执照附件</button>
+    <button class="mui-btn mui-btn-success long" ng-click="uploadImage('representIdFile');">上传法人身份证附件(正面)</button>
+    <button class="mui-btn mui-btn-success long" ng-click="uploadImage('representIdFile');">上传法人身份证附件(背面)</button>
+    <button class="mui-btn mui-btn-success long" ng-click="uploadImage('representIdFile');">上传法人手持附件照</button>
+</div>
+
+<div class="pTab">
+    <ul>
+        <li>
+            <table>
+                <tbody>
+                <tr class="ta">
+                    <td>附件类型</td>
+                    <td>附件名称</td>
+                    <td>操作</td>
+                </tr>
+               <tr class="tb" ng-repeat="item in upLoadList">
+                    <td>{{item.fileInfoType|kindf:'ScfBusinFileGroup'}}</td>
+                    <td><a href="javascript:void(0);" ng-click="preImg(item)">{{item.fileName}}</a></td>
+                    <td>
+                       <a href="javascript:void(0);" ng-click="delUpload(item);">删除</a> 
+                    </td>
+                </tr>
+            </tbody></table>
+        </li>
+    </ul>
+</div>
+
+<div class="butn mt10">
+    <p><a class="btn" href="javascript:void(0)" ng-click="openAccount();">确认开户</a></p>
+</div>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>公告管理</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/supplier/notice/noticeList.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+</head>
+
+<body id="body">
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" ng-controller="mainController" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">公告查询
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">
+                      <tr>
+                        <td width="25%">标题内容:</td>
+                        <td width="75%" class="div-text-left">
+                            <input type="text" ng-model="searchData.LIKEsubject">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>发布日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEregDate">-
+                          <input type="text" id="end_date" bt-date="searchData.LTEregDate">
+                        </td>
+                      </tr>
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+                        公告列表
+                        </h1>
+                        <form class="form-inline">
+                            <label>
+                                <button type="button" class="btn btn-info" ng-click="openNoticeAddBox();">+添加公告</button>
+                            </label>
+                        </form>
+                        <table class="div-width-100 table table-striped table-hover search-result">
+                            <thead>
+                                <tr class="font-size-12 result-head">
+                                    <td width="24%">标题</td>
+                                    <td width="24%">发布机构</td>
+                                    <td width="14%">发布日期</td>
+                                    <td width="12%">发布时间</td>
+                                    <td width="12%">状态</td>
+                                    <td width="14%">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{even:$even}" ng-repeat="item in noticeList" ng-repeat-end>
+                                    <td class="red" ng-bind="item.subject"></td>
+                                    <td class="red" ng-bind="item.custName"></td>
+                                    <td ng-bind="item.publishDate"></td>
+                                    <td ng-bind="item.publishTime"></td>
+                                    <td ng-bind="item.businStatus|kindf:'NoticePublishStatus' "></td>
+                                    <td>
+                                        <!-- 暂存中 -->
+                                        <span ng-show="item.businStatus==0">
+                                            <a href="javascript:void(0);" ng-click="openNoticeEditBox(item);">编辑</a>
+                                            <a href="javascript:void(0);" ng-click="publishNotice(item);">发布</a>
+                                        </span>
+                                        <!-- 已发布 -->
+                                        <span ng-show="item.businStatus==1">
+                                            <a href="javascript:void(0);" ng-click="openNoticeInfoBox(item);">查看</a>
+                                            <a href="javascript:void(0);" ng-click="cancelNotice(item);">撤销</a>
+                                        </span>
+                                        <!-- 已撤销 -->
+                                        <span ng-show="item.businStatus==2">
+                                            <a href="javascript:void(0);" ng-click="openNoticeEditBox(item);">编辑</a>
+                                            <a href="javascript:void(0);" ng-click="publishNotice(item);">发布</a>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="6">
+                                    <div bt-pagination conf="listPage" func=reFreshNoticeList(false);></div>
+                                </td>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+                <!-- 温馨提示END -->
+                <!-- 模板区域 -->
+                <!-- 公司发布公告模板 -->
+                <div id="add_notice_module_box" bt-roll-modal="temp/addNotice.html" bt-z-index="500"></div>
+                <!-- 公司编辑公告模板 -->
+                <div id="edit_notice_module_box" bt-roll-modal="temp/editNotice.html" bt-z-index="500"></div>
+                <!-- 公告详情模板 -->
+                <div id="notice_detail_box" bt-roll-modal="temp/noticeDetail.html" bt-z-index="9991"></div>
+                <!-- 附件上传 start -->
+                <div bt-upload conf="uploadConf"></div>
+            
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+  <![endif]-->
+    <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/supplier/notice/noticeList");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/supplier/notice/noticeList");
+      }
+    </script>
+</body>
+
+</html>

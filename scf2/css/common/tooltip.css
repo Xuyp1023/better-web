@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/* 提示工具条的样式插件 */
+/* IE兼容配置 */
+/* line 6, ../../sass/common/tooltip.scss */
+.tipbar-wrap {
+  min-width: 100px;
+  min-height: 16px;
+  line-height: 16px;
+  padding: 6px;
+  color: #8c3901;
+  display: block;
+  font-family: 'trebuchet ms', arial, helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  border: 1px solid #A7A7A7;
+  background-color: #FEF9D9;
+  border-radius: 8px;
+  position: absolute;
+  left: 30px;
+  top: 10px;
+  z-index: 500; }
+
+/* line 25, ../../sass/common/tooltip.scss */
+.bubble-wrap {
+  min-width: 240px;
+  min-height: 16px;
+  line-height: 16px;
+  padding: 6px;
+  color: #8c3901;
+  display: block;
+  font-family: 'trebuchet ms', arial, helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  border: 1px solid #A7A7A7;
+  background-color: #FEF9D9;
+  border-radius: 8px;
+  position: relative;
+  left: 0;
+  top: 0;
+  behavior: url(../../../css/common/pie/PIE.htc);
+  z-index: 500; }
+
+/* line 45, ../../sass/common/tooltip.scss */
+.tipbar-wrap-arrow {
+  width: 10px;
+  height: 20px;
+  background: transparent url(../../../img/tip-yellow_arrows.png) no-repeat -49px 0;
+  position: absolute;
+  left: -8px;
+  top: 6px;
+  z-index: 9998; }
+
+/* line 55, ../../sass/common/tooltip.scss */
+.tipbar-wrap-arrow-top {
+  width: 20px;
+  height: 10px;
+  background: transparent url(../../../img/tip-yellow_arrows.png) no-repeat -29px 0;
+  position: absolute;
+  left: 20px;
+  bottom: -10px;
+  z-index: 9998; }
+
+/* line 65, ../../sass/common/tooltip.scss */
+.tipbar-wrap-arrow-left {
+  width: 10px;
+  height: 20px;
+  background: transparent url(../../../img/tip-yellow_arrows.png) no-repeat -20px 0;
+  position: absolute;
+  right: -10px;
+  top: 6px;
+  z-index: 9998; }

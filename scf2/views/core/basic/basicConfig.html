@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>基础设置</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/core/basic/basicConfig.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">基础设置
+            <small class="small-select">
+                <span>选择账户</span>
+                <select name="custNo" id="" ng-model="config.custNo"  ng-change="searchParam();">
+                  <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo==item.value"></option>
+                </select>
+            </small>
+            </h1>
+          </div>
+          
+
+          <div id="" class="row-fluid">
+            <h2 class="content-title content-title-2 text_color_green first">商业承兑汇票融资期限设置（距离到期日期多少天可用于线上办理融资业务）：</h2>
+            <form class="form-horizontal" action="">
+	            <div class="control-group">
+	               <label class="control-label">天数:</label>
+	               <div class="controls">
+	                 <input type="text" name="day" id="day" ng-model="config.day">
+	               </div>
+	            </div>
+            </form>
+          </div>
+
+
+          <div id="" class="row-fluid">
+            <h2 class="content-title content-title-2 text_color_green first">供应商通过企e金服平台与金融机构办理融资业务的优先级设置：</h2>
+	        <!-- <form class="form-horizontal" action="">
+	            <div class="control-group">
+	               <label class="control-label">金融机构列表:</label>
+	               <div class="controls">
+	                 <div bt-multiple  bt-select-all="false" bt-option-map="value-name" list="factorList" model="config.factors"></div>
+	               </div>
+	            </div>
+	        </form> -->
+	        <table class="table table-striped table-hover table-bordered">
+	            <caption class="table-caption table-caption-green clearFix">
+	              <span class="title-left">待选择金融机构列表</span>
+	              <button class="btn btn-info btn-right" ng-click="addAll();">添加所有</button>
+	            </caption>
+	            <thead>
+	              <tr class="result-head-gray">
+	                <td width="25%">序号</td>
+                  <!-- <td width="20%">机构编码</td> -->
+	                <td width="50%">机构名称</td>
+	                <td width="25%">操作</td>
+	              </tr>
+	            </thead>
+	            <tbody>
+	               <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in factorList">
+	               	 <td ng-bind="$index + 1"></td>
+                   <!-- <td ng-bind="item.value"></td> -->
+	                 <td ng-bind="item.name"></td>
+	                 <td>
+	                    <a ng-show="!item.add" href="javascript:void(0);" ng-click="addItem(item);">添加</a>
+                      <span ng-show="item.add" class="deep-gray">已添加</span>
+	                 </td>
+	               </tr>
+	            </tbody>
+	        </table>
+
+
+            <table class="table table-striped table-hover table-bordered">
+                <caption class="table-caption table-caption-green clearFix">
+                  <span class="title-left">已选择金融机构列表</span>
+                  <button class="btn btn-info btn-right" ng-click="removeAll();">移除所有</button>
+                </caption>
+                <thead>
+                  <tr class="result-head-gray">
+                    <td width="25%">序号</td>
+                    <!-- <td width="20%">机构编码</td> -->
+                    <td width="50%">机构名称</td>
+                    <td width="25%">操作</td>
+                  </tr>
+                </thead>
+                <tbody>
+                   <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in selFactorList">
+                   	 <td ng-bind="$index + 1"></td>
+                     <!-- <td ng-bind="item.value"></td> -->
+                     <td ng-bind="item.name"></td>
+                     <td>
+                        <a href="javascript:void(0);" ng-click="removeItem(item);">移除</a>
+                     </td>
+                   </tr>
+                </tbody>
+            </table>
+            
+          </div>
+        
+
+          <div class="center-buttons">
+            <button class="btn btn-primary btn-bg-middle" ng-click="saveParam($event.target)">保存</button>
+          </div>
+
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+  
+
+
+
+
+	<!-- 引用js文件 -->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/core/basic/basicConfig");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/core/basic/basicConfig");
+      } 
+  </script>
+  </body>
+</html>

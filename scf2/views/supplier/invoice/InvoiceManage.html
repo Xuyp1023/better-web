@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>发票管理</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/supplier/invoice/invoiceManage.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+</head>
+
+<body id="body">
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" ng-controller="mainController" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/fast_money.png" alt="">发票查询
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">
+                        <tr>
+                            <td width="30%">选择机构:</td>
+                            <td width="70%" class="div-text-left date">
+                                <select ng-model="searchData.custNo">
+                                    <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="custList.custNo == item.value"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                          <td>开票日期:</td>
+                          <td class="div-text-left date">
+                              <input type="text" id="begin_date" bt-date="searchData.GTEinvoiceDate" bt-max-date="end_date">-
+                              <input type="text" id="end_date" bt-date="searchData.LTEinvoiceDate" bt-min-date="begin_date">
+                          </td>
+                      </tr>
+                  </table>
+                  <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                  </div>
+              </div>
+
+              <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+                            发票列表
+                        </h1>
+                        <!-- 搜索工具栏 -->
+                        <form class="form-inline">
+                            <label><button type="button" class="btn btn-info" ng-click="addInfoBox();">+添加发票</button></label>
+                            <!-- <label><button type="button" class="btn btn-info" ng-click="importBlackList();">+导入发票</button></label> -->
+                        </form>
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                            <thead>
+                                <tr class="font-size-12 info-title div-width-100">
+                                    <td width="14.3%">发票代码</td>
+                                    <td width="14.3%">发票号码</td>
+                                    <!-- <td width="12.5%">纳税人识别号</td> -->
+                                    <td width="14.3%">行业类别</td>
+                                    <td width="14.3%">开票日期</td>
+                                    <td width="14.3%">金额</td>
+                                    <td width="14.3%">开票人</td>
+                                    <td width="14.3%">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                                    <td class="red" ng-bind="item.invoiceCode"></td>
+                                    <td ng-bind="item.invoiceNo"></td>
+                                    <!-- <td ng-bind="item.taxpayerNo"></td> -->
+                                    <td ng-bind="item.corpVocate"></td>
+                                    <td ng-bind="item.invoiceDate"></td>
+                                    <td class="tab-text-right" ng-bind="item.balance|moneyFilter"></td>
+                                    <td ng-bind="item.drawer"></td>
+                                    <td>
+                                        <a href="javascript:void(0);" ng-click="detailInfoBox(item);">查看</a>
+                                        <a href="javascript:void(0);" ng-click="editInfoBox(item);">编辑</a>
+                                        <a href="javascript:void(0);" ng-click="delInfo($event.target,item);">删除</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="7">
+                                    <div bt-pagination conf="listPage" func="queryList(false)"></div>
+                                </td>
+                            </tfoot>
+                        </table>
+                    </div>
+
+
+                    <!-- 温馨提示END -->
+                    <!-- 模板区域 -->
+                    <!-- 新增发票模板 -->
+                    <div id="add_box" bt-roll-modal="temp/addInvoice.html" bt-z-index="9991"></div>
+                    <!-- 修改发票模板 -->
+                    <div id="edit_box" bt-roll-modal="temp/editInvoice.html" bt-z-index="9991"></div>
+                    <!-- 新增发票详情模板 -->
+                    <div id="infoMore_box" bt-roll-modal="temp/addInvoiceMore.html" bt-z-index="9992"></div>
+                    <!-- 附件上传 start -->
+                    <div bt-upload conf="uploadConf"></div>
+
+                </div>
+            </div>
+        </div>
+        <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+      <![endif]-->
+      <script type="text/javascript">
+    // For development
+    if (isBTTest) {
+        seajs.use("scf2/js/supplier/invoice/invoiceManage.js");
+    }
+      // For production
+      else {
+        seajs.use("scf2/dist/supplier/invoice/invoiceManage.js");
+    }
+</script>
+</body>
+
+</html>

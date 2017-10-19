@@ -1,0 +1,39 @@
+  <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">新增
+                    </h1>
+                    <table class="table table-striped table-bordered table-hover">
+			            <tbody>
+			              <tr>
+			                <td width="20%"><strong class="red">*</strong> 委托企业:</td>
+			                <td width="30%" class="div-text-left">
+			                    <select ng-model="addParamInfo.coreCustNo">
+                            		<option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="addParamInfo.coreCustNo == item.value"></option>
+                          		</select>
+			                </td>
+			                
+			              </tr>
+			              <tr>
+			                <td><strong class="red">*</strong> 佣金年利率(%):</td>
+			                <td class="div-text-left">
+			                    <input onkeydown="" type="text" style="width: 88% !important;" ng-model="addParamInfo.interestRate">
+			                </td>
+			              </tr>             
+			              <tr>
+			                <td><strong class="red">*</strong> 商业发票税率(%):</td>
+			                <td class="div-text-left">
+			                  <input type="text" style="width: 88% !important;" ng-model="addParamInfo.taxRate">
+			                </td>
+			              </tr>                  
+			            </tbody>
+       			 </table>
+         <div class="center-buttons">
+          <button class="btn btn-primary" ng-click="addinfoList($event.target);">提交</button>
+          <button class="btn btn-primary" bt-close-modal="">返回</button>
+        </div>
+            </div>                 
+        </div>
+      </div>
+    </div>

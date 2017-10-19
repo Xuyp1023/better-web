@@ -1,0 +1,26 @@
+{
+    "message": "订单运输单据录入成功",
+    "data": {
+        "id": 3,
+        "transportNo": "0002",
+        "custNo": 1101,
+        "regOperId": 1111,
+        "regOperName": "管理员",
+        "regDate": "2016-07-29",
+        "regTime": "102023",
+        "modiOperId": "",
+        "modiOperName": "",
+        "modiDate": "",
+        "modiTime": "",
+        "supplier": "2test发货人",
+        "buyer": "2test收货人",
+        "sendDate": "20160713",
+        "receiveDate": "20160714",
+        "sendAddress": "发货地址",
+        "receiveAddress": "收货地址",
+        "description": "备注",
+        "batchNo": ""
+    },
+    "page": "",
+    "code": 200
+}

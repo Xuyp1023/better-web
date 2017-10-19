@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/**
+*项目基础文件、公用组件样式文件
+*/
+/* IE兼容配置 */
+/* line 9, ../../sass/common/base.scss */
+#container {
+  width: 900px;
+  padding-top: 10px; }
+
+/* line 16, ../../sass/common/base.scss */
+.div-center {
+  margin-left: auto;
+  margin-right: auto; }
+
+/* line 115, ../../sass/common/base.scss */
+.unchecked {
+  color: #A0A0A0 !important; }
+
+/* line 119, ../../sass/common/base.scss */
+.checkbox-left-sp, .checkbox-right-sp {
+  cursor: pointer; }
+
+/* line 123, ../../sass/common/base.scss */
+input[type="checkbox"] {
+  margin-top: 0; }

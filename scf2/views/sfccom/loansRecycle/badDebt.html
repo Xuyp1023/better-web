@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>坏账确认</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/sfccom/loansRecycle/badDebt.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+    <div id="container" class="container-fluid div-center">
+      <div class="row-fluid">
+        <div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">坏账确认</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="25%">保理公司</td>
+                <td width="75%" class="div-text-left">
+                  <select ng-model="searchData.factorNo">
+                    <option ng-repeat="item in factorList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.factorNo == item.value"></option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%">申请编号:</td>
+                <td width="75%" class="div-text-left">
+                  <input type="text" ng-model="searchData.requestNo">
+                </td>
+              </tr>
+              <tr>
+               <td width="25%">还款日期:</td>
+               <td width="75%" class="div-text-left date">
+                  <input type="text" bt-date="searchData.xxx"> - 
+                  <input type="text" bt-date="searchData.xxx">
+               </td>
+               </td>
+              </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              坏账列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr class="result-head">
+                  <td width="10%">申请编号</td>
+                  <td width="10%">融资企业</td>
+                  <td width="10%">核心企业</td>
+                  <td width="10%">贷款本金</td>
+                  <td width="10%">剩余本金</td>
+                  <td width="10%">总利息</td>
+                  <td width="10%">已还利息</td>
+                  <td width="10%">还款日期</td>
+                  <td width="10%">逾期天数</td>
+                  <td width="10%">操作</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-repeat-end ng-class="{even:$even}">
+                  <td>1002</td>
+                  <td>恒丰</td>
+                  <td>海悦</td>
+                  <td class="tab-text-right">100000</td>
+                  <td class="tab-text-right">500000</td>
+                  <td class="tab-text-right">10000</td>
+                  <td class="tab-text-right">5000</td>
+                  <td>2016-06-14</td>
+                  <td>0</td>
+                  <td>
+                    <span><a href="#" ng-click="openEnsureBox();">确认</a></span>
+                  </td>
+                </tr>
+                <tr ng-repeat-end ng-class="{even:$even}">
+                  <td>1002</td>
+                  <td>恒丰</td>
+                  <td>海悦</td>
+                  <td class="tab-text-right">100000</td>
+                  <td class="tab-text-right">500000</td>
+                  <td class="tab-text-right">10000</td>
+                  <td class="tab-text-right">5000</td>
+                  <td>2016-06-14</td>
+                  <td>0</td>
+                  <td>
+                    <span><a href="#" ng-click="openEnsureBox();">确认</a></span>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <td colspan="12">
+                  <div bt-pagination conf="pageConf" func="reFreshBadDebtList(false);"></div>
+                </td>
+              </tfoot>
+            </table>
+            
+          </div>
+        
+        <!-- 坏账确认 -->
+        <div id="bad_debt_ensure_box" bt-roll-modal="temp/debtEnsure.html" bt-z-index="9992"></div>
+       
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+  <!-- 引用js文件 -->
+  <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/sfccom/loansRecycle/badDebt");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/sfccom/loansRecycle/badDebt");
+      } 
+  </script>
+  </body>
+</html>

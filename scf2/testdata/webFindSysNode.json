@@ -1,0 +1,87 @@
+{
+    "message": "ok",
+    "data": [
+        {
+            "id": 11,
+            "sysNodeId": 11,
+            "sysNodeName": "出具保理方案",
+            "nodeCustomName": "出具保理方案",
+            "must": "1",
+            "flowTypeName": "",
+            "flowType": "",
+            "nodeRole": "Factoring"
+        },
+        {
+            "id": 12,
+            "sysNodeId": 12,
+            "sysNodeName": "融资方确认方案",
+            "nodeCustomName": "融资方确认方案",
+            "must": "1",
+            "flowTypeName": "",
+            "flowType": "",
+            "nodeRole": "Financer"
+        },
+        {
+            "id": 13,
+            "sysNodeId": 13,
+            "sysNodeName": "融资背景确认",
+            "nodeCustomName": "融资背景确认",
+            "must": "1",
+            "flowTypeName": "",
+            "flowType": "",
+            "nodeRole": "Factoring"
+        },
+        {
+            "id": 14,
+            "sysNodeId": 14,
+            "sysNodeName": "核心企业确认背景",
+            "nodeCustomName": "核心企业确认背景",
+            "must": "1",
+            "flowTypeName": "",
+            "flowType": "",
+            "nodeRole": "Core"
+        },
+        {
+            "id": 15,
+            "sysNodeId": 15,
+            "sysNodeName": "放款",
+            "nodeCustomName": "放款",
+            "must": "1",
+            "flowTypeName": "",
+            "flowType": "",
+            "nodeRole": "Factoring"
+        },
+        {
+            "id": 16,
+            "sysNodeId": 16,
+            "sysNodeName": "还款中",
+            "nodeCustomName": "还款中",
+            "must": "0",
+            "flowTypeName": "",
+            "flowType": "",
+            "nodeRole": "Factoring"
+        },
+        {
+            "id": 17,
+            "sysNodeId": 17,
+            "sysNodeName": "逾期",
+            "nodeCustomName": "逾期",
+            "must": "1",
+            "flowTypeName": "",
+            "flowType": "",
+            "nodeRole": "Factoring"
+        },
+        {
+            "id": 18,
+            "sysNodeId": 18,
+            "sysNodeName": "展期",
+            "nodeCustomName": "展期",
+            "must": "0",
+            "flowTypeName": "",
+            "flowType": "",
+            "nodeRole": "Factoring"
+        }
+    ],
+    "page": "",
+    "code": 200
+}

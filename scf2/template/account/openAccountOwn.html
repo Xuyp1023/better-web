@@ -1,0 +1,315 @@
+      
+<div id="openAccountOwn" class="top-box">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    客户开户
+  </h1>
+  <div  class="row-fluid div-center div-margin-top">
+
+      <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">基本资料</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">申请机构名称:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="info.custName"></td>
+            <td width="40%" class="div-text-left"><span class="info">长度不超过120位，请与法定注册名称一致，请勿使用简称！</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">组织机构代码:</span>
+            </td>
+            <td><input type="text" ng-model="info.orgCode"></td>
+            <td class="div-text-left"><span class="info">组织机构代码长度不超过30位，若用户已取得统一社会信用代码，组织机构代码栏请填写统一社会信用代码</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">税务登记证号码:</span>
+            </td>
+            <td><input type="text" ng-model="info.taxNo"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">营业执照号码:</span>
+            </td>
+            <td><input type="text" ng-model="info.businLicence"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位，由英文字母、数字或汉字组成，若用户已取得统一社会信用代码，营业执照号码栏请填写统一社会信用代码</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">营业执照有效期:</span>
+            </td>
+            <td class="date">
+              <input type="text" bt-date="info.businLicenceValidDate">
+              <span ng-max-date>长期有效</span>
+            </td>
+            <td><!-- <span class="info"></span> -->
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">业务联系电话:</span>
+            </td>
+            <td><input type="text" ng-model="info.phone"></td>
+            <td class="div-text-left"><span class="info">请填写区号，长度不超过20位</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">传真:</span>
+            </td>
+            <td><input type="text" ng-model="info.fax"></td>
+            <td class="div-text-left"><span class="info">请填写区号，长度不超过20位</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">邮政编码:</span>
+            </td>
+            <td><input type="text" ng-model="info.zipCode"></td>
+            <td class="div-text-left"><span class="info">长度为6位，由数字组成</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">办公地址:</span>
+            </td>
+            <td><input type="text" ng-model="info.address"></td>
+            <td class="div-text-left"><span class="info">请正确填写，如有变更，请及时登录系统修改，长度不超过120位</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">账户信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%" class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">银行账户名称:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="info.bankAccoName"></td>
+            <td width="40%" class="div-text-left"><span class="info">长度不超过120位</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">银行账号:</span>
+            </td>
+            <td><input type="text" ng-model="info.bankAcco"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位，由数字组成</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="title">开户许可证核准号:</span>
+            </td>
+            <td><input type="text" ng-model="info.openLicense"></td>
+            <td class="div-text-left"><span class="info">长度不超过30位</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">所属银行:</span>
+            </td>
+            <td>
+                <select ng-model="info.bankNo" id="bt_search_refer">
+                  <option ng-repeat="item in bankList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.bankNo == item.value"></option>
+                </select>
+            </td>
+            <td><span class="info"></span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">开户行全称:</span>
+            </td>
+            <td>
+              <input type="text" ng-model="info.bankName"  refer-id="bt_search_refer" refer="info.paySysNum" bt-search="../Platform/BankAccount/findBankCode"   class="bt-search-icon">
+            </td>
+            <td class="div-text-left"><span class="info">长度不超过120位</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">开户行所在地:</span>
+            </td>
+            <td class="double-select">
+              <select ng-model="info.provinceNo">
+                <option value="">请选择省份</option>
+                <option ng-repeat="item in provinceList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.provinceNo == item.value"></option>
+              </select>
+              <select ng-model="info.bankCityno">
+                <option value="">请选择城市</option>
+                <option ng-repeat="item in cityList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.bankCityno == item.value"></option>
+              </select>
+            </td>
+            <td><span class="info"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">法定代表人/负责人信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%" class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">姓名:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="info.lawName"></td>
+            <td width="40%" class="div-text-left"><span class="info">长度不超过20位</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">证件类型:</span>
+            </td>
+            <td>
+              <select ng-model="info.lawIdentType" ng-change="$emit('ngRepeatFinished')">
+                <option ng-repeat="item in lawIdentTypeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.lawIdentType  == item.value"></option>
+              </select>
+            </td>
+            <td class="div-text-left"><span class="info"></span></td>
+          </tr>
+          <tr ng-show="info.lawIdentType==7 ">
+            <td width="20%" class="div-text-right">
+              <span class="title">证件类型名称:</span>
+            </td>
+            <td width="40%"><input type="text" ng-model="info.lawOtherIdentType"></td>
+            <td width="40%" class="div-text-left"><span class="info">长度不超过20位</span></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+            <span class="required">*</span>
+              <span class="title">证件号码:</span>
+            </td>
+            <td>
+              <input type="text" ng-model="info.lawIdentNo">
+            </td>
+            <td class="div-text-left"><span class="info">请按所选证件类型正确填写号码</span></td>
+          </tr>
+           <tr>
+             <td class="div-text-right">
+             <span class="required">*</span>
+               <span class="title">证件有效期:</span>
+             </td>
+             <td class="date">
+               <input type="text" bt-date="info.lawValidDate">
+               <span ng-max-date>长期有效</span>
+             </td>
+             <td><!-- <span class="info"></span> -->
+             </td>
+           </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">经办人信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%" class="div-text-right">
+              <span class="required">*</span>
+              <span class="title">请选择经办人:</span>
+            </td>
+            <td width="40%">
+              <select ng-model="info.operId">
+                <option ng-repeat="item in operatorList" ng-option-filter value="{{item.id}}" ng-bind="item.name" ng-selected="info.operId == item.id"></option>
+              </select>
+            </td>
+            <td width="40%"><span class="info"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      
+      <!-- 附件列表 -->
+      <table class="table table-striped table-hover table-bordered">
+          <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">开户资料清单</span>
+          </caption>
+          <thead>
+          <tr class="result-head-gray">
+            <td width="30%">附件类型</td>
+            <td width="40%">附件名称</td>
+            <td width="30%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in infoFileList" ng-repeat-end>
+            <td class="div-text-right"><span ng-bind="item.fileInfoType|kindf:'CustOpenAccountFile'"></span></td>
+            <td ng-bind="item.fileName"></td>
+            <td>
+              <a href="javascript:void(0);" ng-show="!item.id" ng-click="openUpload($event,item.fileInfoType,'infoFileList');">上传</a>
+              <a href="{{item.id|downf}}" ng-show="item.id">下载</a>
+              <a href="javascript:void(0);" ng-show="item.id" ng-click="delUploadItem(item,'infoFileList');">移除</a>
+            </td>
+          </tr>
+            
+        </tbody>
+      </table>
+
+
+    </div>
+
+    <div class="div-center div-text-center" >
+      <input type="checkbox" ng-model="readAndAgreee"> <span>我已阅读并同意 <a href="#">《企e金服平台合作协议》</a></span>
+    </div>
+    
+    <div class="center-buttons" >
+        <button class="btn btn-primary" ng-click="preStep();">上一步</button>
+        <button class="btn btn-primary" ng-disabled="!readAndAgreee" ng-click="openAccount($event.target);">提交</button>
+    </div>
+
+
+    <!-- 温馨提示 -->
+    <div id="warm_prompt_box" class="div-width-100">
+      <h1 class="prompt-title">
+        <img class="prompt-icon" src="img/warm_prompt.png" alt="">
+        温馨提示
+      </h1>
+      <div class="warm-prompt-content">
+        <p>1、上传格式为图片、PDF、RAR、ZIP格式；</p>
+        <p>2、请上传：营业执照、组织机构代码证、税务登记证、机构信用代码证、银行账户开户许可证、经办人和法人身份证(头像面、国徽面、手持证件面)，复印件加盖公章或原件扫描件；</p>
+        <p>3、您可以按以上要求逐一上传以上开户认证文件 或 将所有资料压缩后选择"开户资料包" 的方式上传。</p>
+      </div>
+    </div>
+    <!-- 温馨提示END -->
+
+    <!-- 附件上传 start -->
+    <div bt-upload conf="uploadConf"></div>
+
+</div>
+      

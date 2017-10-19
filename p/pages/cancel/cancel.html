@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>撤单操作</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/cancel.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body>
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" class="span12">
+  				<ul  class="nav nav-tabs plus-nav-tabs-init">
+            <li class="active"><a href="#select_fund">选择可撤交易</a></li>
+            <li><a id="confirm_amount_link" href="#confirm_amount">预览</a></li>
+            <li><a id="finish_select_link" href="#finish_select">完成</a></li>
+          </ul>
+
+
+
+        <div class="tab-content plus-nav-tabs-content">
+          <div id="select_fund" class="tab-pane fade active in">
+            <!-- <div class="div-width-100 tip-message">
+              投资视点:<span>预计近期股市崩盘，请多关注货币或债券基金。</span>
+            </div> -->
+            <div class="div-width-100 clearFix">
+              <div class="fast-search">
+                <span>交易账户: </span>
+                <select name="" id="fund_partment" data-bind="event:{change:searchFund}">
+                  <option value="">大成基金</option>
+                  <option value="">南方基金</option>
+                  <option value="">民生加银</option>
+                </select>
+              </div>
+            </div>
+            <table class="div-width-100 table table-striped table-hover fund-list">
+              <thead>
+                <tr>
+                  <td width="25%">基金名称</td>
+                  <td width="15%">业务类型</td>
+                  <td width="10%">交易账户</td>
+                  <td width="10%">下单时间</td>
+                  <td width="10%">申请金额</td>
+                  <td width="10%">申请份额</td>
+                  <td width="10%">操作</td>
+                </tr>
+              </thead>
+              <tbody data-bind="visible:cancelListBind().length<1">
+                <tr>
+                  <td colspan="8" class="green">该账号下暂无该类资产 ！</td>
+                </tr>
+              </tbody>
+              <tbody data-bind="foreach:cancelListBind,visible:cancelListBind().length>0">
+                <tr data-bind="css:{'even':$index()%2==0}">
+                  <td>
+                    <a data-bind="attr:{href:$parent.formaterFundDetail($data)}">
+                      <span data-bind="text:fundName"></span><br>
+                      <span data-bind="text:fundCode"></span>
+                    </a>
+                  </td>
+                  <td data-bind="text:$parent.parseBusiFlag(businFlag)"></td>
+                  <td data-bind="text:$parent.parseCustNo(custNo)"></td>
+                  <td data-bind="text:disTradeDate"></td>
+                  <td class="red"><strong data-bind="text:disBalance"></strong></td>
+                  <td class="deep-gray" data-bind="text:disShares"></td>
+                  <td><a href="#" data-bind="click:$parent.cancelFund">撤单</a></td>
+                </tr>
+              </tbody>
+              <!-- <tfoot>
+                  <td colspan="7">
+                    <div id="fund_list_page" class="Spage Spage_blue" style="padding:10px">
+                      <ul>
+                        <li class="previous hidden" data-bind="visible:cancelListPageBind().pageNum==1"><span>首页</span></li>
+                        <li class="previous" data-bind="visible:cancelListPageBind().pageNum>1,click:firstPage"><a href="#">首页</a></span></li>
+                        <li class="previous hidden" data-bind="visible:cancelListPageBind().pageNum==1"><span>上一页</span></li>
+                        <li class="previous" data-bind="visible:cancelListPageBind().pageNum>1,click:prevPage"><a href="#">上一页</a></li>
+                        <li class="next hidden" data-bind="visible:cancelListPageBind().pageNum>=cancelListPageBind().pages"><span>下一页</span></li>
+                        <li class="next" data-bind="visible:cancelListPageBind().pageNum<cancelListPageBind().pages,click:nextPage"><a href="#">下一页</a></li>
+                        <li class="next hidden" data-bind="visible:cancelListPageBind().pageNum>=cancelListPageBind().pages"><span>尾页</span></li>
+                        <li class="next" data-bind="visible:cancelListPageBind().pageNum<cancelListPageBind().pages,click:endPage"><a href="#">尾页</a></li>
+                        <li>共<span data-bind="text:cancelListPageBind().pageNum"></span>/<span data-bind="text:cancelListPageBind().pages"></span>页</li>
+                        <li>共<span data-bind="text:cancelListPageBind().total"></span>条记录</li>
+                        <li class="toPage">
+                            <div>
+                              <span>跳转到</span>
+                              <input type="text" name="skipToPageNum" data-bind="disable:cancelListPageBind().pages==1">
+                              <span>页</span>
+                              <button class="btn" data-bind="disable:cancelListPageBind().pages==1,click:skipPage">跳转</button>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+              </tfoot> -->
+            </table>
+          </div>
+          <div id="confirm_amount" class="tab-pane fade in">
+            <form action="" id="confirm_amount_form" class="form-horizontal div-center div-width-60">
+              <div class="control-group">
+                <label for="" class="control-label">基金销售机构:</label>
+                <div class="controls text" data-bind="text:cancelFundBind().agencyName"> 
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">基金名称:</label>
+                <div class="controls text" data-bind="text:cancelFundBind().fundName+'['+cancelFundBind().fundCode+']'">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">业务类型:</label>
+                <div class="controls text" data-bind="text:parseBusiFlag(cancelFundBind().businFlag)">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">申请金额:</label>
+                <div class="controls text" data-bind="text:cancelFundBind().disBalance">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">下单时间:</label>
+                <div class="controls text" data-bind="text:cancelFundBind().disTradeDate">
+                </div>
+              </div>
+<!--               <div class="control-group">
+                <label for="" class="control-label">申请日期:</label>
+                <div class="controls text" data-bind="text:cancelFundBind().tradeDate">
+                </div>
+              </div> -->
+              <div class="control-group">
+                <label for="" class="control-label">交易账户:</label>
+                <div class="controls text" data-bind="text:parseCustNo(cancelFundBind().custNo)">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">收费类型:</label>
+                <div class="controls text">
+                  前端收费
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">操作员:</label>
+                <div class="controls text" data-bind="text:cancelFundBind().agencyNo">
+                </div>
+              </div>
+            </form>
+            <div class="center-buttons">
+              <button target="0" data-bind="click:nextStep" class="btn btn-primary">上一步</button>
+              <button data-bind="click:confirmcancel" class="btn btn-primary">确认</button>
+            </div>
+          </div>
+          <div id="finish_select" class="tab-pane fade in">
+            <div class="alert alert-success alert-block div-center div-width-40 finish-info">
+              <p><i class="icon-ok-sign"></i> 撤单<span class="red" data-bind="text:cancelFundBind().balance"></span>元<span class="red" data-bind="text:cancelFundBind().fundName+'['+cancelFundBind().fundCode+']'"></span>的申请已提交</p>
+<!--               <p><i class="icon-ok-sign"></i> <span>20150925</span>预计份额确认</p>
+              <p><i class="icon-ok-sign"></i> <span>20150926</span>预计到账</p> -->
+              <p><i class="icon-ok-sign"></i><span class="red"> 注:撤单交易已经完成,请提醒复核人员复核!</span></p>
+            </div>
+            <div class="center-buttons">
+              <a target="0" data-bind="click:nextStep" class="btn btn-primary">返回首页</a>
+              <a class="btn btn-primary btn-bg-middle" href="../purchase/purchase.html">查看基金产品</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 温馨提示 -->
+        <div id="warm_prompt_box" class="div-width-100">
+          <h1 class="prompt-title">
+            <img class="prompt-icon" src="../../img/warm_prompt.png" alt="">
+            温馨提示
+          </h1>
+          <div class="warm-prompt-content">
+            <p>1.如果您的申购款已经扣款成功，则撤单款将于1至2个工作日后划往您预留的银行账户，具体到账时间以银行实际到账时间为准。</p>
+            <p>2.仅转账支付和资金状态为付款成功的网银支付的交易申请可以撤销。</p>
+            <p>3.您在申请日15：00以前可以撤销当天提交的交易申请。</p>
+            <p>4.由于网速等原因，从您提交委托到我公司系统受理可能出现一定的延迟，请以后台系统处理该交易的时间为准。</p>
+            <p>5.建议您尽量避免在基金交易高峰期14：30-15：00之间交易。</p>
+          </div>
+        </div>
+        <!-- 温馨提示END -->
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">seajs.use('p/js/cancel');</script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<div class="mAito">
+    <ul class="clearfix">
+        <li>
+            <a href="javascript:void(0)" ng-click="changeStatus();">{{searchData.businStatus |kindf:"ReceivableNoteStatus" }}<i class="ico ico14"></i></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"></a>
+        </li>
+    </ul>
+</div>
+<div class="mpLt margin-bottom-80">
+    <ul>
+        <li ng-repeat="item in infoList">
+            <div class="ti mui-input-row mui-radio mui-left">
+                <input name="radio1" type="radio" style="left:0" ng-click="selectedItem(item)" ng-show="item.businStatus == 1">
+                <span ng-bind="item.coreCustName" style="margin-left: 30px"></span>
+                <em class="co co1">{{item.businStatus|kindf:'ReceivableNoteStatus'}}</em>
+            </div>
+            <div class="bi"></div>
+            <div class="ci nbr">
+                <p class="tit">应收账款编号：{{item.receivableNo}}</p>
+                <p class="con">应收账款金额：¥{{item.balance|moneyFilter}}</p>
+                <p class="time">付款到期日期：{{item.endDate}}</p>
+            </div>
+            <div class="btnLi br5">
+              <a href="javascript:void(0);" class="btnA" ng-click="showDetail(item);">详情</a>
+              <!-- <a href="javascript:void(0);" class="btnA" ng-click="showDetail(item);">编辑</a> -->
+            </div>
+        </li>
+    </ul>
+    <div ng-page="listPage" func="queryList(false)" class="more"></div>
+</div>
+
+
+<div class="mAito comp position-fixed-bottom width-100 box-shadow-gray">
+    <ul class="clearfix">
+        <li ng-click="applyFinance()">
+            <a href="javascript:void(0)" class="background-blue color-white border-none">
+                <span>申请提前回款</span>
+                <i class="ico ico14"></i>
+            </a>
+        </li>
+    </ul>
+</div>

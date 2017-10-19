@@ -1,0 +1,24 @@
+{
+  "name": "bytterfund",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-compass": "1.0.0",
+    "grunt-contrib-sass": "1.0.0",
+    "grunt-contrib-watch": "1.0.0",
+    "webpack": "^1.15.0"
+  },
+  "dependencies": {
+    "webpack": "^1.13.2"
+  },
+  "main": "Gruntfile.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

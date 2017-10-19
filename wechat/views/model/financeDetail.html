@@ -1,0 +1,125 @@
+
+<div class="mpLt margin-top-20">    
+    <ul class="mui-table-view">
+        <li class="mui-table-view-cell caption">基本信息            
+        </li>
+        <li class="mui-table-view-cell">
+        	<div class="left">申请编号：</div>
+            <div class="text">{{info.requestNo}}</div>           
+        </li>
+        <li class="mui-table-view-cell">
+        	<div class="left">申请企业：</div>
+            <div class="text">{{info.custName}}</div>            
+        </li>
+        <li class="mui-table-view-cell">
+        	<div class="left"> 账号：</div>
+            <div class="text">{{info.custBankAccount}}</div>     
+        </li>
+        <li class="mui-table-view-cell">
+        	<div class="left"> 开户行：</div>
+            <div class="text">{{info.custBankName}}</div>
+        </li>
+        <li class="mui-table-view-cell">
+        	<div class="left"> 核心企业：</div>
+            <div class="text">{{info.coreCustName}}</div>      
+        </li>
+        <li class="mui-table-view-cell">
+        	<div class="left"> 备注：</div>
+            <div class="text">{{info.description}}</div>          
+        </li>
+    </ul>
+
+    <ul class="mui-table-view"> 
+    	<!-- 融资产品 -->
+	    <li class="mui-table-view-cell mui-collapse" style="font-size: 16px">
+	        <a class="mui-navigate-right" href="javascript:void(0);">融资产品</a>
+	        <div class="mui-collapse-content">	        
+		        	<p class="line">
+		        		<span class="left">预计回款金额：</span>
+			        	<span class="layout">{{info.requestPayBalance}}</span>
+		        	</p>
+	                <p class="line">
+	                	<span class="left">融资模式：</span>
+			        	<span class="layout">{{info.receivableRequestType | kindf:'NewFinanceModel'}}</span>                
+	                </p>	                
+	                <p class="line">
+	                	<span class="left">资金机构：</span>
+			        	<span class="layout">{{info.factoryName}}</span>           
+	                </p>       
+	                <p class="line">
+						<span class="left">期望付款日期：</span>
+			        	<span class="layout">{{info.requestPayDate}}</span>
+	                </p>       
+	                      
+	        </div>
+	    </li>
+	    <!-- 应收账款 -->
+	    <li class="mui-table-view-cell mui-collapse" style="font-size: 16px">
+	        <a class="mui-navigate-right" href="javascript:void(0);">应收账款</a>
+	        <div class="mui-collapse-content" ng-repeat="item in info.asset.basedataMap.receivableList">	        
+		        	<p class="line">
+		        		<span class="left">应收账款金额：</span>
+			        	<span class="layout">{{item.balance}}</span>
+		        	</p>
+	                <p class="line">
+	                	<span class="left">账款编号：</span>
+			        	<span class="layout">{{item.receivableNo}}</span>
+	               </p>
+	                <p class="line">
+	                	<span class="left">结算日期：</span>
+			        	<span class="layout">{{item.endDate}}</span>	                
+	                </p>	                      
+	                <p class="line">
+	                	<span class="left">贸易合同号：</span>
+			        	<span class="layout">{{item.agreeNo}}</span>	                
+	                </p>       
+	                <p class="line">
+	                	<span class="left">发票号：</span>
+			        	<span class="layout">{{item.invoiceNos}}</span>	                
+	                </p>       
+	                       
+	        </div>
+	    </li>
+	     <!-- 回款协议 -->
+	    <li class="mui-table-view-cell mui-collapse" style="font-size: 16px">
+	        <a class="mui-navigate-right" href="javascript:void(0);">回款协议</a>
+	        <div class="mui-collapse-content">	        
+		        	<p class="line"><span>{{info.elecAgreement.agreeName}}</span></p>        
+	        </div>
+	    </li>
+	     <!-- 贸易合同 -->
+	    <li class="mui-table-view-cell mui-collapse" style="font-size: 16px">
+	        <a class="mui-navigate-right" href="javascript:void(0);">贸易合同</a>
+	        <div class="mui-collapse-content">	        
+		        <!-- 附件遍历 -->
+	            <div class="mui-row ac-grid upload-wrap">
+	                <div ng-repeat="item in agreeUploadList" class="mui-col-sm-4 mui-col-xs-4">	                    
+	                    <div class="upload-img"  ng-show="item.id" ng-click="preImg(item);">
+	                        <img ng-src="{{item.id ? (item.id|downf) :''}}" alt="">
+	                    </div>
+	                   
+	                </div>
+	            </div>      
+	        </div>
+	    </li>
+	     <!-- 发票 -->
+	    <li class="mui-table-view-cell mui-collapse" style="font-size: 16px">
+	        <a class="mui-navigate-right" href="javascript:void(0);">发票</a>
+	        <div class="mui-collapse-content">	        
+		        <!-- 附件遍历 -->
+	            <div class="mui-row ac-grid upload-wrap">
+	                <div ng-repeat="item in invoiceUploadList" class="mui-col-sm-4 mui-col-xs-4">            
+	                    <div class="upload-img"  ng-show="item.id" ng-click="preImg(item);">
+	                        <img ng-src="{{item.id ? (item.id|downf) :''}}" alt="">
+	                    </div>	                    
+	                </div>
+	            </div>        
+	        </div>
+	    </li>
+	    
+	</ul>
+
+</div>
+
+
+

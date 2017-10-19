@@ -1,0 +1,61 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [{
+			"custNo" :  7123,
+			"custName": "石油局1",
+			"lawName":	"刘婧",
+			"phone":	"15362548754",
+			"address":	"北海大道",
+			"regDate":	"20161012",
+			"faxNo"	:   "625415",
+			"buyerNo":	"NO1232",
+			"buyer"	:   "中钢衡重",
+			"lawPhone":"15362548745",
+			"lawIdentNo":"44322541198587452015",
+			"identNo":"5241254887",
+			"businLicRegDate":"20130225",
+			"validDate":"20230225",
+			"regAddr":"北海道",
+			"setupDate":"20080222",
+			"corpVocate":"海油",
+			"regBalance":"8550000.00",
+			"paidCapital":"8550000.00",
+			"personCount":"2154",
+			"operateArea":"12000",
+			"ownerShipYear":"20",
+			"busiScope":"天然气"
+
+
+		},{
+			"custNo" :  7124,
+			"custName": "石油局2",
+			"lawName":	"刘婧",
+			"phone":	"15362548722",
+			"address":	"北海大道",
+			"regDate":	"20161012",
+			"faxNo"	:   "625415",
+			"buyerNo":	"NO1232",
+			"buyer"	:   "中钢衡重",
+			"lawPhone":"15362548745",
+			"lawIdentNo":"44322541198587452015",
+			"identNo":"5241254887",
+			"businLicRegDate":"20130225",
+			"validDate":"20230225",
+			"regAddr":"北海道",
+			"setupDate":"20080222",
+			"corpVocate":"海油",
+			"regBalance":"8550000.00",
+			"paidCapital":"8550000.00",
+			"personCount":"2154",
+			"operateArea":"12000",
+			"ownerShipYear":"20",
+			"busiScope":"天然气"
+		}],
+	"page":{
+	        "pageNum": 1,
+	        "pageSize": 1,
+	        "pages": 2,
+	        "total": 2
+    }
+}

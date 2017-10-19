@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>询价管理</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/supplier/inquiry/inquiryManage.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+
+          <!-- 查询区 -->
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">询价管理</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="30%">当前机构:</td>
+                <td class="div-text-left">
+                  <select name="custNo" id="" ng-model="searchData.custNo">
+                    <option ng-repeat="item in supplierList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo==item.value"></option>
+                </select>
+                </td>
+              </tr>
+              <tr>
+                <td>询价日期:</td>
+                <td class="div-text-left date">
+                   <input type="text" id="start_date" bt-date="searchData.GTEactualDate" bt-max-date="end_date"> - 
+                   <input type="text" id="end_date" bt-date="searchData.LTEactualDate" bt-min-date="start_date">
+                </td>
+              </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="searchList(true);">查询</button>
+            </div>
+          </div>
+          
+
+
+          <!-- 查询结果区 -->
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              询价列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover search-result">
+              <thead>
+                <tr>
+                  <td class="modi-group" colspan="11">
+                    <button class="btn btn-info" ng-click="showAddBox();">发布询价</button>
+                  </td>
+                </tr>
+                <tr class="result-head">
+                  <td width="10%">票号</td>
+                  <td width="15%">开票单位</td>
+                  <td width="8%">类型</td>
+                  <td width="8%">出票日期</td>
+                  <td width="8%">有效期至</td>
+                  <td width="10%">金额</td>
+                  <td width="8%">询价日期</td>
+                  <td width="8%">截止日期</td>
+                  <td width="8%">报价</td>
+                  <td width="9%">类型</td>
+                  <td width="8%">操作</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-repeat="inquiry in inquiryList" ng-repeat-end ng-class="{even:$even}">
+                  <td ng-bind="inquiry.order.billNo"></td>
+                  <td class="red" ng-bind="inquiry.order.invoiceCorp"></td>
+                  <td ng-bind="inquiry.order.billType | kindf:'BillNoteType'"></td>
+                  <td ng-bind="inquiry.order.invoiceDate"></td>
+                  <td ng-bind="inquiry.order.endDate"></td>
+                  <td class="red tab-text-right" ng-bind="inquiry.order.balance | moneyFilter"></td>
+                  <td ng-bind="inquiry.actualDate"></td>
+                  <td ng-bind="inquiry.endDate"></td>
+                  <td ng-bind="inquiry.businStatusText"></td>
+                  <td ng-bind="inquiry.enquiryMethod| kindf:'EnquiryMethod'"></td>
+                  <td>
+                      <a href="javascript:void(0);" ng-click="showDetailBox(inquiry)">查看</a>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <td colspan="11">
+                  <div bt-pagination conf="pageConf" func="queryInquiryList(false);"></div>
+                </td>
+              </tfoot>
+            </table>
+            
+          </div>
+        
+
+        <!-- 发布询价-->
+        <div id="add_inquiry_box" bt-roll-modal="temp/addEnquiry.html" bt-z-index="9991"></div>
+        <!-- 查看报价 -->
+        <div id="inquiry_detail_box" bt-roll-modal="temp/EnquiryDetail.html" bt-z-index="9991"></div>
+
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+  
+
+
+
+
+	<!-- 引用js文件 -->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/supplier/inquiry/inquiryManage");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/supplier/inquiry/inquiryManage");
+      } 
+  </script>
+  </body>
+</html>

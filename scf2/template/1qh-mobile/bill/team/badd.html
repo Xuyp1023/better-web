@@ -1,0 +1,80 @@
+  <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">新增
+                    </h1>
+                    <table class="table table-striped table-bordered table-hover">
+			            <thead>
+			              <tr>
+			                <td width="20%">*名称:</td>
+			                <td width="80%" class="div-text-left">
+			                    <select ng-model="custINfo.coreCustNo">
+                            		<option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="custINfo.coreCustNo == item.value"></option>
+                          		</select>
+			                </td>
+			              </tr>
+			              <tr style="border-bottom: 1px solid #ddd;">
+			                <td>默认:</td>
+			                <td class="div-text-left">
+			                    <input name="heAdd" type="radio"  style="width:auto !important; margin-bottom:5px;" ng-model="custINfo.isLatest" value="1">&nbsp;是 
+			                    <input name="heAdd" type="radio" checked="checked" style="width:auto !important; margin-bottom:5px;" ng-model="custINfo.isLatest" value="0">&nbsp;否
+			                </td>
+			              </tr>             
+			              <tr>
+			                <td>类型:</td>
+			                <td class="div-text-left">
+			                  <input ng-click="radioclick()" name="genren" type="radio" value="1"  ng-model="custINfo.coreInfoType" style="width:auto !important; margin-bottom:5px;" checked="checked">&nbsp;企业 
+			                    <input ng-click="radioclick()" name="genren" type="radio" value="0" ng-model="custINfo.coreInfoType" style="width:auto !important; margin-bottom:5px;">&nbsp;个人
+			                </td>
+			              </tr>                  
+			            </thead>
+			            <tbody ng-show="radiotype">
+			            	<tr>
+			            		<td width="20%">*纳税人识别号:</td>
+			            		<td width="80%" class="div-text-left">
+			            			<input type="text" style="width: 88% !important;" ng-model="custINfo.coreTaxPayerNo">
+			            		</td>
+			            	</tr>
+			            	<tr>
+			            		<td>*开户银行:</td>
+			            		<td class="div-text-left">
+			            			<input type="text" style="width: 88% !important;" ng-model="custINfo.coreBank">
+			            		</td>
+			            	</tr>
+			            	<tr>
+			            		<td>*银行账号:</td>
+			            		<td class="div-text-left">
+			            			<input type="text" style="width: 88% !important;" ng-model="custINfo.coreBankAccount">
+			            		</td>
+			            	</tr>
+			            	<tr>
+			            		<td>*电话:</td>
+			            		<td class="div-text-left"> 
+			            			<input type="text" style="width: 88% !important;" ng-model="custINfo.corePhone">
+			            		</td>
+			            	</tr>
+			            	<tr>
+			            		<td>*地址:</td>
+			            		<td class="div-text-left">
+			            			<input type="text" style="width: 88% !important;" ng-model="custINfo.coreAddress">
+			            		</td>
+			            	</tr>
+			            </tbody>
+			            <tbody ng-show="rediotype">
+			            	<tr>
+			            		<td>电话:</td>
+			            		<td class="div-text-left">
+			            			<input type="text" style="width: 88% !important;" ng-model="custINfo.corePhone">
+			            		</td>
+			            	</tr>
+			            </tbody>
+       			 </table>
+         <div class="center-buttons">
+          <button class="btn btn-primary" ng-click="addinfoList($event.target);">提交</button>
+          <button class="btn btn-primary" ng-Click="goback()">返回</button>
+        </div>
+            </div>                 
+        </div>
+      </div>
+    </div>

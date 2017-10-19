@@ -1,0 +1,64 @@
+ <div id="container" class="container-fluid div-center">
+        <div class="row-fluid" id="certificat-info1">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">添加验签证书
+                    </h1>
+           <table id="loanBox" class="table table-striped table-hover table-bordered table-condensed">
+             <thead class="result-td-head result-head-green">
+                 <tr>
+                   <td colspan="2">
+                     <span class="title-left ">添加证书</span>
+                   </td>
+                 </tr>
+             </thead>
+            <tbody>
+                <tr>
+                  <td width="20%">公司名称:</td>
+                  <td width="80%" class="div-text-left">
+                      <select ng-model="currentItem.custNo">
+                      <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="currentItem.custNo == item.value"></option>
+                   </select>
+                  </td>
+                  </tr>
+                  <tr>
+                  <td width="20%">证书类型:</td>
+                  <td width="30%" class="div-text-left">
+                       <select ng-model="currentItem.type">
+                      <option ng-repeat="item in typeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="currentItem.type == item.value"></option>
+                   </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%"><strong class="red">*</strong> 证书名称:</td>
+                  <td width="80%" class="div-text-left double_box">
+                    <input type="text" ng-model="currentItem.name" style="width: 89% !important;">
+                  </td>
+                  </tr>
+                  <tr>
+                  <td><strong class="red">*</strong> 证书序列号:</td>
+                  <td class="div-text-left double_box">
+                    <input type="text" style="width: 89% !important;" ng-model="currentItem.serialNo">
+                  </td>
+                </tr> 
+                <tr>
+                  <td><strong class="red">*</strong> 证书内容:</td>
+                  <td class="div-text-left double_box" colspan="3">
+                    <textarea ng-model="currentItem.certInfo" name="name" class="ng-pristine ng-valid ttare" style="margin: 0px; height: 100px; width: 89% !important;"></textarea>
+                  </td>
+                </tr>
+            </tbody>
+        </table>          
+        <!-- 上传调用 -->
+        <div class="center-buttons">
+          <button class="btn btn-primary" ng-click="saveCert($event.target,1);">保存</button>
+          <button class="btn btn-primary" bt-close-modal="";>返回</button>
+        </div>
+                    
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+

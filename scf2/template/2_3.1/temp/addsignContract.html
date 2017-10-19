@@ -1,0 +1,33 @@
+<style>
+  .gloop > td{
+      border-bottom: 1px solid #ddd;
+  }
+</style>
+<div class="div-center">
+    <h1 class="content-title-1 content-title-condensed content-title-blue">
+    添加协议
+  </h1>   
+
+    <table class="table table-condensed div-width-70 div-center search-table">
+    <tr>
+     <td width="30%">选择标准合同:</td>
+     <td width="70%" class="div-text-left">
+       <select ng-model="addInfo.custNo">
+              <option ng-repeat="item in receiver" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="addInfo.custNo == item.value"></option>
+      </select>
+     </td>
+    </tr>
+  </table>
+
+    <div ng-include="'template/2_3.1/temp/tosigned.html'"></div>
+    <div ng-include="'template/2_3.1/temp/ContractSignatory.html'"></div>
+    <div ng-include="'template/2_3.1/temp/addinformation.html'"></div>
+
+    <div class="center-buttons">
+       <button class="btn btn-primary" ng-click="addsignContract($event.target)">保存/下一步</button>
+       <button class="btn btn-primary" ng-Click="gobeak()" >返回</button>
+     </div>   
+</div>
+
+  <!-- 附件上传 start -->
+  <div bt-upload conf="uploadConf"></div>

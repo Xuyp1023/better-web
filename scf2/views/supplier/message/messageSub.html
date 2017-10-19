@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>消息订阅管理</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/supplier/message/messageSub.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+</head>
+
+<body id="body">
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" ng-controller="mainController" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">
+                        消息订阅
+                        <small class="small-select">
+                          <span>机构选择</span>
+                          <select ng-model="searchData.custNo" ng-change="changeCust();">
+                            <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+                          </select>
+                        </small>
+                    </h1>
+                    
+                    <table id="message_sub_table" class="table table-striped table-hover table-bordered main-list">
+                        <thead class="result-head">
+                            <tr>
+                                <td width="20.3%">公司名称</td>
+                                <td width="36.3%">消息通知名称</td>
+                                <td width="43.3%">通道</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                                <td ng-bind="item.custName"></td>
+                                <td class="red" ng-bind="item.profileName"></td>
+                                <td>
+                                    <table mapping="checkboxGroup" class="table table-condensed table-intable">
+                                      <tr ng-class="{even:$even}" ng-repeat="item in item.channels" ng-repeat-end>
+                                        <td width="33.3%" ng-repeat="child in item">
+                                          <label ng-click="editInfo($event.target,child)"><input type="checkbox" value="{{child.id}}" ng-model="child.subscribed" ng-checked="child.subscribed"><span ng-bind="child.channel|kindf:'NoticeSendChanel'"></span></label>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <td colspan="3">
+                            <div bt-pagination conf="listPage" func="queryList(true);"></div>
+                        </td>
+                    </table>
+
+                    <!-- <div class="center-buttons">
+                        <button class="btn btn-primary">保存</button>
+                    </div> -->
+
+                <!-- 温馨提示END -->
+                <!-- 模板区域 -->
+
+            </div>
+        </div>
+    </div>
+    <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+  <![endif]-->
+    <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/supplier/message/messageSub");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/supplier/message/messageSub");
+      }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<div id="search_info" class="row-fluid">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/flow_money.png" alt="">
+    流程审批记录
+  </h1>
+  <table class="div-width-100 table table-striped table-hover search-result main-list">
+    <thead>
+      <tr class="result-head">
+        <td width="15%">审批节点</td>
+        <td width="15%">审批机构</td>
+        <td width="15%">审批人</td>
+        <td width="15%">审批内容</td>
+        <td width="15%">审批结果</td>
+        <td width="15%">审批时间</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat-end ng-class="{even:$even}" ng-repeat="item in infoList">
+        <td ng-bind="item.name"></td>
+        <td ng-bind="item.custName"></td>
+        <td ng-bind="item.operator"></td>
+        <td ng-bind="item.content"></td>
+        <td ng-bind="item.result"></td>
+        <td ng-bind="item.auditTime"></td>
+      </tr>       
+    </tbody>
+    <tfoot>
+      <td colspan="9">
+        <div bt-pagination conf="listPage" func="queryList(false);"></div>
+      </td>
+    </tfoot>
+  </table>
+  
+</div>

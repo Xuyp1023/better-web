@@ -1,0 +1,40 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      角色信息管理
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered">
+        <tbody>
+        <tr>
+          <td>角色名称</td>
+          <td class="div-text-left">
+            <input type="text" ng-model="info.roleName">
+          </td>
+        </tr>
+        <tr>
+          <td width="30%">角色类型</td>
+          <td width="70%" class="div-text-left">
+            <select ng-model="info.roleType">
+              <option ng-repeat="item in typeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.roleType == item.value"></option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="30%">角色状态</td>
+          <td width="70%" class="div-text-left">
+            <select ng-model="info.businStatus">
+              <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.businStatus == item.value"></option>
+            </select>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-show="info.modiType === 'add'" ng-click="addInfo($event.target);">确认新增</button>
+        <button class="btn btn-primary" ng-show="info.modiType === 'edit'" ng-click="editInfo($event.target);">确认修改</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

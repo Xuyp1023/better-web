@@ -1,0 +1,53 @@
+<div class="back-white">
+	<!-- ====================== 附件上传 start =================================-->
+	
+	<h3 class="title-h3">附件上传</h3>
+	<p class="s_tip text_indent">
+    	<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->尊敬的客户，当前选择的保理机构开通保理融资业务需要提供以下附件，请您按以下提醒上传附件！
+	</p>
+	      
+
+	<div class="mui-row ac-grid upload-wrap" >
+		<div class="mui-col-sm-4 mui-col-xs-4" ng-repeat="item in upLoadList">
+			<div class="upload-area" ng-click="uploadImage(item.fileInfoType);" ng-show="!item.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="item.id" ng-click="preImg(item);">
+				<img ng-src="{{item.id ? (item.id|downf) :''}}" alt="">
+			</div>
+			<p class="type-name" ng-bind="item.fileDescription"></p>
+			<p class="type-exam font-gray" ng-show="!item.id">待上传</p>
+			<p class="type-exam font-gray" ng-show="item.id" ng-click="delUpload(item);">删除</p>
+		</div>
+
+	</div>
+	<!-- ====================== 附件上传 end =================================-->
+
+	<h3 class="title-h3"></h3>
+	<p class="s_tip text_indent">
+    	尊敬的客户：
+     	您在企e金服平台办理融资业务时签署的相关协议将由沃通电子认证服务有限公司 (简称"沃通")提供电子协议签署服务，请知悉！以下是需要向沃通提供的资料信息：
+	</p>
+
+	
+	<div class="mui-row ac-grid upload-wrap" >
+		<div class="mui-col-sm-4 mui-col-xs-4" ng-repeat="item in elecCustFileList">
+			<div class="upload-area" ng-click="uploadWosImage(item.fileInfoType);" ng-show="!item.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="item.id"  ng-click="preImg(item);">
+				<img ng-src="{{item.id ? (item.id|downf) :''}}" alt="">
+			</div>
+			<p class="type-name" ng-bind="item.fileDescription"></p>
+			<p class="type-exam font-gray" ng-show="item.id" ng-click="delWosUpload(item);">删除</p>
+		</div>
+	</div>
+
+	<div class="butn butn2 bottom-holder upload-btns margin-no-bottom">
+		<button class="mui-btn mui-btn-primary long" ng-click="nextStep($event.target);">下一步</button>
+	</div>
+</div>
+
+

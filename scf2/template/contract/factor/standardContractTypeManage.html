@@ -1,0 +1,36 @@
+<div class="row-fluid">
+      <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/flow_money.png" alt="">
+        标准合同类型维护
+      </h1>
+      <table class="div-width-100 table table-striped table-hover search-result">
+        <thead>
+          <tr>
+            <td class="modi-group" colspan="6">
+              <a href="#/customerRelation/coreAddRelation"><button class="btn btn-info" >新增合同类型</button></a>
+            </td>
+          </tr>
+          <tr class="result-head">
+            <td width="25%">标准合同编号</td>
+            <td width="25%">标准合同名称</td>
+            <td width="25%">合同类型</td>
+            <td width="25%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  ng-class="{even:$even}" >
+            <td>CT-0001</td>
+            <td>标准合同名称</td>
+            <td>商务类</td>
+            <td>
+              <a href="#">删除</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td colspan="4">
+            <div bt-pagination conf="listPage" func="queryList();"></div>
+          </td>
+        </tfoot>
+      </table>
+
+  </body>

@@ -1,0 +1,36 @@
+<div class="top-box">
+  <div>
+    <h1 class="content-title-1 content-title-condensed content-title-blue div-margin-bottom-none"><img src="img/operator.png" alt="">
+      业务类型关联标准合同类型
+    </h1>
+
+    <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+            <tr class="result-head">
+              <td width="20%">业务类型编号</td>
+              <td width="30%">业务类型名称</td>
+              <td width="20%">标准合同编号</td>
+              <td width="10%">标准合同名称</td>
+              <td width="20%">状态</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td class="red" ng-bind="item.agreementStandardNo"></td>
+            <td ng-bind="item.agreementStandardName"></td>
+            <td ng-bind="item.regDate"></td>
+            <td ng-bind="item.businStatus|kindf:'AgreementStandardStatus'"></td>
+            <td>
+              <a href="javascript:void(0);" ng-click="remove($event.target,item);">移除</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="5">
+                <div bt-pagination conf="listPage" func="queryList(false)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+  </div>
+</div>

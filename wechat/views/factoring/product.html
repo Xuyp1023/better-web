@@ -1,0 +1,58 @@
+	<div class="wid wid5">
+    	<ul class="clearfix">
+            <li ng-click="changeProduct()">
+            	<span class="ti">保理产品</span>
+            	<div class="ci">
+                	{{searchData.productId|kindf:'ProductSelectDic'}}<i class="ico ico11 ml5"></i>
+                </div>
+            </li>
+            <li>
+            	<span class="ti">产品代码</span>
+            	<div class="ci">
+                	{{info.productCode}}
+                </div>
+            </li>
+            <li>
+            	<span class="ti">保理公司</span>
+            	<div class="ci">
+                	{{info.factorName}}
+                </div>
+            </li>
+            <li>
+            	<span class="ti">适应范围</span>
+            	<div class="ci">
+                	{{info.fitCrowd}}
+                </div>
+            </li>
+            <li>
+            	<span class="ti">最低融资金额</span>
+            	<div class="ci">
+                	{{info.minFactorAmmount|moneyFilter}}
+                </div>
+            </li>
+            <li>
+            	<span class="ti">最高融资金额</span>
+            	<div class="ci">
+                	{{info.maxFactorAmmount|moneyFilter}}
+                </div>
+            </li>
+            <li>
+            	<span class="ti">融资方式</span>
+            	<div class="ci">
+                	{{info.financeType|kindf:'FinancingAppType'}}
+                </div>
+            </li>
+            <li>
+            	<span class="ti">通用利率</span>
+            	<div class="ci">
+                	{{info.ratio|percentf}}
+                </div>
+            </li>
+            <li>
+            	<span class="ti">授信核心企业</span>
+            	<div class="ci">
+                	{{info.coreName}}
+                </div>
+            </li>
+        </ul>
+    </div>

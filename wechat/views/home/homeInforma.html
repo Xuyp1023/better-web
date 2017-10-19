@@ -1,0 +1,77 @@
+<div class="informa-line back-white">
+	<p class="background-ragy width-100">个人信息</p>
+</div>
+
+<div class=" back-white underline div-ul-width90">
+	<ul>
+		<li>
+			<span class="width-30">姓名</span>
+			<span class="width-65" ng-bind="info.name"></span>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<span class="width-30">身份证</span>
+			<span class="width-65" ng-bind="info.identNo"></span>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<span class="width-30">邮政编码</span>
+			<span class="width-65" ng-bind="info.zipCode"></span>
+		</li>
+	</ul>
+	<ul>
+		<li class="width-100">
+			<span class="width-30">联系电话</span>
+			<span class="width-65" ng-bind="info.phone"></span>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<span class="width-30">传真</span>
+			<span class="width-65" ng-bind="info.faxNo"></span>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<span class="width-30">手机</span>
+			<span class="width-65" ng-bind="info.mobileNo"></span>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<span class="width-30">邮箱</span>
+			<span class="width-65" ng-bind="info.email"></span>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<span class="width-30 left">通讯地址</span>
+			<span class="width-65" ng-bind="info.address|emptyf"></span>
+		</li>
+	</ul>
+</div>
+<div class="informa-line back-white">
+	<p class="background-ragy width-100">企业个人信息</p>
+</div>
+<div class="div-ul-width90 back-white ">
+	<ul>
+		<li>
+			<span class="width-30">企e金服账号</span>
+			<span class="width-65" ng-bind="info.operCode"></span>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<span class="width-30">对外经办人</span>
+			<span class="width-65" ng-bind="info.clerkMan === 1? '是' : '否'"></span>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<span class="width-30">操作员角色</span>
+			<span class="width-65" ng-bind="info.roleName"></span>
+		</li>
+	</ul>
+</div>

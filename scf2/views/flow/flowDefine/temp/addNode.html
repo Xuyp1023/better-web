@@ -1,0 +1,58 @@
+<div class="div-width-90 detail-box div-center">
+  <!-- 新增&编辑节点 -->
+  <div id="" class="row-fluid">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">{{info.modiType === 'edit'?'编辑':'新增'}}节点</h1>
+
+    <form action="#" id="addInvoice_form">
+    <table class="div-width-100 table table-bordered table-striped table-hover recieve-table">
+        <tr>
+          <td width="30%">节点名称:</td>
+          <td class="div-text-left"><input type="text" ng-model="info.nodeCustomName"  valid="{'required':true}" ></td>
+        </tr>
+        <tr ng-show="info.modiType !== 'edit'">
+          <td width="30%">系统节点:</td>
+          <td class="div-text-left" width="70%">
+            <select ng-model="info.sysNodeId" >
+              <option ng-repeat="item in sysNodeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.sysNodeId == item.value"></option>
+            </select>
+          </td>
+        </tr>
+        <tr ng-show="info.modiType == 'edit'">
+          <td width="30%">系统节点:</td>
+          <td class="div-text-left" width="70%">
+            <select ng-model="info.sysNodeId" disabled="true">
+              <option ng-repeat="item in sysNodeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.sysNodeId == item.value"></option>
+            </select>
+          </td>
+        </tr>
+
+        <!-- <tr ng-show="info.modiType !== 'edit'">
+          <td width="30%">是否必选:</td>
+          <td class="div-text-left" width="70%">
+            <select ng-model="info.must">
+              <option value="1">是</option>
+              <option value="0">否</option>
+            </select>
+          </td>
+        </tr> -->
+        <tr>
+          <td width="30%">是否必选:</td>
+          <td class="div-text-left" width="70%">
+            <select ng-model="info.must" disabled="true">
+              <option value="1">是</option>
+              <option value="0">否</option>
+            </select>
+          </td>
+        </tr>
+    </table>
+    </form>
+    <div>
+         <div class="center-buttons">
+           <button class="btn btn-primary" ng-show="info.modiType !== 'edit'" ng-click="addInfo($event.target);">确定添加</button>
+           <button class="btn btn-primary" ng-show="info.modiType === 'edit'" ng-click="editInfo($event.target);">确定编辑</button>
+           <button class="btn btn-primary" bt-close-modal >返回</button>
+         </div>
+    </div>
+
+  </div>
+</div>

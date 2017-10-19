@@ -1,0 +1,114 @@
+
+
+<!-- 基本信息 -->
+<div class="wid m10">
+    <ul class="clearfix">
+        <li>
+            <span class="ti gray9">申请企业</span>
+            <div class="ci" ng-bind="info.custName|emptyf"></div>
+        </li>
+        <li>
+            <span class="ti gray9">核心企业</span>
+            <div class="ci" ng-bind="info.coreCustName|emptyf"></div>
+        </li>
+        <li>
+            <span class="ti gray9">申请类型</span>
+            <div class="ci" ng-bind="info.type|kindf:'RaiseCapitalType' "></div>
+        </li>
+        <li>
+            <span class="ti gray9">融资金额</span>
+            <div class="ci red" ng-bind="info.invoiceBalance|moneyFilter"></div>
+        </li>
+    </ul>
+</div>
+
+<!-- 折叠面板 -->
+<ul class="mui-table-view"> 
+    <!-- 融资需求-->
+    <li class="mui-table-view-cell mui-collapse">
+        <a class="mui-navigate-right" href="javascript:void(0);">融资需求</a>
+        <div class="mui-collapse-content">
+            <div class="wid">
+                <ul>
+                    <li>
+                        <span class="ti">保理机构:</span>
+                        <div class="ci">
+                            <input type="text" placeholder="请选择保理机构" readonly class="text" ng-click="changeFactor();" ng-model="info.factorName">
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ti">贷款金额:</span>
+                        <div class="ci">
+                            <input type="text" placeholder="请输入贷款金额" class="text" ng-model="info.balance">
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ti">贷款期限:</span>
+                        <div class="ci">
+                            <input type="text" placeholder="请输入贷款期限" class="textSel" ng-model="info.period">
+                            <i ng-bind="info.periodUnitName"></i>
+                            <i class="ico ico11 ml5" ng-click="changeUnit();"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ti">使用授信:</span>
+                        <div class="ci">
+                            <input type="text" placeholder="请选择授信" class="text" readonly ng-click="changeCredit();" ng-model="info.creditName">
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ti">保理产品:</span>
+                        <div class="ci">
+                            <input type="text" placeholder="请选择产品" class="text" readonly ng-click="changeProduct();" ng-model="info.productName">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </li>
+    <!-- 合同附件上传 -->
+    <li class="mui-table-view-cell mui-collapse">
+        <a class="mui-navigate-right" href="javascript:void(0);">上传合同附件</a>
+        <div class="mui-collapse-content">
+            <!-- 附件遍历 -->
+            <div class="mui-row ac-grid upload-wrap">
+                <div ng-repeat="item in agreeUploadList" class="mui-col-sm-4 mui-col-xs-4">
+                    <div class="upload-area"  ng-show="!item.id" ng-click="uploadImage('agree');" > 
+                        <div class="line-hori"></div>
+                        <div class="line-vert"></div>
+                    </div>
+                    <div class="upload-img"  ng-show="item.id" ng-click="preImg(item);">
+                        <img ng-src="{{item.id ? (item.id|downf) :''}}" alt="">
+                    </div>
+                    <p class="type-exam font-gray" ng-show="item.id" ng-click="delUpload(item,'agree');">删除</p>
+                </div>
+            </div>
+            
+        </div>
+    </li>
+    <!-- 发票附件上传 -->
+    <li class="mui-table-view-cell mui-collapse">
+        <a class="mui-navigate-right" href="javascript:void(0);">上传发票附件</a>
+        <div class="mui-collapse-content">
+            <!-- 附件遍历 -->
+            <div class="mui-row ac-grid upload-wrap">
+                <div ng-repeat="item in invoiceUploadList" class="mui-col-sm-4 mui-col-xs-4">
+                    <div class="upload-area"  ng-show="!item.id" ng-click="uploadImage('invoice');" > 
+                        <div class="line-hori"></div>
+                        <div class="line-vert"></div>
+                    </div>
+                    <div class="upload-img"  ng-show="item.id" ng-click="preImg(item);">
+                        <img ng-src="{{item.id ? (item.id|downf) :''}}" alt="">
+                    </div>
+                    <p class="type-exam font-gray" ng-show="item.id" ng-click="delUpload(item,'invoice');">删除</p>
+                </div>
+            </div>
+
+        </div>
+    </li>
+</ul>
+
+<div class="butn butn2 mt10">
+    <a href="javascript:void(0);" class="mui-btn mui-btn-primary" ng-click="applyFinance();">融资申请</a>
+</div>
+

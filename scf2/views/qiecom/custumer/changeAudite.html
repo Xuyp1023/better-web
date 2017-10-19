@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>变更审核管理</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/qiecom/custumer/changeAudite.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+</head>
+
+<body id="body">
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" ng-controller="mainController" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/fast_money.png" alt="">变更审核查询
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">
+                      <tr>
+                        <td width="25%">企业名称:</td>
+                        <td width="75%" class="div-text-left">
+                            <input type="text" ng-model="searchData.LIKEcustName">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>申请日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEregDate">-
+                          <input type="text" id="end_date" bt-date="searchData.LTEregDate">
+                        </td>
+                      </tr> 
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+                <div id="search_info" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+                    变更审核列表
+                    </h1>
+                    <table class="div-width-100 table table-striped table-hover search-result">
+                        <thead>
+                            <tr class="font-size-12 result-head">
+                                <td width="22%">企业名称</td>
+                                <td width="13%">资料类型</td>
+                                <td width="19%">申请时间</td>
+                                <td width="13%">审批状态</td>
+                                <td width="10%">当前审批结果</td>
+                                <td width="13%">审批备注</td>
+                                <td width="10%">操作</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-class="{even:$even}" ng-repeat="item in changeList" ng-repeat-end>
+                                <td ng-bind="item.custName"></td>
+                                <td ng-bind="item.changeItem|kindf:'ChangeItem'"></td>
+                                <td ng-bind="item.regDate+' '+item.regTime"></td>
+                                <td ng-bind="item.businStatus|kindf:'ChangeApplyBusinStatus'"></td>
+                                <td ng-class="{true:'red',false:'green'}[item.auditResult!=0]">
+                                    <span ng-show="item.auditResult!=''" ng-bind="item.auditResult==0?'成功':'未通过'"></span>
+                                    <span ng-show="item.auditResult==''"></span>
+                                </td>
+                                <td ng-bind="item.auditReason"></td>
+                                <td>
+                                    <a href="javascript:void(0);" ng-show="item.businStatus==0" ng-click="openChangeAudite(item);">审核</a>
+                                    <a href="javascript:void(0);" ng-show="item.businStatus!=0" ng-click="openChangeAudite(item);">查看详情</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <td colspan="7">
+                                <div bt-pagination conf="listPage" func="queryChangeList(false);"></div>
+                            </td>
+                        </tfoot>
+                    </table>
+                </div>
+
+
+                <!-- 温馨提示END -->
+                <!-- 模板区域 -->
+                <!-- 基本信息变更审核模板 -->
+                <div id="basic_change_audite_box" bt-roll-modal="temp/basicChangeAudite.html" bt-z-index="9991"></div>
+
+                <!-- 法人信息变更审核模板 -->
+                <div id="lawyer_change_audite_box" bt-roll-modal="temp/lawyerChangeAudite.html" bt-z-index="9991"></div>
+
+                <!-- 营业执照变更审核模板 -->
+                <div id="license_change_audite_box" bt-roll-modal="temp/businessChangeAudite.html" bt-z-index="9991"></div>
+
+                <!-- 高管变更记录列表模板 -->
+                <div id="manager_audite_list_box" bt-roll-modal="temp/executiveChangeAudite.html" bt-z-index="9991"></div>
+                <!-- 高管变更记录详情模板 -->
+                <div id="manager_audite_info_box" bt-roll-modal="temp/executiveChangeAuditeDetail.html" bt-z-index="9992"></div>
+
+                <!-- 联系人变更记录列表模板 -->
+                <div id="contactor_audite_list_box" bt-roll-modal="temp/linkmenChangeAudite.html" bt-z-index="9991"></div>
+                <!-- 联系人变更记录详情模板 -->
+                <div id="contactor_audite_info_box" bt-roll-modal="temp/linkmenChangeAuditeDetail.html" bt-z-index="9992"></div>
+
+                <!-- 股东变更记录列表模板 -->
+                <div id="holder_audite_list_box" bt-roll-modal="temp/shareholderChangeAudite.html" bt-z-index="9991"></div>
+                <!-- 股东变更记录详情模板 -->
+                <div id="holder_audite_info_box" bt-roll-modal="temp/shareholderChangeAuditeDetail.html" bt-z-index="9992"></div>
+
+                <!-- 银行账户变更记录列表模板 -->
+                <div id="account_audite_list_box" bt-roll-modal="temp/bankChangeAudite.html" bt-z-index="9991"></div>
+                <!-- 银行账户变更记录详情模板 -->
+                <div id="account_audite_info_box" bt-roll-modal="temp/bankChangeAuditeDetail.html" bt-z-index="9992"></div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+  <![endif]-->
+    <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/qiecom/custumer/changeAudite");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/qiecom/custumer/changeAudite");
+      }
+    </script>
+</body>
+
+</html>

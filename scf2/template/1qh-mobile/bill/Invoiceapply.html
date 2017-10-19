@@ -1,0 +1,103 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">佣金发票开具
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                     
+                       
+                      <tr>
+                        <td>申请日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEregDate">-
+                          <input type="text" id="end_date" bt-date="searchData.LTEregDate">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="25%">发票抬头:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.coreCustNo">
+                          <option value="">----所有----</option>
+                            <option ng-repeat="item in coreCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.coreCustNo == item.value"></option>
+                          </select>
+                        </td>  
+                      </tr>                       
+                      <tr>                        
+                        <td width="25%">状态:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.businStatus">
+                            <option value="">所有状态</option>
+                            <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+                         </select>
+                        </td>                        
+                      </tr>                         
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+                        发票申请列表
+                        </h1>
+
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                            <thead>
+                                     <tr>
+                                        <td class="modi-group" colspan="13">
+                                           <button class="btn btn-info" ng-click="addInfoBox(0);">+ 新增普通发票</button>
+                                           <button class="btn btn-info" ng-click="addInfoBox(1);">+ 新增专用发票</button>
+                                        </td>
+                                    </tr>
+                                <tr class="font-size-12 info-title result-head">
+                                    <td width="15%">申请编号</td>
+                                    <td width="15%">发票金额</td>
+                                    <td width="25%">发票抬头</td>
+                                    <td width="10%">发票种类</td>
+                                    <td width="15%">申请时间</td>
+                                    <td width="10%">状态</td>
+                                    <td width="10%">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                                    <td>
+                                        <a href="javascript:void(0);" ng-click="LookdetailInfo(item.id);" ng-bind="item.refNo"></a>
+                                    </td>
+                                    
+                                    <td ng-bind="item.balance"></td>
+                                    <td ng-bind="item.coreCustName"></td>
+                                    <td ng-bind="item.invoiceType | kindf:'commissionInvoiceType'"></td>
+                                    <td ng-bind="item.regDate" class="red"></td>
+                                    <td ng-bind="item.businStatus | kindf:'commissionInvoiceBusinStatus'"></td>
+                                    
+                                    <td ng-show="item.businStatus==1">
+                                        <a href="javascript:void(0);" ng-click="outbill(item.id)">作废</a>
+                                    </td>
+                                    <td ng-show="item.businStatus!=1">
+                                        <a href="javascript:void(0);">- -</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="10">
+                                    <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                                </td>
+                            </tfoot>
+                        </table>
+                    </div>               
+             
+               
+        </div>
+    </div>
+
+<!-- <div id="accountDetail" bt-roll-modal="template/1qh-mobile/check/mail/detail.html" bt-z-index="9991"></div> 
+<div id="detail_monthly_box" bt-roll-modal="template/1qh-mobile/check/monthManager/detail.html" bt-z-index="9991"></div>
+<div id="dayDetail_box" bt-roll-modal="template/1qh-mobile/check/monthManager/dayDetail.html" bt-z-index="9991"></div> -->
+
+
+

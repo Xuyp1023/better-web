@@ -1,0 +1,32 @@
+{
+  "message": "营业执照信息-代录详情 成功",
+  "data": {
+    "id": 0,
+    "regNo": "20121312312312",
+    "orgCode":"",
+    "taxNo":"",
+    "corpType": "1",
+    "address": "福田区车公庙泰然6路",
+    "lawName": "李四四",
+    "regCapital": "1000W",
+    "paidCapital": "800W",
+    "setupDate": "2010-01-01",
+    "startDate": "2010-01-01",
+    "endDate": "2020-12-30",
+    "regBranch": "福田工商局",
+    "certifiedDate": "2010-01-01",
+    "businScope": "软件产品",
+    "batchNo": "",
+    "regDate": "2016-07-29",
+    "modiDate": "2016-07-29",
+    "businStatus": "1",
+    "lastStatus": "",
+    "custNo": "",
+    "custName": "",
+    "refId": "",
+    "tmpType": "0",
+    "tmpOperType": "1"
+  },
+  "page": "",
+  "code": 200
+}

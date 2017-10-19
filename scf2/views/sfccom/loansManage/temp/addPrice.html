@@ -1,0 +1,60 @@
+<div class="div-width-90 detail-box div-center">
+  <!-- 新增报价 -->
+  <div id="" class="row-fluid">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">发布报价</h1>
+    <form action="" class="form-horizontal" id="addPrive_form">
+      <div class="div-center div-width div-margin-top">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <caption class="table-caption table-caption-green clearFix">
+              <span class="title-left">报价信息</span>
+            </caption>
+          <tbody>
+            <tr>
+              <td width="15%">核心企业:</td>
+              <td width="35%" class="div-text-left">
+                <select name="" id="" ng-model="addPriceInfo.coreCustNo" disabled>
+                    <option ng-repeat="core in coreList" ng-option-filter value="{{core.value}}" ng-bind="core.name" ng-selected="addPriceInfo.coreCustNo==core.value"></option>
+                </select>
+              </td>
+              <td width="15%">报价企业:</td>
+              <td width="35%" class="div-text-left">
+                  <input type="text" value="{{addPriceInfo.factorNo|kindf:'FactorDict'}}" disabled>
+                  <!-- <input type="text" ng-model="addPriceInfo.factorName" disabled> -->
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="2">贷款期限:</td>
+              <td rowspan="2" class="div-text-left"><input type="text" ng-model="addPriceInfo.period">&nbsp;月</td>
+              <td width="15%">融资金额:</td>
+              <td width="35%" class="tab-text-left"><input type="text" ng-model="addPriceInfo.balance"></td>
+            </tr>
+            <tr>
+              <td class="deep-gray">金额大写:</td>
+              <td class="tab-text-left">
+                <strong class="deep-gray" ng-bind="addPriceInfo.balance|moneybigf"></strong>
+              </td>
+            </tr>
+            <tr>
+              <td>放款周期:</td>
+              <td class="div-text-left date">
+                <input type="text" ng-model="addPriceInfo.minCycle"> - 
+                <input type="text" ng-model="addPriceInfo.maxCycle">&nbsp;&nbsp;日</td>
+              <td>融资利率:</td>
+              <td class="div-text-left"><input type="text" ng-model="addPriceInfo.ratio">&nbsp;%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+     <div class="center-buttons">
+       <button class="btn btn-primary" ng-click="publishPrice($event.target)">发布</button>
+       <button class="btn btn-primary" bt-close-modal >取消</button>
+     </div>
+    </form>
+  </div>
+
+
+
+
+
+
+</div>

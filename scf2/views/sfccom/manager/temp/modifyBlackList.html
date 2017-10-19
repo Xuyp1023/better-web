@@ -1,0 +1,57 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      黑名单编辑
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered" ng-box-enabled="info.businStatus = 0">
+        <tbody>
+        <tr>
+          <td width="30%">类型</td>
+          <td width="70%" class="div-text-left">
+            <select ng-model="info.custType" ng-change="resetValid('edit_box');">
+              <option ng-repeat="item in typeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="info.custType == item.value"></option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>被执行人姓名/名称</td>
+          <td class="div-text-left">
+            <input type="text" ng-model="info.name">
+          </td>
+        </tr>
+        <tr ng-show="info.custType === '0'">
+          <td><span class="required">*</span>身份证号码/组织机构代码</td>
+          <td class="div-text-left">
+            <input type="text" tip_active  ng-model="info.identNo">
+          </td>
+        </tr>
+        <tr ng-show="info.custType !== '0'">
+          <td><span class="required">*</span>身份证号码/组织机构代码</td>
+          <td class="div-text-left">
+            <input type="text" tip_active ng-model="info.corpIdentNo">
+          </td>
+        </tr>
+        <tr ng-show="info.custType !== '0'">
+          <td>法人</td>
+          <td class="div-text-left">
+            <input type="text" ng-model="info.lawName">
+          </td>
+        </tr>
+        <tr>
+          <td>失信行为</td>
+          <td class="div-text-left">
+            <textarea name="" id="" cols="10" rows="10" ng-model="info.disBehavior"></textarea>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-disabled="info.businStatus !== '0'" ng-click="editInfo($event.target)">修改</button>
+        <button class="btn btn-primary" ng-disabled="info.businStatus !== '0'" ng-click="activeInfo($event.target)">激活</button>
+        <button class="btn btn-primary" ng-disabled="info.businStatus === '0'" ng-click="cancelInfo($event.target)">注销</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

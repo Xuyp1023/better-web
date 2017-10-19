@@ -1,0 +1,18 @@
+{
+  "message": "查询成功",
+  "data": [
+    {
+      "id": 190,
+      "flowTypeName": "",
+      "flowType": "",
+      "nodeName": "",
+      "nodeRole": "",
+      "sysNodeId": 190,
+      "sysNodeName": "还款完成",
+      "nodeCustomName": "还款完成",
+      "must": ""
+    }
+  ],
+  "page": "",
+  "code": 200
+}

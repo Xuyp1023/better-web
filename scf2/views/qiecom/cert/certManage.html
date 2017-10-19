@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>数字证书管理</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/qiecom/cert/certManage.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+</head>
+<body id="body">
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" ng-controller="mainController" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/fast_money.png" alt="">数字证书查询
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">
+                      <tr>
+                        <td>登记日期:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-date="searchData.GTEregDate" bt-max-date="end_date">-
+                          <input type="text" bt-min-date="begin_date" id="end_date" bt-date="searchData.LTEregDate">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>有效期从:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_in_date" bt-date="searchData.GTEcreateDate" bt-max-date="end_in_date">-
+                          <input type="text" bt-min-date="begin_in_date" id="end_in_date" bt-date="searchData.LTEvalidDate">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="25%">证书状态:</td>
+                        <td width="75%" class="div-text-left">
+                        <select ng-model="searchData.businStatus">
+                          <option value="">---所有状态---</option>
+                          <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+                        </select>
+                        </td>
+                      </tr> 
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+                        数字证书列表
+                        </h1>
+                        <!-- 搜索工具栏 -->
+                        <form class="form-inline">  
+                            <label><button type="button" class="btn btn-info" ng-click="addInfoBox();">+添加数字证书</button></label>
+                        </form>
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                            <thead>
+                                <tr class="font-size-12 info-title">
+                                    <td width="11.1%">证书名称</td>
+                                    <td width="11.1%">证书签发者</td>
+                                    <td width="11.1%">使用机构</td>
+                                    <td width="11.1%">颁发日期</td>
+                                    <td width="11.1%">截止日期</td>
+                                    <td width="11.1%">状态</td>
+                                    <td width="11.1%">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                                    <td ng-bind="item.commName"></td>
+                                    <td ng-bind="item.signer"></td>
+                                    <td ng-bind="item.orgName"></td>
+                                    <td ng-bind="item.createDate"></td>
+                                    <td ng-bind="item.validDate"></td>
+                                    <td ng-bind="item.certStatus|kindf:'CertX509Status'"></td>
+                                    <td>
+                                        <a href="javascript:void(0);" ng-click="showInfoBox(item);">详情</a>
+                                        <a href="javascript:void(0);" ng-show="item.certStatus === '0'" ng-click="editInfoBox(item);">编辑</a>
+                                        <a href="javascript:void(0);" ng-show="item.certStatus === '0'" ng-click="makeInfoBox(item);">制作</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="7">
+                                    <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                                </td>
+                            </tfoot>
+                        </table>
+                    </div>
+                 </div>
+                </div>
+
+
+                <!-- 温馨提示END -->
+                <!-- 模板区域 -->
+                <!-- 新增数字证书模板 -->
+                <div id="add_box" bt-roll-modal="temp/certAdd.html" bt-z-index="9991"></div>
+
+                <!-- 附件上传 start -->
+                <div bt-upload conf="uploadConf"></div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+  <![endif]-->
+    <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/qiecom/cert/certManage");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/qiecom/cert/certManage");
+      }
+    </script>
+</body>
+
+</html>

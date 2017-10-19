@@ -1,0 +1,15 @@
+  <div class="mpLt">
+      <ul>
+          <li ng-repeat="item in infoList" ng-click="showDetail(item);">
+              <div class="ti">
+                  <span>{{item.regDate}}</span>
+                    <em class="co co1">{{item.signStatus|kindf:'ElecSignContractStatus'}}<i class="ico ico13 ml5"></i></em>
+                </div>
+                <div class="bi"></div>
+                <div class="ci">
+                    <p class="con">{{item.agreeName}}（{{item.agreeNo}}）</p>
+                </div>
+            </li>
+        </ul>
+        <div ng-page="listPage" func="queryList(false)" class="more"></div>
+    </div>

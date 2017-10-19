@@ -1,0 +1,184 @@
+@charset "UTF-8";
+/* 用户资料页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+
+#container{
+	@include init;
+	@include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+}
+
+#content{
+	@include plus-nav-tabs;
+	@include center-buttons;
+	@include td-input-width(95%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+
+	.chart-title{
+		border-bottom:2px solid #248AC9;
+	}
+}
+
+#fund_info{
+	min-height:80px;
+	.left-info{
+	}
+	margin-bottom:15px;
+	table{
+		width:100%;
+	}
+
+	.info-title{
+		color:rgb(116, 93, 61);
+		font-family:宋体;
+		text-align:left;
+		font-size:14px;
+		height:50px;
+		vertical-align:middle;
+		img{
+			width:20px;
+			height:20px;
+			margin-right:10px;
+		}
+	}
+
+	.info-content{
+		text-align:center;
+		line-height:55px;
+		height:55px;
+		color: rgb(214, 41, 70);
+		display: inline;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 48px;
+	}
+
+}
+
+#select_comp{
+	margin-bottom:20px!important;
+	border-bottom:2px solid #248AC9!important;
+	position:relative!important;
+	.search-info{
+		display:inline-block;
+		*zoom:1;
+		*display:inline;
+		height:50px;
+		line-height:50px;
+		margin-left:30px;
+		.lab{
+			font-size:16px;
+			color:gray;
+		}
+		select{
+			margin-bottom:0;
+			*height:25px;
+			*margin-top:10px;
+		}
+	}
+}
+
+#fund_frame,#fund_danger_frame{
+	height:260px;
+}
+
+#fund_profit_info{
+	height:360px;
+}
+
+#fund_forward_info{
+	height:400px;
+}
+
+#fund_profit{
+	.fast-buttons{
+		margin:15px 0 20px 0;
+		li{
+			display:inline-block;
+			background-color:#BDB093;
+			text-align:center;
+			float:left;
+			width:18%;
+			margin-right:1.8%;
+			height:50px;
+			line-height:50px;
+			font-size:14px;
+			color:white;
+			cursor:pointer;
+			&:hover{
+				color:#9F9F9F;
+			}
+			img{
+				width:20px;
+				height:20px;
+				margin-right:5px;
+			}
+		}
+	}
+}
+
+#fund_forward{
+	.plus-info{
+		margin:0;
+	}
+}
+
+#chart_search_box{
+	margin:{
+		top:5px;
+		bottom:5px;
+	}
+	background-color: rgb(223, 240, 216);
+	.search-date{
+		input{
+			width:40%;
+			margin-bottom:0;
+		}
+	}
+	.search-fast{
+		margin-bottom:0;
+		margin-left:10px;
+		height:30px;
+		padding:{
+			top:1px;
+			bottom:1px;
+		}
+		li{
+			float:left;
+			background-color:#999;
+			color:white;
+			margin-bottom:0px;
+			width:12%;
+			height:28px;
+			line-height:28px;
+			cursor:pointer;
+			text-align:center;
+			list-style:none;
+			margin-left:0;
+			margin-right:1%;
+			&:hover,&.active{
+				background-color:#248AC9;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+

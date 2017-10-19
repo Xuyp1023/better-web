@@ -1,0 +1,28 @@
+{
+  "message": "法人信息-代录详情 成功",
+  "data": {
+    "id": 0,
+    "name": "张三",
+    "identType": "1",
+    "identNo": "23123213123313",
+    "validDate": "2016-02-01",
+    "sex": "1",
+    "birthdate": "1988-08-08",
+    "phone": "13323232323",
+    "eduLevel": "1",
+    "martialStatus": "1",
+    "nativePlace": "xxxx",
+    "address": "测试测试测试测试测试测试",
+    "batchNo": "",
+    "regDate": "2016-07-29",
+    "modiDate": "2016-07-29",
+    "businStatus": "0",
+    "lastStatus": "",
+    "custNo": "",
+    "refId": "",
+    "tmpType": "0",
+    "tmpOperType": "1"
+  },
+  "page": "",
+  "code": 200
+}

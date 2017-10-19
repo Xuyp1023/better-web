@@ -1,0 +1,28 @@
+{
+    "message": "获取未读公告列表成功",
+    "data": [{
+    		"custName":"深圳市前海拜特互联网金融服务有限公司",
+			"subject":"发布公告2017-04-32",
+			"date":"2015-02-12",
+			"time":"12:10",
+            "id":1,
+            "content":"JTNDcCUzRTEyMTMyOTk5OTk5MjIyJTNDJTJGcCUzRQ=="
+
+            
+    	},{
+    		"custName":"深圳市前海拜特互联网金融服务有限公司",
+			"subject":"发布公告-239129",
+			"date":"2015-02-12",
+			"time":"11:10",
+            "id":2,
+            "content":"JTNDcCUzRTEyMzEyMzIxMzIxJTNDJTJGcCUzRQ=="
+ 
+    	}],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 10,
+        "pages": 3,
+        "total": 31
+    },
+    "code": 200
+}

@@ -1,0 +1,70 @@
+<div id="container" class="container-fluid div-center">
+	<div class="row-fluid">
+		<div id="content" class="div-width-100">
+			<div id="fund_search_way" class="row-fluid">
+				<h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">提前付款合同模板管理
+				</h1>
+				<table class="table table-condensed div-width-70 div-center search-table">
+					<tr>
+						<td width="25%">状态:</td>
+						<td width="75%" class="div-text-left">
+							<select ng-model="searchData.businStatus">
+								<option value="">----所有----</option>
+								<option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+							</select>
+						</td>
+					</tr>
+				</table>
+				<div class="center-buttons">
+					<button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+				</div>
+			</div>
+
+
+			<table class="div-width-100 table table-striped table-hover search-result main-list">
+				<thead>
+					<tr class="result-head">
+						<td width="5%">编号</td>
+						<td width="15%">采购商名称</td>
+						<td width="25%">原始合同模板</td>
+						<td width="10%">上传日期</td>
+						<td width="30%">Ftl合同模板</td>
+						<td width="10%">制作日期</td>
+						<td width="5%">是否激活</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+						<td ng-bind="$index+1"></td>
+						<td ng-bind="item.custName"></td>
+						<td ng-if="!item.pref"><span ng-bind="item.pref"></span><a href="{{item.fileId|downf}}" download>下载</a></td>
+						<td ng-if="item.pref">未上传</td>
+						<td ng-bind="item.regDate"></td>
+						<td ng-if="item.nextId"><span ng-bind="item.nextName"></span>
+							<a ng-show="item.businStatus==='1'" href="javascript:void(0);" ng-click="lookDetail(item);">预览</a>
+							<a ng-show="item.businStatus==='1'" href="javascript:void(0);" ng-click="disableCertModal(item);">删除</a>
+						</td>
+						<td ng-if="!item.nextId"><span>未制作</span>
+							<a ng-show="!item.nextId" href="javascript:void(0);" ng-click="openUpload($event,'cpsImportTemplate','合同模板',item);;">上传模板</a>
+						</td>
+						<td ng-bind="item.regDate"></td>
+						<td ng-bind="item.businStatus | kindf: 'VerifySignCertStatus'"></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<td colspan="7">
+						<div bt-pagination conf="listPage" func="queryList(false)"></div>
+					</td>
+				</tfoot>
+			</table>
+
+			
+
+		</div>
+
+
+	</div>
+<!-- 附件上传 start -->
+			<div bt-upload conf="uploadConf"></div>
+<!-- 查看协议详情 -->
+<div id="look_agree_info_box" bt-roll-modal="template/prePay_1/platform/temp/showAgreeInfo.html" bt-z-index="9992" bt-max-width="900px"></div>

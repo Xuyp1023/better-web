@@ -1,0 +1,432 @@
+@charset "utf-8";
+/**
+*项目基础文件、公用组件样式文件
+*/
+
+@import "pie";
+//内部div自动居中
+
+#container{
+	width:900px;
+	padding:{
+		top:10px;
+	}
+}
+
+.div-center{
+		margin:{
+			left:auto;
+			right:auto;
+		}
+	}
+
+//基础初始化类
+@mixin init{
+	a{
+		&:hover{
+			text-decoration:none;
+			color:#f14e32;
+		}
+		&:visited{
+			text-decoration:none;
+		}
+		&:focus{
+			text-decoration:none;
+		}
+	}
+
+	.div-center{
+		margin:{
+			left:auto;
+			right:auto;
+		}
+	}
+
+	.clearFix{
+		&:after{
+			display:block;
+			content:' ';
+			clear:both;
+			zoom:1;
+			width:0;
+			height:0;
+		}
+	}
+
+	.red{
+		color:red;
+	}
+	.green{
+		color:green;
+	}
+	.deep-gray{
+		color:#888889;
+	}
+	.required{
+		color:red!important;
+		margin-right:3px;
+	}
+
+	input[readonly].Wdate{
+		cursor:pointer;
+	}
+
+	#error_info_box{
+		position:absolute;
+		left:0;
+		top:5px;
+		z-index:9999;
+		background:#EFEEEF;
+		opacity:0.9;
+		filter:Alpha(Opacity=90);
+		.alert{
+			margin-top:300px;
+			p{
+				text-align:center;
+				margin-bottom:0;
+			}
+		}
+		*{
+			opacity:1;
+			filter:Alpha(Opacity=100);
+		}
+	}
+
+}
+
+
+@mixin double-check{
+	.double-check-sp{
+			display:inline-block;
+			width:90%;
+			cursor:pointer;
+			border:1px solid #D3D4D5;
+			border-radius:5px;
+			&.active{
+				border:1px solid #54B6E5;
+				box-shadow:0 0 10px #54B6E5;
+				*background-color:white;
+			}
+			@include plus-ie;
+		}
+}
+
+//单复选框相关样式
+.unchecked{
+	color:#A0A0A0!important;
+}
+
+.checkbox-left-sp,.checkbox-right-sp{
+	cursor:pointer;
+}
+
+input[type="checkbox"]{
+	margin-top:0;
+}
+
+//行内文本对其设置
+@mixin div-text-align{
+	.div-text-right{
+		text-align:right;
+	}
+	.div-text-left{
+		text-align:left;
+	}
+	.div-text-center{
+		text-align:center;
+	}
+}
+
+//外边距设置
+@mixin div-margin($margin:30px){
+	.div-margin-top{
+		margin-top:$margin;
+	}
+	.no-margin-bottom{
+		margin-bottom:0;
+	}
+}
+
+//行内按钮
+@mixin center-buttons($marginTop:15px,$marginBottom:10px){
+	.center-buttons{
+		text-align:center;
+		margin-top:$marginTop;
+		margin-bottom:$marginBottom;
+		button{
+			margin:0 40px 0 20px;
+		}
+		.prev-step{
+			margin-left:130px;
+		}
+	}
+}
+
+//设置下划线形式文本框
+@mixin input-underline($color:#248AC9,$width:5%){
+	.input-underline{
+		border:0;
+		border-bottom:1px solid #248AC9;
+		width:$width;
+		border-radius:0;
+		background-color:transparent;
+		margin-left:5px;
+		&:focus{
+			box-shadow:0;
+		}
+	}
+}
+
+//设置宽度类
+@mixin div-width($width:50%){
+	.div-width{
+		width:$width;
+	}
+	.div-width-10{
+		width:10%;
+	}
+	.div-width-20{
+		width:20%;
+	}
+	.div-width-30{
+		width:30%;
+	}
+	.div-width-40{
+		width:40%;
+	}
+	.div-width-50{
+		width:50%;
+	}
+	.div-width-60{
+		width:60%;
+	}
+	.div-width-70{
+		width:70%;
+	}
+	.div-width-80{
+		width:80%;
+	}
+	.div-width-90{
+		width:90%;
+	}
+	.div-width-100{
+		width:100%;
+	}
+
+	
+}
+
+
+//文本标题以及分隔符样式
+@mixin content-title($fontSize:14px){
+	.content-title{
+		font:{
+			size:$fontSize;
+			weight:bold;
+		}
+		line-height:25px;
+		padding-left:15px;
+		cursor:pointer;
+		margin-bottom:20px;
+		margin-top:30px;
+		background:transparent url(../img/bytter_skin.png) repeat-x 0 -264px;
+		&.first{
+			margin-top:10px;
+		}
+	}
+
+	.content-title-1{
+		border-bottom-color: rgb(209, 209, 209);
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		color: rgb(142, 123, 98);
+		display: block;
+		font-family: 'microsoft yahei';
+		font-size: 24px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: normal;
+		height: 70px;
+		line-height: 70px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-top: 0px;
+		padding-bottom: 0px;
+		padding-left: 0px;
+		padding-right: 0px;
+		padding-top: 0px;
+		position:relative;
+		img{
+			width:37px;
+			height:37px;
+			margin-right:10px;
+		}
+		small{
+			color: #D32349;
+		    font-size: 20px;
+		    font-family: Arial, Helvetica, sans-serif;
+		}
+		.plus-info-right{
+			color: rgb(136, 136, 137);
+			font-family: ' Arial, 宋体';
+			font-size: 16px;
+			*zoom:1;
+			float:right;
+			*position:absolute;
+			*right:0;
+			span{
+				color: rgb(211, 35, 73);
+				display: inline;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 20px;
+			}
+		}
+	}
+
+	.content-title-condensed{
+		height:50px;
+		line-height:50px;
+	}
+
+	.content-title-noborder{
+		border: 0;
+	}
+
+	.content-first-title{
+		color:#837b62;
+		font-size:24px;
+		height:40px;
+		line-height:40px;
+		font-family: "Microsoft Yahei";
+	}
+
+	.content-banner-info{
+		font-size:14px;
+		height:40px;
+		line-height:40px;
+		font-family: "Microsoft Yahei";
+	}
+
+	.content-split{
+		margin-top:0;
+	}
+}
+
+//设置分割线样式
+@mixin div-line($color:#d1d1d1){
+	.div-line-bottom{
+		border-bottom:1px solid $color;
+	}
+}
+
+//设置文本框边框为深蓝色和加载IEcss3兼容文件
+@mixin deep-blue-border{
+	input[type="text"],input[type="password"],textarea,select{
+	    border: 1px solid #248AC9;
+	}
+	input[type="checkbox"]{
+		border:0;
+	}
+}
+
+
+//行内复选框布局
+@mixin line-checkbox{
+	.line-checkbox{
+		width:80%;
+		height:25px;
+		line-height:25px;
+		font-size:12px;
+		margin-top:10px;
+		input{
+			margin-right:6%;
+			*margin-right:3%;
+			margin-top:0;
+		}
+		@include input-underline(#248AC9,10%);
+	}
+}
+
+//单元格内行内复选框布局
+@mixin td-line-checkbox{
+	.td-line-checkbox{
+		width:98%;
+		height:25px;
+		line-height:25px;
+		font-size:12px;
+		padding-left:1%;
+		input{
+			margin-right:5%;
+			*margin-right:3%;
+			margin-top:0;
+		}
+		@include input-underline(#248AC9,10%);
+	}
+}
+
+//单行悬浮效果
+@mixin line-hover{
+	.control-group{
+		cursor:pointer;
+		&:hover{
+		cursor:pointer;
+		}
+	}
+}
+
+//设置单元格内输入框长度
+@mixin td-input-width($width:85%,$selectWidth:86%){
+	table td{
+		input[type="text"],input[type="password"],textarea{
+			width:$width;
+		}
+		select{
+			width:$selectWidth;
+		}
+	}
+}
+
+//设置单元格内容水平垂直对其方式
+@mixin td-pack-align($pack:right,$align:middle){
+	table td{
+		text-align:$pack;
+		vertical-align:$align;
+	}
+}
+
+//温馨提示盒子样式
+@mixin warm-prompt-box{
+	margin-top:20px;
+	.prompt-title{
+		border-bottom:2px solid #248AC9;
+		margin:3px 0 3px 0;
+		height:35px;
+		line-height:35px;
+		font-size:18px;
+		font-weight:bold;
+		.prompt-icon{
+			width:20px;
+			height:20px;
+		}
+	}
+	.warm-prompt-content{
+		margin-top:10px;
+		padding:4px;
+		p{
+			color:#2da7e0;
+			font-family: 宋体;
+			font-size: 14px;
+		}
+	}
+}
+
+//开户相关页面表格样式修正
+@mixin prepare-align{
+	.prepare-align{
+		text-align:left!important;
+		input{
+			margin-left:0!important;
+		}
+	}
+}

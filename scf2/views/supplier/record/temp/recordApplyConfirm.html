@@ -1,0 +1,41 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+      待确认代录详情列表
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="5">代录项目确认</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%">信息类型</td>
+            <td width="20%">申请日期</td>
+            <!-- <td width="20%">完成日期</td> -->
+            <td width="20%">状态</td>
+            <td width="20%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat-end ng-repeat="item in infoList" ng-class="{even:$even}">
+            <td ng-bind="item.insteadItem|kindf:'InsteadItem'"></td>
+            <td ng-bind="item.regDate"></td>
+            <td ng-bind="item.businStatus|kindf:'InsteadRecordBusinStatus'"></td>
+            <td>
+              <a href="javascript:void(0);" ng-show="childListCtrl.isCanConfirm(item)">确认代录</a>
+              <a href="javascript:void(0);" ng-show="childListCtrl.isCanRead(item)">查看详情</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" bt-close-modal>提交</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

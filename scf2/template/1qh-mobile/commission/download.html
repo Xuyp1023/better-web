@@ -1,0 +1,91 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">佣金账单下载
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                     
+                      <tr>
+                        <td width="25%">操作机构:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.ownCustNo">
+                            <option ng-repeat="item in factorList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.ownCustNo == item.value"></option>
+                          </select>
+                        </td>
+                      </tr>       
+                      <tr>
+                        <td>对账月份:</td>
+                        <td class="div-text-left date">
+                          <input type="text" id="begin_date" bt-format="yyyy-MM" bt-date="searchData.GTEbillMonth">-
+                          <input type="text" id="end_date" bt-format="yyyy-MM" bt-date="searchData.LTEbillMonth">
+                        </td>
+                      </tr>                      
+                      <tr>                        
+                        <td width="25%">状态:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.expressStatus">
+                            <option value="">----所有----</option>
+                            <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.expressStatus == item.value"></option>                            
+                          </select>
+                        </td>                        
+                      </tr>                       
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+                        佣金账单列表
+                        </h1>
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                          <thead>
+                            <tr class="result-head">
+                              <td width="4%"></td>
+                              <td width="15%">账单编号</td>
+                              <td width="15%">账单金额</td>
+                              <td width="13%">起始日期</td>
+                              <td width="13%">截止日期</td>
+<!--                               <td width="20%">对账企业</td> -->
+                              <td width="10%">状态</td>
+                              <td width="10%">操作</td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="item in infoList" ng-repeat-end ng-class="{even:$even}">
+                              <td>
+                                <input type="checkbox" ng-model="item.checkOne" ng-bind="item.id" ng-change="selectOne()">
+                              </td>
+                              <td>
+                                <a href="javascript:void(0);" ng-click="lookDetail($event.target,item.monthlyStatementId);" ng-bind="item.monthlyStatementRefNo"></a>
+                              </td>
+                              <td ng-bind="item.interestBalance | moneyFilter" class="red"></td>
+                              <td ng-bind="item.payBeginDate" class="ng-binding"></td>
+                              <td ng-bind="item.payEndDate" class="ng-binding"></td>
+                              <!-- <td ng-bind="item.ownCustName" class="ng-binding"></td> -->
+                              <td ng-bind="item.expressStatus | kindf:'deliveryRecordCoreCustStatus'" class="ng-binding"></td>         
+                              <td>
+                                <a href="{{item.fileId|downf}}" download>下载</a>
+                              </td>         
+                            </tr>           
+                          </tbody>
+                        </table>
+                        <div class="btn btn-default">
+                            <label for="isAllCheck"><input type="checkbox" id="isAllCheck" ng-model="tmpVo.tmpCheckbox" ng-click="toggleCheckbox()">选择全部</label>     
+                        </div>
+                        <!-- ng-href="{{downListUrl}}" -->
+                        <a href="javascript:void(0);" ng-click="downloadSel($event.target)" class="btn" style="padding:6px;margin-left:15px">下载选中的账单</a>     
+                        
+                    </div>               
+             
+               <div id="detail_monthly_box" bt-roll-modal="template/1qh-mobile/check/monthManager/detail.html" bt-z-index="9991"></div>
+               <div id="dayDetail_box" bt-roll-modal="template/1qh-mobile/check/monthManager/dayDetail.html" bt-z-index="9991"></div>
+        </div>
+    </div>
+
+
+

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>融资背景确认</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/core/business/thridEnsure.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+
+          <div id="fund_search_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">融资背景确认</h1>
+            <table class="table table-condensed div-width-70 div-center search-table">
+              <tr>
+                <td width="25%">操作企业:</td>
+                <td width="75%" class="div-text-left">
+                  <select name="" id="" ng-model="searchData.coreCustNo" ng-change="coreCustChange();">
+                      <option ng-repeat="core in coreCustList" ng-option-filter value="{{core.value}}" ng-bind="core.name" ng-selected="searchData.coreCustNo==core.value"></option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+               <td width="25%">保理公司:</td>
+               <td width="75%" class="div-text-left">
+                  <select name="" id="" ng-model="searchData.factorNo">
+                      <option value="">--全部--</option>
+                      <option ng-repeat="factor in factorList" value="{{factor.value}}" ng-bind="factor.name" ng-selected="searchData.factorNo==factor.value"></option>
+                  </select>
+               </td>
+             </tr>
+             <tr>
+               <td width="25%">申请企业:</td>
+               <td width="75%" class="div-text-left">
+                 <select name="" id="" ng-model="searchData.custNo">
+                     <option value="">--全部--</option>
+                     <option ng-repeat="su in agencyList" value="{{su.value}}" ng-bind="su.name" ng-selected="searchData.custNo==su.value"></option>
+                 </select>
+               </td>
+             </tr>
+            </table>
+            <div class="center-buttons">
+              <button class="btn btn-primary btn-bg-middle" ng-click="searchList(true);">查询</button>
+            </div>
+          </div>
+
+          <div id="search_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/flow_money.png" alt="">
+              经销商融资列表
+            </h1>
+            <table class="div-width-100 table table-striped table-hover">
+              <thead>
+                <tr class="result-head">
+                  <td width="16%">融资编号</td>
+                  <td width="16%">经销商</td>
+                  <td width="20%">保理公司</td>
+                  <td width="16%">申请时间</td>
+                  <!-- <td width="16%">确认时间</td> -->
+                  <td width="16%">状态</td>
+                  <td width="16%">操作</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in loanList" ng-repeat-end ng-class="{even:$even}">
+                  <td ng-bind="item.requestNo"></td>
+                  <td class="red" ng-bind="item.custName"></td>
+                  <td ng-bind="item.factorName"></td>
+                  <td ng-bind="item.regDate"></td>
+                  <!-- <td ng-bind=""></td> -->
+                  <td class="red" ng-bind="item.coreCustAduit|kindf:'CoreCustAduitStatus'"></td>
+                  <td>
+                    <span><a href="#" ng-click="openDetailBox(item);">详情</a></span>
+                    <span><a href="#" ng-click="openEnsureBox(item);" ng-show="item.coreCustAduit==0">确认</a></span>
+                  </td>
+                </tr>              
+              </tbody>
+              <tfoot>
+                <td colspan="7">
+                  <div bt-pagination conf="pageConf" func="searchList(false);"></div>
+                </td>
+              </tfoot>
+            </table>
+            
+          </div>
+
+          <!-- 融资详情 -->
+          <div id="finance_info_box" bt-roll-modal="temp/financeInfo.html" bt-z-index="9991"></div>
+        
+          <!-- 确认操作 -->
+          <div id="thrid_ensure_detail_box" bt-roll-modal="temp/thEnsureDetail.html" bt-z-index="9991"></div>
+
+          <!-- 查看协议详情 -->
+          <div id="look_agree_info_box" bt-roll-modal="temp/showAgreeInfo.html" bt-z-index="9992" bt-max-width="900px"></div>
+
+          <!-- 订单详情 -->
+          <div id="proof_order_detail_box" bt-roll-modal="../../commonTemp/orderDetailShow.html" bt-z-index="9993"></div>
+          <!-- 票据详情 -->
+          <div id="proof_draft_detail_box" bt-roll-modal="../../commonTemp/draftDetailShow.html" bt-z-index="9993"></div>
+          <!-- 应收详情 -->
+          <div id="proof_recieve_detail_box" bt-roll-modal="../../commonTemp/recieveDetailShow.html" bt-z-index="9993"></div>
+        
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/core/business/thridEnsure");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/core/business/thridEnsure");
+      } 
+  </script>
+  </body>
+</html>

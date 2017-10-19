@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>客户白名单受理</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/sfccom/whitelist/whiteListAccept.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+</head>
+
+<body id="body">
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" ng-controller="mainController" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/fast_money.png" alt="">客户白名单受理
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">
+                      <tr>
+                        <td width="25%">状态:</td>
+                        <td width="75%" class="div-text-left">
+                        <select ng-model="searchData.businStatus">
+                          <option value="">---所有状态---</option>
+                          <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+                        </select>
+                        </td>
+                      </tr>  
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="../../../img/operator.png" alt="">
+                        白名单列表
+                        </h1>
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                            <thead>
+                                <tr class="font-size-12 info-title">
+                                    <td width="20%">客户名称</td>
+                                    <td width="20%">客户类型</td>
+                                    <td width="20%">申请日期</td>
+                                    <td width="20%">状态</td>
+                                    <td width="20%">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                                    <td class="red" ng-bind="item.custName"></td>
+                                    <td ng-bind="item.relateType|kindf:'CustWhitelistType'"></td>
+                                    <td ng-bind="item.regDate"></td>
+                                    <td class="red" ng-bind="item.businStatus|kindf:'CustWhitelistStatus'"></td>
+                                    <td>
+                                        <a href="javascript:void(0);" ng-click="openInfo(item);"  ng-show="item.businStatus!='1'">详情</a>
+                                        <a href="javascript:void(0);" ng-click="acceptWhiteList(item);" ng-show="item.businStatus==='1'">受理</a>
+                                        <!-- <a href="javascript:void(0);" ng-click="rejectWhiteList(item);" ng-show="item.businStatus==='1'">驳回</a> -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="6">
+                                    <div bt-pagination conf="listPage" func="queryList(false)"></div>
+                                </td>
+                            </tfoot>
+                        </table>
+                    </div>
+
+
+                <!-- 温馨提示END -->
+                <!-- 模板区域 -->
+                <!-- 白名单受理 -->
+                <div id="accept_white_list_box" bt-roll-modal="temp/acceptWhiteList.html" bt-z-index="9991"></div>
+                <!-- 白名单驳回 -->
+                <div id="reject_white_list_box" bt-roll-modal="temp/rejectWhiteList.html" bt-z-index="9991"></div>
+                  
+            </div>
+        </div>
+    </div>
+    <!-- 引用js文件 -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+  <![endif]-->
+    <script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/sfccom/whitelist/whiteListAccept");
+      }
+      // For production
+      else {
+        seajs.use("scf2/dist/sfccom/whitelist/whiteListAccept");
+      }
+    </script>
+</body>
+
+</html>

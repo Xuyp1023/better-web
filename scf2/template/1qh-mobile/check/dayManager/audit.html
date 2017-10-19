@@ -1,0 +1,137 @@
+<div class="div-width-90 detail-box div-center">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    {{auditInfo.title}}账单
+  </h1>
+  <div  class="row-fluid div-center div-margin-top">
+
+    <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">基本信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%">
+              <span class="title">企业名称:</span>
+            </td>
+            <td colspan="3">
+              <span ng-bind="detailInfo.ownCustName"></span>
+            </td>
+          </tr>
+          <tr>
+            <td width="20%">
+              <span class="title">对账单号:</span>
+            </td>
+            <td width="30%">
+              <span ng-bind="detailInfo.refNo"></span>
+            </td>
+            <td width="20%">
+              <span class="title">对账日期:</span>
+            </td>
+            <td width="30%">
+              <span ng-bind="detailInfo.payDate"></span>
+            </td>
+          </tr>
+          <tr>
+            <td width="20%">
+              <span class="title">币种:</span>
+            </td>
+            <td width="30%">
+              <span>人民币</span>
+            </td>
+            <td width="20%">
+              <span class="title">金额单位:</span>
+            </td>
+            <td width="30%">
+              <span>元</span>
+            </td>
+          </tr>
+           <tr>
+            <td width="20%">
+              <span class="title">支付佣金本金:</span>
+            </td>
+            <td width="30%">
+              <span ng-bind="detailInfo.paySuccessBalance | number "></span>
+            </td>
+            <td width="20%">
+              <span class="title">支付佣金笔数:</span>
+            </td>
+            <td width="30%">
+              <span ng-bind="detailInfo.paySuccessAmount"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+            <tr class="result-head">
+              <td width="15%">交易日期</td>
+              <!-- <td width="10%">交易时间</td> -->
+              <td width="20%">凭证编号</td>
+              <td width="10%">发生金额</td>
+              <td width="25%">对方账号</td>
+              <td width="10%">对方户名</td>
+              <td width="10%">交易摘要</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in detailInfoList" ng-repeat-end>
+            <td class="red" ng-bind="item.payDate"></td>
+            <!-- <td ng-bind="item.payTime"></td> -->
+            <td ng-bind="item.recordRefNo"></td>
+            <td ng-bind="item.payBalance |moneyFilter"></td>
+            <td ng-bind="item.payTargetBankAccount"></td>
+            <td ng-bind="item.payTargetBankAccountName"></td>
+            <td ng-bind="item.payComment"></td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="7">
+                <div bt-pagination conf="detailListPage" func="queryDetailList(false)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+    <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">制表信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%">
+              <span class="title">制表单位:</span>
+            </td>
+            <td colspan="3">
+              <span ng-bind="detailInfo.makeCustName"></span>
+            </td>
+          </tr>
+          <tr>
+            <td width="20%">
+              <span class="title">制表人:</span>
+            </td>
+            <td width="30%">
+              <span ng-bind="detailInfo.operName"></span>
+            </td>
+            <td width="20%">
+              <span class="title">制表时间:</span>
+            </td>
+            <td width="30%">
+              <span ng-bind="detailInfo.makeDateTime"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+     
+    </div>
+
+    <div class="center-buttons" >
+        <button class="btn btn-primary" ng-click="confirmCheck($event.target)">{{auditInfo.title}}</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+
+</div>
+      

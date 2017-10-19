@@ -1,0 +1,44 @@
+<div class="pjce">
+	<ul>
+    	<li>
+            <p><span>核心企业：</span>{{info.coreCustName}}</p>
+            <p><span>公司名称：</span>{{info.custName}}</p>
+            <p><span>营业执照号码：</span>{{info.identNo}}</p>
+            <p><span>银行账号：</span>{{info.bankAccount}}</p>
+            <p><span>开户银行：</span>{{info.bankName}}</p>
+            <div class="inlint">
+        	<p><span>经办人：</span>{{info.contName}}</p>
+            <p><span>手机号码：</span>{{info.contMobileNo}}</p>
+            <p><span>邮箱：</span>{{info.contEmail}}</p>
+            <p><span>经营地址：</span>{{info.premisesAddress}}</p>
+            </div>
+        </li>
+    </ul>
+    <em class="ico ico9"></em>
+</div>
+
+<div class="pTab">
+    <ul>
+        <li>
+            <table>
+                <tbody>
+                <tr class="ta">
+                    <td>附件类型</td>
+                    <td>附件名称</td>
+                    <td>操作</td>
+                </tr>
+               <tr class="tb" ng-repeat="item in upLoadList">
+                    <td>{{item.fileInfoType|kindf:'ScfBusinFileGroup'}}</td>
+                    <td><a href="javascript:void(0);" ng-click="preImg(item)">{{item.fileName}}</a></td>
+                    <td>
+                       无
+                    </td>
+                </tr>
+            </tbody></table>
+        </li>
+    </ul>
+</div>
+
+<div class="butn butn2 bottom-holder">
+    <a class="mui-btn mui-btn-primary long" href="#/home">开启供应链金融之旅</a>
+</div>

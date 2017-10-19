@@ -1,0 +1,26 @@
+  <!-- 资产登记查询结果 -->
+  <table id="order_list_table" class="div-width-100 table table-striped table-hover search-result main-list" style="margin-bottom: 50px;">
+      <caption class="table-caption table-caption-green clearFix" style="margin-bottom: 50px;">
+        <span class="title-left">待签署文件</span>        
+      </caption>
+      <tbody>
+          <tr>
+            <td style="text-align: center;" width="50%">
+             <div ng-if="!uploadInfo.template" style="width: 250px;height: 150px;background-color: darkgray;border-radius: 5px;margin:0 auto;" class="ng-scope">
+                 <div style="height: 80px" ng-click="openUpload($event,'otherInfoFile','发票附件','attachList','template')"> <img alt="" src="img/file_upload.png" style="margin-top: 15px;"></div>
+               <!--  <div style="height: 80px" ng-click="openUpload($event,'orderFile','订单上传','uploadList')"> <img alt="" src="img/file_upload.png" style="margin-top: 15px;"></div> -->
+                <span> 点击上传<br>
+                  只能上传 <font color="red">Word </font>文件</span>
+              </div>
+            </td>
+            <td width="50%" style="text-align: center;">
+                <div ng-if="!uploadInfo.template" style="width: 250px;height: 150px;background-color: darkgray;border-radius: 5px;margin:0 auto;" class="ng-scope">
+                <div style="height: 80px" ng-click="openUpload($event,'orderFile','订单上传','uploadList')"> <img alt="" src="img/file_upload.png" style="margin-top: 15px;"></div>
+                <span> 点击上传<br>
+                  只能上传 <font color="red">Word </font>文件</span>
+              </div>
+            </td>
+          </tr>
+      </tbody>      
+   </table>
+   

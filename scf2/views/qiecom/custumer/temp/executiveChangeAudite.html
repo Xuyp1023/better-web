@@ -1,0 +1,49 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      高管信息变更审核
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="5">高管信息变更详情</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%">变更类型</td>
+            <td width="20%">姓名</td>
+            <td width="20%">性别</td>
+            <td width="20%">职位</td>
+            <td width="20%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in managerList" ng-repeat-end ng-class="{'0':'green','1':'deep-gray','2':'red'}[item.tmpOperType]">
+            <td ng-bind="item.tmpOperType|kindf:'TmpOperateType'" ></td>
+            <td ng-bind="item.name"></td>
+            <td ng-bind="item.sex|kindf:'CustSexType' "></td>
+            <td ng-bind="item.position|kindf:'CompanyPosition'" ></td>
+            <td>
+              <a href="#" ng-click="openAuditDetail(item,'manager');">变更详情</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-striped table-hover table-bordered">
+          <tbody>
+            <tr>
+              <td  width="20%">备注:</td>
+              <td  colspan="3"><textarea ng-model="pageInfo.reason"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-show="changeWaitAudit" ng-click="auditChangeRecordPass($event.target,'manager')" >审核通过</button>
+        <button class="btn btn-danger" ng-show="changeWaitAudit" ng-click="auditChangeRecordReject($event.target,'manager')" >驳回变更</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

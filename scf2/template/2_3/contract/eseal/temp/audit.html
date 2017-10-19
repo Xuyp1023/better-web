@@ -1,0 +1,121 @@
+<div class="div-width-90 detail-box div-center">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    电子合同模板审核
+  </h1>
+  <div id="mainContent" class="row-fluid div-center div-margin-top">
+
+    <form action="" id="addAccount_form" class="form-horizontal">
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">基本信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-right" width="15%">模板所属机构：</td>
+            <td class="div-text-center" width="35%" ng-bind="info.selectInfo.custName"></td>
+            <td class="div-text-right" width="15%">标准合同名称：</td>
+            <td class="div-text-center" width="35%" ng-bind="info.selectInfo.name"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">标准合同文本 <a href="javascript:void(0);" ng-click="downloadSel()"  style="float: right;">下载文件</a>
+            </td> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-right" width="15%">标准合同文本：</td>
+            <td class="div-text-center" width="35%" style="height: 200px"><span ng-bind="info.selectInfo.originTemplateName"></span></td>
+            <td class="div-text-right" width="15%">标准合同样例：</td>
+            <td class="div-text-center" width="35%"><span ng-bind="info.selectInfo.originSimpleName"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+     <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">合同参数</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-right" width="20%">合同签署方数量：</td>
+            <td class="div-text-center" width="30%" ng-bind="info.selectInfo.originSignerCount"></td>
+            <td class="div-text-right" width="20%">合同编码规则：</td>
+            <td class="div-text-center" width="30%">{{info.selectInfo.originNoPattern}}+日期+5位流水码</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">电子合同模板<a href="javascript:void(0);" ng-click="downloadTemplate()"  style="float: right;">下载文件</a></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-right" width="15%">电子合同模板：</td>
+            <td class="div-text-center" width="35%" style="height: 200px">
+              <span name="https://static.qiejf.com/better/Platform/CustFile/fileDownload?id=1" ng-bind="info.selectInfo.templateName"></span>
+              </td>
+            <td class="div-text-right" width="15%"><!-- 签章位置： --></td>
+            <td class="div-text-center" width="35%" style="height: 200px">
+              <!-- <a href="javascript:void(0)" ng-click="lookKeyWord()">查看签章位置</a> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="2">备注信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="20%">备注</td>
+            <td width="80%" class="div-text-left" ng-bind="info.selectInfo.common"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped table-hover table-bordered big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">审核</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-right" width="20%">审核结果：</td>
+            <td class="div-text-left" width="40%">
+              <label for="" style="display: inline;">审核通过<input type="radio" style="width: 20px!important;" ng-model="auditInfo.auditStatus" ng-value="'01'"></label>
+              <label for="" style="display: inline;">审核不通过<input type="radio" style="width: 20px!important;" ng-model="auditInfo.auditStatus" ng-value="'02'"></label></td>
+            <td class="div-text-center" width="40%">提示：请对合同文本内容进行审核</td>
+          </tr>
+          <tr>
+            <td class="div-text-right">审核意见：</td>
+            <td colspan="2" class="div-text-left"><textarea ng-model="auditInfo.auditRemark" placeholder="您的审核意见(200字以内)"></textarea></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </form>
+    
+  </div>
+  
+    <div class="center-buttons" >
+        <button class="btn btn-primary" ng-click="submitAudit($event.target)">提交</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+    <div style="height: 30px"></div>
+  </div>

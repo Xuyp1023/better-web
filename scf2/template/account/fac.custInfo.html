@@ -1,0 +1,46 @@
+<div class="row-fluid">
+      <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/flow_money.png" alt="">
+        客户信息查询
+        <small class="small-select">
+              <span>客户类型</span>
+              <select ng-model="searchData.relateType" ng-change="queryList(true);">
+                <option value="0,2,3" >--全部--</option>
+                <option ng-repeat="item in relateTypeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.relateType == item.value"></option>
+              </select>
+        </small>
+        <small class="small-select">
+          <span>状态</span>
+          <select ng-model="searchData.businStatus" ng-change="queryList(true);">
+            <option value="" >--全部--</option>
+            <option ng-repeat="item in statusTypeList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>
+          </select>
+    </small>
+      </h1>
+      <table class="div-width-100 table table-striped table-hover search-result">
+        <thead>
+          <tr class="result-head">
+            <td width="28%">客户名称</td>
+            <td width="18%">客户类型</td>
+            <td width="18%">开户日期</td>
+            <td width="18%">状态</td>
+            <td width="18%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in infoList">
+            <td ng-bind="item.custName" class="div-text-left"></td>
+            <td ng-bind="item.relateType|kindf:'CustWhitelistType'"></td>
+            <td ng-bind="item.regDate"></td>
+            <td ng-bind="item.businStatus|kindf:'CustWhitelistStatus'">状态</td>
+            <td><a href="javascript:void(0);" ng-click="openInfo(item);">详情</a>
+              <a ng-show="item.businStatus ==3" href="javascript:void(0);" ng-click="recovery(item);">回收</a></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td colspan="6">
+            <div bt-pagination conf="listPage" func="queryList(false);"></div>
+          </td>
+        </tfoot>
+      </table>
+
+  </body>

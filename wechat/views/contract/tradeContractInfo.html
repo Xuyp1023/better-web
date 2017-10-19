@@ -1,0 +1,59 @@
+
+<!-- 贸易合同详情 -->
+<div class="wid wid5">
+	<ul class="clearfix">
+        <li >
+        	<span class="ti">合同编号</span>
+        	<div class="ci">
+            	{{info.agreeNo}}
+            </div>
+        </li>
+       <li >
+            <span class="ti">合同名称</span>
+            <div class="ci">
+                {{info.agreeName}}
+            </div>
+        </li>
+        <li >
+            <span class="ti">买方名称</span>
+            <div class="ci">
+                {{info.buyer}}
+            </div>
+        </li>
+        <li >
+            <span class="ti">卖方名称</span>
+            <div class="ci">
+                {{info.supplier}}
+            </div>
+        </li>
+        <li >
+            <span class="ti">合同金额</span>
+            <div class="ci">
+                {{info.balance}}
+            </div>
+        </li>
+        <li >
+            <span class="ti">合同期限</span>
+            <div class="ci">
+                {{info.agreeStartDate}} 至 {{info.agreeEndDate}}
+            </div>
+        </li>
+        <li >
+            <span class="ti">签订日期</span>
+            <div class="ci">
+                {{info.signDate}}
+            </div>
+        </li>
+        <li class="clearfix">
+            <a ng-href="#/tradeContract/attach/{{info.id}}">
+            	<span class="ti">合同附件</span>
+                <i class="ico ico13 fr"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="butn mt10" ng-show="actionInfo.actionType!='detail'" >
+   <p><a class="btn" href="javascript:void(0)" ng-click="action();"><span ng-bind="actionInfo.message"></span></a></p>
+</div>

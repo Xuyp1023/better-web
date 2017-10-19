@@ -1,0 +1,211 @@
+<div id="container" class="container-fluid div-center">
+    <div class="row-fluid">
+        <div id="content" class="div-width-100">
+            <div id="fund_search_way" class="row-fluid">
+                <h1 class="content-title-1 content-title-condensed content-title-blue">
+                    <img src="img/fast_money.png" alt="">佣金发票详情</h1>
+                <table class="table table-striped table-bordered table-hover">
+                    <caption class="table-caption table-caption-green clearFix">
+                        <span class="title-left">申请信息</span>
+                    </caption>
+                 <tbody>
+              <tr>
+                <td width="20%">申请企业:</td>
+                <td width="30%" class="div-text-left">
+                    <span ng-bind="invoiceInfo.custName"></span>
+                </td>
+                <td width="20%">发票种类:</td>
+                <td width="30%" class="div-text-left">
+                  <span ng-bind="invoiceInfo.invoiceType | kindf:'commissionInvoiceType'"></span>
+                </td>
+              </tr>
+              <tr>
+                <td>金额:</td>
+                <td class="div-text-left">
+                   <span ng-bind="invoiceInfo.interestBalance"></span>
+                </td>
+                <td>税率:</td>
+                <td class="div-text-left">
+                    <span ng-bind="invoiceInfo.taxRate"></span>
+                </td>
+              </tr>             
+              <tr>
+                <td>税额:</td>
+                <td class="div-text-left">
+                    <span ng-bind="invoiceInfo.taxBalance"></span>
+                </td>
+                <td>价税合计:</td>
+                <td class="div-text-left">
+                  <span ng-bind="invoiceInfo.balance"></span>
+                </td>
+              </tr>                  
+            </tbody>
+        </table>
+        <table class="table table-striped table-bordered table-hover">
+            <caption class="table-caption table-caption-green clearFix">
+              <span class="title-left">购买方信息</span>
+            </caption>
+            <tbody>
+              <tr>
+                <td width="20%">企业名称:</td>
+                <td width="30%" class="div-text-left">
+                    <span ng-bind="invoiceInfo.coreCustInvoiceInfo.coreCustName"></span>
+                </td>
+                <td width="20%">纳税人识别号:</td>
+                <td width="30%" class="div-text-left">
+                    <span ng-bind="invoiceInfo.coreCustInvoiceInfo.coreTaxPayerNo"></span>
+                </td>
+              </tr>
+              <tr>
+                <td>开户银行:</td>
+                <td class="div-text-left">
+                   <span ng-bind="invoiceInfo.coreCustInvoiceInfo.coreBank"></span>
+                </td>
+                <td>银行账号:</td>
+                <td class="div-text-left">
+                    <span ng-bind="invoiceInfo.coreCustInvoiceInfo.coreBankAccount"></span>
+                </td>
+              </tr>             
+              <tr>
+                <td>电 &nbsp;&nbsp;话:</td>
+                <td class="div-text-left">
+                    <span ng-bind="invoiceInfo.coreCustInvoiceInfo.corePhone"></span>
+                </td>
+                <td>地 &nbsp;&nbsp;址:</td>
+                <td class="div-text-left">
+                  <span ng-bind="invoiceInfo.coreCustInvoiceInfo.coreAddress"></span>
+                </td>
+              </tr>      
+            </tbody>
+        </table>
+        <table class="table table-striped table-bordered table-hover">
+            <caption class="table-caption table-caption-green clearFix">
+              <span class="title-left">销售方信息</span>
+            </caption>
+            <tbody>
+              <tr>
+                <td width="20%">企业名称:</td>
+                <td width="30%" class="div-text-left">
+                    <span ng-bind="invoiceInfo.custInvoiceInfo.coreCustName"></span>
+                </td>
+                <td width="20%">纳税人识别号:</td>
+                <td width="30%" class="div-text-left">
+                    <span ng-bind="invoiceInfo.custInvoiceInfo.coreTaxPayerNo"></span>
+                </td>
+              </tr>
+              <tr>
+                <td>开户银行:</td>
+                <td class="div-text-left">
+                   <span ng-bind="invoiceInfo.custInvoiceInfo.coreBank"></span>
+                </td>
+                <td>银行账号:</td>
+                <td class="div-text-left">
+                    <span ng-bind="invoiceInfo.custInvoiceInfo.coreBankAccount"></span>
+                </td>
+              </tr>             
+              <tr>
+                <td>电 &nbsp;&nbsp;话:</td>
+                <td class="div-text-left">
+                    <span ng-bind="invoiceInfo.custInvoiceInfo.corePhone"></span>
+                </td>
+                <td>地 &nbsp;&nbsp;址:</td>
+                <td class="div-text-left">
+                  <span ng-bind="invoiceInfo.custInvoiceInfo.coreAddress"></span>
+                </td>
+              </tr>      
+            </tbody>
+        </table>
+        <table class="table table-striped table-bordered table-hover">
+            <caption class="table-caption table-caption-green clearFix">
+              <span class="title-left">其他信息</span>
+            </caption>
+            <tbody>
+              <tr>
+                <td><strong class="red">*</strong> 发票内容:</td>
+                <td class="div-text-left">
+                  <input type="text" placeholder="请填写货物或应税劳务、服务名称" ng-model="invoiceInfo.invoiceContent" ng-disabled="true">
+                </td>
+              </tr>
+              <tr>
+                <td width="20%">备 &nbsp;&nbsp;注:</td>
+                <td width="30%" class="div-text-left">
+                    <textarea style="min-width:650px; min-height:139px;max-width:650px; max-height:139px;" placeholder="请填写发票备注" ng-disabled="true" ng-model="invoiceInfo.description"></textarea>
+                </td>
+              </tr>
+            </tbody>
+                </table>
+                <div class="details_bosstyle" ng-show="invoiceInfoDetailShowFlag">
+                        <span class="title-as">发票详情</span>  
+                                        <!-- 年月日 -->
+                        <span class="spa_y" ng-bind="invoiceInfo.invoiceDate | yearFilter"></span>
+                        <span class="spa_m" ng-bind="invoiceInfo.invoiceDate | monthFilter"></span>
+                        <span class="spa_d" ng-bind="invoiceInfo.invoiceDate | dayFilter"></span>
+                        <!-- 购买方 -->
+                        <span class="bill_number" ng-bind="invoiceInfo.invoiceCode"></span>
+                        <span class="bold_billnum" ng-bind="invoiceInfo.invoiceNo"></span>
+                        <span class="spa_name" ng-bind="invoiceInfo.coreCustInvoiceInfo.coreCustName"></span>
+                        <span class="spa_taxes" ng-bind="invoiceInfo.coreCustInvoiceInfo.coreTaxPayerNo"></span>
+                        <span class="spa_site" ng-bind="invoiceInfo.coreCustInvoiceInfo.corePhone"></span>
+                        <span class="spa_id" ng-bind="invoiceInfo.coreCustInvoiceInfo.coreBankAccount"></span>
+                        <!-- 密码区 -->
+                        <span class="password_box"></span>
+                        <!-- 服务列表 -->
+                        <div class="tb_body" style="top:{{195 + ($index+1) *18}}px">
+                            <span class="acurrentname" ng-bind="invoiceInfo.invoiceContent" ></span>
+                            <span class="standard_type" ></span>
+                            <span class="spa_unit" ></span> 
+                            <span class="tb_number" ></span>
+                            <span class="tb_pirce" ></span>
+                            <span class="tb_money"  ng-bind="invoiceInfo.interestBalance"></span>
+                            <span class="tb_taxrate" ng-bind="invoiceInfo.taxRate"></span>
+                            <span class="tb_tax" ng-bind="invoiceInfo.taxBalance"></span>
+                        </div>
+                        <!-- 金额合计 -->
+                        <span class="all_money" ng-bind="invoiceInfo.interestBalance"></span>
+                        <span class="all_pirce" ng-bind="invoiceInfo.taxBalance"></span>
+                        <span class="big_money" ng-bind="invoiceInfo.balance |moneybigf"></span>
+                        <span class="tiny_money" ng-bind="invoiceInfo.balance"></span>
+                        <!-- 销售方 -->
+                        <span class="sell_name" ng-bind="invoiceInfo.custInvoiceInfo.coreCustName"></span>
+                        <span class="sell_taxes" ng-bind="invoiceInfo.custInvoiceInfo.coreTaxPayerNo"></span>
+                        <span class="sell_site" ng-bind="invoiceInfo.custInvoiceInfo.corePhone"></span>
+                        <span class="sell_id" ng-bind="invoiceInfo.custInvoiceInfo.coreBankAccount"></span>
+                        <span class="remarks_box" ng-bind="invoiceInfo.description"></span>
+                        <span class="receiver" ></span>
+                        <span class="audit" ></span>
+                        <span class="drawer" ng-bind="invoiceInfo.drawer"></span>
+                    </div>
+
+                    <!-- 附件列表 -->
+                              <table class="table table-striped table-hover table-bordered"  ng-show="invoiceInfoDetailShowFlag">
+                                  <caption class="table-caption table-caption-green clearFix">
+                                    <span class="title-left">附件列表</span>
+                                  </caption>
+                                <thead>
+                                  <tr class="result-head-gray">
+                                    <td width="10%">序号</td>
+                                    <td width="20%">附件类型</td>
+                                    <td width="40%">附件名称</td>
+                                    <td width="30%">操作</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr ng-repeat="file in uploadList" ng-repeat-end ng-class="{even:$even}">
+                                      <td>{{$index + 1}}</td>
+                                     <td>发票附件</td>
+                                     <td>
+                                       <a href="{{file.id|downf}}"><span ng-bind="file.fileName"></span></a>
+                                     </td>
+                                     <td>
+                                       <a href="{{file.id|downf}}">下载查看</a>
+                                     </td>
+                                   </tr>
+                                </tbody>
+                              </table>
+                <div class="center-buttons">
+                    <button class="btn btn-primary" ng-click="goback()">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

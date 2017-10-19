@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>绑定微信</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/scf2/css/wechat/cust/wechatBind.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config_ng.js"></script>
+
+  </head>
+  <body id="body">
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" ng-controller="mainController" class="span12">
+          
+          <div id="fund_search_way" class="row-fluid">
+
+            <h1 class="content-title-1 content-title-condensed"><img src="../../../img/info-title-icon.png" alt="">绑定微信</h1>
+
+              <div class="qrcode" ng-show="scanFlag === true">
+                <div>
+                  <p>平台检测到您未绑定微信账号</p>
+                  <p>为保障帐号安全，请用微信扫码验证身份</p>
+                </div>
+                <div class="qrcode-img"><img ng-src="{{codeUrl}}" alt="" style="width:300px;height:300px;"></div>
+                <div ng-show="isScan === '1'">二维码扫描成功，3秒后跳转至设置交易密码界面。</div>
+              </div>
+
+              <div class="qrcode" ng-hide="scanFlag === true">
+                <div>
+                  <p>平台检测到您已绑定微信账号</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+          
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">
+    // For development
+      if (isBTTest) {
+        seajs.use("scf2/js/wechat/cust/wechatBind");
+      }
+      // For production
+    else {
+        seajs.use("scf2/js/wechat/cust/wechatBind");
+      } 
+  </script>
+  </body>
+</html>

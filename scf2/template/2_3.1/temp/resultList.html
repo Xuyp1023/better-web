@@ -1,0 +1,30 @@
+  <!-- 资产登记查询结果 -->
+  <table id="order_list_table" class="div-width-100 table table-striped table-hover search-result main-list">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">资产登记查询结果</span>        
+      </caption>
+      <thead>
+        <tr class="result-head-gray">          
+          <td width="20%"">查询结果</td>
+          <td width="15%">登记证明编号</td>
+          <td width="15%">登记时间</td>
+          <td width="15%">查询人</td>
+          <td width="15%">查询日期</td>              
+          <td width="20%">附件</td>           
+                       
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ng-binding" >
+            <span ng-show="assReg.checkResult==1">资产已登记</span>
+            <span ng-show="assReg.checkResult==0">资产未登记</span>
+          </td>
+          <td ng-bind="assReg.zdwRegCode" class="ng-binding"></td>
+          <td ng-bind="assReg.zdwRegDate" class="ng-binding"></td>
+          <td ng-bind="assReg.custName" class="ng-binding"></td>
+          <td ng-bind="assReg.checkDate" class="ng-binding"></td>
+          <td ng-bind="attachList[0].fileName" class="ng-binding"></td>         
+       </tr>           
+      </tbody>      
+   </table>

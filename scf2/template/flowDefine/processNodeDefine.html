@@ -1,0 +1,47 @@
+<div id="processNodeDefine" class="div-center top-box top-box-active">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    <span ng-bind="processName"></span>&nbsp;流程节点定义
+  </h1>
+
+    <!-- 节点列表 -->
+    <table class="table table-striped table-hover table-bordered div-margin-top">
+      <caption class="table-caption table-caption-green clearFix">
+        <span class="title-left">节点列表</span>
+        <a href="{{'#/process/loanDefine/'}}" ng-show="!readonly"><button class="btn btn-info btn-right" >+金额段定义</button></a>
+      </caption>
+      <thead>
+        <tr class="result-head-gray">
+          <td width="30%">节点名称</td>
+          <td width="20%">节点类型</td>
+          <td width="10%">经办人</td>
+          <td width="20%">操作</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in nodeList" ng-repeat-end ng-class="{even:$even}" >
+          <td ng-bind="item.name"></td>
+          <td ng-bind="item.type|kindf:'WorkFlowNodeType'"></td>
+          <td ng-bind="item.operName"></td>
+          <td>
+            <span ng-show="!readonly">
+              <a href="javascript:void(0)" ng-click="disableWorkFlowNode(item);" ng-show="(item.type==='2'||item.type==='3'||item.type==='4') && item.isDisabled === '0'">停用</a>
+              <a href="javascript:void(0)" ng-click="enableWorkFlowNode(item);" ng-show="(item.type==='2'||item.type==='3'||item.type==='4') && item.isDisabled === '1'">启用</a>
+            </span>
+            <span ng-show="!readonly"><a href="javascript:void(0);" ng-show="item.type==='2'" ng-click="openAssignBox(item);">分配经办人</a></span>
+            <span ng-show="!readonly"><a href="javascript:void(0);" ng-show="item.type==='3'" ng-click="openDefineAuditStep(item);">定义审批步骤</a></span>
+            <span ng-show="readonly && item.isDisabled === '0' "><a href="javascript:void(0);" ng-show="item.type==='3'" ng-click="openDefineAuditStep(item);">查看审批步骤</a></span>
+             <span ng-show="readonly && item.isDisabled === '1' ">已停用</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="center-buttons">
+      <button class="btn btn-primary" ng-click="goBack();">返回</button>
+    </div>
+
+</div>
+
+
+<!-- 分配操作员 -->
+<div id="assign_operate_box" bt-roll-modal="template/flowDefine/processAssignOperate.html" bt-z-index="9991"></div>

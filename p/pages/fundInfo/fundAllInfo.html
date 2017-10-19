@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>客户资料管理</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+    <!-- LXUI -->
+    <link rel="stylesheet" href="https://static.qiejf.com/better/l/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.qiejf.com/better/p/css/fundAllInfo.css">
+    <script type="text/javascript" src="https://static.qiejf.com/better/l/seajs/sea.js"></script>
+    <script type="text/javascript" src="https://static.qiejf.com/better/base/config.js"></script>
+
+  </head>
+  <body>
+  	<div id="container" class="container-fluid div-center">
+  		<div class="row-fluid">
+  			<div id="content" class="span12">
+  				<div class="row-fluid">
+            <div class="span10 div-text-left content-first-title">
+              企业投资
+              <small class="plus-info">
+                <span class="lab-inf">交易账户:</span>
+                <select name="" id="cust_select_list">
+                </select>
+              </small>
+            </div>  
+          </div>
+          <div id="fund_info" class="row-fluid">
+            <div class="span5 offset1 left-info">
+              <table>
+                <tr>
+                  <td class="info-title">
+                    <img src="../../img/money.png" alt="">总资产(元)
+                  </td>
+                </tr>
+                <tr>
+                  <td class="info-content">
+                    <span data-bind="text:parseTotal(totalBind().totalBalance)">0.00</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="span5 offset1 right-info">
+                <table>
+                <tr>
+                  <td class="info-title">
+                    <img src="../../img/money.png" alt="">浮动盈亏(元)
+                  </td>
+                </tr>
+                <tr>
+                  <td class="info-content">
+                    <span data-bind="text:parseTotal(totalBind().floatProfit)">0.00</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div id="fund_fast_way" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed"><img src="../../img/fast_money.png" alt="">快速通道</h1>
+            <ul id="route_operate_menu" class="div-width-100 fast-buttons clearFix">
+              <li url="purchase/purchase.html"><img src="../../img/money.png" alt="">马上申购</li>
+              <li url="redem/redem.html"><img src="../../img/money.png" alt="">马上赎回</li>
+              <li url="analysis/fundDetail.html"><img src="../../img/money.png" alt="">资产明细</li>
+              <li url="analysis/positionAnalysis.html"><img src="../../img/money.png" alt="">持仓分析</li>
+              <li url="queryInfo/queryAccount.html"><img src="../../img/money.png" alt="">查询对账单</li>
+            </ul>
+          </div>
+
+          <div id="ldb_info" class="row-fluid">
+            <h1 class="content-title-1 content-title-condensed content-title-noborder"><img src="../../img/flow_money.png" alt="">
+              企额宝资产: <small data-bind="text:parseTotal(penguinHeadBind().totalBalance)">0.00</small> 元
+              <span class="plus-info-right" >累计为您赚了 <span data-bind="text:parseTotal(penguinHeadBind().floatProfit)">0.00</span> 元</span>
+            </h1>
+            <table class="div-width-100 table table-striped table-bordered table-hover">
+              <thead>
+                <tr>
+                  <td width="30%">基金名称</td>
+                  <td width="20%">资产估值</td>
+                  <td width="20%">累计收益</td>
+                  <td width="15%">交易账户</td>
+                  <td width="15%">基金销售机构</td>
+                </tr>
+              </thead>
+              <tbody data-bind="visible:penguinDataBind().length<1">
+                <tr>
+                  <td colspan="5" class="green">暂无企额宝资产!</td>
+                </tr>
+              </tbody>
+              <tbody data-bind="foreach:penguinDataBind,visible:penguinDataBind().length>0">
+                <tr>
+                  <td>
+                    <a data-bind="attr:{href:$parent.formaterFundDetail($data)},text:fundName+'['+fundCode+']'"></a>
+                  </td>
+                  <td data-bind="text:$parent.parseTotal(totalBalance)"></td>
+                  <td data-bind="text:$parent.parseTotal(floatProfit)"></td>
+                  <td data-bind="text:$parent.parseCustNo(custNo)"></td>
+                  <td data-bind="text:agencyName"></td>
+                </tr>
+              </tbody>
+            </table>
+            <h1 class="content-title-1 content-title-condensed content-title-noborder"><img src="../../img/to_money.png" alt="">
+               公募基金: <small data-bind="text:parseTotal(fundHeadBind().totalBalance)">0.00</small> 元
+              <span class="plus-info-right">浮动盈亏 <span data-bind="text:parseTotal(fundHeadBind().floatProfit)">0.00</span> 元</span>
+            </h1>
+            <table class="div-width-100 table table-striped table-bordered table-hover">
+              <thead>
+                <tr>
+                  <td width="30%">基金名称</td>
+                  <td width="20%">资产估值</td>
+                  <td width="20%">浮动盈亏</td>
+                  <td width="15%">交易账户</td>
+                  <td width="15%">基金销售机构</td>
+                </tr>
+              </thead>
+              <tbody data-bind="visible:fundDataBind().length<1">
+                <tr>
+                  <td colspan="5" class="green">暂无公募基金资产!</td>
+                </tr>
+              </tbody>
+              <tbody data-bind="foreach:fundDataBind,visible:fundDataBind().length>0">
+                <tr>
+                  <td>
+                    <a data-bind="attr:{href:$parent.formaterFundDetail($data)},text:fundName+'['+fundCode+']'"></a>
+                  </td>
+                  <td data-bind="text:$parent.parseTotal(totalBalance)"></td>
+                  <td data-bind="text:$parent.parseTotal(floatProfit)"></td>
+                  <td data-bind="text:$parent.parseCustNo(custNo)"></td>
+                  <td data-bind="text:agencyName"></td>
+                </tr>
+              </tbody>
+            </table>
+            <h1 class="content-title-1 content-title-condensed content-title-noborder"><img src="../../img/forch_money.png" alt="">
+              票据理财 : <small>0.00</small> 元
+              <span class="plus-info-right">浮动盈亏 <span>0.00</span> 元</span>
+            </h1>
+            <table class="div-width-100 table table-striped table-bordered table-hover">
+              <thead>
+                <tr>
+                  <td width="30%">票据代码</td>
+                  <td width="20%">资产估值</td>
+                  <td width="20%">累计收益</td>
+                  <td width="15%">交易账户</td>
+                  <td width="15%">基金销售机构</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="5" class="green">暂无票据理财资产!</td>
+                  <!-- <td>XX宝</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>民生加银</td>
+                  <td>民生加银基金</td> -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+
+	<!-- 引用js文件 -->
+	<!--[if lt IE 9]>
+	    <script type="text/javascript">seajs.use('p/js/common/IErequire');</script>
+	<![endif]-->
+	<script type="text/javascript">seajs.use('p/js/fundAllInfo');</script>
+  </body>
+</html>

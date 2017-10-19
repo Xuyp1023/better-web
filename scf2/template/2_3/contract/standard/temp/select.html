@@ -1,0 +1,51 @@
+<div class="div-width-90 detail-box div-center">
+  <div id="" class="row-fluid">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">选择标准合同类型</h1>
+    <table class="table table-condensed div-width-70 div-center search-table">
+      <tr>
+       <td width="30%">合同类型:</td>
+       <td width="70%" class="div-text-left">
+         <select ng-model="unusedSearchData.typeId" ng-change="queryUnusedList(true)">
+          <option value="">---全部类型---</option>
+        <option ng-repeat="item in contractList" ng-option-filter value="{{item.id}}" ng-bind="item.agreementTypeName" ng-selected="unusedSearchData.typeId == item.id"></option>
+         </select>
+       </td>
+      </tr>
+    </table>
+    <!-- <div class="center-buttons">
+      <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+    </div> -->
+  </div>
+
+
+  <div id="search_info" class="row-fluid">
+    <table class="div-width-100 table table-striped table-hover search-result table-bordered">
+          <thead>
+            <tr class="result-head">
+              <td width="10%">选择</td>
+              <td width="20%">标准合同编号</td>
+              <td width="50%">标准合同名称</td>
+              <td width="20%">合同类型</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in unusedInfoList" ng-repeat-end ng-class="{even:$even}" >
+              <td><input type="radio" ng-model="info.index" ng-value="$index"></td>
+              <td ng-bind="item.standardTypeId"></td>
+              <td ng-bind="item.name">{{$index}}</td>
+              <td ng-bind="item.typeIdName"></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <td colspan="4">
+              <div bt-pagination conf="unusedListPage" func="queryUnusedList(false)"></div>
+            </td>
+          </tfoot>
+        </table>
+    <div class="center-buttons">
+      <button class="btn btn-primary btn-bg-middle" ng-disabled="!(info.index+1)" ng-click="uploadBox(null,$event.target);">下一步
+      </button>
+      <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+  </div>
+</div>

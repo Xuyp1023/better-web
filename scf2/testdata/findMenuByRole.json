@@ -1,0 +1,75 @@
+{
+  "message": "获取菜单信息",
+  "data": [
+    {
+      "checked": true,
+      "id": 1,
+      "text": "企业投资",
+      "children": [
+        {
+          "checked": true,
+          "id": 11,
+          "text": "资产信息"
+        },
+        {
+          "checked": true,
+          "id": 12,
+          "text": "所有资产"
+        }
+      ]
+    },
+    {
+      "checked": false,
+      "id": 81,
+      "text": "账号管理",
+      "children": [
+        {
+          "checked": false,
+          "id": 86,
+          "text": "完善资料"
+        },
+        {
+          "checked": true,
+          "id": 87,
+          "text": "企业认证"
+        }
+      ]
+    },
+    {
+      "checked": true,
+      "id": 1,
+      "text": "企业投资",
+      "children": [
+        {
+          "checked": true,
+          "id": 11,
+          "text": "资产信息"
+        },
+        {
+          "checked": true,
+          "id": 12,
+          "text": "所有资产"
+        }
+      ]
+    },
+    {
+      "checked": false,
+      "id": 81,
+      "text": "账号管理",
+      "children": [
+        {
+          "checked": false,
+          "id": 86,
+          "text": "完善资料"
+        },
+        {
+          "checked": true,
+          "id": 87,
+          "text": "企业认证"
+        }
+      ]
+    }
+  ],
+  "page": "",
+  "code": 200
+}

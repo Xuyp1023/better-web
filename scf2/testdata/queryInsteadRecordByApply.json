@@ -1,0 +1,63 @@
+{
+  "message": "代录申请 代录记录列表 查询成功",
+  "data": [
+    {
+      "id": 26,
+      "applyId": 25,
+      "insteadItem": "0",
+      "tmpIds": "",
+      "regOperId": 1111,
+      "regOperName": "管理员",
+      "regDate": "2013-07-28",
+      "modiOperId": 1111,
+      "modiDate": "2014-07-28",
+      "businStatus": "0",
+      "lastStatus": "",
+      "custNo": ""
+    },
+    {
+      "id": 27,
+      "applyId": 27,
+      "insteadItem": "0",
+      "tmpIds": "",
+      "regOperId": 1111,
+      "regOperName": "管理员",
+      "regDate": "2016-07-28",
+      "modiOperId": 1111,
+      "modiDate": "2016-07-28",
+      "businStatus": "1",
+      "lastStatus": "",
+      "custNo": ""
+    },
+    {
+      "id": 28,
+      "applyId": 27,
+      "insteadItem": "1",
+      "tmpIds": "",
+      "regOperId": 1111,
+      "regOperName": "管理员",
+      "regDate": "2016-07-28",
+      "modiOperId": 1111,
+      "modiDate": "2016-07-28",
+      "businStatus": "1",
+      "lastStatus": "",
+      "custNo": ""
+    },
+    {
+      "id": 29,
+      "applyId": 27,
+      "insteadItem": "4",
+      "tmpIds": "",
+      "regOperId": 1111,
+      "regOperName": "管理员",
+      "regDate": "2016-07-28",
+      "modiOperId": 1111,
+      "modiDate": "2016-07-28",
+      "businStatus": "1",
+      "lastStatus": "",
+      "custNo": ""
+    }
+  ],
+  "page": "",
+  "code": 200
+}

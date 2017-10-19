@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/* 企业认证页面样式文件 */
+@import "common/base";
+@import "common/bootstrapplus";
+@import "common/tooltip";
+@import "common/pie";
+@import "common/pages";
+
+
+#container{
+	@include init;
+	@include deep-blue-border;
+	@include plus-ie-btn;
+	@include line-checkbox;
+	@include td-line-checkbox;
+	@include line-hover;
+	@include div-width(100%);
+	@include plus-ie-table;
+	@include plus-ie-css3;
+	@include Spage_plugin;
+	@include upload-box;
+}
+
+#content{
+	@include plus-nav-tabs;
+	@include center-buttons;
+	@include td-input-width(95%);
+	@include td-pack-align(center,middle);
+	@include content-title;
+	@include div-line;
+	@include div-text-align;
+	@include double-check;
+}
+
+#file_upload_box{
+	position:relative;
+	.upload_list_table{
+		margin-top:15px;
+		thead{
+			td{
+				border:0px;
+				background-color: #dff0d8;
+			    font-weight: bold;
+			    color: #0088cc;
+			    text-align: left;
+			    padding-left:10px;
+			    .upload_btn{
+					margin:0px;
+					margin-right: 15px;
+					// background-color:#006dcc;
+					padding:2px 5px;
+					float:right;
+				};
+				span{
+					// color:#EF8017;
+					color:#FFAA00;
+					// font-weight:bold;
+					margin-left:5px;
+				}
+
+			}
+
+		}
+		.modi-upload-btn{
+			a{
+				margin-right:10px;
+			}
+		}
+	}
+}

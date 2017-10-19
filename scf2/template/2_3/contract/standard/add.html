@@ -1,0 +1,43 @@
+<div id="fund_search_way" class="row-fluid margin-bottom-10">
+  <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">选择标准合同类型</h1>
+  <table class="table table-condensed div-width-70 div-center search-table">
+    <tr>
+     <td width="30%">合同类型:</td>
+     <td width="70%" class="div-text-left">
+       <select ng-model="searchData.typeId" ng-change="queryList()">
+          <option value="">---全部类型---</option>
+           <option ng-repeat="item in contractList" ng-option-filter value="{{item.id}}" ng-bind="item.agreementTypeName" ng-selected="searchData.typeId == item.id"></option> 
+       </select>
+     </td>
+    </tr>
+  </table>
+
+</div>
+
+
+<div id="search_info" class="row-fluid">
+  <table class="div-width-100 table table-striped table-hover search-result table-bordered">
+        <thead>
+          <tr class="result-head">
+            <td width="10%">选择</td>
+            <td width="20%">标准合同编号</td>
+            <td width="50%">标准合同名称</td>
+            <td width="20%">合同类型</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in infoList" ng-repeat-end ng-class="{even:$even}" >
+            <td><input type="checkbox" ng-model="item.isSelected" ng-change="toggleCheckbox(1)"></td>
+            <td ng-bind="item.id"></td>
+            <td ng-bind="item.name"></td>
+            <td ng-bind="item.typeIdName"></td>
+          </tr>
+        </tbody>
+      </table>
+  <div class="center-buttons">
+    <div class="checkbox btn" style="float: left;"><label style="min-height: 20px;padding-left: 20px;margin-bottom: 0;font-weight: 400;cursor: pointer;">
+    <input type="checkbox" ng-model="tmpCheckbox"  style="margin-top: 3px;" ng-change="toggleCheckbox(0)"> 全选</label></div>
+    <button class="btn btn-primary" ng-click="addInfo($event.target);">添加</button>
+    <button class="btn btn-primary" ng-click="goBack();">返回</button>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+{
+    "message": "查询客户合同成功",
+    "data": [{
+        "id": 1845,
+        "assetType":"1"
+    }],
+    "page": {
+        "pageNum": 1,
+        "pageSize": 10,
+        "pages": 1,
+        "total": 9
+    },
+    "code": 200
+}

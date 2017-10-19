@@ -1,0 +1,147 @@
+<div id="container" class="container-fluid div-center">
+  <div class="top-box">
+    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+    参数设置
+  </h1>
+  <div  class="row-fluid div-center div-margin-top" id="setting-info">
+
+    <table class="table table-striped table-hover table-bordered table-condensed big-input">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="3">基本信息</td>
+          </tr>
+        </thead>
+        <tbody>
+           <tr>
+            <td class="div-text-right" width="20%">
+              <span class="title">佣金年利率(%):</span>
+            </td>
+            <td><input type="text" onkeyup="clearNoNum(this)" ng-model="info.interestRate" style="width: 94% !important;"></td>
+            <td class="div-text-left"></td>
+          </tr>
+           <tr>
+            <td class="div-text-right">
+              <span class="title">开票税率(%):</span>
+            </td>
+            <td><input type="text" onkeyup="clearNoNum(this)" ng-model="info.taxRate" style="width: 94% !important;"></td>
+            <td class="div-text-left"></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="title">账单制表单位:</span>
+            </td>
+            <td>
+            <input type="text" ng-model="info.custName">
+            </td>
+            <td class="div-text-left"></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="title">账单制表人:</span>
+            </td>
+            <td><input type="text" ng-model="info.operator"></td>
+            <td class="div-text-left"></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="title">账单确认默认天数:</span>
+            </td>
+            <td><input type="number" ng-model="info.confirmDays" style="width: 94% !important;"></td>
+            <td class="div-text-left"></td>
+          </tr>
+          <tr>
+            <td class="div-text-right">
+              <span class="title">文件签名证书License:</span>
+            </td>
+            <td><textarea ng-model="info.certLicense" style="width: 94% !important;"></textarea></td>
+            <td class="div-text-left"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 附件列表 -->
+      <table class="table table-striped table-hover table-bordered">
+          <caption class="table-caption table-caption-green clearFix">
+            <span class="title-left">模板管理</span>
+          </caption>
+          <thead>
+          <tr class="result-head-gray">
+            <td width="25%">类型</td>
+            <td width="45%">名称</td>
+            <td width="30%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="div-text-left"><span>佣金数据导入模板</span></td>
+            <td ng-bind="infoFileList[0].fileName"></td>
+            <td>
+              <a href="javascript:void(0);" ng-show="!infoFileList[0].id" ng-click="openUpload($event,'cpsImportTemplate','佣金导入模板',0);">上传</a>
+              <a href="{{infoFileList[0].id|downf}}" ng-show="infoFileList[0].id">下载</a>
+              <a href="javascript:void(0);" ng-show="infoFileList[0].id" ng-click="delUploadItem(0,'infoFileList');">移除</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-left"><span>日报表导出模板</span></td>
+            <td ng-bind="infoFileList[1].fileName"></td>
+            <td>
+              <a href="javascript:void(0);" ng-show="!infoFileList[1].id" ng-click="openUpload($event,'cpsDailyTemplate','日报表导出模板',1);">上传</a>
+              <a href="{{infoFileList[1].id|downf}}" ng-show="infoFileList[1].id">下载</a>
+              <a href="javascript:void(0);" ng-show="infoFileList[1].id" ng-click="delUploadItem(1,'infoFileList');">移除</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-left"><span>月报表导出模板</span></td>
+            <td ng-bind="infoFileList[2].fileName"></td>
+            <td>
+              <a href="javascript:void(0);" ng-show="!infoFileList[2].id" ng-click="openUpload($event,'cpsMonthlyTemplate','月报表导出模板',2);">上传</a>
+              <a href="{{infoFileList[2].id|downf}}" ng-show="infoFileList[2].id">下载</a>
+              <a href="javascript:void(0);" ng-show="infoFileList[2].id" ng-click="delUploadItem(2,'infoFileList');">移除</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="div-text-left"><span>佣金数据导出模板</span></td>
+            <td ng-bind="infoFileList[3].fileName"></td>
+            <td>
+              <a href="javascript:void(0);" ng-show="!infoFileList[3].id" ng-click="openUpload($event,'cpsExportTemplate','佣金文件导出模板',3);">上传</a>
+              <a href="{{infoFileList[3].id|downf}}" ng-show="infoFileList[3].id">下载</a>
+              <a href="javascript:void(0);" ng-show="infoFileList[3].id" ng-click="delUploadItem(3,'infoFileList');">移除</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="div-text-left"><span>付款指令导出模板</span></td>
+             <!-- <td ng-bind="infoFileList[3].fileName"></td>
+            <td>
+              <a href="javascript:void(0);" ng-show="!infoFileList[3].id" ng-click="openUpload($event,'cpsExportTemplate','佣金文件导出模板',3);">上传</a>
+              <a href="{{infoFileList[3].id|downf}}" ng-show="infoFileList[3].id">下载</a>
+              <a href="javascript:void(0);" ng-show="infoFileList[3].id" ng-click="delUploadItem(3,'infoFileList');">移除</a> 
+            </td> -->
+          </tr>
+          <tr>
+            <td class="div-text-left"><span>付款结果导入模板</span></td>
+            <!-- <td ng-bind="infoFileList[3].fileName"></td>
+            <td>
+              <a href="javascript:void(0);" ng-show="!infoFileList[3].id" ng-click="openUpload($event,'cpsExportTemplate','佣金文件导出模板',3);">上传</a>
+              <a href="{{infoFileList[3].id|downf}}" ng-show="infoFileList[3].id">下载</a>
+              <a href="javascript:void(0);" ng-show="infoFileList[3].id" ng-click="delUploadItem(3,'infoFileList');">移除</a>
+            </td> -->
+          </tr>
+            
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="center-buttons" >
+        <button class="btn btn-primary" ng-click="saveConfig($event.target)">保存</button>
+    </div>
+
+
+    <!-- 附件上传 start -->
+    <div bt-upload conf="uploadConf"></div>
+  </div>
+  
+
+</div>
+      

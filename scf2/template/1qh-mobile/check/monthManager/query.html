@@ -1,0 +1,89 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">月对账单管理
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                     
+                      <tr>
+                        <td>对账月份:</td>
+                        <td class="div-text-left date">
+                          <select style="width: 25% !important" ng-model="searchData.year" ng-options="item.key as item.key for item in yearList"></select>-
+                          <select style="width: 25% !important" ng-model="searchData.month" ng-options="item.key as item.key for item in monthList"></select>
+                        </td>
+                      </tr>                      
+                      <tr>                        
+                        <td width="25%">委托企业:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.custNo">
+                            <option value="">----所有----</option>
+                            <option ng-repeat="item in custList" ng-option-filter value="{{item.value}}" ng-bind="item.name"></option>
+                          </select>
+                        </td>                        
+                      </tr>               
+                      <tr>                        
+                        <td width="25%">状态:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.businStatus">
+                            <option value="">所有状态</option>
+                            <option ng-repeat="item in statusList" ng-option-filter value="{{item.value}}" ng-bind="item.name"></option>                            
+                          </select>
+                        </td>                        
+                      </tr>
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="queryList(true);">查询</button>
+                    </div>
+                </div>
+
+      <table class="div-width-100 table table-striped table-hover search-result main-list">
+        <thead>
+          <tr>
+              <td class="modi-group" colspan="7">
+               <button class="btn btn-info" ng-click="add();" >新增账单</button>
+              </td>
+            </tr>
+            <tr class="result-head">
+              <td width="20%">账单号码</td>
+              <td width="10%">账单金额</td>
+              <td width="10%">起始日期</td>
+              <td width="10%">截止日期</td>
+              <td width="20%">委托企业</td>
+              <td width="10%">状态</td>
+              <td width="10%">账单详情</td>
+              <td width="10%">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+            <td ><a href="javascript:void(0);" ng-click="lookDetail($event.target,item);">{{item.refNo}}</a></td>
+            <td ng-bind="item.interestBalance"></td>
+            <td ng-bind="item.payBeginDate"></td>
+            <td ng-bind="item.payEndDate"></td>
+            <td ng-bind="item.ownCustName"></td>
+            <td ng-bind="item.businStatus|kindf:'CommissionBusinStatus'"></td>
+            <td ><a href="javascript:void(0);" ng-click="lookDetail($event.target,item);">查看详情</a></td>
+            <td>
+              <a href="javascript:void(0);" ng-click="operate($event.target,item,2);" ng-show="item.businStatus==0 || item.businStatus==1">删除</a>
+              <a href="javascript:void(0);" ng-click="operate($event.target,item,1);" ng-show="item.businStatus==0 || item.businStatus==1">审核</a>
+              <a href="javascript:void(0);" ng-click="operate($event.target,item,3);" ng-show="item.businStatus==2">作废</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="7">
+                <div bt-pagination conf="listPage" func="queryList(false)"></div>
+            </td>
+        </tfoot>
+    </table>
+
+            
+        </div>
+    </div>
+
+    <div id="audit_box" bt-roll-modal="template/1qh-mobile/check/monthManager/audit.html" bt-z-index="9991"></div>
+    <div id="detail_box" bt-roll-modal="template/1qh-mobile/check/monthManager/detail.html" bt-z-index="9991"></div>
+    <div id="dayDetail_box" bt-roll-modal="template/1qh-mobile/check/monthManager/dayDetail.html" bt-z-index="9991"></div>
+
+

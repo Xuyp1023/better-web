@@ -1,0 +1,139 @@
+<div class="back-white">
+	<!-- ====================== 基本资料区域 start =================================-->
+	<h3 class="title-h3">基本资料</h3>
+	<div class="mui-row ac-grid upload-wrap">
+		<div class="mui-col-sm-4 mui-col-xs-4">
+			<div class="upload-area" ng-show="!upLoadList.CustBizLicenseFile.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="upLoadList.CustBizLicenseFile.id" ng-click="preImg(upLoadList.CustBizLicenseFile);">
+				<img ng-src="{{upLoadList.CustBizLicenseFile.id|downf}}" alt="">
+			</div>
+			<p class="type-name">营业执照</p>
+		</div>
+		<div class="mui-col-sm-4 mui-col-xs-4">
+			<div class="upload-area" ng-show="!upLoadList.CustOrgCodeFile.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="upLoadList.CustOrgCodeFile.id" ng-click="preImg(upLoadList.CustOrgCodeFile);">
+				<img ng-src="{{upLoadList.CustOrgCodeFile.id|downf}}" alt="">
+			</div>
+			<p class="type-name">组织机构代码证</p>
+		</div>
+		<div class="mui-col-sm-4 mui-col-xs-4">
+			<div class="upload-area" ng-show="!upLoadList.CustTaxRegistFile.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="upLoadList.CustTaxRegistFile.id" ng-click="preImg(upLoadList.CustTaxRegistFile);">
+				<img ng-src="{{upLoadList.CustTaxRegistFile.id|downf}}" alt="">
+			</div>
+			<p class="type-name">税务登记证</p>
+		</div>
+		<div class="mui-col-sm-4 mui-col-xs-4">
+			<div class="upload-area" ng-show="!upLoadList.CustCreditCodeFile.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="upLoadList.CustCreditCodeFile.id" ng-click="preImg(upLoadList.CustCreditCodeFile);">
+				<img ng-src="{{upLoadList.CustCreditCodeFile.id|downf}}" alt="">
+			</div>
+			<p class="type-name">机构信用代码证</p>
+		</div>
+		<div class="mui-col-sm-4 mui-col-xs-4">
+			<div class="upload-area" ng-show="!upLoadList.CustBankOpenLicenseFile.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="upLoadList.CustBankOpenLicenseFile.id" ng-click="preImg(upLoadList.CustBankOpenLicenseFile);">
+				<img ng-src="{{upLoadList.CustBankOpenLicenseFile.id|downf}}" alt="">
+			</div>
+			<p class="type-name">银行开户许可证</p>
+		</div>
+
+	</div>
+	<!-- ====================== 基本资料区域 end =================================-->
+
+	<!-- ====================== 经办人证件 start =================================-->
+
+	<h3 class="title-h3">经办人证件</h3>
+
+	<div class="mui-row ac-grid upload-wrap">
+		<div class="mui-col-sm-4 mui-col-xs-4">
+			<div class="upload-area" ng-show="!upLoadList.BrokerIdHeadFile.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="upLoadList.BrokerIdHeadFile.id" ng-click="preImg(upLoadList.BrokerIdHeadFile);">
+				<img ng-src="{{upLoadList.BrokerIdHeadFile.id|downf}}" alt="">
+			</div>
+			<p class="type-name">经办人身份证-头像面</p>
+		</div>
+		<div class="mui-col-sm-4 mui-col-xs-4">
+			<div class="upload-area" ng-show="!upLoadList.BrokerIdNationFile.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="upLoadList.BrokerIdNationFile.id" ng-click="preImg(upLoadList.BrokerIdNationFile);">
+				<img ng-src="{{upLoadList.BrokerIdNationFile.id|downf}}" alt="">
+			</div>
+			<p class="type-name">经办人身份证-国徽面</p>
+		</div>
+		<div class="mui-col-sm-4 mui-col-xs-4">
+			<div class="upload-area" ng-show="!upLoadList.BrokerIdHoldFile.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="upLoadList.BrokerIdHoldFile.id" ng-click="preImg(upLoadList.BrokerIdHoldFile);">
+				<img ng-src="{{upLoadList.BrokerIdHoldFile.id|downf}}" alt="">
+			</div>
+			<p class="type-name">经办人身份证-手持证件</p>
+		</div>
+	</div>
+
+	<!-- ====================== 经办人证件 end =================================-->
+
+	<!-- ====================== 法人证件 start =================================-->
+
+	<h3 class="title-h3">法人证件</h3>
+
+	<div class="mui-row ac-grid upload-wrap">
+		<div class="mui-col-sm-4 mui-col-xs-4">
+			<div class="upload-area" ng-show="!upLoadList.RepresentIdHeadFile.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="upLoadList.RepresentIdHeadFile.id" ng-click="preImg(upLoadList.RepresentIdHeadFile);">
+				<img ng-src="{{upLoadList.RepresentIdHeadFile.id|downf}}" alt="">
+			</div>
+			<p class="type-name">法人身份证-头像面</p>
+		</div>
+		<div class="mui-col-sm-4 mui-col-xs-4">
+			<div class="upload-area" ng-show="!upLoadList.RepresentIdNationFile.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="upLoadList.RepresentIdNationFile.id" ng-click="preImg(upLoadList.RepresentIdNationFile);">
+				<img ng-src="{{upLoadList.RepresentIdNationFile.id|downf}}" alt="">
+			</div>
+			<p class="type-name">法人身份证-国徽面</p>
+		</div>
+		<div class="mui-col-sm-4 mui-col-xs-4">
+			<div class="upload-area" ng-show="!upLoadList.RepresentIdHoldFile.id">
+				<div class="line-hori"></div>
+				<div class="line-vert"></div>
+			</div>
+			<div class="upload-img" ng-show="upLoadList.RepresentIdHoldFile.id" ng-click="preImg(upLoadList.RepresentIdHoldFile);">
+				<img ng-src="{{upLoadList.RepresentIdHoldFile.id|downf}}" alt="">
+			</div>
+			<p class="type-name">法人身份证-手持证件</p>
+		</div>
+	</div>
+
+	<!-- ====================== 法人证件 end =================================-->
+	
+</div>
+
+

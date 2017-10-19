@@ -1,0 +1,68 @@
+
+    <div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">电子合同管理
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                     
+                      <tr>
+                        <td width="25%">签署方:</td>
+                        <td width="75%" class="div-text-left">
+                          <select ng-model="searchData.custNo">
+                            <option value="">--所有--</option>
+                            <option ng-repeat="item in financeCustList" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.custNo == item.value"></option>
+                          </select>
+                        </td>
+                      </tr>
+                    </table>
+                    <div class="center-buttons">
+                      <button class="btn btn-primary btn-bg-middle" ng-click="searchList();">查询</button>
+                    </div>
+                </div>
+
+            <div id="search_info" class="row-fluid">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="reqQuota">
+                        <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
+                        电子合同列表
+                        </h1>                       
+                        <table class="div-width-100 table table-striped table-hover search-result main-list">
+                            <thead class="result-head">
+                                <tr class="font-size-12 info-title">
+                                    <td width="15%">合同编码</td>
+                                    <td width="20%">签署方</td>
+                                    <td width="20%">合同名称</td>                                    
+                                    <td width="15%">签署状态</td>
+                                    <td width="20%">最后签署日期</td>
+                                    <td width="10%">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
+                                    <td ng-bind="item.agreementCode"></td>
+                                    <td ng-bind="item.custName"></td>
+                                    <td ng-bind="item.agreementName"></td>                       
+                                    <td ng-bind="item.businStatus | kindf:'requestagreementbusinstatusmap'"></td>
+                                    <td ng-bind="item.signDate"></td>                                           
+                                    <td>                                        
+                                        <a href="javascript:void(0);" ng-click="lookDetail(item);">详情</a>  
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="10">
+                                    <div bt-pagination conf="listPage" func="queryList(false);"></div>
+                                </td>
+                            </tfoot>
+                        </table>
+                    </div>
+        </div>
+    </div>
+    <!-- 添加
+    <div id="add_supply" bt-roll-modal="template/prePay_1/purchaser/temp/add_supply.html" bt-z-index="9993"></div>
+    更新
+    <div id="update_supply" bt-roll-modal="template/prePay_1/purchaser/temp/update_supply.html" bt-z-index="9993"></div> -->
+    <!-- 查看协议详情 -->
+    <div id="look_agree_info_box" bt-roll-modal="template/prePay_1/platform/temp/showAgreeInfo.html" bt-z-index="9992" bt-max-width="900px"></div>
+

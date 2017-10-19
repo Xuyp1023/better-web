@@ -1,0 +1,91 @@
+
+  <!-- 出具贷款方案 -->
+  <div id="approve_handle_issue" class="row-fluid top-box">
+
+    <form action="" id="" class="form-horizontal">
+      <div class="div-center div-width div-margin-top">
+      
+        <!-- 融资详细 -->
+        <div bt-include="template/flow/supplierFinance/temp/auditMain.html"></div>
+
+        <!-- 审贷结果 -->
+        <table id="loanBox" class="table table-striped table-hover table-bordered table-condensed">
+           <caption class="table-caption clearFix">
+             <span class="title-left">审贷信息</span>
+           </caption>
+          <tbody>
+              <tr>
+                <td width="20%">申请金额:</td>
+                <td width="30%" class="div-text-left">
+                  <input type="text"  ng-model="loanInfo.requestBalance" disabled>
+                </td>
+                <td width="20%">审批金额:</td>
+                <td width="30%" class="div-text-left"><input type="text" ng-model="loanInfo.approvedBalance"></td>
+              </tr>
+              <tr>
+                <td class="deep-gray">金额大写:</td>
+                <td class="div-text-left">
+                  <strong class="deep-gray" ng-bind="loanInfo.requestBalance|moneybigf"></strong> 
+                </td>
+                <td class="deep-gray">金额大写:</td>
+                <td class="div-text-left">
+                  <strong class="deep-gray" ng-bind="loanInfo.approvedBalance|moneybigf"></strong>
+                </td>
+              </tr>
+              <tr>
+                <td>申请期限:</td>
+                <td class="div-text-left double_box">
+                  <input type="text" ng-model="loanInfo.period" disabled>
+                  <select name="" id="" ng-model="loanInfo.periodUnit" disabled>
+                      <option ng-repeat="unit in periodUnits" ng-option-filter value="{{unit.value}}" ng-bind="unit.name" ng-selected="loanInfo.periodUnit==unit.value"></option>
+                  </select>
+                </td>
+                <td>审批期限:</td>
+                <td class="div-text-left double_box">
+                  <input type="text" ng-model="loanInfo.approvedPeriod">
+                  <select name="" id="" ng-model="loanInfo.approvedPeriodUnit">
+                      <option ng-repeat="unit in periodUnits" ng-option-filter value="{{unit.value}}" ng-bind="unit.name" ng-selected="loanInfo.approvedPeriodUnit==unit.value"></option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>融资利率:</td>
+                <td class="div-text-left"><input type="text" ng-model="loanInfo.approvedRatio">&nbsp;%</td>
+                <td>其他费用利率:</td>
+                <td class="div-text-left"><input type="text" ng-model="loanInfo.approvedManagementRatio">&nbsp;%</td>
+              </tr>
+              <tr>
+                <td>手续费费率:</td>
+                <td class="div-text-left"><input type="text" ng-model="loanInfo.servicefeeRatio">&nbsp;‰</td>
+                <td>使用授信类型:</td>
+                <td class="div-text-left">
+                  <select name="" id="" ng-model="loanInfo.creditMode" disabled>
+                    <option ng-repeat="mode in creditModes" ng-option-filter value="{{mode.value}}" ng-bind="mode.name" ng-selected="loanInfo.creditMode==mode.value"></option>
+                  </select>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
+
+    
+    
+  <div>
+    <!-- 补充资料 -->
+    <div id="add_other_file_box" bt-roll-modal="template/flow/supplierFinance/temp/addOtherFile.html" bt-z-index="9992"></div>
+
+    <!-- 查看协议详情 -->
+    <div id="look_agree_info_box" bt-roll-modal="template/flow/supplierFinance/temp/showAgreeInfo.html" bt-z-index="9992" bt-max-width="900px"></div>
+
+    <!-- 订单编辑 -->
+    <div id="proof_order_detail_box" bt-roll-modal="views/commonTemp/orderDetailEdit.html" bt-z-index="9993"></div>
+    <!-- 票据编辑 -->
+    <div id="proof_draft_detail_box" bt-roll-modal="views/commonTemp/draftDetailEdit.html" bt-z-index="9993"></div>
+    <!-- 应收编辑 -->
+    <div id="proof_recieve_detail_box" bt-roll-modal="views/commonTemp/recieveDetailEdit.html" bt-z-index="9993"></div>
+
+    <div bt-upload conf="uploadConf" ></div>
+    
+  </div>
