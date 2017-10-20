@@ -1,0 +1,24 @@
+.mrg-20 {
+	margin-top: 20px;
+}
+.title-bold {
+	font-weight: bold;
+    color: #0088cc !important;
+}
+span.status{
+	position: relative;
+	top:2px;
+	left:-10px;
+	color: #FFAA00;
+
+}
+.center {
+  text-align: center;
+  margin-top: 30px;
+}
+.bt-container {
+  min-width: 950px;
+}
+.bt-query-card {
+    width: 950px;
+}

@@ -1,0 +1,55 @@
+<div>
+  <!--授权书-->
+  <div class="bt-title-card title-bold">
+    <span class="icon"></span>授权书
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=30%>附件类型</th>
+        <th width=40%>附件名称</th>
+        <th width=30%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr>
+        <td>授权书</td>
+        <td>{{uploadList.authorizeFile.file.fileName}}</td>
+        <td  ng-show="uploadList.authorizeFile.file.id" >
+          <a class="bt-table-button" href="{{ uploadList.authorizeFile.file.id |downf }}">下载</a>
+          <a class="bt-table-button" ng-click="deleteItem($event,uploadList.authorizeFile)">删除</a>
+        </td>
+        <td ng-show="!uploadList.authorizeFile.file.id">
+          <label class="bt-table-button" upload-type="table" file-type-name="authorizeFile" bt-upload="uploadList.authorizeFile.file">上传</label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!--服务协议-->
+  <div class="bt-title-card title-bold">
+    <span class="icon"></span>服务协议
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=30%>附件类型</th>
+        <th width=40%>附件名称</th>
+        <th width=30%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr>
+        <td>服务协议</td>
+        <td>{{uploadList.serviceContractFile.file.fileName}}</td>
+        <td  ng-show="uploadList.serviceContractFile.file.id" >
+          <a class="bt-table-button" href="{{ uploadList.serviceContractFile.file.id |downf }}">下载</a>
+          <a class="bt-table-button" ng-click="deleteItem($event,uploadList.serviceContractFile)">删除</a>
+        </td>
+        <td ng-show="!uploadList.serviceContractFile.file.id">
+          <label class="bt-table-button" upload-type="table" file-type-name="serviceContractFile" bt-upload="uploadList.serviceContractFile.file">上传</label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

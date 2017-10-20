@@ -1,0 +1,37 @@
+{
+  "message": "操作成功",
+  "data": [
+    {
+      "id": 1003,
+      "dictType": "4",
+      "dataSource": "2",
+      "formData": "1",
+      "attach": "1",
+      "businStatus": "1",
+      "description": "商业发票",
+      "assetType": "0"
+    },
+    {
+      "id": 1002,
+      "dictType": "3",
+      "dataSource": "2",
+      "formData": "1",
+      "attach": "1",
+      "businStatus": "1",
+      "description": "贸易合",
+      "assetType": "0"
+    },
+    {
+      "id": 1001,
+      "dictType": "2",
+      "dataSource": "1",
+      "formData": "1",
+      "attach": "0",
+      "businStatus": "1",
+      "description": "应付账款",
+      "assetType": "1"
+    }
+  ],
+  "page": "",
+  "code": 200
+}

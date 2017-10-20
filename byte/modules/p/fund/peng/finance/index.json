@@ -1,0 +1,14 @@
+{
+	"initInfo": {
+		"resolve": [
+			"echarts"
+		]
+	},
+	"configVo": {
+		"BTServerPath": {
+			"Test_Query_Pages": [
+				"","/MoneySchemeFundCombin/findSchemeFundCombin"
+			]
+		}
+	}
+}

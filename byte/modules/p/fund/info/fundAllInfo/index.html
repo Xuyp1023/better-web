@@ -1,0 +1,123 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>所有资产</span>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>选择
+	</div>
+	<table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">交易账户：</td>
+				<td width="100%" class="bt-query-value">
+					<select ng-model="partmentId" ng-options="item.value as item.name for item in TRADE_ACCOUNT_LIST">
+						<option value="">----全部----</option>
+					</select>
+					<button class="bt-btn bt-btn-confirm bt-left-5" ng-click="reFreshFundAllInfoList($event)">查询</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>资产信息
+	</div>
+	<table class="bt-card-info">
+		<tbody>
+			<tr class="bt-card-item">
+				<td width="10%" class="bt-card-key">总资产(元):</td>
+				<td width="40%" class="bt-card-value">{{totalBind.totalBalance | number}}</td>
+				<td width="10%" class="bt-card-key">浮动盈亏(元):</td>
+				<td width="40%" class="bt-card-value">{{totalBind.floatProfit | number}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>快速通道
+	</div>
+	<div>
+		<ul class="super-href">
+			<li><a href="../p/pages/purchase/purchase.html"><img src="../p/img/money.png" alt="">马上申购</a></li>
+			<li><a href="../p/pages/redem/redem.html"><img src="../p/img/money.png" alt="">马上赎回</a></li>
+			<li><a href="../p/pages/analysis/fundDetail.html"><img src="../p/img/money.png" alt="">资产明细</a></li>
+			<li><a href="../p/pages/analysis/positionAnalysis.html"><img src="../p/img/money.png" alt="">持仓分析</a></li>
+			<li><a href="../p/pages/queryInfo/queryAccount.html"><img src="../p/img/money.png" alt="">查询对账单</a></li>
+		</ul>
+	</div>
+	<div class="bt-title-card red">
+		<span class="icon"></span>企鹅宝资产
+		<small>{{penguinHeadBind.totalBalance | currency:''}}</small> 元
+		<span class="bt-float-right">累计为您赚了 <small>{{penguinHeadBind.floatProfit | currency:''}}</small> 元</span>
+	</div>
+	<table class="bt-table">
+		<thead class="bt-table-header">
+			<tr>
+				<th width=25%>基金名称</th>
+				<th width=20%>资产评估</th>
+				<th width=20%>累计收益</th>
+				<th width=15%>交易账户</th>
+				<th width=20%>基金销售机构</th>
+			</tr>
+		</thead>
+		<tbody class="bt-table-body">
+			<tr ng-repeat=" item in penguinDataBind">
+				<td><a class="bt-table-button" href="../p/pages/queryInfo/queryFund.html#{{item.fundCode}}">{{item.fundName+'['+item.fundCode+']'}}</a></td>
+				<td class="bt-align-right">{{item.totalBalance | currency:''}}</td>
+				<td class="bt-align-right">{{item.floatProfit | currency:''}}</td>
+				<td>{{item.custNo}}</td>
+				<td>{{item.agencyName}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card red">
+		<span class="icon"></span>公募基金
+		<small>{{fundHeadBind.totalBalance | currency:''}}</small> 元
+		<span class="bt-float-right">浮动盈亏 <small>{{fundHeadBind.floatProfit | currency:''}}</small> 元</span>
+	</div>
+	<table class="bt-table">
+		<thead class="bt-table-header">
+			<tr>
+				<th class="header-check"></th>
+				<th width=25%>基金名称</th>
+				<th width=20%>资产评估</th>
+				<th width=20%>累计收益</th>
+				<th width=15%>交易账户</th>
+				<th width=20%>基金销售机构</th>
+			</tr>
+		</thead>
+		<tbody class="bt-table-body">
+			<tr ng-repeat=" item in fundDataBind">
+				<td><a class="bt-table-button">{{item.code}}</a></td>
+				<td class="bt-align-right">{{item.totalBalance | currency:''}}</td>
+				<td class="bt-align-right">{{item.floatProfit | currency:''}}</td>
+				<td>{{item.custNo}}</td>
+				<td>{{item.agencyName}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card red">
+		<span class="icon"></span>票据理财
+		<small>0.00</small> 元
+		<span class="bt-float-right">浮动盈亏 <small>0.00</small> 元</span>
+	</div>
+	<table class="bt-table">
+		<thead class="bt-table-header">
+			<tr>
+				<th class="header-check"></th>
+				<th width=25%>基金名称</th>
+				<th width=20%>资产评估</th>
+				<th width=20%>累计收益</th>
+				<th width=15%>交易账户</th>
+				<th width=20%>基金销售机构</th>
+			</tr>
+		</thead>
+		<tbody class="bt-table-body">
+			<tr ng-repeat=" item in rowDatas">
+				<td><a class="bt-table-button">{{item.code}}</a></td>
+				<td class="bt-align-right">{{item.totalBalance | currency:''}}</td>
+				<td class="bt-align-right">{{item.floatProfit | currency:''}}</td>
+				<td>{{item.custNo}}</td>
+				<td>{{item.agencyName}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

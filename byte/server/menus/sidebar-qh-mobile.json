@@ -1,0 +1,74 @@
+[
+	{
+		"title": "青海移动",
+		"heading": "true"
+	},{
+		"title": "青海移动",
+		"children": [
+			{
+				"title":"直通车代码管理",
+				"url":"../scf2/home.html#/1qh-mobile/paymentcode"
+			},
+			{
+				"title": "佣金导入",
+				"url": "../scf2/home.html#/1qh-mobile/lead.lead"
+			},
+			{
+				"title": "佣金审核",
+				"url": "../scf2/home.html#/1qh-mobile/lead.check"
+			},
+			{
+				"title": "佣金查询",
+				"url": "../scf2/home.html#/1qh-mobile/lead.query"
+			},
+			{
+				"title": "账单确认",
+				"url": "../../scf2/home.html#/1qh-mobile/lead.ensure"
+			},
+			{
+				"title": "账单下载",
+				"url": "../../scf2/home.html#/1qh-mobile/lead.download"
+			},
+			{
+				"title": "佣金数据导出",
+				"url": "../../scf2/home.html#/1qh-mobile/lead.export"
+			},
+			{
+				"title": "日对账单管理",
+				"url": "../../scf2/home.html#/1qh-mobile/check.dayManager"
+			},
+			{
+				"title": "日对账单审核",
+				"url": "../../scf2/home.html#/1qh-mobile/check.dayManagerAudit"
+			},
+			{
+				"title": "月对账单管理",
+				"url": "../scf2/home.html#/1qh-mobile/check.monthManager"
+			},
+			{
+				"title": "月对账单审核",
+				"url": "../../scf2/home.html#/1qh-mobile/check.monthManagerAudit"
+			},
+			{
+				"title": "对账单投递",
+				"url": "../../scf2/home.html#/1qh-mobile/check.mail"
+			},
+			{
+				"title": "参数设置",
+				"url": "../scf2/home.html#/1qh-mobile/check.setting"
+			},
+			{
+				"title": "付款结果维护",
+				"url": "../scf2/home.html#/1qh-mobile/check.maintenance"
+			},
+			{
+				"title": "付款结果复核",
+				"url": "../../scf2/home.html#/1qh-mobile/check.recheck"
+			},
+			{
+				"title": "验签证书管理",
+				"url": "../../scf2/home.html#/1qh-mobile/check.certificat"
+			}
+		]
+	}
+]

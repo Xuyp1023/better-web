@@ -1,0 +1,12 @@
+{
+	"initInfo":{
+		"resolve":["wdatePicker","btDict","../m/btdev/pages.js"]
+	},
+	"configVo":{
+		"BTServerPath" : {
+            "Query_Sign_List":["server/http/scf/querySignList.json"],
+            "Query_Company_List":["server/btDict/qh/commission/company-list.json","/Platform/BaseInfo/queryCustSelect"]
+        },
+        "tableParams":{}
+	}
+}

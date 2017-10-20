@@ -1,0 +1,23 @@
+{
+  "message": "查询合同台账客户信息",
+  "data": {
+    "custNo": 102209578,
+    "contractId": 722,
+    "custName": "中山市华莱登卫浴有限公司",
+    "representative": "tesxt",
+    "bankName": "浙商银行中山市分行",
+    "bankAccount": "634342548995341",
+    "taxCode": "4654654645",
+    "phone": "0755-6123456",
+    "fax": "2324567",
+    "address": "666666666666666",
+    "email": "41232322@qq.com",
+    "businStatus": "1",
+    "regDate": "20170831",
+    "regTime": "160316",
+    "bankAccountName": "中山华莱登卫浴有限公司",
+    "zipCode": "414990"
+  },
+  "page": "",
+  "code": 200
+}

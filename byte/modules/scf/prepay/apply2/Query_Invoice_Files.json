@@ -1,0 +1,22 @@
+{
+  "message": "文件列表查询成功!",
+  "data": [
+    {
+      "id": 1003242,
+      "batchNo": 1002812,
+      "fileName": "句柄访问方式.png",
+      "fileType": "png",
+      "fileNo": "",
+      "fileLength": 58475,
+      "regDate": "20170825",
+      "regTime": "164614",
+      "fileInfoType": "invoiceFile",
+      "fileInfo": "",
+      "fileDescription": "",
+      "businStatus": "",
+      "inner": false
+    }
+  ],
+  "page": "",
+  "code": 200
+}

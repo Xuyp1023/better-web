@@ -1,0 +1,51 @@
+<div class="bt-modal">
+  <div class="bt-modal-background"></div>
+  <div class="bt-modal-content">
+    <span class="bt-pop-close" ng-click="closeModal()"></span>
+    <div class="bt-modal-body">
+      <div class="header moving" bt-drag>
+        <ul>
+          <li class="active"><span>确认金额</span><span class="status"></span></li>
+          <li><span>买入结果</span><span class="status"></span></li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="content-header">
+          <span class="label">企鹅宝总资产：</span>
+          <span style="color: #063c94;" ng-bind-html="235500001.11 | btnumber"></span>
+        </div>
+        <table class="bt-form modal">
+          <tbody>
+            <tr class="bt-form-group">
+              <td class="bt-form-label" style="padding-top: 0px;"><span class="plan"></span>理财方案：</td>
+              <td class="bt-form-input">
+                <select ng-model="searchData.type1" bt-dict="qh/commission/company-list"><option value="" disabled>七天理财方案</option></select>
+                <span class="bt-form-info">百万分收益：{{123}}元</span>
+              </td>
+            </tr>
+            <tr class="bt-form-group">
+              <td class="bt-form-label">买入金额：</td>
+              <td class="bt-form-input">
+                <input type="number" ng-model="sometext" placeholder="900,000,000.00">
+              </td>
+            </tr>
+            <tr class="bt-form-group">
+              <td class="bt-form-label">确认金额：</td>
+              <td class="bt-form-input" style="padding-top: 4px;font-size: 14px;">
+                <span ng-bind="111237810.85 | btmoeny"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="modal-date">
+          <span class="confirm">到期自动卖出&nbsp;到期日:</span>
+          <input type="text" class="bt-date" ng-model="GTEregDate" bt-date>
+          <span class="bt-red">预期资金到账日2017-07-29</span>
+        </div>
+      </div>
+      <div class="bt-align-center">
+        <button class="bt-btn bt-btn-confirm" ng-click="apply()">立即买入</button>
+      </div>
+    </div>
+  </div>
+</div>

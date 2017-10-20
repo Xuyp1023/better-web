@@ -1,0 +1,16 @@
+{
+	"initInfo": {
+		"resolve": [
+			"wdatePicker","btDict"
+		]
+	},
+	"configVo": {
+		"BTServerPath": {
+			"TRADE_ACCOUNT_LIST": ["Module_Path/AAqueryCustInfo.json","/SaleQuery/queryCustInfo"],
+			"RELA_ACCO_INFO_PATH": ["Module_Path/AAqueryRelaAccoInfo.json","/SaleQuery/queryRelaAccoInfo"],
+			"OPENED_AGENCY_PATH": ["Module_Path/AAqueryOpenedAgencyNoList.json","/SaleQuery/queryOpenedAccountByBusinClass"],
+			"SALE_AGENCY_INFO_PATH": ["Module_Path/AAquerySaleAgencyInfoWithFile.json","/SaleQuery/querySaleAgencyInfoWithFile"]
+		},
+		"formParams": {}
+	}
+}

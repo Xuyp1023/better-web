@@ -1,0 +1,81 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>我的签约列表</span>
+	</div>
+
+	<div class="bt-title-card">
+		<span class="icon"></span>签约列表
+	</div>
+	<table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">签约日期：</td>
+				<td width="50%" class="bt-query-value">
+					<input type="text" class="bt-date bt-query-date" ng-model="searchData.GTEregDate" bt-date ><span class="bt-query-cut"></span><input type="text" class="bt-date bt-query-date" ng-model="searchData.LTEregDate" bt-date>
+				</td>
+				<td class="bt-query-key">签约企业：</td>
+				<td width="50%" class="bt-query-value">
+					<select ng-model="searchData.factorNo" ng-options="item.key as item.value for item in companyList">						
+					</select>
+				</td>								
+			</tr>
+			<tr class="bt-query-item">
+				<td width="14%" class="bt-query-key">合同状态：</td>
+				<td style="vertical-align: top">
+					<select ng-model="searchData.type" ng-options="item.key as item.value for item in auditStatusList">
+						<option value="">所有</option>
+					</select>
+				</td>				
+				<td colspan="2" class="bt-vertical-top">
+					<div class="bt-align-right bt-space-8">
+						<button class="bt-btn bt-btn-confirm" ng-click="queryList($event)">查询</button>
+						<button class="bt-btn bt-btn-default">重置</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="bt-title-card">
+		<span class="icon"></span>我的签约列表
+	</div>
+	 <table class="bt-table">
+		<thead class="bt-table-header">
+			<tr>				
+				<th width=10%>签约流水号</th>
+				<th width=10%>合同编号</th>
+				<th width=10%>合同名称</th>
+				<th width=10%>签约发起方</th>
+				<th width=10%>签约方式</th>
+				<th width=10%>发起日期</th>
+				<th width=10%>截止日期</th>
+				<th width=10%>合同状态</th>
+				<th width=10%>签署状态</th>
+				<th width=10%>操作</th>
+			</tr>
+		</thead>
+		<tbody class="bt-table-body">
+			<tr ng-repeat=" item in rowDatas">				
+				<td><a class="bt-table-button">{{item.code}}</a></td>
+				<td>{{item.start}}</td>
+				<td class="bt-align-right">{{item.money | currency:''}}</td>
+				<td><span class="bt-table-status error"></span>已生效2</td>
+				<td><span class="bt-table-status error"></span>已生效2</td>
+				<td><span class="bt-table-status error"></span>已生效2</td>
+				<td><span class="bt-table-status error"></span>已生效2</td>
+				<td><span class="bt-table-status error"></span>已生效2</td>
+				<td><span class="bt-table-status error"></span>已生效2</td>
+				<td>
+					<a class="bt-table-button" ng-click="itemDetail(item,$event)">详情</a>
+					<a class="bt-table-button" ng-click="itemDetail(item,$event)">日志</a>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<td colspan="10">
+                <div bt-pagination conf="listPage" func="queryList(false);"></div>
+            </td>
+		</tfoot>
+	</table>
+		
+</div>

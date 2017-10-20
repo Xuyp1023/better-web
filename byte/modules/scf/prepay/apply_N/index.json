@@ -1,0 +1,49 @@
+{
+	"initInfo":{
+		"resolve":["btDict","vendor/bt-toaster/toaster.js","vendor/jquery/jquery.min.js","wdatePicker"]
+	},
+	"configVo":{
+		"BTServerPath": {
+			"QUERY_ATTACHMENT_LIST": [
+				"Module_Path/json/Query_All_Info.json","/Platform/CustFile/fileListByBatchNo"
+			],
+			"Query_All_Info": [
+				"Module_Path/json/Query_All_Info.json","/Scf/ReceivableRequest/saveAddRequest"
+			],"Query_All_FIND":[
+				"Module_Path/json/Query_All_Info.json","/Scf/ReceivableRequest/findOneByRequestNo"
+			],
+			"Query_Credit": [
+				"Module_Path/json/Query_Credit.json"
+			],
+			"Query_Product_List": [
+				"Module_Path/json/Query_Product_List.json","/Scf/ReceivableRequest/queryProductByRequestNo"
+			],
+			"Query_Bank_List": [
+				"Module_Path/json/Query_Bank_List.json","/Platform/BankAccount/queryBankAccountKeyAndValue"
+			],
+			"Query_Asset_Dict": [
+				"Module_Path/json/Query_Asset_Dict.json","/Scf/ProductConfig/findAssetDictByProduct"
+			],"Save_Contract": [
+				"Module_Path/json/Save_Contract.json","/Scf/ReceivableRequest/saveSubmitRequestTotal"
+			],"QueryValidCode": [
+				"Module_Path/json/QueryValidCode.json"
+			],"Save_Confirm_Page2": [
+				"Module_Path/json/Save_Confirm_Page2.json","/Scf/ReceivableRequest/saveSupplierFinishConfirmRequest"
+			],"Query_BankInfo": [
+				"Module_Path/json/Query_BankInfo.json","/Platform/BankAccount/findCustMechBankAccount"
+			],"Save_Supplier_Sign": [
+				"Module_Path/json/Save_Supplier_Sign.json","/Scf/ReceivableRequest/saveSupplierSignAgreement"
+			],"Save_Core_Sign": [
+				"Module_Path/json/Save_Core_Sign.json","/Scf/ReceivableRequest/saveCoreSignAgreement"
+			],"Query_Contract_Buy": [
+				"Module_Path/json/Query_Contract_Buy.json","/Scf/ContractLedger/findContractLedgerCustInfoByCustNoAndContractId"
+			],"Query_Contract_Sell": [
+				"Module_Path/json/Query_Contract_Sell.json","/Scf/ContractLedger/findContractLedgerCustInfoByCustNoAndContractId"
+			],"Query_Contract_Uploads": [
+				"Module_Path/json/Query_Contract_Uploads.json","/Scf/ContractLedger/findContractLedgerCustFileItems"
+			],"Query_Invoice_Files": [
+				"Module_Path/json/Query_Invoice_Files.json","/Platform/CustFile/fileListByBatchNo"
+			]
+		}
+	}
+}

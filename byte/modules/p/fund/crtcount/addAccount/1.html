@@ -1,0 +1,213 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>开通基金业务</span>
+	</div>
+	<div class="header">
+		<ul>
+			<li class="active last"><span>完善机构信息</span><span class="status"></span></li>
+			<li><span>签署协议</span><span class="status"></span></li>
+			<li><span>预览</span><span class="status"></span></li>
+			<li><span>完成</span><span class="status"></span></li>
+		</ul>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>客户资料
+	</div>
+	<table class="bt-form bt-form-two">
+		<tbody>
+			<tr class="bt-form-group">
+				<td class="bt-form-label">申请机构名称：</td>
+				<td class="bt-form-input" colspan="3">
+					<select style="width:100%;" ng-model="regInfoBind.custNo" ng-change="changeInitInfo(regInfoBind.custNo)" ng-options="item.value as item.name for item in BTDict.AccountList"></select>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label">组织机构代码证：</td>
+				<td width="100%" class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.busiLicence" disabled>
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>开户证件有效期：</td>
+				<td class="bt-form-input">
+					<input type="text" class="bt-date small" ng-model="regInfoBind.certValidDate" long-term="true" bt-date required>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>营业执照号码：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.identNo" disabled>
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>邮政编码：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.zipCode" placeholder="请输入" required>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>通讯地址：</td>
+				<td class="bt-form-input" colspan="3">
+					<input type="text" ng-model="regInfoBind.address" style="width:100%;">
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>业务联系电话：</td>
+				<td class="bt-form-input">
+					<input type="number" ng-model="regInfoBind.phone" placeholder="请输入" required>
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>传真：</td>
+				<td class="bt-form-input">
+					<input type="number" ng-model="regInfoBind.faxNo" placeholder="请输入" required>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label">企业性质：</td>
+				<td class="bt-form-input">
+					<select ng-model="regInfoBind.companyNt" onchange="angular.element(this).scope().changeCompanyNt(this)">
+						<option value="0">国资企业</option>
+						<option value="1">民营企业</option>
+						<option value="2">合资企业</option>
+						<option value="3">其它</option>
+						<option value="4">个人独资</option>
+						<option value="5">合伙企业</option>
+						<option value="6">外资企业</option>
+						<option value="7">中外合作</option>
+					</select>
+				</td>
+				<td class="bt-form-label">是否有资质：</td>
+				<td class="bt-form-input">
+					<select ng-model="regInfoBind.aptitude">
+						<option value="0">无</option>
+						<option value="1">有</option>
+					</select>
+				</td>
+			</tr>
+			<tr class="bt-form-group" ng-show="regInfoBind.companyNt == '3'">
+				<td class="bt-form-label"><span class="bt-red">*</span>企业性质描述：</td>
+				<td class="bt-form-input" colspan="3">
+					<input type="text" ng-model="regInfoBind.companyNt2" style="width:100%;">
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label">实际投资者的自然人：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.naturalPerson">
+				</td>
+				<td class="bt-form-label">实际受益人：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.beneficiary">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>交收行信息
+	</div>
+	<table class="bt-form bt-form-two">
+		<tbody>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>银行账户名：</td>
+				<td class="bt-form-input" colspan="3">
+					<input type="text" ng-model="regInfoBind.bankAcountName" disabled="" style="width:100%;">
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>银行账户：</td>
+				<td width="100%" class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.bankAccount" disabled="">
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>所属银行：</td>
+				<td class="bt-form-input">
+					<select ng-model="regInfoBind.bankNo" disabled ng-options="item.key as item.value for item in BTDict.SaleBankCode"></select>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>开户行所在地：</td>
+				<td class="bt-form-input">
+					<select class="half" ng-model="regInfoBind.provinceNo" ng-change="changeCity()" ng-options="item.key as item.value for item in BTDict.Provinces"></select>
+					<select class="half" ng-model="regInfoBind.cityNo" ng-options="item.key as item.value for item in BTDict.citys"></select>
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>开户银行全称：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.bankName" disabled>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>经办人、法人信息
+	</div>
+	<table class="bt-form bt-form-two">
+		<tbody>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>经办人姓名：</td>
+				<td width="100%" class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.contName">
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>经办人证件类型：</td>
+				<td class="bt-form-input">
+					<select ng-model="regInfoBind.contIdentType" ng-options="item.key as item.value for item in BTDict.PersonIdentType"></select>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>经办人证件号码：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.contIdentNo">
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>证件有效期：</td>
+				<td class="bt-form-input">
+					<input type="text" class="bt-date small" ng-model="regInfoBind.contCertValidDate" long-term="true" bt-date required>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>经办人手机：</td>
+				<td class="bt-form-input">
+					<input type="number" ng-model="regInfoBind.contMobileNo">
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>经办人邮箱：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.contEmail">
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>经办人联系电话：</td>
+				<td class="bt-form-input">
+					<input type="number" ng-model="regInfoBind.contPhone">
+				</td>
+				<td class="bt-form-label">经办人传真：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.contFax">
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>法人姓名：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.lawName">
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>法人证件类型：</td>
+				<td class="bt-form-input">
+					<select ng-model="regInfoBind.lawIdentType" ng-options="item.key as item.value for item in BTDict.PersonIdentType"></select>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>法人证件号码：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="regInfoBind.lawIdentNo">
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>法人证件有效期：</td>
+				<td class="bt-form-input">
+					<input type="text" class="bt-date small" ng-model="regInfoBind.lawCertValidDate" long-term="true" bt-date required>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="center">
+		<button class="bt-btn bt-btn-confirm" ng-click="toPreviewPage($event)">下一步</button>
+	</div>
+	<div class="bt-prompt-header">
+		<span>温馨提示</span>
+	</div>
+	<div class="bt-prompt-content">
+		<p>1.请您认真核对地址信息，保证资料真实、准确。</p>
+		<p>2.因网上交易的特殊性，请您务必填写真实、准确的机构信息并妥善保管登录账号（证件号码、基金账号）及交易密码等重要信息。</p>
+		<p>3.管理人不承担因您未提供真实、准确信息或未妥善保管网上交易登录账号及交易密码而产生的任何损失。</p>
+		<p>4.开立基金账户所需资料:开放式基金账户申请表机构、开放式基金业务授权委托书、机构投资者传真委托服务协议、开放式基金业务印鉴卡、营业执照复印件（加盖公章）、组织机构代码证复印件（加盖公章）、税务登记证复印件（加盖公章）、指定银行开户证明、经办人有效身份证复印件（加盖公章）、法人有效身份证复印件（加盖公章）、机构负责人有效身份证复印件（加盖公章）、机构投资者风险调查问卷、投资者权益书;此外某些基金机构所需个别资料请在基金机构选择页面详细查看。</p>
+	</div>
+</div>

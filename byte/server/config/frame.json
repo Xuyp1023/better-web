@@ -1,0 +1,13 @@
+{
+	"menuid":7,
+	"sidebarMenuUrl":[
+		["server/menus/sidebar-qh-mobile.json","home.html#/welcome"],
+		["server/menus/sidebar-scf.json","home.html#/welcome"],
+		["server/menus/sidebar-fund.json","home.html#/welcome"],
+		["server/menus/sidebar-platform.json","home.html#/welcome"],
+		["server/menus/sidebar-menu5.json","welcome"],
+		["server/menus/sidebar-qh-mobile.json","welcome"],
+		["server/menus/sidebar-demo.json","welcome"]
+	],
+	"siberbarRealUrl":"/Platform/CustOperator/findSysMenuByMenuId"
+}

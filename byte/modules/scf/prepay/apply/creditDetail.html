@@ -1,0 +1,76 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>应付账款详情页</span>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>基本信息
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td width="10%" class="bt-card-key">凭证编号:</td>
+        <td width="40%" class="bt-card-value">{{loanInfo.refNo}}</td>
+        <td width="16%" class="bt-card-key">账款状态:</td>
+        <td width="34%" class="bt-card-value">
+            <span  ng-show="loanInfo.isCustDetail!=1" ng-bind="loanInfo.businStatus | kindf:'billVersionBusinStatus'"></span>  
+            <span  ng-show="loanInfo.isCustDetail==1" ng-bind="loanInfo.businStatus | kindf:'effectiveVersionUsingBusinStatus'"></span>
+        </td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">债务人名称:</td>
+        <td class="bt-card-value">{{loanInfo.coreCustName}}</td>
+        <td class="bt-card-key">债权人名称:</td>
+        <td class="bt-card-value">{{loanInfo.custName}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">账款编号:</td>
+        <td class="bt-card-value">{{loanInfo.receivableNo}}</td>
+        <td class="bt-card-key">应付账款结算日:</td>
+        <td class="bt-card-value">{{loanInfo.endDate}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">应付账款金额:</td>
+        <td class="bt-card-value">{{loanInfo.balance | currency:''}}</td>
+        <td class="bt-card-key">金额大写:</td>
+        <td class="bt-card-value">{{loanInfo.balance | btmoeny}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">应付账款余额:</td>
+        <td class="bt-card-value">{{loanInfo.surplusBalance | currency:''}}</td>
+        <td class="bt-card-key">金额大写:</td>
+        <td class="bt-card-value">{{loanInfo.surplusBalance | btmoeny}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">抵扣金额:</td>
+        <td class="bt-card-value">{{loanInfo.deductionBalance | currency:''}}</td>
+        <td class="bt-card-key">已结算金额</td>
+        <td class="bt-card-value">{{loanInfo.statementBalance | currency:''}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">贸易合同号:</td>
+        <td class="bt-card-value">{{loanInfo.agreeNo}}</td>
+        <td class="bt-card-key">发票号:</td>
+        <td class="bt-card-value">{{loanInfo.invoiceNos}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">备注:</td>
+        <td class="bt-card-value" colspan="3">{{loanInfo.description}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">登记人:</td>
+        <td class="bt-card-value">{{loanInfo.modiOperName}}</td>
+        <td class="bt-card-key">登记时间:</td>
+        <td class="bt-card-value">{{loanInfo.regDate +' '+loanInfo.regTime}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="center">
+    <button class="bt-btn bt-btn-default" ng-click="closeThisDialog()">返回</button>
+  </div>
+  <div class="bt-prompt-header">
+    <span>温馨提示</span>
+  </div>
+  <div class="bt-prompt-content">
+    <p>1.应付账款金额=应付账款余额+抵扣金额+已结算金额</p>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+{
+  "code":200,
+  "data":{
+    "total":{"totalBalance":1231.111,"floatProfit":"1231.111"},
+    "fund":{
+      "head":{
+
+      },
+      "data":{
+
+      }
+    },"penguin":{
+      "head":{
+        "totalBalance":1231.111,"floatProfit":"1231.111"
+      },
+      "data":[
+        {"floatProfit":"1231.111","agencyName":"花裤衩一号","fundName":"企鹅1号","fundCode":"0005415"}
+      ]
+    }
+  }
+}

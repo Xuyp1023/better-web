@@ -1,0 +1,51 @@
+.bt-container {
+  min-width: 950px;
+}
+.bt-query-card {
+  width: 950px;
+}
+strong {
+  font-weight: bold;
+}
+#fund_search_way p {
+  margin: 10px;
+}
+#fund_search_way .tab2em {
+  text-indent: 2em;
+}
+#fund_search_way h3 {
+    text-align: center;
+    margin: 20px;
+}
+h3 {
+  font-size: 24.5px;
+}
+h1, h2, h3 {
+  line-height: 40px;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 10px 0;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 20px;
+  color: inherit;
+  text-rendering: optimizelegibility;
+}
+.center {
+  text-align: center;
+}
+.content{
+  font-size: 14px;
+  font-weight: normal;
+}
+.content .radio{
+  margin: 0 5px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}

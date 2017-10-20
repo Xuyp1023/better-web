@@ -1,0 +1,25 @@
+.bt-tabs{
+	border-bottom: 1px solid #063c94;
+    margin: 10px 10px;
+}
+.tab-content{
+	margin: 10px 10px;
+}
+.bt-tabs>li{
+	display: inline-block;
+	padding: 3px 5px;
+    border: 1px solid #063c94;
+    border-radius: 4px 4px 0 0;
+    border-bottom: none;
+    cursor: pointer;
+}
+.tab-content>div{
+	display: none;
+}
+div.is-show{
+	display: block;
+}
+.is-active{
+	background: #063c94;
+	color: white;
+}

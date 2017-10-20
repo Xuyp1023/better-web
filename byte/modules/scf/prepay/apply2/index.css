@@ -1,0 +1,86 @@
+.header {
+  background-color: #063c94;
+	height: 66px;
+	padding: 10px 20px 10px;
+}
+.header li {
+  font-size: 14px;
+  width: 20%;
+  list-style: none;
+  float: left;
+	text-align: center;
+}
+.header li.active {
+  color: white;
+}
+.header li.active.last {
+  background-image: url(../../../../app/img/modal/bt-modal-air.png);
+	background-position:100% 90%;
+  background-repeat: no-repeat;
+}
+.header li .status {
+	display: block;
+	height: 25px;
+	border-bottom: 1px solid black;
+	background-image: url(../../../../app/img/modal/bt-modal-circle.png);
+	background-position:bottom center;
+  background-repeat: no-repeat;
+}
+.header li.active .status {
+	border-bottom-color: white;	
+	background-image: url(../../../../app/img/modal/bt-modal-circle-white.png);
+} 
+div.center {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+.tabs-button {
+	border-top: 1px solid #063c94;
+	background-color: #ecf8ff;
+	padding: 10px;
+	line-height: 21px;
+}
+.bt-table-button.new-item {
+	float: right;
+	padding-left: 20px;
+}
+.tabs-button .tabs-span {
+	margin-left: 20px;
+	font-size: 14px;
+	color: #666;
+}
+.bt-table {
+	margin-bottom: 20px;
+}
+.labels {
+	padding-right: 5px;
+}
+.labels input{
+	vertical-align: middle;
+}
+.spans{
+	font-size: 12px;
+}
+.bt-bBlue {
+	background-color: #ecf8ff;
+}
+.bt-msgs {
+	font-size: 12px;
+	text-align: center;
+}
+.bt-msgs span{
+	padding: 0 10px;
+}
+.bt-container {
+  min-width: 950px;
+}
+.bt-query-card {
+  width: 950px;
+}
+.details_boxstyle {
+	background-image: url(./billbox2.png);
+	width: 820px;
+	height: 550px;
+	position: relative;
+}

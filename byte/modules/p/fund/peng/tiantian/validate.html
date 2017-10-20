@@ -1,0 +1,41 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>短信验证平台</span>
+  </div>
+  <div class="bt-title-card">
+		<span class="icon"></span>短信验证
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td width="16%" class="bt-card-key">手机号码:</td>
+        <td width="84%" class="bt-card-value">{{DayFundInfo.mobileNo}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">ContextId:</td>
+        <td class="bt-card-value">{{DayFundInfo.contextId}}</td>
+      </tr>
+      <tr class="bt-card-item"  ng-if="DayFundInfo.businStatus==2">
+        <td class="bt-card-key">验证状态:</td>
+        <td class="bt-card-value">已过期</td>
+      </tr>
+      <tr class="bt-card-item" ng-if="DayFundInfo.businStatus!=2">
+        <td class="bt-card-key">剩余短信验证时间:</td>
+        <td class="bt-card-value"><span bt-now name="DayFundInfo.validTime" type="decrease"></span>秒</td>
+      </tr>
+      <tr class="bt-card-item"  ng-if="DayFundInfo.businStatus!=2">
+        <td class="bt-card-key">输入验证码:</td>
+        <td class="bt-card-value">
+            <input type="text" ng-model="DayFundInfo.verifyCode">
+        </td>
+      </tr>
+      <tr class="bt-card-item" style="line-height:60px;">
+				<td class="bt-card-key"></td>
+				<td class="bt-card-value bt-space-8">
+					<button class="bt-btn bt-btn-confirm" ng-click="validateSubmit($event)"  ng-if="DayFundInfo.businStatus!=2">验证</button>
+		 			<button class="bt-btn bt-btn-default" ng-click="closeThisDialog()">返回</button>
+				</td>
+			</tr>
+    </tbody>
+  </table>
+</div>

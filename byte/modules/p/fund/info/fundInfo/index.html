@@ -1,0 +1,73 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>资产信息</span>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>资产收益
+	</div>
+	<table class="bt-card-info">
+		<tbody>
+			<tr class="bt-card-item">
+				<td width="10%" class="bt-card-key">昨日收益(元):</td>
+				<td width="40%" class="bt-card-value">{{fundAllInfo.currentIncome | number}}</td>
+				<td width="10%" class="bt-card-key">总资产(元):</td>
+				<td width="40%" class="bt-card-value">{{fundAllInfo.income | number}}</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">未付收益(元):</td>
+				<td class="bt-card-value">{{fundAllInfo.totalBalance | number}}</td>
+				<td class="bt-card-key">浮动盈亏(元):</td>
+				<td class="bt-card-value">{{fundAllInfo.floatProfit | number}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>企业投资
+	</div>
+	<table class="href">
+		<tr>
+			<td width="30%">
+				<a href="../p/pages/redem/redem.html">
+					<div class="normal">
+						<img class="img-small" src="../p/img/checkout_money.png" height="128" width="128" alt="">
+						<p>取出</p>
+					</div>
+				</a>
+			</td>
+			<td width="30%">
+				<a href="../p/pages/analysis/fundDetail.html">
+					<div class="normal">
+						<img class="img-small" src="../p/img/info_money.png" height="128" width="128" alt="">
+						<p>资产情况</p>
+					</div>
+				</a>
+			</td>
+			<td width="40%" rowspan="2">
+				<a href="../p/pages/purchase/purchase.html">
+					<div class="store">
+						<img class="img" src="../p/img/checkin_money.png" height="128" width="128" alt="">
+						<p>存入</p>
+					</div>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="../p/pages/queryInfo/queryCheck.html">
+					<div class="normal">
+						<img class="img-small" src="../p/img/auto_money.png" height="128" width="128" alt="">
+						<p>交易查询</p>
+					</div>
+				</a>
+			</td>
+			<td>
+				<a href="../p/pages/purchase/purchase.html">
+					<div class="normal">
+						<img class="img-small" src="../p/img/orther_money.png" height="128" width="128" alt="">
+						<p>其他理财产品</p>
+					</div>
+				</a>
+			</td>
+		</tr>
+	</table>
+</div>

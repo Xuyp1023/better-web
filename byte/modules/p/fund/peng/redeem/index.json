@@ -1,0 +1,10 @@
+{
+	"initInfo":{
+		"resolve":[]
+	},
+	"configVo":{
+		"BTServerPath" : {
+			"Query_Fund_BasicInfo":["server/http/test/test-pages-query.json"]
+		}
+	}
+}

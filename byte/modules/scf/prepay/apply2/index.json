@@ -1,0 +1,52 @@
+{
+	"initInfo":{
+		"resolve":["btDict","vendor/bt-toaster/toaster.js","vendor/jquery/jquery.min.js","wdatePicker"]
+	},
+	"configVo":{
+		"BTServerPath": {
+			"QUERY_ATTACHMENT_LIST": [
+				"Module_Path/json/Query_All_Info.json","/Platform/CustFile/fileListByBatchNo"
+			],"Query_All_Info": [
+				"Module_Path/Query_All_Info.json","/Scf/ReceivableRequest/saveAddRequest"
+			],"Query_All_FIND":[
+				"Module_Path/Query_All_Info.json","/Scf/ReceivableRequest/findOneByRequestNo"
+			],
+			"Query_Credit": [
+				"Module_Path/Query_Credit.json"  
+			],
+			"Query_Factory_List": [
+				"Module_Path/server/Query_Factory_List.json","/Scf/SupplierOffer/queryAllFactoryByCustNo"
+			],"Save_Contract": [
+				"Module_Path/Save_Contract.json","/Scf/ReceivableRequest/saveSubmitRequest"
+			],"QueryValidCode": [
+				"Module_Path/QueryValidCode.json","/Scf/ElecAgree/findValidCode"
+			],"SendValidCode": [
+				"Module_Path/QueryValidCode.json","/Scf/ElecAgree/sendValidCode"
+			],"Save_Confirm_Page2": [
+				"Module_Path/Save_Confirm_Page2.json","/Scf/ReceivableRequest/saveSupplierFinishConfirmRequest"
+			],"Save_Confirm_Page3": [
+				"Module_Path/Save_Confirm_Page3.json","/Scf/ReceivableRequest/saveCoreConfrimPayRequest"
+			],"Save_Confirm_Page4": [
+				"Module_Path/Save_Confirm_Page4.json","/Scf/ReceivableRequest/saveFactoryConfrimPayRequest"
+			],"Save_Supplier_Sign": [
+				"Module_Path/Save_Supplier_Sign.json","/Scf/ReceivableRequest/saveSupplierSignAgreement"
+			],"Save_Core_Sign": [
+				"Module_Path/Save_Core_Sign.json","/Scf/ReceivableRequest/saveCoreSignAgreement"
+			],"Save_Core_Sign4": [
+				"Module_Path/Save_Core_Sign.json","/Scf/ReceivableRequest/saveFactorySignAgreement"
+			],"Query_Contract_Buy": [
+				"Module_Path/Query_Contract_Buy.json","/Scf/ContractLedger/findContractLedgerCustInfoByCustNoAndContractId"
+			],"Query_Contract_Sell": [
+				"Module_Path/Query_Contract_Sell.json","/Scf/ContractLedger/findContractLedgerCustInfoByCustNoAndContractId"
+			],"Query_Contract_Uploads": [
+				"Module_Path/Query_Contract_Uploads.json","/Scf/ContractLedger/findContractLedgerCustFileItems"
+			],"Query_Invoice_Files": [
+				"Module_Path/Query_Invoice_Files.json","/Platform/CustFile/fileListByBatchNo"
+			],"Query_contractUploads_Files": [
+				"Module_Path/Query_Invoice_Files.json","/Platform/CustFile/fileListByBatchNo"
+			],"Query_ElecAgree_Files": [
+				"Module_Path/Query_ElecAgree_Files.json","/Scf/ElecAgree/findAgreePage"
+			]
+		}
+	}
+}

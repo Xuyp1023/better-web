@@ -1,0 +1,188 @@
+<div class="bt-container">
+	<div class="bt-content-title">
+		<h1><img src="app/img/fast_money.png" alt="">开通余利宝</h1>
+	</div>
+	<div class="yulibao-content">
+		<div class="info">
+			<div class="profit">
+				<div class="profit-total">
+					<div class="total-title">总金额(元)</div>
+					<div class="total-money">
+						<span>{{basicInfo.balance}}</span>
+						<a ng-show="aliPayInfo.authStatus == '0'" ng-click="aliPayPoll()" class="rollout" target="_blank" href="{{aliPayInfo.authPath}}">授权登录</a>
+						<a ng-show="aliPayInfo.authStatus != '0'" class="rollin" href="../p/pages/balance/balancePurchase.html#{{fundDayInfo.fundCode}}">申购</a>
+						<a ng-show="aliPayInfo.authStatus != '0'" class="rollout" href="../p/pages/balance/balanceRedem.html#{{fundDayInfo.fundCode+'-102212096-'+basicInfo.balance}}">赎回</a>
+					</div>
+					<div class="frozen-money disable">
+						<div class="wrap">
+							<div class="title">冻结金额(元):</div>
+							<div class="money"><span>&nbsp;&nbsp;</span><span>0.00</span></div>
+						</div>
+					</div>
+				</div>
+				<div class="profit-earn">
+					<div class="earn-day">
+						<div class="earn-title">昨日收益(元)</div>
+						<div class="earn-money">{{basicInfo.currentIncome}}</div>
+					</div>
+					<div class="earn-total">
+						<div class="earn-title">未付收益(元)</div>
+						<div class="earn-money">{{basicInfo.income}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="rate-warp">
+				<div class="rate-icon"></div>
+				<div class="seven-days-rate">
+					<div class="title">近七日年化收益率</div>
+					<div class="rate-value">{{fundDayInfo.incomeRatio}}%
+					</div>
+				</div>
+				<div class="wan-earn-rate">
+					<div class="title">万份收益</div>
+					<div class="rate-value" >{{fundDayInfo.incomeUnit}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="portal-detail-search">
+			<ul class="portal-detail-search-nav">
+				<li ng-class="{'active':pageCtrlInfo.showId === 'dealDetail'}" ng-click="switchTabs('dealDetail')"><div>交易明细查询</div></li>
+				<li ng-class="{'active':pageCtrlInfo.showId === 'historyProfit'}" ng-click="switchTabs('historyProfit')"><div>份额查询</div></li>
+			</ul>
+			<!-- 交易明细查询条件 -->
+			<div class="portal-detail-search-header" ng-if="pageCtrlInfo.showId === 'dealDetail'">
+				<div class="portal-detail-search-header-time left">
+					<span class="portal-detail-search-header-text">交易时间:</span>
+					<span class="ant-calendar-picker">
+						<span>
+							<input type="text" placeholder="开始日期" bt-date="searchDetail.GTEtradeDate" id="begin_date" bt-max-date="end_date" class="ant-calendar-picker-input ant-input">
+							<span class="ant-calendar-picker-icon"></span>
+						</span>
+					</span>
+					<span class="portal-detail-search-header-line"> - </span>
+					<span class="ant-calendar-picker">
+						<span>
+							<input type="text" placeholder="结束日期" bt-date="searchDetail.LTEtradeDate" id="end_date" bt-min-date="begin_date" class="ant-calendar-picker-input ant-input">
+							<span class="ant-calendar-picker-icon"></span>
+						</span>
+					</span>
+				</div>
+				<div>
+					<div class="portal-detail-search-header-select left">
+						<p class="portal-detail-search-header-text left">类型:</p>
+						<span class="ant-select ant-select-enabled">
+							<select class="ant-select-selection ant-select-selection--single" ng-model="searchDetail.tradeStatus" ng-options ="item.key as item.value for item in auditStatusList"></select>
+						</span>
+					</div>
+					<button class="portal-detail-search-header-button left" ng-click="queryDealDetail()">查询</button>
+				</div>
+			</div>
+			<!-- 历史收益率查询 -->
+			<div class="portal-detail-search-header" ng-if="pageCtrlInfo.showId === 'historyProfit'">
+				<div class="portal-detail-search-header-time left">
+					<span class="portal-detail-search-header-text">历史时间:</span>
+					<span class="ant-calendar-picker">
+						<span>
+							<input type="text" placeholder="开始日期" bt-date="searchHistory.GTEtradeDate" id="begin_date" bt-max-date="end_date" class="ant-calendar-picker-input ant-input">
+							<span class="ant-calendar-picker-icon"></span>
+						</span>
+					</span>
+					<span class="portal-detail-search-header-line"> - </span>
+					<span class="ant-calendar-picker">
+						<span>
+							<input type="text" placeholder="结束日期" bt-date="searchHistory.LTEtradeDate" id="end_date" bt-min-date="begin_date" class="ant-calendar-picker-input ant-input">
+							<span class="ant-calendar-picker-icon"></span>
+						</span>
+					</span>
+				</div>
+				<div>
+					<button class="portal-detail-search-header-button left" ng-click="queryHistoryProfit()">查询</button>
+				</div>
+			</div>
+			<div class="clearfix">
+				<div>
+					<div class="ant-table ant-table-large">
+						<div class="ant-table-body">
+							<!-- 交易明细查询结果 -->
+							<table ng-if="pageCtrlInfo.showId === 'dealDetail'">
+								<colgroup>
+									<col><col><col><col><col>
+								</colgroup>
+								<thead class="ant-table-thead">
+									<tr>
+										<th class="search-date"><div><span>交易日期</span></div></th>
+										<th class=""><div><span>交易类型</span></div></th>
+										<th class="search-amount"><div><span>金额(元)</span></div></th>
+										<th class=""><div><span>状态</span></div></th>
+										<th class=""<div><span>描述</span></div></th>
+									</tr>
+								</thead>
+								<tbody class="ant-table-tbody">
+									<tr class="ant-table-row " style="display:;" ng-repeat="item in dealDetailList">
+										<td class="search-date">
+											<span>{{item.disTradeDate}}</span>
+										</td>
+										<td class=""><span>{{item.businName}}</span></td>
+										<td class="search-amount">
+
+											<span ng-if="item.businFlag==22">{{item.disBalance}}</span>
+											<span ng-if="item.businFlag==24">{{item.disShares}}</span>
+
+										</td>
+										<td class="" ng-bind="item.tradeStatus|kindf:'YlbSaleBusinFlag'"></td>
+										<td class="">
+											<div>{{item.errDetail}}</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- 历史收益率查询结果 -->
+							<table ng-if="pageCtrlInfo.showId === 'historyProfit'">
+								<colgroup>
+									<col><col><col><col><col>
+								</colgroup>
+								<thead class="ant-table-thead">
+									<tr>
+										<th class="search-date"><div><span>历史日期</span></div></th>
+										<th class=""><div><span>净值</span></div></th>
+										<th class="search-amount"><div><span>金额(元)</span></div></th>
+										<th class=""<div><span>基金名称</span></div></th>
+										<th class=""><div><span>交易类型</span></div></th>
+									</tr>
+								</thead>
+								<tbody class="ant-table-tbody">
+									<tr class="ant-table-row " style="display:;" ng-repeat="item in historyDetailList">
+										<td class="search-date"><span>{{item.netDate}}</span></td>
+										<td class=""><span>{{item.netValue}}</span></td>
+										<td class="search-amount"><span>{{item.disShares}}</span></td>
+										<td class=""><span>{{item.fundName}}</span></td>
+										<td class=""><span>交易</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="portal-detail-pagination" ng-if="pageCtrlInfo.showId === 'dealDetail'">
+				<button type="button" class="ant-btn ant-btn-primary" ng-class="{'hidden':!pageCtrlInfo.dealDetail.nextPage}"><span>下一页</span></button>
+				<button type="button" class="ant-btn ant-btn-primary" ng-class="{'hidden':!pageCtrlInfo.dealDetail.prePage}"><span>上一页</span></button>
+			</div>
+			<div class="portal-detail-pagination" ng-if="pageCtrlInfo.showId === 'historyProfit'">
+				<button type="button" class="ant-btn ant-btn-primary" ng-class="{'hidden':!pageCtrlInfo.historyProfit.nextPage}"><span>下一页</span></button>
+				<button type="button" class="ant-btn ant-btn-primary" ng-class="{'hidden':!pageCtrlInfo.historyProfit.prePage}"><span>上一页</span></button>
+			</div>
+		</div>
+	</div>
+	<div class="bt-warm-prompt">
+		<h1 class="bt-prompt-title">
+			<img class="bt-prompt-icon" src="app/img/warm_prompt.png" alt="">温馨提示
+		</h1>
+		<div class="bt-prompt-content">
+            <p>1.周四14:30 - 周五14:30转入资金，周一开始享有收益。</p>
+            <p>2.周五14:30 - 周一14:30转入资金，周二开始享有收益。</p>
+            <p>3.收益=客户享受收益的份额*万份收益/10000。</p>
+            <p>4.收益部分也计算份额，也会产生收益，相当于复利）。</p>
+      </div>
+	</div>
+</div>

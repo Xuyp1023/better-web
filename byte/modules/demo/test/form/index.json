@@ -1,0 +1,9 @@
+{
+	"initInfo":{
+		"resolve":["wdatePicker"]
+	},
+	"configVo":{
+		"formParams":{
+		}
+	}
+}

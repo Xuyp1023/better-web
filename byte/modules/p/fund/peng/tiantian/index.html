@@ -1,0 +1,20 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>短信验证平台</span>
+  </div>
+  <div class="bt-title-card">
+		<span class="icon"></span>列表
+  </div>
+  <table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">机构名称：</td>
+				<td width="100%" class="bt-query-value">
+					<select ng-model="custNo" ng-options="item.value as item.name for item in AccountList"></select>
+					<button class="bt-btn bt-btn-confirm bt-left-5" ng-click="queryList($event)">查询</button>
+				</td>
+      </tr>
+		</tbody>
+  </table>
+  <div bt-table="tableParams" class="bt-table-page"></div>
+</div>

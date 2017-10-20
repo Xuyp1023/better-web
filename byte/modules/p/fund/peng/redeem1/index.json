@@ -1,0 +1,24 @@
+{
+	"initInfo":{
+		"resolve":["wdatePicker","btDict"]
+	},
+	"configVo":{
+		"BTServerPath": {
+			"Query_List_Info": [
+				"Module_Path/Query_List_Info.json","/SaleQuery/querySaleShares"
+			],
+			"reFreshTradeAcoount":[
+				"Module_Path/reFreshTradeAcoount.json","/SaleQuery/queryCustInfo"
+			],"queryFundLimit":[
+				"Module_Path/queryFundLimit.json","/SaleQuery/queryFundLimit"
+			],"checkMoneyAccountAndAgency":[
+				"Module_Path/checkMoneyAccountAndAgency.json","/SaleQuery/checkMoneyAccountAndAgency"
+			],"redeemFund":[
+				"Module_Path/redeemFund.json","/SaleTrade/redeemFund"
+			],"querySaleAgencyInfoWithFile":[
+				"Module_Path/querySaleAgencyInfoWithFile.json","/SaleQuery/querySaleAgencyInfoWithFile"
+			]
+		},"formParams":{
+		}
+	}
+}

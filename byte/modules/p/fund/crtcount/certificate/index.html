@@ -1,0 +1,57 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>企业认证</span>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>选择
+	</div>
+	<table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">选择账户：</td>
+				<td width="50%" class="bt-query-value">
+					<select ng-model="searchData.custNo" ng-options="item.value as item.name for item in companyList"></select>
+				</td>
+				<td width="14%" class="bt-query-key">选择机构：</td>
+				<td width="36%" class="bt-query-value">
+					<select ng-model="searchData.agencyNo" ng-options="item.key as item.value for item in auditStatusList"></select>
+				</td>
+			</tr>
+			<tr class="bt-query-item">
+				<td colspan="4">
+					<div class="bt-align-right bt-space-8">
+						<button class="bt-btn bt-btn-confirm" ng-click="queryList($event)">查询</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card title-bold">
+    <span class="icon"></span>附件信息
+	</div>
+	<table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=30%>附件类型</th>
+        <th width=40%>附件名称</th>
+        <th width=30%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr ng-repeat="item in uploadList">
+        <td ng-bind="item.description"></td>
+        <td ng-bind="item.file.fileName"></td>
+        <td  ng-show="item.file.id" >
+          <a class="bt-table-button" href="{{ item.file.id |downf }}">下载</a>
+          <a class="bt-table-button" ng-click="deleteItem($event,item)">删除</a>
+        </td>
+        <td ng-show="!item.file.id">
+          <label class="bt-table-button" upload-type="table" file-type-name="{{item.fileInfoType}}" bt-upload="item.file">上传</label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+	<div class="bt-align-right bt-space-8 mrg-20">
+		<button class="bt-btn bt-btn-confirm" ng-click="submitCertificate($event)">确定认证</button>
+	</div>
+</div>

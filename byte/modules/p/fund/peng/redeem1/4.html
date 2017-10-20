@@ -1,0 +1,65 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>企鹅宝赎回</span>
+  </div>
+  <div class="header">
+    <ul>
+      <li class="active"><span>选基金</span><span class="status"></span></li>
+      <li class="active"><span>确认金额</span><span class="status"></span></li>
+      <li class="active"><span>预览</span><span class="status"></span></li>
+      <li class="active last"><span>完成</span><span class="status"></span></li>
+    </ul>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>完成
+  </div>
+  <div class="result">
+    <div class="bt-container1">
+      <span style="position: absolute;top: 79px;left: 78px;" class="bt-red">{{12342342213 | number:2}}</span>
+      <table class="bt-card-info">
+        <tbody>
+          <tr class="bt-card-item">
+            <td width="33%" class="bt-card-key">理财方案:</td>
+            <td width="67%" class="bt-card-value">天天理财方案11111111111111111111111111</td>
+          </tr>
+          <tr class="bt-card-item">
+            <td class="bt-card-key">下单日期:</td>
+            <td class="bt-card-value">2017-06-30</td>
+          </tr>
+          <tr class="bt-card-item">
+            <td class="bt-card-key">销售机构:</td>
+            <td class="bt-card-value">天天基金</td>
+          </tr>
+          <tr class="bt-card-item">
+            <td class="bt-card-key">收款账号名:</td>
+            <td class="bt-card-value">天天基金销售有限公司</td>
+          </tr>
+          <tr class="bt-card-item">
+            <td class="bt-card-key">收款账户:</td>
+            <td class="bt-card-value">15454151541515</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <table class="bt-table redeem width600">
+      <thead class="bt-table-header">
+        <tr>
+          <th width=40%>基金名称</th>
+          <th width=20%>占比</th>
+          <th width=40%>卖出份额</th>
+        </tr>
+      </thead>
+      <tbody class="bt-table-body">
+        <tr ng-repeat=" item in rowDatas">
+          <td>{{item.code}}</td>
+          <td>{{item.code}}</td>
+          <td>{{item.code}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin-left:200px;">
+    <button class="bt-btn bt-btn-confirm" ng-click="toIndexPage(1)">返回首页</button>
+    <button class="bt-btn bt-btn-confirm" ng-click="toIndexPage(1)">查看基金产品</button>
+  </div>
+</div>

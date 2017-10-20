@@ -1,0 +1,22 @@
+{
+  "message": "查询附件信息",
+  "data": [
+    {
+      "id": 1003264,
+      "batchNo": 1002828,
+      "fileName": "发票06617816.JPG",
+      "fileType": "JPG",
+      "fileNo": "",
+      "fileLength": 1210993,
+      "regDate": "20170831",
+      "regTime": "160314",
+      "fileInfoType": "agreeAccessory",
+      "fileInfo": "",
+      "fileDescription": "",
+      "businStatus": "",
+      "inner": false
+    }
+  ],
+  "page": "",
+  "code": 200
+}

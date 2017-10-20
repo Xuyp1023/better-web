@@ -1,0 +1,14 @@
+{
+	"initInfo":{
+		"resolve":["vendor/qh/jquery.min.js","vendor/qh/TopCertKit-3.1.0.1.js","vendor/qh/sign.js"]
+	},
+	"configVo":{
+		"BTServerPath" : {
+            "Query_Company_List":["server/btDict/qh/commission/company-list.json","/Platform/BaseInfo/queryCustSelect"],
+            "Submit_Import":["server/http/qh/commission/submit-import.json","/Scf/Commissionfile/saveAddFile"],
+            "Find_template_file":["server/http/qh/commission/submit-import.json","/Scf/Commissionfile/findTemplateFile"],
+            "Find_License":["server/http/qh/check/find-license.json","/Scf/CommissionConfig/findCertLicense"],
+			"Resolve_File":["server/http/qh/commission/file-resolve.json","/Scf/Commissionfile/saveResolveFile"]
+        }
+	}
+}

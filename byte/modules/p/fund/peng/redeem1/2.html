@@ -1,0 +1,55 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>企鹅宝赎回</span>
+  </div>
+  <div class="header">
+    <ul>
+      <li class="active"><span>选基金</span><span class="status"></span></li>
+      <li class="active last"><span>确认金额</span><span class="status"></span></li>
+      <li><span>预览</span><span class="status"></span></li>
+      <li><span>完成</span><span class="status"></span></li>
+    </ul>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>确认
+  </div>
+  <table class="bt-form" bt-form-validate="formParams">
+    <tbody>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">交易账户：</td>
+        <td class="bt-form-input">{{purchaseInfo.agencyName}}</td>
+      </tr>
+      <tr class="bt-form-group">
+          <td class="bt-form-label">理财方案：</td>
+          <td class="bt-form-input">{{purchaseInfo.agencyName}}</td>
+        </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">到账银行卡号：</td>
+        <td class="bt-form-input">{{purchaseInfo.fundName + '[' + purchaseInfo.fundCode + ']'}}</td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">预计到期日期：</td>
+        <td class="bt-form-input">前端收费</td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">可用份额：</td>
+        <td class="bt-form-input">{{purchaseInfo.validShares | currency:''}}</td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label"><span class="bt-red">*</span>赎回份额：</td>
+        <td class="bt-form-input">
+          <input type="text" ng-model="purchaseInfo.balance" bt-pattern="money" required ng-focus="pageInfo.balanceInvalid = false">
+          <div class="bt-from-danger" ng-show="formParams.validateInput('purchaseInfo.balance')">请输入正确的金额</div>
+          <div class="bt-from-danger" ng-show="pageInfo.balanceInvalid">{{pageInfo.balanceInvalidInfo}}</div>
+        </td>
+      </tr>
+      <tr>
+				<td class="bt-form-label"></td>
+				<td class="bt-form-input bt-space-8">
+					<button class="bt-btn bt-btn-confirm" ng-click="toIndexPage(1)">上一步</button>
+          <button class="bt-btn bt-btn-confirm" ng-click="toPreeSee($event)">预览</button>
+				</td>
+			</tr>
+    </tbody>
+  </table>
+</div>

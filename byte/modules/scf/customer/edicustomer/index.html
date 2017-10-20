@@ -1,0 +1,71 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>配置融资产品</span>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>基本企业信息
+	</div>
+	<table class="bt-card-info">
+		<tbody>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">企业名称:</td>
+				<td class="bt-card-value" colspan="3" ng-bind="info.custName"></td>
+			</tr>
+			<tr class="bt-card-item">
+				<td width="10%" class="bt-card-key">证件类型:</td>
+				<td width="40%" class="bt-card-value" >
+					<input type="checkbox" ng-model="info.identType" id="cb1" ng-disabled="true" ng-checked="true" class="ng-pristine ng-valid" disabled="disabled" checked="checked"> 
+					<label for="cb1" class="label-inline">组织机构代码证</label>
+				</td>
+				<td width="10%" class="bt-card-key">证件号码:</td>
+				<td width="40%" class="bt-card-value" ng-bind="info.orgCode"></td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">法定代表人:</td>
+				<td class="bt-card-value" colspan="3" ng-bind="info.lawName"></td>
+
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">经办人:</td>
+				<td class="bt-card-value"  ng-bind="info.operName"></td> 
+				<td class="bt-card-key">证件类型:</td>
+				<td class="bt-card-value" >
+						<input type="checkbox" ng-model="info.operIdentType" ng-disabled="true" ng-checked="true" id="cb2" class="ng-pristine ng-valid" disabled="disabled" checked="checked"> <label for="cb2" class="label-inline ng-binding" ng-bind="info.operIdentType|kindf:'PersonIdentType'">其它</label>	
+				</td> 
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">证件号码:</td>
+				<td class="bt-card-value" ng-bind="info.operIdentNo"></td> 
+				<td class="bt-card-key">手机号码:</td>
+				<td class="bt-card-value" ng-bind="info.mobileNo"></td> 
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">联系电话:</td>
+				<td class="bt-card-value" ng-bind="info.phone"></td> 
+				<td class="bt-card-key">电子邮箱:</td>
+				<td class="bt-card-value"  ng-bind="info.email"></td> 
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">通讯地址:</td>
+				<td class="bt-card-value" ng-bind="info.address"></td> 
+				<td class="bt-card-key">邮政编码:</td>
+				<td class="bt-card-value" ng-bind="info.post"></td> 
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>
+		融资产品列表
+	</div>
+	<div bt-table="tableParams"></div>
+	<table class="bt-table-adapt">
+		<tbody>
+			<tr>
+				<td colspan="2"  class="bt-align-right  bt-space-8">
+					<button class="bt-btn bt-btn-info" ng-click="save($event)">保存</button>
+			 		<button class="bt-btn bt-btn-info" ng-click="goBack($event)">返回</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

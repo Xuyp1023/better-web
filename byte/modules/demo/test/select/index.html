@@ -1,0 +1,21 @@
+<p>通过字典表的方式的下拉</p>
+<select ng-model="searchData.type" ng-options="item.key as item.value for item in auditStatusList">
+	<option value="">所有</option>
+</select>
+
+<p>通过http请求方式的下拉</p>
+<select ng-model="searchData.type1" ng-options="item.key as item.value for item in companyList">
+	<option value="">所有</option>
+</select>
+
+<p>通过指令方式的下拉</p>
+<!-- options url都为可选 -->
+<!-- url的优先级大于dict,也可以把它当做真实环境 -->
+<div ng-model="searchData.type2" bt-dict="qh/commission/company-list" options url>
+	<option value="">所有</option>
+</div>
+
+<p>获取select选中的值</p>
+<select ng-model="searchData.type3" ng-options="item.key as item.value for item in companyList" onchange="angular.element(this).scope().callback(this)">
+	<option value="">所有</option>
+</select>

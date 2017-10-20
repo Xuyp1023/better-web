@@ -1,0 +1,48 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>编制方案</span>
+  </div>
+  <div class="header">
+    <ul>
+      <li class="active"><span>编制方案</span><span class="status"></span></li>
+      <li class="active last"><span>配置组合</span><span class="status"></span></li>
+      <li><span>配置完成</span><span class="status"></span></li>
+    </ul>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>组合基金产品
+    <a class="bt-table-button new-item" ng-click="newCreditItem(null,$event)">新增产品</a>
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=20%>基金名称</th>
+        <th width=20%>销售机构</th>
+        <th width=10%>占比</th>
+        <th width=15%>最小投资</th>
+        <th width=15%>最大投资</th>
+        <th width=10%>最低保有份额</th>
+        <th width=10%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr ng-repeat=" item in rowDatas">
+        <td><a class="bt-table-button" ng-click="lookProductDetail(item,$event)">{{item.fundName}}</a></td>
+        <td>{{"天天基金"}}</td>
+        <td>{{item.investmentProportion}}</td>
+        <td>{{item.minBalance}}</td>
+        <td>{{item.maxBalance}}</td>
+        <td class="bt-align-right">{{item.mintenure | currency:''}}</td>
+        <td>
+          <a class="bt-table-button"  ng-click="newCreditItem(item,$event)">编辑</a>
+          <div class="bt-table-hr"></div>
+          <a class="bt-table-button"  ng-click="deleteCreditItem(item,$event)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="center">
+    <button class="bt-btn bt-btn-confirm" ng-click="save($event)">下一步</button>
+    <button class="bt-btn bt-btn-default" ng-click="goPage(1)">上一步</button>
+  </div>
+</div>
