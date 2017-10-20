@@ -1,0 +1,109 @@
+/* ========================================================================
+   表格控件: table.less
+ ========================================================================== */
+.bt-table {
+    width:100%;
+    border-spacing: 0;
+    font-size: 14px;
+    word-break: break-all;
+    border-top: 1px solid;
+    border-color: #063c94;
+    text-align: left;
+
+    .header-check {
+    }
+    .bt-table-check {
+    	width:auto;
+    }
+    .bt-table-header {
+    	background-color:#bad7fe;
+
+    	tr {
+		    th {
+		    	color: #333;
+	    	    font-weight: normal;
+                &:first-child {
+                    padding-left:14px;
+                }
+                &:last-child {
+                    padding-right:14px;
+                }
+		    }
+    	}
+    }
+    tbody {
+    	tr {
+    		background-color: #dbf0fc;
+    		td {
+	    		color: #444;
+                &:first-child {
+                    padding-left:14px;
+                }
+                &:last-child {
+                    padding-right:14px;
+                }
+                &.bt-align-right{
+                    text-align: right;
+                }
+	    	}
+	    	&:nth-child(odd) {
+	    		background-color: #ecf8ff;
+	    	}
+	    	&:hover>td{
+                background-color: #cfe5fe;
+	    	}
+    	}
+    }
+    tr {
+	    
+	    td,th {
+	    	padding: 10px 18px 10px 0px;
+	    	line-height: 16px;
+	    }
+	    
+    }
+}
+.bt-table-page {
+    position: relative;
+}
+a.bt-table-button {
+        text-decoration:none;
+    }
+.bt-table-button {
+    color:#063c84;
+    cursor: pointer;
+
+    &:hover {
+        color:#235fba;
+    }
+}
+.bt-table-hr {
+    display:inline-block;
+    width: 1px;
+    height: 14px;
+    margin: 0 4px;
+    background-color: #063c84;
+    vertical-align: middle;
+}
+.bt-table-status {
+    background-image: url(../img/bt-table-status.png);
+    background-position: 0 14px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    margin-right: 10px;
+
+    &.success {
+        background-position: 0 42px;
+    }
+    &.error {
+        background-position: 0 70px;
+    }
+    &.default {
+        background-position: 0 28px;
+    }
+    &.warning {
+        background-position: 0 56px;
+    }
+}

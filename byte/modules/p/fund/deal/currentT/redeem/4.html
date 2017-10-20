@@ -1,0 +1,33 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>活期宝赎回</span>
+  </div>
+  <div class="header">
+    <ul>
+      <li class="active"><span>选基金</span><span class="status"></span></li>
+      <li class="active"><span>确认金额</span><span class="status"></span></li>
+      <li class="active"><span>预览</span><span class="status"></span></li>
+      <li class="active last"><span>完成</span><span class="status"></span></li>
+    </ul>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>完成
+  </div>
+  <div class="alert-success">
+    <p>赎回<span class="bt-red" ng-bind="redemResult.shares"></span>份<span class="bt-red"
+        ng-bind="purchaseInfo.fundName"></span>的申请已提交</p>
+    <p><span class="bt-red"> 注:赎回交易已经完成,请提醒复核人员复核!</span></p>
+  </div>
+  <div class="center">
+    <button class="bt-btn bt-btn-confirm" ng-click="toIndexPage(1)">返回首页</button>
+    <button class="bt-btn bt-btn-confirm" ng-click="toIndexPage(1)">查看基金产品</button>
+  </div>
+  <div class="bt-prompt-header">
+    <span>温馨提示</span>
+  </div>
+  <div class="bt-prompt-content">
+		<p>1.如遇网络或系统问题等特殊情况，赎回资金划出时间可能会有延迟，请最终以银行卡入账时间为准。</p>
+		<p>2.理财型基金在每个运作期的赎回开放日，可以提交赎回申请；在非赎回开放日，不能提交赎回申请，但可预约至赎回开放日进行基金份额赎回。</p>
+		<p>3.如当期赎回开放日未赎回，则该基金份额进入下一个运作期。</p>
+	</div>
+</div>

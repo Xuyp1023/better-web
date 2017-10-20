@@ -1,0 +1,83 @@
+.header {
+  background-color: #063c94;
+	height: 66px;
+	padding: 10px 20px 10px;
+}
+.header li {
+  font-size: 14px;
+  width: 25%;
+  list-style: none;
+  float: left;
+	text-align: center;
+}
+.header li.active {
+  color: white;
+}
+.header li.active.last {
+  background-image: url(../../../../../app/img/modal/bt-modal-air.png);
+	background-position:100% 90%;
+  background-repeat: no-repeat;
+}
+.header li .status {
+	display: block;
+	height: 25px;
+	border-bottom: 1px solid black;
+	background-image: url(../../../../../app/img/modal/bt-modal-circle.png);
+	background-position:bottom center;
+  background-repeat: no-repeat;
+}
+.header li.active .status {
+	border-bottom-color: white;	
+	background-image: url(../../../../../app/img/modal/bt-modal-circle-white.png);
+} 
+.bt-card-info select,.bt-card-info input{
+	width: 250px;
+}
+div.center {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+.alert-success {
+	color: #468847;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	padding: 14px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	margin-top: 30px;
+}
+.alert-success p {
+	line-height: 30px;
+	font-size: 14px;
+	margin-left: 10px;
+}
+.bt-container {
+  min-width: 950px;
+}
+.bt-query-card {
+  width: 950px;
+}
+.bt-container .bt-prompt-header {
+	margin-top: 40px;
+}
+.width600 {
+	width:600px;
+}
+.result {
+  padding: 18px 20px 10px;
+}
+.bt-container1 {
+  position: relative;
+  min-width: 0px;
+  padding: 0;
+  background-image: url(../../../../../app/img/modal/bt-redeem-success.png);
+  background-position: -10px -6px;
+  background-repeat: no-repeat;
+}
+.bt-container1 .bt-card-info {
+  width: 260px;
+  margin-left: 240px;
+  margin-bottom: 0; 
+}

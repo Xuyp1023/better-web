@@ -1,0 +1,46 @@
+<div class="carousel">
+	<div class="carousel-header">
+		<div class="carousel-sign" id="carousel-thumb-container">
+			<img src="app/img/carousel-stamp.png" alt="" ondragstart="dragStart(event)">
+			<img src="app/img/carousel-stamp.png" alt="" ondragstart="dragStart(event)">
+			<img src="app/img/carousel-stamp.png" alt="" ondragstart="dragStart(event)">
+			<img src="app/img/carousel-stamp.png" alt="" ondragstart="dragStart(event)">
+			<img src="app/img/carousel-stamp.png" alt="" ondragstart="dragStart(event)">
+			<img src="app/img/carousel-stamp.png" alt="" ondragstart="dragStart(event)">
+			<img src="app/img/carousel-stamp.png" alt="" ondragstart="dragStart(event)">
+			<img src="app/img/carousel-stamp.png" alt="" ondragstart="dragStart(event)">
+		</div>
+	</div>
+	<div class="carousel-content" id="carousel-thumb-content"  ondrop="dropEnd(event)" ondragover="allowDrop(event)">
+		<div><img src="app/img/carousel-contact.png" alt=""  draggable="false"></div>
+		<div class="bt-hidden"><img src="app/img/carousel-contact.png" alt=""  draggable="false"></div>
+		<div class="bt-hidden"><img src="app/img/carousel-contact.png" alt=""  draggable="false"></div>
+		<div class="bt-hidden"><img src="app/img/carousel-contact.png" alt=""  draggable="false"></div>
+		<div class="bt-hidden"><img src="app/img/carousel-contact.png" alt=""  draggable="false"></div>
+		<div class="bt-hidden"><img src="app/img/carousel-contact.png" alt=""  draggable="false"></div>
+		<div class="bt-hidden"><img src="app/img/carousel-contact.png" alt=""  draggable="false"></div>
+		<div class="bt-hidden"><img src="app/img/carousel-contact.png" alt=""  draggable="false"></div>
+	</div>
+	<div class="carousel-thumb" ng-click="switchThumb($event)">
+		<div class="active"><img src="app/img/carousel-thumb.png" alt="">
+		<p class="carousel-p">1</p></div>
+		<div><img src="app/img/carousel-thumb.png" alt="">
+		<p class="carousel-p">2</p></div>
+		<div><img src="app/img/carousel-thumb.png" alt="">
+		<p class="carousel-p">3</p></div>
+		<div><img src="app/img/carousel-thumb.png" alt="">
+		<p class="carousel-p">4</p></div>
+		<div><img src="app/img/carousel-thumb.png" alt="">
+		<p class="carousel-p">5</p></div>
+		<div><img src="app/img/carousel-thumb.png" alt="">
+		<p class="carousel-p">6</p></div>
+		<div><img src="app/img/carousel-thumb.png" alt="">
+		<p class="carousel-p">7</p></div>
+		<div><img src="app/img/carousel-thumb.png" alt="">
+		<p class="carousel-p">8</p></div>
+	</div>
+	<div class="bt-align-right carousel-confirm">
+		<button class="bt-btn bt-btn-confirm">确认</button>
+		<button class="bt-btn bt-btn-error">返回</button>
+	</div>
+</div>

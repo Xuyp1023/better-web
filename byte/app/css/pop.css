@@ -1,0 +1,128 @@
+/* ========================================================================
+   消息提示: pop.less
+ ========================================================================== */
+ .bt-pop {
+  width: 412px;
+  min-height: 138px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border-color: #cccccc;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+  overflow: hidden;
+}
+.bt-pop .bt-pop-title {
+  font-size: 16px;
+  color: #333;
+  padding: 24px 16px 3px 16px;
+}
+.bt-pop .bt-pop-title .bt-pop-icon {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.bt-pop .bt-pop-content {
+  min-height: 81px;
+  font-size: 14px;
+  color: #666;
+  padding: 0 20px 16px 48px;
+  overflow: hidden;
+  word-break: break-all;
+  line-height: 22px;
+}
+.bt-pop span.icon {
+  margin-right: 16px;
+}
+.bt-pop-close {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 11px;
+  height: 11px;
+  background-image: url(../img/bt-pop-close.png);
+}
+.bt-pop-close:hover {
+  background-image: url(../img/bt-pop-close-hover.png);
+}
+.bt-pop-info {
+  background-color: #d7edfd;
+}
+.bt-pop-info span.icon {
+  background-image: url(../img/bt-pop-info.png);
+}
+.bt-pop-success {
+  background-color: #dafeed;
+}
+.bt-pop-success span.icon {
+  background-image: url(../img/bt-pop-success.png);
+}
+.bt-pop-warning {
+  background-color: #fff7e0;
+}
+.bt-pop-warning span.icon {
+  background-image: url(../img/bt-pop-warning.png);
+}
+.bt-pop-error {
+  background-color: #fddedb;
+}
+.bt-pop-error span.icon {
+  background-image: url(../img/bt-pop-error.png);
+}
+.bt-dialog {
+  z-index: 182;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+.bt-dialog .bt-dialog-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  background: #000000;
+}
+.bt-dialog .bt-pop {
+  position: absolute;
+  margin: auto;
+  width: 342px;
+  height: 168px;
+  background-color: white;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.bt-dialog .bt-dialog-button {
+  text-align: right;
+  margin-right: 15px;
+  margin-top: -30px;
+}
+.bt-dialog .bt-dialog-button .dialog-confirm {
+  border-radius: 4px;
+  box-shadow: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background-color: #063a89;
+  height: 28px;
+  padding-left: 24px;
+  padding-right: 24px;
+  color: antiquewhite;
+  min-width: 28px;
+  display: inline-block;
+  text-align: center;
+}
+.bt-dialog .bt-dialog-button .dialog-confirm:hover,
+.bt-dialog .bt-dialog-button .dialog-confirm:focus {
+  border-color: #063c94;
+  color: white;
+  background-color: #235fba;
+}

@@ -1,0 +1,12 @@
+{
+	"initInfo":{
+		"resolve":["btDict","vendor/bt-toaster/toaster.js","vendor/bt-toaster/toaster.css","vendor/jquery/jquery.min.js"]
+	},
+	"configVo":{
+		"BTServerPath": {
+			"TRADE_ACCOUNT_LIST": ["server/http/p/fund/AAqueryCustInfo.json","/SaleQuery/queryCustInfo"],
+			"ReFresh_ReportInfo": ["Module_Path/ReFresh_ReportInfo.json","/Risk/riskRecode"],
+			"Submit_Report": ["Module_Path/Submit_Report.json","/Risk/riskGrade"]
+		}
+	}
+}

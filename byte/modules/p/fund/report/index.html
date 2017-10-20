@@ -1,0 +1,51 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>基金风险评测</span>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>风险特征评估
+	</div>
+	<table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">基金机构：</td>
+				<td width="50%" class="bt-query-value">
+					<select ng-model="searchData.agencyNo" ng-options="item.key as item.value for item in BTDict.SaleAgency"></select>
+				</td>
+				<td width="14%" class="bt-query-key">交易账户：</td>
+				<td width="36%" class="bt-query-value">
+					<select ng-model="searchData.custNo" ng-options="item.value as item.name for item in BTDict.TRADE_ACCOUNT_LIST"></select>
+				</td>
+			</tr>
+			<tr class="bt-query-item">
+				<td colspan="4">
+					<div class="bt-align-right bt-space-8">
+						<button class="bt-btn bt-btn-confirm" ng-click="reFreshReportInfo($event)">查询</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div id="fund_search_way">
+		<p><strong>您当前的风险等级为：</strong><span>{{evaluateData.gradeInfo}}</span></p>
+		<p><strong>风险等级描述：</strong><span>{{evaluateData.description}}</span></p><br>
+
+		<p>尊敬的客户：</p>
+		<p class="tab2em">根据中国证监会颁布的《证券投资基金销售管理办法》、《证券投资基金销售适用性指导意见》等法规的要求，我司作为基金销售机构，应当基金投资人的风险承受能力进行调查和评价，并且定期或不定期地提示基金投资人进行风险承受能力调查的更新。为此，我司制作了《机构投资者风险承受力调查问卷》对您的风险承受能力进行评测，请您根据实际情况如实填写。（所有题目均为单选）</p>
+
+		<h3>机构投资者风险承受力调查问卷</h3>
+		<div class="content" ng-include="pageInfo.src" onload="refreshPage()"></div>
+	</div>
+	<div class="center">
+		<button class="bt-btn bt-btn-confirm" ng-click="submitReport($event)">提交</button>
+	</div>
+	<div class="bt-prompt-header">
+		<span>温馨提示</span>
+	</div>
+	<div class="bt-prompt-content">
+		<p>1.本机构已知悉本问卷的设计方法和评价说明，以及南方基金旗下各基金的风险等级；</p>
+		<p>2.本机构愿意接受此问卷的调查方法，并已如实回答；</p>
+		<p>3.本机构承诺在风险承受能力发生变化时，及时重新填写并提交此问卷；</p>
+		<p>4.如本机构所选择的基金产品风险等级超过我司的风险承受等级时，本机构确认此投资行为为本机构意愿行为，自行承担此投资的风险。</p>
+	</div>
+</div>

@@ -1,0 +1,140 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>form表单</span>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>基本样式
+	</div>
+	<table class="bt-form" bt-form-validate="formParams">
+		<tbody>
+			<tr class="bt-form-group">
+				<td class="bt-form-label">申请编号：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="sometext" disabled="">
+					<span class="bt-form-info">长度11111</span>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label">被授信企业：</td>
+				<td class="bt-form-input">
+					<select ng-model="searchData.type1" bt-dict="qh/commission/company-list"><option value="">所有</option></select>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>综合授信额度(元)：</td>
+				<td class="bt-form-input">
+					<input type="number" ng-model="sometext" placeholder="请输入">
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>开始日期：</td>
+				<td class="bt-form-input">
+					<input type="text" class="bt-date" ng-model="searchData.GTEregDate" bt-date= placeholder="请输入" required>
+					<div class="bt-from-danger" ng-show="formParams.validateInput('searchData.GTEregDate','required')">请选择日期</div>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>授信合同：</td>
+				<td class="bt-form-input">
+					<span class="upload"><label class="bt-table-button" bt-upload="searchData.fileList">上传授信合同</label></span>
+					<ul class="upload-list">
+						<li ng-repeat="file in searchData.fileList">
+							<span class="icon" ng-bind="file.fileName"></span><span class="bt-gray">({{file.fileLength/1000}}KB)</span>
+							<a class="bt-table-button" ng-click="deleteFileList($index,searchData.fileList)">删除</a>
+						</li>
+					</ul>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>营业执照有效期：</td>
+				<td class="bt-form-input">
+					<input type="text" class="bt-date middle" ng-model="searchData.GTEregDate1" long-term="true" bt-date placeholder="2017-01-02" required>
+					<div class="bt-from-danger" ng-show="formParams.validateInput('searchData.GTEregDate1')">请上传合同</div>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label">备注：</td>
+				<td class="bt-form-input bt-remark">
+					<textarea ng-model="searchData.test" ng-maxlength="20"></textarea>
+			 		<span class="bt-remark-info" ng-show="!formParams.validateInput('searchData.test')">当前已输入{{searchData.test.length || 0}}个字符, 总共可以输入20个字符</span>
+			 		<span class="bt-remark-info bt-red" ng-show="formParams.validateInput('searchData.test')">输入字符数的不能超过20个</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="bt-form-label"></td>
+				<td class="bt-form-input bt-space-8">
+					<button class="bt-btn bt-btn-confirm" ng-click="basicSubmit($event)">确认</button>
+		 			<button class="bt-btn bt-btn-default">返回</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>复杂样式
+	</div>
+	<table class="bt-form bt-form-two" bt-form-validate="formParams1">
+		<tbody>
+			<tr class="bt-form-group">
+				<td class="bt-form-label">申请编号：</td>
+				<td width="100%" class="bt-form-input">
+					<input type="text" ng-model="sometext" disabled="">
+				</td>
+				<td class="bt-form-label">申请编号：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="sometext" disabled="">
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label">被授信企业：</td>
+				<td class="bt-form-input">
+					<select ng-model="searchData.type1" bt-dict="qh/commission/company-list"><option value="">所有</option></select>
+				</td>
+				<td class="bt-form-label">被授信企业：</td>
+				<td class="bt-form-input">
+					<select ng-model="searchData.type1" bt-dict="qh/commission/company-list"><option value="">所有</option></select>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>11111111(元)：</td>
+				<td class="bt-form-input">
+					<input type="number" ng-model="sometext" placeholder="请输入">
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>(元)：</td>
+				<td class="bt-form-input">
+					<input type="number" ng-model="sometext" placeholder="请输入">
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>开始日期：</td>
+				<td class="bt-form-input">
+					<input type="text" class="bt-date" ng-model="searchData.GTEregDate" bt-date placeholder="请输入" required>
+					<div class="bt-from-danger" ng-show="formParams1.validateInput('searchData.GTEregDate','required')">请选择日期</div>
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>开始日期：</td>
+				<td class="bt-form-input">
+					<input type="text" class="bt-date" ng-model="searchData.GTEregDate" bt-date placeholder="请输入" required>
+					<div class="bt-from-danger" ng-show="formParams1.validateInput('searchData.GTEregDate','required')">请选择日期</div>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>授信合同：</td>
+				<td class="bt-form-input">
+					<input type="text" class="bt-date" ng-model="searchData.GTEregDate1" placeholder="请输入" required>
+					<div class="bt-from-danger" ng-show="formParams1.validateInput('searchData.GTEregDate1')">请上传合同</div>
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>授信合同：</td>
+				<td class="bt-form-input">
+					<input type="text" class="bt-date" ng-model="searchData.GTEregDate1" placeholder="请输入" required>
+					<div class="bt-from-danger" ng-show="formParams1.validateInput('searchData.GTEregDate1')">请上传合同</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="bt-form-label"></td>
+				<td class="bt-form-input bt-space-8" colspan="3">
+					<button class="bt-btn bt-btn-confirm" ng-click="basicSubmit1($event)">确认</button>
+		 			<button class="bt-btn bt-btn-default">返回</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

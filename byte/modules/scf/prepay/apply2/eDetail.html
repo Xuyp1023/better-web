@@ -1,0 +1,210 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>应收账款提前付款详情</span>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>基本信息
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td width="7%" class="bt-card-key">申请编号:</td>
+        <td width="43%" class="bt-card-value">{{basicInfo.requestNo}}</td>
+        <td width="9%" class="bt-card-key">融资编号:</td>
+        <td width="41%" class="bt-card-value">{{basicInfo.equityNo}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">申请企业:</td>
+        <td class="bt-card-value">{{basicInfo.custName}}</td>
+        <td class="bt-card-key">收款账号:</td>
+        <td class="bt-card-value">{{basicInfo.custBankAccount}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">开户企业:</td>
+        <td class="bt-card-value">{{basicInfo.custBankAccountName}}</td>
+        <td class="bt-card-key">开户银行:</td>
+        <td class="bt-card-value">{{basicInfo.custBankName}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">采购企业:</td>
+        <td class="bt-card-value">{{basicInfo.coreCustName}}</td>
+        <td class="bt-card-key">核心企业:</td>
+        <td class="bt-card-value">{{basicInfo.coreCustName}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">业务类型:</td>
+				<td class="bt-card-value">结算中心提前付款</td>
+				<td class="bt-card-key">资金提供方:</td>
+        <td class="bt-card-value">{{basicInfo.factoryName}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>标的信息
+  </div>
+  <div class="tabs-button">
+    <span class="tabs-span">应收账款</span>
+  </div>
+  <table class="bt-table">
+		<thead class="bt-table-header">
+			<tr>
+				<th width=20%>账款编号</th>
+				<th width=15%>账款金额</th>
+				<th width=15%>账款余额</th>
+				<th width=15%>结算日期</th>
+				<th width=15%>发票号</th>
+				<th width=20%>贸易合同号</th>
+			</tr>
+		</thead>
+		<tbody class="bt-table-body">
+			<tr ng-repeat=" item in creditInfoData">
+				<td><a class="bt-table-button" ng-click="lookCredit(item)">{{item.receivableNo}}</a></td>
+        <td>{{item.balance | currency:''}}</td>
+        <td>{{item.surplusBalance | currency:''}}</td>
+        <td>{{item.endDate}}</td>
+        <td>{{item.invoiceNos}}</td>
+        <td>{{item.agreeNo}}</td>
+			</tr>
+		</tbody>
+	</table>
+  <div class="tabs-button">
+    <span class="tabs-span">合同清单</span>
+  </div>
+  <table class="bt-table" ng-show="agreeUploadList.length == 0">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=20%>合同编号</th>
+        <th width=30%>合同名称</th>
+        <th width=20%>合同金额</th>
+        <th width=15%>签订日期</th>
+        <th width=15%>到期日期</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr ng-repeat=" item in commercialInfoData">
+        <td><a class="bt-table-button" ng-click="lookCommercial(item)">{{item.agreeNo}}</a></td>
+        <td>{{item.agreeName}}</td>
+        <td>{{item.balance | currency:''}}</td>
+        <td>{{item.agreeStartDate}}</td>
+        <td>{{item.agreeEndDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- wx端的合同资料 -->
+  <table class="bt-table" ng-show="agreeUploadList.length != 0">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=20%>序号</th>
+        <th width=30%>名称</th>
+        <th width=20%>操作</th>        
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr ng-repeat=" item in agreeUploadList">        
+        <td>{{$index+1}}</td>
+        <td>{{item.fileName}}</td>
+        <td><a href="{{item.id|downf}}" class="bt-table-button">下载</a></td>        
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div class="tabs-button">
+    <span class="tabs-span">发票清单</span>
+  </div>
+  <table class="bt-table" ng-show="invoiceUploadList.length == 0">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=40%>发票号码</th>
+        <th width=30%>发票金额</th>
+        <th width=30%>发票日期</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr ng-repeat=" item in invoiceInfoData">
+        <td><a class="bt-table-button" ng-click="lookInvoice(item)">{{item.invoiceNo}}</a></td>
+        <td>{{item.balance | currency:''}}</td>
+        <td>{{item.invoiceDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- wx端的发票资料 -->
+  <table class="bt-table" ng-show="invoiceUploadList.length != 0">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=20%>序号</th>
+        <th width=30%>名称</th>
+        <th width=20%>操作</th>        
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr ng-repeat=" item in invoiceUploadList">        
+        <td>{{$index+1}}</td>
+        <td>{{item.fileName}}</td>
+        <td><a href="{{item.id|downf}}" class="bt-table-button">下载</a></td>        
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>付款信息
+  </div>
+  
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td width="12%" class="bt-card-key">当前资产总额(元):</td>
+        <td width="38%" class="bt-card-value">{{basicInfo.balance}}</td>
+        <td width="10%" class="bt-card-key">当前折扣率(%):</td>
+        <td width="40%" class="bt-card-value">{{basicInfo.depositRate}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">折扣金额(元):</td>
+        <td class="bt-card-value">{{basicInfo.balance - basicInfo.requestPayBalance | currency:''}}</td>
+        <td class="bt-card-key">金额大写:</td>
+        <td class="bt-card-value">{{basicInfo.balance - basicInfo.requestPayBalance | btmoeny}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">申请付款金额(元):</td>
+        <td class="bt-card-value">{{basicInfo.requestPayBalance}}</td>
+        <td class="bt-card-key">金额大写:</td>
+        <td class="bt-card-value">{{basicInfo.requestPayBalance | btmoeny}}</td>
+      </tr>      
+      <tr class="bt-card-item">
+        <td class="bt-card-key">申请付款日期:</td>
+        <td class="bt-card-value">{{basicInfo.requestPayDate}}</td>
+        <td class="bt-card-key"></td>
+        <td class="bt-card-value"></td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">备注:</td>
+        <td class="bt-card-value" colspan="3">{{basicInfo.description}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>提前付款合同
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=20%>合同编号</th>
+        <th width=30%>合同名称</th>
+        <th width=30%>合同金额</th>
+        <th width=20%>签署日期</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr>
+        <td><a class="bt-table-button" ng-click="lookPreCredit(preCreditInfoData)">{{preCreditInfoData.agreeNo}}</a></td>
+        <td>{{preCreditInfoData.agreeName}}</td>
+        <td>{{preCreditInfoData.balance | currency:''}}</td>
+        <td>{{preCreditInfoData.signDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="center">
+    <button class="bt-btn bt-btn-default" ng-click="goBack($event)">返回</button>
+  </div>
+</div>

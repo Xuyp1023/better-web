@@ -1,0 +1,7 @@
+{"message":"查询成功",
+	"data":[
+		{"id":11,"productCode":"FP1700000000000159","productName":"应付账款发票贸易合同模式2","receivableRequestType":"2","factoryNo":102200336,"factoryName":"","coreCustNo":102200336,"coreCustName":"广东德豪润达电气股份有限公司","custNo":102209578,"custName":"中山市华莱登卫浴有限公司","regDate":"2017-09-13","regTime":"101523","regOperId":1000696,"regOperName":"核心企业人员","businStatus":"2","productId":34159},
+		{"id":12,"productCode":"FP1700000000000158","productName":"应付账款发票贸易合同模式1","receivableRequestType":"1","factoryNo":102200336,"factoryName":"","coreCustNo":102200336,"coreCustName":"广东德豪润达电气股份有限公司","custNo":102209578,"custName":"中山市华莱登卫浴有限公司","regDate":"2017-09-13","regTime":"101530","regOperId":1000696,"regOperName":"核心企业人员","businStatus":"2","productId":34158},
+		{"id":13,"productCode":"FP1700000000000157","productName":"应付账款发票模式2","receivableRequestType":"2","factoryNo":102200336,"factoryName":"","coreCustNo":102200336,"coreCustName":"广东德豪润达电气股份有限公司","custNo":102209578,"custName":"中山市华莱登卫浴有限公司","regDate":"2017-09-13","regTime":"101534","regOperId":1000696,"regOperName":"核心企业人员","businStatus":"2","productId":34157},
+		{"id":14,"productCode":"FP1700000000000156","productName":"应付账款模式1","receivableRequestType":"1","factoryNo":102200336,"factoryName":"","coreCustNo":102200336,"coreCustName":"广东德豪润达电气股份有限公司","custNo":102209578,"custName":"中山市华莱登卫浴有限公司","regDate":"2017-09-13","regTime":"101534","regOperId":1000696,"regOperName":"核心企业人员","businStatus":"2","productId":34156}]
+,"page":"","code":200}

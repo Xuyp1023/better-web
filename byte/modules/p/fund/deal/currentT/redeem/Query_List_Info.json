@@ -1,0 +1,24 @@
+{"code":200,"data":[
+	{
+		"fundCode":1234567,"fundName":"大成货币B","netDate":"20170102","netValue":1,"incomeRatio":"2.221","incomeUnit":"0.3654","status":"0"
+		,"shares":1000.00,"disValidShares":"898.00","disShares":"1,000.00","validShares":898.00,"custNo":"1002797","agencyName":"303"
+	},
+	{
+		"fundCode":1234567,"fundName":"大成货币B","netDate":"20170102","netValue":1.1520,"incomeRatio":"2.221","incomeUnit":"0.3654","status":"0"
+		,"shares":1000.00,"disValidShares":"0.00","disShares":"1,000.00","custNo":"1002797","agencyName":"303"
+	},
+	{
+		"fundCode":1234567,"fundName":"大成货币B","netDate":"20170102","netValue":1,"incomeRatio":"2.221","incomeUnit":"0.3654","status":"0"
+		,"shares":1000.00,"disValidShares":"898.00","disShares":"1,000.00","custNo":"1002797","agencyName":"303"
+	},
+	{
+		"fundCode":1234567,"fundName":"大成货币B","netDate":"20170102","netValue":1,"incomeRatio":"2.221","incomeUnit":"0.3654","status":"0"
+		,"shares":1000.00,"disValidShares":"898.00","disShares":"1,000.00","custNo":"1002797","agencyName":"303"
+	},
+	{
+		"fundCode":1234567,"fundName":"大成货币B","netDate":"20170102","netValue":1,"incomeRatio":"2.221","incomeUnit":"0.3654","status":"0"
+		,"shares":1000.00,"disValidShares":"898.00","disShares":"1,000.00","custNo":"1002797","agencyName":"303"
+	}
+
+],"page":{"total":1,"pageSize":10}
+}

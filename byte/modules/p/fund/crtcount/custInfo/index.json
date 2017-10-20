@@ -1,0 +1,15 @@
+{
+	"initInfo":{
+		"resolve":["wdatePicker","btDict"]
+	},
+	"configVo":{
+		"BTServerPath": {
+			"TRADE_ACCOUNT_LIST": ["server/http/p/fund/AAqueryCustInfo.json","/SaleQuery/queryCustInfoIsOpen"],
+			"QUERY_ContacInfo": ["Module_Path/queryContacInfo.json","/SaleQuery/queryContacInfo"],
+			"QUERY_OpenedAccount": ["Module_Path/queryOpenedAccount.json","/SaleQuery/queryOpenedAccount"],
+			"UPDATE_OpenedAccount": ["Module_Path/updateContacInfo.json","/SaleQuery/updateContacInfo"]
+		},"formBasic":{
+		},"formRelative":{
+		}
+	}
+}

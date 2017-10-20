@@ -1,0 +1,78 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>七天理财方案详情</span>
+	</div>
+  <div class="bt-title-card">
+		<span class="icon"></span>基本资料
+	</div>
+	<table class="bt-card-info">
+		<tbody>
+			<tr class="bt-card-item">
+				<td width="10%" class="bt-card-key">7日年化收益:</td>
+				<td width="40%" class="bt-card-value">
+					<span class="bt-red larger">4.3%</span>
+				</td>
+				<td width="16%" class="bt-card-key">万份收益:</td>
+				<td width="34%" class="bt-card-value">
+					<span class="bt-red larger">1.01元</span>
+				</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">类型:</td>
+				<td class="bt-card-value">活期理财</td>
+				<td class="bt-card-key">状态:</td>
+				<td class="bt-card-value">正常</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">最大投资金额:</td>
+				<td class="bt-card-value">100000万</td>
+				<td class="bt-card-key">最小投资金额</td>
+				<td class="bt-card-value">100万</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">有效期:</td>
+				<td class="bt-card-value">从2018-03-29至2021-08-29</td>
+				<td class="bt-card-key">描述</td>
+				<td class="bt-card-value">选择七天收益最大化的基金理财产品</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">编制方案:</td>
+				<td class="bt-card-value">编制方案是的内容，在基金的工作和原则</td>
+				<td class="bt-card-key"></td>
+				<td class="bt-card-value"></td>
+			</tr>
+		</tbody>
+	</table>
+  <div class="bt-title-card">
+    <span class="icon"></span>方案组合基金产品
+  </div>
+  <table class="bt-table">
+		<thead class="bt-table-header">
+			<tr>
+				<th width=20%>基金名称</th>
+				<th width=20%>销售机构</th>
+				<th width=10%>占比</th>
+				<th width=10%>最小投资</th>
+				<th width=10%>最大投资</th>
+				<th width=10%>最低保有份额</th>
+				<th width=20%>操作</th>
+			</tr>
+		</thead>
+		<tbody class="bt-table-body">
+			<tr ng-repeat=" item in rowDatas">
+				<td><a class="bt-table-button">{{item.fundName}}</a></td>
+				<td>{{"天天基金"}}</td>
+				<td>{{item.investmentProportion}}</td>
+				<td>{{item.minBalance}}</td>
+				<td>{{item.maxBalance}}</td>
+				<td><span class="bt-table-status error"></span>已生效2</td>
+				<td><a class="bt-table-button" ng-click="deleteItem(item,$event)">详情</a></td>
+			</tr>
+		</tbody>
+	</table>
+  <div class="bt-title-card">
+    <span class="icon"></span>图表
+  </div>
+	<div id="main" style="height:300px;"></div>
+	<div style="text-align: center;"><button class="bt-btn bt-btn-default" onclick="history.back()">返回</button></div>
+</div>

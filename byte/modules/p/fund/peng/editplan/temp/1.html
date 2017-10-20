@@ -1,0 +1,67 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>编制方案</span>
+  </div>
+  <div class="header">
+    <ul>
+      <li class="active last"><span>编制方案</span><span class="status"></span></li>
+      <li><span>配置组合</span><span class="status"></span></li>
+      <li><span>配置完成</span><span class="status"></span></li>
+    </ul>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>基本信息
+  </div>
+  <table class="bt-form" bt-form-validate="formParams">
+    <tbody>
+      <tr class="bt-form-group">
+        <td class="bt-form-label"><span class="bt-red">*</span>方案名称：</td>
+        <td class="bt-form-input">
+          <input type="text" ng-model="basicInfo.schemeName" required>
+          <div class="bt-from-danger" ng-show="formParams.validateInput('basicInfo.schemeName')">必填</div>
+        </td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label"><span class="bt-red">*</span>投资类型：</td>
+        <td class="bt-form-input">
+          <select ng-model="basicInfo.schemeType" ng-options="item.key as item.value for item in investType"></select>
+        </td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">设为首选：</td>
+        <td class="bt-form-input">
+          <input type="checkbox" ng-model="basicInfo.firstChoice" class="c-checkbox" ng-true-value="1" ng-false-value="0">
+        </td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">到期自动赎回：</td>
+        <td class="bt-form-input">
+          <input type="checkbox" ng-model="basicInfo.autoRedem" class="c-checkbox" ng-true-value="1" ng-false-value="0">
+          <label style="font-size: 14px;margin-left: 40px;">投资期限：</label>
+          <input type="number" ng-model="basicInfo.investmentTerm" style="width: 50px;height: 25px;" bt-pattern="money">
+          <label style="font-size: 14px;margin-left: 10px;">天</label>
+        </td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label"><span class="bt-red">*</span>投资额度：</td>
+        <td class="bt-form-input">
+          <input type="number" ng-model="basicInfo.investMentAmount" placeholder="请输入" required bt-pattern="money">
+          <div class="bt-from-danger" ng-show="formParams.validateInput('basicInfo.investMentAmount')">必填</div>
+        </td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">方案描述：</td>
+        <td class="bt-form-input bt-remark">
+          <textarea ng-model="basicInfo.cSchemeDescribe"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td class="bt-form-label"></td>
+        <td class="bt-form-input bt-space-8">
+          <button class="bt-btn bt-btn-confirm" ng-click="toPage2($event)">下一步</button>
+          <button class="bt-btn bt-btn-default" onclick="history.back()">返回</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

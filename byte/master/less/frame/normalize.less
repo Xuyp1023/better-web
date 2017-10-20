@@ -1,0 +1,41 @@
+/* ========================================================================
+   css初始化: normalize.less
+ ========================================================================== */
+body {
+	font-size: 14px;
+  line-height: 1.52857143;
+  font-family: "Roboto", sans-serif;
+  color: rgba(0, 0, 0, 0.8);
+}
+ul, ol {
+  margin-top: 0;
+}
+.nav {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  cursor: pointer;
+
+  > li {
+
+    position: relative;
+    display: block;
+
+  	> a {
+  		position: relative;
+    	display: block;
+  	}
+  }
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  border: 0;
+}
+a {
+	text-decoration: none;
+}

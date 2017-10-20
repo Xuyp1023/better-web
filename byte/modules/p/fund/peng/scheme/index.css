@@ -1,0 +1,20 @@
+.tabs-button {
+	margin-top: 26px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #063c94;
+}
+.bt-table-button.new-item {
+	float: right;
+	padding-left: 20px;
+	background-position: center left;
+  background-repeat: no-repeat;
+  background-image: url(../../../../../app/img/bt-new-item.jpg);
+}
+.recom {
+	background-position: top left;
+  background-repeat: no-repeat;
+  background-image: url(./img/recom.png);
+}
+.bt-container {
+  min-width: 950px;
+}

@@ -1,0 +1,190 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>贸易合同详情页</span>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>基本信息
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td width="10%" class="bt-card-key">合同编号:</td>
+        <td width="40%" class="bt-card-value">{{info.agreeNo}}</td>
+        <td width="16%" class="bt-card-key">合同名称:</td>
+        <td width="34%" class="bt-card-value">{{info.agreeName}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">买方名称:</td>
+        <td class="bt-card-value">{{info.buyer}}</td>
+        <td class="bt-card-key">卖方名称:</td>
+        <td class="bt-card-value">{{info.supplier}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">签订日期:</td>
+        <td class="bt-card-value">{{info.signDate}}</td>
+        <td class="bt-card-key">签订地点:</td>
+        <td class="bt-card-value">{{info.signAddr}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">凭证编号:</td>
+        <td class="bt-card-value">{{info.refNo}}</td>
+        <td class="bt-card-key">创建时间:</td>
+        <td class="bt-card-value">{{info.regDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>合同信息
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td width="10%" class="bt-card-key">生效日期:</td>
+        <td width="40%" class="bt-card-value">{{info.agreeStartDate}}</td>
+        <td width="16%" class="bt-card-key">到期日期:</td>
+        <td width="34%" class="bt-card-value">{{info.agreeEndDate}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">合同金额:</td>
+        <td class="bt-card-value">{{info.balance | currency:''}}</td>
+        <td class="bt-card-key">金额大写:</td>
+        <td class="bt-card-value">{{info.balance | btmoeny}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">验收方式:</td>
+        <td class="bt-card-value">{{info.checkAccept}}</td>
+        <td class="bt-card-key">提出异议期限(天):</td>
+        <td class="bt-card-value">{{info.objectionPeriod}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">支付日期:</td>
+        <td class="bt-card-value">{{info.deliveryDate}}</td>
+        <td class="bt-card-key">交付地址:</td>
+        <td class="bt-card-value">{{info.deliveryAddr}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">备注:</td>
+        <td class="bt-card-value" colspan="3">{{info.des}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>合同签署--买方
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td width="10%" class="bt-card-key">企业名称:</td>
+        <td width="40%" class="bt-card-value">{{info.buyerInfo.custName}}</td>
+        <td width="16%" class="bt-card-key">经办人/授权代表:</td>
+        <td width="34%" class="bt-card-value">{{info.buyerInfo.representative}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">开户银行:</td>
+        <td class="bt-card-value">{{info.buyerInfo.bankName}}</td>
+        <td class="bt-card-key">户名:</td>
+        <td class="bt-card-value">{{info.buyerInfo.bankAccountName}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">银行账号:</td>
+        <td class="bt-card-value">{{info.buyerInfo.bankAccount}}</td>
+        <td class="bt-card-key">税务登记号:</td>
+        <td class="bt-card-value">{{info.buyerInfo.taxCode}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">联系电话:</td>
+        <td class="bt-card-value">{{info.buyerInfo.phone}}</td>
+        <td class="bt-card-key">传真:</td>
+        <td class="bt-card-value">{{info.buyerInfo.fax}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">联系地址:</td>
+        <td class="bt-card-value">{{info.buyerInfo.address}}</td>
+        <td class="bt-card-key">邮编:</td>
+        <td class="bt-card-value">{{info.buyerInfo.zipCode}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>合同签署--卖方
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td width="10%" class="bt-card-key">企业名称:</td>
+        <td width="40%" class="bt-card-value">{{info.supplierInfo.custName}}</td>
+        <td width="16%" class="bt-card-key">经办人/授权代表:</td>
+        <td width="34%" class="bt-card-value">{{info.supplierInfo.representative}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">开户银行:</td>
+        <td class="bt-card-value">{{info.supplierInfo.bankName}}</td>
+        <td class="bt-card-key">户名:</td>
+        <td class="bt-card-value">{{info.supplierInfo.bankAccountName}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">银行账号:</td>
+        <td class="bt-card-value">{{info.supplierInfo.bankAccount}}</td>
+        <td class="bt-card-key">税务登记号:</td>
+        <td class="bt-card-value">{{info.supplierInfo.taxCode}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">联系电话:</td>
+        <td class="bt-card-value">{{info.supplierInfo.phone}}</td>
+        <td class="bt-card-key">传真:</td>
+        <td class="bt-card-value">{{info.supplierInfo.fax}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">联系地址:</td>
+        <td class="bt-card-value">{{info.supplierInfo.address}}</td>
+        <td class="bt-card-key">邮编:</td>
+        <td class="bt-card-value">{{info.supplierInfo.zipCode}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>附件
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=30%>附件类型</th>
+        <th width=40%>附件名称</th>
+        <th width=30%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr ng-repeat="item in info.uploadList">
+        <td>合同附件</td>
+        <td>{{item.fileName}}</td>
+        <td><a class="bt-table-button" href="{{ item.id | downf }}">下载</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>其他信息
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">合同状态:</td>
+        <td class="bt-card-value" colspan="3">{{info.businStatus | kindf:'ledgerVersionBusinStatus'}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td width="10%" class="bt-card-key">登记人:</td>
+        <td width="40%" class="bt-card-value">{{info.operName}}</td>
+        <td width="16%" class="bt-card-key">登记日期:</td>
+        <td width="34%" class="bt-card-value">{{info.signDate}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">审核人:</td>
+        <td class="bt-card-value">{{info.operName}}</td>
+        <td class="bt-card-key">审核日期:</td>
+        <td class="bt-card-value">{{info.modiDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="center">
+    <button class="bt-btn bt-btn-default" ng-click="closeThisDialog()">返回</button>
+  </div>
+</div>

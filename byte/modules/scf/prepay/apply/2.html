@@ -1,0 +1,120 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>应收账款提前付款申请</span>
+  </div>
+  <div class="header">
+    <ul>
+      <li class="active"><span>提交申请</span><span class="status"></span></li>
+      <li class="active last"><span>签署合同</span><span class="status"></span></li>
+      <li><span>采购方确认并签署合同</span><span class="status"></span></li>
+      <li><span>资金方付款</span><span class="status"></span></li>
+      <li><span>完成</span><span class="status"></span></li>
+    </ul>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>基本信息
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td width="7%" class="bt-card-key">申请编号:</td>
+        <td width="43%" class="bt-card-value">{{basicInfo.requestNo}}</td>
+        <td width="7%" class="bt-card-key">融资编号:</td>
+        <td width="43%" class="bt-card-value">{{basicInfo.equityNo}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">申请企业:</td>
+        <td class="bt-card-value">{{basicInfo.custName}}</td>
+        <td class="bt-card-key">收款账号:</td>
+        <td class="bt-card-value">{{basicInfo.custBankAccount}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">开户企业:</td>
+        <td class="bt-card-value">{{basicInfo.custBankAccountName}}</td>
+        <td class="bt-card-key">开户银行:</td>
+        <td class="bt-card-value">{{basicInfo.custBankName}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">采购企业:</td>
+        <td class="bt-card-value">{{basicInfo.coreCustName}}</td>
+        <td class="bt-card-key">业务类型:</td>
+        <td class="bt-card-value">采购方提前付款</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>付款信息
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+          <td width="12%" class="bt-card-key">当前资产总额(元):</td>
+          <td width="38%" class="bt-card-value">{{basicInfo.balance}}</td>
+          <td width="10%"  class="bt-card-key">期望付款日期:</td>
+          <td width="40%" class="bt-card-value">
+           <input type="text" class="bt-date" ng-model="basicInfo.requestPayDate" bt-date={min:basicInfo.cStartDate,max:basicInfo.cEndDate}>
+          </td>
+        </tr>
+        <tr class="bt-card-item">
+          <td class="bt-card-key">备注:</td>
+          <td class="bt-card-value" colspan="3">
+            <textarea ng-model="basicInfo.description" style="width: 600px;"></textarea>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>服务费信息
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td width="11%" class="bt-card-key">服务费总额(元):</td>
+        <td width="39%" class="bt-card-value">{{basicInfo.requestPayPlatBalance | currency:''}}</td>
+        <td width="9%" class="bt-card-key">服务费率(%):</td>
+        <td width="41%" class="bt-card-value">{{basicInfo.custOpatRate}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>提前付款合同
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=20%>合同编号</th>
+        <th width=30%>合同名称</th>
+        <th width=30%>合同金额</th>
+        <th width=20%>签署日期</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr>
+        <td><a class="bt-table-button" ng-click="lookPreCredit(preCreditInfoData)">{{preCreditInfoData.agreeNo}}</a></td>
+        <td>{{preCreditInfoData.agreeName}}</td>
+        <td>{{preCreditInfoData.balance | currency:''}}</td>
+        <td>{{preCreditInfoData.signDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-bBlue bt-msgs" ng-show="basicInfo.supplierSignFlag=='0'">
+    <span>验证码：<input type="text" ng-model="pageInfo.vCode"> 
+      <a ng-show="!pageInfo.validTime" class="bt-table-button" ng-click="QueryValidCode(preCreditInfoData.appNo,$event)">获取验证码</a>
+      <span ng-show="pageInfo.validTime"  id="validCode"></span>
+    </span>
+    
+  </div>
+  <div class="bt-bBlue">
+    <label ng-show="basicInfo.supplierSignFlag=='0'" class="labels"><input type="checkbox" ng-model="signAgreement2"></label>
+    <span class="spans">我司承诺同意按照支付<a class="bt-table-button">《企e金服服务合同》</a>服务费</span>
+  </div>
+  <div>
+    <label class="labels"><input type="checkbox" ng-model="confirm2"></label>
+    <span class="bt-red spans">我司承诺以上信息均真实有效，如有虚假信息，我司愿意承担相关法律责任并赔偿给贵司带来的损失</span>
+  </div>
+  <div class="center">
+    <button class="bt-btn bt-btn-confirm" ng-click="goBackIndexQuery($event)">返回</button>
+    <button class="bt-btn bt-btn-confirm" ng-click="saveSupplierSign($event,preCreditInfoData.appNo,pageInfo.vCode)" ng-disabled="!(signAgreement2 && confirm2)">合同签署</button>
+    <!-- <button class="bt-btn bt-btn-confirm" ng-click="saveConfirmPage2($event,basicInfo)" ng-disabled="!confirm2">确定</button> -->
+  </div>
+</div>

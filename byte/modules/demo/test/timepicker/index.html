@@ -1,0 +1,28 @@
+<p>普通的时间选择</p>
+<div class="bt-form-group">
+	<label class="bt-form-label"><span class="bt-red">*</span>开始日期：</label>
+	<div class="bt-form-input">
+		<input class="bt-date" ng-model="searchData.GTEregDate" bt-date>
+	</div>
+</div>
+<p>只能输入年月的日期选择</p>
+<div class="bt-form-group">
+	<label class="bt-form-label"><span class="bt-red">*</span>开始日期：</label>
+	<div class="bt-form-input">
+		<input class="bt-date" ng-model="searchData.GTEregDate" bt-date="{dateFmt:'yyyy-MM'}">
+	</div>
+</div>
+<p>输入日期范围</p>
+<div class="bt-form-group">
+	<label class="bt-form-label"><span class="bt-red">*</span>开始日期：</label>
+	<div class="bt-form-input">
+		<input class="bt-date" placeholder="开始日期" ng-model="searchData.GTEregDate" bt-date="{max:searchData.LTEregDate}">
+	</div>
+</div>
+<div class="bt-form-group">
+	<label class="bt-form-label"><span class="bt-red">*</span>结束日期：</label>
+	<div class="bt-form-input">
+		<input class="bt-date" placeholder="结束日期" ng-model="searchData.LTEregDate" bt-date="{min:searchData.GTEregDate}">
+	</div>
+</div>
+

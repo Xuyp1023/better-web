@@ -1,0 +1,10 @@
+<h1>上传文件</h1>
+<form action="{{btData.fileTypeName}}" method="post" enctype="multipart/form-data" target="bt_upload_frame" onsubmit="return angular.element(this).scope().beforeSubmit(this)">
+	<label>选择文件:</label>
+	<input type="file" accept="{{btData.accept}}" name="Filedata" onchange="angular.element(this).scope().fileChange(this)">
+	<div>
+		<button class="bt-btn bt-btn-error" ng-click="closeThisDialog()">返回</button>
+		<input type="submit" value="上传该文件" class="bt-btn bt-btn-info" />
+	</div>
+</form>
+<iframe name="bt_upload_frame" style="display: none;" onload="angular.element(this).scope().iframeLoad(this)"></iframe>

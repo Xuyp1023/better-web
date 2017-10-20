@@ -1,0 +1,102 @@
+.header {
+  background-color: #e3effb;
+	height: 66px;
+	padding: 10px 20px 10px;
+}
+.header.moving {
+	background-image: url(../../../../../app/img/modal/bt-modal-active.png);
+	background-position:center;
+  background-repeat: no-repeat;
+} 
+.header li {
+  width: 50%;
+  list-style: none;
+  float: left;
+	text-align: center;
+	font-weight: bold;
+}
+.header li.active {
+	color: #063c94;
+}
+.header li .status {
+	display: block;
+	height: 25px;
+	border-bottom: 1px solid black;
+	background-image: url(../../../../../app/img/modal/bt-modal-circle.png);
+	background-position:bottom center;
+  background-repeat: no-repeat;
+}
+.header li.active .status {
+	border-bottom-color: #063c94;	
+	background-image: url(../../../../../app/img/modal/bt-modal-circle-active.png);
+} 
+.content {
+  height: 315px;
+  padding: 10px;
+  overflow-y: auto;
+}
+.content .content-title {
+  padding-left: 24px;
+	background-position: center left;
+  background-repeat: no-repeat;
+}
+.content .content-title.name {
+  background-image: url(../../../../../app/img/modal/bt-content-name.png);
+}
+.content .content-title.money {
+  background-image: url(../../../../../app/img/modal/bt-content-money.png);
+}
+.content .content-title.out {
+  background-image: url(../../../../../app/img/modal/bt-content-out.png);
+}
+.content .content-title.button {
+  background-image: url(../../../../../app/img/modal/bt-content-button.png);
+}
+.bt-table-button {
+  padding-left: 24px;
+	background-position: center left;
+  background-repeat: no-repeat;
+  background-image: url(../../../../../app/img/modal/bt-table-money.png);
+}
+.bt-modal {
+
+}
+.bt-modal .bt-modal-background {
+  bottom: 0;left: 0;position: absolute;right: 0;top: 0;
+  background-color: black;
+  background-color: rgba(10, 10, 10, 0.7);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+}
+.bt-modal .bt-modal-content {
+  position: absolute;margin: auto;width: 540px;height: 422px;
+  background-color: white;border-radius: 1px;top: 0;left: 0;bottom: 0;right: 0;
+  background-image: url(../../../../../app/img/modal/bt-modal-logo.png);
+	background-position: 50% 98%;
+  background-repeat: no-repeat;
+}
+.bt-modal .bt-modal-body {
+
+}
+
+.result {
+  padding: 18px 20px 10px;
+  height: 315px;
+  overflow-y: auto;
+}
+.bt-container {
+  position: relative;
+  min-width: 0px;
+  padding: 0;
+  background-image: url(../../../../../app/img/modal/bt-redeem-success.png);
+  background-position: -10px -6px;
+  background-repeat: no-repeat;
+}
+.bt-container .bt-card-info {
+  width: 260px;
+  margin-left: 240px;
+  margin-bottom: 0; 
+}
+.bt-table.redeem tr td, .bt-table.redeem tr th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

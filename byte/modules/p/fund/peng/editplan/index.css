@@ -1,0 +1,75 @@
+ .larger {
+    height: 70px;
+    display: block;
+    padding-top: 30px;
+    font-weight: bold;
+    font-size: xx-large;
+ }
+  .header {
+  background-color: #063c94;
+	height: 66px;
+	padding: 10px 20px 10px;
+}
+.header li {
+  font-size: 14px;
+  width: 33.3%;
+  list-style: none;
+  float: left;
+	text-align: center;
+}
+.header li.active {
+  color: white;
+  background-image: url(../../../../../app/img/modal/bt-modal-air.png);
+	background-position:100% 90%;
+  background-repeat: no-repeat;
+}
+.header li .status {
+	display: block;
+	height: 25px;
+	border-bottom: 1px solid black;
+	background-image: url(../../../../../app/img/modal/bt-modal-circle.png);
+	background-position:bottom center;
+  background-repeat: no-repeat;
+}
+.header li.active .status {
+	border-bottom-color: white;	
+	background-image: url(../../../../../app/img/modal/bt-modal-circle-white.png);
+} 
+div.center {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+.bt-container {
+  min-width: 950px;
+}
+.bt-query-card {
+  width: 950px;
+}
+.c-checkbox {
+  width: 15px !important;
+  height: 20px !important;
+  vertical-align: sub;
+}
+.bt-table-button.new-item {
+	float: right;
+	padding-left: 20px;
+	background-position: center left;
+  background-repeat: no-repeat;
+  background-image: url(../../../../../app/img/bt-new-item.jpg);
+}
+.alert-success {
+	color: #468847;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	padding: 14px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	margin-top: 30px;
+}
+.alert-success p {
+	line-height: 30px;
+	font-size: 14px;
+	margin-left: 10px;
+}

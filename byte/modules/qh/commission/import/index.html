@@ -1,0 +1,98 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>文件上传</span>
+  </div>
+  <label id="certCount" style="display: none;"></label>
+  <div class="bt-title-card">
+    <span class="icon"></span>文件签名
+  </div>
+  <table class="bt-form" bt-form-validate="formParams">
+    <tbody>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">选择证书：</td>
+        <td class="bt-form-input">
+          <select ng-disabled="importVo.signature" id="CertList" name="CertList" onChange="onCertListChange()"> </select>
+        </td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">操作企业：</td>
+        <td class="bt-form-input">
+          <select ng-model="importVo.custNo" ng-options ="item.value as item.name for item in companyList"></select>
+        </td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">导入文件：</td>
+        <td class="bt-form-input">
+          <form style="display: inline-block;" action="../Platform/CustFile/fileUpload?fileTypeName=otherFile" method="post" enctype="multipart/form-data" target="bt_upload_frame"><input type="file" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" id="fileToP1Sign" name="Filedata"  size="58" onchange="javascript:fileChange(this);"></form><iframe name="bt_upload_frame" style="display: none;" onload="iframeLoad(this)"></iframe>
+          <span><a ng-show="templateId" href="/better/Platform/CustFile/fileDownload?id={{templateId}}">下载批量导入模板</a></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="bt-form-label"></td>
+        <td class="bt-form-input bt-space-8">
+          <button class="bt-btn bt-btn-confirm" ng-show="importVo.signature" ng-click="submitImport()">提交</button>
+          <button class="bt-btn bt-btn-default" ng-click="goBack()">返回</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table width="700" cellPadding="0" cellSpacing="0" bordercolorlight="#5787b2" bordercolordark="#ffffff" bgcolor="#e2ecf5" id="tbCertFilter" style="display:none">
+          <tr>
+            <td width="88" > 主题</td>
+            <td width="300"><input type=text id="ftSubject" size="45">
+              </input>
+            </td>
+          <td width="250" > 支持主题项的O\OU\CN关键字</td>
+          </tr>
+          <tr>
+            <td width="88" > 颁发者</td>
+            <td width="300"><input type=text id="ftIssuer" size="45">
+              </input>
+            </td>
+          <td width="250" > 支持颁发者的O\OU\CN关键字</td>
+          </tr>
+          <tr>
+            <td >序列号</td>
+            <td><input type=text id="ftSerial" size="45"></td>
+          <td width="250" > 此处需要输入序列号精确匹配</td>
+          </tr>
+          <tr>
+            <td >密钥用法</td>
+            <td width="300">
+        <label><input id="checkusage" name="checkusage" type="checkbox" value="digitalSignature"  />digitalSignature</label><br>
+        <label><input id="checkusage" name="checkusage" type="checkbox" value="nonRepudiation"    />nonRepudiation</label><br>
+        <label><input id="checkusage" name="checkusage" type="checkbox" value="keyEncipherment"   />keyEncipherment</label><br>
+        <label><input id="checkusage" name="checkusage" type="checkbox" value="dataEncipherment"  />dataEncipherment</label><br>
+        <label><input id="checkusage" name="checkusage" type="checkbox" value="keyAgreement"      />keyAgreement</label><br>
+        <label><input id="checkusage" name="checkusage" type="checkbox" value="keyCertSign"       />keyCertSign</label><br>
+        <label><input id="checkusage" name="checkusage" type="checkbox" value="cRLSign"           />cRLSign</label><br>
+        <label><input id="checkusage" name="checkusage" type="checkbox" value="encipherOnly"      />encipherOnly</label><br>
+        <label><input id="checkusage" name="checkusage" type="checkbox" value="decipherOnly"      />decipherOnly</label><br>
+        <label><input id="checkusage" name="checkusage" type="checkbox" value="contentCommitment" />contentCommitment</label><br>
+            </td>
+            <td>支持通过扩展密钥用法过滤证书</td>
+          </tr>
+          <tr>
+            <td >证书有效期</td>
+            <td><input id="seldate" type="text" size="45" name="it" class="it date-pick"  /></td>
+          <td width="250" >支持过滤指定日期的有效的证书，默认为当日</td>
+          </tr>
+          <tr>
+            <td colspan="2"  align="center"><a id="a_refreshCertList" href="javascript:refreshCertList();">查询证书</a></td>
+            </tr>
+          <tr>
+            <td colspan="2"  align="center"><a id="quickshCertList1" href="javascript:refreshCertList(1);">快速查询签名证书</a>
+            <a id="quickshCertList2" href="javascript:refreshCertList(2);">快速查询加密证书</a></td>
+            <td width="250" >证书快速查询，可查询包含签名密钥用法和加密密钥用法的证书(不可与其他查询条件混用)。</td>
+          </tr>
+        </table>
+        <table id="tbFileP1Encryption" width="700" cellPadding="0" cellSpacing="0" bordercolorlight="#5787b2" bordercolordark="#ffffff" bgcolor="#e2ecf5">
+            <tr style="display: none;">
+                <td>签名结果</td>
+                 <td width="120">
+                    <textarea   cols="80" rows="10" id="fileToP1rResult"></textarea>
+                    <input type="hidden" id="fileToP1SignData"  name="fileToP1SignData">
+                </td>
+            </tr>
+        </table>
+</div>

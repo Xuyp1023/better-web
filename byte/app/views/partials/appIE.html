@@ -1,0 +1,16 @@
+<!-- 头部导航栏-->
+<div class="topnavbar-wrapper" ng-include="'app/views/partials/top-navbar.html'"></div>
+<!-- 左边菜单-->
+<div class="aside" ng-include="'app/views/partials/sidebar.html'" ng-controller="SidebarController"></div>
+<!-- 右边设置项-->
+<div class="offsidebar" ng-include="'app/views/partials/offsidebar.html'"></div>
+<!-- 主要的类容-->
+<div class="section">
+    <div class="advice">
+        <a href="qiefof/qiePurchase.html" target="content_iframe"><img src="app/img/banner/advice.jpg" alt="企额金服"></a>
+    </div>
+    <!-- 页面类类容-->
+    <div class="content-wrapper" ui-view="" autoscroll="false"></div>
+</div>
+<!-- 底部-->
+<div class="footer" ng-include="'app/views/partials/footer.html'"></div>

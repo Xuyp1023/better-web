@@ -1,0 +1,27 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>消息提示</span>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>全局消息提示
+	</div>
+	<div>
+		<button ng-click="testInfo()">info</button>
+		<button ng-click="testError()">error</button>
+		<button ng-click="testSuccess()">success</button>
+		<button ng-click="testWarning()">warning</button>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>对话框提示
+	</div>
+	<div>
+		<button ng-click="loginTimeout($event)">登录超时</button>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>按钮点击事件提示
+	</div>
+	<div style="margin-left: 300px;margin-top: 300px">
+		<button ng-click="testBtnWarning($event)">按钮事件提示</button>
+		<button ng-click="testBtnConfirm($event)">按钮确认框提示</button>
+	</div>
+</div>

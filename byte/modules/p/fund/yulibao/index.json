@@ -1,0 +1,14 @@
+{
+	"initInfo":{
+		"resolve":["wdatePicker","btDict","../p/generate/lib/BTDictData.js"]
+	},
+	"configVo":{
+		"BTServerPath" : {
+            "Query_Yuebao_BasicInfo":["../SaleQuery/findCustBalanceByAgencyNo"],
+            "Query_Yuebao_DealInfo":["../SaleQuery/queryTradeRequest"],
+            "Query_Yuebao_HistoryInfo":["../SaleQuery/querySaleShares"],
+            "Query_Yuebao_FundDays":["../SaleQuery/queryFundDays"],
+						"Ali_Pay_Auth":["../aliPayAuth/findAlipayNotifyInfo"]
+        }
+	}
+}

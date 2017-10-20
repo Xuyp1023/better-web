@@ -1,0 +1,19 @@
+{"code":200,"data":[
+	{
+		"fundCode":1234567,"fundName":"大成货币B","netDate":"20170102","netValue":1,"incomeRatio":"2.221","incomeUnit":"0.3654","riskLevel":"01"
+	},
+	{
+		"fundCode":1234567,"fundName":"大成货币B","netDate":"20170102","netValue":1,"incomeRatio":"2.221","incomeUnit":"0.3654","riskLevel":"01"
+	},
+	{
+		"fundCode":1234567,"fundName":"大成货币B","netDate":"20170102","netValue":1,"incomeRatio":"2.221","incomeUnit":"0.3654","riskLevel":"01"
+	},
+	{
+		"fundCode":1234567,"fundName":"大成货币B","netDate":"20170102","netValue":1,"incomeRatio":"2.221","incomeUnit":"0.3654","riskLevel":"01"
+	},
+	{
+		"fundCode":1234567,"fundName":"大成货币B","netDate":"20170102","netValue":1,"incomeRatio":"2.221","incomeUnit":"0.3654","riskLevel":"01"
+	}
+
+],"page":{"total":1,"pageSize":10}
+}

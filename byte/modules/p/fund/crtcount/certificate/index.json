@@ -1,0 +1,28 @@
+{
+	"initInfo": {
+		"resolve": [
+			"wdatePicker",
+			"btDict"
+		]
+	},
+	"configVo": {
+		"BTServerPath": {
+			"INIT_CERTIFICATE_INFO": [
+				"Module_Path/server/cmpCertFileList.json",
+				"/CustAduit/queryAduitFile"
+			],
+			"Query_Company_List": [
+				"server/btDict/qh/commission/company-list.json",
+				"/SaleQuery/queryCustInfo"
+			],
+			"SUBMIT_CERTIFICATE_INFO": [
+				"Module_Path/server/SUBMIT_CERTIFICATE_INFO.json",
+				"/Platform/CustAduitTemp/addAduitTempFile"
+			],
+			"Query_ALL_Attach": [
+				"Module_Path/server/Query_ALL_Attach.json",
+				"/Platform/CustRelationConfig/findAgencyFileType"
+			]
+		}
+	}
+}

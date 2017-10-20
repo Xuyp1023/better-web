@@ -1,0 +1,137 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>开通基金业务</span>
+	</div>
+	<div class="header">
+		<ul>
+			<li class="active"><span>完善机构信息</span><span class="status"></span></li>
+			<li class="active"><span>签署协议</span><span class="status"></span></li>
+			<li class="active last"><span>预览</span><span class="status"></span></li>
+			<li><span>完成</span><span class="status"></span></li>
+		</ul>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>客户资料
+	</div>
+	<table class="bt-card-info">
+		<tbody>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">申请机构名称:</td>
+				<td class="bt-card-value" colspan="3" >深圳世外桃源物业管理有限公司</td> 
+			</tr>
+			<tr class="bt-card-item">
+				<td width="17%" class="bt-card-key">组织机构代码证号:</td>
+				<td width="33%" class="bt-card-value"></td>
+				<td width="16%" class="bt-card-key">开户证件有效期:</td>
+				<td width="34%" class="bt-card-value">2020-12-23</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">营业执照号码:</td>
+				<td class="bt-card-value">25645658-2</td>
+				<td class="bt-card-key">邮政编码:</td>
+				<td class="bt-card-value">518000</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">通讯地址:</td>
+				<td class="bt-card-value" colspan="3" >asdfasdfadf</td> 
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">业务联系电话:</td>
+				<td class="bt-card-value">0755-2254565</td>
+				<td class="bt-card-key">传真:</td>
+				<td class="bt-card-value">0755-2254565</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>交收行信息
+	</div>
+	<table class="bt-card-info">
+		<tbody>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">银行账户名:</td>
+				<td class="bt-card-value" colspan="3" >深圳世外桃源物业管理有限公司</td> 
+			</tr>
+			<tr class="bt-card-item">
+				<td width="16%" class="bt-card-key">银行账户:</td>
+				<td width="34%" class="bt-card-value">443066371018002535071</td>
+				<td width="16%" class="bt-card-key">所属银行:</td>
+				<td width="34%" class="bt-card-value">2交通银行</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">开户银行所在地:</td>
+				<td class="bt-card-value">北京市市辖区</td>
+				<td class="bt-card-key">开户银行(全称):</td>
+				<td class="bt-card-value">交通银行深圳宝民支行</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>经办人、法人信息
+	</div>
+	<table class="bt-card-info">
+		<tbody>
+			<tr class="bt-card-item">
+				<td width="16%" class="bt-card-key">经办人姓名:</td>
+				<td width="34%" class="bt-card-value">佟琳</td>
+				<td width="16%" class="bt-card-key">经办人证件类型:</td>
+				<td width="34%" class="bt-card-value">身份证</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">经办人证件号码:</td>
+				<td class="bt-card-value">21031119851130004x</td>
+				<td class="bt-card-key">经办人证件有效期:</td>
+				<td class="bt-card-value">2020-12-23</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">经办人手机:</td>
+				<td class="bt-card-value">15361545454</td>
+				<td class="bt-card-key">经办人邮箱:</td>
+				<td class="bt-card-value">afasd@asdf.com</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">经办人联系电话:</td>
+				<td class="bt-card-value">0755-2254565</td>
+				<td class="bt-card-key">经办人传真:</td>
+				<td class="bt-card-value"></td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">经办人姓名:</td>
+				<td class="bt-card-value">佟琳</td>
+				<td class="bt-card-key">经办人证件类型:</td>
+				<td class="bt-card-value">身份证</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">经办人证件号码:</td>
+				<td class="bt-card-value">21031119851130004x</td>
+				<td class="bt-card-key">经办人证件有效期:</td>
+				<td class="bt-card-value">2020-12-23</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>选择开户基金销售机构
+	</div>
+	<div>
+		<label class="label" ng-repeat="item in BTDict.SaleAgency" ng-show="item.checked">{{item.value}}</label>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>签署协议
+	</div>
+	<div>
+		<a href="#">基金机构客户网上交易协议</a>
+	</div>
+	<div class="center">
+		<button class="bt-btn bt-btn-confirm" ng-click="toFinishPage($event)">增开账户</button>
+		<button class="bt-btn bt-btn-default" ng-click="goBack($event,2)">返回</button>
+	</div>
+	<div class="bt-prompt-header">
+		<span>温馨提示</span>
+	</div>
+	<div class="bt-prompt-content">
+		<p>1.请您认真核对地址信息，保证资料真实、准确。</p>
+		<p>2.因网上交易的特殊性，请您务必填写真实、准确的机构信息并妥善保管登录账号（证件号码、基金账号）及交易密码等重要信息。</p>
+		<p>3.管理人不承担因您未提供真实、准确信息或未妥善保管网上交易登录账号及交易密码而产生的任何损失。</p>
+		<p>4.开立基金账户所需资料:开放式基金账户申请表机构、开放式基金业务授权委托书、机构投资者传真委托服务协议、开放式基金业务印鉴卡、营业执照复印件（加盖公章）、组织机构代码证复印件（加盖公章）、税务登记证复印件（加盖公章）、指定银行开户证明、经办人有效身份证复印件（加盖公章）、法人有效身份证复印件（加盖公章）、机构负责人有效身份证复印件（加盖公章）、机构投资者风险调查问卷、投资者权益书;此外某些基金机构所需个别资料请在基金机构选择页面详细查看。</p>
+	</div>
+</div>

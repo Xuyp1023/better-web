@@ -1,0 +1,18 @@
+{
+	"initInfo": {
+		"resolve": []
+	},
+	"configVo": {
+		"BTServerPath": {
+			"Save_Set_First": [
+				"","/MoneyScheme/findComMoneySchemeBySchemeId"
+			],"Com_Money_Scheme": [
+				"","/MoneyScheme/queryComMoneyScheme"
+			],"findComMoneySchemeTemp": [   
+				"","/MoneySchemeTemp/findComMoneySchemeTemp"
+			],"findComMoneySchemeBySchemeId": [   
+				"","/MoneyScheme/findComMoneySchemeBySchemeId"
+			]
+		}
+	}
+}

@@ -1,0 +1,4 @@
+[
+	"bower_components/angular/angular.js",
+	"bower_components/oclazyload/dist/ocLazyLoad.js"
+]

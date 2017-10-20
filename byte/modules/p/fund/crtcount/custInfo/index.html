@@ -1,0 +1,177 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>企业信息</span>
+  </div>
+  <div class="bt-title-card">
+		<span class="icon"></span>选择
+  </div>
+  <table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">交易账户：</td>
+				<td width="100%" class="bt-query-value">
+					<select ng-model="partmentId" ng-options="item.value as item.name for item in TRADE_ACCOUNT_LIST">
+						<option value="">----全部----</option>
+					</select>
+					<button class="bt-btn bt-btn-confirm bt-left-5" ng-click="reFreshCustInfo($event)">查询</button>
+				</td>
+			</tr>
+		</tbody>
+  </table>
+  <div class="bt-title-card">
+		<span class="icon"></span>资料管理
+  </div>
+  <table class="bt-card-info">
+		<tbody>
+			<tr class="bt-card-item">
+				<td width="7%" class="bt-card-key">机构名称:</td>
+				<td width="43%" class="bt-card-value">{{custInfo.custName}}</td>
+				<td width="16%" class="bt-card-key">基金销售机构:</td>
+				<td width="34%" class="bt-card-value">{{existsFundCompBind}}</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">保理机构:</td>
+				<td class="bt-card-value">{{existsScfCompBind}}</td>
+				<td class="bt-card-key">理财机构:</td>
+				<td class="bt-card-value">{{existsMoneyCompBind}}</td>
+			</tr>
+		</tbody>
+  </table>
+  <div class="bt-title-card">
+		<span class="icon"></span>基本资料
+  </div>
+  <table class="bt-form bt-form-two" bt-form-validate="formBasic">
+		<tbody>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>联系人姓名：</td>
+				<td width="100%" class="bt-form-input">
+					<input type="text" ng-model="custInfo.contName" required>
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>联系人手机：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="custInfo.contMobileNo" required bt-pattern="mobile">
+					<div class="bt-from-danger" ng-show="formBasic.validateInput('custInfo.contMobileNo')">请输入11位数的手机号码</div>
+				</td>
+      </tr>
+      <tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>联系人邮箱：</td>
+				<td width="100%" class="bt-form-input">
+					<input type="email" ng-model="custInfo.contEmail" required>
+					<div class="bt-from-danger" ng-show="formBasic.validateInput('custInfo.contEmail')">请输入正确格式的邮箱</div>
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>固定电话：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="custInfo.phone" required  bt-pattern="phone">
+					<div class="bt-from-danger" ng-show="formBasic.validateInput('custInfo.phone')">请输入正确格式的固定电话</div>
+				</td>
+      </tr>
+      <tr class="bt-form-group">
+				<td class="bt-form-label">传真号码：</td>
+				<td width="100%" class="bt-form-input">
+					<input type="text" ng-model="custInfo.faxNo">
+				</td>
+				<td class="bt-form-label">通讯地址：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="custInfo.address">
+				</td>
+      </tr>
+      <tr class="bt-form-group">
+				<td class="bt-form-label">邮政编码：</td>
+				<td width="100%" class="bt-form-input">
+					<input type="text" ng-model="custInfo.zipCode">
+				</td>
+				<td class="bt-form-label"></td>
+				<td class="bt-form-input">
+				</td>
+			</tr>
+		</tbody>
+  </table>
+  <div class="bt-title-card">
+		<span class="icon"></span>供应链金融相关资料
+  </div>
+  <table class="bt-form bt-form-two" bt-form-validate="formRelative">
+		<tbody>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>营业执照登记日期：</td>
+				<td width="100%" class="bt-form-input">
+					<input class="bt-date" type="text" ng-model="custInfo.businLicRegDate" bt-date="{max:custInfo.validDate}" required>
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>营业执照截止日期：</td>
+				<td class="bt-form-input">
+					<input class="bt-date" type="text" ng-model="custInfo.validDate" bt-date="{min:custInfo.businLicRegDate}" required>
+				</td>
+      </tr>
+      <tr class="bt-form-group">
+				<td class="bt-form-label">注册资本区间：</td>
+				<td width="100%" class="bt-form-input">
+					<select ng-model="custInfo.regCapital" ng-options="item.key as item.value for item in BTDict.RegCapitalRang"></select>
+				</td>
+				<td class="bt-form-label">注册资本金额(万元)：</td>
+				<td class="bt-form-input">
+					<input type="number" ng-model="custInfo.regBalance">
+				</td>
+      </tr>
+      <tr class="bt-form-group">
+				<td class="bt-form-label">实收资本(万元)：</td>
+				<td width="100%" class="bt-form-input">
+					<input type="number" ng-model="custInfo.paidCapital">
+				</td>
+				<td class="bt-form-label"><span class="bt-red">*</span>成立日期：</td>
+				<td class="bt-form-input">
+					<input class="bt-date" type="text" ng-model="custInfo.setupDate" bt-date>
+				</td>
+      </tr>
+      <tr class="bt-form-group">
+				<td class="bt-form-label">行业类别：</td>
+				<td width="100%" class="bt-form-input">
+          <select ng-model="custInfo.corpVocate" ng-options="item.key as item.value for item in BTDict.InvestCorpVocate"></select>
+				</td>
+				<td class="bt-form-label">机构类型：</td>
+				<td class="bt-form-input">
+          <select ng-model="custInfo.instType" ng-options="item.key as item.value for item in BTDict.OrganizationType"></select>
+				</td>
+      </tr>
+      <tr class="bt-form-group">
+				<td class="bt-form-label">企业性质：</td>
+				<td width="100%" class="bt-form-input">
+          <select ng-model="custInfo.corpProperty" ng-options="item.key as item.value for item in BTDict.EnterpriseNature"></select>
+				</td>
+				<td class="bt-form-label">企业从业人数：</td>
+				<td class="bt-form-input">
+					<input type="number" ng-model="custInfo.personCount" bt-pattern="int">
+					<div class="bt-from-danger" ng-show="formRelative.validateInput('custInfo.personCount')">请填写整数</div>
+				</td>
+      </tr>
+      <tr class="bt-form-group">
+				<td class="bt-form-label">企业所在地：</td>
+				<td width="100%" class="bt-form-input">
+					<input type="text" ng-model="custInfo.address">
+				</td>
+				<td class="bt-form-label">注册地址：</td>
+				<td class="bt-form-input">
+          <input type="text" ng-model="custInfo.regAddr">
+				</td>
+      </tr>
+      <tr class="bt-form-group">
+				<td class="bt-form-label">经营面积(平方米)：</td>
+				<td width="100%" class="bt-form-input">
+					<input type="number" ng-model="custInfo.operateArea">
+				</td>
+				<td class="bt-form-label">经营场地所有权(年)：</td>
+				<td class="bt-form-input">
+          <input type="number" ng-model="custInfo.ownerShipYear" maxLength="3">
+				</td>
+      </tr>
+      <tr class="bt-form-group">
+				<td class="bt-form-label">经营范围：</td>
+				<td class="bt-form-input bt-remark" colspan="3">
+					<textarea ng-model="custInfo.busiScope" style="width:100%"></textarea>
+				</td>
+			</tr>
+		</tbody>
+  </table>
+  <div class="center">
+		<button class="bt-btn bt-btn-confirm" ng-click="modifyCustInfo($event)">修改</button>
+		<button class="bt-btn bt-btn-default" ng-click="resetForm($event)">重置</button>
+	</div>
+</div>

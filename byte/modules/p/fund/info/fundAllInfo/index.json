@@ -1,0 +1,11 @@
+{
+	"initInfo":{
+		"resolve":[]
+	},
+	"configVo": {
+		"BTServerPath": {
+			"TRADE_ACCOUNT_LIST": ["server/http/p/fund/AAqueryCustInfo.json","/SaleQuery/queryCustInfo"],
+			"QUERY_BALANCE": ["Module_Path/test.json","/SaleQuery/queryCustBalance"]
+		}
+	}
+}

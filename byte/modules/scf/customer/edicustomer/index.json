@@ -1,0 +1,21 @@
+{
+	"initInfo": {
+		"resolve": [
+			"btDict"
+		]
+	},
+	"configVo": {
+		"BTServerPath": {
+			"Query_Day_Manager": [
+				"server/http/qh/check/day-manager-query.json","/Scf/CoreProductCust/saveAddAndUpdateProduct"
+			],
+			"Test_Query_Pages": [
+				"server/http/test/test-pages-query.json","/Scf/CoreProductCust/queryProductConfigByCore"
+			],
+			"Test_Query_put":[
+				"server/http/test/test-pages-query.json","/Platform/CustRelationConfig/findFactorBusinessRequest"
+			]
+		},
+		"tableParams": {}
+	}
+}

@@ -1,0 +1,33 @@
+.dialog-dropback{
+	width:300px;
+	height:170px;
+	position: absolute;
+	border:1px solid red;
+	border-radius: 4px;
+	z-index: 2;
+	left:50%;
+	top:50%;
+	margin-left: -150px;
+	margin-top: -85px;
+	padding: 10px 3px;
+}
+
+.dialog-dropback .container{
+	width:100%;
+	height:100%;
+}
+.container .head{
+	padding-bottom: 10px;
+    border-bottom: 1px solid #aaa;
+}
+.container .content{
+	text-indent: 2em;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.container .footer{
+	    text-align: right;
+}
+.container .footer .confirm{
+	margin:5px;
+}

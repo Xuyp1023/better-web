@@ -1,0 +1,29 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>企鹅宝赎回</span>
+	</div>
+	<div class="header">
+		<ul>
+			<li class="active last"><span>选基金</span><span class="status"></span></li>
+			<li><span>确认金额</span><span class="status"></span></li>
+			<li><span>预览</span><span class="status"></span></li>
+			<li><span>完成</span><span class="status"></span></li>
+		</ul>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>查询
+	</div>
+	<table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">交易账户：</td>
+				<td width="100%" class="bt-query-value">
+					<select ng-model="searchData.custNo" ng-options="item.value as item.name for item in BTDict.AccountBank">
+          </select>
+					<button class="bt-btn bt-btn-confirm bt-left-5" ng-click="queryList($event)">查询</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div bt-table="tableParams" class="bt-table-page"></div>
+</div>

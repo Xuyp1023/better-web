@@ -1,0 +1,48 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>活期宝申购</span>
+	</div>
+	<div class="header">
+		<ul>
+			<li class="active last"><span>选基金</span><span class="status"></span></li>
+			<li><span>确认金额</span><span class="status"></span></li>
+			<li><span>预览</span><span class="status"></span></li>
+			<li><span>完成</span><span class="status"></span></li>
+		</ul>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>查询
+	</div>
+	<table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">基金销售机构：</td>
+				<td width="50%" class="bt-query-value">
+					<select ng-model="searchData.agencyNo" ng-options="item.key as item.value for item in BTDict.SaleAgency">
+					</select>
+				</td>
+				<td width="14%" class="bt-query-key">快速搜索：</td>
+				<td width="36%" class="bt-query-value">
+					<input type="text" ng-model="searchData.fundCode">
+				</td>
+			</tr>
+			<tr class="bt-query-item">
+				<td colspan="4">
+					<div class="bt-align-right bt-space-8">
+						<button class="bt-btn bt-btn-confirm" ng-click="queryList($event)">查询</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div bt-table="tableParams" class="bt-table-page"></div>
+	<div class="bt-prompt-header">
+		<span>温馨提示</span>
+	</div>
+	<div class="bt-prompt-content">
+		<p>1.您选择“其他基金”访问的页面将跳转至天天基金网，该网站是本司的第三方合作平台，为您提供更多样的基金产品服务。如有疑问可致电我司客服热线：0755-33000719</p>
+		<p>2.若使用汇款交易：客户需承担网银转账费用，建议购买2万元以上的大额申购使用。</p>
+		<p>3.请注意交易资金的到账截止时间为T日15:00，客户需提前汇款。</p>
+		<p>4.请务必使用您选择的充值渠道进行汇款，如使用其他银行卡将造成资金不能匹配、申请交易无效。</p>
+	</div>
+</div>

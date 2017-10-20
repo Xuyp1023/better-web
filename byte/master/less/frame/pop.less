@@ -1,0 +1,84 @@
+/* ========================================================================
+   消息提示: pop.less
+ ========================================================================== */
+ .bt-pop {
+ 	width:412px;
+ 	min-height:138px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-color: #cccccc;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+    overflow: hidden;
+
+    .bt-pop-title {
+    	font-size: 16px;
+    	color: #333;
+    	padding: 24px 16px 3px 16px;
+
+    	.bt-pop-icon {
+		    height: 30px;
+		    width: 30px;
+		    display: inline-block;
+		    vertical-align: middle;
+    	}
+    }
+    .bt-pop-content {
+        min-height: 81px;
+    	font-size: 14px;
+    	color: #666;
+    	padding: 0 20px 16px 48px;
+    	overflow: hidden;
+        word-break: break-all;
+        line-height: 22px;
+        
+    }
+    span.icon {
+		margin-right:16px;
+    }
+}
+
+ .bt-pop-close {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 11px;
+    height: 11px;
+ 	background-image: url(../img/bt-pop-close.png);
+
+ 	&:hover {
+ 		background-image: url(../img/bt-pop-close-hover.png);
+ 	}
+ }
+
+ .bt-pop-info {
+ 	background-color:#d7edfd;
+
+ 	span.icon {
+ 		background-image: url(../img/bt-pop-info.png);
+ 	}
+ }
+  .bt-pop-success {
+ 	background-color:#dafeed;
+
+ 	span.icon {
+ 		background-image: url(../img/bt-pop-success.png);
+ 	}
+ }
+  .bt-pop-warning {
+ 	background-color:#fff7e0;
+
+ 	span.icon {
+ 		background-image: url(../img/bt-pop-warning.png);
+ 	}
+ }
+  .bt-pop-error {
+ 	background-color:#fddedb;
+
+ 	span.icon {
+ 		background-image: url(../img/bt-pop-error.png);
+ 	}
+ }

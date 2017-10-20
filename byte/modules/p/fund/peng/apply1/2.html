@@ -1,0 +1,66 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>企鹅宝申购</span>
+  </div>
+  <div class="header">
+    <ul>
+      <li class="active"><span>选基金</span><span class="status"></span></li>
+      <li class="active last"><span>确认金额</span><span class="status"></span></li>
+      <li><span>预览</span><span class="status"></span></li>
+      <li><span>完成</span><span class="status"></span></li>
+    </ul>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>确认
+  </div>
+  <table class="bt-form" bt-form-validate="formParams">
+    <tbody>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">理财方案：</td>
+        <td class="bt-form-input">{{purchaseInfo.schemeName}}</td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">支付银行账户：</td>
+        <td class="bt-form-input">{{purchaseInfo.payBankAccos}}</td>
+      </tr>
+     <!--  <tr class="bt-form-group">
+        <td class="bt-form-label">基金：</td>
+        <td class="bt-form-input">{{pageInfo.fundName + '[' + pageInfo.fundCode + ']'}}</td>
+      </tr> -->
+      <tr class="bt-form-group">
+        <td class="bt-form-label">交易账户：</td>
+        <td class="bt-form-input">
+          <select ng-model="purchaseInfo.moneyAccount" ng-options="item.value as item.name for item in BTDict.AccountBank" ng-change="moneyAccountChange()">
+          </select>
+          <div class="bt-from-danger" ng-show="pageInfo.moneyInvalid">该账户还未在该基金所属基金公司开户，请更换或进行增开!</div>
+        </td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label"><span class="bt-red">*</span>买入金额：</td>
+        <td class="bt-form-input">
+          <input type="text" ng-model="purchaseInfo.investMentAmount" bt-pattern="money" required ng-focus="pageInfo.balanceInvalid = false">
+          <div class="bt-from-danger" ng-show="formParams.validateInput('purchaseInfo.investMentAmount')">请输入正确的金额</div>
+          <div class="bt-from-danger" ng-show="purchaseInfo.investMentAmount">{{purchaseInfo.investMentAmount}}</div>
+        </td>
+      </tr>
+      <tr class="bt-form-group" ng-show="purchaseInfo.autoRedem==1">
+        <td class="bt-form-label">到期自动赎回日：</td>
+        <td class="bt-form-input">{{purchaseInfo.autoRedemDate}}</td>
+      </tr>
+      <tr class="bt-form-group" ng-show="purchaseInfo.autoRedem!=1">
+        <td colspan="2" style="padding-bottom: 20px;">
+          <label><input type="checkbox" style="vertical-align: bottom;">  到期自动赎回日</label> 到期日：
+          <input class="bt-date" style="width: 120px;" ng-model="searchData.autoRedemDate" bt-date>
+        </td>
+      </tr>
+      <tr>
+        <tr>
+          <td class="bt-form-label"></td>
+          <td class="bt-form-input bt-space-8">
+            <button class="bt-btn bt-btn-confirm" ng-click="toIndexPage(1)">上一步</button>
+            <button class="bt-btn bt-btn-confirm" ng-click="toPreeSee($event)">预览</button>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>

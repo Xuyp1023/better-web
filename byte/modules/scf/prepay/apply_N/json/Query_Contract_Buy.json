@@ -1,0 +1,23 @@
+{
+  "message": "查询合同台账客户信息",
+  "data": {
+    "custNo": 102209648,
+    "contractId": 719,
+    "custName": "核心企业测试客户",
+    "representative": "hexing1dafds",
+    "bankName": "长沙商行深圳罗湖分行",
+    "bankAccount": "634828329999",
+    "taxCode": "78787877777",
+    "phone": "0755-3490345",
+    "fax": "9885345",
+    "address": "8888888888",
+    "email": "939238@qq.com",
+    "businStatus": "1",
+    "regDate": "20170825",
+    "regTime": "145657",
+    "bankAccountName": "核心企业测试客户",
+    "zipCode": "515000"
+  },
+  "page": "",
+  "code": 200
+}

@@ -1,0 +1,71 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>企鹅宝赎回</span>
+  </div>
+  <div class="header">
+    <ul>
+      <li class="active"><span>选基金</span><span class="status"></span></li>
+      <li class="active"><span>确认金额</span><span class="status"></span></li>
+      <li class="active last"><span>预览</span><span class="status"></span></li>
+      <li><span>完成</span><span class="status"></span></li>
+    </ul>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>预览
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">交易账户:</td>
+        <td class="bt-card-value">{{pageInfo.fund_partment_name}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td width="16%" class="bt-card-key">理财方案:</td>
+        <td width="84%" class="bt-card-value">{{purchaseInfo.agencyName}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">到账银行卡号:</td>
+        <td class="bt-card-value">{{purchaseInfo.fundName + '[' + purchaseInfo.fundCode + ']'}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">预计到账日期：</td>
+        <td class="bt-card-value">前端收费</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">可用份额：</td>
+        <td class="bt-card-value"><span class="bt-red" style="font-weight: bold;">{{purchaseInfo.validShares | currency:''}}份</span></td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">赎回份额:</td>
+        <td class="bt-card-value"><span class="bt-red" style="font-weight: bold;">{{purchaseInfo.balance | currency:''}}份</span></td>
+      </tr>
+      <tr class="bt-card-item">
+        <td colspan="2">
+          <table class="bt-table width600">
+            <thead class="bt-table-header">
+              <tr>
+                <th width=40%>账单号码</th>
+                <th width=30%>对账日期</th>
+                <th width=30%>账单金额</th>
+              </tr>
+            </thead>
+            <tbody class="bt-table-body">
+              <tr ng-repeat=" item in rowDatas">
+                <td>{{item.start}}</td>
+                <td class="bt-align-right">{{item.money | currency:''}}</td>
+                <td><span class="bt-table-status error"></span>已生效2</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr class="bt-card-item" style="line-height:60px;">
+        <td class="bt-card-key"></td>
+        <td class="bt-card-value bt-space-8">
+          <button class="bt-btn bt-btn-confirm" ng-click="toIndexPage(2)">上一步</button>
+          <button class="bt-btn bt-btn-confirm" ng-click="confirmPurchase()">立即赎回</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

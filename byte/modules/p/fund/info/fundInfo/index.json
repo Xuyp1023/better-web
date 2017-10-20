@@ -1,0 +1,10 @@
+{
+	"initInfo":{
+		"resolve":[]
+	},
+	"configVo": {
+		"BTServerPath": {
+			"QUERY_BALANCE": ["Module_Path/test.json","/SaleQuery/queryCustBalance"]
+		}
+	}
+}

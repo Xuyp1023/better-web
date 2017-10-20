@@ -1,0 +1,107 @@
+[
+  {
+    "title": "供应链金融",
+    "heading": "true"
+  },{
+    "title": "采购方",
+    "alert": 1,
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"应付账款登记",
+        "url":"../scf2/home.html#/assetmanage/account.details"
+      },{
+        "title":"应付账款提前确认",
+        "url":"../scf2/home.html#/prePay_1/pay.account"
+      },{
+        "title":"预期收益设置"
+      },{
+        "title":"应付账款审核",
+        "url":"../scf2/home.html#/assetmanage/bill.audit"
+      },{
+        "title":"提前付款合同模板"
+      },{
+        "title":"应付账款管理",
+        "url":"../scf2/home.html#/assetmanage/manage.bill"
+      }
+    ]
+  },{
+    "title": "供应商",
+    "alert": 1,
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"可提前付款应收账款",
+        "url":"../scf2/home.html#/prePay_1/set.apment"
+      },{
+        "title":"应收账款提前付款申请",
+        "url":"../scf2/home.html#/prePay_1/set.arapment"
+      }
+    ]
+  },{
+    "title": "平台",
+    "alert": 1,
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"融资申请",
+        "url":"../byte/home1.html#/scf/prepay/apply_N"
+      },{
+        "title":"付款模式2",
+        "url":"../byte/home1.html#/scf/prepay/apply_N?src=1.html"
+      }
+    ]
+  },{
+    "title": "客户管理",
+    "alert": 1,
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"客户信息查询(保理)",
+        "url":"../scf2/home.html#/fac/custInfo"
+      },{
+        "title":"客户关系管理",
+        "url":"../byte/home1.html#/scf/customer/edicustomer"
+      }
+    ]
+  },{
+    "title": "资产管理",
+    "alert": 1,
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"客户电子印章制作",
+        "url":"../scf2/home.html#/contract_2_3/esealCustomQuery"
+      },{
+        "title":"贸易合同",
+        "url":"../scf2/home.html#/contract_2_3/standardQuery"
+      },{
+				"title":"标准合同文本上传",
+				"url":"../scf2/home.html#/contract_2_3/standardTextQuery"
+			},{
+				"title":"标准合同文本审核",
+				"url":"../scf2/home.html#/contract_2_3/standardTextAudit"
+			},{
+				"title":"电子合同模板上传",
+				"url":"../scf2/home.html#/contract_2_3/esealBoardUpload"
+			}
+    ]
+  },{
+    "title": "合同管理",
+    "alert": 1,
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"客户电子印章制作",
+        "url":"../scf2/views/contract/trade/financeContract.html"
+      },{
+        "title":"签章位置",
+        "url":"../byte/home1.html#/scf/contract/econtract/setstamp"
+      },{
+				"title":"电子合同管理",
+				"url":"../scf2/views/contract/trade/financeContract.html"
+			}
+    ]
+  }
+
+]

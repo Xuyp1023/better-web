@@ -1,0 +1,10 @@
+{
+    "initInfo":{
+        "resolve":["vendor/bt-toaster/toaster.js","vendor/bt-toaster/toaster.css","vendor/jquery/jquery.min.js","vendor/bt-toaster/tab.js"]
+    },
+    "configVo":{
+        "BTServerPath" : {
+            "Query_Day_Manager":["server/http/qh/check/day-manager-query.json"]
+        }
+    }
+}

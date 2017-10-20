@@ -1,0 +1,18 @@
+{
+	"initInfo": {
+		"resolve": [
+			"wdatePicker"
+		]
+	},
+	"configVo": {
+		"BTServerPath": {
+			"Query_Day_Manager": [
+				"server/http/qh/check/day-manager-query.json"
+			],
+			"Test_Query_Pages": [
+				"server/http/test/test-pages-query.json"
+			]
+		},
+		"tableParams": {}
+	}
+}

@@ -1,0 +1,59 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>活期宝赎回</span>
+  </div>
+  <div class="header">
+    <ul>
+      <li class="active"><span>选基金</span><span class="status"></span></li>
+      <li class="active"><span>确认金额</span><span class="status"></span></li>
+      <li class="active last"><span>预览</span><span class="status"></span></li>
+      <li><span>完成</span><span class="status"></span></li>
+    </ul>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>预览
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">交易账户:</td>
+        <td class="bt-card-value">{{pageInfo.fund_partment_name}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td width="16%" class="bt-card-key">基金销售机构:</td>
+        <td width="84%" class="bt-card-value">{{purchaseInfo.agencyName}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">基金名称:</td>
+        <td class="bt-card-value">{{purchaseInfo.fundName + '[' + purchaseInfo.fundCode + ']'}}</td>
+      </tr>
+      <tr class="bt-form-group">
+        <td class="bt-form-label">收费方式：</td>
+        <td class="bt-form-input">前端收费</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">可用份额：</td>
+        <td class="bt-card-value"><span class="bt-red" style="font-weight: bold;">{{purchaseInfo.validShares | currency:''}}份</span></td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">赎回份额:</td>
+        <td class="bt-card-value"><span class="bt-red" style="font-weight: bold;">{{purchaseInfo.balance | currency:''}}份</span></td>
+      </tr>
+      <tr class="bt-card-item" style="line-height:60px;">
+        <td class="bt-card-key"></td>
+        <td class="bt-card-value bt-space-8">
+          <button class="bt-btn bt-btn-confirm" ng-click="toIndexPage(2)">上一步</button>
+          <button class="bt-btn bt-btn-confirm" ng-click="confirmPurchase()">立即赎回</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-prompt-header">
+    <span>温馨提示</span>
+  </div>
+  <div class="bt-prompt-content">
+    <p>1.如遇网络或系统问题等特殊情况，赎回资金划出时间可能会有延迟，请最终以银行卡入账时间为准。</p>
+    <p>2.理财型基金在每个运作期的赎回开放日，可以提交赎回申请；在非赎回开放日，不能提交赎回申请，但可预约至赎回开放日进行基金份额赎回。</p>
+    <p>3.如当期赎回开放日未赎回，则该基金份额进入下一个运作期。</p>
+  </div>
+</div>

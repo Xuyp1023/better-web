@@ -1,0 +1,140 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>代办事务</span>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>查询1
+	</div>
+	<table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">公司名称：</td>
+				<td width="100%" class="bt-query-value">
+					<input type="text">
+					<button class="bt-btn bt-btn-confirm bt-left-5" ng-click="testGet($event)">查询</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>查询2
+	</div>
+	<table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">到达日期：</td>
+				<td width="50%" class="bt-query-value">
+					<input type="text" class="bt-date bt-query-date" ng-model="searchData.GTEregDate" bt-date placeholder="2017-01-02"><span class="bt-query-cut"></span><input type="text" class="bt-date bt-query-date" ng-model="searchData.GTEregDate" bt-date placeholder="2017-01-02">
+				</td>
+				<td width="14%" class="bt-query-key">流程名称：</td>
+				<td width="36%"  class="bt-query-value">
+					<select ng-model="searchData.type1" bt-dict="qh/commission/company-list"><option value="">所有</option></select>
+				</td>
+			</tr>
+			<tr class="bt-query-item">
+				<td colspan="4">
+					<div class="bt-align-right bt-space-8">
+						<button class="bt-btn bt-btn-confirm" ng-click="queryList($event)">查询</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>查询3
+	</div>
+	<table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">申请日期：</td>
+				<td width="50%" class="bt-query-value">
+					<input type="text" class="bt-date bt-query-date" ng-model="searchData.GTEregDate" bt-date placeholder="2017-01-02"><span class="bt-query-cut"></span><input type="text" class="bt-date bt-query-date" ng-model="searchData.GTEregDate" bt-date placeholder="2017-01-02">
+				</td>
+				<td width="14%" class="bt-query-key">状态：</td>
+				<td width="36%"  class="bt-query-value">
+					<select ng-model="searchData.type1" bt-dict="qh/commission/company-list"><option value="">所有</option></select>
+				</td>
+			</tr>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">公司名称：</td>
+				<td width="50%" class="bt-query-value">
+					<input type="text">
+				</td>
+				<td colspan="2" class="bt-vertical-top">
+					<div class="bt-align-right bt-space-8">
+						<button class="bt-btn bt-btn-confirm" ng-click="queryList($event)">查询</button>
+						<button class="bt-btn bt-btn-default">重置</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>查询4
+	</div>
+	<table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">选择机构：</td>
+				<td width="50%" class="bt-query-value">
+					<input type="text">
+				</td>
+				<td width="14%" class="bt-query-key">保理公司：</td>
+				<td width="36%"  class="bt-query-value">
+					<select ng-model="searchData.type1" bt-dict="qh/commission/company-list"><option value="">所有</option></select>
+				</td>
+			</tr>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">供应商：</td>
+				<td width="50%" class="bt-query-value">
+					<select ng-model="searchData.type1" bt-dict="qh/commission/company-list"><option value="">所有</option></select>
+				</td>
+				<td width="14%" class="bt-query-key">状态：</td>
+				<td width="36%"  class="bt-query-value">
+					<select ng-model="searchData.type1" bt-dict="qh/commission/company-list"><option value="">所有</option></select>
+				</td>
+			</tr>
+			<tr class="bt-query-item">
+				<td colspan="4">
+					<div class="bt-align-right bt-space-8">
+						<button class="bt-btn bt-btn-confirm" ng-click="queryList($event)">查询</button>
+						<button class="bt-btn bt-btn-default">重置</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>分页查询的表格控件
+	</div>
+	<div bt-table="tableParams" class="bt-table-page"></div>
+	<div class="bt-title-card">
+		<span class="icon"></span>普通的的表格控件
+	</div>
+	<div bt-table="tableParams1"></div>
+	<div class="bt-title-card">
+		<span class="icon"></span>原生的表格控件
+	</div>
+	<table class="bt-table">
+		<thead class="bt-table-header">
+			<tr>
+				<th class="header-check"><input type="checkbox" class="bt-table-check"></th>
+				<th width=30%>账单号码</th>
+				<th width=15%>对账日期</th>
+				<th width=20%>账单金额</th>
+				<th width=15%>状态</th>
+				<th width=20%>操作</th>
+			</tr>
+		</thead>
+		<tbody class="bt-table-body">
+			<tr ng-repeat=" item in rowDatas">
+				<td><input type="checkbox" class="bt-table-check"></td>
+				<td><a class="bt-table-button">{{item.code}}</a></td>
+				<td>{{item.start}}</td>
+				<td class="bt-align-right">{{item.money | currency:''}}</td>
+				<td><span class="bt-table-status error"></span>已生效2</td>
+				<td><a class="bt-table-button" ng-click="deleteItem(item,$event)">删除</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

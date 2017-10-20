@@ -1,0 +1,50 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>短信验证平台</span>
+  </div>
+  <div class="bt-title-card">
+		<span class="icon"></span>短信验证详情
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td width="16%" class="bt-card-key">手机号码:</td>
+        <td width="84%" class="bt-card-value">{{DayFundInfo.mobileNo}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">ContextId:</td>
+        <td class="bt-card-value">{{DayFundInfo.mobileNo}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">业务类型:</td>
+        <td class="bt-card-value">{{DayFundInfo.businType | businTypef}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">验证结果:</td>
+        <td class="bt-card-value">{{DayFundInfo.businStatus | businStatusf}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+		<span class="icon"></span>日志
+  </div>
+  <table class="bt-table">
+		<thead class="bt-table-header">
+			<tr>
+				<th width=30%>验证码</th>
+				<th width=40%>发送时间</th>
+				<th width=30%>返回状态</th>
+			</tr>
+		</thead>
+		<tbody class="bt-table-body">
+			<tr ng-repeat=" item in DayFundInfo.recordList">
+				<td><a class="bt-table-button">{{item.identifyCode}}</a></td>
+				<td>{{item.createTime}}</td>
+				<td ng-bind-html="item.businStatus | businStatusf:'show'"></td>
+			</tr>
+		</tbody>
+  </table>
+  <div class="center">
+		<button class="bt-btn bt-btn-default" ng-click="closeThisDialog()">返回</button>
+	</div>
+</div>

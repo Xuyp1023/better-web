@@ -1,0 +1,15 @@
+{
+	"initInfo":{
+		"resolve":[]
+	},
+	"configVo":{
+		"BTServerPath": {
+			"TRADE_ACCOUNT_LIST": ["server/http/p/fund/AAqueryCustInfo.json","/SaleQuery/queryCustInfo"],
+			"Validate_Submit": ["Module_Path/Query_List_Info.json","/dayFundSms/sendVerifyCode"],
+			"Query_List_Info": [
+				"Module_Path/Query_List_Info.json","/dayFundSms/queryDayFund"
+			],
+			"FIND_DAYFUND_INFO": ["Module_Path/Query_List_Info.json","/dayFundSms/findDayFundInfo"]
+		}
+	}
+}

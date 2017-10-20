@@ -1,0 +1,10 @@
+{
+	"initInfo":{
+		"resolve":["btDict"]
+	},
+	"configVo":{
+		"BTServerPath" : {
+            "Query_Company_List":["server/btDict/qh/commission/company-list.json","/Platform/BaseInfo/queryCustSelect"]
+        }
+	}
+}

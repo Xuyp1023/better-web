@@ -1,0 +1,69 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>发票清单详情页</span>
+  </div>
+  <div class="details_boxstyle">
+    <!-- 年月日 -->
+    <span class="bt-absolute" style="left: 78px;top: 78px;">{{info.invoiceDateInfo[0]}}</span>
+    <span class="bt-absolute" style="left: 125px;top: 78px;">{{info.invoiceDateInfo[1]}}</span>
+    <span class="bt-absolute" style="left: 158px;top: 78px;">{{info.invoiceDateInfo[2]}}</span>
+    <!-- 购买方 -->
+    <span class="bt-absolute" style="left: 658px;top: 53px;">{{info.invoiceCode}}</span><!-- 发票代码 -->
+    <span class="bt-absolute" style="left: 658px;top: 73px;">{{info.invoiceNo}}</span><!-- 发票号码 -->
+    <span class="bt-absolute" style="left: 125px;top: 105px;">{{info.coreCustName}}</span><!-- 名称 -->
+    <span class="bt-absolute" style="left: 125px;top: 125px;">{{info.coreCustTaxPayerNo}}</span><!-- 纳税人识别号 -->
+    <!-- 金额合计 -->
+    <span class="bt-absolute" style="right: 174px;top: 348px;">{{info.balance | currency:''}}</span><!-- 金额 -->
+    <span class="bt-absolute" style="left: 268px;top: 379px;">{{info.balance |btmoeny}}</span><!-- 价税合计 大写 -->
+    <span class="bt-absolute" style="left: 660px;top: 379px;">{{info.balance | currency:''}}</span><!-- 价税合计 小写 -->
+    <!-- 销售方 -->
+    <span class="bt-absolute" style="left: 125px;top: 411px;">{{info.custName}}</span><!-- 销售方名称 -->
+    <span class="bt-absolute" style="left: 125px;top: 430px;">{{info.custTaxpayerNo}}</span><!-- 纳税人识别号 -->
+    <span class="bt-absolute" style="left: 498px;top: 414px;">{{info.description}}</span><!-- 备注 -->
+    <span class="bt-absolute" style="left: 472px;top: 495px;">{{info.drawer}}</span><!-- 开票人 -->
+
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>发票状态
+  </div>
+  <table class="bt-card-info">
+    <tbody>
+      <tr class="bt-card-item">
+        <td width="10%" class="bt-card-key">发票状态：:</td>
+        <td width="40%" class="bt-card-value">{{info.businStatus | kindf:'billVersionBusinStatus'}}</td>
+        <td width="16%" class="bt-card-key">使用状态：:</td>
+        <td width="34%" class="bt-card-value">{{info.businStatus | kindf:'effectiveVersionUsingBusinStatus'}}</td>
+      </tr>
+      <tr class="bt-card-item">
+        <td class="bt-card-key">登记人：:</td>
+        <td class="bt-card-value">{{info.regOperName}}</td>
+        <td class="bt-card-key">登记时间：:</td>
+        <td class="bt-card-value">{{info.regDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>附件列表
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=10%>序号</th>
+        <th width=20%>附件类型</th>
+        <th width=40%>附件名称</th>
+        <th width=30%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr ng-repeat="item in info.uploadList">
+        <td>{{$index + 1}}</td>
+        <td>发票详情</td>
+        <td>{{item.fileName}}</td>
+        <td><a class="bt-table-button" href="{{ item.id | downf }}">下载查看</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="center">
+    <button class="bt-btn bt-btn-default" ng-click="closeThisDialog()">返回</button>
+  </div>
+</div>

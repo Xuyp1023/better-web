@@ -1,0 +1,104 @@
+/* ========================================================================
+   表单: form.less
+ ========================================================================== */
+.bt-form.bt-dirty {
+    input,select,textarea {
+        &.ng-invalid {
+            border-color: #F44336;
+            &:focus {
+                outline: 0;
+            }
+        }
+    }
+}
+.bt-form-two {
+    width:1030px;
+}
+.bt-form-input {
+    padding-bottom: 30px;
+
+    &.bt-remark {
+        padding-bottom: 16px;
+        position: relative;
+
+        .bt-remark-info {
+            font-size: 12px;
+            color: #aaa;
+            position: absolute;
+            right:8px;
+            bottom:22px;
+        }
+    }
+
+    .upload {
+        padding-left: 24px;
+        background: url(../img/bt-attach-upload.png) no-repeat left center;
+        font-size: 14px;
+        height: 25px;
+        display: inline-block;
+        line-height: 25px;
+        margin-bottom: 5px;
+        line-height: 24px;
+        height: 24px;
+    }
+    .upload-list {
+        li {
+            font-size: 14px;
+            list-style: none;
+
+            .icon {
+                background: url(../img/bt-attach-singlefile.png) no-repeat left center;
+                padding-left: 22px;
+            }
+
+            .bt-gray {
+                margin-left:4px;
+            }
+
+            a {
+                margin-left:8px;
+            }
+        }
+    }
+
+    .bt-from-danger {
+        font-size: 12px;
+        position: absolute;
+        color: red;
+        padding: 8px;
+    }
+
+    input,select {
+        width: 333px;
+        &.half {
+           width: 163px;
+        }
+    }
+
+    .bt-form-info {
+        font-size: 12px;
+        line-height:21px;
+        margin-left: 21px;
+        color:#999999;
+        background: url(../img/bt-form-info.png) no-repeat left center;
+        padding-left: 20px;
+    }
+}
+.bt-form-label {
+    font-size: 14px;
+    vertical-align: top;
+    padding-top: 4px;
+    text-align: right;
+    padding-right: 4px;
+    color: #333333;
+    white-space: nowrap;
+}
+.bt-table-adapt {
+
+    .bt-form-input {
+        width: 100%;
+        textarea {
+            width: 100%;
+        }
+    }
+}

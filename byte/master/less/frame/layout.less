@@ -1,0 +1,115 @@
+/* ========================================================================
+   布局: layout.less
+ ========================================================================== */
+@content-bg:                              cadetblue;
+
+@boxed-max-width:                         1262px;
+@aside-wd:                                171px;
+@aside-bg:                                #fff;
+@navbar-hg:                               60px;
+
+@content-padding:                         20px;
+@gray-light:                              #e4eaec;
+
+@footer-hg:                               60px;
+
+@z-index-main-section:                    111;
+
+html,body {
+  height: 100%;
+  background-color: @content-bg;
+}
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+//主要布局
+.wrapper {
+  position: relative;
+  height: 100%;
+
+  > .aside {
+    position: absolute;
+    width: @aside-wd;
+
+    top: @navbar-hg + 6;
+    bottom: 0;
+    margin-right: 10px;
+    z-index: @z-index-main-section + 5;
+    background-color: @aside-bg;
+
+    .aside-inner {
+      width: @aside-wd;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+
+  .section {
+    position: relative;
+    height: 100%;
+    padding-top: @navbar-hg + 6; 
+
+    > .bt-content {
+      height: 100%;
+      background-color: @aside-bg;
+      //padding-bottom: 60px !important;
+
+      .content-warpper {
+        display:block;
+        height: 100% !important;
+      }
+    }
+  }
+
+  > .footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: @footer-hg;
+    //border-top: 1px solid @gray-light;
+    padding: @content-padding;
+    z-index: @z-index-main-section - 2;
+    > p {
+      margin: 0;
+    }
+  }
+}
+
+.wrapper {
+
+  > .aside {
+    .aside-inner {
+    }
+  }
+
+  > .section,
+  > .footer {
+    margin-left: @aside-wd + 10px;
+  }
+}
+
+// 盒子布局
+// -----------------------------
+
+.layout-boxed {
+
+  .wrapper {
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 0 13px rgba(0,0,0,.25);
+
+    &, & .topnavbar-wrapper {
+      min-width: @boxed-max-width;
+    }
+
+    .topnavbar-wrapper {
+      position: fixed;
+      z-index: @z-index-main-section + 6;
+      width : 100%;
+    }
+  }
+
+} // 盒子布局

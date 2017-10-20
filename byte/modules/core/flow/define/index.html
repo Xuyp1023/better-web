@@ -1,0 +1,22 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>流程列表</span>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>查询
+	</div>
+	<table class="bt-query-card">
+		<tbody>
+			<tr class="bt-query-item">
+				<td class="bt-query-key">机构名称：</td>
+				<td width="100%" class="bt-query-value">
+					<div ng-model="searchData.custNo" bt-dict="qh/commission/company-list" disabled>
+						<option value="">所有</option>
+					</div>
+					<button class="bt-btn bt-btn-confirm bt-left-5" ng-click="query($event)">查询</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div bt-table="tableParams"></div>
+</div>

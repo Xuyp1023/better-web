@@ -1,0 +1,163 @@
+<div>
+  <!--企业有效营业执照列表-->
+  <div class="bt-title-card title-bold">
+    <span class="icon"></span>企业有效营业执照(或民政部门注册登记证书)
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=30%>附件类型</th>
+        <th width=40%>附件名称</th>
+        <th width=30%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr>
+        <td>营业执照附件</td>
+        <td>{{uploadList.CustBizLicenseFile.file.fileName}}</td>
+        <td  ng-show="uploadList.CustBizLicenseFile.file.id" >
+          <a class="bt-table-button" href="{{ uploadList.CustBizLicenseFile.file.id |downf }}">下载</a>
+          <a class="bt-table-button" ng-click="deleteItem($event,uploadList.CustBizLicenseFile)">删除</a>
+        </td>
+        <td ng-show="!uploadList.CustBizLicenseFile.file.id">
+          <label class="bt-table-button" upload-type="table" file-type-name="CustBizLicenseFile" bt-upload="uploadList.CustBizLicenseFile.file">上传</label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!--企业组织机构代码证列表-->
+  <div class="bt-title-card title-bold">
+    <span class="icon"></span>企业组织机构代码证
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=30%>附件类型</th>
+        <th width=40%>附件名称</th>
+        <th width=30%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr>
+        <td>组织机构代码证</td>
+        <td>{{uploadList.CustOrgCodeFile.file.fileName}}</td>
+        <td  ng-show="uploadList.CustOrgCodeFile.file.id" >
+          <a class="bt-table-button" href="{{ uploadList.CustOrgCodeFile.file.id |downf }}">下载</a>
+          <a class="bt-table-button" ng-click="deleteItem($event,uploadList.CustOrgCodeFile)">删除</a>
+        </td>
+        <td ng-show="!uploadList.CustOrgCodeFile.file.id">
+          <label class="bt-table-button" upload-type="table" file-type-name="CustOrgCodeFile" bt-upload="uploadList.CustOrgCodeFile.file">上传</label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!--法定代表人身份证件-->
+  <div class="bt-title-card title-bold">
+    <span class="icon"></span>法定代表人身份证件
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=30%>附件类型</th>
+        <th width=40%>附件名称</th>
+        <th width=30%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr>
+        <td>法定代表人身份证件</td>
+        <td>{{uploadList.RepresentIdHeadFile.file.fileName}}</td>
+        <td  ng-show="uploadList.RepresentIdHeadFile.file.id" >
+          <a class="bt-table-button" href="{{ uploadList.RepresentIdHeadFile.file.id |downf }}">下载</a>
+          <a class="bt-table-button" ng-click="deleteItem($event,uploadList.RepresentIdHeadFile)">删除</a>
+        </td>
+        <td ng-show="!uploadList.RepresentIdHeadFile.file.id">
+          <label class="bt-table-button" upload-type="table" file-type-name="RepresentIdHeadFile" bt-upload="uploadList.RepresentIdHeadFile.file">上传</label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 企业税务登记证列表 -->
+  <div class="bt-title-card title-bold">
+    <span class="icon"></span>企业税务登记证列表
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=30%>附件类型</th>
+        <th width=40%>附件名称</th>
+        <th width=30%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr>
+        <td>税务登记证</td>
+        <td>{{uploadList.CustTaxRegistFile.file.fileName}}</td>
+        <td  ng-show="uploadList.CustTaxRegistFile.file.id" >
+          <a class="bt-table-button" href="{{ uploadList.CustTaxRegistFile.file.id |downf }}">下载</a>
+          <a class="bt-table-button" ng-click="deleteItem($event,uploadList.CustTaxRegistFile)">删除</a>
+        </td>
+        <td ng-show="!uploadList.CustTaxRegistFile.file.id">
+          <label class="bt-table-button" upload-type="table" file-type-name="CustTaxRegistFile" bt-upload="uploadList.CustTaxRegistFile.file">上传</label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 银行开户确认文件 -->
+  <div class="bt-title-card title-bold">
+    <span class="icon"></span>银行开户确认文件
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=30%>附件类型</th>
+        <th width=40%>附件名称</th>
+        <th width=30%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr>
+        <td>银行账户开户许可证</td>
+        <td>{{uploadList.CustBankOpenLicenseFile.file.fileName}}</td>
+        <td  ng-show="uploadList.CustBankOpenLicenseFile.file.id" >
+          <a class="bt-table-button" href="{{ uploadList.CustBankOpenLicenseFile.file.id |downf }}">下载</a>
+          <a class="bt-table-button" ng-click="deleteItem($event,uploadList.CustBankOpenLicenseFile)">删除</a>
+        </td>
+        <td ng-show="!uploadList.CustBankOpenLicenseFile.file.id">
+          <label class="bt-table-button" upload-type="table" file-type-name="CustBankOpenLicenseFile" bt-upload="uploadList.CustBankOpenLicenseFile.file">上传</label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 经办人身份证件 -->
+  <div class="bt-title-card title-bold">
+    <span class="icon"></span>经办人身份证件
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th width=30%>附件类型</th>
+        <th width=40%>附件名称</th>
+        <th width=30%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr>
+        <td>经办人身份证件</td>
+        <td>{{uploadList.BrokerIdHeadFile.file.fileName}}</td>
+        <td  ng-show="uploadList.BrokerIdHeadFile.file.id" >
+          <a class="bt-table-button" href="{{ uploadList.BrokerIdHeadFile.file.id |downf }}">下载</a>
+          <a class="bt-table-button" ng-click="deleteItem($event,uploadList.BrokerIdHeadFile)">删除</a>
+        </td>
+        <td ng-show="!uploadList.BrokerIdHeadFile.file.id">
+          <label class="bt-table-button" upload-type="table" file-type-name="BrokerIdHeadFile" bt-upload="uploadList.BrokerIdHeadFile.file">上传</label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

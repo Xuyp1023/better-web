@@ -1,0 +1,21 @@
+<p>信息提示测试</p>
+<div style="margin-top:30px">
+    <button ng-click="test()" class="btn btn-primary">点我试试</button>
+    <button ng-click="testError($event)" class="btn btn-primary">错误提示</button>
+</div>
+
+<div>
+	<button ng-click="testLoading()">遮罩层效果</button>
+</div>
+
+<p>tab切换测试</p>
+<ul class="bt-tabs" bt-tabs>
+	<li data-id="tab1" class="is-active">111</li>
+	<li data-id="tab2">222</li>
+	<li data-id="tab3">333</li>	
+</ul>
+<div class="tab-content">
+	<div id='tab1' class="is-show">内容111</div>
+	<div id='tab2'>内容222</div>
+	<div id='tab3'>内容333</div>
+</div>

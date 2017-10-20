@@ -1,0 +1,79 @@
+.carousel {
+}
+.carousel .carousel-header {
+	margin-top: 30px;
+	margin-bottom: 12px;
+	margin-left: 5px;
+	padding: 8px;
+    width: 900px;
+	height: 112px;
+	position: absolute;
+	border: 1px solid #bad5ff;
+}
+.carousel-sign img {
+    margin-right: 8px;
+    float: left;
+    width: 96px;
+    height: 96px;
+}
+.carousel .carousel-content {
+	top: 150px;
+	width: 742px;
+	height: 1050px;
+	position: absolute;
+	margin-left: 5px;
+	border: 1px solid #bad5ff;
+}
+.carousel-content .carousel-stamp {
+	position: absolute;
+}
+.carousel-stamp img {
+	width: 140px;
+    height: 140px;
+}
+.carousel-stamp:hover .carousel-button span {
+	background-image: url(../../../../../app/img/carousel-button-close.png);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+}
+.carousel-button {
+	position: relative;
+}
+.carousel-button span {
+	position: absolute;
+	display: block;
+	width: 64px;
+	height: 64px;
+	background-image: url(../../../../../app/img/carousel-button.png);
+    right: -32px;
+    top: -32px;
+    cursor: pointer;
+    background-position-y: 64px;
+}
+.carousel .carousel-thumb {
+	padding: 4px;
+	top: 150px;
+	left: 749px;
+	width: 151px;
+	height: 1050px;
+	margin-left: 5px;
+	position: absolute;
+	overflow-y: scroll;
+	border: 1px solid #bad5ff;
+}
+.carousel .carousel-thumb div {
+	margin-bottom: 10px;
+}
+.carousel .carousel-thumb div.active {
+    border: 1px solid #063c95;
+}
+.carousel .carousel-thumb .carousel-p {
+	text-align: center;
+    padding-top: 10px;
+}
+.carousel-confirm {
+	position: absolute;
+	top: 1210px;
+	width: 905px;
+	margin-bottom: 40px;
+}

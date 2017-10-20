@@ -1,0 +1,39 @@
+[
+  {
+    "title": "平台",
+    "heading": "true"
+  },{
+    "title": "账户管理",
+    "alert": 1,
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"机构列表",
+        "url":"../scf2/views/supplier/info/agencyList.html"
+      }
+    ]
+  },{
+    "title": "客户关系",
+    "alert": 1,
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"客户资料变更审核",
+        "url":"../scf2/views/qiecom/custumer/changeAudite.html"
+      }
+    ]
+  },{
+    "title": "系统管理",
+    "alert": 1,
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"角色管理",
+        "url":"../scf2/views/qiecom/role/roleList.html"
+      },{
+				"title":"操作员管理",
+				"url":"../scf2/views/qiecom/operator/operatorManage.html"
+			}
+    ]
+  }
+]

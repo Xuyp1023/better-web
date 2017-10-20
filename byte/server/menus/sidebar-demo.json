@@ -1,0 +1,121 @@
+[
+  {
+		"title": "测试",
+		"heading": "true"
+	},{
+    "title": "模板",
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"空白页面",
+        "url":"home1.html#/demo/tem/blank"
+      },{
+        "title":"空白布局",
+        "url":"home1.html#/demo/tem/layout"
+      }
+    ]
+  },{
+    "title": "lius",
+    "heading": "true"
+  },{
+    "title": "组件",
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"自定义表格",
+        "url":"home1.html#/demo/components/table"
+      }
+    ]
+  },{
+  "title":"测试",
+  "icon": "icon-speedometer",
+  "children":[
+    {
+      "title":"iframe跨域访问",
+      "url":"home1.html#/demo/test/iframe"
+    },{
+      "title":"消息提示",
+      "url":"home1.html#/demo/test/tipbar"
+    },{
+      "title":"分页查询",
+      "url":"home1.html#/demo/test/query"
+    },{
+      "title":"按钮",
+      "url":"home1.html#/demo/test/button"
+    },{
+      "title":"上传下载",
+      "url":"home1.html#/demo/test/upload"
+    },{
+      "title":"选项卡",
+      "url":"home1.html#/demo/test/tabs"
+    },{
+        "title":"时间选择",
+        "url":"home1.html#/demo/test/timepicker"
+    },{
+        "title":"下拉选择",
+        "url":"home1.html#/demo/test/select"
+    },{
+        "title":"步骤条",
+        "url":"home1.html#/demo/test/steps"
+    },{
+        "title":"下拉菜单",
+        "url":"home1.html#/demo/test/dropdown"
+    },{
+        "title":"form表单",
+        "url":"home1.html#/demo/test/form"
+    },{
+      "title":"布局",
+      "url":"home1.html#/demo/test/layout"
+    },{
+      "title":"页面跳转",
+      "url":"home1.html#/demo/test/routes"
+    },{
+      "title":"时间变化",
+      "url":"home1.html#/demo/test/timechange"
+    },{
+      "title":"华夏调查问卷",
+      "url":"home1.html#/demo/test/huaxia/survey"
+    },{
+      "title":"代码高亮显示",
+      "url":"home1.html#/demo/test/highlight"
+    }
+  ]},{
+  "title":"流程定义",
+  "icon": "icon-speedometer",
+  "children":[
+    {
+      "title":"流程列表",
+      "url":"home1.html#/core/flow/define"
+    }
+  ]},{
+    "title": "jings",
+    "heading": "true"
+  },{
+    "title": "测试",    
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"提示信息组件测试",
+        "url":"home.html#/demo/test-jgs/prompt"
+      },{
+        "title":"分页组件测试",
+        "url":"home.html#/demo/test-jgs/pages"
+      },{
+        "title":"确认框",
+        "url":"home.html#/demo/test-jgs/tipMsg"
+      }
+    ]
+  },{
+    "title": "zhouzh",
+    "heading": "true"
+  },{
+    "title": "测试",
+    "icon": "icon-tag",
+    "children":[
+      {
+        "title":"测试",
+        "url":"home.html#/demo/test-zzh/demo1"
+      }
+    ]}
+
+]

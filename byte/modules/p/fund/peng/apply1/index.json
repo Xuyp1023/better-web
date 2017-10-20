@@ -1,0 +1,24 @@
+{
+	"initInfo":{
+		"resolve":["wdatePicker","btDict"]
+	},
+	"configVo":{
+		"BTServerPath": {
+			"Query_List_Info": [
+				"Module_Path/Query_List_Info.json","/MoneyScheme/queryComMoneyScheme"
+			],
+			"reFreshTradeAcoount":[
+				"Module_Path/reFreshTradeAcoount.json","/SaleQuery/queryAccountBank"
+			],"FIND_SCHEMEINFO":[
+				"Module_Path/queryFundLimit.json","/SchemeQuery/findSchemeInfo"
+			],"checkMoneyAccountAndAgency":[
+				"Module_Path/checkMoneyAccountAndAgency.json","/SaleQuery/checkMoneyAccountAndAgency"
+			],"purchaseFund":[
+				"Module_Path/purchaseFund.json","/SaleTrade/purchaseFund"
+			],"querySaleAgencyInfoWithFile":[
+				"Module_Path/querySaleAgencyInfoWithFile.json","/SaleQuery/querySaleAgencyInfoWithFile"
+			]
+		},"formParams":{
+		},"AccountBank":[{"value":"天天基金","key":"303"}]
+	}
+}

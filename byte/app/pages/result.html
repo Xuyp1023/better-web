@@ -1,0 +1,73 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>余利宝报授权</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11" />
+		<style>
+			.header {
+				text-align: center;
+    		margin-top: 50px;
+			}
+			.header img {
+				vertical-align: middle;
+			}
+			.bodyer {
+				text-align: center;
+    		margin-top: 30px;
+			}
+			.bodyer button {
+				padding: 5px;
+				background-color: #063c94;
+				color: #fff;
+				border-radius: 4px;
+				box-shadow: none;
+				border: 1px solid transparent;
+				cursor: pointer;
+			}
+		</style>
+	
+</head>
+<body>
+	
+	<div class="header">
+		<img src="../img/bt-loading-close.gif" alt="">
+		开通余利宝授权成功，<span id="loading_span">5</span>S后自动关闭
+	</div>
+	<div class="bodyer">
+		<button onclick="closeLoading()">立即关闭</button>
+	</div>
+
+	<script  language="javascript">
+
+		window.onload = function(){   
+
+			window.closeLoading = closeLoading;
+
+
+			var i= 5;
+
+			function timeCom(){
+				if(i!==0){
+					i--;
+					setTimeout(function(){
+						document.getElementById("loading_span").innerText = i;
+						timeCom();
+					},1000);
+				}else{
+					closeLoading();
+				}
+			}
+
+			function closeLoading(){
+				parent.window.opener = null;
+				parent.window.open("", "_self");
+				parent.window.close();
+			}
+
+			// timeCom();
+			
+		};  
+	</script>
+</body>
+</html>

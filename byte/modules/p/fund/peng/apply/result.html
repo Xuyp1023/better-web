@@ -1,0 +1,66 @@
+<div class="bt-modal">
+  <div class="bt-modal-background"></div>
+  <div class="bt-modal-content">
+    <span class="bt-pop-close" ng-click="closeModal()"></span>
+    <div class="bt-modal-body">
+      <div class="header" bt-drag>
+        <ul>
+          <li class="active"><span>确认金额</span><span class="status"></span></li>
+          <li class="active"><span>买入结果</span><span class="status"></span></li>
+        </ul>
+      </div>
+      <div class="result">
+        <div class="bt-container">
+          <span style="position: absolute;top: 79px;left: 78px;" class="bt-red">{{12342342213 | number:2}}</span>
+          <table class="bt-card-info">
+            <tbody>
+              <tr class="bt-card-item">
+                <td width="33%" class="bt-card-key">理财方案:</td>
+                <td width="67%" class="bt-card-value">天天理财方案11111111111111111111111111</td>
+              </tr>
+              <tr class="bt-card-item">
+                <td class="bt-card-key">下单日期:</td>
+                <td class="bt-card-value">2017-06-30</td>
+              </tr>
+              <tr class="bt-card-item">
+                <td class="bt-card-key">销售机构:</td>
+                <td class="bt-card-value">天天基金</td>
+              </tr>
+              <tr class="bt-card-item">
+                <td class="bt-card-key">收款账号名:</td>
+                <td class="bt-card-value">天天基金销售有限公司</td>
+              </tr>
+              <tr class="bt-card-item">
+                <td class="bt-card-key">收款账户:</td>
+                <td class="bt-card-value">15454151541515</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <table class="bt-table">
+          <thead class="bt-table-header">
+            <tr>
+              <th width=40%>基金名称</th>
+              <th width=20%>占比</th>
+              <th width=40%>买入金额</th>
+            </tr>
+          </thead>
+          <tbody class="bt-table-body">
+            <tr ng-repeat=" item in rowDatas">
+              <td>{{item.code}}</td>
+              <td>{{item.code}}</td>
+              <td>{{item.code}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="modal-date" style="margin-left: 0px;margin-top: 12px;">
+          <span class="confirm">到期自动卖出&nbsp;&nbsp;到期日：2017-07-29&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <span class="bt-red">预期资金到账日2017-07-29</span>
+        </div>
+      </div>
+      <div class="bt-align-center">
+        <button class="bt-btn bt-btn-confirm" ng-click="confirm()">确定</button>
+      </div>
+    </div>
+  </div>
+</div>

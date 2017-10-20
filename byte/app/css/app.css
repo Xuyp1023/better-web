@@ -1,0 +1,478 @@
+/*!
+ * bytter
+ */
+body,p,h1 {
+  margin: 0;
+}
+img {
+  vertical-align: middle;
+  border: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  cursor: not-allowed;
+  background-color: #eee;
+}
+/* ========================================================================
+   工具类: util.less
+ ========================================================================== */
+.bt-preloader {
+  opacity: 0.2 ;
+  filter: alpha(opacity=20);
+  cursor: pointer;
+  background: black;
+  position: absolute;
+  left: 0;
+  top: 0 ;
+  z-index: 3000;
+  width: 100%;
+  height: 100%;
+}
+.bt-preloader .bt-loading-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  margin-left: -25px;
+  margin-top: -25px;
+}
+.bt-hidden {
+  display: none !important;
+}
+/* ========================================================================
+   布局: layout.less
+ ========================================================================== */
+html,
+body {
+  height: auto;
+}
+/* ========================================================================
+   内容区容器: container.less
+ ========================================================================== */
+.bt-container {
+  width: 900px;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bt-container .bt-content-title {
+  height: 50px;
+  line-height: 50px;
+}
+.bt-container .bt-content-title h1 {
+  margin: 0;
+  padding: 0;
+  border-bottom-color: #d1d1d1;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  color: #8e7b62;
+  display: block;
+  font-family: 'microsoft yahei';
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+}
+.bt-container .bt-content-title img {
+  width: 37px;
+  height: 37px;
+  margin-right: 10px;
+}
+.bt-container .bt-warm-prompt .bt-prompt-title {
+  border-bottom: 2px solid #248AC9;
+  margin: 3px 0 3px 0;
+  height: 35px;
+  line-height: 35px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.bt-container .bt-warm-prompt .bt-prompt-title .bt-prompt-icon {
+  width: 20px;
+  height: 20px;
+}
+.bt-container .bt-warm-prompt .bt-prompt-content {
+  margin-top: 10px;
+  padding: 4px;
+}
+.bt-container .bt-warm-prompt .bt-prompt-content p {
+  margin: 0 0 10px;
+  color: #2da7e0;
+  font-family: 宋体;
+  font-size: 14px;
+}
+/* ========================================================================
+   查询条件表格样式: search-table.less
+ ========================================================================== */
+table.bt-search-result {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+table.bt-search-result thead {
+  background: #F9CC9D;
+}
+table.bt-search-result thead td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 8px;
+  line-height: 20px;
+  font-size: 12px;
+}
+table.bt-search-result tbody tr:hover > td {
+  background-color: #f5f5f5;
+}
+table.bt-search-result tbody td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 8px;
+  line-height: 20px;
+  border-bottom: 1px solid #ddd;
+  font-size: 13px;
+}
+table.bt-search-result tbody td a.bt-handle {
+  color: #08c;
+  text-decoration: none;
+  cursor: pointer;
+}
+table.bt-search-result tbody td a.bt-handle:visited {
+  text-decoration: none;
+}
+table.bt-search-result tbody td a.bt-handle:hover {
+  color: #f14e32;
+}
+table.bt-search-condition {
+  width: 70%;
+  margin: 15px auto 20px;
+}
+table.bt-search-condition td {
+  padding: 4px 5px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+table.bt-search-condition .bt-search-title {
+  width: 25%;
+}
+table.bt-search-condition .bt-search-body {
+  width: 75%;
+  text-align: left;
+}
+table.bt-search-condition .bt-search-body input[type="text"] {
+  border: 1px solid #248AC9;
+}
+table.bt-search-condition .bt-search-body .Wdate {
+  cursor: pointer;
+  width: 25.3% !important;
+  background-color: #eee;
+  height: 20px;
+  padding: 4px 6px;
+  margin: 0;
+  height: 30px;
+}
+table.bt-search-condition .bt-search-body input {
+  display: inline-block;
+  height: 20px;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555;
+  vertical-align: middle;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+table.bt-search-condition .bt-search-body select {
+  width: 52% !important;
+  padding: 0;
+  border: 1px solid #248AC9;
+  border-radius: 4px;
+  height: 30px;
+  line-height: 30px;
+}
+.bt-search-btn {
+  text-align: center;
+}
+.bt-search-btn .btn {
+  margin-right: 55px;
+}
+/* ========================================================================
+   表格控件: table.less
+ ========================================================================== */
+table {
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* ========================================================================
+   分页查询: page.less
+ ========================================================================== */
+.bt-search-page ul {
+  font-size: 0;
+  line-height: 26;
+  text-align: center;
+}
+.bt-search-page ul li {
+  display: inline-block;
+  zoom: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  line-height: 26px;
+  font-size: 14px;
+  color: #888;
+  margin-left: 2%;
+  margin-right: 6px;
+}
+.bt-search-page ul li.disabled a {
+  pointer-events: none;
+  color: #CCC;
+}
+.bt-search-page ul li.disabled.previous a {
+  background-position: 9px 8px;
+}
+.bt-search-page ul li.disabled.next a {
+  background-position: right -30px;
+}
+.bt-search-page ul li span {
+  color: #888;
+  line-height: 26px;
+}
+.bt-search-page ul li a {
+  text-decoration: none;
+  display: block;
+  color: #333;
+  border: 1px solid #CCC;
+  height: 24px;
+  min-width: 16px;
+  text-align: center;
+  line-height: 24px;
+}
+.bt-search-page ul li.previous,
+.bt-search-page ul li.next {
+  font-size: 12px;
+}
+.bt-search-page ul li.previous a,
+.bt-search-page ul li.next a {
+  background-image: url(../img/bg_blue.gif);
+  background-repeat: no-repeat;
+}
+.bt-search-page ul li.previous a {
+  background-position: 9px -11px;
+  padding: 0 9px 0 19px;
+}
+.bt-search-page ul li.next a {
+  background-position: right -49px;
+  padding: 0 19px 0 9px;
+}
+.bt-search-page ul li.toPage input {
+  padding: 0;
+  text-align: center;
+  width: 40px;
+  height: 24px;
+  border: 1px solid #248AC9;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.bt-search-page ul li.toPage button {
+  height: 26px;
+  position: relative;
+  left: 5px;
+}
+/* ========================================================================
+   按钮: button.less
+ ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #fff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #fff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #fff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #fff, #e6e6e6);
+  background-repeat: repeat-x;
+  border: 1px solid #ccc;
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-bottom-color: #b3b3b3;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.btn:hover,
+.btn:focus {
+  color: #333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+.btn-primary {
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #006dcc;
+  background-image: -moz-linear-gradient(top, #08c, #04c);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08c), to(#04c));
+  background-image: -webkit-linear-gradient(top, #08c, #04c);
+  background-image: -o-linear-gradient(top, #08c, #04c);
+  background-image: linear-gradient(to bottom, #08c, #04c);
+  background-repeat: repeat-x;
+  border-color: #04c #04c #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  color: #fff;
+  background-color: #04c;
+}
+.btn-info {
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #49afcd;
+  background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#2f96b4));
+  background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: linear-gradient(to bottom, #5bc0de, #2f96b4);
+  background-repeat: repeat-x;
+  border-color: #2f96b4 #2f96b4 #1f6377;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f96b4', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info.active,
+.btn-info.disabled,
+.btn-info[disabled] {
+  color: #fff;
+  background-color: #2f96b4;
+}
+.btn.disabled,
+.btn[disabled] {
+  cursor: default;
+  background-image: none;
+  opacity: .65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* ========================================================================
+   tools提示信息: tipbar.less
+ ========================================================================== */
+.tipbar-wrap {
+  min-width: 100px;
+  min-height: 16px;
+  line-height: 16px;
+  padding: 6px;
+  color: #8c3901;
+  display: block;
+  font-family: 'trebuchet ms', arial, helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  border: 1px solid #A7A7A7;
+  background-color: #FEF9D9;
+  border-radius: 8px;
+  position: absolute;
+  left: 30px;
+  top: 10px;
+  z-index: 500;
+}
+.tipbar-wrap-arrow-left {
+  width: 10px;
+  height: 20px;
+  background: transparent url(../img/tip-yellow_arrows.png) no-repeat -20px 0;
+  position: absolute;
+  right: -10px;
+  top: 6px;
+  z-index: 9998;
+}
+.bt-submit {
+  text-align: center;
+  margin-top: 20px;
+}
+.bt-submit > button {
+  margin-right: 10px;
+}
+.bt-edit-title {
+  background-color: #dff0d8;
+  padding: 6px 15px;
+}
+.bt-edit-title span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #2b93c7;
+}
+.bt-submit-table {
+  width: 100%;
+  border-collapse: separate;
+  border-left: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.bt-submit-table td {
+  text-align: center;
+  vertical-align: middle;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  padding: 8px;
+  line-height: 20px;
+}
+.bt-submit-table a {
+  color: #08c;
+  text-decoration: none;
+}
+.bt-submit-table a:hover {
+  text-decoration: none;
+  color: #f14e32;
+}
+.bt-submit-table .bt-submit-title {
+  text-align: right;
+}
+.bt-submit-table tbody tr:hover > td,
+.bt-submit-table tbody tr:hover > th {
+  background-color: #f5f5f5;
+}

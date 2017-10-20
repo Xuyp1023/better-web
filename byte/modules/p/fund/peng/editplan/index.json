@@ -1,0 +1,35 @@
+{
+	"initInfo": {
+		"resolve": [
+			"btDict"
+		]
+	},
+	"configVo": {
+		"BTServerPath": {
+			"addSchemeFundCombin": [
+				"","/MoneySchemeFundCombin/addSchemeFundCombin"
+			],"Query_Product_List": [
+				"","/MoneySchemeFundCombin/findSchemeFundCombin"
+			],"findComMoneySchemeTemp": [   
+				"","/MoneySchemeTemp/findComMoneySchemeTemp"
+			],"saveComMoneyScheme": [  
+				"","/MoneyScheme/saveComMoneyScheme"
+			],"addComMoneySchemeTemp": [  
+				"","/MoneySchemeTemp/addComMoneySchemeTemp"
+			],"findComMoneySchemeBySchemeId": [  
+				"","/MoneyScheme/findComMoneySchemeBySchemeId"
+			],"deleteComMoneySchemeTemp": [  
+				"","/MoneySchemeTemp/deleteComMoneySchemeTemp"
+			],"deleteSchemeFundCombin": [
+				"","/MoneySchemeFundCombin/deleteSchemeFundCombin"
+			],"queryFundDays": [
+				"","/SaleQuery/queryFundDays"
+			],"queryFundDayByFundCode": [
+				"","/SaleQuery/queryFundDayByFundCode"
+			],"findSchemeFund": [
+				"","/MoneySchemeFundCombin/findSchemeFund"
+			]
+			
+		}
+	}
+}

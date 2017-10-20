@@ -1,0 +1,55 @@
+
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>编制方案</span>
+  </div>
+  <div class="header">
+    <ul>
+      <li class="active"><span>编制方案</span><span class="status"></span></li>
+      <li class="active last"><span>配置组合</span><span class="status"></span></li>
+      <li><span>配置完成</span><span class="status"></span></li>
+    </ul>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>编辑产品
+  </div>
+  <table class="bt-card-info">
+		<tbody>
+			<tr class="bt-card-item">
+				<td width="10%" class="bt-card-key">销售机构:</td>
+				<select width="40%" class="bt-card-value" id="search_fund_company" ng-model="baseInfo.agencyNo" ng-change="searchFund()" ng-click="initfund()">
+					<option value={{fundDatas.agencyNo}}>{{fundDatas.agencyName}}</option>
+				</select>
+				<td width="16%" class="bt-card-key">基金名称:</td>
+				<select width="34%" class="bt-card-value" id="search_fund_name" ng-model="baseInfo.fundName" ng-change="queryFundDay()" >
+					<option value={{fundDatas.fundCode}}>{{fundDatas.fundName}}</option>
+				</select>
+			</tr>
+			<tr class="bt-card-item bt-red">
+				<td class="bt-card-key">万份收益:</td>
+				<td class="bt-card-value">{{fundDatas.incomeUnit}}</td>
+				<td class="bt-card-key">七日年化收益:</td>
+				<td class="bt-card-value">{{fundDatas.incomeRatio}}</td>
+      </tr>
+      <tr class="bt-card-item">
+				<td class="bt-card-key">最小投资金额:</td>
+				<td class="bt-card-value bt-red"> 0.01元</td>
+				<td class="bt-card-key">最大投资金额:</td>
+				<td class="bt-card-value bt-red">50,000,000.00元</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">投资比例:</td>
+				<td class="bt-card-value">
+          <input type="number">
+        </td>
+				<td class="bt-card-key">最高可投资占比:</td>
+				<td class="bt-card-value">50%</td>
+			</tr>
+		</tbody>
+	</table>
+  <div class="center">
+    <button class="bt-btn bt-btn-confirm" ng-click="saveProduct($event)">确定</button>
+    <button class="bt-btn bt-btn-default" ng-click="closeThisDialog()">取消</button>
+  </div>
+</div>
+

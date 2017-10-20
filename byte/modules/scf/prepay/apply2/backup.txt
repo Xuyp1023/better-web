@@ -1,0 +1,69 @@
+// 应收账款表格配置
+			// $scope.tableCreditParams = {
+			// 	rowSelection: true,
+			// 	paginationControls: true,
+			// 	cols: [
+			// 		{
+			// 			title: '凭证编号',
+			// 			field: 'refNo',
+			// 			width: '15%'
+			// 		}, {
+			// 			title: '账单编号',
+			// 			field: 'receivableNo',
+			// 			width: '14%'
+			// 		}, {
+			// 			title: '账单金额',
+			// 			field: 'balance',
+			// 			width: '14%'
+			// 		}, {
+			// 			title: '账款余额',
+			// 			field: 'surplusBalance',
+			// 			width: '14%'
+			// 		}, {
+			// 			title: '结算日期',
+			// 			field: 'endDate',
+			// 			width: '14%'
+			// 		}, {
+			// 			title: '发票号',
+			// 			field: 'invoiceNos',
+			// 			width: '14%'
+			// 		}, {
+			// 			title: '贸易合同',
+			// 			field: 'agreeNo',
+			// 			width: '15%'
+			// 		}
+			// 	]
+			// };
+
+			// 添加新的应收账款
+			// $scope.newCreditItem = function () {
+
+			// 	$scope.tableCreditParams.initOver = $q.defer();
+
+			// 	BtUtilService.open({
+			// 		templateUrl: configVo.modulePaht + '/queryCredit.html', scope: $scope
+			// 	}, function () {
+			// 		$scope.tableCreditParams.initOver
+			// 			.promise.then(function (params) {
+
+			// 				BtUtilService
+			// 					.post(configVo.BTServerPath.Query_Credit)
+			// 					.then(function (jsonData) {
+			// 						$scope.tableCreditParams.setRowData(jsonData.data);
+			// 					});
+
+			// 			});
+			// 	});
+			// };
+			// 选择应收账款信息
+			// $scope.selectCredit = function ($event) {
+			// 	var itemAttr = $scope.tableCreditParams.getRowSelection();
+
+			// 	if (itemAttr.length == 1) {
+			// 		$scope.creditInfoData = itemAttr;
+			// 		BtUtilService.close();
+			// 	} else {
+			// 		BtTipbar.tipbarWarning($event.target, '请选择一条应收账款');
+			// 	}
+
+			// };

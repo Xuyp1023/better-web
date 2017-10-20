@@ -1,0 +1,12 @@
+{
+	"initInfo": {
+		"resolve": []
+	},
+	"configVo": {
+		"BTServerPath": {
+			"Test_Query_Pages": [
+				"server/http/test/test-pages-query1.json"
+			]
+		}
+	}
+}
