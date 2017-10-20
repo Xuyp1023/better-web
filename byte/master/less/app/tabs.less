@@ -1,0 +1,36 @@
+/* ========================================================================
+   选项卡控件: tabs.less
+ ========================================================================== */
+ .bt-tabs {
+		border-bottom: 1px solid #063c94;
+		padding: 0 15px;
+		margin-bottom: 16px;
+ 	li {
+		border-radius: 6px 6px 0px 0px;
+		display: inline-block;
+    cursor: pointer;
+    height: 32px;
+    padding: 0 24px;
+    line-height: 32px;
+		border: 1px solid #063c94;
+		border-bottom: 0;
+ 		cursor: pointer;
+ 		&:hover {
+ 			background:#e9f3ff;
+ 		}
+ 		&.is-active {
+			background:#063c94;
+			
+			> a {
+			color: white;
+			}
+		}
+		> a {
+			color: #063c84;
+			text-decoration:none;
+		}
+ 	}
+ 	.bt-tab-content {
+
+ 	}
+ }

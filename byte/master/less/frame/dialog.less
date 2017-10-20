@@ -1,0 +1,56 @@
+/* ========================================================================
+   消息提示: dialog.less
+ ========================================================================== */
+ .bt-dialog {
+  z-index: 182;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+
+  .bt-dialog-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    background: rgb(0, 0, 0);
+  }
+
+  .bt-pop {
+    position: absolute;
+    margin: auto;
+    width: 342px;
+    height: 168px;
+    background-color: white;border-radius: 4px;top: 0;left: 0;bottom: 0;right: 0;
+  }
+
+  .bt-dialog-button {
+    text-align: right;
+    margin-right: 15px;
+    margin-top: -15px;
+
+    .dialog-confirm {
+      border-radius: 4px;
+      box-shadow: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background-color: #063a89;
+      height: 28px;
+      padding-left: 24px;
+      padding-right: 24px;
+      color: antiquewhite;
+      min-width: 28px;
+      display: inline-block;
+      text-align: center;
+      &:hover ,&:focus {
+        border-color: #063c94;
+        color: white;
+        background-color: #235fba;
+      }
+    }
+  }
+ }
