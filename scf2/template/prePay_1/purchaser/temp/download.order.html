@@ -8,19 +8,19 @@
           <tbody>
             <tr>            
               <td width="20%">付款时间:</td>
-              <td colspan="3" class="div-text-left"><span ng-bind="info.importDate"></span></td>
+              <td colspan="3" class="div-text-left"><span ng-bind="info.requestPayDate"></span></td>
             </tr> 
             <tr>
               <td width="20%">总笔数:</td>
-              <td width="30%" class="div-text-left" class="red"><span ng-bind="info.custName" ></span></td>
+              <td width="30%" class="div-text-left" class="red"><span ng-bind="info.payAmount" ></span></td>
               <td width="20%">总金额(元):</td>
-              <td width="30%" class="div-text-left"><span ng-bind="info.importDate"></span></td>
+              <td width="30%" class="div-text-left"><span ng-bind="info.balance | moneyFilter"></span></td>
             </tr> 
             <tr>
               <td width="20%">生成文件名称:</td>
-              <td width="30%" class="div-text-left" class="red"><span ng-bind="info.amount" ></span></td>
+              <td width="30%" class="div-text-left" class="red"><span ng-bind="info.fileName" ></span></td>
               <td width="20%">文件标识:</td>
-              <td width="30%" class="div-text-left"><span ng-bind="info.blance  | moneyFilter"></span></td>
+              <td width="30%" class="div-text-left"><span ng-bind="info.refNo"></span></td>
             </tr>        
                              
           </tbody>
@@ -40,12 +40,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat-end="" ng-class="{even:$even}" class="ng-scope" ng-repeat="item in dataList">
-          <td ng-bind="item.refNo"></td>
-          <td ng-bind="item.bankAccountName" class="ng-binding"></td>
-          <td ng-bind="item.balance  | moneyFilter" class="ng-binding"></td>
-          <td ng-bind="item.bankAccount" class="ng-binding"></td>
-          <td ng-bind="item.bankName" class="ng-binding"></td>                   
+        <tr ng-repeat-end="" ng-class="{even:$even}" class="ng-scope" ng-repeat="item in info.recordList">
+          <td ng-bind="item.requestNo"></td>
+          <td ng-bind="item.custBankName" class="ng-binding"></td>
+          <td ng-bind="item.custBankAccount" class="ng-binding"></td>
+          <td ng-bind="item.custBankAccountName" class="ng-binding"></td>
+          <td ng-bind="item.balance | moneyFilter" class="ng-binding"></td>                   
        </tr>           
       </tbody>
       <!-- <tfoot>
@@ -58,7 +58,7 @@
   
 
   <div class="center-buttons">   
-    <a class="btn btn-primary" ng-href="{{downListUrl}}">导出</a>      
+    <a class="btn btn-primary" ng-click="downloadIt(info.requestPayDate, '1')">导出</a>      
     <button class="btn btn-primary" ng-click="lookHisttory()">查看历史</button>
     <button class="btn btn-primary" bt-close-modal>返回</button>
   </div>

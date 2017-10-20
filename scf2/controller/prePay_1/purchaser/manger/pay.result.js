@@ -7,13 +7,14 @@ define(function(require,exports,module){
 
     mainApp.controller('pay.result',['$scope','http','$rootScope','$route','cache','commonService','$location',function($scope,http,$rootScope,$route,cache,commonService,$location){
       /*  VM绑定区域  */
-     $scope.businStatus = BTDict.payResultStatus.toArray('value','name');
+     $scope.PayFilecollectionStatus = BTDict.payResultStatus.toArray('value','name');
       $scope.infoList = [];
       $scope.info = {};
       
       $scope.searchData = {
-          GTEregDate:common.getFirstDay().format('YYYY-MM-DD'),
-          LTEregDate:common.getLastDay().format('YYYY-MM-DD')        
+          GTErequestPayDate:common.getFirstDay().format('YYYY-MM-DD'),
+          LTErequestPayDate:common.getLastDay().format('YYYY-MM-DD'),
+          infoType : '1'        
       };
 
       
@@ -33,18 +34,19 @@ define(function(require,exports,module){
         window.location.href='?rn'+new Date().getTime()+'../scf2/home.html#/prePay_1/upload.result';
         
       }
+      
 
       // 审核
       $scope.audit=function(data){
           $scope.info=data;
              // 获取数据列表             
-             $scope.getDatalist('audit');
+             $scope.getDatalist('audit', data.sourceFileId);
           
       }
       // 子页面审核生效
-      $scope.doAudit = function(target){
+      $scope.doAudit = function(target, sourceFileId){
           var $target = $(target);        
-          http.post(BTPATH.SAVE_AUDIT_RECEIVABLE_RECORD_CORE,{})
+          http.post(BTPATH.SAVE_PAYFILE_SAVEAUDITFILEBYPRIMARYKEY,{id : sourceFileId})
              .success(function(data){
               if(data&&(data.code === 200)){
                 tipbar.infoTopTipbar('审核成功!',{});
@@ -60,13 +62,13 @@ define(function(require,exports,module){
       $scope.delete=function(data){
           $scope.info=data;
              // 获取数据列表             
-             $scope.getDatalist('delete');
+             $scope.getDatalist('delete', data.sourceFileId);
       }
 
       // 子页面删除
-      $scope.doDelete = function(target){
+      $scope.doDelete = function(target, sourceFileId){
           var $target = $(target);        
-          http.post(BTPATH.SAVE_AUDIT_RECEIVABLE_RECORD_CORE,{})
+          http.post(BTPATH.SAVE_PAYFILE_SAVEDELETEFILEBYPRIMARTKEY,{id : sourceFileId})
              .success(function(data){
               if(data&&(data.code === 200)){
                 tipbar.infoTopTipbar('删除成功!',{});
@@ -80,14 +82,15 @@ define(function(require,exports,module){
 
       // 详情
       $scope.lookDetail=function(data){
-          $scope.info=data;
+          
+          $scope.info = data;
              // 获取数据列表             
-            $scope.getDatalist();
+            $scope.getDatalist("detail", data.sourceFileId);
       }
      
       // 获取列表的公共方法
-      $scope.getDatalist = function(flag){
-          http.post(BTPATH.QUERY_COMMISSION_FILE_DOWN_LIST_FILE_ID_OPER,{})
+      $scope.getDatalist = function(flag, dataId){
+          http.post(BTPATH.QUERY_PAYRECORD_QUERYRECORDLISTBYFILEIDANDBUSINSTATUS,{sourceFileid : dataId, businStatus : ""})
               .success(function(data){
                   $scope.$apply(function(){                
                     $scope.dataList = common.cloneArrayDeep(data.data);/*3*/ 
@@ -117,7 +120,7 @@ define(function(require,exports,module){
         var $mainTable = $('#search_info .main-list');
         // loading.addLoading($mainTable,common.getRootPath());
         $scope.listPage.flag = flag? 1 : 2;
-        http.post(BTPATH.QUERY_REQUEST_TEMPLIST,$.extend({},$scope.listPage,$scope.searchData))
+        http.post(BTPATH.QUERY_PAYFILE_QUERYFILEPAGE,$.extend({},$scope.listPage,$scope.searchData))
           .success(function(data){
             //关闭加载状态弹幕
             loading.removeLoading($mainTable);

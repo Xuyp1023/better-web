@@ -43,7 +43,10 @@ define(function(require,exports,module){
           importTemplate:angular.toJson($scope.infoFileList[0]),
           dailyTemplate:angular.toJson($scope.infoFileList[1]),
           monthlyTemplate:angular.toJson($scope.infoFileList[2]),
-          exportTemplate:angular.toJson($scope.infoFileList[3])
+          exportTemplate:angular.toJson($scope.infoFileList[3]),
+          payOrderExportTemplate:angular.toJson($scope.infoFileList[4]),
+          payOrderImportTemplate:angular.toJson($scope.infoFileList[5])
+          
         };
 
 
@@ -87,6 +90,8 @@ define(function(require,exports,module){
                   $scope.infoFileList[1] = angular.fromJson($scope.info.dailyTemplate);
                   $scope.infoFileList[2] = angular.fromJson($scope.info.monthlyTemplate);
                   $scope.infoFileList[3] = angular.fromJson($scope.info.exportTemplate);
+                  $scope.infoFileList[4] = angular.fromJson($scope.info.payOrderExportTemplate);
+                  $scope.infoFileList[5] = angular.fromJson($scope.info.payOrderImportTemplate);
 
               });
             }

@@ -32,7 +32,7 @@ define(function(require,exports,module){
 
     	//变更项目类型 对应字典类型 : ChangeItem
     	$scope.infoTypes = ['basic','lawyer',undefined,undefined,'license'];
-    	$scope.listTypes = [undefined,undefined,'holder','manager',undefined,'contactor','account'];
+    	$scope.listTypes = [undefined,undefined,'holder','manager',undefined,'contactor','account',undefined,undefined,'aduitFile'];
     	// $scope.infoTypes.set('0','basic');
     	// $scope.infoTypes.set('1','lawyer');
     	// $scope.infoTypes.set('2','股东信息');
@@ -105,6 +105,14 @@ define(function(require,exports,module){
 	    		info_name:'licenseInfo',	//基础信息VM名称
 	    		before_upload_list:'licenseUploadList_bef',	//变更前附件列表 VM名称
 	    		now_upload_list:'licenseUploadList_now'	//变更前附件列表 VM名称
+	    	},
+	    	aduitFile:{
+	    		name:'资料认证',
+	    		box_id:'attach_audite_box',//模板包裹ID
+	    		info_path:BTPATH.FIND_ADUIT_FILE_TEMP,	//获取单项变更详情
+	    		info_name:'aduitFileInfo',	//基础信息VM名称
+	    		before_upload_list:'aduitUploadList_bef',	//变更前附件列表 VM名称
+	    		now_upload_list:'aduitUploadList_now'	//变更前附件列表 VM名称
 	    	}
 	    };
 

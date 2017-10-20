@@ -48,12 +48,13 @@
 								<tr class="result-head font-size-12 info-title">
 										<td width="12%">账款编号</td>
 										<td width="12%">应收账款结算日</td>
-										<td width="12%">应收账款金额(元)</td>
+										
 										<td width="12%">应收账款余额(元)</td>
 										<td width="8%">折扣率(%)</td>
 										<td width="10%">实付金额(元)</td>
 										<td width="13%">付款时间</td>
 										<td width="13%">债务人</td>
+										<td width="12%">付款状态</td>
 										<td width="7%">操作</td>
 								</tr>
 							</thead>
@@ -61,12 +62,13 @@
 								<tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
                                     <td ng-bind="item.requestNo"></td>                    
 				                     <td ng-bind='item.endDate'></td>
-				                     <td ng-bind='item.balance | moneyFilter'></td>
+				                     
 				                     <td ng-bind='item.balance | moneyFilter'></td>
 				                     <td ng-bind='item.custOpatRate'></td>
 				                     <td ng-bind='item.requestPayBalance | moneyFilter'></td>
 				                     <td ng-bind="item.requestPayDate"></td>                     
 									 <td ng-bind="item.coreCustName"></td>  
+									  <td ng-bind='item.payStatus | kindf :"RequestPayStatus"'></td> 
 									 <td>
 											<a href="javascript:void(0);" ng-click="lookDetail(item);">查看</a>
 									 </td> 

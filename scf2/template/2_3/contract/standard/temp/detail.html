@@ -110,8 +110,7 @@
           <td width="20%">操作时间</td>
           <td width="15%">操作人</td>
           <td width="25%">操作机构</td>
-          <td width="10%">操作类型</td>
-          <td width="30%">操作内容</td>
+          <td width="40%">操作内容</td>
         </tr>
        
       </thead>
@@ -120,7 +119,6 @@
           <td ng-bind="templateLog.operDate + ' ' + templateLog.operTime"></td>
           <td ng-bind="templateLog.regOperName"></td>
           <td ng-bind="templateLog.custName"></td>
-          <td ng-bind="templateLog.operType | kindf: 'ContractTemplateOperType'"></td>
           <td ng-bind="templateLog.operContent"></td>
         </tr>
       </tbody>

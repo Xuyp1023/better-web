@@ -1,0 +1,77 @@
+<div class="div-width-90 div-center detail-box">
+    <h1 class="content-title-1 content-title-condensed"><img src="../../../img/operator.png" alt="">
+      资料认证变更审核
+    </h1>
+
+    <div class="row-fluid detail-info div-center">
+
+      <!-- 变更前 -->
+      <!-- <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">营业执照附件(变更前)</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%">序号</td>
+            <td width="35%">附件类型</td>
+            <td width="35%">附件名称</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="file in licenseUploadList_bef" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="$index +1"></td>
+            <td>营业执照附件</td>
+            <td>
+              <a href=""><span ng-bind="file.fileName"></span></a>
+            </td>
+            <td><a href="{{file.id|downf}}">下载</a></td>
+          </tr>
+        </tbody>
+      </table> -->
+
+
+      <!-- 变更后 -->
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="result-td-head result-head-green">
+          <tr>
+            <td colspan="4">资料认证附件</td>
+          </tr>
+        </thead>
+        <thead class="result-head result-head-gray">
+          <tr>
+            <td width="20%">序号</td>
+            <td width="35%">附件类型</td>
+            <td width="35%">附件名称</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="file in aduitUploadList_now" ng-repeat-end ng-class="{even:$even}">
+            <td ng-bind="$index +1"></td>
+            <td><span ng-bind="file.fileInfoType|kindf:'BusinFileType'"></span></td>
+            <td>
+              <a href=""><span ng-bind="file.fileName"></span></a>
+            </td>
+            <td><a href="{{file.id|downf}}">下载</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-striped table-hover table-bordered">
+          <tbody>
+            <tr>
+              <td  width="20%">备注:</td>
+              <td  colspan="3"><textarea ng-model="pageInfo.reason"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    
+    <div class="center-buttons">
+        <button class="btn btn-primary" ng-click="auditChangePass($event.target,'aduitFile');">审核通过</button>
+        <button class="btn btn-danger" ng-click="auditChangeReject($event.target,'aduitFile');">驳回变更</button>
+        <button class="btn btn-primary" bt-close-modal>返回</button>
+    </div>
+</div>

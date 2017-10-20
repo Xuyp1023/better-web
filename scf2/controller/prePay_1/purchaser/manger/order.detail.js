@@ -6,11 +6,11 @@ define(function(require,exports,module){
     mainApp.controller('order.detail',['$scope','http','$rootScope','$route','cache','commonService',function($scope,http,$rootScope,$route,cache,commonService){
       /*  VM绑定区域  */
 
-      $scope.businStatus = BTDict.effectiveVersionUsingBusinStatusForSearch.toArray('value','name');
+      $scope.statusList = BTDict.PoolRecordBusinStatus.toArray('value','name');
       //分页数据
       $scope.listPage = {
         pageNum: 1,
-        pageSize: 30,
+        pageSize: 100,
         pages: 1,
         total: 1
       };    
@@ -18,7 +18,8 @@ define(function(require,exports,module){
       $scope.infoList = [];
       
       // 初始化查条件对象
-      $scope.searchData = {         
+      $scope.searchData = { 
+
       };   
         
         
@@ -28,7 +29,7 @@ define(function(require,exports,module){
        // 查看历史
       $scope.lookHisttory = function(){
           // 获取历史下载列表             
-           http.post(BTPATH.QUERY_COMMISSION_FILE_DOWN_LIST_FILE_ID_OPER,{})
+           http.post(BTPATH.QUERY_PAYFILE_QUERYFILELIST,{infoType : '0', requestPayDate : $scope.searchData.requestPayDate, businStatus : ''})
             .success(function(data){
                 $scope.$apply(function(){                
                   $scope.historyList = data.data;/*3*/                               
@@ -49,13 +50,13 @@ define(function(require,exports,module){
             loading.addLoading($mainTable,common.getRootPath());
             $scope.listPage.flag = flag? 1 : 2;
             $scope.searchData.isAudit = true;
-            http.post(BTPATH.QUERY_FINISHED_APPLY,$.extend({},$scope.listPage,$scope.searchData))
+            http.post(BTPATH.QUERY_PAYPOOLRECORD_QUERYPAYPOOLRECORDPAGE,$.extend({},$scope.listPage,$scope.searchData))
               .success(function(data){
                 //关闭加载状态弹幕
                 loading.removeLoading($mainTable);
                 if((data!==undefined)&&(data.data!==undefined)&&(data.data!=='')&&(data.code === 200)){
                   $scope.$apply(function(){
-                    $scope.infoList = common.cloneArrayDeep(data.data);                    
+                    $scope.dataList = common.cloneArrayDeep(data.data);                    
                     if(flag){
                       $scope.listPage = data.page;
                     }
@@ -71,8 +72,8 @@ define(function(require,exports,module){
       $scope.$on('$routeChangeSuccess',function(){
         $scope.data= cache.get('cacheData');
         // 为初始查询条件赋值
-        $scope.searchData.importDate = new Date().format('YYYY-MM-DD');
-        $scope.searchData.businStatus = 1;
+        $scope.searchData.requestPayDate = $scope.data.requestPayDate;
+        
         $scope.queryList(true);  
         $scope.$on('ngRepeatFinished',function(){
           common.resizeIframe();

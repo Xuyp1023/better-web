@@ -8,7 +8,7 @@
                       <tr>
                         <td>选择导出日期:</td>
                         <td class="div-text-left">
-                          <input type="text" id="begin_date" bt-date="searchData.importDate">
+                          <input type="text" id="begin_date" bt-date="searchData.regDate">
                           <!-- <input type="text" id="end_date" bt-date="searchData.LTEregDate"> -->
                         </td>
                       </tr>
@@ -40,22 +40,18 @@
                             <tbody>
                               <tr ng-repeat="item in historyList">
                                 <td class="ng-binding" ng-bind="item.refNo"></td>
-                                <td ng-bind="item.receivableNo" class="ng-binding"></td>
-                                <td ng-bind="item.balance" class="ng-binding"></td>
-                                <td ng-bind="item.surplusBalance" class="ng-binding"></td>
-                                <td ng-bind="item.endDate" class="ng-binding"></td>
-                                <td ng-bind="item.invoiceNos" class="ng-binding"></td>
-                                <td ng-bind="item.agreeNo"></td>
-                                <td>
-                                    <a href="javascript:void(0);" ng-click="upload();">上传</a>
+                                <td ng-bind="item.fileName" class="ng-binding"></td>
+                                <td ng-bind="item.payAmount" class="ng-binding"></td>
+                                <td ng-bind="item.balance | moneyFilter" class="ng-binding"></td>
+                                <td ng-bind="item.requestPayDate" class="ng-binding"></td>
+                                <td ng-bind="item.orgOperName" class="ng-binding"></td>
+                                <td ng-bind="item.regDate"></td>
+                                <td ng-show="item.businStatus == 1">
+                                    <a href="javascript:void(0);" ng-click="upload(item);">上传</a>
                                 </td>
                              </tr>           
                             </tbody>
-                            <tfoot>
-                                <td colspan="10">                  
-                                    <div bt-pagination conf="listPage" func="queryList(false);"></div>
-                                </td>
-                            </tfoot>
+                         
                          </table>
                          <div class="center-buttons">
                             <button class="btn btn-primary" ng-click="goBack()">返回</button>          
@@ -67,7 +63,7 @@
           </div>
     </div>
     <!-- 下载历史 -->
-    <div id="history_box"   bt-roll-modal="template/prePay_1/purchaser/temp/history.html" bt-z-index="9991"></div>
+    <div id="upload_file"   bt-roll-modal="template/prePay_1/purchaser/temp/uploadFile.html" bt-z-index="9991"></div>
     
 
 

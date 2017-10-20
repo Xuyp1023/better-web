@@ -28,7 +28,8 @@ define(function(require,exports,module){
   			var $mainTable = $('#search_info .main-list');
   			loading.addLoading($mainTable,common.getRootPath());
   			$scope.listPage.flag = flag? 1 : 2;/*1*/
-  			http.post(BTPATH.QUERY_AGREEMENT_STANDARD/*2*/,$.extend({},$scope.listPage,$scope.searchData))
+        /*http.post(BTPATH.QUERY_AGREEMENT_STANDARD2,$.extend({},$scope.listPage,$scope.searchData))*/
+  			http.post(BTPATH.QUERY_BUSSSINESS_TYPE_CONTRACT_STANDARD/*2*/,$.extend({},$scope.listPage,$scope.searchData))
   				.success(function(data){
   					//关闭加载状态弹幕
   					loading.removeLoading($mainTable);
@@ -68,9 +69,6 @@ define(function(require,exports,module){
 
 			/*!入口*/ /*控制器执行入口*/
 			$scope.$on('$routeChangeSuccess',function(){
-				commonService.queryBaseInfoList(BTPATH.FIND_ENABLE_AGREEMENTTYPE,{},$scope,'typeList').success(function(){
-					$scope.info.agreementTypeId = common.filterArrayFirst($scope.typeList);
-				});
 				$scope.queryList(true);
 				/*公共绑定*/
 				$scope.$on('ngRepeatFinished',function(){

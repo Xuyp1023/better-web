@@ -10,34 +10,45 @@ define(function(require,exports,module){
       //分页数据
       $scope.listPage = {
         pageNum: 1,
-        pageSize: 30,
+        pageSize: 100,
         pages: 1,
         total: 1
-      };    
-     
+      };
+
+      // 列表
       $scope.infoList = [];
       
       // 初始化查条件对象
       $scope.searchData = {
-          GTEregDate:common.getFirstDay().format('YYYY-MM-DD'),
-          LTEregDate:common.getLastDay().format('YYYY-MM-DD')
+          GTErequestPayDate:common.getFirstDay().format('YYYY-MM-DD'),
+          LTErequestPayDate:common.getLastDay().format('YYYY-MM-DD')
       };   
         
-        // 详情
+        // 详情..
         $scope.lookDetail = function(data) {
           cache.put('cacheData',data);
           window.location.href='?rn'+new Date().getTime()+'../scf2/home.html#/prePay_1/order.detail';
         }
 
         // 下载
-        $scope.downloadIt = function(data){
-            $scope.info=data;
+        $scope.downloadIt = function(data, flagValue){
+            
              // 获取数据列表             
-             http.post(BTPATH.QUERY_COMMISSION_FILE_DOWN_LIST_FILE_ID_OPER,{fileId:data.id})
+             http.post(BTPATH.SAVE_PAYFILE_SAVEADDFILE,{requestPayDate:data, flag:flagValue})
               .success(function(data){
                   $scope.$apply(function(){                
-                    $scope.dataList = common.cloneArrayDeep(data.data);/*3*/                                 
-                    $scope.openRollModal('download_box');
+                    
+                    $scope.info = data.data;
+                    if(flagValue == '0'){
+                      $scope.openRollModal('download_box');
+                    }else{
+
+                      window.location.href=BTPATH.DOWNLOAD_BACK_INFO+"?id="+$scope.info.fileItemId;
+                      $scope.closeRollModal('download_box');
+                      $scope.queryList(true);
+                    }
+
+                    
                   });
             });     
         }
@@ -55,7 +66,7 @@ define(function(require,exports,module){
             loading.addLoading($mainTable,common.getRootPath());
             $scope.listPage.flag = flag? 1 : 2;
             $scope.searchData.isAudit = true;
-            http.post(BTPATH.QUERY_FINISHED_APPLY,$.extend({},$scope.listPage,$scope.searchData))
+            http.post(BTPATH.QUERY_PAYPOOL_QUERYPAYPOOLLIST,$.extend({},$scope.listPage,$scope.searchData))
               .success(function(data){
                 //关闭加载状态弹幕
                 loading.removeLoading($mainTable);
@@ -73,7 +84,7 @@ define(function(require,exports,module){
       // 查看历史
       $scope.lookHisttory = function(){
           // 获取历史下载列表             
-           http.post(BTPATH.QUERY_COMMISSION_FILE_DOWN_LIST_FILE_ID_OPER,{})
+           http.post(BTPATH.QUERY_PAYFILE_QUERYFILELIST,{infoType : '0', requestPayDate : $scope.info.requestPayDate, businStatus : ''})
             .success(function(data){
                 $scope.$apply(function(){                
                   $scope.historyList = data.data;/*3*/                               
