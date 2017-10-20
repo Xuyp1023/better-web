@@ -13,14 +13,73 @@ define(function(require,exports,module){
         pageSize: 30,
         pages: 1,
         total: 1
-      };    
+      }; 
+
+      $scope.uploads = {};
+      $scope.isSubmit = true;   
      
-     
-      
+      // 文件改变时触发
+      window.fileChange = function(input){
+        if(!input.value){ $scope.uploads.id = '' ;return;}
+        $scope.isSubmit = false;
+        var form = document.getElementById('uploadForm');
+        form.action = BTPATH.UPLOAD_BACK_INFO + '?fileTypeName=otherFile';
+        form.submit();                
+      }
+        //重置 
+        function reset(){
+          var ipt = document.getElementById('file');
+          ipt.value = '';
+          $scope.uploads={};
+        }
+
+      // 文件改变时重新触发
+      window.iframeLoad = function(){
+          var resultStr = window.frames['bt_upload_frame'].document.body.innerHTML;
+          if(resultStr.length!=0){
+              resultStr = JSON.parse(resultStr);
+              if(resultStr.code == 200){
+                  $scope.uploads.id = resultStr.data.id;
+              }
+          }  
+      }
+      // 提交
+      $scope.submit = function(target, sourceFileid){
+          var $target = $(target);
+          if(!$scope.uploads.id){
+              tipbar.errorLeftTipbar($target,"请选择文件",3000,9992);
+              return;
+          }
+          http.post(BTPATH.SAVE_PAYFILE_SAVERESOLVEFILE,{fileItemId : $scope.uploads.id, sourceFileId : sourceFileid})
+         .success(function(data){
+          if(data&&(data.code === 200)){
+            tipbar.infoTopTipbar('提交成功!',{});
+            reset();            
+            $scope.closeRollModal("upload_file");
+            $scope.queryList(true);
+          }else{
+            tipbar.errorTopTipbar($target,'提交失败,服务器返回:'+data.message,3000,9992);
+          }
+         });
+      }
+
+
       // 初始化查条件对象
-      $scope.searchData = {         
-      };   
-        
+      $scope.searchData = {   
+
+        businStatus : '1',
+        regDate : new Date().format('YYYY-MM-DD'),
+        infoType : '0',
+        lockedStatus : '0'
+
+      };
+
+      $scope.uploadInfo = {};
+
+       $scope.upload = function(data){
+          $scope.uploadInfo = data;
+          $scope.openRollModal('upload_file');
+       } 
         
        $scope.goBack = function(){
           history.go(-1);
@@ -38,17 +97,15 @@ define(function(require,exports,module){
             var $mainTable = $('#search_info .main-list');
             loading.addLoading($mainTable,common.getRootPath());
             $scope.listPage.flag = flag? 1 : 2;
-            $scope.searchData.isAudit = true;
-            http.post(BTPATH.QUERY_FINISHED_APPLY,$.extend({},$scope.listPage,$scope.searchData))
+            
+            http.post(BTPATH.QUERY_PAYFILE_QUERYFILELISTBYMAP,$.extend({},$scope.listPage,$scope.searchData))
               .success(function(data){
                 //关闭加载状态弹幕
                 loading.removeLoading($mainTable);
                 if((data!==undefined)&&(data.data!==undefined)&&(data.data!=='')&&(data.code === 200)){
                   $scope.$apply(function(){
                     $scope.historyList = common.cloneArrayDeep(data.data);                    
-                    if(flag){
-                      $scope.listPage = data.page;
-                    }
+                    
                   });
                 }   
             });
@@ -59,12 +116,17 @@ define(function(require,exports,module){
       
       /*!入口*/ /*控制器执行入口*/
       $scope.$on('$routeChangeSuccess',function(){
-        $scope.data= cache.get('cacheData');
-        // 为初始查询条件赋值
-        $scope.searchData.importDate = new Date().format('YYYY-MM-DD');        
-        $scope.queryList(true);  
-        $scope.$on('ngRepeatFinished',function(){
+        
+              
+        $scope.queryList(true); 
+        setTimeout(function(){
           common.resizeIframe();
+        },500) 
+        
+        $scope.$on('ngRepeatFinished',function(){
+          setTimeout(function(){
+            common.resizeIframe();
+          },500) 
         });
 
       });

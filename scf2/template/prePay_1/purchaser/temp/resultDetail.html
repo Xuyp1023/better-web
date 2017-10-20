@@ -12,29 +12,29 @@
                         <tbody>
                           <tr>            
                             <td width="20%">付款时间:</td>
-                            <td colspan="3" class="div-text-left"><span ng-bind="info.importDate"></span></td>
+                            <td colspan="3" class="div-text-left"><span ng-bind="info.requestPayDate"></span></td>
                           </tr> 
                           <tr>
                             <td width="20%">总笔数:</td>
-                            <td width="30%" class="div-text-left" class="red"><span ng-bind="info.custName" ></span></td>
+                            <td width="30%" class="div-text-left" class="red"><span ng-bind="info.payAmount" ></span></td>
                             <td width="20%">总金额(元):</td>
-                            <td width="30%" class="div-text-left"><span ng-bind="info.importDate"></span></td>
+                            <td width="30%" class="div-text-left"><span ng-bind="info.balance | moneyFilter"></span></td>
                           </tr> 
                           <tr>
                             <td width="20%">文件名称:</td>
-                            <td colspan="3" class="div-text-left" class="red"><span ng-bind="info.amount" ></span></td>
+                            <td colspan="3" class="div-text-left" class="red"><span ng-bind="info.fileName" ></span></td>
                           </tr>
                           <tr>
                             <td width="20%">上传人:</td>
-                            <td width="30%" class="div-text-left" class="red"><span ng-bind="info.custName" ></span></td>
+                            <td width="30%" class="div-text-left" class="red"><span ng-bind="info.orgOperName" ></span></td>
                             <td width="20%">上传时间:</td>
-                            <td width="30%" class="div-text-left"><span ng-bind="info.importDate"></span></td>
+                            <td width="30%" class="div-text-left"><span ng-bind="info.regDate"></span></td>
                           </tr>
                           <tr>
                             <td width="20%">确认人:</td>
-                            <td width="30%" class="div-text-left" class="red"><span ng-bind="info.custName" ></span></td>
+                            <td width="30%" class="div-text-left" class="red"><span ng-bind="info.auditOperName" ></span></td>
                             <td width="20%">确认时间:</td>
-                            <td width="30%" class="div-text-left"><span ng-bind="info.importDate"></span></td>
+                            <td width="30%" class="div-text-left"><span ng-bind="info.auditDate"></span></td>
                           </tr>           
                                            
                         </tbody>

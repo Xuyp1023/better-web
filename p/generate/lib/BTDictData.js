@@ -2,6 +2,28 @@ var BTDict = new BetterDictionary();
 function BetterDictionary() {
 
 		// 合同签署信息状态格式化
+		this.PoolRecordBusinStatus = new ListMap();
+		this.PoolRecordBusinStatus.set('0', "未处理");
+		this.PoolRecordBusinStatus.set('1', "付款中");
+		this.PoolRecordBusinStatus.set('2', "复核中");
+		this.PoolRecordBusinStatus.set('3', "付款失败");
+		this.PoolRecordBusinStatus.set('4', "付款成功");
+
+		//付款文件状态
+		this.PayFilecollectionStatus = new ListMap();
+		this.PayFilecollectionStatus.set('1', "未确认");
+		this.PayFilecollectionStatus.set('2', "已审核");
+
+		//申请付款状态   0 初始状态    3付款失败 4 付款成功
+		this.RequestPayStatus = new ListMap();
+		this.RequestPayStatus.set('0', "未付款");
+		this.RequestPayStatus.set('', "未付款");
+		this.RequestPayStatus.set('3', "付款失败");
+		this.RequestPayStatus.set('4', "付款成功");
+		
+
+
+		// 合同签署信息状态格式化
 		this.ContractStatus = new ListMap();
 		this.ContractStatus.set('0', "未处理");
 		this.ContractStatus.set('1', "成功");
@@ -772,6 +794,7 @@ function BetterDictionary() {
 	  this.ChangeItem.set('4','营业执照');
 	  this.ChangeItem.set('5','联系人信息');
 	  this.ChangeItem.set('6','银行账户');
+	  this.ChangeItem.set('9','资料认证信息');
 
 	  //期限单位
 	  this.PeriodUnit = new ListMap();
@@ -1131,14 +1154,43 @@ function BetterDictionary() {
 	  this.BusinFileType.set('InvoiceAccessory','发票附件');
 	  this.BusinFileType.set('agreeAccessory','合同附件');
 	  this.BusinFileType.set('billAccessory','票据附件');
-	  this.BusinFileType.set('bizLicenseFile','企业营业执照附件');
-	  this.BusinFileType.set('orgCodeFile','组织机构代码证附件');
+	  this.BusinFileType.set('authorizeFile','授权书');
+	  this.BusinFileType.set('BrokerIdHeadFile','经办人身份证-头像面');
+	  this.BusinFileType.set('BrokerIdHoldFile','经办人身份证-手持证件');
+	  this.BusinFileType.set('BrokerIdNationFile','经办人身份证-国徽面');
+	  this.BusinFileType.set('capitalReportFile','验资报告');
+	  this.BusinFileType.set('companyCreditReport','企业征信报告');
+	  this.BusinFileType.set('companyFinancialStatement','企业连续三期的财务报表');
+	  this.BusinFileType.set('companyRule','公司章程');
+	  this.BusinFileType.set('companyTaxCertificate','企业纳税证明');
+	  this.BusinFileType.set('controllerIdFile','实际控制人身份证');
+	  this.BusinFileType.set('corporationAuthorizeLetter','法人授权办理保理业务委托书');
+	  this.BusinFileType.set('corporationBankAccountFlow','法人或实际控制人主要银行账户流水');
+	  this.BusinFileType.set('corporationCertificate','法人证明书');
+	  this.BusinFileType.set('corporationCreditReport','法人或实际控制人征信报告');
+	  this.BusinFileType.set('coupleIdFile','法人或实际控制人配偶身份证');
+	  this.BusinFileType.set('CustBankOpenLicenseFile','银行账户开户许可证');
+	  this.BusinFileType.set('CustBizLicenseFile','营业执照附件');
+	  this.BusinFileType.set('CustCreditCodeFile','机构信用代码证');
+	  this.BusinFileType.set('custLogoFile','企业Logo附件');
+	  this.BusinFileType.set('CustOpenAccountFilePack','开户资料包');
+	  this.BusinFileType.set('CustOrgCodeFile','组织机构代码证');
+	  this.BusinFileType.set('CustTaxRegistFile','税务登记证');
 	  this.BusinFileType.set('officeSiteFile','办公场地附件文件');
-	  this.BusinFileType.set('representIdFile','法人身份证附件');
-	  this.BusinFileType.set('brokerIdFile','经办人身份证附件');
-	  this.BusinFileType.set('bankAcctAckFile','银行开户证明附件');
-	  this.BusinFileType.set('bankFlowFile','银行账户流水附件文件');
 	  this.BusinFileType.set('orderFlowFile','订单流水附件文件');
+	  this.BusinFileType.set('otherFile','其它附件');
+	  this.BusinFileType.set('proveAssetsFile','资产证明文件');
+	  this.BusinFileType.set('RepresentIdHeadFile','法人身份证-头像面');
+	  this.BusinFileType.set('RepresentIdHoldFile','法人身份证-手持证件');
+	  this.BusinFileType.set('RepresentIdNationFile','法人身份证-国徽面');
+	  this.BusinFileType.set('serviceContractFile','服务协议');
+	  this.BusinFileType.set('shopBoardFile','店铺门头附件');
+	  this.BusinFileType.set('shopSceneFile','店铺内景附件');
+	  this.BusinFileType.set('signCertificateFile','沃通合同电子签名授权委托书');
+	  this.BusinFileType.set('signedFile','已经签署的合同文件');
+	  this.BusinFileType.set('signFile','合同签署文件');
+	  this.BusinFileType.set('signStampFile','电子合同签署-印章文件');
+	  this.BusinFileType.set('signTemplateFile','电子合同-模板');
 	  this.BusinFileType.set('taxRegistFile','税务登记证附件');
 
 

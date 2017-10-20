@@ -7,7 +7,7 @@
                     <div ng-include="'template/prePay_1/purchaser/temp/basicInfo.html'"></div>
                     <div ng-include="'template/prePay_1/purchaser/temp/orderList.html'"></div>
                     <div class="center-buttons">                        
-                        <button class="btn btn-primary" ng-click="doAudit($event.target)">审核生效</button>
+                        <button class="btn btn-primary" ng-click="doAudit($event.target, info.sourceFileId)">审核生效</button>
                         <button class="btn btn-primary" bt-close-modal>返回</button>
                     </div>
                 </div>

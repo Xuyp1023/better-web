@@ -14,6 +14,31 @@ define(function(require,exports,module){
 		// 企业合作银行下拉列表查询
 		QUERY_BANK_LIST:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Platform/CustRelation/queryBankKeyAndValue'),
 
+		//付款指令
+		//资金方付款指令池查询所有付款指令
+		QUERY_PAYPOOL_QUERYPAYPOOLLIST:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Scf/PayOrderPool/queryPayPoolList'),
+		//查询资金方查询指令池付款清单列表/Scf/PayOrderPoolRecord/queryRecordPage
+		QUERY_PAYPOOLRECORD_QUERYPAYPOOLRECORDPAGE:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Scf/PayOrderPoolRecord/queryRecordPage'),
+		//资金方付款指令池界面点击下载按钮进去点击查看历史按钮  /Scf/PayOrderFile/queryFileList
+		QUERY_PAYFILE_QUERYFILELIST:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Scf/PayOrderFile/queryFileList'),
+		//资金方付款指令池界面点击下载按钮  
+		SAVE_PAYFILE_SAVEADDFILE:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Scf/PayOrderFile/saveAddFile'),
+		//资金方查询付款结果确认界面   
+		QUERY_PAYFILE_QUERYFILEPAGE:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Scf/PayOrderFile/queryFilePage'),
+		//付款结果 查询文件详情  /Scf/PayOrderFile/findFileDetailByPrimaryKey
+		FIND_PAYFILE_FINDFILEDETAILBYPRIMARYKEY:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Scf/PayOrderFile/findFileDetailByPrimaryKey'),
+		//查询付款文件信息记录  /Scf/PayOrderPoolRecord/queryRecordListByFileIdAndBusinStatus
+		QUERY_PAYRECORD_QUERYRECORDLISTBYFILEIDANDBUSINSTATUS:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Scf/PayOrderPoolRecord/queryRecordListByFileIdAndBusinStatus'),
+		//文件审核   /Scf/PayOrderFile/saveAuditFileByPrimaryKey
+		SAVE_PAYFILE_SAVEAUDITFILEBYPRIMARYKEY:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Scf/PayOrderFile/saveAuditFileByPrimaryKey'),
+		//文件删除  /Scf/PayOrderFile/saveDeleteFileByPrimaryKey
+		SAVE_PAYFILE_SAVEDELETEFILEBYPRIMARTKEY:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Scf/PayOrderFile/saveDeleteFileByPrimaryKey'),
+		//付款结果 选择界面 查询尚未确认的付款文件列表   /Scf/PayOrderFile/queryFileListByMap
+		QUERY_PAYFILE_QUERYFILELISTBYMAP:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Scf/PayOrderFile/queryFileListByMap'),
+		//付款结果 上传付款结果文件  点击提交   /Scf/PayOrderFile/saveResolveFile
+		SAVE_PAYFILE_SAVERESOLVEFILE:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Scf/PayOrderFile/saveResolveFile'),
+
+
 		//2.3.1融资申请---------------
 		//用户银行下拉
 		QUERY_BANK_ACCOUNT_KEYANDVALUE:BTServerPath+ (_isTest?'/scf2/testdata/checkDayList.json':'/Platform/BankAccount/queryBankAccountKeyAndValue'),
@@ -1196,6 +1221,8 @@ define(function(require,exports,module){
 		FIND_AUDIT_DETAIL_LAWYER:BTServerPath+ (_isTest?'/scf2/testdata/findChangeApplyLawyer.json':'/Platform/LawInfo/findChangeApply'),
 		//变更详情 营业执照
 		FIND_AUDIT_DETAIL_LICENCE:BTServerPath+ (_isTest?'/scf2/testdata/findChangeApplyLicence.json':'/Platform/BusinLicence/findChangeApply'),
+		//变更详情 资料认证
+		FIND_ADUIT_FILE_TEMP:BTServerPath+ (_isTest?'/scf2/testdata/findChangeApplyLicence.json':'/Platform/CustAduitTemp/findCustAduitFileChangeApply'),
 
 
 
@@ -1624,10 +1651,12 @@ define(function(require,exports,module){
 		ENABLE_CONTRANCT_STANDARD:BTServerPath+ (_isTest?'/scf2/testdata/findAllRole.json':'/Platform/ContractStandardType/saveEnableContractStandardType'),
 		// 已启用的标准合同类型查询
 		QUERY_CONTRACT_STANDARD_TYPEID_LIST:BTServerPath+ (_isTest?'/scf/testdata/oneBill.json':'/Platform/ContractStandardType/queryContractStandardType'),
-		//查询审核标准合同
+		// 查询审核标准合同
 		QUERY_ALL_CONTRACT_STANDARD_LIST:BTServerPath+ (_isTest?'/scf/testdata/oneBill.json':'/Platform/ContractStandardType/queryAllContractStandardType'),
-		//停用标准合同
-		SAVE_STOP_CONTRACT_STANDARD:BTServerPath+ (_isTest?'/scf/testdata/oneBill.json':'/Platform/ContractStandardType/saveStopContractStandardType')
+		// 停用标准合同
+		SAVE_STOP_CONTRACT_STANDARD:BTServerPath+ (_isTest?'/scf/testdata/oneBill.json':'/Platform/ContractStandardType/saveStopContractStandardType'),
+		// 查看合同业务关联合同
+		QUERY_BUSSSINESS_TYPE_CONTRACT_STANDARD:BTServerPath+ (_isTest?'/scf/testdata/oneBill.json':'/Platform/ContractBusinessStandard/queryAllContractStandardType')
 
 	};
 

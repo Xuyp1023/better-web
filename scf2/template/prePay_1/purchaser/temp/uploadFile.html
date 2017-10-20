@@ -1,0 +1,35 @@
+<div id="container" class="container-fluid div-center">
+        <div class="row-fluid">
+            <div id="content" class="div-width-100">
+                <div id="fund_search_way" class="row-fluid">
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">上传对账文件
+                    </h1>
+                    <table class="table table-condensed div-width-70 div-center search-table">                   
+                      <tr>
+                        <td>付款日期:</td>
+                        <td class="div-text-left">
+                          <span ng-bind="uploadInfo.requestPayDate"></span>
+                          <!-- <input type="text" id="begin_date" bt-date="searchData.payDate"> -->
+                          <!-- <input type="text" id="end_date" bt-date="searchData.LTEregDate"> -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>上传对账文件:</td>
+                        <td class="div-text-left">
+                            <form action="" id="uploadForm" style="margin-bottom: 0" target="bt_upload_frame" method="post" enctype="multipart/form-data">
+                                <input type="file" name="Filedata" onchange="fileChange(this)" id="file">
+                            </form>
+                            <iframe name="bt_upload_frame" style="display: none;" onload="iframeLoad(this)" ></iframe>
+                        </td>
+                      </tr>
+                    </table>
+                    <div class="center-buttons">
+                        <button class="btn btn-primary" bt-close-modal>返回</button>                                        
+                        <button class="btn btn-primary" ng-click="submit($event.target, uploadInfo.id)">提交</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+</div>
+    

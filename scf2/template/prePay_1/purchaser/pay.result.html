@@ -9,8 +9,8 @@
                       <tr>
                         <td>付款日期:</td>
                         <td class="div-text-left date">
-                          <input type="text" id="begin_date" bt-date="searchData.GTEregDate">-
-                          <input type="text" id="end_date" bt-date="searchData.LTEregDate">
+                          <input type="text" id="begin_date" bt-date="searchData.GTErequestPayDate">-
+                          <input type="text" id="end_date" bt-date="searchData.LTErequestPayDate">
                         </td>
                       </tr>
 
@@ -19,7 +19,7 @@
                         <td width="75%" class="div-text-left">
                           <select ng-model="searchData.businStatus">
                             <option value="">----所有----</option>
-                            <option ng-repeat="item in businStatus" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>                            
+                            <option ng-repeat="item in PayFilecollectionStatus" ng-option-filter value="{{item.value}}" ng-bind="item.name" ng-selected="searchData.businStatus == item.value"></option>                            
                           </select>
                         </td>                        
                     </tr>                       
@@ -55,19 +55,19 @@
                             </thead>
                             <tbody>
                                 <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
-                                    <td ng-bind="item.requestNo"></td>
-                                    <td ng-bind="item.totalBalance|moneyFilter"></td>
-                                    <td ng-bind="item.balance|moneyFilter"></td>
+                                    <td ng-bind="item.refNo"></td>
+                                    <td ng-bind="item.regDate"></td>
+                                    <td ng-bind="item.requestPayDate"></td>
                                     <td>
-                                        <span ng-bind="item.period"></span>
+                                        <span ng-bind="item.payAmount"></span>
                                     </td>
-                                    <td ng-bind="item.factorName"></td>                                
-                                    <td ng-bind="item.regDate"></td>                        
-                                    <td ng-show="item.businStatus == 2">
+                                    <td ng-bind="item.balance | moneyFilter"></td>                                
+                                    <td ng-bind="item.businStatus | kindf :'PayFilecollectionStatus'"></td>                        
+                                    <td ng-show="item.businStatus == 1">
                                         <a href="javascript:void(0);" ng-click="audit(item);">审核</a>  &nbsp;
                                         <a href="javascript:void(0);" ng-click="delete(item);">删除</a>  
                                     </td>
-                                    <td ng-show="item.businStatus == 1">
+                                    <td ng-show="item.businStatus == 2">
                                         <a href="javascript:void(0);" ng-click="lookDetail(item);">详情</a>
                                     </td>
                                 </tr>

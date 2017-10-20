@@ -30,7 +30,10 @@ define(function(require,exports,module){
 		//判断认证文件是否齐全
 		CHECK_CUST_FILE_PATH:BTServerPath+ (_isTest?'/p/testdata/AAselectOrgPermit.json':'/CustAduit/checkCustFileByBusinFlag'),
 		//增开余利宝账户
-		ADD_YLB_ACCOUNT_PATH:BTServerPath+ (_isTest?'/p/testdata/AAaddOrgAccount.json':'/SaleAccount/addYlbAccount')
+		ADD_YLB_ACCOUNT_PATH:BTServerPath+ (_isTest?'/p/testdata/AAaddOrgAccount.json':'/SaleAccount/addYlbAccount'),
+
+		//查询对外经办人
+		FIND_SPECIAL_OPERATOR:BTServerPath+ (_isTest?'/scf2/testdata/findAllRole.json':'/Platform/CustOperator/findCustOperatorByClerk'),
 
 		
 	};

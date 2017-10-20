@@ -8,21 +8,19 @@
         <thead>
             <tr class="result-head">
               <td width="20%">业务类型编号</td>
-              <td width="30%">业务类型名称</td>
+              <td width="25%">业务类型名称</td>
               <td width="20%">标准合同编号</td>
-              <td width="10%">标准合同名称</td>
-              <td width="20%">状态</td>
+              <td width="25%">标准合同名称</td>
+              <td width="10%">状态</td>
             </tr>
         </thead>
         <tbody>
           <tr ng-class="{even:$even}" ng-repeat="item in infoList" ng-repeat-end>
-            <td class="red" ng-bind="item.agreementStandardNo"></td>
-            <td ng-bind="item.agreementStandardName"></td>
-            <td ng-bind="item.regDate"></td>
-            <td ng-bind="item.businStatus|kindf:'AgreementStandardStatus'"></td>
-            <td>
-              <a href="javascript:void(0);" ng-click="remove($event.target,item);">移除</a>
-            </td>
+            <td class="red" ng-bind="item.businessTypeId"></td>
+            <td ng-bind="item.businessTypeName"></td>
+            <td ng-bind="item.standardTypeId"></td>
+            <td ng-bind="item.standardTypeName"></td>
+            <td ng-bind="item.businStatus|kindf:'ContractStandardTypeBusinStatus'"></td>
           </tr>
         </tbody>
         <tfoot>

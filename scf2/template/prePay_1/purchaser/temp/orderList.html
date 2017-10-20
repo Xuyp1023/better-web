@@ -14,12 +14,12 @@
   </thead>
   <tbody>
     <tr ng-repeat-end="" ng-class="{even:$even}" class="ng-scope" ng-repeat="item in dataList">
-      <td ng-bind="item.refNo"></td>
-      <td ng-bind="item.bankAccountName" class="ng-binding"></td>
-      <td ng-bind="item.balance  | moneyFilter" class="ng-binding"></td>
-      <td ng-bind="item.bankAccount" class="ng-binding"></td>
-      <td ng-bind="item.bankName" class="ng-binding"></td>                   
-      <td ng-bind="item.bankName" class="ng-binding"></td>                   
+      <td ng-bind="item.requestNo"></td>
+      <td ng-bind="item.custBankName" class="ng-binding"></td>
+      <td ng-bind="item.custBankAccount" class="ng-binding"></td>
+      <td ng-bind="item.custBankAccountName" class="ng-binding"></td>
+      <td ng-bind="item.balance | moneyFilter" class="ng-binding"></td>                   
+      <td ng-bind="item.businStatus | kindf :'PoolRecordBusinStatus'" class="ng-binding"></td>                   
    </tr>           
   </tbody>                      
 </table>
