@@ -7,7 +7,7 @@ define(function(require,exports,module){
       /*  VM绑定区域  */
 
 
-      //分页数据
+      //分页数据..
       $scope.listPage = {
         pageNum: 1,
         pageSize: 100,
