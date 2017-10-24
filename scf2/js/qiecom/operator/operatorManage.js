@@ -97,7 +97,7 @@ define(function (require, exports, module) {
 				$scope.addInfo = function (target) {
 					var $target = $(target);
 
-					if ($scope.info.clerkMan && (!$scope.BrokerIdHeadFile || !$scope.BrokerIdNationFile)) {
+					if ($scope.info.clerkMan == 1 && (!$scope.BrokerIdHeadFile || !$scope.BrokerIdNationFile)) {
 						return tipbar.errorLeftTipbar($target, '经办人身份证信息未上传！', 3000, 9999);
 					}
 
@@ -110,12 +110,14 @@ define(function (require, exports, module) {
 						tipbar.errorLeftTipbar($target, '请选择操作员角色！', 3000, 9999);
 						return;
 					}
+					if($scope.info.clerkMan == 1){
+						$scope.info.fileList = $scope.BrokerIdHeadFile.id +',' + $scope.BrokerIdNationFile.id;
+					}
 					$scope.info.custList = form.getCheckboxValueArray($('#add_box [mapping="checkboxCustGroup"] :checkbox'), true);
 					/*if(!$scope.info.custList){
 						tipbar.errorLeftTipbar($target,'请选择机构名称！',3000,9999);
 						return;
 					}*/
-					$scope.info.fileList = $scope.BrokerIdHeadFile.id +',' + $scope.BrokerIdNationFile.id;
 					http.post(BTPATH.ADD_ONE_OPERATOR, $scope.info)
 						.success(function (data) {
 							if (common.isCurrentResponse(data)) {
@@ -161,7 +163,7 @@ define(function (require, exports, module) {
 				$scope.editInfo = function (target) {
 					var $target = $(target);
 
-					if ($scope.info.clerkMan && (! $scope.BrokerIdHeadFile || ! $scope.BrokerIdNationFile)) {
+					if ($scope.info.clerkMan == 1 && (! $scope.BrokerIdHeadFile || ! $scope.BrokerIdNationFile)) {
 						return tipbar.errorLeftTipbar($target, '经办人身份证信息未上传！', 3000, 9999);
 					}
 
@@ -180,12 +182,14 @@ define(function (require, exports, module) {
 						tipbar.errorLeftTipbar($target, '请选择操作员角色！', 3000, 9999);
 						return;
 					}
+					if($scope.info.clerkMan == 1){
+						$scope.info.fileList = $scope.BrokerIdHeadFile.id +',' + $scope.BrokerIdNationFile.id;
+					}
 					$scope.info.custList = form.getCheckboxValueArray($('#edit_box [mapping="checkboxCustGroup"] :checkBox'), true);
 					/*if(!$scope.info.custList){
 						tipbar.errorLeftTipbar($target,'请选择机构名称！',3000,9999);
 						return;
 					}*/
-					$scope.info.fileList = $scope.BrokerIdHeadFile.id +',' + $scope.BrokerIdNationFile.id;
 					http.post(BTPATH.EDIT_ONE_OPERATOR, $scope.info)
 						.success(function (data) {
 							if (common.isCurrentResponse(data)) {
