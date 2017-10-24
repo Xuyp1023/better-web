@@ -1,0 +1,14 @@
+[
+  {
+    "title": "供应链金融",
+    "heading": "true"
+  },{
+  "title":"合同管理",
+  "icon": "icon-speedometer",
+  "children":[
+    {
+      "title":"授信合同",
+      "url":"../scf2/views/sfccom/credit/quotaContract.html"
+    }
+  ]}
+]

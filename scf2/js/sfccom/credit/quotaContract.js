@@ -38,7 +38,7 @@ define(function(require,exports,module){
 		/*VM绑定区域*/
 		$scope.searchData = {
 			factorNo:'',
-			agreeType:3,	//合同类型 3保理合同
+			agreeType:9,	//合同类型 3保理合同
 			GTEregDate:new Date().getSubDate('MM',3).format('YYYY-MM-DD'),
 			LTEregDate:new Date().format('YYYY-MM-DD')
 		};
