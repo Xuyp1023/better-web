@@ -3,7 +3,7 @@
         <div class="row-fluid">
             <div id="content" class="div-width-100">
                 <div id="fund_search_way" class="row-fluid">
-                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">佣金数据审核
+                    <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/fast_money.png" alt="">佣金数据确认
                     </h1>
                     <table class="table table-condensed div-width-70 div-center search-table">                     
                       <tr>
@@ -41,17 +41,18 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="reqQuota">
                             <h1 class="content-title-1 content-title-condensed content-title-blue"><img src="img/operator.png" alt="">
-                            审核列表
+                            待确认列表
                             </h1>                        
                             <table class="div-width-100 table table-striped table-hover search-result main-list">
                                 <thead class="result-head">
                                     <tr class="font-size-12 info-title">
                                         <td width="20%">企业名称</td>
-                                        <td width="20%">导入日期</td>
-                                        <td width="20%">笔数</td>
-                                        <td width="20%">金额</td>
+                                        <td width="13%">导入日期</td>
+                                        <td width="15%">笔数</td>
+                                        <td width="15%">金额</td>
+                                        <td width="15%">收付直通车代码</td>
                                         <td width="10%">状态</td>
-                                        <td width="10%">操作</td>                                        
+                                        <td width="12%">操作</td>                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,9 +62,13 @@
                                         <td ng-bind="item.importDate | dateFilter:'-'"></td>
                                         <td ng-bind="item.amount"></td>
                                         <td><strong class="red" ng-bind="item.blance | moneyFilter"></strong></td>
+                                        <td ng-bind="item.amount11"></td>
                                         <td ng-bind="item.confirmStatus |kindf : 'commissionFileConfirmStatus'"></td>
                                         <td>                                          
-                                           <a href="javascript:void(0);" ng-show="item.confirmStatus=='0'"  ng-click="checkDetail(true,item);">审核</a>&nbsp;&nbsp;
+                                           <!-- <a href="javascript:void(0);" ng-show="item.confirmStatus=='0'"  ng-click="checkDetail(true,item);">审核</a>&nbsp;&nbsp;
+                                           <a href="javascript:void(0);" ng-show="item.confirmStatus=='2'"  ng-click="editDetail(true,item);">编辑</a>&nbsp;&nbsp; -->
+                                           <a href="javascript:void(0);" ng-click="checkDetail(true,item);">审核</a>&nbsp;&nbsp;
+                                           <a href="javascript:void(0);" ng-click="editDetail(item);">编辑</a>&nbsp;&nbsp;
                                            <a href="javascript:void(0);"  ng-click="lookDetail(true,item);">查看</a>
                                         </td>
                                     </tr>
@@ -81,7 +86,10 @@
         </div>
     </div>
     
+    <!-- 审核 -->
     <div id="recheckDetail" bt-roll-modal="template/1qh-mobile/commission/temp/recheckDetail.html" bt-z-index="9991"></div>
+    <!-- 编辑 -->
+    <div id="editdetails" bt-roll-modal="template/1qh-mobile/commission/temp/editDetail.html" bt-z-index="9991"></div>
 
 
 
