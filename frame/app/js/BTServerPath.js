@@ -20,7 +20,7 @@
     sidebarMenuUrl:[
       ["server/menus/sidebar-wechat.json","home1.html#/welcome"],
       ["server/menus/sidebar-scf.json","home.html#/welcome"],
-      ["server/menus/sidebar-menu3.json","welcome3"],
+      ["server/menus/sidebar-basic.json","welcome3"],
       ["server/menus/sidebar-finance.json","home1.html#/welcome"],
       ["server/menus/sidebar-menu5.json","welcome"],
       ["server/menus/sidebar-demo.json","welcome"]
