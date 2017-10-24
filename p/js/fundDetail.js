@@ -155,7 +155,11 @@ define(function(require,exports,module){
 			$.post(common.getRootPath()+'/SaleQuery/querySaleShares',
 				{
 					custNo:custNo,
-					businFlag : '24'
+					businFlag : '24',
+					pageNum:1,
+					pageSize:10,
+					pages:1,
+					total:1
 				},function(data){
 					if((data!==undefined)&&(data.data!==undefined)&&(data.data!=='')&&(data.code === 200)){
 						currentData.fundDetailList = data.data;

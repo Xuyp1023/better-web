@@ -1,0 +1,14 @@
+[
+  {
+    "title": "基础数据",
+    "heading": "true"
+  },{
+  "title":"系统管理",
+  "icon": "icon-speedometer",
+  "children":[
+    {
+      "title":"操作员管理",
+      "url":"../scf2/views/qiecom/operator/operatorManage.html"
+    }
+  ]}
+]
