@@ -6,30 +6,20 @@
         <table id="order_list_table" class="div-width-100 table table-striped table-hover search-result main-list">          
             <thead>
               <tr class="result-head-gray">
-                <td width="13%">文件标识</td>
-                <td width="12%">文件名称</td>
-                <td width="8%">笔数</td>
-                <td width="12%">金额</td>
-                <td width="13%">付款日期</td>
-                <td width="10%">操作人员</td>
-                <td width="10%">操作终端</td>              
-                <td width="14%">导出时间</td>       
-                <td width="8%">下载</td>       
+                <td width="20%">文件名称</td>
+                <td width="20%">操作员ID</td>
+                <td width="20%">操作员姓名</td>              
+                <td width="20%">操作员所属企业</td>       
+                <td width="20%">下载时间</td>       
               </tr>
             </thead>
             <tbody>
               <tr ng-repeat="item in historyList">
-                <td ng-bind="item.refNo" class="ng-binding"></td>
-                <td ng-bind="item.fileName" class="ng-binding"></td>
-                <td ng-bind="item.payAmount" class="ng-binding"></td>
-                <td ng-bind="item.balance" class="ng-binding"></td>
                 <td ng-bind="item.requestPayDate" class="ng-binding"></td>             
                 <td ng-bind="item.orgOperName"></td>
                 <td ng-bind="item.regIp"></td>
                 <td class="ng-binding" ng-bind="item.regDate"></td>
-                <td>
-                    <a href="{{item.fileItemId | downf}}">下载</a>
-                </td>
+                <td ng-bind="item.deta"></td>
              </tr>           
             </tbody>
            

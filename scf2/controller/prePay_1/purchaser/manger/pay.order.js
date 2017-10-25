@@ -25,10 +25,10 @@ define(function(require,exports,module){
       };   
         
         // 详情..
-        $scope.lookDetail = function(data) {
-          cache.put('cacheData',data);
-          window.location.href='?rn'+new Date().getTime()+'../scf2/home.html#/prePay_1/order.detail';
-        }
+        // $scope.lookDetail = function(data) {
+        //   cache.put('cacheData',data);
+        //   window.location.href='?rn'+new Date().getTime()+'../scf2/home.html#/prePay_1/order.detail';
+        // }
 
         // 下载
         $scope.downloadIt = function(data, flagValue){
