@@ -1,5 +1,51 @@
-<div class="bt-container">
-	<div class="bt-title-header">
-		<span>保理授信审批流程</span>
+<div class="bg">
+	<div class="bt-container">
+		<div class="info">
+			
+		</div>
+		<div class="card">
+		</div>
+		<div class="card">
+		</div>
+		<div class="bt-title-header">
+			<span>在途交易</span>
+		</div>
+		<div class="card">
+			<table class="bt-table">
+				<thead class="bt-table-header">
+					<tr>
+						<th width=30%>账单号码</th>
+						<th width=15%>对账日期</th>
+						<th width=20%>账单金额</th>
+						<th width=15%>状态</th>
+						<th width=20%>操作</th>
+					</tr>
+				</thead>
+				<tbody class="bt-table-body">
+					<tr ng-repeat=" item in rowDatas">
+						<td>
+							<a class="bt-table-button">{{item.code}}</a>
+						</td>
+						<td>{{item.start}}</td>
+						<td class="bt-align-right">{{item.money | currency:''}}</td>
+						<td>
+							<span class="bt-table-status error"></span>已生效2</td>
+						<td>
+							<a class="bt-table-button" ng-click="deleteItem(item,$event)">删除</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="bt-title-header">
+			<span>持有资产</span>
+		</div>
+		<div class="card">
+		</div>
+		<div class="bt-title-header">
+			<span>账户信息</span>
+		</div>
+		<div class="card">
+		</div>
 	</div>
 </div>

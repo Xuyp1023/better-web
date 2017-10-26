@@ -197,19 +197,24 @@ html,
 body {
   height: auto;
 }
+body {
+  background-color: #f2f1f1;
+}
 /* ========================================================================
    内容区容器: container.less
  ========================================================================== */
 .bt-container {
-  min-width: 1090px;
+  width: 1200px;
+  margin: 0 auto;
   padding: 26px 30px 100px 30px;
 }
 .bt-container .bt-title-header {
   font-size: 16px;
   color: #000;
   line-height: 16px;
-  padding-bottom: 12px;
+  padding: 12px 20px;
   border-bottom: 1px solid #063c94;
+  background-color: #f3faff;
 }
 .bt-container .bt-container-header {
   background-color: #e6f4fe;
@@ -263,6 +268,14 @@ body {
 }
 .bt-container .bt-prompt-content p {
   color: #999999;
+}
+/* ========================================================================
+   卡片容器: card.less
+ ========================================================================== */
+.card {
+  margin-bottom: 16px;
+  background-color: #f3faff;
+  padding: 16px 20px;
 }
 /* ========================================================================
    查询条件表格样式: query.less
