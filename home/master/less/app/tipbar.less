@@ -1,0 +1,98 @@
+/* ========================================================================
+   tools提示信息: tipbar.less
+ ========================================================================== */
+.tipbar-wrap {
+    letter-spacing: 2px;
+    min-width: 100px;
+    min-height: 16px;
+    line-height: 16px;
+    padding: 6px;
+    color: #333;
+    display: block;
+    font-family: 'trebuchet ms', arial, helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    border: 1px solid #A7A7A7;
+    background-color: #fff7e0;
+    border-radius: 4px;
+    position: absolute;
+    left: 30px;
+    top: 10px;
+    z-index: 500;
+}
+.tipbar-wrap-arrow-left {
+    width: 10px;
+    height: 20px;
+    background: transparent url(../img/tip-yellow_arrows.png) no-repeat -20px 0;
+    position: absolute;
+    right: -10px;
+    top: 6px;
+    z-index: 9998;
+}
+.bt-dialog {
+    box-shadow: 1px 1px 1px #7cadfe;
+    word-break: break-all;
+    padding: 24px 14px 14px 10px;
+    border-radius: 4px;
+    background-color: white;
+    min-height: 100px;
+    position: absolute;
+    left: 30px;
+    top: 10px;
+    max-width: 327px;
+    z-index: 500;
+    border: 1px solid;
+    border-color: #063c94;
+
+    .bt-dialog-arrow {
+        width: 27px;
+        height: 12px;
+        background-image:  url(../img/bt-dialog-arrow.png);
+        position: absolute;
+        bottom: -12px;
+        right: 30px;
+        z-index: 9998;
+    }
+
+    .bt-dialog-icon {
+        margin-left: -22px;
+        margin-right: 8px;
+        height: 14px;
+        width: 14px;
+        display: inline-block;
+        vertical-align: middle;
+        background-image: url(../img/bt-dialog-icon.png);
+    }
+    .bt-dialog-remark {
+        color:#999999;
+        font-size: 12px;
+        padding: 0 0 24px 28px;
+    }
+    .bt-dialog-content{
+        margin-left: 22px;
+        color:#333333;
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .bt-dialog-button {
+        text-align:right;
+
+        .dialog-cancle {
+            margin-right: 8px;
+        }
+    }
+}
+.bt-pop-close {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 11px;
+    height: 11px;
+    background-image: url(../img/bt-pop-close.png);
+
+    &:hover {
+        background-image: url(../img/bt-pop-close-hover.png);
+    }
+ }

@@ -1,0 +1,26 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>消息推送</span>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>文本消息推送
+	</div>
+	<table class="bt-form" bt-form-validate="formParams">
+		<tbody>
+			<tr class="bt-form-group">
+				<td class="bt-form-label">文本消息：</td>
+				<td class="bt-form-input bt-remark">
+					<textarea ng-model="msgVo.content" ng-maxlength="20"></textarea>
+			 		<span class="bt-remark-info" ng-show="!formParams.validateInput('msgVo.content')">当前已输入{{searchData.test.length || 0}}个字符, 总共可以输入20个字符</span>
+			 		<span class="bt-remark-info bt-red" ng-show="formParams.validateInput('msgVo.content')">输入字符数的不能超过20个</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="bt-form-label"></td>
+				<td class="bt-form-input bt-space-8">
+					<button class="bt-btn bt-btn-confirm" ng-click="basicSubmit($event)">确认</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

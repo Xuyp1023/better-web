@@ -1,0 +1,8 @@
+{
+	"initInfo":{
+		"resolve":["vendor/highlight/styles/tomorrow-night-eighties.css","vendor/highlight/btHighlight.directive.js","vendor/highlight/highlight.min.js"]
+	},
+	"configVo":{
+		
+	}
+}

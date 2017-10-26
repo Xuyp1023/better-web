@@ -1,0 +1,28 @@
+.modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.modal-background {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgba(10, 10, 10, 0.86);
+}
+.modal-content {
+	position: relative;
+    margin: 80px auto;
+	width: 800px;
+    height: 80%;
+	background-color: white;
+    border-radius: 8px;
+}
+.modal-content iframe {
+    display: block;
+    height: 100% !important;
+}

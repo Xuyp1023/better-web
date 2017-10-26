@@ -1,0 +1,100 @@
+/* ========================================================================
+   按钮: button.less
+ ========================================================================== */
+ 
+.bt-btn {
+    border-radius: 4px;
+    box-shadow: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    color: #333;
+    background-color: white;
+    border-color: #999;
+    min-width:28px;
+    display: inline-block;
+    text-align: center;
+
+    &:hover {
+        color: #063c94;
+        border-color: #063c94;
+    }
+
+    &.active {
+        background-color: #063c94;
+        color: #fff;
+    }
+
+    &[disabled] {
+        background-color: #eee9e8;
+        color: #8c8c89;
+        border-color: #999;
+        
+        cursor: not-allowed;
+        
+    }
+}
+.bt-small {
+    font-size:14px;
+    padding: 3px 6px;
+}
+a.bt-btn {
+    text-decoration:none
+}
+.bt-btn-confirm {
+    background-color: #063a89;
+    height:28px;
+    width:124px;
+    color: antiquewhite;
+
+    &:hover,&:focus {
+        color: white;
+        background-color: #235fba;
+    }
+    &[disabled] {
+        background-color: #eee9e8;
+        color: #8c8c89;
+        border-color: #999;
+        
+        cursor: not-allowed;
+        
+    }
+}
+.bt-btn-info {
+    background-color: #063a89;
+    height:28px;
+    padding-left: 24px;
+    padding-right: 24px;
+    color: antiquewhite;
+
+    &.bt-btn-confirm {
+        width:124px;
+    }
+
+    &:hover,&:focus {
+        color: white;
+        background-color: #235fba;
+    }
+}
+.bt-btn-default {
+    height:28px;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    &:focus {
+        color: #063c94;
+        border-color: #063c94;
+        border: 1px solid;
+    }
+}
+.bt-btn-error {
+    background-color: #eee9e8;
+    height:28px;
+    padding-left: 24px;
+    padding-right: 24px;
+    color: fe0100;
+
+    &:hover,&:focus {
+        color: white;
+        background-color: #fe0100;
+    }
+}

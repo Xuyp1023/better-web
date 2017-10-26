@@ -1,0 +1,56 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>表格示例演示</span>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>普通表格
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th class="header-check"><input type="checkbox" class="bt-table-check"></th>
+        <th width=30%>账单号码</th>
+        <th width=15%>对账日期</th>
+        <th width=20%>账单金额</th>
+        <th width=15%>状态</th>
+        <th width=20%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr ng-repeat=" item in rowDatas">
+        <td><input type="checkbox" class="bt-table-check"></td>
+        <td><a class="bt-table-button">{{item.code}}</a></td>
+        <td>{{item.start}}</td>
+        <td class="bt-align-right">{{item.money | currency:''}}</td>
+        <td><span class="bt-table-status error"></span>已生效2</td>
+        <td><a class="bt-table-button" ng-click="deleteItem(item,$event)">删除</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-title-card">
+    <span class="icon"></span>原生的表格控件
+  </div>
+  <table class="bt-table">
+    <thead class="bt-table-header">
+      <tr>
+        <th class="header-check"><input type="checkbox" class="bt-table-check"></th>
+        <th width=30%>账单号码</th>
+        <th width=15%>对账日期</th>
+        <th width=20%>账单金额</th>
+        <th width=15%>状态</th>
+        <th width=20%>操作</th>
+      </tr>
+    </thead>
+    <tbody class="bt-table-body">
+      <tr ng-repeat=" item in rowDatas">
+        <td><input type="checkbox" class="bt-table-check"></td>
+        <td><a class="bt-table-button">{{item.code}}</a></td>
+        <td>{{item.start}}</td>
+        <td class="bt-align-right">{{item.money | currency:''}}</td>
+        <td><span class="bt-table-status error"></span>已生效2</td>
+        <td><a class="bt-table-button" ng-click="deleteItem(item,$event)">删除</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bt-search-page" bt-pager="tableParams"></div>
+</div>

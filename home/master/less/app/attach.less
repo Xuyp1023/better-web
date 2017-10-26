@@ -1,0 +1,87 @@
+/* ========================================================================
+   附件上传下载: attach.less
+ ========================================================================== */
+ @img-width:                              75px;
+
+ .bt-attach {
+    padding: 0px 16px 0px 16px;
+    background-color: #f3faff;
+    border-radius: 4px;
+    border: 1px solid #bad5ff;
+
+    .bt-attach-title {
+    	font-size: 16px;
+    	border-bottom: 1px solid #dceffd;
+    	line-height:40px;
+
+    	.upload {
+		    padding-left: 16px;
+    		margin-left: 16px;
+    		background: url(../img/bt-attach-upload.png) no-repeat left center;
+    	}
+        .download {
+            padding-left: 16px;
+            margin-left: 16px;
+            background: url(../img/bt-attach-download.png) no-repeat left center;
+        }
+    	
+    }
+    .bt-attach-content {
+    	padding-bottom:24px;
+        padding-top:24px;
+
+    	.bt-attach-item {
+    		display:inline-block;
+    		width:212px;
+    		padding:0px 20px 28px 0px;
+    		.bt-attach-img {
+    			width: 75px;
+    			height: 75px;
+    			margin-right: 16px;
+    			vertical-align: top;
+    			display:inline-block;
+    			background: url(../img/bt-attach-file.png);
+
+                &.jpg {
+                    background-position:  @img-width * -5  @img-width * -2 
+                }
+                &.gif {
+                    background-position:  @img-width * -6  @img-width * -2 
+                }
+                &.png {
+                    background-position:  @img-width * -7  @img-width * -2 
+                }
+    		}
+    		.bt-attach-file {
+    			font-size: 14px;
+    			display:inline-block;
+
+    			p {
+    				width: 92px;
+				    white-space: nowrap;
+				    overflow: hidden;
+				    text-overflow: ellipsis;
+				    margin-bottom: 9px;
+    			}
+    		}
+    	}
+    }
+ }
+.bt-upload-ing {
+    background: url(../img/bt-upload-ing.gif) no-repeat right center;
+    padding-right: 26px;
+    margin-right: -26px;
+    color: #999 !important;
+    cursor: not-allowed;
+}
+.bt-upload-success {
+    background: url(../img/bt-upload-success.gif) no-repeat right center;
+    padding-right: 26px;
+    margin-right: -26px;
+    cursor: default;
+}
+.bt-upload-fail {
+    background: url(../img/bt-upload-fail.gif) no-repeat right center;
+    padding-right: 26px;
+    margin-right: -26px;
+}

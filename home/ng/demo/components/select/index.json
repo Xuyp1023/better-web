@@ -1,0 +1,13 @@
+{
+	"initInfo": {
+		"resolve": []
+	},
+	"configVo": {
+		"BTServerPath": {
+			"Query_Company_List": [
+				"server/http/test/company-list.json",
+				"/Platform/BaseInfo/queryCustSelect"
+			]
+		}
+	}
+}

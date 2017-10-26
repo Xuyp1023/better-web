@@ -1,0 +1,32 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>公众号菜单</span>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>菜单编辑
+	</div>
+	<table class="bt-form" bt-form-validate="formParams">
+		<tbody>
+			<tr class="bt-form-group">
+				<td class="bt-form-label">菜单内容：</td>
+				<td class="bt-form-input bt-remark">
+					<textarea class="wechat-content" ng-model="menuVo.content"></textarea>
+				</td>
+			</tr>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>提交原因：</td>
+				<td class="bt-form-input">
+					<input type="text" ng-model="menuVo.reason" required="">
+					<div class="bt-from-danger" ng-show="formParams.validateInput('menuVo.reason','required')">请填写微信公众号修改的原因</div>
+					<span class="bt-form-info">必须填写</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="bt-form-label"></td>
+				<td class="bt-form-input bt-space-8">
+					<button class="bt-btn bt-btn-confirm" ng-click="basicSubmit($event)">确认</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

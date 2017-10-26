@@ -1,0 +1,7 @@
+<ul class="pagination-list">
+  {{each listPages as value index}}
+  <li>{{#value}}</li>
+  {{/each}}
+  <li><button class="bt-btn bt-small pagination-previous" {{if currentPage <=1 }}disabled{{/if}}>上一页</button></li>
+  <li><button class="bt-btn bt-small pagination-next" {{if totalPages <= currentPage}}disabled{{/if}}>下一页</button></li>
+</ul>
