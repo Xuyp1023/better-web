@@ -1,0 +1,90 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>保理授信审批流程</span>
+	</div>
+	<div class="bt-container-header">
+		<p>当前业务流程：保理授信审批流程 当前节点：<span class="bt-bule">风控审批</span></p>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>基本资料
+	</div>
+	<table class="bt-card-info">
+		<tbody>
+			<tr class="bt-card-item">
+				<td width="10%" class="bt-card-key">申请编号1:</td>
+				<td width="40%" class="bt-card-value">CA201703290000000000111111111111111111111111111111111111111111111111111111111111111</td>
+				<td width="16%" class="bt-card-key">1111111111申请编号11:</td>
+				<td width="34%" class="bt-card-value">CA2017032900000000001111</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">申请编号1111:</td>
+				<td class="bt-card-value">CA2017032900000000001</td>
+				<td class="bt-card-key">申请编号1111:</td>
+				<td class="bt-card-value">CA2017032900000000001111</td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">开始日期:</td>
+				<td class="bt-card-value">2017-03-29</td>
+				<td class="bt-card-key"></td>
+				<td class="bt-card-value"></td>
+			</tr>
+			<tr class="bt-card-item">
+				<td class="bt-card-key">备注:</td>
+				<td class="bt-card-value" colspan="3" >申请保理授信额度，请贵司予以办理，谢谢！</td> 
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>审批历史
+	</div>
+	<table class="bt-table">
+		<thead class="bt-table-header">
+			<tr>
+				<th width=30%>账单号码</th>
+				<th width=15%>对账日期</th>
+				<th width=20%>账单金额</th>
+				<th width=15%>状态</th>
+				<th width=20%>操作</th>
+			</tr>
+		</thead>
+		<tbody class="bt-table-body">
+			<tr ng-repeat=" item in rowDatas">
+				<td><a class="bt-table-button">{{item.code}}</a></td>
+				<td>{{item.start}}</td>
+				<td class="bt-align-right">{{item.money | currency:''}}</td>
+				<td><span class="bt-table-status error"></span>已生效2</td>
+				<td><a class="bt-table-button" ng-click="deleteItem(item,$event)">删除</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>审批
+	</div>
+	<table class="bt-table-adapt">
+		<tbody>
+			<tr class="bt-form-group">
+				<td class="bt-form-label">审批内容：</td>
+				<td class="bt-form-input bt-remark">
+					<textarea ng-model="testData"></textarea>
+	 				<!-- <span class="bt-remark-info">总共可以输入20个字符</span> -->
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"  class="bt-align-right  bt-space-8">
+					<button class="bt-btn bt-btn-info" ng-click="basicSubmit($event)">同意</button>
+			 		<button class="bt-btn bt-btn-info" ng-click="basicSubmit($event)">驳回</button>
+			 		<button class="bt-btn bt-btn-info">作废</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-prompt-header">
+		<span>温馨提示</span>
+	</div>
+	<div class="bt-prompt-content">
+        <p>1.周四14:30 - 周五14:30转入资金，周一开始享有收益。</p>
+        <p>2.周五14:30 - 周一14:30转入资金，周二开始享有收益。</p>
+        <p>3.收益=客户享受收益的份额*万份收益/10000。</p>
+        <p>4.收益部分也计算份额，也会产生收益，相当于复利）。</p>
+  	</div>
+</div>

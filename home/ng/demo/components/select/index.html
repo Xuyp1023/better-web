@@ -1,0 +1,31 @@
+<div class="bt-container">
+  <div class="bt-title-header">
+    <span>下拉选择界面</span>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>http请求
+  </div>
+  <select ng-model="searchData.type1" ng-options="item.key as item.value for item in dict.companyList">
+    <option value="">所有</option>
+  </select>
+  <div class="bt-title-card">
+    <span class="icon"></span>字典表
+  </div>
+  <select ng-model="searchData.type2" ng-options="item.key as item.value for item in dict.auditStatusList">
+    <option value="">所有</option>
+  </select>
+  <div class="bt-title-card">
+    <span class="icon"></span>指令方式的下拉 (很少用到)
+  </div>
+  <!-- options url都为可选 -->
+  <!-- url的优先级大于dict,也可以把它当做真实环境 -->
+  <div ng-model="searchData.type3" bt-dict="qh/commission/company-list" options url>
+    <option value="">所有</option>
+  </div>
+  <div class="bt-title-card">
+    <span class="icon"></span>获取select选中的值
+  </div>
+  <select ng-model="searchData.type4" ng-options="item.key as item.value for item in companyList" onchange="angular.element(this).scope().callback(this)">
+    <option value="">所有</option>
+  </select>
+</div>

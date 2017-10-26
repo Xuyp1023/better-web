@@ -6,7 +6,7 @@
 @boxed-max-width:                         1262px;
 @aside-wd:                                171px;
 @aside-bg:                                #fff;
-@navbar-hg:                               60px;
+@navbar-hg:                               50px;
 
 @content-padding:                         20px;
 @gray-light:                              #e4eaec;
@@ -55,7 +55,7 @@ body {
   .section {
     position: relative;
     height: 100%;
-    padding-top: @navbar-hg + 6; 
+    padding-top: @navbar-hg; 
 
     > .bt-content {
       height: 100%;
@@ -90,22 +90,44 @@ body {
     .aside-inner {
     }
   }
+  
+}
 
-  > .section,
-  > .footer {
-    margin-left: @aside-wd + 10px;
+//隐藏侧导航
+// -----------------------------
+.layout-hide{
+  .wrapper {
+    > .aside {
+      display: none;
+    }
+
+    &, & .topnavbar-wrapper {
+      min-width: @boxed-max-width;
+    }
+
+    .topnavbar-wrapper {
+      position: fixed;
+      z-index: @z-index-main-section + 6;
+      width : 100%;
+      height: @navbar-hg;
+      background-color: #063c94;
+    }
   }
 }
 
 // 盒子布局
 // -----------------------------
-
 .layout-boxed {
 
   .wrapper {
     margin: 0 auto;
     overflow: hidden;
     box-shadow: 0 0 13px rgba(0,0,0,.25);
+
+    > .section,
+    > .footer {
+      margin-left: @aside-wd + 10px;
+    }
 
     &, & .topnavbar-wrapper {
       min-width: @boxed-max-width;

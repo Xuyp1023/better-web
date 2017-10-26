@@ -1,0 +1,86 @@
+<div class="bt-container">
+	<div class="bt-title-header">
+		<span>保理授信审批流程</span>
+	</div>
+	<div class="bt-title-card">
+		<span class="icon"></span>上传
+	</div>
+	<table class="bt-form">
+		<tbody>
+			<tr class="bt-form-group">
+				<td class="bt-form-label"><span class="bt-red">*</span>授信合同：</td>
+				<td class="bt-form-input">
+					<span class="upload"><label class="bt-table-button" bt-upload="fileList0">上传授信合同</label></span>
+					<ul class="upload-list">
+						<li ng-repeat="file in fileList0">
+							<span class="icon" ng-bind="file.fileName"></span><span class="bt-gray">({{file.fileLength/1000}}KB)</span>
+							<a class="bt-table-button" ng-click="deleteFileList($index,fileList0)">删除</a>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>下载
+	</div>
+	<table class="bt-table">
+		<thead class="bt-table-header">
+			<tr>
+				<th width=30%>附件类型</th>
+				<th width=40%>附件名称</th>
+				<th width=30%>操作</th>
+			</tr>
+		</thead>
+		<tbody class="bt-table-body">
+			<tr>
+				<td>营业执照</td>
+				<td>前海拜特</td>
+				<td><a class="bt-table-button" href="{{ makeInfo.originStamperId | downf }}">下载</a></td>
+			</tr>
+			<tr>
+				<td ng-bind="uploadVo1.fileInfoType"></td>
+				<td ng-bind="uploadVo1.fileName"></td>
+				<td><label class="bt-table-button" upload-type="table"  file-type-name="YYY" bt-upload="uploadVo1">上传</label></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="bt-title-card">
+		<span class="icon"></span>附件
+	</div>
+	<div class="bt-attach">
+		<p class="bt-attach-title"><span>保理业务申请材料附件</span><span class="upload"><label file-type-name="vvvv" class="bt-table-button" bt-upload="fileList1">上传</label></span></p>
+		<div class="bt-attach-content">
+			<div class="bt-attach-item" ng-repeat="file in fileList1">
+				<span class="bt-attach-img" ng-class="file.fileType"></span>
+				<div class="bt-attach-file">
+					<p>{{file.fileName}}</p>
+					<p class="bt-gray">{{file.fileLength/1000}}KB</p>
+					<a class="bt-table-button" ng-clcik="deleteFileList($index,fileList1)">删除</a>
+				</div>
+			</div>
+		</div>
+		<p class="bt-attach-title"><span>精致调查报告附件</span><span class="download"><a class="bt-table-button">下载</a></span></p>
+		<div class="bt-attach-content">
+			<div class="bt-attach-item" ng-repeat="file in fileList2">
+				<span class="bt-attach-img" ng-class="file.fileType"></span>
+				<div class="bt-attach-file">
+					<p>{{file.fileName}}</p>
+					<p class="bt-gray">{{file.fileLength/1000}}KB</p>
+					<a class="bt-table-button" ng-click="deleteFileList($index,fileList2)">删除</a>
+				</div>
+			</div>
+		</div>
+		<p class="bt-attach-title"><span>精致调查报告附件</span><span class="upload"><label class="bt-table-button" bt-upload="fileList3">上传</label></span></p>
+		<div class="bt-attach-content">
+			<div class="bt-attach-item" ng-repeat="file in fileList3">
+				<span class="bt-attach-img" ng-class="file.fileType"></span>
+				<div class="bt-attach-file">
+					<p>{{file.fileName}}</p>
+					<p class="bt-gray">{{file.fileLength/1000}}KB</p>
+					<a class="bt-table-button">下载</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

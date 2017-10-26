@@ -2,11 +2,63 @@
    头部导航: top-navbar.less
  ========================================================================== */
 @nav-header-wd:                 @aside-wd+40px;
-@navbar-hg:                      60px;
+@navbar-hg:                      50px;
 
 @nav-top-bg:                    white;
 @nav-top-bg-start:              @nav-top-bg;
 @nav-top-bg-end:                white;
+
+.topnavbar-wrapper {
+  position: relative;
+  color: white;
+  font-size: 18px;
+  
+  ul {
+    padding-left: 0;
+    li {
+      list-style:none;
+      display: inline-block;
+      line-height: @navbar-hg;
+      text-align: center;
+
+      .iconfont {
+        margin-right: 8px;
+        font-size: 20px;
+      }
+
+      &.item {
+        width: 100px;
+        cursor: pointer;
+      }
+
+      &.border {
+        border-left: 1px solid #3561a9;
+        border-right: 1px solid #3561a9;
+      }
+
+      &.select {
+        width: 120px;
+      }
+
+      &.icon {
+        width: 50px;
+        cursor: pointer;
+      }
+
+      &.logout {
+        width: 90px;
+      }
+    }
+  }
+
+  .left-navbar {
+    float: left;
+  }
+
+  .right-navbar {
+    float: right;
+  }
+}
 
 .navbar {
   min-height: @navbar-hg;
@@ -18,7 +70,6 @@
 
 .topnavbar {
   z-index: 1050;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
 
   .navbar-header {
     .navbar-brand {
@@ -30,7 +81,7 @@
     width: 268px;
     float: left;
     margin: 0 auto;
-    padding: 10px 0 8px 0;
+    padding: 0px 0 8px 0;
 
     .user-comList {
       span {

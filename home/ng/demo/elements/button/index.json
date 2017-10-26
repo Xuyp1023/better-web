@@ -1,0 +1,21 @@
+{
+	"initInfo":{
+		"resolve":[]
+	},
+	"configVo":{
+		"validOption":{
+			"formId":"bt-form-check",
+			"elements":[
+                {
+                    "name":"test.check2",
+                    "rules": [{"name": "required"}],
+                    "events": ["blur"]
+                },{
+                    "name":"test.check3",
+                    "rules": [{"name": "required"}],
+                    "events": ["blur"]
+                }
+            ]
+		}
+	}
+}
