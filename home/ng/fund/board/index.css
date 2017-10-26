@@ -1,4 +1,8 @@
-.bt-container {
+.bg {
   background-image: url(./img/bg.jpg);
   min-height: 619px;
+  background-position-x: center;
+}
+.info {
+  
 }

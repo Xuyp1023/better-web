@@ -351,6 +351,7 @@ body {
 .bt-table .bt-table-header tr th {
   color: #333;
   font-weight: normal;
+  text-align: left;
 }
 .bt-table .bt-table-header tr th:first-child {
   padding-left: 14px;
