@@ -43,7 +43,7 @@ function BetterDictionary() {
 		this.CommissionPayResultStatus.set('2', "已复核");
 		// 新的融资模式
 		this.NewFinanceModel = new ListMap();
-		this.NewFinanceModel.set('0', " ");
+		this.NewFinanceModel.set('0', "其它");
 		this.NewFinanceModel.set('1', "采购方提前付款");
 		this.NewFinanceModel.set('2', "结算中心提前付款");
 		this.NewFinanceModel.set('3', "内部保理付款");

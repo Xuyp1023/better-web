@@ -44,6 +44,7 @@ define(function(require,exports,module){
 
       // 新增申请
       $scope.addInfoBox=function(){
+        console.log(222);
         window.location.href='?rn'+new Date().getTime()+'../scf2/home.html#/2_3.1/start.process';
         // $location.path('/2_3.1/start.process');
         // common.resizeIframe();

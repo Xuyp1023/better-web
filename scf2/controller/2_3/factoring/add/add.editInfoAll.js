@@ -211,7 +211,7 @@ define(function(require,exports,module){
 
         // 核心企业有无选择效验
         if (custNo.length <= 0) {
-            tipbar.errorTopTipbar($target,'请选择需要选择的清单列表！',3000,9992);
+            tipbar.errorTopTipbar($target,'请选择核心企业！',3000,9992);
             return;
         } 
 
