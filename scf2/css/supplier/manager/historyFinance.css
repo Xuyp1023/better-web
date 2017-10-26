@@ -715,7 +715,7 @@ input[type="checkbox"] {
 .tipbar-wrap-arrow {
   width: 10px;
   height: 20px;
-  background: transparent url(../../../img/tip-yellow_arrows.png) no-repeat -49px 0;
+  background: transparent url(../../img/tip-yellow_arrows.png) no-repeat -49px 0;
   position: absolute;
   left: -8px;
   top: 6px;
@@ -725,7 +725,7 @@ input[type="checkbox"] {
 .tipbar-wrap-arrow-top {
   width: 20px;
   height: 10px;
-  background: transparent url(../../../img/tip-yellow_arrows.png) no-repeat -29px 0;
+  background: transparent url(../../img/tip-yellow_arrows.png) no-repeat -29px 0;
   position: absolute;
   left: 20px;
   bottom: -10px;
@@ -735,7 +735,7 @@ input[type="checkbox"] {
 .tipbar-wrap-arrow-left {
   width: 10px;
   height: 20px;
-  background: transparent url(../../../img/tip-yellow_arrows.png) no-repeat -20px 0;
+  background: transparent url(../../img/tip-yellow_arrows.png) no-repeat -20px 0;
   position: absolute;
   right: -10px;
   top: 6px;

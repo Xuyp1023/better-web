@@ -76,7 +76,7 @@ define(function(require,exports,module){
       };
 
       // 定制步骤
-      $scope.next=function(target){
+      $scope.next=function(target){        
         var $target=$(target);
         //设置校验项 | 校验
         validate.validate($('#basic-info'),validOption1);
@@ -118,7 +118,7 @@ define(function(require,exports,module){
 
         // 在第二步时，将清单信息保存作为依据··· 
         if($scope.step==2){
-            var $target=$(target);
+            var $target=$(target);           
             // 效验有无百分比
             validate.validate($('#fund_search_way'),validOption2);
             var valid = validate.validate($('#fund_search_way'));
@@ -221,7 +221,7 @@ define(function(require,exports,module){
 
         // 核心企业有无选择效验
         if (custNo.length <= 0) {
-            tipbar.errorTopTipbar($target,'请选择需要选择的清单列表！',3000,9992);
+            tipbar.errorTopTipbar($target,'请选择核心企业！',3000,9992);
             return;
         } 
 
