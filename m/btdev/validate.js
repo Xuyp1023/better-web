@@ -267,7 +267,7 @@ define(function(require,exports,module){
 			if(_tools.isEmpty(element)){
 				return true;
 			}
-			if(/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/.test(element.val())){
+			if(/((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/.test(element.val())){
 				return true;
 			}else{
 				return !message||message === ''?'请填写格式正确的手机号码':message;
@@ -277,7 +277,7 @@ define(function(require,exports,module){
 			if(_tools.isEmpty(element)){
 				return true;
 			}
-			if(/^((\d{3,4}-)?\d{7,8})$|^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/.test(element.val())){
+			if(/((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/.test(element.val())){
 				return true;
 			}else{
 				return !message||message === ''?'请填写格式正确的电话号码':message;
